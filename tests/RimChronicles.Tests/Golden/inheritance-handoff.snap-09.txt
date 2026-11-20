@@ -1,0 +1,14 @@
+=== deadDossier ===
+Joska (42), dead; traits: Tough, Bloodlust; backstory: Pit fighter; husband of Lene, father of Tamsin.
+History:
+- Day 243: Captain Rook Malley maimed Joska and escaped.
+- Day 286: Captain Rook Malley killed Joska.
+
+=== heirDossier ===
+Tamsin (17); traits: Nimble, Hot-tempered; backstory: Scavenger; daughter of Joska and Lene.
+
+=== plotSummary ===
+Joska spent a year hunting the pirate captain Rook Malley, who maimed him. He finally caught Malley at the Lancers' camp, and both died in the fight. Malley's Lancers still hold the camp, and their new captain has sworn revenge on Cinder Rest.
+
+=== relationship ===
+Tamsin was Joska's daughter.

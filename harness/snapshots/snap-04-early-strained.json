@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "id": "snap-04-early-strained",
+  "day": 38,
+  "season": "Septober",
+  "year": 5500,
+  "colony": {
+    "name": "Lowmere",
+    "wealth": 34100,
+    "population": 6,
+    "mood": "strained"
+  },
+  "pawns": [
+    {
+      "id": "p1",
+      "name": "Teodor",
+      "age": 44,
+      "traits": [
+        "Psychopath",
+        "Industrious"
+      ],
+      "backstory": "Urbworld enforcer",
+      "note": "shot the reporter on day 31"
+    },
+    {
+      "id": "p2",
+      "name": "Aiko",
+      "age": 30,
+      "traits": [
+        "Kind"
+      ],
+      "backstory": "Mechanoid nerd"
+    },
+    {
+      "id": "p3",
+      "name": "Grieve",
+      "age": 36,
+      "traits": [
+        "Gourmand"
+      ],
+      "backstory": "Cook"
+    },
+    {
+      "id": "p4",
+      "name": "Lisbet",
+      "age": 28,
+      "traits": [
+        "Too smart",
+        "Neurotic"
+      ],
+      "backstory": "Archaeologist"
+    },
+    {
+      "id": "p5",
+      "name": "Juno",
+      "age": 22,
+      "traits": [
+        "Sanguine"
+      ],
+      "backstory": "Courier"
+    },
+    {
+      "id": "p6",
+      "name": "Harrow",
+      "age": 57,
+      "traits": [
+        "Pessimist"
+      ],
+      "backstory": "Miner"
+    }
+  ],
+  "tales": [
+    {
+      "day": 31,
+      "type": "KilledVisitor",
+      "actor": "p1",
+      "victim": "Tomas Quell"
+    }
+  ],
+  "factions": [
+    {
+      "name": "The Rim Dispatch",
+      "kind": "Outlanders",
+      "goodwill": -20,
+      "settlements": 1
+    },
+    {
+      "name": "The Brine Coast League",
+      "kind": "Outlanders",
+      "goodwill": 20,
+      "settlements": 6
+    },
+    {
+      "name": "Black Fen Raiders",
+      "kind": "Pirates",
+      "goodwill": -85,
+      "settlements": 3
+    }
+  ],
+  "activePlots": [
+    {
+      "id": "silent-01",
+      "template": "SilentPress",
+      "beat": "Complication",
+      "protagonist": "colony",
+      "summary": "Teodor shot the Dispatch reporter Tomas Quell during a visit on day 31. Bulletins stopped. A trader has hinted that the Dispatch knows.",
+      "publicHint": "The Rim Dispatch has stopped sending reporters toward Lowmere"
+    }
+  ],
+  "recentEvents": [
+    "The reporter Tomas Quell was shot by Teodor day 31",
+    "No bulletin since day 30",
+    "A Brine Coast trader said the Dispatch 'isn't sending anyone your way anymore' day 36"
+  ],
+  "publicEvents": [
+    "The Rim Dispatch is looking for news of its reporter Tomas Quell",
+    "Black Fen Raiders burned a ferry on the south channel"
+  ],
+  "allowedTransitions": [
+    "Wait",
+    "Complication:VisitorRumour",
+    "Choice:ReparationsEnvoy"
+  ],
+  "reporter": {
+    "name": "Ilse Varrow",
+    "outlet": "the Rim Dispatch",
+    "persona": "dry, wry and slightly cynical"
+  }
+}

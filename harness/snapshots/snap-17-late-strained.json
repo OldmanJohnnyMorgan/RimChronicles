@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "id": "snap-17-late-strained",
+  "day": 722,
+  "season": "Aprimay",
+  "year": 5512,
+  "colony": {
+    "name": "Ironbloom",
+    "wealth": 455000,
+    "population": 13,
+    "mood": "strained"
+  },
+  "pawns": [
+    {
+      "id": "p1",
+      "name": "Severin",
+      "age": 44,
+      "traits": [
+        "Too smart",
+        "Steadfast"
+      ],
+      "backstory": "Imperial strategist",
+      "note": "defected from the Shattered Empire"
+    },
+    {
+      "id": "p2",
+      "name": "Annika",
+      "age": 37,
+      "traits": [
+        "Careful shooter"
+      ],
+      "backstory": "Colonial marshal",
+      "ideoRole": "Leader"
+    },
+    {
+      "id": "p3",
+      "name": "Thane",
+      "age": 30,
+      "traits": [
+        "Industrious"
+      ],
+      "backstory": "Engineer"
+    },
+    {
+      "id": "p4",
+      "name": "Mila",
+      "age": 24,
+      "traits": [
+        "Kind"
+      ],
+      "backstory": "Nurse"
+    }
+  ],
+  "tales": [
+    {
+      "day": 655,
+      "type": "DestroyedImperialSite",
+      "actor": "colony",
+      "victim": "an Imperial outpost"
+    },
+    {
+      "day": 701,
+      "type": "SettlementConquered",
+      "actor": "The Shattered Empire",
+      "victim": "Dunwold"
+    }
+  ],
+  "factions": [
+    {
+      "name": "The Shattered Empire",
+      "kind": "Empire",
+      "goodwill": -70,
+      "plotState": "Awakened",
+      "settlements": 9,
+      "atWarWith": [
+        "The Ashford Compact"
+      ]
+    },
+    {
+      "name": "The Ashford Compact",
+      "kind": "Outlanders",
+      "goodwill": 50,
+      "settlements": 5,
+      "atWarWith": [
+        "The Shattered Empire"
+      ]
+    },
+    {
+      "name": "Kestrel Tribe",
+      "kind": "Tribe",
+      "goodwill": 30,
+      "settlements": 4
+    },
+    {
+      "name": "Bonecutter Gang",
+      "kind": "Pirates",
+      "goodwill": -85,
+      "settlements": 2
+    }
+  ],
+  "activePlots": [
+    {
+      "id": "empire-02",
+      "template": "AwakenedEmpire",
+      "beat": "Awakened",
+      "protagonist": "colony",
+      "summary": "The colony destroyed an Imperial outpost on day 655, waking the Shattered Empire. The Empire took the Ashford town of Dunwold on day 701 and is at war with the Ashford Compact. Severin, an Imperial defector, is advising the colony.",
+      "publicHint": "The Shattered Empire took Dunwold from the Ashford Compact"
+    },
+    {
+      "id": "past-02",
+      "template": "PastCatchesUp",
+      "beat": "Hook",
+      "protagonist": "p1",
+      "summary": "Severin defected from the Shattered Empire's general staff. An Imperial bounty on him has just been posted."
+    }
+  ],
+  "recentEvents": [
+    "News that Dunwold fell day 701",
+    "Imperial bounty on Severin posted day 718",
+    "Severin has been drinking"
+  ],
+  "publicEvents": [
+    "The Shattered Empire took Dunwold from the Ashford Compact",
+    "The Shattered Empire posted a bounty on the defector Severin",
+    "Ashford Compact militias are gathering at Harlow Ford"
+  ],
+  "allowedTransitions": [
+    "Wait",
+    "Empire:Expand:Harlow Ford",
+    "Empire:DemandSeverin",
+    "Promote:past-02"
+  ],
+  "previousBulletins": [
+    "Dunwold has fallen. The Shattered Empire took the town in a single morning, and the Ashford Compact took the news rather worse. Militias are said to be gathering at Harlow Ford.",
+    "The Empire has posted a bounty on a defector called Severin. The amount is large enough that I have been asked twice whether I know where he is. I do not, and I would not say."
+  ],
+  "reporter": {
+    "name": "Ilse Varrow",
+    "outlet": "the Rim Dispatch",
+    "persona": "dry, wry and slightly cynical"
+  }
+}

@@ -1,0 +1,30 @@
+=== digest ===
+Date: day 722 (Aprimay 5512).
+The colony you report near: Ironbloom. You do not know what happens inside it unless listed below.
+
+Factions:
+- The Shattered Empire (Empire): 9 settlements, at war with The Ashford Compact, expanding by force
+- The Ashford Compact (Outlanders): 5 settlements, at war with The Shattered Empire
+- Kestrel Tribe (Tribe): 4 settlements
+- Bonecutter Gang (Pirates): 2 settlements
+
+News on the rim:
+- The Shattered Empire took Dunwold from the Ashford Compact
+- The Shattered Empire posted a bounty on the defector Severin
+- Ashford Compact militias are gathering at Harlow Ford
+
+=== outlet ===
+the Rim Dispatch
+
+=== persona ===
+dry, wry and slightly cynical
+
+=== previousBulletins ===
+Earlier bulletin:
+Dunwold has fallen. The Shattered Empire took the town in a single morning, and the Ashford Compact took the news rather worse. Militias are said to be gathering at Harlow Ford.
+
+Latest bulletin:
+The Empire has posted a bounty on a defector called Severin. The amount is large enough that I have been asked twice whether I know where he is. I do not, and I would not say.
+
+=== reporterName ===
+Ilse Varrow

@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 1,
+  "id": "snap-18-late-desperate",
+  "day": 805,
+  "season": "Jugust",
+  "year": 5513,
+  "colony": {
+    "name": "Wren's Hollow",
+    "wealth": 298000,
+    "population": 10,
+    "mood": "desperate"
+  },
+  "pawns": [
+    {
+      "id": "p1",
+      "name": "Constance",
+      "age": 58,
+      "traits": [
+        "Kind",
+        "Iron-willed"
+      ],
+      "backstory": "Midworld teacher",
+      "relations": [
+        "mother of p2"
+      ],
+      "status": "dead"
+    },
+    {
+      "id": "p2",
+      "name": "Elias",
+      "age": 34,
+      "traits": [
+        "Neurotic",
+        "Industrious"
+      ],
+      "backstory": "Engineer",
+      "relations": [
+        "son of p1"
+      ]
+    },
+    {
+      "id": "p3",
+      "name": "Fidelma",
+      "age": 40,
+      "traits": [
+        "Tough"
+      ],
+      "backstory": "Hunter"
+    },
+    {
+      "id": "p4",
+      "name": "Sorrel",
+      "age": 22,
+      "traits": [
+        "Sanguine"
+      ],
+      "backstory": "Farmhand"
+    }
+  ],
+  "tales": [
+    {
+      "day": 744,
+      "type": "LetterFromKin",
+      "actor": "Ada",
+      "victim": "p1"
+    },
+    {
+      "day": 790,
+      "type": "CaravanLost",
+      "actor": "colony",
+      "victim": "p1"
+    },
+    {
+      "day": 803,
+      "type": "Died",
+      "actor": "p1"
+    }
+  ],
+  "factions": [
+    {
+      "name": "The Thistle Commonwealth",
+      "kind": "Outlanders",
+      "goodwill": 40,
+      "settlements": 6
+    },
+    {
+      "name": "The Wailing Moth Tribe",
+      "kind": "Tribe",
+      "goodwill": -20,
+      "settlements": 5
+    },
+    {
+      "name": "Harrow Teeth",
+      "kind": "Pirates",
+      "goodwill": -90,
+      "settlements": 4
+    }
+  ],
+  "activePlots": [
+    {
+      "id": "family-02",
+      "template": "LostFamily",
+      "beat": "Choice",
+      "protagonist": "p1",
+      "summary": "Constance learned her sister Ada was alive in a Wailing Moth village. She set out with a caravan to bring Ada home. The caravan was lost in a blizzard and Constance died of cold on day 803.",
+      "publicHint": "A Wren's Hollow caravan was lost in a blizzard near the Wailing Moth villages"
+    }
+  ],
+  "recentEvents": [
+    "Caravan lost in a blizzard day 790",
+    "Constance died of cold day 803",
+    "Extreme cold for twelve days",
+    "Fuel nearly gone"
+  ],
+  "publicEvents": [
+    "A blizzard has closed the passes to the Wailing Moth villages",
+    "Harrow Teeth raiders are robbing stranded travellers",
+    "A Wren's Hollow caravan was lost in a blizzard near the Wailing Moth villages"
+  ],
+  "allowedTransitions": [
+    "Wait",
+    "Resolution:InheritToKin:p2"
+  ],
+  "previousBulletins": [
+    "The passes are closed. The blizzard that hit the Wailing Moth country last week shows no sign of leaving, and Harrow Teeth raiders are making the most of travellers who cannot leave either.",
+    "The Thistle Commonwealth has opened its granaries to anyone who can reach them. The catch, as always on the rim, is reaching them."
+  ],
+  "reporter": {
+    "name": "Tomas Quell",
+    "outlet": "the Rim Dispatch",
+    "persona": "earnest, plain-spoken and quick to worry"
+  },
+  "handoff": {
+    "deadPawn": "p1",
+    "heir": "p2",
+    "relation": "son",
+    "plotSummary": "Constance learned from a letter that her sister Ada, lost for thirty years, was alive in a Wailing Moth village. She led a caravan through the passes to bring Ada home. A blizzard caught them; the caravan was lost, and Constance died of cold. Ada is still in the village."
+  }
+}

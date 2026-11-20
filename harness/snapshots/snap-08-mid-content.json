@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 1,
+  "id": "snap-08-mid-content",
+  "day": 130,
+  "season": "Aprimay",
+  "year": 5502,
+  "colony": {
+    "name": "Gladwater",
+    "wealth": 96500,
+    "population": 7,
+    "mood": "content"
+  },
+  "pawns": [
+    {
+      "id": "p1",
+      "name": "Halvard",
+      "age": 50,
+      "traits": [
+        "Industrious",
+        "Steadfast"
+      ],
+      "backstory": "Midworld mayor",
+      "ideoRole": "Leader"
+    },
+    {
+      "id": "p2",
+      "name": "Esme",
+      "age": 31,
+      "traits": [
+        "Kind",
+        "Green thumb"
+      ],
+      "backstory": "Botanist",
+      "relations": [
+        "wife of p3"
+      ]
+    },
+    {
+      "id": "p3",
+      "name": "Cato",
+      "age": 33,
+      "traits": [
+        "Careful shooter"
+      ],
+      "backstory": "Colonial marshal",
+      "relations": [
+        "husband of p2"
+      ]
+    },
+    {
+      "id": "p4",
+      "name": "Yara",
+      "age": 24,
+      "traits": [
+        "Sanguine",
+        "Beautiful"
+      ],
+      "backstory": "Singer"
+    },
+    {
+      "id": "p5",
+      "name": "Brannock",
+      "age": 46,
+      "traits": [
+        "Tough"
+      ],
+      "backstory": "Miner"
+    }
+  ],
+  "tales": [
+    {
+      "day": 88,
+      "type": "Marriage",
+      "actor": "p2",
+      "victim": "p3"
+    },
+    {
+      "day": 112,
+      "type": "RaidRepelled",
+      "actor": "colony",
+      "victim": "Ninefingers Gang"
+    },
+    {
+      "day": 126,
+      "type": "CraftedMasterwork",
+      "actor": "p5",
+      "victim": "a jade sculpture called 'The Patient Hill'"
+    }
+  ],
+  "factions": [
+    {
+      "name": "The Lantern Accord",
+      "kind": "Outlanders",
+      "goodwill": 60,
+      "settlements": 9
+    },
+    {
+      "name": "Ninefingers Gang",
+      "kind": "Pirates",
+      "goodwill": -70,
+      "settlements": 3
+    },
+    {
+      "name": "The Reedmother's Children",
+      "kind": "Tribe",
+      "goodwill": 35,
+      "settlements": 5
+    }
+  ],
+  "recentEvents": [
+    "Raid repelled day 112 with no losses",
+    "Brannock carved a masterwork jade sculpture day 126",
+    "Yara's concert raised the colony's mood day 128"
+  ],
+  "publicEvents": [
+    "The Lantern Accord is hosting a trade fair at Lantern Hill",
+    "The Reedmother's Children report a good fishing season",
+    "Gladwater's jade sculpture is the talk of Lantern Hill traders"
+  ],
+  "allowedTransitions": [
+    "Wait",
+    "Seed:Rivalry:p4:p2"
+  ],
+  "previousBulletins": [
+    "The Lantern Accord's trade fair opens next week at Lantern Hill. The Accord promises fair prices; I promise to report on whether that promise survives contact with merchants.",
+    "The Reedmother's Children say the river is full and the fish are foolish, a combination they describe as the best of both worlds. The Ninefingers Gang has been quiet since a failed raid on Gladwater."
+  ],
+  "reporter": {
+    "name": "Ilse Varrow",
+    "outlet": "the Rim Dispatch",
+    "persona": "dry, wry and slightly cynical"
+  }
+}

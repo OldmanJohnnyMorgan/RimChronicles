@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "id": "snap-05-early-desperate",
+  "day": 47,
+  "season": "Decembary",
+  "year": 5500,
+  "colony": {
+    "name": "Thornreach",
+    "wealth": 18200,
+    "population": 3,
+    "mood": "desperate"
+  },
+  "pawns": [
+    {
+      "id": "p1",
+      "name": "Esk",
+      "age": 33,
+      "traits": [
+        "Tough",
+        "Iron-willed"
+      ],
+      "backstory": "Tribal hunter",
+      "relations": [
+        "widow of p4"
+      ]
+    },
+    {
+      "id": "p2",
+      "name": "Pell",
+      "age": 25,
+      "traits": [
+        "Wimp"
+      ],
+      "backstory": "Office worker",
+      "note": "has a festering leg wound"
+    },
+    {
+      "id": "p3",
+      "name": "Nadia",
+      "age": 40,
+      "traits": [
+        "Careful shooter"
+      ],
+      "backstory": "Colonial marshal"
+    },
+    {
+      "id": "p4",
+      "name": "Corin",
+      "age": 35,
+      "traits": [
+        "Kind"
+      ],
+      "backstory": "Farmer",
+      "relations": [
+        "husband of p1"
+      ],
+      "status": "dead"
+    }
+  ],
+  "tales": [
+    {
+      "day": 40,
+      "type": "KilledColonist",
+      "actor": "a Scythe Tooth raider",
+      "victim": "p4",
+      "escaped": true
+    },
+    {
+      "day": 44,
+      "type": "WentOnBerserk",
+      "actor": "p2"
+    },
+    {
+      "day": 46,
+      "type": "ColdSnap",
+      "actor": "colony"
+    }
+  ],
+  "factions": [
+    {
+      "name": "Scythe Tooth",
+      "kind": "Pirates",
+      "goodwill": -100,
+      "settlements": 5
+    },
+    {
+      "name": "The Ferrow Mutual",
+      "kind": "Outlanders",
+      "goodwill": 0,
+      "settlements": 4
+    },
+    {
+      "name": "The Gorse Clans",
+      "kind": "Tribe",
+      "goodwill": 12,
+      "settlements": 6
+    }
+  ],
+  "recentEvents": [
+    "Corin killed in a Scythe Tooth raid day 40",
+    "Pell went berserk day 44",
+    "Cold snap killed the crops day 46",
+    "Two days of food left"
+  ],
+  "publicEvents": [
+    "A cold snap has killed crops across the northern basin",
+    "Scythe Tooth raids reported at three settlements"
+  ],
+  "allowedTransitions": [
+    "Wait"
+  ],
+  "previousBulletins": [
+    "The cold has come early. Every farm north of the Ferrow road reports lost crops, and the Gorse Clans are trading furs for grain at prices that would make a usurer blush.",
+    "Scythe Tooth raiders have now hit three settlements in a quadrum. The Ferrow Mutual has asked its members to share patrols. Its members have asked who is paying."
+  ],
+  "reporter": {
+    "name": "Odile Brask",
+    "outlet": "the Rim Dispatch",
+    "persona": "sardonic, precise and fond of understatement"
+  }
+}

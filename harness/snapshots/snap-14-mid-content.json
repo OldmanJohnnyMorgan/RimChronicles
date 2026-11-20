@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "id": "snap-14-mid-content",
+  "day": 376,
+  "season": "Jugust",
+  "year": 5506,
+  "colony": {
+    "name": "Quillmarsh",
+    "wealth": 167000,
+    "population": 11,
+    "mood": "content"
+  },
+  "pawns": [
+    {
+      "id": "p1",
+      "name": "Ansel",
+      "age": 38,
+      "traits": [
+        "Kind",
+        "Hard worker"
+      ],
+      "backstory": "Farmer"
+    },
+    {
+      "id": "p2",
+      "name": "Dagny",
+      "age": 44,
+      "traits": [
+        "Tough"
+      ],
+      "backstory": "Former pirate",
+      "note": "recruited from the Brackwater Corsairs, whom she betrayed"
+    },
+    {
+      "id": "p3",
+      "name": "Pim",
+      "age": 21,
+      "traits": [
+        "Nimble"
+      ],
+      "backstory": "Thief"
+    },
+    {
+      "id": "p4",
+      "name": "Marguerite",
+      "age": 59,
+      "traits": [
+        "Ascetic"
+      ],
+      "backstory": "Priest",
+      "ideoRole": "Moral guide"
+    }
+  ],
+  "tales": [
+    {
+      "day": 301,
+      "type": "Recruited",
+      "actor": "p1",
+      "victim": "p2"
+    },
+    {
+      "day": 370,
+      "type": "PrisonerReleased",
+      "actor": "colony",
+      "victim": "Teague Holt"
+    }
+  ],
+  "factions": [
+    {
+      "name": "Brackwater Corsairs",
+      "kind": "Pirates",
+      "goodwill": -60,
+      "settlements": 3
+    },
+    {
+      "name": "The Fernhollow League",
+      "kind": "Outlanders",
+      "goodwill": 50,
+      "settlements": 8
+    },
+    {
+      "name": "Blue Antler Tribe",
+      "kind": "Tribe",
+      "goodwill": 40,
+      "settlements": 5
+    }
+  ],
+  "activePlots": [
+    {
+      "id": "debt-01",
+      "template": "OldDebt",
+      "beat": "Hook",
+      "protagonist": "p2",
+      "summary": "Dagny betrayed the Brackwater Corsairs when she joined. The colony freed a Corsair prisoner, Teague Holt, on day 370; he left saying the Corsairs would remember the kindness, or the betrayal.",
+      "publicHint": "A Brackwater Corsair released by Quillmarsh is talking about his captors' kindness"
+    }
+  ],
+  "recentEvents": [
+    "Released the prisoner Teague Holt day 370",
+    "Wedding feast for two colonists day 373",
+    "Stores full for the winter"
+  ],
+  "publicEvents": [
+    "The Fernhollow League signed a trade pact with the Blue Antler Tribe",
+    "A released Brackwater Corsair is talking about his captors' kindness"
+  ],
+  "allowedTransitions": [
+    "Wait",
+    "Complication:CorsairMessenger",
+    "Complication:CorsairsCollect"
+  ],
+  "previousBulletins": [
+    "The Fernhollow League and the Blue Antler Tribe have signed a trade pact. The League gets furs, the Tribe gets steel, and both get to complain about the other's bargaining.",
+    "A Brackwater Corsair has come home with tales of being well fed by his captors. His crewmates are reportedly unsure whether to be relieved or insulted."
+  ],
+  "reporter": {
+    "name": "Ilse Varrow",
+    "outlet": "the Rim Dispatch",
+    "persona": "dry, wry and slightly cynical"
+  }
+}

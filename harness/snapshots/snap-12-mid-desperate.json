@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "id": "snap-12-mid-desperate",
+  "day": 341,
+  "season": "Septober",
+  "year": 5505,
+  "colony": {
+    "name": "Red Furrow",
+    "wealth": 158000,
+    "population": 10,
+    "mood": "desperate"
+  },
+  "pawns": [
+    {
+      "id": "p1",
+      "name": "Sabine",
+      "age": 31,
+      "traits": [
+        "Tough",
+        "Careful shooter"
+      ],
+      "backstory": "Imperial deserter"
+    },
+    {
+      "id": "p2",
+      "name": "Gideon",
+      "age": 45,
+      "traits": [
+        "Kind",
+        "Iron-willed"
+      ],
+      "backstory": "Doctor",
+      "relations": [
+        "brother of p1"
+      ],
+      "status": "captured"
+    },
+    {
+      "id": "p3",
+      "name": "Ora",
+      "age": 26,
+      "traits": [
+        "Sanguine"
+      ],
+      "backstory": "Cook"
+    },
+    {
+      "id": "p4",
+      "name": "Lutz",
+      "age": 37,
+      "traits": [
+        "Industrious"
+      ],
+      "backstory": "Miner"
+    }
+  ],
+  "tales": [
+    {
+      "day": 290,
+      "type": "KilledColonist",
+      "actor": "'Hatchet' Imre",
+      "victim": "Marta Venn",
+      "escaped": true
+    },
+    {
+      "day": 322,
+      "type": "KidnappedColonist",
+      "actor": "'Hatchet' Imre",
+      "victim": "p2"
+    },
+    {
+      "day": 339,
+      "type": "RaidRepelled",
+      "actor": "colony",
+      "victim": "the Gallows Crew"
+    }
+  ],
+  "factions": [
+    {
+      "name": "The Gallows Crew",
+      "kind": "Pirates",
+      "goodwill": -100,
+      "settlements": 3
+    },
+    {
+      "name": "The Saltmarch Assembly",
+      "kind": "Outlanders",
+      "goodwill": 15,
+      "settlements": 6
+    },
+    {
+      "name": "The Glass Throne",
+      "kind": "Empire",
+      "goodwill": -10,
+      "plotState": "Dormant",
+      "settlements": 5
+    }
+  ],
+  "activePlots": [
+    {
+      "id": "nemesis-03",
+      "template": "Nemesis",
+      "beat": "Choice",
+      "protagonist": "p1",
+      "summary": "'Hatchet' Imre of the Gallows Crew killed Marta Venn and kidnapped Sabine's brother Gideon. Sabine has found the Gallows camp but the colony is weak after another raid.",
+      "publicHint": "The Gallows Crew is holding a doctor captive at their camp"
+    }
+  ],
+  "recentEvents": [
+    "Gideon kidnapped day 322",
+    "Second Gallows Crew raid repelled day 339, four wounded",
+    "Toxic fallout has lasted six days"
+  ],
+  "publicEvents": [
+    "Toxic fallout is covering the region",
+    "The Gallows Crew is said to be holding a doctor at their camp"
+  ],
+  "allowedTransitions": [
+    "Wait",
+    "Choice:RescueNow",
+    "Choice:TradeForBrother"
+  ],
+  "previousBulletins": [
+    "The sky has turned the colour of a bad bruise, and the rain is worse. Toxic fallout is now in its sixth day across the region; the Saltmarch Assembly advises everyone to stay indoors and everyone else to stay indoors as well.",
+    "The Gallows Crew is boasting of a captive doctor. Doctors are worth more alive than dead, which is the only good thing I can say about the situation."
+  ],
+  "reporter": {
+    "name": "Odile Brask",
+    "outlet": "the Rim Dispatch",
+    "persona": "sardonic, precise and fond of understatement"
+  }
+}

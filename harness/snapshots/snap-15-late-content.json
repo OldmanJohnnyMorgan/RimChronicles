@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "id": "snap-15-late-content",
+  "day": 563,
+  "season": "Jugust",
+  "year": 5509,
+  "colony": {
+    "name": "Highmoor",
+    "wealth": 412000,
+    "population": 14,
+    "mood": "content"
+  },
+  "pawns": [
+    {
+      "id": "p1",
+      "name": "Leopold",
+      "age": 52,
+      "traits": [
+        "Steadfast",
+        "Kind"
+      ],
+      "backstory": "Cult escapee",
+      "note": "fled the Pale Choir as a youth"
+    },
+    {
+      "id": "p2",
+      "name": "Imke",
+      "age": 35,
+      "traits": [
+        "Industrious",
+        "Careful shooter"
+      ],
+      "backstory": "Colonial marshal",
+      "ideoRole": "Leader"
+    },
+    {
+      "id": "p3",
+      "name": "Ottilie",
+      "age": 29,
+      "traits": [
+        "Beautiful"
+      ],
+      "backstory": "Singer"
+    },
+    {
+      "id": "p4",
+      "name": "Rasmus",
+      "age": 61,
+      "traits": [
+        "Great memory"
+      ],
+      "backstory": "Archivist"
+    },
+    {
+      "id": "p5",
+      "name": "Bo",
+      "age": 18,
+      "traits": [
+        "Nimble",
+        "Jogger"
+      ],
+      "backstory": "Courier"
+    }
+  ],
+  "tales": [
+    {
+      "day": 420,
+      "type": "Recruited",
+      "actor": "p2",
+      "victim": "p1"
+    },
+    {
+      "day": 498,
+      "type": "RaidRepelled",
+      "actor": "colony",
+      "victim": "Pale Choir zealots"
+    },
+    {
+      "day": 551,
+      "type": "CraftedMasterwork",
+      "actor": "p4",
+      "victim": "a history of Highmoor"
+    }
+  ],
+  "factions": [
+    {
+      "name": "The Pale Choir",
+      "kind": "Cult",
+      "goodwill": -50,
+      "settlements": 2
+    },
+    {
+      "name": "The Greywater Concord",
+      "kind": "Outlanders",
+      "goodwill": 70,
+      "settlements": 10
+    },
+    {
+      "name": "The Fox-Lantern Tribe",
+      "kind": "Tribe",
+      "goodwill": 55,
+      "settlements": 6
+    },
+    {
+      "name": "Grinning Jack's Men",
+      "kind": "Pirates",
+      "goodwill": -75,
+      "settlements": 3
+    }
+  ],
+  "activePlots": [
+    {
+      "id": "past-01",
+      "template": "PastCatchesUp",
+      "beat": "Complication",
+      "protagonist": "p1",
+      "summary": "The Pale Choir, the cult Leopold fled as a youth, raided Highmoor on day 498. A Choir pilgrim was seen at the Greywater market asking about him by name.",
+      "publicHint": "The Pale Choir has been asking about a man called Leopold at the Greywater market"
+    }
+  ],
+  "recentEvents": [
+    "Rasmus finished his history of Highmoor day 551",
+    "A visiting trader mentioned a pilgrim asking after Leopold day 558",
+    "Feast day held day 560"
+  ],
+  "publicEvents": [
+    "The Greywater Concord elected a new speaker",
+    "The Fox-Lantern Tribe is holding its spring games",
+    "The Pale Choir has been asking about a man called Leopold at the Greywater market"
+  ],
+  "allowedTransitions": [
+    "Wait",
+    "Choice:FaceTheChoir",
+    "Complication:ChoirLetter"
+  ],
+  "previousBulletins": [
+    "The Greywater Concord has a new speaker. She promised lower tolls and fewer speeches; I expect one of those promises to survive the quadrum.",
+    "The Fox-Lantern Tribe's spring games are under way. This year's events include racing, archery and an argument about the archery that is now in its third day."
+  ],
+  "reporter": {
+    "name": "Ilse Varrow",
+    "outlet": "the Rim Dispatch",
+    "persona": "dry, wry and slightly cynical"
+  }
+}

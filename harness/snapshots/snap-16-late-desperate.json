@@ -1,0 +1,155 @@
+{
+  "schemaVersion": 1,
+  "id": "snap-16-late-desperate",
+  "day": 640,
+  "season": "Septober",
+  "year": 5510,
+  "colony": {
+    "name": "Gallowmere",
+    "wealth": 380000,
+    "population": 12,
+    "mood": "desperate"
+  },
+  "pawns": [
+    {
+      "id": "p1",
+      "name": "Bertram",
+      "age": 47,
+      "traits": [
+        "Bloodlust",
+        "Tough"
+      ],
+      "backstory": "Mercenary",
+      "relations": [
+        "best friend of p2"
+      ],
+      "status": "dead"
+    },
+    {
+      "id": "p2",
+      "name": "Elske",
+      "age": 41,
+      "traits": [
+        "Steadfast",
+        "Careful shooter"
+      ],
+      "backstory": "Colonial marshal",
+      "relations": [
+        "best friend of p1"
+      ]
+    },
+    {
+      "id": "p3",
+      "name": "Noor",
+      "age": 33,
+      "traits": [
+        "Kind"
+      ],
+      "backstory": "Doctor"
+    },
+    {
+      "id": "p4",
+      "name": "Viggo",
+      "age": 26,
+      "traits": [
+        "Hot-tempered"
+      ],
+      "backstory": "Gladiator"
+    },
+    {
+      "id": "p5",
+      "name": "Rook",
+      "age": 3,
+      "traits": [],
+      "backstory": "Dog",
+      "relations": [
+        "bonded to p1"
+      ],
+      "note": "Bertram's bonded warg"
+    }
+  ],
+  "tales": [
+    {
+      "day": 570,
+      "type": "KilledColonist",
+      "actor": "Sergeant Kael Dunmore",
+      "victim": "Hester Brightwell",
+      "escaped": true
+    },
+    {
+      "day": 612,
+      "type": "MaimedColonist",
+      "actor": "Sergeant Kael Dunmore",
+      "victim": "p4",
+      "escaped": true
+    },
+    {
+      "day": 638,
+      "type": "KilledColonist",
+      "actor": "Sergeant Kael Dunmore",
+      "victim": "p1",
+      "escaped": true
+    }
+  ],
+  "factions": [
+    {
+      "name": "Dunmore's Free Company",
+      "kind": "Pirates",
+      "goodwill": -100,
+      "settlements": 2
+    },
+    {
+      "name": "The Lantern Accord",
+      "kind": "Outlanders",
+      "goodwill": 35,
+      "settlements": 9
+    },
+    {
+      "name": "The Glass Throne",
+      "kind": "Empire",
+      "goodwill": -5,
+      "plotState": "Dormant",
+      "settlements": 6
+    }
+  ],
+  "activePlots": [
+    {
+      "id": "nemesis-04",
+      "template": "Nemesis",
+      "beat": "Complication",
+      "protagonist": "p1",
+      "summary": "Sergeant Kael Dunmore killed Hester Brightwell and maimed Viggo. Bertram led a hunt for him; on day 638 Dunmore ambushed the hunters and killed Bertram, then escaped again.",
+      "publicHint": "Mercenary Kael Dunmore has a price on his head after an ambush near Gallowmere"
+    }
+  ],
+  "recentEvents": [
+    "Bertram killed in an ambush by Dunmore day 638",
+    "Rook the warg will not leave Bertram's grave",
+    "Heatwave for nine days",
+    "Viggo cannot walk without a crutch"
+  ],
+  "publicEvents": [
+    "The Lantern Accord put a price on the head of Kael Dunmore",
+    "A heatwave has dried the wells across the southern plain"
+  ],
+  "allowedTransitions": [
+    "Wait",
+    "Resolution:InheritToFriend:p2",
+    "Resolution:InheritToColony"
+  ],
+  "previousBulletins": [
+    "The wells on the southern plain are dry and tempers are drier. Nine days of heat have left the Lantern Accord rationing water, which it does with the enthusiasm of a merchant giving refunds.",
+    "Kael Dunmore and his Free Company are still loose. Anyone who meets them is advised to be somewhere else."
+  ],
+  "reporter": {
+    "name": "Odile Brask",
+    "outlet": "the Rim Dispatch",
+    "persona": "sardonic, precise and fond of understatement"
+  },
+  "handoff": {
+    "deadPawn": "p1",
+    "heir": "p2",
+    "relation": "closest friend",
+    "plotSummary": "Kael Dunmore, a mercenary sergeant, killed Hester Brightwell and maimed Viggo. Bertram swore to hunt him down and led three hunts. On the last one Dunmore ambushed the hunters and killed Bertram. Bertram's bonded warg Rook came home alone."
+  }
+}

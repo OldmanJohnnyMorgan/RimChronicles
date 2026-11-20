@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "id": "snap-03-early-strained",
+  "day": 23,
+  "season": "Jugust",
+  "year": 5500,
+  "colony": {
+    "name": "Kettle Hollow",
+    "wealth": 26800,
+    "population": 5,
+    "mood": "strained"
+  },
+  "pawns": [
+    {
+      "id": "p1",
+      "name": "Marek",
+      "age": 38,
+      "traits": [
+        "Abrasive",
+        "Shooting accuracy"
+      ],
+      "backstory": "Imperial deserter"
+    },
+    {
+      "id": "p2",
+      "name": "Saoirse",
+      "age": 27,
+      "traits": [
+        "Nervous",
+        "Fast learner"
+      ],
+      "backstory": "Medical student"
+    },
+    {
+      "id": "p3",
+      "name": "Dov",
+      "age": 45,
+      "traits": [
+        "Greedy"
+      ],
+      "backstory": "Smuggler"
+    },
+    {
+      "id": "p4",
+      "name": "Kit",
+      "age": 16,
+      "traits": [
+        "Nimble"
+      ],
+      "backstory": "Vatgrown slave",
+      "relations": [
+        "adopted by p2"
+      ]
+    },
+    {
+      "id": "p5",
+      "name": "Agnes",
+      "age": 61,
+      "traits": [
+        "Bloodlust"
+      ],
+      "backstory": "Caravan guard"
+    }
+  ],
+  "tales": [
+    {
+      "day": 15,
+      "type": "SocialFight",
+      "actor": "p1",
+      "victim": "p3"
+    },
+    {
+      "day": 18,
+      "type": "SocialFight",
+      "actor": "p1",
+      "victim": "p3"
+    },
+    {
+      "day": 21,
+      "type": "RaidRepelled",
+      "actor": "colony",
+      "victim": "Ashen Hand raiders"
+    }
+  ],
+  "factions": [
+    {
+      "name": "The Ashen Hand",
+      "kind": "Pirates",
+      "goodwill": -90,
+      "settlements": 4
+    },
+    {
+      "name": "The Merrow Freeholds",
+      "kind": "Outlanders",
+      "goodwill": 5,
+      "settlements": 7
+    },
+    {
+      "name": "Kinn of the Long Grass",
+      "kind": "Tribe",
+      "goodwill": -15,
+      "settlements": 3
+    }
+  ],
+  "recentEvents": [
+    "Marek and Dov fought twice over stolen rations",
+    "Ashen Hand raid repelled day 21, Agnes wounded",
+    "Food stores down to six days"
+  ],
+  "publicEvents": [
+    "The Ashen Hand raided two homesteads near the Merrow road",
+    "Merrow Freeholds caravans now travel only in pairs"
+  ],
+  "allowedTransitions": [
+    "Wait",
+    "Seed:Rivalry:p1:p3"
+  ],
+  "previousBulletins": [
+    "The Ashen Hand are out in numbers. Two homesteads on the Merrow road lost their stores, and one lost its roof. Merrow traders are travelling in pairs now, which doubles the guards and, they assure me, the prices.",
+    "Grass fires in the south have the Kinn on the move. They are not, by their account, looking for trouble. Neither, I suspect, is trouble looking for them, but it usually finds someone."
+  ],
+  "reporter": {
+    "name": "Ilse Varrow",
+    "outlet": "the Rim Dispatch",
+    "persona": "dry, wry and slightly cynical"
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "id": "snap-02-early-content",
+  "day": 11,
+  "season": "Aprimay",
+  "year": 5500,
+  "colony": {
+    "name": "Bramblewick",
+    "wealth": 21400,
+    "population": 4,
+    "mood": "content"
+  },
+  "pawns": [
+    {
+      "id": "p1",
+      "name": "Odette",
+      "age": 34,
+      "traits": [
+        "Kind",
+        "Too smart"
+      ],
+      "backstory": "Medieval lord's daughter",
+      "relations": [
+        "sister of p2"
+      ]
+    },
+    {
+      "id": "p2",
+      "name": "Bastian",
+      "age": 31,
+      "traits": [
+        "Brawler",
+        "Hard worker"
+      ],
+      "backstory": "Urbworld enforcer",
+      "relations": [
+        "brother of p1"
+      ]
+    },
+    {
+      "id": "p3",
+      "name": "Ilka",
+      "age": 52,
+      "traits": [
+        "Ascetic"
+      ],
+      "backstory": "Cult escapee",
+      "note": "joined after fleeing a cult in the south"
+    },
+    {
+      "id": "p4",
+      "name": "Fenn",
+      "age": 19,
+      "traits": [
+        "Nimble",
+        "Night owl"
+      ],
+      "backstory": "Pickpocket"
+    }
+  ],
+  "tales": [
+    {
+      "day": 4,
+      "type": "Recruited",
+      "actor": "p2",
+      "victim": "p3"
+    },
+    {
+      "day": 9,
+      "type": "TamedAnimal",
+      "actor": "p4",
+      "victim": "a muffalo named Barley"
+    }
+  ],
+  "factions": [
+    {
+      "name": "The Glimmer Coast Company",
+      "kind": "Outlanders",
+      "goodwill": 25,
+      "settlements": 5
+    },
+    {
+      "name": "Hollow Spire Pirates",
+      "kind": "Pirates",
+      "goodwill": -75,
+      "settlements": 2
+    },
+    {
+      "name": "The Tannerfolk",
+      "kind": "Tribe",
+      "goodwill": 10,
+      "settlements": 5,
+      "atWarWith": [
+        "Hollow Spire Pirates"
+      ]
+    }
+  ],
+  "recentEvents": [
+    "Ilka recruited day 4",
+    "Barley the muffalo tamed day 9",
+    "First potato harvest day 10"
+  ],
+  "publicEvents": [
+    "The Tannerfolk and the Hollow Spire Pirates are fighting over the salt flats",
+    "A Glimmer Coast Company caravan reached the eastern ford"
+  ],
+  "allowedTransitions": [
+    "Wait",
+    "Seed:PastCatchesUp:p3"
+  ],
+  "previousBulletins": [
+    "Salt is dear again. The Tannerfolk say the Hollow Spire lot burned two of their drying racks, and the pirates say nothing, which is how pirates say yes. Elsewhere, a Glimmer Coast caravan is on the move with more guards than goods, which tells you all you need to know about the roads.",
+    "The salt flats remain contested and the salt remains expensive. Readers wishing to avoid both are advised to stay inland. The Glimmer Coast Company reports a profitable week; the Company always reports a profitable week."
+  ],
+  "reporter": {
+    "name": "Ilse Varrow",
+    "outlet": "the Rim Dispatch",
+    "persona": "dry, wry and slightly cynical"
+  }
+}
