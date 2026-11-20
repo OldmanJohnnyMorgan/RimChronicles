@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "id": "snap-13-mid-strained",
+  "day": 254,
+  "season": "Aprimay",
+  "year": 5504,
+  "colony": {
+    "name": "Stonewake",
+    "wealth": 176000,
+    "population": 9,
+    "mood": "strained"
+  },
+  "pawns": [
+    {
+      "id": "p1",
+      "name": "Corvin",
+      "age": 40,
+      "traits": [
+        "Steadfast",
+        "Too smart"
+      ],
+      "backstory": "Noble",
+      "note": "once held an Imperial title"
+    },
+    {
+      "id": "p2",
+      "name": "Liesl",
+      "age": 33,
+      "traits": [
+        "Kind"
+      ],
+      "backstory": "Archivist"
+    },
+    {
+      "id": "p3",
+      "name": "Darro",
+      "age": 29,
+      "traits": [
+        "Brawler"
+      ],
+      "backstory": "Gladiator"
+    },
+    {
+      "id": "p4",
+      "name": "Yusra",
+      "age": 36,
+      "traits": [
+        "Industrious"
+      ],
+      "backstory": "Smith"
+    }
+  ],
+  "tales": [
+    {
+      "day": 230,
+      "type": "RefusedTitle",
+      "actor": "p1",
+      "victim": "The Sun Throne"
+    },
+    {
+      "day": 249,
+      "type": "EnvoyVisited",
+      "actor": "The Sun Throne",
+      "victim": "colony"
+    }
+  ],
+  "factions": [
+    {
+      "name": "The Sun Throne",
+      "kind": "Empire",
+      "goodwill": -25,
+      "plotState": "Stirring",
+      "settlements": 6
+    },
+    {
+      "name": "The Cobalt Free Towns",
+      "kind": "Outlanders",
+      "goodwill": 30,
+      "settlements": 7
+    },
+    {
+      "name": "Rustback Raiders",
+      "kind": "Pirates",
+      "goodwill": -80,
+      "settlements": 3
+    }
+  ],
+  "activePlots": [
+    {
+      "id": "empire-01",
+      "template": "AwakenedEmpire",
+      "beat": "Stirring",
+      "protagonist": "colony",
+      "summary": "Corvin refused an Imperial title on day 230. The Sun Throne has woken and sent an envoy demanding tribute from nearby towns.",
+      "publicHint": "The Sun Throne is demanding tribute from the Cobalt Free Towns"
+    }
+  ],
+  "recentEvents": [
+    "Corvin refused an Imperial title day 230",
+    "Imperial envoy visited day 249 and left unhappy",
+    "Colonists argue over whether to submit"
+  ],
+  "publicEvents": [
+    "The Sun Throne demanded tribute from the Cobalt Free Towns",
+    "Rustback Raiders hit a caravan on the old highway"
+  ],
+  "allowedTransitions": [
+    "Wait",
+    "Empire:EnvoyReturns",
+    "Empire:DemandTribute",
+    "Empire:Awaken"
+  ],
+  "previousBulletins": [
+    "The Sun Throne has remembered that it exists. Its envoys are touring the Cobalt Free Towns with demands for tribute and very good boots.",
+    "Rustback Raiders robbed a caravan on the old highway. The caravan's owners are offering a reward for its return and a larger reward for an explanation of what their guards were doing."
+  ],
+  "reporter": {
+    "name": "Ilse Varrow",
+    "outlet": "the Rim Dispatch",
+    "persona": "dry, wry and slightly cynical"
+  }
+}

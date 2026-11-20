@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "id": "snap-06-early-content",
+  "day": 5,
+  "season": "Aprimay",
+  "year": 5500,
+  "colony": {
+    "name": "Saltreed",
+    "wealth": 14700,
+    "population": 4,
+    "mood": "content"
+  },
+  "pawns": [
+    {
+      "id": "p1",
+      "name": "Augustin",
+      "age": 48,
+      "traits": [
+        "Jogger",
+        "Kind"
+      ],
+      "backstory": "Noble",
+      "note": "exiled from an Imperial house"
+    },
+    {
+      "id": "p2",
+      "name": "Mira",
+      "age": 26,
+      "traits": [
+        "Beautiful",
+        "Hard worker"
+      ],
+      "backstory": "Model"
+    },
+    {
+      "id": "p3",
+      "name": "Tobiah",
+      "age": 39,
+      "traits": [
+        "Green thumb"
+      ],
+      "backstory": "Botanist",
+      "relations": [
+        "husband of p4"
+      ]
+    },
+    {
+      "id": "p4",
+      "name": "Rhea",
+      "age": 37,
+      "traits": [
+        "Tough"
+      ],
+      "backstory": "Hunter",
+      "relations": [
+        "wife of p3"
+      ]
+    }
+  ],
+  "tales": [
+    {
+      "day": 3,
+      "type": "Marriage",
+      "actor": "p3",
+      "victim": "p4"
+    }
+  ],
+  "factions": [
+    {
+      "name": "The Calder Combine",
+      "kind": "Outlanders",
+      "goodwill": 30,
+      "settlements": 5
+    },
+    {
+      "name": "Ditch Kings",
+      "kind": "Pirates",
+      "goodwill": -70,
+      "settlements": 2
+    },
+    {
+      "name": "The Sundered Throne",
+      "kind": "Empire",
+      "goodwill": 0,
+      "plotState": "Dormant",
+      "settlements": 3
+    }
+  ],
+  "recentEvents": [
+    "Tobiah and Rhea married day 3",
+    "A herd of alpacas passed through day 4"
+  ],
+  "publicEvents": [
+    "The Calder Combine reports good harvests along the delta",
+    "Imperial shuttles were seen over the eastern mountains"
+  ],
+  "allowedTransitions": [
+    "Wait",
+    "Seed:PastCatchesUp:p1"
+  ],
+  "previousBulletins": [
+    "Good news is rare enough that I report it whenever it happens. The Calder Combine says the delta harvest is the best in years. Imperial shuttles were seen over the eastern mountains; nobody knows why, and the Empire is not in the habit of explaining."
+  ],
+  "reporter": {
+    "name": "Ilse Varrow",
+    "outlet": "the Rim Dispatch",
+    "persona": "dry, wry and slightly cynical"
+  }
+}

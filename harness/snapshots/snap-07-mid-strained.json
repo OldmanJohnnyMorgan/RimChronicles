@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "id": "snap-07-mid-strained",
+  "day": 412,
+  "season": "Decembary",
+  "year": 5506,
+  "colony": {
+    "name": "Hearthstead",
+    "wealth": 184000,
+    "population": 9,
+    "mood": "strained"
+  },
+  "pawns": [
+    {
+      "id": "p3",
+      "name": "Mara",
+      "age": 34,
+      "traits": [
+        "Tough",
+        "Bloodlust"
+      ],
+      "backstory": "Imperial deserter",
+      "relations": [
+        "widow of p5"
+      ],
+      "ideoRole": "Shooting specialist"
+    },
+    {
+      "id": "p5",
+      "name": "Dorin",
+      "age": 38,
+      "traits": [
+        "Kind",
+        "Great memory"
+      ],
+      "backstory": "Colony doctor",
+      "relations": [
+        "husband of p3"
+      ],
+      "status": "dead"
+    },
+    {
+      "id": "p6",
+      "name": "Sela",
+      "age": 12,
+      "traits": [
+        "Nimble"
+      ],
+      "backstory": "Child",
+      "relations": [
+        "daughter of p3 and p5"
+      ]
+    },
+    {
+      "id": "p7",
+      "name": "Arne",
+      "age": 55,
+      "traits": [
+        "Pessimist",
+        "Industrious"
+      ],
+      "backstory": "Mechanic"
+    },
+    {
+      "id": "p8",
+      "name": "Quill",
+      "age": 29,
+      "traits": [
+        "Abrasive"
+      ],
+      "backstory": "Smuggler"
+    }
+  ],
+  "tales": [
+    {
+      "day": 355,
+      "type": "Marriage",
+      "actor": "p3",
+      "victim": "p5"
+    },
+    {
+      "day": 398,
+      "type": "KilledColonist",
+      "actor": "Raider 'Vex'",
+      "victim": "p5",
+      "escaped": true
+    },
+    {
+      "day": 405,
+      "type": "TradeCaravan",
+      "actor": "p8",
+      "victim": "The Iron Covenant"
+    }
+  ],
+  "factions": [
+    {
+      "name": "The Shattered Empire",
+      "kind": "Empire",
+      "goodwill": -40,
+      "plotState": "Stirring",
+      "settlements": 4
+    },
+    {
+      "name": "Vex's Crew",
+      "kind": "Pirates",
+      "goodwill": -100,
+      "settlements": 2
+    },
+    {
+      "name": "The Iron Covenant",
+      "kind": "Outlanders",
+      "goodwill": 45,
+      "settlements": 8
+    }
+  ],
+  "activePlots": [
+    {
+      "id": "nemesis-01",
+      "template": "Nemesis",
+      "beat": "Hook",
+      "protagonist": "p3",
+      "summary": "Raider 'Vex' killed Mara's husband Dorin on day 398 and escaped. Mara has sworn to find him."
+    }
+  ],
+  "recentEvents": [
+    "Raid repelled day 398, Dorin killed",
+    "Trade caravan to the Iron Covenant day 405",
+    "Mara refused to leave Dorin's grave for two days"
+  ],
+  "publicEvents": [
+    "The Iron Covenant lost a supply wagon to raiders near the gorge",
+    "Imperial envoys visited two outlander towns"
+  ],
+  "allowedTransitions": [
+    "Wait",
+    "Complication:VexSighted",
+    "Complication:ImperialBounty"
+  ],
+  "previousBulletins": [
+    "The Iron Covenant is short one supply wagon and long on complaints. Raiders took it near the gorge in broad daylight, which suggests either boldness or poor eyesight on the part of the escort.",
+    "Imperial envoys have been calling on outlander towns, all polite smiles and long scrolls. Nobody I spoke to would say what was on the scrolls, which is in itself a kind of answer."
+  ],
+  "reporter": {
+    "name": "Ilse Varrow",
+    "outlet": "the Rim Dispatch",
+    "persona": "dry, wry and slightly cynical"
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 1,
+  "id": "snap-19-late-desperate",
+  "day": 911,
+  "season": "Aprimay",
+  "year": 5515,
+  "colony": {
+    "name": "Last Lantern",
+    "wealth": 520000,
+    "population": 15,
+    "mood": "desperate"
+  },
+  "pawns": [
+    {
+      "id": "p1",
+      "name": "Ysolde",
+      "age": 46,
+      "traits": [
+        "Steadfast",
+        "Careful shooter"
+      ],
+      "backstory": "Rebel commander",
+      "ideoRole": "Leader"
+    },
+    {
+      "id": "p2",
+      "name": "Bram",
+      "age": 38,
+      "traits": [
+        "Tough"
+      ],
+      "backstory": "Mercenary"
+    },
+    {
+      "id": "p3",
+      "name": "Hesper",
+      "age": 31,
+      "traits": [
+        "Too smart"
+      ],
+      "backstory": "Engineer"
+    },
+    {
+      "id": "p4",
+      "name": "Jory",
+      "age": 27,
+      "traits": [
+        "Kind"
+      ],
+      "backstory": "Doctor"
+    }
+  ],
+  "tales": [
+    {
+      "day": 840,
+      "type": "SettlementConquered",
+      "actor": "The Sun Throne",
+      "victim": "Calder Mill"
+    },
+    {
+      "day": 872,
+      "type": "SettlementRazed",
+      "actor": "The Sun Throne",
+      "victim": "Fenwick"
+    },
+    {
+      "day": 906,
+      "type": "RaidRepelled",
+      "actor": "colony",
+      "victim": "Imperial legionaries"
+    }
+  ],
+  "factions": [
+    {
+      "name": "The Sun Throne",
+      "kind": "Empire",
+      "goodwill": -100,
+      "plotState": "Awakened",
+      "settlements": 14,
+      "atWarWith": [
+        "The Marrow League",
+        "Last Lantern"
+      ]
+    },
+    {
+      "name": "The Marrow League",
+      "kind": "Outlanders",
+      "goodwill": 65,
+      "settlements": 3,
+      "atWarWith": [
+        "The Sun Throne"
+      ]
+    },
+    {
+      "name": "Starling Tribe",
+      "kind": "Tribe",
+      "goodwill": 45,
+      "settlements": 4
+    }
+  ],
+  "activePlots": [
+    {
+      "id": "empire-03",
+      "template": "AwakenedEmpire",
+      "beat": "Act2",
+      "protagonist": "colony",
+      "summary": "The Sun Throne has taken Calder Mill and razed Fenwick. Last Lantern leads a coalition with the Marrow League. Legionaries attacked on day 906 and were driven off with heavy losses on both sides.",
+      "publicHint": "The Sun Throne razed Fenwick and is besieging the Marrow League"
+    }
+  ],
+  "recentEvents": [
+    "Imperial legionaries repelled day 906, two colonists dead",
+    "Steel nearly gone",
+    "Ysolde has not slept in two days"
+  ],
+  "publicEvents": [
+    "The Sun Throne razed Fenwick",
+    "The Marrow League is down to three settlements",
+    "The Starling Tribe offered shelter to Fenwick's survivors"
+  ],
+  "allowedTransitions": [
+    "Wait",
+    "Empire:Expand:Marrow Hold",
+    "Empire:SiegeColony",
+    "Quest:DefendAlly:Marrow Hold"
+  ],
+  "previousBulletins": [
+    "Fenwick is gone. The Sun Throne's legions burned it to the ground; the Starling Tribe has taken in the survivors and asked, politely, that nobody follow them.",
+    "The Marrow League now holds three towns. It held seven at the start of the year. Arithmetic is not on its side, but Last Lantern apparently is."
+  ],
+  "reporter": {
+    "name": "Odile Brask",
+    "outlet": "the Rim Dispatch",
+    "persona": "sardonic, precise and fond of understatement"
+  }
+}

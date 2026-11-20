@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "id": "snap-01-early-content",
+  "day": 2,
+  "season": "Aprimay",
+  "year": 5500,
+  "colony": {
+    "name": "Ashfall Crossing",
+    "wealth": 9800,
+    "population": 3,
+    "mood": "content"
+  },
+  "pawns": [
+    {
+      "id": "p1",
+      "name": "Ren",
+      "age": 29,
+      "traits": [
+        "Industrious",
+        "Optimist"
+      ],
+      "backstory": "Glitterworld engineer"
+    },
+    {
+      "id": "p2",
+      "name": "Hollis",
+      "age": 41,
+      "traits": [
+        "Tough"
+      ],
+      "backstory": "Midworld soldier"
+    },
+    {
+      "id": "p3",
+      "name": "Wen",
+      "age": 23,
+      "traits": [
+        "Kind",
+        "Green thumb"
+      ],
+      "backstory": "Farm girl",
+      "note": "the crash's only medic, untrained"
+    }
+  ],
+  "tales": [
+    {
+      "day": 1,
+      "type": "CrashedInEscapePod",
+      "actor": "colony"
+    }
+  ],
+  "factions": [
+    {
+      "name": "The Tarn Union",
+      "kind": "Outlanders",
+      "goodwill": 15,
+      "settlements": 6
+    },
+    {
+      "name": "Red Gully Raiders",
+      "kind": "Pirates",
+      "goodwill": -80,
+      "settlements": 3
+    },
+    {
+      "name": "The Seven Ash Clans",
+      "kind": "Tribe",
+      "goodwill": 0,
+      "settlements": 4
+    }
+  ],
+  "recentEvents": [
+    "Three survivors crash-landed day 1",
+    "First shelter walls finished day 2"
+  ],
+  "publicEvents": [
+    "The Tarn Union opened a new trading post on the river road",
+    "A cold snap is forecast for the northern hills"
+  ],
+  "allowedTransitions": [
+    "Wait"
+  ],
+  "reporter": {
+    "name": "Ilse Varrow",
+    "outlet": "the Rim Dispatch",
+    "persona": "dry, wry and slightly cynical"
+  }
+}

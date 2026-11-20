@@ -1,0 +1,118 @@
+{
+  "$comment": "World snapshot contract, schemaVersion 1. Uses only the JSON Schema subset RimChronicles.Llm validates.",
+  "type": "object",
+  "properties": {
+    "schemaVersion": { "type": "integer", "enum": [1] },
+    "id": { "type": "string", "minLength": 1 },
+    "day": { "type": "integer", "minimum": 0 },
+    "season": { "type": "string", "enum": ["Aprimay", "Jugust", "Septober", "Decembary"] },
+    "year": { "type": "integer", "minimum": 5500 },
+    "colony": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "wealth": { "type": "integer", "minimum": 0 },
+        "population": { "type": "integer", "minimum": 0 },
+        "mood": { "type": "string", "enum": ["content", "strained", "desperate"] }
+      },
+      "required": ["name", "wealth", "population", "mood"],
+      "additionalProperties": false
+    },
+    "pawns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "age": { "type": "integer", "minimum": 0 },
+          "traits": { "type": "array", "items": { "type": "string" } },
+          "backstory": { "type": "string" },
+          "relations": { "type": "array", "items": { "type": "string" } },
+          "ideoRole": { "type": "string" },
+          "status": { "type": "string", "enum": ["alive", "dead", "captured", "left"] },
+          "note": { "type": "string" }
+        },
+        "required": ["id", "name", "age"],
+        "additionalProperties": false
+      }
+    },
+    "tales": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "day": { "type": "integer", "minimum": 0 },
+          "type": { "type": "string", "minLength": 1 },
+          "actor": { "type": "string", "minLength": 1 },
+          "victim": { "type": "string" },
+          "escaped": { "type": "boolean" }
+        },
+        "required": ["day", "type", "actor"],
+        "additionalProperties": false
+      }
+    },
+    "factions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string", "minLength": 1 },
+          "kind": { "type": "string" },
+          "goodwill": { "type": "integer", "minimum": -100, "maximum": 100 },
+          "plotState": { "type": "string", "enum": ["Dormant", "Stirring", "Awakened", "Ascendant", "Broken"] },
+          "settlements": { "type": "integer", "minimum": 0 },
+          "atWarWith": { "type": "array", "items": { "type": "string" } }
+        },
+        "required": ["name", "goodwill", "settlements"],
+        "additionalProperties": false
+      }
+    },
+    "activePlots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "template": {
+            "type": "string",
+            "enum": ["Nemesis", "LostFamily", "OldDebt", "Grief", "Rivalry", "PastCatchesUp", "SilentPress", "AwakenedEmpire"]
+          },
+          "beat": { "type": "string", "minLength": 1 },
+          "protagonist": { "type": "string", "minLength": 1 },
+          "summary": { "type": "string" },
+          "publicHint": { "type": "string" }
+        },
+        "required": ["id", "template", "beat", "protagonist"],
+        "additionalProperties": false
+      }
+    },
+    "recentEvents": { "type": "array", "items": { "type": "string" } },
+    "publicEvents": { "type": "array", "items": { "type": "string" } },
+    "allowedTransitions": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "previousBulletins": { "type": "array", "items": { "type": "string" }, "maxItems": 2 },
+    "reporter": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "outlet": { "type": "string" },
+        "persona": { "type": "string" }
+      },
+      "required": ["name", "outlet", "persona"],
+      "additionalProperties": false
+    },
+    "handoff": {
+      "type": "object",
+      "properties": {
+        "deadPawn": { "type": "string" },
+        "heir": { "type": "string" },
+        "relation": { "type": "string" },
+        "plotSummary": { "type": "string" }
+      },
+      "required": ["deadPawn", "heir", "relation", "plotSummary"],
+      "additionalProperties": false
+    }
+  },
+  "required": ["id", "day", "season", "year", "colony", "allowedTransitions"],
+  "additionalProperties": false
+}

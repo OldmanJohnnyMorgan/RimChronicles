@@ -1,4 +1,3 @@
-using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
 using RimChronicles.Llm.Chat;
 
@@ -100,8 +99,3 @@ public sealed partial class PromptTemplate
         return result;
     }
 }
-
-[JsonSourceGenerationOptions(PropertyNamingPolicy = JsonKnownNamingPolicy.CamelCase, ReadCommentHandling = System.Text.Json.JsonCommentHandling.Skip)]
-[JsonSerializable(typeof(PromptMeta))]
-[JsonSerializable(typeof(Dictionary<string, string>))]
-internal sealed partial class PromptJsonContext : JsonSerializerContext;

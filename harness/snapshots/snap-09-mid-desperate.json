@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 1,
+  "id": "snap-09-mid-desperate",
+  "day": 288,
+  "season": "Decembary",
+  "year": 5504,
+  "colony": {
+    "name": "Cinder Rest",
+    "wealth": 121000,
+    "population": 8,
+    "mood": "desperate"
+  },
+  "pawns": [
+    {
+      "id": "p1",
+      "name": "Joska",
+      "age": 42,
+      "traits": [
+        "Tough",
+        "Bloodlust"
+      ],
+      "backstory": "Pit fighter",
+      "relations": [
+        "husband of p2",
+        "father of p3"
+      ],
+      "status": "dead"
+    },
+    {
+      "id": "p2",
+      "name": "Lene",
+      "age": 39,
+      "traits": [
+        "Iron-willed",
+        "Careful shooter"
+      ],
+      "backstory": "Bounty hunter",
+      "relations": [
+        "widow of p1",
+        "mother of p3"
+      ]
+    },
+    {
+      "id": "p3",
+      "name": "Tamsin",
+      "age": 17,
+      "traits": [
+        "Nimble",
+        "Hot-tempered"
+      ],
+      "backstory": "Scavenger",
+      "relations": [
+        "daughter of p1 and p2"
+      ]
+    },
+    {
+      "id": "p4",
+      "name": "Orrin",
+      "age": 60,
+      "traits": [
+        "Kind"
+      ],
+      "backstory": "Doctor"
+    },
+    {
+      "id": "p5",
+      "name": "Vash",
+      "age": 28,
+      "traits": [
+        "Abrasive"
+      ],
+      "backstory": "Mechanoid nerd"
+    }
+  ],
+  "tales": [
+    {
+      "day": 201,
+      "type": "KilledColonist",
+      "actor": "Captain Rook Malley",
+      "victim": "Pavo Inn",
+      "escaped": true
+    },
+    {
+      "day": 243,
+      "type": "MaimedColonist",
+      "actor": "Captain Rook Malley",
+      "victim": "p1",
+      "escaped": true
+    },
+    {
+      "day": 286,
+      "type": "KilledColonist",
+      "actor": "Captain Rook Malley",
+      "victim": "p1",
+      "escaped": false
+    },
+    {
+      "day": 286,
+      "type": "Died",
+      "actor": "Captain Rook Malley"
+    }
+  ],
+  "factions": [
+    {
+      "name": "Malley's Lancers",
+      "kind": "Pirates",
+      "goodwill": -100,
+      "settlements": 1
+    },
+    {
+      "name": "The Gray Wharf Syndicate",
+      "kind": "Outlanders",
+      "goodwill": 20,
+      "settlements": 6
+    },
+    {
+      "name": "Embertail Tribe",
+      "kind": "Tribe",
+      "goodwill": -30,
+      "settlements": 4,
+      "atWarWith": [
+        "The Gray Wharf Syndicate"
+      ]
+    }
+  ],
+  "activePlots": [
+    {
+      "id": "nemesis-02",
+      "template": "Nemesis",
+      "beat": "Resolution",
+      "protagonist": "p1",
+      "summary": "Captain Rook Malley killed the trader Pavo Inn, then maimed Joska. On day 286 Joska cornered Malley at the Lancers' camp; both died.",
+      "publicHint": "Pirate captain Rook Malley is dead, killed at his own camp"
+    }
+  ],
+  "recentEvents": [
+    "Joska and Captain Rook Malley killed each other day 286",
+    "Infection spreading in the colony",
+    "Three colonists in bed"
+  ],
+  "publicEvents": [
+    "Pirate captain Rook Malley was killed at his camp",
+    "The Embertail Tribe declared war on the Gray Wharf Syndicate"
+  ],
+  "allowedTransitions": [
+    "Wait",
+    "Resolution:InheritToKin:p3",
+    "Resolution:InheritToSpouse:p2"
+  ],
+  "previousBulletins": [
+    "Captain Rook Malley's Lancers are getting bolder. A trader was killed on the coast road last quadrum, and a pit fighter from Cinder Rest is said to be walking with a cane because of them.",
+    "The Embertail Tribe has declared war on the Gray Wharf Syndicate over fishing rights. Neither side, so far as I can tell, has caught any fish."
+  ],
+  "reporter": {
+    "name": "Odile Brask",
+    "outlet": "the Rim Dispatch",
+    "persona": "sardonic, precise and fond of understatement"
+  },
+  "handoff": {
+    "deadPawn": "p1",
+    "heir": "p3",
+    "relation": "daughter",
+    "plotSummary": "Joska spent a year hunting the pirate captain Rook Malley, who maimed him. He finally caught Malley at the Lancers' camp, and both died in the fight. Malley's Lancers still hold the camp, and their new captain has sworn revenge on Cinder Rest."
+  }
+}

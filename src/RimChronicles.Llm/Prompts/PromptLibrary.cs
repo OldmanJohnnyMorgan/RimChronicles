@@ -1,4 +1,5 @@
 using System.Text.Json;
+using System.Text.Json.Serialization.Metadata;
 using RimChronicles.Llm.Chat;
 
 namespace RimChronicles.Llm.Prompts;
@@ -16,6 +17,15 @@ namespace RimChronicles.Llm.Prompts;
 /// </summary>
 public sealed class PromptLibrary
 {
+    // Reflection-based on purpose: the source generator sets absent init-only properties to default(T),
+    // which would turn a missing "tiers" into null and a missing "maxOutputTokens" into 0.
+    private static readonly JsonSerializerOptions JsonOptions = new()
+    {
+        TypeInfoResolver = new DefaultJsonTypeInfoResolver(),
+        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+        ReadCommentHandling = JsonCommentHandling.Skip,
+    };
+
     private readonly Dictionary<string, PromptTemplate> _current;
 
     private PromptLibrary(string root, Dictionary<string, PromptTemplate> current)
@@ -33,7 +43,7 @@ public sealed class PromptLibrary
     public static PromptLibrary Load(string root)
     {
         var currentPath = Path.Combine(root, "CURRENT.json");
-        var current = JsonSerializer.Deserialize(File.ReadAllText(currentPath), PromptJsonContext.Default.DictionaryStringString)
+        var current = JsonSerializer.Deserialize<Dictionary<string, string>>(File.ReadAllText(currentPath), JsonOptions)
                       ?? throw new InvalidDataException($"{currentPath} is empty.");
 
         var templates = current.ToDictionary(kv => kv.Key, kv => LoadVersion(root, kv.Key, kv.Value), StringComparer.Ordinal);
@@ -51,7 +61,7 @@ public sealed class PromptLibrary
     {
         var dir = Path.Combine(root, task, version);
         var metaPath = Path.Combine(dir, "meta.json");
-        var meta = JsonSerializer.Deserialize(File.ReadAllText(metaPath), PromptJsonContext.Default.PromptMeta)
+        var meta = JsonSerializer.Deserialize<PromptMeta>(File.ReadAllText(metaPath), JsonOptions)
                    ?? throw new InvalidDataException($"{metaPath} is empty.");
 
         if (meta.Task != task || meta.Version != version)

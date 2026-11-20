@@ -1,0 +1,8 @@
+{
+  "task": "inheritance-handoff",
+  "version": "v1",
+  "maxOutputTokens": 400,
+  "tiers": {
+    "Minimum": { "maxOutputTokens": 300 }
+  }
+}

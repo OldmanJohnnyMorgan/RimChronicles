@@ -13,6 +13,8 @@ dotnet test RimChronicles.slnx           # Llm, Core and harness tests; no RimWo
 dotnet run --project harness/RimChronicles.Eval -- --help   # Stage 0 eval harness (rimchron-eval)
 ```
 
+Summarizer golden files live in `tests/RimChronicles.Tests/Golden/`. After an intended change to prompt text, run `UPDATE_GOLDEN=1 dotnet test`, then review the diff before committing.
+
 To build the real mod, copy `Directory.Build.props.user.example` to `Directory.Build.props.user` and set the RimWorld and Harmony paths.
 
 ## Layout

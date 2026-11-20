@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "id": "snap-11-mid-content",
+  "day": 167,
+  "season": "Decembary",
+  "year": 5502,
+  "colony": {
+    "name": "Dovecote",
+    "wealth": 110000,
+    "population": 8,
+    "mood": "content"
+  },
+  "pawns": [
+    {
+      "id": "p1",
+      "name": "Rosamund",
+      "age": 28,
+      "traits": [
+        "Too smart",
+        "Abrasive"
+      ],
+      "backstory": "Researcher"
+    },
+    {
+      "id": "p2",
+      "name": "Ilan",
+      "age": 30,
+      "traits": [
+        "Too smart",
+        "Jealous"
+      ],
+      "backstory": "Researcher"
+    },
+    {
+      "id": "p3",
+      "name": "Gerda",
+      "age": 54,
+      "traits": [
+        "Kind"
+      ],
+      "backstory": "Nurse"
+    },
+    {
+      "id": "p4",
+      "name": "Wick",
+      "age": 22,
+      "traits": [
+        "Sanguine",
+        "Nimble"
+      ],
+      "backstory": "Courier"
+    }
+  ],
+  "tales": [
+    {
+      "day": 140,
+      "type": "SocialFight",
+      "actor": "p1",
+      "victim": "p2"
+    },
+    {
+      "day": 151,
+      "type": "SocialFight",
+      "actor": "p2",
+      "victim": "p1"
+    },
+    {
+      "day": 162,
+      "type": "SocialFight",
+      "actor": "p1",
+      "victim": "p2"
+    }
+  ],
+  "factions": [
+    {
+      "name": "The Hearthguard Compact",
+      "kind": "Outlanders",
+      "goodwill": 55,
+      "settlements": 8
+    },
+    {
+      "name": "Mire Rats",
+      "kind": "Pirates",
+      "goodwill": -60,
+      "settlements": 2
+    },
+    {
+      "name": "Children of the Green Bell",
+      "kind": "Tribe",
+      "goodwill": 20,
+      "settlements": 4
+    }
+  ],
+  "activePlots": [
+    {
+      "id": "rivalry-01",
+      "template": "Rivalry",
+      "beat": "Hook",
+      "protagonist": "p1",
+      "summary": "Rosamund and Ilan have fought three times over credit for the colony's research. Ilan was seen near Rosamund's notes at night."
+    }
+  ],
+  "recentEvents": [
+    "Third fight between Rosamund and Ilan day 162",
+    "Microelectronics research finished day 165",
+    "Good harvest stored"
+  ],
+  "publicEvents": [
+    "The Hearthguard Compact is offering prizes for new inventions",
+    "Mire Rats were driven out of the eastern marsh"
+  ],
+  "allowedTransitions": [
+    "Wait",
+    "Complication:SabotagedNotes",
+    "Complication:CompactPrize"
+  ],
+  "previousBulletins": [
+    "The Hearthguard Compact wants inventions and is offering prizes. Past winners include a better plough and a worse cannon, so the field is open.",
+    "The Mire Rats have been chased out of the eastern marsh. Where they went is unclear, but the western marsh is advised to lock its doors."
+  ],
+  "reporter": {
+    "name": "Ilse Varrow",
+    "outlet": "the Rim Dispatch",
+    "persona": "dry, wry and slightly cynical"
+  }
+}

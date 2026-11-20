@@ -106,6 +106,18 @@ public sealed class PromptTests : IDisposable
     }
 
     [Fact]
+    public void LoadVersion_MinimalMeta_UsesDefaults()
+    {
+        WritePrompt("judge", "v1", """{ "task": "judge", "version": "v1" }""", "s", "u");
+
+        var prompt = PromptLibrary.LoadVersion(_root, "judge", "v1");
+
+        Assert.Equal(512, prompt.Meta.MaxOutputTokens);
+        Assert.Empty(prompt.Meta.Tiers);
+        Assert.Equal("u", prompt.Render(ModelTier.Minimum, new Dictionary<string, string>()).User);
+    }
+
+    [Fact]
     public void LoadVersion_MetaThatDisagreesWithFolder_Throws()
     {
         WritePrompt("director", "v2", """{ "task": "director", "version": "v1" }""", "s", "u");

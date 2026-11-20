@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "id": "snap-10-mid-strained",
+  "day": 205,
+  "season": "Jugust",
+  "year": 5503,
+  "colony": {
+    "name": "Wyrmfold",
+    "wealth": 142000,
+    "population": 8,
+    "mood": "strained"
+  },
+  "pawns": [
+    {
+      "id": "p1",
+      "name": "Anouk",
+      "age": 35,
+      "traits": [
+        "Kind",
+        "Neurotic"
+      ],
+      "backstory": "Tribal child",
+      "note": "born in the Ochre Hand tribe"
+    },
+    {
+      "id": "p2",
+      "name": "Feodor",
+      "age": 49,
+      "traits": [
+        "Industrious"
+      ],
+      "backstory": "Engineer"
+    },
+    {
+      "id": "p3",
+      "name": "Biel",
+      "age": 30,
+      "traits": [
+        "Jealous"
+      ],
+      "backstory": "Cook"
+    },
+    {
+      "id": "p4",
+      "name": "Hanne",
+      "age": 27,
+      "traits": [
+        "Psychically sensitive"
+      ],
+      "backstory": "Psychic"
+    }
+  ],
+  "tales": [
+    {
+      "day": 180,
+      "type": "Recruited",
+      "actor": "p2",
+      "victim": "p1"
+    },
+    {
+      "day": 199,
+      "type": "LetterFromKin",
+      "actor": "Saskia",
+      "victim": "p1"
+    }
+  ],
+  "factions": [
+    {
+      "name": "The Ochre Hand",
+      "kind": "Tribe",
+      "goodwill": -10,
+      "settlements": 3,
+      "atWarWith": [
+        "Stonecutter Raiders"
+      ]
+    },
+    {
+      "name": "Stonecutter Raiders",
+      "kind": "Pirates",
+      "goodwill": -90,
+      "settlements": 4
+    },
+    {
+      "name": "The Weir Federation",
+      "kind": "Outlanders",
+      "goodwill": 40,
+      "settlements": 7
+    }
+  ],
+  "activePlots": [
+    {
+      "id": "family-01",
+      "template": "LostFamily",
+      "beat": "Complication",
+      "protagonist": "p1",
+      "summary": "A letter from Anouk's sister Saskia, still with the Ochre Hand, says Stonecutter Raiders took her and two others as captives.",
+      "publicHint": "Stonecutter Raiders are holding captives from the Ochre Hand"
+    }
+  ],
+  "recentEvents": [
+    "Letter from Saskia arrived day 199",
+    "Anouk has not slept well since the letter",
+    "Short on medicine"
+  ],
+  "publicEvents": [
+    "Stonecutter Raiders took captives from an Ochre Hand camp",
+    "The Weir Federation raised a bounty on Stonecutter leaders"
+  ],
+  "allowedTransitions": [
+    "Wait",
+    "Choice:RescueOrRansom",
+    "Complication:SecondLetter"
+  ],
+  "previousBulletins": [
+    "The Ochre Hand and the Stonecutter Raiders are at war again, if they ever stopped. Word is that an Ochre Hand camp lost three of its people to a night raid.",
+    "The Weir Federation has put a bounty on Stonecutter leaders. The sum is generous, the leaders are well armed, and I expect the bounty will go unclaimed for some time."
+  ],
+  "reporter": {
+    "name": "Ilse Varrow",
+    "outlet": "the Rim Dispatch",
+    "persona": "dry, wry and slightly cynical"
+  }
+}

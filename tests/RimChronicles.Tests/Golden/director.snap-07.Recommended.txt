@@ -1,0 +1,33 @@
+=== allowedTransitions ===
+- Wait
+- Complication:VexSighted
+- Complication:ImperialBounty
+
+=== plotState ===
+- nemesis-01 (Nemesis): beat Hook, protagonist Mara. Raider 'Vex' killed Mara's husband Dorin on day 398 and escaped. Mara has sworn to find him.
+
+=== worldSummary ===
+Date: day 412 (Decembary 5506).
+Colony: Hearthstead, 9 people, wealth 184,000 silver, mood strained.
+
+People:
+- Mara (34); traits: Tough, Bloodlust; backstory: Imperial deserter; widow of Dorin; role: Shooting specialist.
+- Dorin (38), dead; traits: Kind, Great memory; backstory: Colony doctor; husband of Mara.
+- Sela (12); traits: Nimble; backstory: Child; daughter of Mara and Dorin.
+- Arne (55); traits: Pessimist, Industrious; backstory: Mechanic.
+- Quill (29); traits: Abrasive; backstory: Smuggler.
+
+History:
+- Day 355: Mara married Dorin.
+- Day 398: Raider 'Vex' killed Dorin and escaped.
+- Day 405: Quill led a trade caravan to The Iron Covenant.
+
+Factions:
+- The Shattered Empire (Empire): goodwill -40, 4 settlements, Empire state: Stirring.
+- Vex's Crew (Pirates): goodwill -100, 2 settlements.
+- The Iron Covenant (Outlanders): goodwill +45, 8 settlements.
+
+Recent events:
+- Raid repelled day 398, Dorin killed
+- Trade caravan to the Iron Covenant day 405
+- Mara refused to leave Dorin's grave for two days
