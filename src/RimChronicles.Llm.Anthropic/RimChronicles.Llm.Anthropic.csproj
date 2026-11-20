@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Claude provider over the official Anthropic SDK. Used by the harness (reference model and judge); not shipped in the mod. -->
+  <ItemGroup>
+    <ProjectReference Include="..\RimChronicles.Llm\RimChronicles.Llm.csproj" />
+    <PackageReference Include="Anthropic" />
+  </ItemGroup>
+</Project>

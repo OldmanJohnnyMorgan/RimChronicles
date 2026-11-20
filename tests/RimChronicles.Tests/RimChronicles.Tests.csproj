@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Unit tests for Llm, Core and the harness. Must run without RimWorld. -->
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="xunit" />
+    <PackageReference Include="xunit.runner.visualstudio" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\RimChronicles.Llm\RimChronicles.Llm.csproj" />
+    <ProjectReference Include="..\..\src\RimChronicles.Core\RimChronicles.Core.csproj" />
+    <ProjectReference Include="..\..\harness\RimChronicles.Eval\RimChronicles.Eval.csproj" />
+  </ItemGroup>
+</Project>

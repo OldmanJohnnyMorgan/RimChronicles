@@ -1,0 +1,24 @@
+# Build output
+bin/
+obj/
+*.user
+Directory.Build.props.user
+TestResults/
+
+# Mod build output (built from source)
+1.7/Assemblies/
+
+# Eval harness run output and local secrets
+results/
+harness/results/
+.env
+*.env
+
+# Decompiled game source must never be committed
+reference/
+
+# IDE
+.vs/
+.idea/
+*.suo
+*.DotSettings.user

@@ -1,0 +1,12 @@
+<Project>
+  <!--
+    Copy to Directory.Build.props.user (untracked) and point these at your RimWorld 1.7 install.
+    Without them, RimChronicles.Game builds as an empty assembly and everything else works as normal.
+    The exact managed-assembly folder under the Waylith engine is confirmed in Stage 1 (ENGINE_NOTES.md).
+  -->
+  <PropertyGroup>
+    <RimWorldManagedDir>C:\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed</RimWorldManagedDir>
+    <!-- Harmony 3 Workshop mod: confirm its folder id in Stage 1. -->
+    <HarmonyAssembliesDir>C:\Program Files (x86)\Steam\steamapps\workshop\content\294100\2009463077\Current\Assemblies</HarmonyAssembliesDir>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    Engine adapter, Harmony patches, GameComponent, letters and UI. The only project that references RimWorld.
+    RimWorld and Harmony 3 assemblies are referenced from the local install (never copied, never bundled).
+    Without RimWorldManagedDir set (see Directory.Build.props.user.example) the project compiles no sources,
+    so the solution still builds in CI.
+  -->
+  <PropertyGroup>
+    <RimWorldAvailable Condition="'$(RimWorldManagedDir)' != '' And Exists('$(RimWorldManagedDir)')">true</RimWorldAvailable>
+    <EnableDefaultCompileItems Condition="'$(RimWorldAvailable)' != 'true'">false</EnableDefaultCompileItems>
+    <ModOutputDir>$(RepoRoot)1.7\Assemblies\</ModOutputDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RimChronicles.Llm\RimChronicles.Llm.csproj" />
+    <ProjectReference Include="..\RimChronicles.Core\RimChronicles.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(RimWorldAvailable)' == 'true'">
+    <Reference Include="$(RimWorldManagedDir)\Assembly-CSharp.dll" Private="false" />
+    <Reference Include="$(HarmonyAssembliesDir)\0Harmony.dll" Private="false" Condition="'$(HarmonyAssembliesDir)' != ''" />
+  </ItemGroup>
+
+  <Target Name="ReportRimWorldMissing" BeforeTargets="Build" Condition="'$(RimWorldAvailable)' != 'true'">
+    <Message Importance="high" Text="RimChronicles.Game: RimWorldManagedDir not set or not found; building without game sources." />
+  </Target>
+
+  <!-- Copy mod DLLs (Llm, Core, Game) into the RimWorld per-version folder. Harmony and game DLLs are excluded. -->
+  <Target Name="CopyToModFolder" AfterTargets="Build" Condition="'$(RimWorldAvailable)' == 'true'">
+    <ItemGroup>
+      <ModAssemblies Include="$(OutDir)RimChronicles.*.dll" />
+    </ItemGroup>
+    <Copy SourceFiles="@(ModAssemblies)" DestinationFolder="$(ModOutputDir)" SkipUnchangedFiles="true" />
+  </Target>
+</Project>

@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- LLM client, prompt loading, validator, template fallbacks. BCL only: no RimWorld, no NuGet packages. -->
+  <ItemGroup>
+    <InternalsVisibleTo Include="RimChronicles.Tests" />
+  </ItemGroup>
+</Project>
