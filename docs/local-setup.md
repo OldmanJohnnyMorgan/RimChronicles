@@ -1,6 +1,6 @@
 # Local machine setup
 
-This sets up a Windows PC to run the Rim Chronicles model evaluation: the GPU driver, the tools, the code, the model servers and the API key. It ends with a check that tells you everything is ready. After that, `docs/stage0-runbook.md` covers running the evaluation itself.
+This sets up a Windows PC to run the Rim Chronicles model evaluation: the GPU driver, the tools, the code, Ollama with its models, and the API key. It ends with a check that tells you everything is ready. After that, `docs/stage0-runbook.md` covers running the evaluation itself.
 
 Allow about an hour, plus download time. Every command here is for **PowerShell** (Start menu → "Terminal" or "PowerShell"). When a step says *open a new terminal*, close the window and open a fresh one, so it picks up newly installed programs and settings.
 
@@ -11,7 +11,7 @@ Allow about an hour, plus download time. Every command here is for **PowerShell*
 | Windows | 10 or 11, 64-bit |
 | GPU | NVIDIA RTX 5060 Ti, 16 GB (the reference card) |
 | Memory | 16 GB RAM at least; 32 GB is more comfortable |
-| Disk | About 45 GB free: roughly 30 GB for the models, the rest for tools and the optional Raon-1 nano build |
+| Disk | About 35 GB free, mostly for the models (roughly 30 GB) |
 | Accounts | Access to the `OldmanJohnnyMorgan/RimChronicles` repo on GitHub, and the Anthropic API key |
 
 ## 1. GPU driver
@@ -68,7 +68,7 @@ The tests should all pass, and `validate` should end with `OK`. If either fails,
 
 ## 4. Ollama
 
-Ollama runs six of the eight models.
+Ollama runs all six local models. The seventh, the Claude reference, runs in the cloud.
 
 **Settings.** Two settings matter for fair results:
 
@@ -112,9 +112,51 @@ ollama ps
 
 The `PROCESSOR` column should say `100% GPU`. If it shows any CPU share, see Troubleshooting.
 
-## 5. Raon-1 nano (optional)
+## 5. API key
 
-Raon-1 nano only runs on Krafton's fork of llama.cpp, which you build yourself. It's the Minimum-tier candidate built for game characters, so it's worth testing, but the evaluation works without it. To skip it, go to step 6; the box at the end of this step shows how to leave it out of runs.
+The judge and the Claude reference model use the Anthropic API key. Store it as a user environment variable named `RIMCHRONICLES_ANTHROPIC_API_KEY`:
+
+```powershell
+[Environment]::SetEnvironmentVariable("RIMCHRONICLES_ANTHROPIC_API_KEY", (Read-Host "Paste the key"), "User")
+```
+
+Don't use the name `ANTHROPIC_API_KEY`. Claude Code reads that name too, and it would stop using your claude.ai sign-in.
+
+Open a new terminal and check it's set, without printing it:
+
+```powershell
+if ($env:RIMCHRONICLES_ANTHROPIC_API_KEY) { "set" } else { "missing" }
+```
+
+## 6. Final check
+
+With Ollama running:
+
+```powershell
+cd C:\dev\RimChronicles
+dotnet run --project harness/RimChronicles.Eval -- check
+```
+
+`check` makes two small calls per model and prints a table with each model's server, quantization, VRAM and test calls. It costs a few cents for the two Claude calls.
+
+- It ends with **Ready** when every model answered. Read any `WARNING` lines (`docs/stage0-runbook.md` explains each one), then go on to the runbook.
+- Every `PROBLEM` line needs fixing first. Troubleshooting below covers the usual ones.
+
+Send me the full output of `check` the first time you run it. It's the quickest way to catch a wrong model name or a thinking setting the server ignores.
+
+## Troubleshooting
+
+| What you see | What to do |
+| --- | --- |
+| `dotnet`, `git` or `ollama` is not recognised | Open a new terminal. If it still fails, rerun that tool's install. |
+| `No answer from http://localhost:11434` | Ollama isn't running: start it from the Start menu. |
+| `model '…' is not on the server` | Pull it (step 4), or set `"model"` in `harness/models.json` to the name `check` lists as similar. |
+| `ollama ps` shows CPU, or `check` warns *runs on the CPU* | Close other programs using the GPU (games, browsers with many tabs), make sure the driver is current, and restart Ollama. If one model still doesn't fit, pull a smaller quantization of it. |
+| `check` says the key variable is not set | Redo step 5, then open a new terminal. |
+
+## Later: Raon-1 nano
+
+Raon-1 nano is not part of the current evaluation. These steps are kept for when we test it. It only runs on Krafton's fork of llama.cpp, which you build yourself (until llama.cpp PR #32200 merges and Ollama can run it).
 
 **Build tools** (about 10 GB):
 
@@ -150,50 +192,10 @@ Leave this window open whenever you run the evaluation. In another terminal, che
 curl.exe http://localhost:8081/v1/models
 ```
 
-> **Skipping Raon-1 nano?** Pass the other seven models explicitly whenever you run `check` or `run`:
-> `--models qwen3.5-2b,gemma4-e2b,qwen3.5-4b,gemma4-e4b,gemma4-12b,qwen3-14b,claude-ref`
-
-## 6. API key
-
-The judge and the Claude reference model use the Anthropic API key. Store it as a user environment variable named `RIMCHRONICLES_ANTHROPIC_API_KEY`:
-
-```powershell
-[Environment]::SetEnvironmentVariable("RIMCHRONICLES_ANTHROPIC_API_KEY", (Read-Host "Paste the key"), "User")
-```
-
-Don't use the name `ANTHROPIC_API_KEY`. Claude Code reads that name too, and it would stop using your claude.ai sign-in.
-
-Open a new terminal and check it's set, without printing it:
-
-```powershell
-if ($env:RIMCHRONICLES_ANTHROPIC_API_KEY) { "set" } else { "missing" }
-```
-
-## 7. Final check
-
-With Ollama running (and the Raon-1 nano server, if you set it up):
-
-```powershell
-cd C:\dev\RimChronicles
-dotnet run --project harness/RimChronicles.Eval -- check
-```
-
-`check` makes two small calls per model and prints a table with each model's server, quantization, VRAM and test calls. It costs a few cents for the two Claude calls.
-
-- It ends with **Ready** when every model answered. Read any `WARNING` lines (`docs/stage0-runbook.md` explains each one), then go on to the runbook.
-- Every `PROBLEM` line needs fixing first. Troubleshooting below covers the usual ones.
-
-Send me the full output of `check` the first time you run it. It's the quickest way to catch a wrong model name or a thinking setting the server ignores.
-
-## Troubleshooting
+**Add it to the evaluation.** Put its entry back into `"models"` in `harness/models.json` (the comment at the top of that file has it), then run `check` with the server running.
 
 | What you see | What to do |
 | --- | --- |
-| `dotnet`, `git` or `ollama` is not recognised | Open a new terminal. If it still fails, rerun that tool's install. |
-| `No answer from http://localhost:11434` | Ollama isn't running: start it from the Start menu. |
-| `No answer from http://localhost:8081` | The Raon-1 nano server isn't running, or you're skipping it: start it, or use the `--models` list from step 5. |
-| `model '…' is not on the server` | Pull it (step 4), or set `"model"` in `harness/models.json` to the name `check` lists as similar. |
-| `ollama ps` shows CPU, or `check` warns *runs on the CPU* | Close other programs using the GPU (games, browsers with many tabs), make sure the driver is current, and restart Ollama. If one model still doesn't fit, pull a smaller quantization of it. |
-| Port 8081 is already in use | Start the Raon-1 nano server with another `--port`, and change its `"endpoint"` in `harness/models.json` to match. |
-| The CUDA build fails | Check the CUDA Toolkit is 12.8 or newer and that the C++ workload is installed, then build again from a new terminal. Send me the first error lines if it still fails. |
-| `check` says the key variable is not set | Redo step 6, then open a new terminal. |
+| `No answer from http://localhost:8081` | The Raon-1 nano server isn't running: start it as above. |
+| Port 8081 is already in use | Start the server with another `--port`, and change its `"endpoint"` in `harness/models.json` to match. |
+| The CUDA build fails | Check the CUDA Toolkit is 12.8 or newer and that the C++ workload is installed, then build again from a new terminal. |

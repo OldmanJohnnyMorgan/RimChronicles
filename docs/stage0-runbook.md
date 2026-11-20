@@ -6,7 +6,7 @@ Commands are for PowerShell on Windows. On Linux the commands are the same apart
 
 ## 1. One-time setup
 
-Follow `docs/local-setup.md` first. It installs the driver, tools, code, Ollama and its models, the optional Raon-1 nano server and the API key, and ends with the same `check` as step 2.
+Follow `docs/local-setup.md` first. It installs the driver, tools, code, Ollama and its models and the API key, and ends with the same `check` as step 2.
 
 ## 2. Preflight check
 
@@ -38,7 +38,7 @@ Open the `summary.html` it prints at the end and check that every model produced
 dotnet run --project harness/RimChronicles.Eval -- run --judge
 ```
 
-This is 20 snapshots, 3 repeats and 8 models: about 1,500 outputs. The judge reads about 550 of them (bulletins and handoff scenes). The Claude reference and the judge together should cost roughly $5–15.
+This is 20 snapshots, 3 repeats and 7 models (six local, plus the Claude reference): about 1,300 outputs. The judge reads about 480 of them (bulletins and handoff scenes). The Claude reference and the judge together should cost roughly $5–15.
 
 - **Safe to interrupt.** Ctrl+C stops the run; every finished answer is cached, so running the same command again carries on where it stopped.
 - **Don't game during the run.** Other programs on the GPU change the latency numbers and the VRAM readings.

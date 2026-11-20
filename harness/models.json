@@ -5,14 +5,14 @@
 //  - the Ollama tags below with `ollama list` (they are the expected names, not yet confirmed);
 //  - that each server honours the thinkingOffBody fields. Ollama's OpenAI-compatible endpoint and llama.cpp
 //    take different fields; the director's thinking is switched off so its 300-token cap isn't used up by reasoning.
+//
+// Raon-1 nano is left out of the current evaluation (decided 2026-11-20). To test it later, set up its server
+// (docs/local-setup.md, "Later: Raon-1 nano") and add this entry back to "models":
+//   { "id": "raon-1-nano", "tier": "Minimum", "provider": "OpenAi",
+//     "endpoint": "http://localhost:8081", "model": "raon-1-nano", "supportsGrammar": true },
 {
   "repeats": 3,
   "models": [
-    {
-      "id": "raon-1-nano", "tier": "Minimum", "provider": "OpenAi",
-      "endpoint": "http://localhost:8081", "model": "raon-1-nano",
-      "supportsGrammar": true
-    },
     {
       "id": "qwen3.5-2b", "tier": "Minimum", "provider": "OpenAi",
       "endpoint": "http://localhost:11434", "model": "qwen3.5:2b",
