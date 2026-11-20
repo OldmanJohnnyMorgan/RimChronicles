@@ -1,0 +1,8 @@
+// Smoke-test config: deterministic fake models, no server needed. Used by CI.
+{
+  "repeats": 1,
+  "models": [
+    { "id": "stub-min", "tier": "Minimum", "provider": "Stub" },
+    { "id": "stub-nogrammar", "tier": "Recommended", "provider": "Stub", "supportsGrammar": false }
+  ]
+}

@@ -20,3 +20,6 @@ jobs:
         run: dotnet build RimChronicles.slnx --no-restore -c Release
       - name: Test
         run: dotnet test RimChronicles.slnx --no-build -c Release
+      # Snapshots, prompts and harness/models.json must stay consistent.
+      - name: Validate eval data
+        run: dotnet run --project harness/RimChronicles.Eval --no-build -c Release -- validate
