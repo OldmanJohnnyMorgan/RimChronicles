@@ -21,7 +21,7 @@ dotnet run --project harness/RimChronicles.Eval -- report latest --compare <runI
 dotnet run --project harness/RimChronicles.Eval -- spotcheck latest # blind 10% sample to hand-score; run again to score agreement
 ```
 
-The real evaluation runs on the reference PC, not in the codespace: see `docs/stage0-runbook.md`.
+The real evaluation runs on the reference PC, not in the codespace: set the PC up with `docs/local-setup.md`, then follow `docs/stage0-runbook.md`.
 
 Run output goes to `results/<runId>/` (`results.csv`, `summary.csv`, `run.json`, `raw/`, and after judging `judge.csv`, `judgments/`, plus `summary.html`). Pass bars live in `harness/passbars.json`; responses are cached in `results/cache/`, keyed by model settings, the full request and the repeat number. Both are git-ignored.
 

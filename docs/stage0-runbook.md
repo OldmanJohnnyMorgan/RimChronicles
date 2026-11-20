@@ -6,37 +6,7 @@ Commands are for PowerShell on Windows. On Linux the commands are the same apart
 
 ## 1. One-time setup
 
-1. **Install the .NET 10 SDK**: `winget install Microsoft.DotNet.SDK.10`, then open a new terminal and check that `dotnet --version` prints 10.x.
-2. **Clone the repo** and build it:
-   ```powershell
-   git clone https://github.com/OldmanJohnnyMorgan/RimChronicles.git
-   cd RimChronicles
-   dotnet build RimChronicles.slnx
-   dotnet run --project harness/RimChronicles.Eval -- validate
-   ```
-3. **Install Ollama** from ollama.com. Tell it to keep only one model in memory at a time, so each model's VRAM reading is its own. In PowerShell, run this, then quit and restart Ollama:
-   ```powershell
-   [Environment]::SetEnvironmentVariable("OLLAMA_MAX_LOADED_MODELS", "1", "User")
-   ```
-4. **Pull the models** named in `harness/models.json`:
-   ```powershell
-   ollama pull qwen3.5:2b
-   ollama pull gemma4:e2b
-   ollama pull qwen3.5:4b
-   ollama pull gemma4:e4b
-   ollama pull gemma4:12b
-   ollama pull qwen3:14b
-   ```
-   These names are our best guess. If a pull fails, find the model's exact name on ollama.com/library, pull that, and change the `"model"` value in `harness/models.json` to match.
-5. **Raon-1 nano (optional, Minimum tier)**: build Krafton's llama.cpp fork by following its README, then start its server on port 8081 with the whole model on the GPU:
-   ```powershell
-   llama-server -m <path to raon-1-nano .gguf> --port 8081 -ngl 99
-   ```
-   Leave that window open while the run goes. To skip Raon-1 nano, leave it out of `--models` in the commands below.
-6. **API key for the judge and the Claude reference**: store it under `RIMCHRONICLES_ANTHROPIC_API_KEY`, then open a new terminal. Never use the name `ANTHROPIC_API_KEY`, because Claude Code reads that name too.
-   ```powershell
-   [Environment]::SetEnvironmentVariable("RIMCHRONICLES_ANTHROPIC_API_KEY", (Read-Host "Paste the key"), "User")
-   ```
+Follow `docs/local-setup.md` first. It installs the driver, tools, code, Ollama and its models, the optional Raon-1 nano server and the API key, and ends with the same `check` as step 2.
 
 ## 2. Preflight check
 
