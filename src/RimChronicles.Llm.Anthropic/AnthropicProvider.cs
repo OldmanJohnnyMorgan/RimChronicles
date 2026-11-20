@@ -16,7 +16,7 @@ public sealed record AnthropicOptions
 
     public string Model { get; init; } = "claude-opus-5-5";
 
-    /// <summary>API key; null reads ANTHROPIC_API_KEY (or another configured credential) from the environment.</summary>
+    /// <summary>API key; null lets the SDK find a credential itself (ANTHROPIC_API_KEY and the like). The harness always passes one.</summary>
     public string? ApiKey { get; init; }
 
     /// <summary>Effort for <see cref="ThinkingMode.Default"/>: "low", "medium", "high", "xhigh" or "max".

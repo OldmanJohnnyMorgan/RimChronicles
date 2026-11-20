@@ -13,7 +13,8 @@ public static class ProviderFactory
     public static IChatProvider Create(ModelConfig m)
     {
         var apiKey = m.ApiKeyEnv is { } env ? Environment.GetEnvironmentVariable(env) : null;
-        if (m.ApiKeyEnv is not null && string.IsNullOrEmpty(apiKey) && m.Provider == ProviderKind.OpenAi)
+        // Fail clearly rather than letting the Anthropic SDK fall back to other credentials.
+        if (m.ApiKeyEnv is not null && string.IsNullOrEmpty(apiKey) && m.Provider != ProviderKind.Stub)
         {
             throw new InvalidOperationException($"{m.Id}: environment variable {m.ApiKeyEnv} is not set.");
         }
