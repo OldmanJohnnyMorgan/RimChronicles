@@ -1,5 +1,7 @@
 using RimChronicles.Eval.Judging;
+using System.Text.Json.Nodes;
 using RimChronicles.Eval.Running;
+using RimChronicles.Eval.Servers;
 
 namespace RimChronicles.Eval.Reporting;
 
@@ -42,6 +44,9 @@ public sealed record ReportRow(SummaryRow Metrics, JudgeStats? Judge, TaskBars B
 /// <summary>A run loaded from its folder, with everything the report needs.</summary>
 public sealed record RunData(string RunId, string Folder, IReadOnlyList<CellResult> Cells, IReadOnlyList<JudgeRow> Judgments, IReadOnlyList<ReportRow> Rows)
 {
+    /// <summary>Server, quantization and VRAM per model, from run.json (empty for older runs).</summary>
+    public IReadOnlyDictionary<string, ServerInfo> Environment { get; init; } = new Dictionary<string, ServerInfo>();
+
     public bool HasJudge => Judgments.Count > 0;
 
     public static RunData Load(string folder, PassBars bars)
@@ -49,7 +54,10 @@ public sealed record RunData(string RunId, string Folder, IReadOnlyList<CellResu
         var cells = ResultFiles.ReadResultsCsv(Path.Combine(folder, "results.csv"));
         var judgePath = Path.Combine(folder, "judge.csv");
         var judgments = File.Exists(judgePath) ? JudgeFiles.Read(judgePath) : [];
-        return new RunData(Path.GetFileName(Path.TrimEndingDirectorySeparator(folder)), folder, cells, judgments, Build(cells, judgments, bars));
+        return new RunData(Path.GetFileName(Path.TrimEndingDirectorySeparator(folder)), folder, cells, judgments, Build(cells, judgments, bars))
+        {
+            Environment = LoadEnvironment(Path.Combine(folder, "run.json")),
+        };
     }
 
     public static IReadOnlyList<ReportRow> Build(IReadOnlyList<CellResult> cells, IReadOnlyList<JudgeRow> judgments, PassBars bars)
@@ -63,6 +71,16 @@ public sealed record RunData(string RunId, string Folder, IReadOnlyList<CellResu
                 .ToList();
             return new ReportRow(m, group.Count == 0 ? null : Stats(group), bars.For(m.Task));
         }).ToList();
+    }
+
+    private static IReadOnlyDictionary<string, ServerInfo> LoadEnvironment(string runJson)
+    {
+        if (!File.Exists(runJson) || JsonNode.Parse(File.ReadAllText(runJson))?["environment"] is not JsonObject env)
+        {
+            return new Dictionary<string, ServerInfo>();
+        }
+
+        return env.ToDictionary(kv => kv.Key, kv => ServerInfo.FromJson(kv.Key, kv.Value), StringComparer.Ordinal);
     }
 
     private static JudgeStats Stats(IReadOnlyList<JudgeRow> rows)

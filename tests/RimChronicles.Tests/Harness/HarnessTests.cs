@@ -55,7 +55,8 @@ public sealed class HarnessConfigTests : IDisposable
     {
         var config = HarnessConfig.Load(Repo.Path("harness", "models.json"));
 
-        Assert.Equal(8, config.Models.Count);
+        Assert.Equal(7, config.Models.Count);
+        Assert.DoesNotContain(config.Models, m => m.Id == "raon-1-nano"); // deferred; see the comment in models.json
         Assert.Equal(["Minimum", "Recommended", "High", "Reference"], config.Models.Select(m => m.Tier).Distinct());
         Assert.Equal(ThinkingMode.Off, config.Models.Single(m => m.Id == "qwen3.5-4b").ThinkingFor("director"));
         Assert.Equal(ThinkingMode.Default, config.Models.Single(m => m.Id == "qwen3.5-4b").ThinkingFor("news-bulletin"));

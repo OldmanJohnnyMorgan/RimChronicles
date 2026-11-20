@@ -1,0 +1,6 @@
+# Keep LF line endings on every platform. Prompt files are sent to the models byte for byte (and are part of the
+# response cache key), so Git for Windows must not convert them to CRLF.
+* text=auto eol=lf
+
+*.png binary
+*.gguf binary

@@ -6,6 +6,7 @@ using System.Text.Json.Nodes;
 using RimChronicles.Core.Snapshots;
 using RimChronicles.Eval.Config;
 using RimChronicles.Eval.Providers;
+using RimChronicles.Eval.Servers;
 using RimChronicles.Eval.Tasks;
 using RimChronicles.Llm.Chat;
 using RimChronicles.Llm.Prompts;
@@ -43,6 +44,8 @@ public static class Runner
         var indexOf = cells.Select((c, i) => (c.Id, i)).ToDictionary(x => x.Id, x => x.i, StringComparer.Ordinal);
         var done = 0;
         var logLock = new object();
+        var environment = new Dictionary<string, ServerInfo>(StringComparer.Ordinal);
+        var probe = o.Probe ?? ((m, token) => ServerProbe.ProbeAsync(m, token));
 
         foreach (var group in cells.GroupBy(c => c.Model.Id))
         {
@@ -76,6 +79,14 @@ public static class Runner
             });
 
             await Task.WhenAll(tasks).ConfigureAwait(false);
+
+            // While the model is still loaded: what the server says it is, its quantization and its VRAM use.
+            var info = await probe(model, ct).ConfigureAwait(false);
+            environment[model.Id] = info;
+            if (info.Quantization is not null || info.VramBytes is not null)
+            {
+                log.WriteLine($"{model.Id}: {info.ServerKind} {info.ServerVersion}, {info.Quantization ?? "?"}, VRAM {ServerProbe.FormatGb(info.VramBytes)}{(info.PartlyOnCpu ? " (partly on CPU)" : "")}");
+            }
         }
 
         // Stable order regardless of completion order.
@@ -84,7 +95,7 @@ public static class Runner
         ResultFiles.WriteResultsCsv(Path.Combine(folder, "results.csv"), ordered);
         var summary = Summary.Build(ordered);
         Summary.WriteCsv(Path.Combine(folder, "summary.csv"), summary);
-        WriteRunJson(folder, o, library, runId, started, ordered.Count, stats);
+        WriteRunJson(folder, o, library, runId, started, ordered.Count, stats, environment);
 
         log.WriteLine();
         Summary.Print(summary, log);
@@ -177,7 +188,7 @@ public static class Runner
     };
 
     private static void WriteRunJson(string folder, RunOptions o, PromptLibrary library, string runId,
-        DateTimeOffset started, int cellCount, CacheStats stats)
+        DateTimeOffset started, int cellCount, CacheStats stats, IReadOnlyDictionary<string, ServerInfo> environment)
     {
         var (commit, dirty) = GitInfo();
         var run = new JsonObject
@@ -198,6 +209,7 @@ public static class Runner
             ["cells"] = cellCount,
             ["cacheHits"] = stats.Hits,
             ["cacheMisses"] = stats.Misses,
+            ["environment"] = new JsonObject(environment.Select(kv => KeyValuePair.Create(kv.Key, (JsonNode?)kv.Value.ToJson()))),
         };
         File.WriteAllText(Path.Combine(folder, "run.json"), run.ToJsonString(Indented));
     }

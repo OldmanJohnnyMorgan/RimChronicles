@@ -31,6 +31,9 @@ public sealed record RunOptions
 
     /// <summary>Replaces <see cref="Providers.ProviderFactory.Create"/>, for tests.</summary>
     public Func<ModelConfig, IChatProvider>? ProviderFactory { get; init; }
+
+    /// <summary>Replaces <see cref="Servers.ServerProbe.ProbeAsync"/>, for tests.</summary>
+    public Func<ModelConfig, CancellationToken, Task<Servers.ServerInfo>>? Probe { get; init; }
 }
 
 /// <summary>One unit of work: a model, a task, a snapshot, a grammar mode and a repeat.</summary>
