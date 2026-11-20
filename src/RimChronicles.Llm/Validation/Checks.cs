@@ -1,0 +1,145 @@
+using System.Text.Json;
+using System.Text.Json.Nodes;
+using System.Text.RegularExpressions;
+
+namespace RimChronicles.Llm.Validation;
+
+/// <summary>The output must be JSON matching a schema.</summary>
+public sealed class JsonSchemaCheck(JsonObject schema) : IOutputCheck
+{
+    public string Name => "json-schema";
+
+    public CheckResult Check(string output)
+    {
+        var node = JsonText.TryParse(output, out var error);
+        return error is not null ? CheckResult.Fail(error) : CheckResult.From(JsonSchemaValidator.Validate(node, schema));
+    }
+}
+
+/// <summary>A string field of the JSON output must be one of the allowed options (e.g. the director's "choice").</summary>
+public sealed class AllowedChoiceCheck(string field, IReadOnlyCollection<string> allowed) : IOutputCheck
+{
+    public string Name => "allowed-choice";
+
+    public CheckResult Check(string output)
+    {
+        var node = JsonText.TryParse(output, out var error);
+        if (error is not null)
+        {
+            return CheckResult.Fail(error);
+        }
+
+        var value = node is JsonObject obj && obj[field] is JsonValue v && v.GetValueKind() == JsonValueKind.String ? v.GetValue<string>() : null;
+        return value is not null && allowed.Contains(value)
+            ? CheckResult.Pass
+            : CheckResult.Fail($"\"{field}\" must be exactly one of: {string.Join(", ", allowed)}");
+    }
+}
+
+/// <summary>The word count must be inside a range.</summary>
+public sealed partial class WordCountCheck(int min, int max) : IOutputCheck
+{
+    [GeneratedRegex(@"\S+")]
+    private static partial Regex Word();
+
+    public string Name => "word-count";
+
+    public static int Count(string text) => Word().Count(text);
+
+    public CheckResult Check(string output)
+    {
+        var count = Count(output);
+        return count >= min && count <= max
+            ? CheckResult.Pass
+            : CheckResult.Fail($"Use {min}-{max} words; this has {count}");
+    }
+}
+
+/// <summary>
+/// Cheap grounding heuristic: every capitalised word that isn't the first word of a sentence must come from
+/// the allowed names (the digest's people, places and factions) or the stock vocabulary. Words at the start of a
+/// sentence are skipped, so this misses some invented names; the harness judge is the real fact check.
+/// </summary>
+public sealed partial class GroundingCheck : IOutputCheck
+{
+    [GeneratedRegex(@"(?<start>^|[.!?:;""“”]\s+|\n\s*)?(?<word>\p{Lu}[\p{L}'’\-]*)")]
+    private static partial Regex CapitalisedWord();
+
+    private readonly HashSet<string> _allowedWords;
+
+    public GroundingCheck(IEnumerable<string> allowedNames, IEnumerable<string>? stockVocabulary = null)
+    {
+        _allowedWords = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        foreach (var phrase in allowedNames.Concat(stockVocabulary ?? DefaultStockVocabulary))
+        {
+            foreach (var word in phrase.Split([' ', '-'], StringSplitOptions.RemoveEmptyEntries))
+            {
+                _allowedWords.Add(Normalise(word));
+            }
+        }
+    }
+
+    /// <summary>Words that may appear capitalised in any bulletin: calendar, titles and common in-world terms.</summary>
+    public static readonly IReadOnlyList<string> DefaultStockVocabulary =
+    [
+        "I", "Rim", "Dispatch", "Aprimay", "Jugust", "Septober", "Decembary",
+        "Spring", "Summer", "Fall", "Winter", "Empire", "Imperial", "Imperials",
+        "Lord", "Lady", "Sir", "Captain", "Commander", "Knight", "Count", "Baron", "Duke", "Stellarch",
+        "Monday", "News", "Week", "Day", "Quadrum",
+    ];
+
+    public string Name => "grounding";
+
+    public IReadOnlyList<string> FindUnknownNames(string output) =>
+        CapitalisedWord().Matches(output)
+            .Where(m => !m.Groups["start"].Success)
+            .Select(m => Normalise(m.Groups["word"].Value))
+            .Where(w => w.Length > 1 && !_allowedWords.Contains(w))
+            .Distinct(StringComparer.OrdinalIgnoreCase)
+            .ToList();
+
+    public CheckResult Check(string output)
+    {
+        var unknown = FindUnknownNames(output);
+        return unknown.Count == 0
+            ? CheckResult.Pass
+            : CheckResult.Fail($"Do not mention names that are not in the briefing: {string.Join(", ", unknown)}");
+    }
+
+    private static string Normalise(string word)
+    {
+        var trimmed = word.Trim('\'', '’', '‘', '"', '“', '”', '-', ',', '.', '(', ')');
+        foreach (var possessive in (string[])["'s", "’s"])
+        {
+            if (trimmed.EndsWith(possessive, StringComparison.Ordinal))
+            {
+                trimmed = trimmed[..^possessive.Length];
+            }
+        }
+
+        return trimmed;
+    }
+}
+
+/// <summary>The output must not contain meta-text that breaks the fiction.</summary>
+public sealed class BannedPhraseCheck(IEnumerable<string>? phrases = null) : IOutputCheck
+{
+    public static readonly IReadOnlyList<string> DefaultPhrases =
+    [
+        "as an ai", "language model", "here is the", "here's the", "i hope this", "certainly!", "sure!",
+        "word count", "bulletin:", "as requested",
+    ];
+
+    private readonly IReadOnlyList<string> _phrases = (phrases ?? DefaultPhrases).ToList();
+
+    public string Name => "banned-phrase";
+
+    public CheckResult Check(string output)
+    {
+        var lower = output.ToLowerInvariant();
+        var found = _phrases.Where(p => lower.Contains(p, StringComparison.Ordinal)).ToList();
+        return found.Count == 0
+            ? CheckResult.Pass
+            : CheckResult.Fail($"Write only the in-world text, without phrases like: {string.Join(", ", found.Select(p => $"\"{p}\""))}");
+    }
+}
