@@ -11,7 +11,12 @@ RimWorld 1.7 mod adding a story mode narrated by a local LLM.
 dotnet build RimChronicles.slnx          # builds everything; Game builds empty without a RimWorld install
 dotnet test RimChronicles.slnx           # Llm, Core and harness tests; no RimWorld or GPU needed
 dotnet run --project harness/RimChronicles.Eval -- --help   # Stage 0 eval harness (rimchron-eval)
+dotnet run --project harness/RimChronicles.Eval -- validate  # snapshots, prompts and models.json agree
+dotnet run --project harness/RimChronicles.Eval -- run --config harness/models.stub.json   # smoke run, no server
+dotnet run --project harness/RimChronicles.Eval -- run --models qwen3.5-4b --tasks director  # real run (needs the server)
 ```
+
+Run output goes to `results/<runId>/` (`results.csv`, `summary.csv`, `run.json`, `raw/`); responses are cached in `results/cache/`, keyed by model settings, the full request and the repeat number. Both are git-ignored.
 
 Summarizer golden files live in `tests/RimChronicles.Tests/Golden/`. After an intended change to prompt text, run `UPDATE_GOLDEN=1 dotnet test`, then review the diff before committing.
 
