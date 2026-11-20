@@ -1,0 +1,25 @@
+// Pass bars from the design spec's Stage 0 scoring table. The report marks each metric pass or fail against these.
+// Latency bars apply to local tiers only (the spec measures them on the reference GPU).
+{
+  "director": {
+    "jsonValidGrammarOn": 1.0,
+    "jsonValidGrammarOff": 0.95,
+    "choiceAllowed": 1.0,
+    "medianLatencySeconds": 10,
+    "latencyTiers": ["Minimum", "Recommended", "High"]
+  },
+  "news-bulletin": {
+    "inventedPer10": 1.0,
+    "overall": 3.5,
+    "overallTiers": ["Recommended"],
+    "lengthOk": 0.9,
+    "medianLatencySeconds": 20,
+    "latencyTiers": ["Minimum", "Recommended", "High"]
+  },
+  "inheritance-handoff": {
+    "inventedPer10": 1.0,
+    "overall": 3.5,
+    "overallTiers": ["Recommended"],
+    "lengthOk": 0.9
+  }
+}

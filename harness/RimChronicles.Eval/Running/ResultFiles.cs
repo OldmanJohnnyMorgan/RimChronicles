@@ -3,7 +3,7 @@ using System.Text;
 
 namespace RimChronicles.Eval.Running;
 
-/// <summary>Writes results.csv: one row per cell.</summary>
+/// <summary>Writes and reads results.csv: one row per cell.</summary>
 public static class ResultFiles
 {
     private static readonly string[] Header =
@@ -32,6 +32,41 @@ public static class ResultFiles
 
         File.WriteAllText(path, sb.ToString());
     }
+
+    /// <summary>Reads results.csv back. The output text is not in the CSV; read it from the raw file when needed.</summary>
+    public static IReadOnlyList<CellResult> ReadResultsCsv(string path)
+    {
+        var table = Csv.ReadTable(File.ReadAllText(path));
+        return table.Select(r => new CellResult
+        {
+            RunId = r["run_id"],
+            Model = r["model"],
+            Tier = r["tier"],
+            Task = r["task"],
+            Snapshot = r["snapshot"],
+            Grammar = r["grammar"],
+            Repeat = Csv.ParseInt(r["repeat"]) ?? 0,
+            PromptVersion = r["prompt_version"],
+            Outcome = r["outcome"],
+            Attempts = Csv.ParseInt(r["attempts"]) ?? 0,
+            FirstOk = Csv.ParseBool(r["first_ok"]) ?? false,
+            FirstError = Csv.NullIfEmpty(r["first_error"]),
+            PassedFirst = Csv.ParseBool(r["passed_first"]) ?? false,
+            JsonValid = Csv.ParseBool(r["json_valid"]),
+            ChoiceAllowed = Csv.ParseBool(r["choice_allowed"]),
+            WordCount = Csv.ParseInt(r["word_count"]),
+            LengthOk = Csv.ParseBool(r["length_ok"]),
+            UnknownNameCount = Csv.ParseInt(r["unknown_name_count"]),
+            UnknownNames = r["unknown_names"],
+            BannedPhrase = Csv.ParseBool(r["banned_phrase"]),
+            LatencySeconds = Csv.ParseDouble(r["latency_s"]),
+            TotalLatencySeconds = Csv.ParseDouble(r["total_latency_s"]) ?? 0,
+            InputTokens = Csv.ParseInt(r["input_tokens"]) ?? 0,
+            OutputTokens = Csv.ParseInt(r["output_tokens"]) ?? 0,
+            ReasoningTokens = Csv.ParseInt(r["reasoning_tokens"]),
+            RawFile = r["raw_file"],
+        }).ToList();
+    }
 }
 
 /// <summary>RFC 4180 CSV helpers with invariant number formatting.</summary>
@@ -57,4 +92,91 @@ public static class Csv
     public static string Num(int? n) => n?.ToString(CultureInfo.InvariantCulture) ?? "";
 
     public static string Num(double? d) => d?.ToString("0.###", CultureInfo.InvariantCulture) ?? "";
+
+    public static string? NullIfEmpty(string s) => s.Length == 0 ? null : s;
+
+    public static bool? ParseBool(string s) => s switch { "1" => true, "0" => false, _ => null };
+
+    public static int? ParseInt(string s) => int.TryParse(s, NumberStyles.Integer, CultureInfo.InvariantCulture, out var i) ? i : null;
+
+    public static double? ParseDouble(string s) => double.TryParse(s, NumberStyles.Float, CultureInfo.InvariantCulture, out var d) ? d : null;
+
+    /// <summary>Parses RFC 4180 text (quoted fields may hold commas, quotes and newlines) into rows of fields.</summary>
+    public static List<List<string>> Parse(string text)
+    {
+        var rows = new List<List<string>>();
+        var row = new List<string>();
+        var field = new StringBuilder();
+        var quoted = false;
+
+        for (var i = 0; i < text.Length; i++)
+        {
+            var c = text[i];
+            if (quoted)
+            {
+                if (c == '"' && i + 1 < text.Length && text[i + 1] == '"')
+                {
+                    field.Append('"');
+                    i++;
+                }
+                else if (c == '"')
+                {
+                    quoted = false;
+                }
+                else
+                {
+                    field.Append(c);
+                }
+            }
+            else if (c == '"')
+            {
+                quoted = true;
+            }
+            else if (c == ',')
+            {
+                row.Add(field.ToString());
+                field.Clear();
+            }
+            else if (c is '\n' or '\r')
+            {
+                if (c == '\r' && i + 1 < text.Length && text[i + 1] == '\n')
+                {
+                    i++;
+                }
+
+                row.Add(field.ToString());
+                field.Clear();
+                rows.Add(row);
+                row = [];
+            }
+            else
+            {
+                field.Append(c);
+            }
+        }
+
+        if (field.Length > 0 || row.Count > 0)
+        {
+            row.Add(field.ToString());
+            rows.Add(row);
+        }
+
+        return rows;
+    }
+
+    /// <summary>Parses CSV with a header row into dictionaries keyed by column name. Missing cells read as "".</summary>
+    public static List<Dictionary<string, string>> ReadTable(string text)
+    {
+        var rows = Parse(text);
+        if (rows.Count == 0)
+        {
+            return [];
+        }
+
+        var header = rows[0];
+        return rows.Skip(1)
+            .Where(r => r.Count > 1 || r is [{ Length: > 0 }])
+            .Select(r => header.Select((h, i) => (h, v: i < r.Count ? r[i] : "")).ToDictionary(x => x.h, x => x.v, StringComparer.Ordinal))
+            .ToList();
+    }
 }

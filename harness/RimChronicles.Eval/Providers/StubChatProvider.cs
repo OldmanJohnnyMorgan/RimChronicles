@@ -21,7 +21,11 @@ public sealed class StubChatProvider(string modelId) : IChatProvider
         Calls++;
 
         string text;
-        if (request.Schema is { } schema)
+        if (request.Schema?.Schema["properties"]?["inventedFacts"] is not null)
+        {
+            text = """{"inventedFacts":[],"voice":4,"clarity":4,"tone":4,"overall":4,"comment":"The stub judge approves of everything."}""";
+        }
+        else if (request.Schema is { } schema)
         {
             var choice = schema.Schema["properties"]?["choice"]?["enum"] is JsonArray { Count: > 0 } options
                 ? options[0]!.GetValue<string>()

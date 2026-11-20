@@ -14,9 +14,13 @@ dotnet run --project harness/RimChronicles.Eval -- --help   # Stage 0 eval harne
 dotnet run --project harness/RimChronicles.Eval -- validate  # snapshots, prompts and models.json agree
 dotnet run --project harness/RimChronicles.Eval -- run --config harness/models.stub.json   # smoke run, no server
 dotnet run --project harness/RimChronicles.Eval -- run --models qwen3.5-4b --tasks director  # real run (needs the server)
+dotnet run --project harness/RimChronicles.Eval -- run --judge     # generate, then judge prose with Claude (needs RIMCHRONICLES_ANTHROPIC_API_KEY)
+dotnet run --project harness/RimChronicles.Eval -- judge latest    # judge an existing run; rewrites summary.html
+dotnet run --project harness/RimChronicles.Eval -- report latest --compare <runId>   # rebuild summary.html with deltas
+dotnet run --project harness/RimChronicles.Eval -- spotcheck latest # blind 10% sample to hand-score; run again to score agreement
 ```
 
-Run output goes to `results/<runId>/` (`results.csv`, `summary.csv`, `run.json`, `raw/`); responses are cached in `results/cache/`, keyed by model settings, the full request and the repeat number. Both are git-ignored.
+Run output goes to `results/<runId>/` (`results.csv`, `summary.csv`, `run.json`, `raw/`, and after judging `judge.csv`, `judgments/`, plus `summary.html`). Pass bars live in `harness/passbars.json`; responses are cached in `results/cache/`, keyed by model settings, the full request and the repeat number. Both are git-ignored.
 
 Summarizer golden files live in `tests/RimChronicles.Tests/Golden/`. After an intended change to prompt text, run `UPDATE_GOLDEN=1 dotnet test`, then review the diff before committing.
 
@@ -50,4 +54,4 @@ Package versions are central in `Directory.Packages.props`. Llm, Core and Game m
 
 ## Secrets
 
-The judge and Claude reference read `ANTHROPIC_API_KEY` from the environment. Never commit keys or put them in `harness/models.json`.
+The judge and Claude reference read `RIMCHRONICLES_ANTHROPIC_API_KEY` (named by `apiKeyEnv` in `harness/models.json`), set as a Codespaces secret. Don't use `ANTHROPIC_API_KEY`: Claude Code reads that too, and it switches Claude Code off the claude.ai sign-in, which removes the claude.ai connectors. Never commit keys or put them in `harness/models.json`.
