@@ -12,6 +12,7 @@ dotnet build RimChronicles.slnx          # builds everything; Game builds empty 
 dotnet test RimChronicles.slnx           # Llm, Core and harness tests; no RimWorld or GPU needed
 dotnet run --project harness/RimChronicles.Eval -- --help   # Stage 0 eval harness (rimchron-eval)
 dotnet run --project harness/RimChronicles.Eval -- validate  # snapshots, prompts and models.json agree
+dotnet run --project harness/RimChronicles.Eval -- check     # preflight model servers: names, test calls, thinking off, VRAM
 dotnet run --project harness/RimChronicles.Eval -- run --config harness/models.stub.json   # smoke run, no server
 dotnet run --project harness/RimChronicles.Eval -- run --models qwen3.5-4b --tasks director  # real run (needs the server)
 dotnet run --project harness/RimChronicles.Eval -- run --judge     # generate, then judge prose with Claude (needs RIMCHRONICLES_ANTHROPIC_API_KEY)
@@ -19,6 +20,8 @@ dotnet run --project harness/RimChronicles.Eval -- judge latest    # judge an ex
 dotnet run --project harness/RimChronicles.Eval -- report latest --compare <runId>   # rebuild summary.html with deltas
 dotnet run --project harness/RimChronicles.Eval -- spotcheck latest # blind 10% sample to hand-score; run again to score agreement
 ```
+
+The real evaluation runs on the reference PC, not in the codespace: see `docs/stage0-runbook.md`.
 
 Run output goes to `results/<runId>/` (`results.csv`, `summary.csv`, `run.json`, `raw/`, and after judging `judge.csv`, `judgments/`, plus `summary.html`). Pass bars live in `harness/passbars.json`; responses are cached in `results/cache/`, keyed by model settings, the full request and the repeat number. Both are git-ignored.
 

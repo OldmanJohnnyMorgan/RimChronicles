@@ -10,6 +10,7 @@ const string usage = """
 
     Commands:
       validate              Check snapshots, prompts and the model config agree
+      check                 Preflight the model servers: names, a test call per task, thinking off, VRAM
       run                   Generate, cache and score outputs; writes results and summary.html
       judge <run>           Judge a run's prose outputs blind with the config's judge model; rewrites summary.html
       report <run>          Rebuild summary.html; --compare <run> adds deltas against an earlier run
@@ -34,6 +35,10 @@ const string usage = """
       --judge                  Judge the run straight after generating it
       --dry-run                List the cells without calling any model
 
+    check options:
+      --models a,b             Only these model ids
+      --vram-budget <GB>       Warn above this much VRAM per model (default 13, leaving room for RimWorld)
+
     spotcheck options:
       --rate <0-1>             Share of judged outputs to sample (default 0.1)
       --seed <n>               Sampling seed (default 1)
@@ -49,7 +54,7 @@ if (args.Length == 0 || args[0] is "-h" or "--help" or "help")
 var root = FindRepoRoot();
 var valueOptions = new HashSet<string>
 {
-    "config", "prompts", "snapshots-dir", "passbars", "models", "tasks", "snapshots", "repeats", "out", "cache", "compare", "rate", "seed",
+    "config", "prompts", "snapshots-dir", "passbars", "models", "tasks", "snapshots", "repeats", "out", "cache", "compare", "rate", "seed", "vram-budget",
 };
 var flags = new HashSet<string> { "no-cache", "dry-run", "judge", "resample" };
 
@@ -87,6 +92,14 @@ try
     {
         case "validate":
             return ValidateCommand.Run(snapshotsDir, Path.Combine(root, "harness", "schema", "snapshot.schema.json"), promptsRoot, configPath, Console.Out);
+
+        case "check":
+        {
+            var budget = cli.Get("vram-budget") is { } v ? double.Parse(v, System.Globalization.CultureInfo.InvariantCulture) : 13.0;
+            var checks = await RimChronicles.Eval.Servers.CheckCommand.RunAsync(HarnessConfig.Load(configPath), cli.List("models"),
+                promptsRoot, snapshotsDir, budget, Console.Out, cts.Token);
+            return checks.Any(c => c.Problems.Count > 0) ? 1 : 0;
+        }
 
         case "run":
         {

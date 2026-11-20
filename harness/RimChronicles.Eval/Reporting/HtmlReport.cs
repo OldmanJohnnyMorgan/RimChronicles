@@ -5,6 +5,7 @@ using System.Text.Json.Nodes;
 using RimChronicles.Core.Summaries;
 using RimChronicles.Eval.Judging;
 using RimChronicles.Eval.Running;
+using RimChronicles.Eval.Servers;
 
 namespace RimChronicles.Eval.Reporting;
 
@@ -84,7 +85,13 @@ public static class HtmlReport
     {
         var tasks = Tasks.Where(t => run.Rows.Any(r => r.Metrics.Task == t)).ToList();
         sb.Append("<section>\n<h2>At a glance</h2>\n<p>Whether each model meets every pass bar that applies to it, per task. Failing bars are named; details follow below.</p>\n");
+        var showEnv = run.Environment.Values.Any(e => e.Quantization is not null || e.VramBytes is not null);
         sb.Append("<div class=\"scroll\"><table>\n<thead><tr><th>Model</th><th>Tier</th>");
+        if (showEnv)
+        {
+            sb.Append("<th>Server</th><th>Quantization</th><th class=\"num\">VRAM</th>");
+        }
+
         foreach (var t in tasks)
         {
             sb.Append($"<th>{E(TaskTitles[t])}</th>");
@@ -94,6 +101,13 @@ public static class HtmlReport
         foreach (var model in run.Rows.GroupBy(r => (r.Metrics.Model, r.Metrics.Tier)))
         {
             sb.Append($"<tr><th scope=\"row\">{E(model.Key.Model)}</th><td>{E(model.Key.Tier)}</td>");
+            if (showEnv)
+            {
+                var env = run.Environment.GetValueOrDefault(model.Key.Model);
+                var vram = ServerProbe.FormatGb(env?.VramBytes) + (env?.PartlyOnCpu == true ? " (partly on CPU)" : "");
+                sb.Append($"<td>{E(env?.ServerKind ?? "–")}</td><td>{E(env?.Quantization ?? "–")}</td><td class=\"num\">{E(vram)}</td>");
+            }
+
             foreach (var t in tasks)
             {
                 var rows = model.Where(r => r.Metrics.Task == t).ToList();
