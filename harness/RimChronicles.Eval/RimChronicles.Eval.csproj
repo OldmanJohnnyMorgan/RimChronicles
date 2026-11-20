@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Stage 0 model evaluation harness (rimchron-eval). -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>rimchron-eval</AssemblyName>
+    <RootNamespace>RimChronicles.Eval</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\RimChronicles.Llm\RimChronicles.Llm.csproj" />
+    <ProjectReference Include="..\..\src\RimChronicles.Llm.Anthropic\RimChronicles.Llm.Anthropic.csproj" />
+    <ProjectReference Include="..\..\src\RimChronicles.Core\RimChronicles.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="RimChronicles.Tests" />
+  </ItemGroup>
+</Project>

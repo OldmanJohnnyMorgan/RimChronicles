@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/harness/">
+    <Project Path="harness/RimChronicles.Eval/RimChronicles.Eval.csproj" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/RimChronicles.Core/RimChronicles.Core.csproj" />
+    <Project Path="src/RimChronicles.Game/RimChronicles.Game.csproj" />
+    <Project Path="src/RimChronicles.Llm.Anthropic/RimChronicles.Llm.Anthropic.csproj" />
+    <Project Path="src/RimChronicles.Llm/RimChronicles.Llm.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/RimChronicles.Tests/RimChronicles.Tests.csproj" />
+  </Folder>
+</Solution>

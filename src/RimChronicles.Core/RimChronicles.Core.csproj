@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Snapshot model, summarizer, plot state machines, seed detectors, director. No RimWorld, no NuGet packages. -->
+  <ItemGroup>
+    <ProjectReference Include="..\RimChronicles.Llm\RimChronicles.Llm.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="RimChronicles.Tests" />
+  </ItemGroup>
+</Project>
