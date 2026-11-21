@@ -206,7 +206,12 @@ public sealed class ChoiceLetter_SilentPress : ChoiceLetter
 
             plot.SetFact(SilentPressArc.Answer, answer);
             plot.Note(GenDate.DaysPassed, answer == SilentPressArc.AnswerRefuse ? "the colony refused" : $"the colony paid {amount} silver");
-            plot.NextBeatDay = GenDate.DaysPassed; // act on it at the next daily check
+            if (answer != SilentPressArc.AnswerRefuse || !reoffer)
+            {
+                plot.NextBeatDay = GenDate.DaysPassed; // act on it at the next daily check
+            }
+
+            // Refusing a later offer keeps the 30-day wait before the next one.
         }
 
         Find.LetterStack.RemoveLetter(this);

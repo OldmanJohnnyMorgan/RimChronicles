@@ -131,3 +131,47 @@ before row 1, so you can reload to try each answer.
 | 8 | Recruit the reporter during a visit instead of killing them. | Silent Press starts the same way. After paying, a different reporter is assigned. |
 
 Send me pass or fail per row, and the first cold bulletin from row 5.
+
+## M6: the Stage 3 proof run
+
+One session for the stage's exit criteria: Nemesis end to end, including one inheritance; every beat and handoff forced
+from Dev Mode; arcs on templates with the model off. It also covers Silent Press (M5), which hasn't been played yet.
+Use a new colony with at least four colonists, including a married couple or a parent and child. Keep **Development
+mode** on, and the tier on **Recommended** unless a row says otherwise. Save at the start of each part.
+
+### A. Nemesis with an inheritance (model on)
+
+| # | Do | Pass when |
+| --- | --- | --- |
+| A1 | **Nemesis: force seed**. Make sure the protagonist is the married or parent colonist: reload and seed again if not. **Show plots**. | A `nemesis-N` plot at `Hook`, with facts including the pronouns. |
+| A2 | **Plot: advance beat** (the sighting). | A sighting letter, marked `(Model, plot-letter/v2)`, using the right pronouns. The sighting is in **Show news log**. |
+| A3 | **Plot: kill protagonist (by nemesis)**. | A handoff scene `(Model, inheritance-handoff/v3)` for the spouse or child. **Show plots**: the new protagonist, with the old one as the victim. |
+| A4 | **Plot: advance beat** (the raid). Kill the nemesis during it. | The raid letter names the old protagonist as the victim from the heir's side. When the nemesis dies: **<name> is dead**, the heir gains **avenged**, the plot ends `KilledByColony`, and the next bulletin mentions the raider's death. |
+
+### B. Nemesis on templates (model off)
+
+| # | Do | Pass when |
+| --- | --- | --- |
+| B1 | Pick **Off**. **Nemesis: force seed**, then **Plot: advance beat** through the sighting, the raid (let the nemesis escape), and the choice. **Post a bounty**, then advance once more. | Every letter arrives at once, marked `(Template)`. The bounty costs silver, then **the bounty is collected**, and the protagonist gains **score settled**. No red errors. |
+
+### C. Silent Press (model on)
+
+| # | Do | Pass when |
+| --- | --- | --- |
+| C1 | **Reporter: kill (by colony)**, then play a day. | No letter, and no bulletins from then on. **Show plots** has a `silentpress-N` plot. |
+| C2 | **Silent Press: advance** twice. | **A trader's remark**, then **A rumour on the road**. |
+| C3 | **Silent Press: advance**. Then **Haggle**, and play 2–5 days. | **an envoy** with three options. After haggling: **reparations accepted**, a small goodwill loss with the old reporter's faction, then a "new correspondent" letter. The next 3 bulletins are cool about the colony; after that the usual voice returns. |
+| C4 | Reload part C's save. Repeat C1–C3, but **Refuse**, then **Silent Press: advance**. | **silence**, and 20 goodwill lost. Then **an offer stands**, with **Pay** or **Refuse**. Refusing it again gives no new letter the next day: the next offer waits about 30 days. |
+
+### D. A natural Nemesis (optional, if a raid gives you one)
+
+| # | Do | Pass when |
+| --- | --- | --- |
+| D1 | A real raid in which a raider kills or maims a colonist and escapes, with no other plot started in the last 15 days. | A few days later, a plot starts on its own. Its sighting comes 2–5 days after that, without Dev Mode. |
+
+### E. Throughout
+
+- Save and reload in the middle of one arc: the plot, its facts and its next beat all survive.
+- At the end, the debug log has no red `[Rim Chronicles]` errors.
+
+Send me pass or fail per row, one model letter, the handoff scene, and the first cold bulletin.
