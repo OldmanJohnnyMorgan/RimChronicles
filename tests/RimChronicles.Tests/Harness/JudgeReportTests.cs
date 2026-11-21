@@ -143,16 +143,15 @@ public class PassBarsTests
     }
 
     [Fact]
-    public void ReportRow_HoldsMajorAndMinorInventedFactsToSeparateBars()
+    public void ReportRow_HoldsMajorInventedFactsToTheBarAndOnlyCountsMinorOnes()
     {
         var bars = PassBars.Load(Repo.Path("harness", "passbars.json")).For("news-bulletin");
-        var embellished = new ReportRow(Row("High"), new JudgeStats(10, 0, MajorPer10: 1, MinorPer10: 4, 3, 3, 3, 3), bars);
+        var embellished = new ReportRow(Row("High"), new JudgeStats(10, 0, MajorPer10: 1, MinorPer10: 30, 3, 3, 3, 3), bars);
         var invented = new ReportRow(Row("High"), new JudgeStats(10, 0, MajorPer10: 2, MinorPer10: 0, 3, 3, 3, 3), bars);
-        var overdone = new ReportRow(Row("High"), new JudgeStats(10, 0, MajorPer10: 0, MinorPer10: 6, 3, 3, 3, 3), bars);
 
-        Assert.Equal((BarVerdict.Pass, BarVerdict.Pass), (embellished.MajorInvented, embellished.MinorInvented));
+        Assert.Equal(BarVerdict.Pass, embellished.MajorInvented);
+        Assert.Equal(BarVerdict.None, embellished.MinorInvented); // no minor bar since 2026-11-21
         Assert.Equal(BarVerdict.Fail, invented.MajorInvented);
-        Assert.Equal(BarVerdict.Fail, overdone.MinorInvented);
     }
 
     [Fact]

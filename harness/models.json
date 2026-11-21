@@ -19,6 +19,11 @@
 //   { "id": "qwen3.5-4b", "tier": "Recommended", "provider": "OpenAi", "endpoint": "http://localhost:11434",
 //     "model": "qwen3.5:4b", "thinking": "Off", "thinkingOffBody": { "reasoning_effort": "none" },
 //     "extraBody": { "temperature": 0.4 } },
+//
+// The judge moved from Opus 5.5 to Sonnet 5.5 on 2026-11-21 to cut cost. On run 20261121-112244 (judge v3, 194
+// outputs) Sonnet matched Opus on overall score 82% of the time (same mean, 2.82) and flagged 20 of Opus's 25
+// outputs with a major invented fact; Haiku 5.5 matched 61% and flagged 12, so it was not used. Only compare runs
+// scored by the same judge model. Prompt rounds leave out claude-ref (see docs/stage0-runbook.md).
 {
   "repeats": 3,
   "models": [
@@ -49,7 +54,7 @@
   ],
   "judge": {
     "id": "judge", "tier": "Reference", "provider": "Anthropic",
-    "model": "claude-opus-5-5", "apiKeyEnv": "RIMCHRONICLES_ANTHROPIC_API_KEY",
+    "model": "claude-sonnet-5-5", "apiKeyEnv": "RIMCHRONICLES_ANTHROPIC_API_KEY",
     "effort": "medium", "concurrency": 4, "timeoutSeconds": 300
   }
 }
