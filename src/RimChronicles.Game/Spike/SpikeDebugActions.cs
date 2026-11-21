@@ -95,8 +95,16 @@ public static class SpikeDebugActions
     {
         if (RimChroniclesGameComponent.Current is { } component && !News.ReporterLife.TryVisit(component))
         {
-            Messages.Message("Rim Chronicles: the reporter can't visit now (none, dead, hostile, already here, or the colony is under attack).",
-                RimWorld.MessageTypeDefOf.RejectInput, historical: false);
+            var r = component.Desk.Reporter;
+            var why = r.Status switch
+            {
+                Core.News.ReporterStatus.Replacing => $"the reporter is dead; the replacement arrives on day {r.ReplaceDay} (or use Reporter: replacement now)",
+                Core.News.ReporterStatus.Silenced => "the colony silenced the reporter, so no one will come",
+                _ when component.ReporterPawn is null => "there's no reporter yet",
+                _ when component.ReporterPawn.Spawned => "the reporter is already on a map",
+                _ => "their faction is hostile, or the colony is under attack",
+            };
+            Messages.Message($"Rim Chronicles: can't visit now: {why}.", RimWorld.MessageTypeDefOf.RejectInput, historical: false);
         }
     }
 
@@ -118,5 +126,19 @@ public static class SpikeDebugActions
 
         var killer = byColony ? RimWorld.PawnsFinder.AllMaps_FreeColonists.FirstOrDefault() : null;
         pawn.Kill(new DamageInfo(RimWorld.DamageDefOf.Cut, 9999f, instigator: killer));
+    }
+
+    [DebugAction(Category, "Reporter: replacement now", allowedGameStates = AllowedGameStates.Playing)]
+    public static void ReplacementNow()
+    {
+        if (RimChroniclesGameComponent.Current is not { } component || component.Desk.Reporter.Status != Core.News.ReporterStatus.Replacing)
+        {
+            Messages.Message("Rim Chronicles: no replacement is pending (the reporter isn't dead, or the colony killed them).",
+                RimWorld.MessageTypeDefOf.RejectInput, historical: false);
+            return;
+        }
+
+        component.Desk.Reporter.ReplaceDay = RimWorld.GenDate.DaysPassed;
+        News.ReporterKeeper.EnsureReporter(component);
     }
 }
