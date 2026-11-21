@@ -41,3 +41,22 @@ public static class GrudgeMaimPatch
         }
     }
 }
+
+/// <summary>A nemesis dying, by any hand: ends their plot (the killer decides the ending and payoff).</summary>
+[HarmonyPatch(typeof(Pawn), nameof(Pawn.Kill))]
+public static class NemesisKilledPatch
+{
+    public static void Postfix(Pawn __instance, DamageInfo? dinfo)
+    {
+        if (!__instance.Dead || RimChroniclesGameComponent.Current is not { } component)
+        {
+            return;
+        }
+
+        var id = __instance.ThingID;
+        if (component.Plots.Active.FirstOrDefault(p => p.Template == NemesisPlot.TemplateId && p.Fact(NemesisPlot.NemesisId) == id) is { } plot)
+        {
+            NemesisBeats.NemesisDied(component, plot, dinfo?.Instigator);
+        }
+    }
+}

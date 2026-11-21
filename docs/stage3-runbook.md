@@ -37,3 +37,21 @@ on, the debug log prints a `Grudge:` line when one is recorded, and a line when 
 | 7 | Capture or kill a raider with an open grudge before they escape, then play a day. | **show grudges** no longer lists that grudge. |
 
 Send me pass or fail per row, and the **Show plots** text from row 6.
+
+## M3a: the Nemesis beats (template letters)
+
+The beats run with template letters (M3b adds letters written by the model). **Plot: advance beat** fires the oldest
+plot's next beat at once, ignoring the 5–15 day wait and the pacing gate. Save before row 1, so you can reload to try
+both choices.
+
+| # | Do | Pass when |
+| --- | --- | --- |
+| 1 | **Nemesis: force seed**, then **Plot: advance beat**. | A letter **Nemesis: <name> sighted** names the raider, what they did, and a settlement of their faction. **Show news log** has `The raider <name> of <faction> was seen near <place>`. |
+| 2 | **Plot: advance beat** again. | A raid by the nemesis's faction, plus a letter **Nemesis: <name> leads the raid**. The nemesis is on the map with the raiders. |
+| 3 | Let the nemesis escape (keep them alive), wait until the raid has left, then **Plot: advance beat**. | A choice letter **Nemesis: what to do about <name>**, with **Post a bounty (N silver)**, greyed out if there isn't enough silver on the map, and **Wait for them to return**. |
+| 4 | Choose **Post a bounty**, then **Plot: advance beat**. | The silver is gone from the map. A letter **the bounty is collected**, the protagonist gains **score settled** (+6 mood), and **Show plots** lists the plot under ended (`KilledByBounty`). |
+| 5 | Reload the save from before row 1, and play up to the choice letter again. Choose **Wait**, then **Plot: advance beat**. | A second raid with the nemesis: **Nemesis: <name> returns**. Kill the nemesis: a letter **<name> is dead**, the protagonist gains **avenged** (+10 mood), and the plot ends `KilledByColony`. |
+| 6 (optional) | Instead of killing them in row 5, capture the nemesis (down them, then capture). | The next day: **<name> captured**, and the plot ends `Captured`. |
+| 7 | Leave a choice letter unanswered for 5 days. | It disappears, and the next beat is the second raid (the colony waited). |
+
+Send me pass or fail per row, and anything in the letters that reads oddly.
