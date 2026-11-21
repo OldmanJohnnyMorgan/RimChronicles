@@ -160,7 +160,10 @@
       "victimName": "Dorin",
       "relation": "husband",
       "grievance": "killed",
-      "place": "the gorge road"
+      "place": "the gorge road",
+      "nemesisPronoun": "he",
+      "protagonistPronoun": "she",
+      "victimPronoun": "he"
     }
   }
 }

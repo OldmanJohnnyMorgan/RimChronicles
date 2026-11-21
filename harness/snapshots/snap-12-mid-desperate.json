@@ -145,7 +145,10 @@
       "victimName": "Marta Venn",
       "grievance": "killed",
       "place": "the Gallows camp",
-      "bountyCost": "350"
+      "bountyCost": "350",
+      "nemesisPronoun": "she",
+      "protagonistPronoun": "she",
+      "victimPronoun": "she"
     }
   }
 }

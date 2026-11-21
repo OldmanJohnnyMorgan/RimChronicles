@@ -107,6 +107,10 @@ public static class NemesisTracker
             ? protagonist.GetMostImportantRelation(victim)?.GetGenderSpecificLabel(victim) ?? ""
             : "";
         var plot = NemesisPlot.Seed(component.Plots, template, grudge, heir, relation, today, Rand.RangeInclusive(2, 5));
+        var nemesis = component.Tracked(grudge.KillerId);
+        plot.SetFact(NemesisPlot.NemesisPronoun, Pronoun(nemesis));
+        plot.SetFact(NemesisPlot.VictimPronoun, Pronoun(victim));
+        plot.SetFact(NemesisPlot.ProtagonistPronoun, heir.Kind == ProtagonistKind.Colony ? "they" : Pronoun(protagonist));
         if (Prefs.DevMode)
         {
             Log.Message($"[Rim Chronicles] Nemesis plot {plot.Id} started: {plot.Log[0]}; protagonist {heir.Name} ({heir.Rule}).");
@@ -114,6 +118,14 @@ public static class NemesisTracker
 
         return plot;
     }
+
+    /// <summary>"he", "she" or "they", so letters never guess a gender.</summary>
+    public static string Pronoun(Pawn? pawn) => pawn?.gender switch
+    {
+        Gender.Male => "he",
+        Gender.Female => "she",
+        _ => "they",
+    };
 
     /// <summary>The living colonists and bonded animals who could inherit from <paramref name="victim"/>.</summary>
     public static List<HeirCandidate> HeirCandidates(Pawn victim, List<Pawn> colonists)

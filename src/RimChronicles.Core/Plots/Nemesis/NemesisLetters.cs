@@ -6,7 +6,7 @@ public static class NemesisLetters
 {
     /// <summary>The plain facts a letter uses, read from the plot.</summary>
     public sealed record Facts(string Nemesis, string Faction, string Protagonist, string Victim, string Relation,
-        string Grievance, string Part, string Place, string Colony)
+        string Grievance, string Part, string Place, string Colony, string VictimPronoun = "they")
     {
         public static Facts From(Plot plot, string colony) => new(
             plot.Fact(NemesisPlot.NemesisName) ?? "the raider",
@@ -17,7 +17,8 @@ public static class NemesisLetters
             plot.Fact(NemesisPlot.Grievance) ?? GrudgeKind.Killed,
             plot.Fact(NemesisPlot.Part) ?? "",
             plot.Fact(NemesisArc.Place) ?? "the wastes",
-            colony);
+            colony,
+            plot.Fact(NemesisPlot.VictimPronoun) is { Length: > 0 } pronoun ? pronoun : "they");
 
         /// <summary>The facts from a plot letter case (the harness, and the game's letter writer).</summary>
         public static Facts From(IReadOnlyDictionary<string, string> f, string protagonist, string colony)
@@ -25,7 +26,7 @@ public static class NemesisLetters
             string Get(string key, string fallback) => f.TryGetValue(key, out var v) && v.Length > 0 ? v : fallback;
             return new(Get(NemesisPlot.NemesisName, "the raider"), Get(NemesisPlot.NemesisFaction, ""), protagonist,
                 Get(NemesisPlot.VictimName, ""), Get(NemesisPlot.Relation, ""), Get(NemesisPlot.Grievance, GrudgeKind.Killed),
-                Get(NemesisPlot.Part, ""), Get(NemesisArc.Place, "the wastes"), colony);
+                Get(NemesisPlot.Part, ""), Get(NemesisArc.Place, "the wastes"), colony, Get(NemesisPlot.VictimPronoun, "they"));
         }
 
         public bool ProtagonistIsVictim => Victim == Protagonist;
@@ -34,10 +35,12 @@ public static class NemesisLetters
         public string Whom => ProtagonistIsVictim ? Protagonist : Relation.Length > 0 ? $"{Protagonist}'s {Relation} {Victim}" : Victim;
 
         public string Deed => Grievance == GrudgeKind.Maimed
-            ? $"cost {Whom} {(ProtagonistIsVictim ? "their" : "a")} {(Part.Length > 0 ? Part : "limb")}"
+            ? $"cost {Whom} {(ProtagonistIsVictim ? Possessive(VictimPronoun) : "a")} {(Part.Length > 0 ? Part : "limb")}"
             : $"killed {Whom}";
 
         public string Raider => Faction.Length > 0 ? $"{Nemesis} of {Faction}" : Nemesis;
+
+        private static string Possessive(string pronoun) => pronoun switch { "he" => "his", "she" => "her", _ => "their" };
     }
 
     public static (string Label, string Text) Sighting(Facts f) => (
@@ -53,7 +56,7 @@ public static class NemesisLetters
 
     public static (string Label, string Text) Choice(Facts f, int cost) => (
         $"Nemesis: what to do about {f.Nemesis}",
-        $"{f.Nemesis} escaped again. Word is that the bounty hunters at {f.Place} would take the job for {cost} silver, "
+        $"{f.Nemesis} escaped again. Word is that bounty hunters would take the job for {cost} silver, "
         + $"though it would be their kill, not {f.Protagonist}'s.\n\nOr the colony can wait: {f.Nemesis} will come back, "
         + "and next time there will be no one else to blame.");
 

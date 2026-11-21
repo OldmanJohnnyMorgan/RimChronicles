@@ -174,7 +174,10 @@
       "nemesisFaction": "Malley's Lancers",
       "victimName": "Joska",
       "relation": "husband",
-      "grievance": "killed"
+      "grievance": "killed",
+      "nemesisPronoun": "he",
+      "protagonistPronoun": "she",
+      "victimPronoun": "he"
     }
   }
 }

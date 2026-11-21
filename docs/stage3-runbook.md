@@ -79,7 +79,7 @@ cd ..\rc-results
 git pull
 Copy-Item -Recurse ..\RimChronicles\results\$run results\
 git add -f results\$run
-git commit -m "Stage 3 M3b trial: plot-letter v1 (run $run)"
+git commit -m "Stage 3 M3b trial: plot-letter v2 (run $run)"
 git push
 cd ..\RimChronicles
 ```

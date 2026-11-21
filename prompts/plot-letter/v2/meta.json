@@ -1,0 +1,10 @@
+{
+  "task": "plot-letter",
+  "version": "v2",
+  "maxOutputTokens": 260,
+  "tiers": {
+    "Minimum": {
+      "maxOutputTokens": 220
+    }
+  }
+}
