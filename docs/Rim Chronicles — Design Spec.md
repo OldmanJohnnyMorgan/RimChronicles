@@ -236,6 +236,17 @@ The director picks the strongest hook not already in play, subject to the limits
 
 Every arc has four beats: **Hook → Complication → Choice → Resolution**. Beats are deterministic events (a visitor, a letter, a quest, a raid) defined in XML. The LLM writes the letters and dialogue, and frames the choice. Each beat waits 5–15 days, and only moves on when the colony isn't in crisis.
 
+**Nemesis, the first arc (agreed 2026-11-21).** It runs before the quest templates of Stage 4, so its beats use letters, raids and a choice letter:
+
+| Beat | What happens |
+| --- | --- |
+| Hook | A letter: the raider who killed or maimed the protagonist's kin was seen (e.g. "Vex, who killed Mara's husband, was seen at a pirate outpost"). The sighting becomes public news. |
+| Complication | The nemesis leads a raid on the colony. |
+| Choice | A choice letter: post a bounty (costs silver; someone else may kill the nemesis), or wait for them to come back (a second raid with the nemesis guaranteed). |
+| Resolution | The nemesis dies, by the colony's hand or the bounty hunters': the protagonist gains a lasting good memory, and it's news. If the nemesis kills the protagonist instead, the grudge passes to the heir. |
+
+Stage 4 can later swap the Choice beat for a Hunt target quest.
+
 ### Protagonist slot and inheritance
 
 A plot belongs to a protagonist slot, not a fixed pawn. When the protagonist dies, leaves or is captured, the slot passes to the first match:

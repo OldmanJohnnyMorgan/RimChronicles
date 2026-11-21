@@ -1,5 +1,6 @@
 using RimChronicles.Core.Engine;
 using RimChronicles.Core.News;
+using RimChronicles.Core.Plots;
 using RimChronicles.Game.Engine;
 using Verse;
 
@@ -17,6 +18,7 @@ public sealed class RimChroniclesGameComponent : GameComponent
 
     private NewsLog _news = new();
     private NewsDesk _desk = new();
+    private PlotBook _plots = new();
     private Pawn? _reporterPawn;
 
     public RimChroniclesGameComponent(Verse.Game game)
@@ -38,6 +40,9 @@ public sealed class RimChroniclesGameComponent : GameComponent
     /// <summary>The bulletin schedule and archive (Stage 2 M3).</summary>
     public NewsDesk Desk => _desk;
 
+    /// <summary>Every minor plot in this save (Stage 3).</summary>
+    public PlotBook Plots => _plots;
+
     /// <summary>The reporter's pawn, a world pawn kept forever, or null until one is recruited (Stage 2 M4).</summary>
     public Pawn? ReporterPawn
     {
@@ -56,9 +61,11 @@ public sealed class RimChroniclesGameComponent : GameComponent
     {
         ScribeArchive.Instance.Deep(ref _news, "news");
         ScribeArchive.Instance.Deep(ref _desk, "newsDesk");
+        ScribeArchive.Instance.Deep(ref _plots, "plots");
         Scribe_References.Look(ref _reporterPawn, "reporterPawn");
         _news ??= new NewsLog();
         _desk ??= new NewsDesk();
+        _plots ??= new PlotBook();
     }
 
     /// <summary>The last day the daily work ran for, or -1 until the first tick after a new game or a load. Not
@@ -77,6 +84,7 @@ public sealed class RimChroniclesGameComponent : GameComponent
         _lastDay = day;
         Game.News.ReporterLife.Daily(this);
         Game.News.ReporterKeeper.EnsureReporter(this);
+        Game.Plots.PlotDriver.Daily(this);
         Game.News.NewsDriver.Tick(this);
     }
 }
