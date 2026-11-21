@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-13-mid-strained__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022These settlements are proving difficult to manage, as usual.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a past pattern and ongoing state (\u0027as usual\u0027) the briefing does not give\u0022},{\u0022span\u0022:\u0022They are still causing trouble, I suppose.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027still\u0027 is forbidden and implies an ongoing activity; the hedge \u0027I suppose\u0027 does not cover the stated \u0027still\u0027\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate on the lead, but the second and third items are filler: the Sun Throne item repeats old news as if current, and the Rustback item uses the forbidden \u0027still\u0027 and offers weak wit. A quiet week should have been one or two items, not three.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.6845062,
+      "inputTokens": 3606,
+      "outputTokens": 259
+    }
+  ]
+}

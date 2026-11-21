@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-08-mid-content__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The jade sculpture at Lantern Hill is drawing the attention of the Accord\u0027s traders.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022the briefing says the sculpture is Gladwater\u0027s and that Lantern Hill traders are talking about it; placing the sculpture at Lantern Hill is a wrong location\u0022},{\u0022span\u0022:\u0022They seem to have found a quieter pastime than raiding, for now.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news about the gang\u0027s quiet period after the failed raid, and implies a status the briefing does not give; it is hedged with \u0027seem\u0027\u0022},{\u0022span\u0022:\u0022The Ninefingers Gang now controls three settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027now\u0027 implies a change from an earlier state the briefing does not give\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The sculpture is misplaced at Lantern Hill instead of being Gladwater\u0027s, which changes the fact. The second item is filler with a \u0027now\u0027 that implies change, and the first joke is thin.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.2771482,
+      "inputTokens": 3566,
+      "outputTokens": 352
+    }
+  ]
+}

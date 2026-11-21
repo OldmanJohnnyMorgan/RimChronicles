@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-13-mid-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Sun Throne maintains its six settlements and continues sending envoys.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies ongoing status/comparison with earlier state; briefing gives only current count and the task forbids \u0027maintains\u0027/\u0027continues\u0027\u0022},{\u0022span\u0022:\u0022They seem quite insistent on their demands\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022added characterisation of insistence not in briefing, though hedged with \u0027seem\u0027\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead is correct and appropriately dry, but the second item breaks explicit instructions by using \u0027maintains\u0027 and \u0027continues\u0027, and it is essentially padding by restating background facts. The wit is mild and the bulletin is a bit generic.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.815572,
+      "inputTokens": 3601,
+      "outputTokens": 260
+    }
+  ]
+}

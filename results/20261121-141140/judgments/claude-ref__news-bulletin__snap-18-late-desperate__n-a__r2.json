@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-18-late-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022I worry about every one of them.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the caravan had multiple people and that the loss involved casualties; the briefing gives neither\u0022},{\u0022span\u0022:\u0022The Harrow Teeth have four settlements, the fewest of the three factions.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022the arithmetic is correct (4 \u003C 5 \u003C 6), but the briefing does not frame it as a ranking, so this is an inference stated as fact\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead is accurate, the old news is marked with a short clause, and the worried voice fits. However, the second item is a faction-count aside with a slightly strained joke, and the first item\u0027s quip about weather being a matter of opinion is muddled. It also hints at casualties, which the briefing does not give.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.4508899,
+      "inputTokens": 3607,
+      "outputTokens": 286
+    }
+  ]
+}

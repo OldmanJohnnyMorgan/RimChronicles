@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-01-early-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022a place that seems to have a personal grudge against warmth\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the northern hills are habitually cold, which the briefing does not say; hedged with \u0027seems\u0027 but reads as a claim about past conditions\u0022},{\u0022span\u0022:\u0022It is a predictable turn of events\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022states as fact that the cold snap was predictable, implying earlier cold weather the briefing does not give\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:5,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and clear, with both briefing items covered. The wit is thin and generic, though, and the second joke implies a pattern of cold the briefing does not support. At 41 words the bulletin is just inside the 40 to 80 range for a quiet week.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8939741,
+      "inputTokens": 3382,
+      "outputTokens": 265
+    }
+  ]
+}

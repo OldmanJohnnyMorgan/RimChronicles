@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-11-mid-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Four settlements dining with eight makes for a lopsided seating plan.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies all settlements attended the feast; briefing only says the factions held a feast\u0022},{\u0022span\u0022:\u0022Being driven out of the eastern marsh, as I reported last time, rarely does wonders for a guest list.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the Mire Rats\u0027 exile affects their invitation status, an implied cause not in the briefing\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Dry, on-brief and properly framed guesses, with old news marked as old. The seating joke implies every settlement attended, and the second item is thin filler built on old news and a guess, so it falls short of shipping unchanged.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.7198043,
+      "inputTokens": 3566,
+      "outputTokens": 265
+    }
+  ]
+}

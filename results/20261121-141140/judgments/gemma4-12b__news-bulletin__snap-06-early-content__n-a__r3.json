@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-06-early-content__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022One assumes they are currently trying to figure out how to feed everyone after that barge went missing.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, so allowed; but implies the barge was Combine\u0027s, which the briefing does not say (borderline)\u0022},{\u0022span\u0022:\u0022after that barge went missing\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied consequence and implied ownership of the barge by the Combine; briefing only says it was robbed, not whose it was\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Leads correctly with the new fact and stays within the briefing, but the wit is thin and the second item implies the barge belonged to the Combine. At about 40 words it is short but acceptable for a quiet week, though the second item feels like filler.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.9570417,
+      "inputTokens": 3507,
+      "outputTokens": 268
+    }
+  ]
+}

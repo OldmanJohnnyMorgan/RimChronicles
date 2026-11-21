@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-04-early-strained__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Faithful to the briefing with every guess properly hedged, but the jokes are generic and the second item\u0027s quip about charred wood versus cargo implies the raiders took nothing, which the briefing does not say. The bulletin also falls short of the 50-word minimum for three items at about 70 words, which is acceptable, but the wit is bland and the paperwork joke is oddly office-flavoured.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.4003124,
+      "inputTokens": 3495,
+      "outputTokens": 169
+    }
+  ]
+}

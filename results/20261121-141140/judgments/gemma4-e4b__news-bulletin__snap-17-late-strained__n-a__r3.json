@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-17-late-strained__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They seem to be observing the chaos from a distance.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022hedged with \u0027seem\u0027, but implies Kestrel Tribe activity the briefing does not give; borderline guess\u0022},{\u0022span\u0022:\u0022They are engaged in fighting with the Empire.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says at war, not active fighting; ongoing activity not reported\u0022},{\u0022span\u0022:\u0022The dust has settled, if you can call it that.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a prior state of upheaval/comparison with earlier state not given\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Violates explicit instructions by using \u0027continue\u0027 and \u0027maintains\u0027, and it is bland, with little real wit. It also adds mild activity claims (fighting, observing), and it is somewhat over length for a quiet week with two items that mostly restate faction sizes.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.5162792,
+      "inputTokens": 3662,
+      "outputTokens": 309
+    }
+  ]
+}

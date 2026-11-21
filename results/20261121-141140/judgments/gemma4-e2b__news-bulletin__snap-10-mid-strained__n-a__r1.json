@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-10-mid-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022this truce offer\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022briefing says silver offered for captives, not a truce; changes what the offer was (stated within a guess, but the \u0027truce\u0027 framing is a new event)\u0022},{\u0022span\u0022:\u0022They are holding captives from the Ochre Hand.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as current item without marking it as old\u0022},{\u0022span\u0022:\u0022They have placed a bounty on Stonecutter leaders.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news told as if new, without an old-news marker\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The output leads correctly but then pads with faction counts and recycles two old items as current news. It also mislabels the silver offer as a truce, and the format breaks the item structure (the lead is a one-line fragment, items are mixed).\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.3756737,
+      "inputTokens": 3681,
+      "outputTokens": 290
+    }
+  ]
+}

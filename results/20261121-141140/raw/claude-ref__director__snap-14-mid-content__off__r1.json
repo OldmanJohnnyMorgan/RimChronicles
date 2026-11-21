@@ -1,0 +1,52 @@
+{
+  "cell": "claude-ref__director__snap-14-mid-content__off__r1",
+  "model": "claude-ref",
+  "task": "director",
+  "snapshot": "snap-14-mid-content",
+  "grammar": "off",
+  "repeat": 1,
+  "promptVersion": "director/v1",
+  "outcome": "Model",
+  "value": "{\u0022choice\u0022: \u0022Complication:CorsairMessenger\u0022, \u0022reason\u0022: \u0022Teague Holt left on day 370 saying the Corsairs would remember either the kindness or Dagny\u0027s betrayal, so a messenger is the natural next step. Quillmarsh is content with full stores, so it can handle the tension.\u0022}",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are the plot director for a story told through a RimWorld colony. You decide what happens next in the colony\u0027s plots.\n\nRules:\n- Choose exactly one option from the allowed list. Copy it exactly, character for character.\n- Choose \u0022Wait\u0022 if the colony is in crisis or the story needs a pause.\n- Prefer the option that follows most naturally from what has already happened.\n- Give a reason in one or two short sentences. Use only facts from the briefing.\n\nAnswer with JSON only, in this form:\n{\u0022choice\u0022: \u0022\u003Cone allowed option\u003E\u0022, \u0022reason\u0022: \u0022\u003Cone or two sentences\u003E\u0022}\n",
+        "user": "## The world\nDate: day 376 (Jugust 5506).\nColony: Quillmarsh, 11 people, wealth 167,000 silver, mood content.\n\nPeople:\n- Dagny (44); traits: Tough; backstory: Former pirate; recruited from the Brackwater Corsairs, whom she betrayed.\n- Ansel (38); traits: Kind, Hard worker; backstory: Farmer.\n- Pim (21); traits: Nimble; backstory: Thief.\n- Marguerite (59); traits: Ascetic; backstory: Priest; role: Moral guide.\n\nHistory:\n- Day 301: Ansel recruited Dagny.\n- Day 370: Quillmarsh released the prisoner Teague Holt.\n\nFactions:\n- Brackwater Corsairs (Pirates): goodwill -60, 3 settlements.\n- The Fernhollow League (Outlanders): goodwill \u002B50, 8 settlements.\n- Blue Antler Tribe (Tribe): goodwill \u002B40, 5 settlements.\n\nRecent events:\n- Released the prisoner Teague Holt day 370\n- Wedding feast for two colonists day 373\n- Stores full for the winter\n\n## Active plots\n- debt-01 (Old Debt): beat Hook, protagonist Dagny. Dagny betrayed the Brackwater Corsairs when she joined. The colony freed a Corsair prisoner, Teague Holt, on day 370; he left saying the Corsairs would remember the kindness, or the betrayal.\n\n## Allowed options\n- Wait\n- Complication:CorsairMessenger\n- Complication:CorsairsCollect\n\nChoose one allowed option.\n",
+        "maxOutputTokens": 300,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "choice": {
+              "type": "string",
+              "enum": [
+                "Wait",
+                "Complication:CorsairMessenger",
+                "Complication:CorsairsCollect"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "choice",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "ok": true,
+      "text": "{\u0022choice\u0022: \u0022Complication:CorsairMessenger\u0022, \u0022reason\u0022: \u0022Teague Holt left on day 370 saying the Corsairs would remember either the kindness or Dagny\u0027s betrayal, so a messenger is the natural next step. Quillmarsh is content with full stores, so it can handle the tension.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.3770322,
+      "inputTokens": 755,
+      "outputTokens": 159,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022model\u0022:\u0022claude-opus-5-5\u0022,\u0022id\u0022:\u0022msg_011ChFPuXrkntbCSYyY4d3cg\u0022,\u0022type\u0022:\u0022message\u0022,\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:[{\u0022type\u0022:\u0022thinking\u0022,\u0022thinking\u0022:\u0022\u0022,\u0022signature\u0022:\u0022CAQSkgYKEAgUGAI4AUIIdGhpbmtpbmcSDARX\\u002By4gyA2LTVYOrhoMwSchSfdEHhqGB5V5IjAWFSrhNqSZMMoYg426xnt/5Y4xOsO68BOoXgGJIoooz9cOyPBIPzNDjjrBQL9HgacqrwXFuzg9Rz39tD6fnAHxWN7eI\\u002BPNTFJpfR5Ss\\u002BgB4EXqvMlZKoH31pmvi/lBKfH2Dz/Jf6c6jBW\\u002B7PmtgA2qD/zy21qAF1kOZWrXub613B/e6/zW3MqEwmZFi71CjB46NYO8dTeB2so9rfwL\\u002B39RrLFlxDUZIqnROOiBF2Zf\\u002BUtTeZPy\\u002BsRekx9nlzqGyIDZSEo/3LFgpwyLnc1MPei2FGd6Y8KS/D\\u002Bvw\\u002ByYlKu99UxdYGMuLEDejW8iZ58x9QY3D9/kvH5c/ugxig/AU1cFo5rDKyQO\\u002BP2qwbPiazdLTvoNKVe\\u002Bzt\\u002BPBnpOwBqYXJRXIjFp1vwk5lNDIvh9PtTr0udEv0bHqB1dPQiDqPBlW0MVudxEP8\\u002BQY5uBEUBYAjAXIS\\u002BNT0Dvj0O8Nj4RZkKb4Xo3pdS6JdD1vrYFAJ4EgCwutBbGfBa91OinoObokqseKogKBpRaIQQA1UyWRaAeZH4U1ychxfvQSpFa3xtmqlsQ3yYRLuxBD\\u002BoG/ggHzqvslSRwm6iAALHQFnM6W0lTRR1GeOJROSpdX7rzs8hhEYCy6mMy4D\\u002BHIFF46735raSi2TKNwvY0zC\\u002B5yiWscrsXdvuX6XU6dUNj8ugz8EDnN6xqb6DILY6K0LIeOL\\u002BI86AKQPK5\\u002B5Eeo1veNRVyXwZRaahPF/xi/eV5MIPbvyWfVOfit7j/9aX7i1VCTUK5hXSYo2TniM8L/DxWd85ijw/G3Zm2bT/V6GuzFIHk7dQMuV0pAQOQ5EQ1QpWwLz3aXAeCZajztyKNmH7z2BT2tm7uvw1gWkE9BMUiz9ygdHBpCS6JXlVtg\\u002BfjsRSp2dZ2d53R9LNzqUkBja0X7rytCp79svZnwyQtgL8ddhOSI0dUaWTJo4yfIyL76qFBggB7BdKJ9y/VPJOiaesgnLaP79d2eJgYAQ==\u0022},{\u0022type\u0022:\u0022text\u0022,\u0022text\u0022:\u0022{\\u0022choice\\u0022: \\u0022Complication:CorsairMessenger\\u0022, \\u0022reason\\u0022: \\u0022Teague Holt left on day 370 saying the Corsairs would remember either the kindness or Dagny\\u0027s betrayal, so a messenger is the natural next step. Quillmarsh is content with full stores, so it can handle the tension.\\u0022}\u0022}],\u0022container\u0022:null,\u0022stop_reason\u0022:\u0022end_turn\u0022,\u0022stop_sequence\u0022:null,\u0022stop_details\u0022:null,\u0022usage\u0022:{\u0022input_tokens\u0022:755,\u0022cache_creation_input_tokens\u0022:0,\u0022cache_read_input_tokens\u0022:0,\u0022cache_creation\u0022:{\u0022ephemeral_5m_input_tokens\u0022:0,\u0022ephemeral_1h_input_tokens\u0022:0},\u0022iterations\u0022:[{\u0022input_tokens\u0022:755,\u0022output_tokens\u0022:159,\u0022cache_read_input_tokens\u0022:0,\u0022cache_creation_input_tokens\u0022:0,\u0022cache_creation\u0022:{\u0022ephemeral_5m_input_tokens\u0022:0,\u0022ephemeral_1h_input_tokens\u0022:0},\u0022type\u0022:\u0022message\u0022,\u0022model\u0022:null}],\u0022output_tokens\u0022:159,\u0022output_tokens_details\u0022:{\u0022thinking_tokens\u0022:58},\u0022service_tier\u0022:\u0022standard\u0022,\u0022inference_geo\u0022:\u0022global\u0022,\u0022speed\u0022:\u0022standard\u0022},\u0022diagnostics\u0022:null}"
+    }
+  ]
+}

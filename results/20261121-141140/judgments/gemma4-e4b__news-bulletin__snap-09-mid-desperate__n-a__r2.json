@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-09-mid-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The tribal conflict with the Syndicate continues, as I reported last time.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027continues\u0027 asserts an ongoing status the briefing does not report, and the prompt forbids it\u0022},{\u0022span\u0022:\u0022He met his end at his own camp.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022omits that he was killed; \u0027met his end\u0027 is vague but not wrong. Not a real invention, but it is a weak restatement of the same fact\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate lead, but the second item is a bland recitation of faction sizes with almost no wit, and it uses the forbidden word \u0027continues\u0027. The guess about the Lancers is properly framed but the humour is thin and the voice generic.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8921816,
+      "inputTokens": 3607,
+      "outputTokens": 265
+    }
+  ]
+}

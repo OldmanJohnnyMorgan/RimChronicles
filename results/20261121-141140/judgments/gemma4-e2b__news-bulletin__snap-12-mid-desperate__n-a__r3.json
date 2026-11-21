@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-12-mid-desperate__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The envoys have made their visit.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the visit is complete; briefing only says they were sent\u0022},{\u0022span\u0022:\u0022They are currently receiving envoys from the Empire.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing status not reported; contradicts the earlier line that the visit is done\u0022},{\u0022span\u0022:\u0022They are reportedly holding a doctor.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news without marking it as old\u0022},{\u0022span\u0022:\u0022It seems the Outlanders are accustomed to this sort of diplomatic traffic.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies past history of envoy visits the briefing does not give\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin pads a single new fact into four items, restates the old doctor story as current news, and contradicts itself on whether the envoys have left. The wit is thin and generic, not sardonic, and it exceeds the length for a quiet week.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8806467,
+      "inputTokens": 3685,
+      "outputTokens": 333
+    }
+  ]
+}

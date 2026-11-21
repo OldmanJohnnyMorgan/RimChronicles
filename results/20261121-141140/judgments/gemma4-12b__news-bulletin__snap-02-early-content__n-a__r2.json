@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-02-early-content__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It is a productive way to ensure everyone stays equally poor.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022opinion framed as a general claim about the war\u0027s effects; implies a consequence (everyone poor) not in briefing\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent, the lead is the new fact, and the old war is correctly marked as old. But the bulletin runs under the quiet-week length (about 55 words is fine, yet the second item is padded with old news) and the \u0027equally poor\u0027 line is a mild unsupported consequence.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.3917069,
+      "inputTokens": 3664,
+      "outputTokens": 210
+    }
+  ]
+}

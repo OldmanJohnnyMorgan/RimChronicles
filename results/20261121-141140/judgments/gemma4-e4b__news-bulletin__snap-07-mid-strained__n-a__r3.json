@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-07-mid-strained__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022One assumes they expect the rest of us to just hand over the credits.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027credits\u0027 is not RimWorld currency (silver); framed as a guess but the currency is off-world vocabulary\u0022},{\u0022span\u0022:\u0022They seem to be weathering the Imperial demands with their usual stoicism.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022hedged with \u0027seem\u0027, but implies the Covenant is subject to the demands and has a known \u0027usual\u0027 behaviour, neither of which the briefing gives\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It leads correctly with the new toll demand and stays accurate, but the items are short and thin, the second item\u0027s wit is weak, and \u0027credits\u0027 is off-setting. The Covenant \u0027weathering the demands\u0027 implies facts the briefing doesn\u0027t give.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.1282659,
+      "inputTokens": 3566,
+      "outputTokens": 290
+    }
+  ]
+}

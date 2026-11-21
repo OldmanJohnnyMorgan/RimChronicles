@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-12-mid-desperate__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Theirs is the only camp with a house call.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the Crew\u0027s captive doctor is the only one among camps; a comparison the briefing does not give\u0022},{\u0022span\u0022:\u0022and quiet\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022states the day as quiet, a status the briefing does not report for the rim as a whole\u0022},{\u0022span\u0022:\u0022plus, as I reported last time, a doctor\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news and drops that the doctor is a captive, softening the fact\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice and the guess-framed joke about the masks work well, and the lead item is accurate. The second paragraph pads with faction counts, and the line about the doctor and the \u0027house call\u0027 loses the captive status and implies a comparison the briefing never gives.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.8129265,
+      "inputTokens": 3651,
+      "outputTokens": 293
+    }
+  ]
+}

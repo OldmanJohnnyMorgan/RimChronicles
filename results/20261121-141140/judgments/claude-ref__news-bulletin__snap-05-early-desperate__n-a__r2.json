@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-05-early-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Outsiders now have a great many closed doors to choose from.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies six closed settlements as consequence; briefing only says markets closed, not that each settlement is closed\u0022},{\u0022span\u0022:\u0022anyone who wanted furs this winter should have shopped earlier\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as guess, but furs and winter trading refer to earlier bulletin; mild implied consequence\u0022},{\u0022span\u0022:\u0022With six settlements, they are the largest faction on the rim.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022inference stated as fact, though arithmetic is correct (6 \u003E 5 \u003E 4)\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Leads correctly with the new fact and keeps a dry voice, with correct faction arithmetic. The second item is filler and the \u0027closed doors\u0027 line implies each settlement shut, which is a small overreach; the \u0027eyeing other people\u0027s\u0027 joke is framed as a guess, so it is fine.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.9847331,
+      "inputTokens": 3582,
+      "outputTokens": 342
+    }
+  ]
+}

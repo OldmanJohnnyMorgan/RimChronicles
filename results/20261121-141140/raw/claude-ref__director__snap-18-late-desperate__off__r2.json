@@ -1,0 +1,51 @@
+{
+  "cell": "claude-ref__director__snap-18-late-desperate__off__r2",
+  "model": "claude-ref",
+  "task": "director",
+  "snapshot": "snap-18-late-desperate",
+  "grammar": "off",
+  "repeat": 2,
+  "promptVersion": "director/v1",
+  "outcome": "Model",
+  "value": "{\u0022choice\u0022: \u0022Wait\u0022, \u0022reason\u0022: \u0022The colony is in crisis, with twelve days of extreme cold, fuel nearly gone and mood desperate. The story should pause before Elias takes up his mother Constance\u0027s search for Ada.\u0022}",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are the plot director for a story told through a RimWorld colony. You decide what happens next in the colony\u0027s plots.\n\nRules:\n- Choose exactly one option from the allowed list. Copy it exactly, character for character.\n- Choose \u0022Wait\u0022 if the colony is in crisis or the story needs a pause.\n- Prefer the option that follows most naturally from what has already happened.\n- Give a reason in one or two short sentences. Use only facts from the briefing.\n\nAnswer with JSON only, in this form:\n{\u0022choice\u0022: \u0022\u003Cone allowed option\u003E\u0022, \u0022reason\u0022: \u0022\u003Cone or two sentences\u003E\u0022}\n",
+        "user": "## The world\nDate: day 805 (Jugust 5513).\nColony: Wren\u0027s Hollow, 10 people, wealth 298,000 silver, mood desperate.\n\nPeople:\n- Constance (58), dead; traits: Kind, Iron-willed; backstory: Midworld teacher; mother of Elias.\n- Elias (34); traits: Neurotic, Industrious; backstory: Engineer; son of Constance.\n- Fidelma (40); traits: Tough; backstory: Hunter.\n- Sorrel (22); traits: Sanguine; backstory: Farmhand.\n\nHistory:\n- Day 744: Constance received a letter from Ada.\n- Day 790: Wren\u0027s Hollow lost a caravan led by Constance.\n- Day 803: Constance died.\n\nFactions:\n- The Thistle Commonwealth (Outlanders): goodwill \u002B40, 6 settlements.\n- The Wailing Moth Tribe (Tribe): goodwill -20, 5 settlements.\n- Harrow Teeth (Pirates): goodwill -90, 4 settlements.\n\nRecent events:\n- Caravan lost in a blizzard day 790\n- Constance died of cold day 803\n- Extreme cold for twelve days\n- Fuel nearly gone\n\n## Active plots\n- family-02 (Lost Family): beat Choice, protagonist Constance. Constance learned her sister Ada was alive in a Wailing Moth village. She set out with a caravan to bring Ada home. The caravan was lost in a blizzard and Constance died of cold on day 803.\n\n## Allowed options\n- Wait\n- Resolution:InheritToKin:p2\n\nChoose one allowed option.\n",
+        "maxOutputTokens": 300,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "choice": {
+              "type": "string",
+              "enum": [
+                "Wait",
+                "Resolution:InheritToKin:p2"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "choice",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "ok": true,
+      "text": "{\u0022choice\u0022: \u0022Wait\u0022, \u0022reason\u0022: \u0022The colony is in crisis, with twelve days of extreme cold, fuel nearly gone and mood desperate. The story should pause before Elias takes up his mother Constance\u0027s search for Ada.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 1.9548283,
+      "inputTokens": 755,
+      "outputTokens": 153,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022model\u0022:\u0022claude-opus-5-5\u0022,\u0022id\u0022:\u0022msg_011ChFPvXpKJbiS3kvAue9fv\u0022,\u0022type\u0022:\u0022message\u0022,\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:[{\u0022type\u0022:\u0022thinking\u0022,\u0022thinking\u0022:\u0022\u0022,\u0022signature\u0022:\u0022CAQSngYKEAgUGAI4AUIIdGhpbmtpbmcSDP/AzgV31/SxaveqIxoMKcV8vzAW1D3e6WRmIjB4EvPAwUIkjijEhOsuaCm3y49YtPuafE4zNy6UEdCalrJi3t03/tK9Ba27dE0lgF0quwXFZ\\u002Bo6kngB4flcVZSSpaElytb9J36pcrS6a0Zd6cqE6ebwOaxgESdCIEXhf86syaQdij9ofSQ65KL9GTHaroIj5nqLF1eOSVODQi22yQktucKyI4h8mESWczhfyGLyXUjsQ4adwuZnSBpjjS9xcs5OEi7NG1o2A31s3uTdgCPidXyzjTU8vTC6ERl/4U3JeGk8klkyJgO5w7dQCa2ESMIFxvJ605ML12HMG2OwaStPpxCJNQriAOplm6NKNZmHqThGC5vzW38SpX/IGxNzikdh2M9L6JeJZt9VXgGNAtm/wKIfkvLAom9GHot\\u002BFeYk\\u002B7b8e8umOU6UBtBD08/rI8EFhecz5cA\\u002BG/n8rsy\\u002BLpNG\\u002BCpQCIk7jf\\u002BhgALbRikKWys/MzS2Fbh\\u002BnPIr0TDKJymDMMb0b\\u002BMSuuZ3kA/yL3j86aZTXG/18EiZze5RP4d3eAZiFZnLehqaHJ1v1oDJp7mCttX\\u002BMRUEGXNzap7TcyJ7ICNTYNnfYag5beUb\\u002B9Iag3q5zUWnAdQvLMMtyvsYKvQIjo4jNi8B\\u002BjUxoNvwIFH63zshYE2qRGlSW1tp9zZCV\\u002BCJBKVqbet\\u002BonDlWDfpWZ0NkZBm3I4MU0CSPDBHfrPeJ3LPF7P0tUGfDQ3njz3swsjc0tCdWNxl04JM\\u002BMHmoRMIHSk1VAPmaBbhLBB9p0Jw6falT28veKOx8/Q/ij0giRnw5pPQ1jNqV9sracpmqq1QPv/2eBtBNRT5ww\\u002BLfn2U9dZ69UQStlgcNrzg5iHmE1znvKNc6/QcNZm36G3bN7iD8LiNdRTiJX2kkSqUnqtKUapWbdIwGlB7vQ8p9cqCtlqe1F0fg0jQc/YIq755hvNDMSPMDXb6Tpg2UKrlaYYD8Z6Kyv/NoKOypGDm0m3C5paYrTh2wKUSv/Oh3AcBHzOaZMGy3RRTjKXVjvEYAQ==\u0022},{\u0022type\u0022:\u0022text\u0022,\u0022text\u0022:\u0022{\\u0022choice\\u0022: \\u0022Wait\\u0022, \\u0022reason\\u0022: \\u0022The colony is in crisis, with twelve days of extreme cold, fuel nearly gone and mood desperate. The story should pause before Elias takes up his mother Constance\\u0027s search for Ada.\\u0022}\u0022}],\u0022container\u0022:null,\u0022stop_reason\u0022:\u0022end_turn\u0022,\u0022stop_sequence\u0022:null,\u0022stop_details\u0022:null,\u0022usage\u0022:{\u0022input_tokens\u0022:755,\u0022cache_creation_input_tokens\u0022:0,\u0022cache_read_input_tokens\u0022:0,\u0022cache_creation\u0022:{\u0022ephemeral_5m_input_tokens\u0022:0,\u0022ephemeral_1h_input_tokens\u0022:0},\u0022iterations\u0022:[{\u0022input_tokens\u0022:755,\u0022output_tokens\u0022:153,\u0022cache_read_input_tokens\u0022:0,\u0022cache_creation_input_tokens\u0022:0,\u0022cache_creation\u0022:{\u0022ephemeral_5m_input_tokens\u0022:0,\u0022ephemeral_1h_input_tokens\u0022:0},\u0022type\u0022:\u0022message\u0022,\u0022model\u0022:null}],\u0022output_tokens\u0022:153,\u0022output_tokens_details\u0022:{\u0022thinking_tokens\u0022:74},\u0022service_tier\u0022:\u0022standard\u0022,\u0022inference_geo\u0022:\u0022global\u0022,\u0022speed\u0022:\u0022standard\u0022},\u0022diagnostics\u0022:null}"
+    }
+  ]
+}

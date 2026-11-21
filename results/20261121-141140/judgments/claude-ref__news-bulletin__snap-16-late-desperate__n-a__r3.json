@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-16-late-desperate__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022One assumes the Throne is following this bounty with the polite interest of a neighbour hearing shouting through a wall.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess and a figure of speech, so not counted as a fact; flagged only as borderline\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate to the briefing, dry and in character, and it leads with the new bounty. The second item is only faction counts, which is allowed for a quiet week, though the opening item is on the long side and the bounty joke is a little thin.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.4635168,
+      "inputTokens": 3632,
+      "outputTokens": 203
+    }
+  ]
+}

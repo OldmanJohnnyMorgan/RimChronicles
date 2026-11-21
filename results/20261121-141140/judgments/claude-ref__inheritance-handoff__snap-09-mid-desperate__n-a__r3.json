@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__inheritance-handoff__snap-09-mid-desperate__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Three cups stood on the table.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ordinary object staging, but the count implies a household detail; borderline and not a real fact\u0022},{\u0022span\u0022:\u0022Joska had been hard to hurt and glad of a fight.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022derived from traits Tough and Bloodlust, so acceptable; no real invention\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Restrained and plain, it uses the father-daughter bond well and ends on Tamsin waiting for the new captain\u0027s revenge, with no invented names or events. The line \u0027He had been gladder of the two of them\u0027 is slightly muddled, and the ending is a little passive.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.5229008,
+      "inputTokens": 3222,
+      "outputTokens": 248
+    }
+  ]
+}

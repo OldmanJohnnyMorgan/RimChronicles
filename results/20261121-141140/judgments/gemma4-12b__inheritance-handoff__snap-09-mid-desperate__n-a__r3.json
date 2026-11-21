@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__inheritance-handoff__snap-09-mid-desperate__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022who lived for the thrill of the hunt\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022added detail about Joska\u0027s character/past not in dossier beyond Bloodlust trait\u0022},{\u0022span\u0022:\u0022take back what was owed to her father\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies something owed/unfinished beyond the briefing; vague motive not given\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Competent and within the rules, with no death shown, and it ends on the Lancers\u0027 camp, but it misses the new captain\u0027s revenge threat on Cinder Rest and never names Lene. The prose is generic and tells more than it shows (\\\u0022felt the weight of his absence\\\u0022).)\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.6388983,
+      "inputTokens": 3173,
+      "outputTokens": 243
+    }
+  ]
+}

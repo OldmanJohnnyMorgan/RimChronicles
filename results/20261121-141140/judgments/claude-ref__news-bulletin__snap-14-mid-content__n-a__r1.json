@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-14-mid-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Brackwater Corsairs raided a Fernhollow League barge on the river.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022this is the new item; it matches the briefing, so no problem (not counted)\u0022},{\u0022span\u0022:\u0022a released Corsair has been praising his captors\u0027 kindness\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news, though framed with \u0027As I reported last time\u0027; present progressive suggests ongoing activity\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Leads correctly with the new raid and keeps a dry, guess-framed wit, with the old news marked as old. The raid item lacks its own dry remark, and the \u0027praising\u0027 status is slightly extended, so it falls just short of shipping unchanged.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.0736073,
+      "inputTokens": 3632,
+      "outputTokens": 262
+    }
+  ]
+}

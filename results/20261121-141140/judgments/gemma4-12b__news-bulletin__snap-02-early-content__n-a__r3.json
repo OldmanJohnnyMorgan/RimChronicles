@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-02-early-content__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022ran out of things to burn\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, so not a claim; but alludes to burning from an earlier bulletin, not in briefing\u0022},{\u0022span\u0022:\u0022It is a classic case of two groups fighting over something that makes everyone else\u0027s life harder.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied consequence that the fight makes everyone\u0027s life harder, not in the briefing\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Dry voice and accurate lead, and it marks the war as old news. But the second item is only a restatement of old news with no new fact, and the bulletin runs under the quiet-week length, with a slight implied-consequence addition.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.9827385,
+      "inputTokens": 3670,
+      "outputTokens": 249
+    }
+  ]
+}

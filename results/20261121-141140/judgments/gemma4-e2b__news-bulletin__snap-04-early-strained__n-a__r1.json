@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-04-early-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022This is the latest chatter from the Outlanders.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the news came from Outlanders as a source; briefing gives no source\u0022},{\u0022span\u0022:\u0022Another typical pirate distraction.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027Another\u0027 implies earlier similar events; stated as fact, not guess\u0022},{\u0022span\u0022:\u0022even with a piece of rotting wood\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022asserts the ferry was rotting; briefing gives no condition\u0022},{\u0022span\u0022:\u0022It seems the interest in that particular settlement has waned.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied cause and comparison with earlier state; hedged with \u0027seems\u0027 but it also implies a prior state\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It covers all three items in the right order and hedges its guesses, but the jokes are weak and generic, and it adds small unsupported details (the Outlanders as a source, \u0027another\u0027 pirate act, a rotting ferry). The Rim Dispatch is also reported as an outside party, though Ilse works for it, which muddles the voice.}\u003C/br\u003E\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.146991,
+      "inputTokens": 3515,
+      "outputTokens": 381
+    }
+  ]
+}

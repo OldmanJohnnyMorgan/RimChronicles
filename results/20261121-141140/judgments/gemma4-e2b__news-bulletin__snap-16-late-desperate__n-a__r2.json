@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-16-late-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022This is a familiar arrangement for Dunmore\u0027s Free Company.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a comparison with an earlier state the briefing does not give\u0022},{\u0022span\u0022:\u0022Mercenary Kael Dunmore now has a price on his head following an ambush near Gallowmere.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027now\u0027 implies a before/after change; also nearly duplicates the first sentence\u0022},{\u0022span\u0022:\u0022It seems the Lantern Accord is keen on making a profit from a wanted man.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022a bounty is paid out, not profited from; it implies a motive, though it is hedged with \u0027It seems\u0027\u0022},{\u0022span\u0022:\u0022They are reportedly quiet behind their walls.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027reportedly\u0027 is fine, but it is delivered as a stated fact and adds nothing\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The first item restates the same fact twice, and the later items are dull filler that give the facts with little real wit (the \u0027familiar arrangement\u0027 line implies a past state). The bulletin is also longer than a two-fact week needs, and the sardonic voice is mostly generic.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.6080526,
+      "inputTokens": 3656,
+      "outputTokens": 405
+    }
+  ]
+}

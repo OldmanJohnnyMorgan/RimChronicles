@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__inheritance-handoff__snap-18-late-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022He sat back down and opened his notebook.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022notebook is an ordinary object but not given; plausible for engineer, staging\u0022},{\u0022span\u0022:\u0022the letter she had received remained a fact of the world\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the letter still exists; briefing only says it was received\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and ends correctly by turning toward Ada in the Wailing Moth village, with the engineer\u0027s calculations a nice trait touch. But it names emotions flatly, leans on generic phrasing like \u0027foundation of his own\u0027, and the ending is a bit abstract and bland.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.7138727,
+      "inputTokens": 3165,
+      "outputTokens": 240
+    }
+  ]
+}

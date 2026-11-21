@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-18-late-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022One assumes they have enough grain to share, provided anyone can actually get to them.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news: the granary offer comes from the earlier bulletin, not this briefing, and is only loosely framed as a guess\u0022},{\u0022span\u0022:\u0022I suspect the snow is becoming a more effective thief than the raiders.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a comparison and ongoing raider activity; framed as a guess but suggests the caravan was robbed-like loss\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Leads correctly with the new fact and keeps a dry tone, but the second item leans on the earlier granary bulletin rather than the briefing, and the voice is thin on Tomas\u0027s earnest worry.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.5715819,
+      "inputTokens": 3576,
+      "outputTokens": 274
+    }
+  ]
+}

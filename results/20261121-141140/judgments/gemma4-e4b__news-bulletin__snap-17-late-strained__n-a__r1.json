@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-17-late-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The rim has settled into a predictable lull.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a comparison with an earlier state; the briefing only says it has been a quiet stretch\u0022},{\u0022span\u0022:\u0022They are still engaged in hostilities with the Empire.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\\\u0022still\\\u0022 implies ongoing status and a prior state, which the task forbids; the briefing only says at war\u0022},{\u0022span\u0022:\u0022One assumes the war with the Ashford Compact is merely paused for paperwork.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the war is paused; this is framed as a guess, but the briefing says the war is ongoing\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It is dry and readable, and it keeps to the briefing\u0027s faction facts. But it uses the banned \\\u0022still\\\u0022 and \\\u0022holds\\\u0022 framing, and its wit is generic. It also skips Kestrel Tribe and the Bonecutters, and the \\\u0022paused\\\u0022 war joke slightly contradicts the briefing\u0027s ongoing war.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.2720102,
+      "inputTokens": 3644,
+      "outputTokens": 355
+    }
+  ]
+}

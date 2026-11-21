@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-07-mid-strained__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They have a lot of land to defend\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022added claim about the Covenant\u0027s situation, stated as fact; briefing gives only settlement count\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and leads with the new item, but the second item is padding and the jokes are generic. The \u0027lot of land to defend\u0027 line states an inference as fact, and the whole bulletin is under the length for a quiet week without much wit.\\n\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.3702694,
+      "inputTokens": 3578,
+      "outputTokens": 176
+    }
+  ]
+}

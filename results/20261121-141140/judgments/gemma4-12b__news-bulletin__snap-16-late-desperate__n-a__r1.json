@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-16-late-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The bounty follows an ambush near Gallowmere.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the ambush caused the bounty and that the Accord set it; briefing says only that he has a price on his head after an ambush\u0022},{\u0022span\u0022:\u0022One assumes they find his presence more irritating than his company\u0027s activities.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies Dunmore is separate from or distinct from his company\u0027s activities; framed as an assumption so only slight\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and in the right dry register, but the wit is thin and the first joke is muddled. The second item restates the same fact as the first rather than adding a separate news item.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.7428172,
+      "inputTokens": 3549,
+      "outputTokens": 244
+    }
+  ]
+}

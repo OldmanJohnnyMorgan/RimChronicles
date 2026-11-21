@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-07-mid-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022That is the same gorge where, as I reported earlier, the Iron Covenant lost a wagon to raiders.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; briefing says wagon lost \u0027near the gorge\u0027 and the link to the gorge road is an inference stated as fact, though marked as earlier\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Dry, on-voice and leads with the new item, with a decent closing joke on faction sizes. The \u0027same gorge\u0027 link is an unsupported inference stated as fact, and the second item is padded and the word count is near the low end for one new thing.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8783876,
+      "inputTokens": 3606,
+      "outputTokens": 224
+    }
+  ]
+}

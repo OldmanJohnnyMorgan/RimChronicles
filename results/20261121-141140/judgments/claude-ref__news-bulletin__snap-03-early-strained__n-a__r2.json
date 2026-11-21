@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-03-early-strained__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022I have heard nothing from the Ashen Hand since the road raids I reported earlier.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022restates the quiet stretch as specific to the Ashen Hand; implies the raids are over, which the briefing does not say\u0022},{\u0022span\u0022:\u0022which on the rim counts as good news\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022opinion framed as general claim; mild, borderline colour\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Dry, readable quiet-week bulletin with correct faction counts and a properly framed guess. It loosely mentions the old raids and implies they have stopped, and the \u0027which on the rim counts as good news\u0027 line is weak filler, so it is solid but not shippable unchanged.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.887151,
+      "inputTokens": 3614,
+      "outputTokens": 264
+    }
+  ]
+}

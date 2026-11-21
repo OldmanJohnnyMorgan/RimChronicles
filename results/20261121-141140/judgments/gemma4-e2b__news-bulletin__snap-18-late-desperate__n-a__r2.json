@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-18-late-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The blizzard continues to block the passes to the Wailing Moth villages.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news and states ongoing status (\u0027continues\u0027) the briefing does not report\u0022},{\u0022span\u0022:\u0022Harrow Teeth raiders are still robbing stranded travellers.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as current, with \u0027still\u0027 implying ongoing activity\u0022},{\u0022span\u0022:\u0022They have four settlements operating in this area.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022briefing gives four settlements but not that they are in this area or operating there\u0022},{\u0022span\u0022:\u0022The Thistle Commonwealth has opened its granaries. Reaching them is the real problem, as always.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022repeats the previous bulletin\u0027s news as new, including its joke, and is not in this briefing\u0022},{\u0022span\u0022:\u0022I suspect the distance is the main obstacle now.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022guess about distance as obstacle, unsupported but framed as a guess, and repeats the earlier bulletin\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The lead item is just the briefing line copied verbatim. The rest is padding that recycles old news and the previous bulletin\u0027s granary joke, breaks the \u0027still/continues\u0027 rule, and adds a location claim for Harrow Teeth. The wit is weak and the length goes over what one new item allows.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.2263427,
+      "inputTokens": 3657,
+      "outputTokens": 468
+    }
+  ]
+}

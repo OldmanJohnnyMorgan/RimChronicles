@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-11-mid-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Hearthguard Compact holds eight settlements across the rim.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\\\u0022across the rim\\\u0022 adds scope the briefing does not give\u0022},{\u0022span\u0022:\u0022They continue to offer prizes for new inventions.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news and uses \\\u0022continue\\\u0022, which the task forbids; implies ongoing status not reported\u0022},{\u0022span\u0022:\u0022as hearty as the stew\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022stew at the feast is not in the briefing, though it reads as a figure of speech\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead is correct and the dry remarks are framed as guesses, but the second item uses the banned word \\\u0022continue\\\u0022 and rehashes old news as if current. The jokes are mild and the wording is generic, so it is acceptable but not shippable as is.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.2706459,
+      "inputTokens": 3549,
+      "outputTokens": 299
+    }
+  ]
+}

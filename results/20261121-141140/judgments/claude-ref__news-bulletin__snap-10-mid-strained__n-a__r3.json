@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-10-mid-strained__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022as many as the other two factions combined\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022arithmetic is correct (3\u002B4=7) but it is an added comparison not in the briefing\u0022},{\u0022span\u0022:\u0022One assumes it prefers spending silver on bounties rather than ransoms.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, but it implies the Weir are involved in ransoms; effectively harmless opinion, and refers to the old bounty without marking it as old\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Dry voice, leads with the new fact, and the arithmetic is correct. The second item quietly reuses the old bounty news without a clear old-news marker, and the item count and length are slightly off the quiet-week ask (two short items is fine, but it\u0027s a bit padded).\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.6769755,
+      "inputTokens": 3643,
+      "outputTokens": 281
+    }
+  ]
+}

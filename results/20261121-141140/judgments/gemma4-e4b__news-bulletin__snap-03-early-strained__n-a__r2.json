@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-03-early-strained__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022One assumes they are busy polishing their plunder, as usual.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, but \\\u0022as usual\\\u0022 implies a habitual activity the briefing does not give\u0022},{\u0022span\u0022:\u0022They seem to have found a way to manage their trade routes, even if it means doubling the escort.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news (caravans in pairs) without marking it as old, and adds a consequence about escorts\u0022},{\u0022span\u0022:\u0022The Kinn of the Long Grass maintain three settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022uses the banned word \\\u0022maintain\\\u0022, implying a prior state the briefing does not give\u0022},{\u0022span\u0022:\u0022They are simply existing\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022states an ongoing status as fact; the briefing does not report it\u0022},{\u0022span\u0022:\u0022It seems the rim has settled into a predictable rhythm.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a comparison with an earlier state\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It is readable and dry in places, but it breaks the brief: it uses \\\u0022maintain\\\u0022 and \\\u0022now\\\u0022, implies earlier states, and passes off the old pairs-travel news as current. The three items are bland restatements of faction counts.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.4440511,
+      "inputTokens": 3638,
+      "outputTokens": 424
+    }
+  ]
+}

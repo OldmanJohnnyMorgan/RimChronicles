@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-19-late-desperate__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022One assumes the Throne packed enough ladders.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, so arguably not a fact; implies siege methods, but it is hedged\u0022},{\u0022span\u0022:\u0022Those of us nearby are reading the horizon with professional interest.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022vague colour about the reporter\u0027s activity, not a briefing fact\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate to the briefing, with a dry voice and proper hedged guesses; the old Fenwick news is correctly marked as old. The ladder joke and horizon line are mild, and the second item is a slightly bland restatement of faction facts.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.3541527,
+      "inputTokens": 3635,
+      "outputTokens": 245
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-11-mid-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The tribe and the Outlanders shared a meal.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022restates the feast as a fact, adding the meal detail beyond the briefing\u0027s plain wording; mostly a paraphrase but padded\u0022},{\u0022span\u0022:\u0022They have offered them before, so one assumes the incentive is strong enough to keep the populace quiet.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; \u0027offered before\u0027 is not in the briefing and the guess about the populace is a stretch (the guess is framed, but \u0027offered before\u0027 is stated as fact)\u0022},{\u0022span\u0022:\u0022now they occupy two places elsewhere\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022claims the Mire Rats\u0027 two settlements are elsewhere than the marsh, which the briefing does not say; implies where they went, which the earlier bulletin said was unclear\u0022},{\u0022span\u0022:\u0022I suspect they are just looking for a new place to complain about the marsh.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, but adds an implied activity; low weight\u0022},{\u0022span\u0022:\u0022The Mire Rats have two settlements. They were driven out of the eastern marsh\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a full item rather than a short clause marking it as old\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin pads with old news (the invention prizes and the marsh) as full items, and it states that the Mire Rats\u0027 two settlements are \u0027elsewhere\u0027, which the briefing does not support. The joke \u0027as temporary as the truce itself\u0027 is circular, and the lead item is a bare restatement with no dry take.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.8669709,
+      "inputTokens": 3619,
+      "outputTokens": 536
+    }
+  ]
+}

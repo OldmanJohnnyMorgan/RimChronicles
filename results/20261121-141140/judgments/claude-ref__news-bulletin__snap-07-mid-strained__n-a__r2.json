@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-07-mid-strained__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Its envoys, as I reported last time, were already making the rounds with long scrolls.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news, marked as old; also \u0027long scrolls\u0027 is from the earlier bulletin, not the briefing, which only says envoys visited two outlander towns.\u0022},{\u0022span\u0022:\u0022Presumably the toll covers the parchment.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, so not an invented fact; no violation (noted only for completeness).\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Dry, on-voice, leads with the new fact and keeps guesses framed as guesses; the old-news clause is properly marked. The second item is thin (a faction-size remark), and the \u0027already making the rounds\u0027 phrasing slightly embellishes the earlier bulletin.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.9604844,
+      "inputTokens": 3620,
+      "outputTokens": 289
+    }
+  ]
+}

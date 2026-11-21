@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-14-mid-content__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Corsairs took a barge.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022briefing says they raided a barge, not that they took it; a claimed outcome the briefing does not give\u0022},{\u0022span\u0022:\u0022They exchange furs for steel.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as if current; furs/steel detail comes from earlier bulletin, not briefing, and is told as present state\u0022},{\u0022span\u0022:\u0022The Fernhollow League and the Blue Antler Tribe have a trade pact.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news without marking it as old\u0022},{\u0022span\u0022:\u0022They are currently engaged in some sort of river activity.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing activity the briefing does not report\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin pads a single new fact into three items, restates the old trade pact as current, and claims the barge was taken. Its dry remarks are thin, and the structure is repetitive and muddled.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.1349819,
+      "inputTokens": 3673,
+      "outputTokens": 338
+    }
+  ]
+}

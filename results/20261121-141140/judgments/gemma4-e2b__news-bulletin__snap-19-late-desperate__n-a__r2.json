@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-19-late-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Sun Throne has razed Fenwick and is besieging the Marrow League.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news: Fenwick\u0027s razing was already covered in an earlier bulletin and is told as if it just happened\u0022},{\u0022span\u0022:\u0022This number is lower than the count from earlier reports.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news: the Marrow League\u0027s drop to three was already reported, and it is presented as a comparison with an earlier state\u0022},{\u0022span\u0022:\u0022They offered shelter to the Fenwick survivors previously.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news: the shelter offer was covered in an earlier bulletin\u0022},{\u0022span\u0022:\u0022They are currently situated in their four locations.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022added status the briefing does not give: it claims where the Tribe is located\u0022},{\u0022span\u0022:\u0022This expansion is proceeding by force against the Marrow League.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied ongoing activity: the briefing says the Throne is expanding by force, not that it is doing so specifically against the Marrow League\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin is padded and flat, with little sardonic voice. It restates old news (the shelter, the Marrow League\u0027s shrinking count) and ends on a filler sentence. The only new fact is stated plainly without any wit, and the wit that does appear is borrowed from the earlier bulletin.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.0055814,
+      "inputTokens": 3666,
+      "outputTokens": 487
+    }
+  ]
+}

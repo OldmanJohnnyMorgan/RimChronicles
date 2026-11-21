@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-06-early-content__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Ditch Kings relieved a grain barge on the delta.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027relieved\u0027 is euphemism for robbed; acceptable wit, but loosely changes the stated fact slightly\u0022},{\u0022span\u0022:\u0022The Calder Combine now commands five settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027now\u0027 implies comparison with an earlier state the briefing does not give\u0022},{\u0022span\u0022:\u0022They seem to be expanding their reach, or perhaps just moving things around.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies expansion, though framed as a guess; hedged so only mild\u0022},{\u0022span\u0022:\u0022They remain quiet behind their walls\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027remain\u0027 implies continuity, which the task forbids; briefing gives only current state\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The robbery is blurred by the euphemism \u0027relieved\u0027, so players may not grasp the event. The second and third items pad with faction-size remarks and use the forbidden words \u0027now\u0027 and \u0027remain\u0027, which breaks the prompt\u0027s rules. The bulletin also runs three items for a one-news week.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.5602917,
+      "inputTokens": 3537,
+      "outputTokens": 385
+    }
+  ]
+}

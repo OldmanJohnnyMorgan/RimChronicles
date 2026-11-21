@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__inheritance-handoff__snap-16-late-desperate__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the empty space where Bertram usually sat\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds a habit of the dead (a usual seat) that the briefing does not give\u0022},{\u0022span\u0022:\u0022A cup of lukewarm water rested on the wooden surface beside her.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022surface is unspecified, and the water detail is an extra; mostly ordinary staging so very low risk\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The scene never ends on what Elske means to do about Dunmore, the unfinished business; it just has her reach for the latch, so the handoff is not landed. Rook is correctly at home, but the prose is flat and generic, and the \u0027usually sat\u0027 detail adds a habit not in the briefing.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8722269,
+      "inputTokens": 3096,
+      "outputTokens": 267
+    }
+  ]
+}

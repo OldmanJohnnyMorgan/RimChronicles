@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-07-mid-strained__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022shaking down travelers\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says only tolls were demanded; \u0027travelers\u0027 and shakedown framing add detail about who pays and how, stated as fact\u0022},{\u0022span\u0022:\u0022provided they can find enough supplies to fill them\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a supply shortage as a consequence, loosely drawing on old news without marking it as old\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate on the main fact and appropriately short, but the dry takes are generic, and the second item is a filler remark that leans on old news without flagging it. The wit is mild and the \u0027maintaining the path\u0027 guess is fine, though the item count and length are slightly thin.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.0561056,
+      "inputTokens": 3580,
+      "outputTokens": 257
+    }
+  ]
+}

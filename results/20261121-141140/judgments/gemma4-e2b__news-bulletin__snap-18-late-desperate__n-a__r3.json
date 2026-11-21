@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-18-late-desperate__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They have four settlements operating in the area.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing gives four settlements but not that they operate in the area; location is added\u0022},{\u0022span\u0022:\u0022The passes remain closed to the Wailing Moth villages.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news and implies ongoing status (\u0027remain\u0027), which the briefing does not report as current\u0022},{\u0022span\u0022:\u0022Harrow Teeth raiders are still robbing stranded travellers.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as ongoing activity (\u0027still\u0027), not reported in new information\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Reports the new caravan loss but gives it no dry take, then spends two items on old news with banned \u0027remain\u0027 and \u0027still\u0027 phrasing. The jokes are weak and the Tomas Quell voice is mostly missing.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.1463876,
+      "inputTokens": 3607,
+      "outputTokens": 299
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-05-early-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Ferrow Mutual has asked its members to share patrols.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news from an earlier bulletin; not in the briefing\u0027s list of prior coverage, and told as a current item (flagged as old only afterwards)\u0022},{\u0022span\u0022:\u0022Scythe Tooth raids are reported at three settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a full item, although it is marked as old\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It wastes two of its three items on old news, padding a one-item quiet week and breaking the brief, and the dry wit is thin and repetitive (\\\u0022This is old news\\\u0022 twice). The one fresh item is handled plainly but the jokes are generic.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.7766591,
+      "inputTokens": 3589,
+      "outputTokens": 265
+    }
+  ]
+}

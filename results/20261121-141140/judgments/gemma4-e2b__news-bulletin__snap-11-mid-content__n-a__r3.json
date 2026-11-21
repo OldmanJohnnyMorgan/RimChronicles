@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-11-mid-content__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They have been offering these for some time now.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied duration not in briefing; repeats old news with added ongoing status\u0022},{\u0022span\u0022:\u0022The Hearthguard Compact offers prizes for new inventions.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a full present-tense item, not a short marked clause\u0022},{\u0022span\u0022:\u0022They are currently somewhere other than the eastern marsh.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; ongoing status inferred beyond briefing\u0022},{\u0022span\u0022:\u0022The Tribe and the Outlanders shared a meal.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022feast restated as a meal; mild added detail, plus reads as filler\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Only one new fact was heard, so this should be a short quiet-week bulletin, but it pads with two old-news items told as current, breaking the brief. The wit is thin and the paragraphs are too short and structured like fragments, and the first item has no dry remark.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.6492543,
+      "inputTokens": 3593,
+      "outputTokens": 355
+    }
+  ]
+}

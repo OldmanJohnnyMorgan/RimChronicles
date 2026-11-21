@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-14-mid-content__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022One assumes his crewmates kept him well away from the barge job.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, so not a claim; it only hints at the Corsair\u0027s whereabouts\u0022},{\u0022span\u0022:\u0022As I reported last time, a released Corsair is praising his captors\u0027 kindness.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a current ongoing activity (\\\u0022is praising\\\u0022), though it is marked as old\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate and the dry jokes work, but the second item pads with old news and speculation instead of staying short. The \\\u0022is praising\\\u0022 present tense also treats an old item as ongoing, which the briefing does not support.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.5969538,
+      "inputTokens": 3626,
+      "outputTokens": 254
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-16-late-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022One assumes this means the Accord finds his continued existence rather inconvenient.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, so not invented; noted only as an implied motive\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate to the briefing with no new facts, but the two items cover the same event and read as a repeated bounty story, and the wit is thin. The word \u0027buccaneers\u0027 is off-genre for a mercenary and the second item barely adds anything.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.3830868,
+      "inputTokens": 3566,
+      "outputTokens": 185
+    }
+  ]
+}

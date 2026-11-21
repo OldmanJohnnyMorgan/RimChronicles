@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-12-mid-desperate__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Facts are accurate, with the guesses properly framed, but the output breaks explicit rules: \\\u0022maintains\\\u0022 and \\\u0022continues\\\u0022 are banned words, and the second item is a bare recitation of faction counts with only a generic closing quip.  The voice is competent but not distinctly Odile\u0027s.  It should not ship as is.  The second item is also a weak dry take.  The first item is acceptable.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.4939208,
+      "inputTokens": 3637,
+      "outputTokens": 169
+    }
+  ]
+}

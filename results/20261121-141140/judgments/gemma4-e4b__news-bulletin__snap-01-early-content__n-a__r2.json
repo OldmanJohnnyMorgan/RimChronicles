@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-01-early-content__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and clear, with no invented facts, and the guesses are properly hedged. But it is thin: the third item is a flat list of faction sizes with no dry remark, the length is short for two new things, and the wit is generic. It also reads as three items where the brief asked for two.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.141815,
+      "inputTokens": 3405,
+      "outputTokens": 131
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-12-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Gallows Crew holds a doctor at their camp, as I reported last time.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a present-tense status; the briefing says the doctor was reported held, not that the hold is current now, though it is marked as old with a clause\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The dry voice is sound and the lead item is correct and framed as a guess. The second item is old news carried in the present tense, which is a small accuracy risk, and the \u0027strictly enforced\u0027 hospitality joke is a bit weak; the bulletin is short and compliant otherwise.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.4312025,
+      "inputTokens": 3597,
+      "outputTokens": 225
+    }
+  ]
+}

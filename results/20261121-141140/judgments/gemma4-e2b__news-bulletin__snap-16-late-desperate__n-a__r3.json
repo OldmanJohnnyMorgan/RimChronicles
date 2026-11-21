@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-16-late-desperate__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The mercenaries are still loose.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing status not in briefing; also uses forbidden \u0027still\u0027 and repeats the earlier bulletin\u0027s line\u0022},{\u0022span\u0022:\u0022The heatwave has dried the southern wells. This is merely a recurring inconvenience for the settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a full item, and \u0027recurring\u0027 adds an unsupported claim about past heatwaves\u0022},{\u0022span\u0022:\u0022The Accord\u2019s pricing scheme is predictable.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022states as fact that the Accord has a habitual scheme; briefing gives no such pattern\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The first item is redundant, saying the same fact twice. The bulletin then spends a full item repeating old heatwave news, with \u0027recurring\u0027 unsupported, and uses the banned \u0027still\u0027. Items are too thin and the wit is bland.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.3532532,
+      "inputTokens": 3626,
+      "outputTokens": 334
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__inheritance-handoff__snap-16-late-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The staging is plain and invents no facts, but the scene never lands the handoff. It ends on a vague \u0027task ahead\u0027 instead of Elske\u0027s intent to hunt Dunmore, and it ignores Rook and the unfinished story, so it reads as flat and generic.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.1658656,
+      "inputTokens": 3116,
+      "outputTokens": 129
+    }
+  ]
+}

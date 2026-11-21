@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-06-early-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Sundered Throne keeps quiet behind its walls\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says \u0027quiet behind its walls\u0027 as a description; \u0027keeps\u0027 implies ongoing activity, mild but close to briefing\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Dry, consistent voice with properly hedged guesses, and the old news is marked as old. However, it leads with a single new fact, then spends the rest on a stretched second item that is a mere remark on faction data, and the first item\u0027s \u0027there\u0027 linking the harvests to the barge is a slight implied connection; the word count is also at the low edge.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.7557821,
+      "inputTokens": 3551,
+      "outputTokens": 229
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-18-late-desperate__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022As I reported before, the passes there are closed.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; also states passes are closed as a current fact, which the briefing only gives as earlier news\u0022},{\u0022span\u0022:\u0022I wish it were more.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022opinion, not a fact; not counted\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate, plainly stated and in the earnest, worried voice, but the second item is filler: it recycles the closed passes and recites faction counts, and the pirate joke is weak. The second item has one minor repeat-of-old-news issue and falls short of the dry wit requested.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.7825844,
+      "inputTokens": 3621,
+      "outputTokens": 240
+    }
+  ]
+}

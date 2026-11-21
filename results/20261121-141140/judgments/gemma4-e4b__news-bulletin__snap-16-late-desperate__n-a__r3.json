@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-16-late-desperate__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022a man who already has a price on him\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the bounty predates the Accord\u0027s, which the briefing does not say; it lists the bounty once\u0022},{\u0022span\u0022:\u0022It seems even the rogues in this rim have a tendency toward self-sabotage.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies Dunmore caused his own bounty, a cause the briefing does not give\u0022},{\u0022span\u0022:\u0022Mercenary Kael Dunmore now carries his own bounty after an ambush near Gallowmere.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats the first item as a separate story; the briefing\u0027s two lines are likely one event, and \u0027now\u0027 implies a change\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The two items are the same fact told twice, so the bulletin is padded and the first item\u0027s \u0027already has a price\u0027 implies a second bounty the briefing does not give. The dry remarks are mild and the second one implies a cause that is not in the briefing.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.1724976,
+      "inputTokens": 3576,
+      "outputTokens": 336
+    }
+  ]
+}

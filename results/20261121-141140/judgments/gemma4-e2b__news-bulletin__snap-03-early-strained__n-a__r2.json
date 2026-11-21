@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-03-early-strained__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They have been raiding homesteads near the Merrow road, as I reported last time.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies ongoing raiding (\\\u0022have been raiding\\\u0022); the briefing gives a past raid of two homesteads\u0022},{\u0022span\u0022:\u0022a measure to double the guards\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022the pairing is said to double the guards; the briefing gives no such reason or effect, and it repeats the earlier bulletin\u0027s claim\u0022},{\u0022span\u0022:\u0022They are reportedly moving due to grass fires in the south.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news from the latest bulletin as if current; the briefing\u0027s old-news list does not include it\u0022},{\u0022span\u0022:\u0022They claim they are not seeking conflict.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news from the latest bulletin\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin pads a quiet week with three plain faction-size items and recycles old news and an earlier joke without clear marking as old, so the dry voice is thin. Wit is mostly absent, and the guard-doubling line and Kinn repetition add unsupported detail.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.790408,
+      "inputTokens": 3659,
+      "outputTokens": 392
+    }
+  ]
+}

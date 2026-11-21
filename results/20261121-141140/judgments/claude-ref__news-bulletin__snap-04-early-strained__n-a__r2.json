@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-04-early-strained__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022If you have seen him, the Dispatch would like to know.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied request to the public not in briefing; extends \u0027looking for news\u0027\u0022},{\u0022span\u0022:\u0022Travellers on the south channel may wish to practise their swimming.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies ferry sinking and travellers on the channel; consequence not given\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Dry voice, uses all three items in the right order, and hedges its guesses properly. It slightly exceeds the 70 to 130 word target only if counted loosely, but the real flaws are minor added implications such as the public appeal and the swimming joke, which imply consequences the briefing does not give.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8264453,
+      "inputTokens": 3529,
+      "outputTokens": 257
+    }
+  ]
+}

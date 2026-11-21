@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-07-mid-strained__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022just another way to fund their endless ambition\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the tolls fund ambition and that this follows earlier demands; the briefing gives no purpose, though it is framed with \u0027One assumes\u0027\u0022},{\u0022span\u0022:\u0022They seem to be weathering the Empire\u0027s demands, for now.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the Covenant is under the Empire\u0027s demands and coping; the briefing does not say this, and \u0027seem\u0027 is a hedge but also implies a prior state (\u0027for now\u0027)\u0022},{\u0022span\u0022:\u0022just another way\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies earlier ways or comparison with an earlier state that the briefing does not give\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate lead and a hedged guess, but the second item is a weak filler with little wit and an unsupported link between the Covenant and the toll demands. The dry voice is thin, and the bulletin lacks the sharper observations of earlier ones.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.2673898,
+      "inputTokens": 3559,
+      "outputTokens": 338
+    }
+  ]
+}

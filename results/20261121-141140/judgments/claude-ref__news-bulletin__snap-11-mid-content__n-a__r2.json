@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-11-mid-content__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022One assumes the Rats have done that arithmetic and declined the invitation.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, but implies an invitation existed; mild. Guess framing makes it acceptable, so low severity\u0022},{\u0022span\u0022:\u0022Otherwise it is Decembary, and the rim is quiet.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027the rim is quiet\u0027 is a status claim not in the briefing, though vague colour\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Dry, consistent voice and accurate facts with a good guess-framed joke; the second item is a bit thin and the Rats \u0027invitation\u0027 and \u0027rim is quiet\u0027 lines add mild implication. Only one new fact existed, so the two-item format is acceptable but the second paragraph is slightly padded.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.6594482,
+      "inputTokens": 3571,
+      "outputTokens": 288
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-15-late-content__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022even with a new speaker\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; the new speaker was covered in an earlier bulletin and is not marked as old\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and clear, with a dry guess on the Leopold item, but the second item is thin and mentions the new speaker without marking it as old news. Voice is serviceable rather than distinct, and the second item\u0027s wit is weaker than the first.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.0851533,
+      "inputTokens": 3546,
+      "outputTokens": 176
+    }
+  ]
+}

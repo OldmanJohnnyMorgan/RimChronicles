@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-15-late-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They seem to be managing the rim\u0027s population, one way or another.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022hedged with \u0027seem\u0027 but implies a claim about Concord activity; borderline guess, mostly opinion\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and brief, leading with the new item and staying within the briefing, but the wit is thin and generic. The second item\u0027s joke is vague, and \u0027holds\u0027 is slightly off the instruction to avoid maintain-style phrasing, though acceptable.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.4272217,
+      "inputTokens": 3545,
+      "outputTokens": 194
+    }
+  ]
+}

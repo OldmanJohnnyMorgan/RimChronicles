@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-20-late-strained__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022If Varrowgate has an answer, it has not shared it with this paper.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a status about Varrowgate\u0027s response that the briefing does not report; framed conditionally but suggests no public answer\u0022},{\u0022span\u0022:\u0022a fondness for final demands\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says the Empire is issuing final demands; \u0027fondness\u0027 implies a habitual pattern, mostly opinion\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Dry, clean and accurate: it leads with the new fact, keeps guesses framed as guesses, and uses faction numbers correctly. The second item is a bit of padding from the briefing, and the \u0027has not shared it\u0027 line edges toward an unreported status.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.7756792,
+      "inputTokens": 3616,
+      "outputTokens": 269
+    }
+  ]
+}

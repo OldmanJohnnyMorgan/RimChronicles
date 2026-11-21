@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-19-late-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They appear to be content with their current arrangement.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022hedged as appearance, but implies status the briefing does not report; borderline guess\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate to the briefing and clear, but the wit is thin and generic, and the third item is padding with nothing newsworthy. The briefing\u0027s one new fact (the siege) gets only a flat line, and the Sun Throne\u0027s war with Last Lantern is missed.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.3202539,
+      "inputTokens": 3594,
+      "outputTokens": 186
+    }
+  ]
+}

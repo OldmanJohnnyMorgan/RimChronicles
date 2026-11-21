@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-20-late-strained__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022One assumes they are hoping to smooth over the current hostilities.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, so not counted; but \u0027current hostilities\u0027 with Varrowgate is not in the briefing\u0022},{\u0022span\u0022:\u0022They continue to issue final demands to those who resist.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027continue\u0027 is forbidden ongoing status; \u0027those who resist\u0027 adds unsupported detail\u0022},{\u0022span\u0022:\u0022The Empire now controls 21 settlements in the region.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says 21 settlements and controls most of the region; \u0027now\u0027 implies a change from before\u0022},{\u0022span\u0022:\u0022They seem content to remain outside the Empire\u0027s immediate notice.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022hedged with \u0027seem\u0027, but claims tribe\u0027s status and attitude not in briefing\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The lead is correct, but the bulletin is padded with a second and third item that restate briefing facts with little wit, and it breaks the rule against \u0027continue\u0027 and \u0027now\u0027. The dry voice is mostly absent, and the Varrowgate \u0027hostilities\u0027 claim is unsupported.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.3086693,
+      "inputTokens": 3587,
+      "outputTokens": 402
+    }
+  ]
+}

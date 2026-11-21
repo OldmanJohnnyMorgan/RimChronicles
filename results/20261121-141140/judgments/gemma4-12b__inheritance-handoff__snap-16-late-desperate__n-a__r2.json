@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__inheritance-handoff__snap-16-late-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the way he lived for the hunt\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Added detail about Bertram\u0027s character beyond traits; loosely supported by the story (he led hunts) and Bloodlust.\u0022},{\u0022span\u0022:\u0022looking out at the horizon\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Staging that implies an outdoor view; ordinary staging, hardly an invented fact.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It stays faithful to the briefing, keeps Rook at home and ends on Elske resolving to find Dunmore, but the prose is generic and the \u0027Careful shooter\u0027 and \u0027Steadfast\u0027 traits and best-friend bond are barely used. The ending is functional rather than moving.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.7464711,
+      "inputTokens": 3144,
+      "outputTokens": 258
+    }
+  ]
+}

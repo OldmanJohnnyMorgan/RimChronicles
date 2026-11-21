@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-10-mid-strained__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They are currently fighting, as I reported last time.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing activity (active fighting) not reported in briefing; war stated, not current fighting\u0022},{\u0022span\u0022:\u0022The Weir Federation has seven settlements. They have placed a bounty on Stonecutter leaders.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news, the bounty was covered in the last bulletin and is told without marking it as old\u0022},{\u0022span\u0022:\u0022They are holding captives from the Ochre Hand.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news, covered in earlier bulletins and not marked as old\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin leads with the new fact but repeats it as an unadorned opener, then pads with old news (captives, bounty) told as current, and it has three paragraphs when a quiet week calls for 1-2 short items. The wit is thin and the length is off, so it reads as a flat recap rather than a dry reporter.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.574131,
+      "inputTokens": 3697,
+      "outputTokens": 347
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-12-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Presumably they count him separately.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, so not invented; the pronoun \u0027him\u0027 assigns a gender to the doctor the briefing does not give\u0022},{\u0022span\u0022:\u0022The Crew also has a doctor, as I reported last time.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news, though marked as old; \u0027has a doctor\u0027 drops the captive status, slightly changing the fact\u0022},{\u0022span\u0022:\u0022Nobody has told me what was discussed.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022asserts that nothing was disclosed, which the briefing does not state, though it is plausible as the reporter\u0027s own knowledge\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Dry, clear and accurate on the lead item, and the masks joke works. The second item is weaker: it reduces the captive doctor to someone the Crew merely \u0027has\u0027, and \u0027him\u0027 is an unsupported gender detail. It also pads with faction counts and a rehash of old news in a bulletin that should be short.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.6581301,
+      "inputTokens": 3625,
+      "outputTokens": 354
+    }
+  ]
+}

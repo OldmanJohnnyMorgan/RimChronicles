@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-20-late-strained__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022issues final demands to the Outlanders\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022briefing says it issues final demands but not to whom; the target (Outlanders) is invented\u0022},{\u0022span\u0022:\u0022The Empire controls twenty-one settlements\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing gives 21 settlements and says it controls most of the region; this is close but equates control with exactly 21\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Leads correctly with the governorship and frames its jokes as guesses, but it says the final demands go to the Outlanders, which the briefing never states. The wit is also thin: the \u0027scenery\u0027 joke has no basis, and the second item pads rather than adding a new fact.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.574059,
+      "inputTokens": 3567,
+      "outputTokens": 254
+    }
+  ]
+}

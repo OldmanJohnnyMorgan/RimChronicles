@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-13-mid-strained__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022One assumes the Empire is having a rather dramatic day.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, so arguably allowed; implies a reaction the briefing does not report\u0022},{\u0022span\u0022:\u0022It seems the power balance is as predictable as stale synth-bread.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess/opinion; \u0027predictable\u0027 implies a prior state, but this is a figure of speech\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Facts are accurate and the new item leads, but the wit is thin and generic. The second item is a flat list of faction counts with one weak joke, and the first item\u0027s quip does little.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.3988437,
+      "inputTokens": 3620,
+      "outputTokens": 238
+    }
+  ]
+}

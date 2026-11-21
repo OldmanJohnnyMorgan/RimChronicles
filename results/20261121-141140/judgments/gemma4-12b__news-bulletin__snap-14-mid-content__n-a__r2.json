@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-14-mid-content__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They have a lot of property to lose if the Corsairs keep up this pace.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies an ongoing pattern of raids (\u0027keep up this pace\u0027) that the briefing does not report; stated as fact, not a guess\u0022},{\u0022span\u0022:\u0022One assumes the pirates found the cargo more appetizing than the company.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the barge carried cargo and had crew aboard, which the briefing does not say\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It leads correctly with the new raid and keeps to the briefing\u0027s facts, but the second item\u0027s \u0027keep up this pace\u0027 implies a string of raids, and the wit is thin. The second item also reads as filler and is not very dry or distinctive.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.7016084,
+      "inputTokens": 3593,
+      "outputTokens": 270
+    }
+  ]
+}

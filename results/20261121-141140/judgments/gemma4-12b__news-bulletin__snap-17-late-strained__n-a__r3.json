@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-17-late-strained__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They seem to be managing with less\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies how the Compact is faring, which the briefing does not give; softened by \u0027seem\u0027\u0022},{\u0022span\u0022:\u0022provided they can keep it\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the Empire\u0027s holdings are at risk, which the briefing does not say; framed as wit, borderline\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and clear, and it uses the faction-size fact as the task allows. But the wit is thin and generic, the second item is weak, and it ignores the war between the two factions, which is the obvious dry angle. Each item runs two sentences, which is acceptable.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8520817,
+      "inputTokens": 3607,
+      "outputTokens": 243
+    }
+  ]
+}

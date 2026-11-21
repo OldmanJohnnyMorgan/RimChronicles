@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__inheritance-handoff__snap-09-mid-desperate__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022a chipped cup, its warmth barely reaching her fingers\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022chipped detail gives an ordinary object a flaw/history not in the briefing\u0022},{\u0022span\u0022:\u0022Lene sat in the chair across the room, watching the embers fade\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Lene is a named person, so her presence at home is plausible staging, but it is not stated in the briefing\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It stays within the facts and the relationship, but the ending is vague: she looks toward the Lancers\u0027 camp without stating what she means to do about the new captain\u0027s revenge vow against Cinder Rest. The prose is generic, and the line about Joska\u0027s \u0027shadow of his bloodlust\u0027 names a trait rather than showing it.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.7443877,
+      "inputTokens": 3156,
+      "outputTokens": 280
+    }
+  ]
+}

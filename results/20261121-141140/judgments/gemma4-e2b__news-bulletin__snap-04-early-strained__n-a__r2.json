@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-04-early-strained__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022This is the latest chatter from the Outlanders.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022frames the search as chatter from Outlanders; the briefing only says the Dispatch is looking for Quell, and the Dispatch is the narrator\u0027s own outfit\u0022},{\u0022span\u0022:\u0022Another piece of local mischief.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies earlier similar incidents, which the briefing does not give\u0022},{\u0022span\u0022:\u0022A predictable move.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022stated as fact; implies the move was expected, which the briefing does not support\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate to the briefing and clearly written, but the wit is thin and generic. It treats the Dispatch as a distant third party even though Ilse works for it, and the items are mostly one restated fact plus a guess. It is also short of the 70-word minimum for three items.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.0143204,
+      "inputTokens": 3486,
+      "outputTokens": 312
+    }
+  ]
+}

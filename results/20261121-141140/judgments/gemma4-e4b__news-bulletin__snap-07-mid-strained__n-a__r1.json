@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-07-mid-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They seem to be growing in number\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a comparison with an earlier state the briefing does not give; hedged with \u0027seem\u0027, but it leans toward a stated trend\u0022},{\u0022span\u0022:\u0022another way to fund their endless bureaucratic sprawl\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a cause and a prior pattern of Imperial funding; framed as a guess, but \u0027another\u0027 implies earlier schemes the briefing does not give\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It leads correctly with the new fact and frames its guesses as guesses. However, the second item is a weak, padded remark on faction size, and the \u0027growing in number\u0027 joke implies a trend the briefing does not give. Neither item is very witty or distinctive.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8596218,
+      "inputTokens": 3577,
+      "outputTokens": 276
+    }
+  ]
+}

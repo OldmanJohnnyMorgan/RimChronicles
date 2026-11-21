@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-08-mid-content__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022I suspect the locals are more interested in the stone\u0027s value than its artistic merit.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, so not counted; but \u0027locals\u0027 is loosely the traders, negligible\u0022},{\u0022span\u0022:\u0022a group that prefers taking things over owning them\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies raiding habits; the briefing gives no such activity (the earlier bulletin does mention a failed raid, so mild)\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate to the briefing and leads with the new item, but the bulletin is thin: the first item is only two sentences, the faction items are filler, and the wit is mild. \u0027The locals\u0027 misidentifies the traders slightly, though it is framed as a guess.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.1422483,
+      "inputTokens": 3600,
+      "outputTokens": 270
+    }
+  ]
+}

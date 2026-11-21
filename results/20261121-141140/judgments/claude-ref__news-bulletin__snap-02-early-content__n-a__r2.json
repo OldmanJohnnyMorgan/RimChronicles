@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-02-early-content__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Nobody has told me why\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the reason was sought and withheld; the briefing says nothing about this\u0022},{\u0022span\u0022:\u0022They are fighting the Tannerfolk, as I reported last time.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022states the war as ongoing (present-tense status); it is flagged as old news, but \u0027are fighting\u0027 is a status the briefing only gives as \u0027at war\u0027\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Dry, tidy and faithful to the briefing, leading with the new fact and marking the old war as old. The two-item structure is padded by restating faction counts, and \u0027Nobody has told me why\u0027 slightly implies a source that the briefing does not give.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.9079668,
+      "inputTokens": 3696,
+      "outputTokens": 260
+    }
+  ]
+}

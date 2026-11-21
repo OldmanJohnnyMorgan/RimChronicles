@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-03-early-strained__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Ashen Hand still controls four settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027still\u0027 implies a comparison with an earlier state the briefing does not give\u0022},{\u0022span\u0022:\u0022The Merrow Freeholds maintain seven settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027maintain\u0027 implies an ongoing status the briefing does not report\u0022},{\u0022span\u0022:\u0022The rim has settled into a predictable lull.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a prior state and a general condition; the briefing only says a quiet stretch\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It breaks the explicit rule against \u0027still\u0027 and \u0027maintain\u0027, and it presents the caravan pairing as current news even though the earlier bulletin called it old. The dry voice is generic and the jokes are weak, though the guesses are properly hedged and the piece is short and clear.}\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.0760195,
+      "inputTokens": 3587,
+      "outputTokens": 307
+    }
+  ]
+}

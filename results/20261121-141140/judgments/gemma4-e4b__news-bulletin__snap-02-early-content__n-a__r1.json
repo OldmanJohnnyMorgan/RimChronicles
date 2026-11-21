@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-02-early-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and leads with the new fact, with no inventions, and the guesses are framed as guesses. But it is a bit generic and the jokes are thin. The second item is padded faction trivia, and it runs over a quiet-week length by being two items, though it stays within 40 to 80 words.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.1543019,
+      "inputTokens": 3639,
+      "outputTokens": 136
+    }
+  ]
+}

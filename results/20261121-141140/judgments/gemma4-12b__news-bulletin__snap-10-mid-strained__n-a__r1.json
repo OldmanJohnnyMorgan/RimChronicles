@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-10-mid-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022until the local inhabitants run out of things to steal\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess (\\\u0022One assumes\\\u0022), so only mild implication of ongoing raiding; borderline, not a real claim\u0022},{\u0022span\u0022:\u0022The Stonecutter Raiders hold four settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\\\u0022hold\\\u0022 is fine, but the item is a filler remark on a faction fact; acceptable, flagged only as borderline\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Leads correctly with the new fact, stays within the briefing, and keeps a dry voice with guesses framed as guesses. The first joke about funerals is a bit muddled, and the second item is thin filler, but it is accurate and short.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8538144,
+      "inputTokens": 3605,
+      "outputTokens": 269
+    }
+  ]
+}

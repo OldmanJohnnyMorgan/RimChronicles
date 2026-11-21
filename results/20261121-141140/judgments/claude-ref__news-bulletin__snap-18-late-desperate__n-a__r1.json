@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-18-late-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022That is the same blizzard that closed the passes\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022links the lost caravan to the earlier blizzard as fact; the briefing does not say it is the same storm\u0022},{\u0022span\u0022:\u0022Snow falls on all of them alike.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022states as fact that snow falls on all three factions\u0027 settlements; the briefing says only that the blizzard is near the Wailing Moth villages\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate and correctly framed, and the faction counts are right. But the same-blizzard link and the claim that snow falls on every faction are stated as fact, and the second item is padded. The voice is only moderately worried, and the \u0027think hard\u0027 remark is a little flat.}\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.0965847,
+      "inputTokens": 3637,
+      "outputTokens": 274
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__inheritance-handoff__snap-18-late-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022turned toward the workbench\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022names a workbench, a room/furniture beyond the allowed home, door, hearth and walls\u0022},{\u0022span\u0022:\u0022He needed to build something that would reach the passes.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds an unspecified plan and device not in the briefing, though it fits his engineer background\u0022},{\u0022span\u0022:\u0022A coat, draped over a chair, seemed too large now.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the coat belonged to Constance, which the briefing does not say\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The scene follows the rules on the body and the death and turns to Ada, but the workbench is an unnamed addition and the ending plan is vague. The prose is flat, and naming the traits \\\u0022Kind and Iron-willed\\\u0022 reads awkwardly.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.6469478,
+      "inputTokens": 3138,
+      "outputTokens": 297
+    }
+  ]
+}

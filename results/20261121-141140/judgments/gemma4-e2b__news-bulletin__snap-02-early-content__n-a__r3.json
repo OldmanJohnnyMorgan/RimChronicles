@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-02-early-content__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Tannerfolk and the Hollow Spire Pirates are fighting over the salt flats.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news, told as current with no marker that it is old\u0022},{\u0022span\u0022:\u0022A Glimmer Coast Company caravan reached the eastern ford.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news, told as if it just happened\u0022},{\u0022span\u0022:\u0022The Company always reports a profitable week, which is usually a code for \u0027we are not starving.\u0027\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news from the earlier bulletin and states an inference about its meaning as fact\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin copies the old-news items almost verbatim and presents them as fresh, ignoring the instruction to lead with new facts and mark old ones. The one new item has no dry remark, and the wit is thin and recycled from an earlier bulletin.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.156649,
+      "inputTokens": 3686,
+      "outputTokens": 322
+    }
+  ]
+}

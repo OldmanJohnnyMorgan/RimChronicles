@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-07-mid-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Vex\u0027s Crew has two settlements operating.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\\\u0022operating\\\u0022 is an activity/status the briefing does not report; it only gives the settlement count\u0022},{\u0022span\u0022:\u0022They are likely looking for easy plunder.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022hedged with \\\u0022likely\\\u0022 but not framed as a clear guess; an inference about motive the briefing does not support\u0022},{\u0022span\u0022:\u0022They are apparently quite numerous for a group that lost a supply wagon.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news (the wagon loss) as a comparison without marking it as earlier reporting\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It leads correctly with the toll demand and stays within the briefing\u0027s facts, but the last two items pad with faction counts and generic guesses, and the wit is weak. The line \\\u0022This is what I heard since my last dispatch\\\u0022 is clumsy filler, and the old wagon news is not marked as old.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.5335585,
+      "inputTokens": 3641,
+      "outputTokens": 336
+    }
+  ]
+}

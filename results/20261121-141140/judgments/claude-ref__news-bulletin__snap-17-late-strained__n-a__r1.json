@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-17-late-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Nobody took anything from anybody, at least not within earshot.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022stated as fact that no conquest occurred; briefing only says nothing new was heard\u0022},{\u0022span\u0022:\u0022The Ashford Compact has five and the war to go with them.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the war is ongoing; briefing only says at war, so this is mostly supported but slightly embellished\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Dry, fitting quiet-week bulletin that sticks to faction facts and frames guesses as guesses. However, the opening asserts that nobody took anything, and the second paragraph runs a little thin on wit, with no mention of the Bonecutter Gang and the bulletin sitting slightly under the word count.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.5727974,
+      "inputTokens": 3650,
+      "outputTokens": 280
+    }
+  ]
+}

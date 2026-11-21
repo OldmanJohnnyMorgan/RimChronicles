@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-01-early-content__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022they are the biggest outfit on the rim\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022comparison across factions is an inference; 6 is the largest count, but \u0027biggest\u0027 is stated as fact beyond settlement count\u0022},{\u0022span\u0022:\u0022The people living in them will, loudly.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022claims people live in the northern hills; the briefing does not say so\u0022},{\u0022span\u0022:\u0022who prefer to take your goods without the paperwork\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022attributes raiding behaviour to Red Gully Raiders as fact; the briefing only lists them as Pirates\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The dry voice is consistent, and the bulletin leads with the new items and frames its guesses as guesses. It loses a point for a few small unsupported additions, such as people living in the hills and the Raiders\u0027 habits, and the opening item runs to four sentences with some filler about prices.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.4673163,
+      "inputTokens": 3455,
+      "outputTokens": 324
+    }
+  ]
+}

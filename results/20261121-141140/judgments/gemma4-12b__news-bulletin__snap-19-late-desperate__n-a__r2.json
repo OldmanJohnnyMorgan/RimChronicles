@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-19-late-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022One assumes the League\u0027s neighbors are finding the noise quite inconvenient.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, but implies neighbors and noise; borderline colour, not a real claim\u0022},{\u0022span\u0022:\u0022They appear to enjoy the expansion of their borders by force.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as appearance; opinion about motive, not a briefing fact\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and brief, but the first item leaves out the new fact in a flat way and the jokes are weak. The second item pads with a restatement of faction size instead of news, and the voice is only mildly sardonic.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.9583274,
+      "inputTokens": 3574,
+      "outputTokens": 244
+    }
+  ]
+}

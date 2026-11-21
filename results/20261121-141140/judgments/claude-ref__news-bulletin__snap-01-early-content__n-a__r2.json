@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-01-early-content__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022With six settlements to their name, one assumes they ran out of places to sell things.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the trading post is the settlements\u0027 extension/cause; framed as a guess, so likely acceptable but borderline\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate to the briefing, with a consistent dry voice and guesses framed properly; the jokes are a bit predictable and the second item is thin, but it stays within the facts and could nearly ship.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.3497816,
+      "inputTokens": 3421,
+      "outputTokens": 186
+    }
+  ]
+}

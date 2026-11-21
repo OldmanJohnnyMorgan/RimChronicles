@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-15-late-content__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Nobody has told me anything interesting about either\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a status of the factions (nothing notable happening) that the briefing does not report\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Dry, clean and accurate; the lead is the new item, hedges are properly framed, and numbers match the briefing. The second item is a thin filler remark, and \u0027otherwise, Jugust is quiet\u0027 slightly overstates what the briefing supports.}\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.2788184,
+      "inputTokens": 3612,
+      "outputTokens": 185
+    }
+  ]
+}

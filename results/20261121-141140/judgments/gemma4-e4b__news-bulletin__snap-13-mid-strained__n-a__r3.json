@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-13-mid-strained__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022One assumes the Empire is having a rather tedious day.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, so not invented; listed only as borderline, no real claim\u0022},{\u0022span\u0022:\u0022The Cobalt Free Towns boast seven.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027boast\u0027 is tone only; the number matches the briefing, so this is not a real invented fact\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and leads with the new item, but the second item is a flat list of faction sizes with little wit, and the \u0027settling into a predictable pattern\u0027 line is generic. The refusal item is only lightly dry; the voice feels thin next to the earlier bulletins.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.7290769,
+      "inputTokens": 3624,
+      "outputTokens": 251
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-01-early-content__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022a dusty thoroughfare\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022describes the river road as dusty; the briefing gives no such detail (mild colour, but stated as fact)\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:5,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and clear, covering both briefed items without invented events, but the wit is thin and generic. The second item\u0027s joke is weak, and the item runs short of the requested 2 to 4 sentences with the take barely tied to the fact.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.5070892,
+      "inputTokens": 3397,
+      "outputTokens": 179
+    }
+  ]
+}

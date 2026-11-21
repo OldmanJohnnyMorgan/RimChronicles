@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-09-mid-desperate__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022This settles that particular bit of local gossip.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied consequence/ status not in briefing; presents death as settling gossip\u0022},{\u0022span\u0022:\u0022this feud over fishing rights is merely a distraction\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news (fishing rights, from earlier bulletin) and the guess is framed as \u0027I suspect\u0027, but the fishing-rights cause is not in the briefing\u0022},{\u0022span\u0022:\u0022They are engaged in conflict with the Gray Wharf Syndicate\u0027s six settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news of the war as present status rather than a short old-news clause\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate on the core facts and leads with the new item, but the second item is padded old news about the war and the third is a limp restatement of faction size. The humour is thin and the staccato sentences lack Odile\u0027s sardonic precision.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.4299552,
+      "inputTokens": 3626,
+      "outputTokens": 328
+    }
+  ]
+}

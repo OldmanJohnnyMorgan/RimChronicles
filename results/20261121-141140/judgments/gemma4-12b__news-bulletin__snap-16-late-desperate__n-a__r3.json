@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-16-late-desperate__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022even pirates find it inconvenient to be targeted by everyone at once\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies Dunmore is a pirate and targeted by everyone; briefing calls him a mercenary, not clearly of the pirate faction\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The bulletin stays close to the briefing and frames its guesses as guesses, but the two items repeat the same fact and read as redundant padding. The jokes are generic, and calling Dunmore a pirate is a loose inference.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.2581951,
+      "inputTokens": 3572,
+      "outputTokens": 201
+    }
+  ]
+}

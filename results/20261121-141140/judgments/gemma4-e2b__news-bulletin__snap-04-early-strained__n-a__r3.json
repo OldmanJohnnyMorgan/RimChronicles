@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-04-early-strained__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Tomas Quell is missing, naturally.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says Dispatch is looking for news of him, not that he is missing; stated as fact\u0022},{\u0022span\u0022:\u0022The Dispatch abandoning Lowmere is predictable.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027abandoning\u0027 overstates stopping sending reporters; implies a consequence not in briefing\u0022},{\u0022span\u0022:\u0022The Raiders burning a ferry is hardly a shock.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a pattern of past raider behaviour the briefing does not give\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The first paragraph just restates the briefing items verbatim, and the second is a flat string of \u0027predictable\u0027 remarks with little wit. It also overstates facts (Quell \u0027missing\u0027, Dispatch \u0027abandoning\u0027 Lowmere), and the format is not 3 items of 2-4 sentences each as required for a three-fact bulletin; it is also under the 70-word minimum.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.1405263,
+      "inputTokens": 3475,
+      "outputTokens": 355
+    }
+  ]
+}

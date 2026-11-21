@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-05-early-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They are apparently trying to be polite about their lack of security.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a security weakness; the briefing says nothing about it, and \u0027apparently\u0027 only partly frames it as a guess\u0022},{\u0022span\u0022:\u0022The Ferrow Mutual holds four settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027holds\u0027 is fine, but the item sits on the old shared-patrol news without marking it as old; mild implied status\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate lead and correct faction numbers, but it is thin, with generic wit and a Ferrow jab about security that the briefing does not support; the second and third items read as filler rather than a dry take with some bite.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8782454,
+      "inputTokens": 3564,
+      "outputTokens": 255
+    }
+  ]
+}

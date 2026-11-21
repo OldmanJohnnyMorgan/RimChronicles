@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-06-early-content__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022stealing food from a successful harvest\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news (good harvest) and implies the barge was Combine grain, which the briefing does not say; stated as a framed guess but the \u0027successful harvest\u0027 link is asserted\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate on the one new fact and the guesses are properly framed, but the second item is padding built on faction size, and the harvest link leans on old news. The wit is mild and generic, and the bulletin is short but not especially sharp.}\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.4963377,
+      "inputTokens": 3520,
+      "outputTokens": 204
+    }
+  ]
+}

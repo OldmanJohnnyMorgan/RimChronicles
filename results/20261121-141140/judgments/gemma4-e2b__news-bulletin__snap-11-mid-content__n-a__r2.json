@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-11-mid-content__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The peace feast is a predictable affair.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022stated as fact; briefing gives no detail on how the feast went\u0022},{\u0022span\u0022:\u0022They have a habit of offering incentives.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a pattern of past behaviour the briefing does not give\u0022},{\u0022span\u0022:\u0022The Hearthguard Compact offers prizes for new inventions.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a present item without marking it as old\u0022},{\u0022span\u0022:\u0022They are likely plotting something petty in their current location.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies an ongoing activity and a current location; hedged with \u0027likely\u0027 but the activity is stated as a probability, not a clear guess, and the earlier bulletin said their whereabouts are unclear\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is correct, but the second item leans on filler, and the old invention-prize news is repeated as a fresh item without being marked as old. The wit is thin and the bulletin is padded past a one-item quiet week.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.9707352,
+      "inputTokens": 3562,
+      "outputTokens": 366
+    }
+  ]
+}

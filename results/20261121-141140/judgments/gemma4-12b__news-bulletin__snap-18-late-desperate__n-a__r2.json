@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-18-late-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022One assumes they have enough grain to feed everyone, provided they can actually get it to the people.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, but it leans on the granary news from an earlier bulletin that is not in this briefing; weak and borderline\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and clear, and the lead item is correct. The second item is bland and loosely tied to the briefing, and it recycles the earlier granary idea. The dry takes are thin and the voice is only generic.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.7901539,
+      "inputTokens": 3582,
+      "outputTokens": 198
+    }
+  ]
+}

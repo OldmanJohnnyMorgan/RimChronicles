@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-17-late-strained__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022One assumes the Ashford Compact is busy counting its dwindling five.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, but \u0027dwindling\u0027 implies a prior larger state the briefing does not give\u0022},{\u0022span\u0022:\u0022a small pocket of quiet in the chaos\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied status of the tribe not in briefing\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It breaks the explicit ban on \u0027continuing\u0027, \u0027maintains\u0027 and \u0027still\u0027, which imply a prior state the reporter cannot know. The wit is thin, and the first item has no dry remark of its own. It is also two paragraphs where a quiet week asks for short items, so it does not ship.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.9255289,
+      "inputTokens": 3664,
+      "outputTokens": 256
+    }
+  ]
+}

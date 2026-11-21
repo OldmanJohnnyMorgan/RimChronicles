@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-20-late-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Varrowgate is now fielding an offer from the Empire.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the offer is still pending; the briefing gives no status\u0022},{\u0022span\u0022:\u0022The Free Coast Alliance holds two settlements. It is unclear how long those two will manage to keep their resolve.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news and recycles the earlier bulletin\u0027s resolve joke\u0022},{\u0022span\u0022:\u0022scattered about\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022the briefing gives no location or spread for the Driftwood settlements\u0022},{\u0022span\u0022:\u0022They seem content with their current arrangement.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022unsupported claim about the tribe\u0027s state of mind, and it implies stability\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It opens with the new fact, but it repeats the offer in a flat second paragraph and retells the Alliance item from the last bulletin, reusing its resolve joke. The tribe item adds unsupported claims and the wit is weak. The bulletin is padded to four items from one new fact, which breaks the length guidance for a quiet week.\\n\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.3940433,
+      "inputTokens": 3607,
+      "outputTokens": 388
+    }
+  ]
+}

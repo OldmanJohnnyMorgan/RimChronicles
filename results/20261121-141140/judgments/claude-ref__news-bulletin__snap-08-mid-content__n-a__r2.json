@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-08-mid-content__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It is day 130 of Aprimay\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022garbles the date; briefing gives day 130 (Aprimay 5502), but a day 130 within a month is odd and implies a different calendar reading\u0022},{\u0022span\u0022:\u0022the rim\u0027s loudest news is a carving\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022unsupported claim that it is the loudest news on the rim; briefing says only that traders talk about it\u0022},{\u0022span\u0022:\u0022I suspect most of the people discussing it have not either\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, so allowed; no fact invented\u0022},{\u0022span\u0022:\u0022Some years, one learns to call that luck.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies past years of similar quiet news; an unsupported comparison with earlier states\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent, and it leads correctly with the new item and keeps to the briefing\u0027s facts. The second item is padded with faction counts, and the date phrasing and the \u0027loudest news\u0027 claim stray slightly. It is a quiet week, so the length is appropriate, but the output is a little thin and the second joke lands weakly.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.5790079,
+      "inputTokens": 3615,
+      "outputTokens": 398
+    }
+  ]
+}

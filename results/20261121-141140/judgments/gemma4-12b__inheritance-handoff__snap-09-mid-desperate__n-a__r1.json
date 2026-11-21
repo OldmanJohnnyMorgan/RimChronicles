@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__inheritance-handoff__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It stays within the briefing and ends on a clear intent to act against the Lancers, but it is generic and tells more than it shows (\\\u0022gripped tight\\\u0022, \\\u0022he was gone\\\u0022). It also leans on the briefing\u0027s wording about traits and backstory, and it never mentions Lene or uses the home details much.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.524438,
+      "inputTokens": 3173,
+      "outputTokens": 139
+    }
+  ]
+}

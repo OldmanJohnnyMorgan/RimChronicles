@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022None of them saw fit to tell me.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies settlements were each asked or silent; mild added claim about their behavior, though consistent with quiet stretch\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Handles the quiet week well, using only briefing facts (date, faction counts, correct sum of fourteen) with a dry voice and a guess properly framed. Slightly generic and the closing line adds a mild implication, but it is accurate and could nearly ship.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.4105108,
+      "inputTokens": 3617,
+      "outputTokens": 193
+    }
+  ]
+}

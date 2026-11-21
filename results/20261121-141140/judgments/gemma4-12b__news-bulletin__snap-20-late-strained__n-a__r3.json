@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-20-late-strained__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They are issuing final demands to the Free Coast Alliance\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022briefing says Empire issues final demands but not that they are directed at the Free Coast Alliance\u0022},{\u0022span\u0022:\u0022their current siege tactics\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies ongoing sieges; briefing reports no siege tactics, only war\u0022},{\u0022span\u0022:\u0022find our local hospitality more appealing\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied motive and presumes Varrowgate hospitality; framed as a guess but \u0027our\u0027 places the reporter in the colony\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is solid and the structure follows the brief, but it states that the final demands go to the Free Coast Alliance, which the briefing does not say. The \u0027siege tactics\u0027 joke also implies unreported activity.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8088632,
+      "inputTokens": 3591,
+      "outputTokens": 298
+    }
+  ]
+}

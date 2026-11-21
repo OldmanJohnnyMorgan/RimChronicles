@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-16-late-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Accord has nine settlements to his Free Company\u0027s two\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022treats Dunmore\u0027s Free Company as his, and implies a contest; briefing lists faction sizes but not that link as an Accord\u2013Company conflict\u0022},{\u0022span\u0022:\u0022The bounty follows an ambush near Gallowmere\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says Dunmore has a price after an ambush, but not that the Accord\u0027s bounty was caused by it; implied causal link\u0022},{\u0022span\u0022:\u0022which is closer to this desk than I would like\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds the reporter\u0027s location relative to Gallowmere; briefing only says she reports near it, and this is stated as fact\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Dry, readable bulletin that leads with the new facts and frames its guess properly. It leans on a few small inferences (the odds, the cause of the bounty), and the first sentence of the first item is flat, but nothing major is invented.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.2947403,
+      "inputTokens": 3615,
+      "outputTokens": 346
+    }
+  ]
+}

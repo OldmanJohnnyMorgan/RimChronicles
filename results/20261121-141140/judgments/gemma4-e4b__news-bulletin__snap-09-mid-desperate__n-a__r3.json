@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-09-mid-desperate__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The tribal conflict with the Syndicate proceeds, as expected.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the war is ongoing and expected; status not reported in briefing (also the war is old news told as current)\u0022},{\u0022span\u0022:\u0022One assumes this will cause a notable ripple in the Lancers\u0027 operations.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, so acceptable; but implies consequence\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate to the briefing and clear, but the voice is flat and barely sardonic, and the second item is filler that repeats the war as ongoing (\u0027proceeds\u0027) against the instructions. The Rook Malley item merely restates the same fact twice without a real dry take.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.6009445,
+      "inputTokens": 3600,
+      "outputTokens": 264
+    }
+  ]
+}

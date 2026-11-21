@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-09-mid-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They are currently engaged in conflict with the Gray Wharf Syndicate.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news: the war was covered in an earlier bulletin, presented as a current status without marking it as old\u0022},{\u0022span\u0022:\u0022I suspect this feud will continue regardless of any immediate results.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022uses \u0027continue\u0027 framing, though it is hedged as a guess; mild implication of ongoing status\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin is accurate but flat: the lead item has no dry remark at all, the Lancers item is thin filler, and the Tribe item re-treats old news as a current status. It lacks Odile\u0027s sardonic wit and breaks the rule of marking old news with a short clause.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.1737943,
+      "inputTokens": 3608,
+      "outputTokens": 280
+    }
+  ]
+}

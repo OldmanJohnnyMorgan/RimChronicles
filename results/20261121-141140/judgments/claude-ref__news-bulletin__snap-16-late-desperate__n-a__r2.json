@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-16-late-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Dunmore\u0027s Free Company has two, which makes the arithmetic unflattering for him.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies Kael Dunmore belongs to or leads the Free Company, which the briefing does not state in this scene (only the earlier bulletin does); stated as fact\u0022},{\u0022span\u0022:\u0022The mercenary earned his bounty after an ambush near Gallowmere.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies Dunmore caused the ambush; briefing only says the bounty came after an ambush\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Dry, well-paced bulletin that leads with the new facts and frames its guesses properly, but it implies Dunmore caused the ambush and ties him to the Free Company in ways the briefing does not fully support. Two items are fine, though the second largely repeats the first.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8992303,
+      "inputTokens": 3622,
+      "outputTokens": 302
+    }
+  ]
+}

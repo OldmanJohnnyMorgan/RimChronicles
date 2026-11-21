@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-15-late-content__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Greywater Concord has a new speaker. She is apparently trying to manage expectations regarding tolls.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as if just happened; \u0027managing expectations\u0027 is also an added claim\u0022},{\u0022span\u0022:\u0022The Fox-Lantern Tribe is holding its spring games. The archery dispute is now in its third day.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as current; the dispute\u0027s third day was from the earlier bulletin and is stated as ongoing now\u0022},{\u0022span\u0022:\u0022They are inquiring about a specific individual in the market.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022restates the first item and adds nothing; \u0027inquiring\u0027 is fine but this is padding rather than a fact\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Only one new fact was heard, so a short quiet-week bulletin was required, but the output pads with two items of old news told as current (new speaker, games and archery dispute) and breaks the length and \u0027never lead with old news\u0027 guidance. The first item is also followed by a redundant, weak second paragraph; wit is thin.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.6912392,
+      "inputTokens": 3643,
+      "outputTokens": 379
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-15-late-content__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022I suspect he would prefer to stay unfound.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, so not counted; listed only as borderline, no real invented fact\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate and dry, leading with the new item and framing guesses properly; the second item is a bit thin, and \u0027In other news, it is Jugust\u0027 is a weak filler joke, but nothing is invented.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.1864877,
+      "inputTokens": 3586,
+      "outputTokens": 169
+    }
+  ]
+}

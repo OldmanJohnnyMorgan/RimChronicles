@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-05-early-desperate__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022as we find their hospitality\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies outsiders found the Clans\u0027 hospitality tiresome; this is an unsupported claim about past experience, though it is framed as a guess and a joke\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate and concise: it leads with the new fact and uses the faction count for a dry quiet-week remark. The jokes are a little thin, and the first one slightly implies a past that the briefing does not give.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.454069,
+      "inputTokens": 3532,
+      "outputTokens": 184
+    }
+  ]
+}

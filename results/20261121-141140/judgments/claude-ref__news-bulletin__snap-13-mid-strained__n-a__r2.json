@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-13-mid-strained__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The demand, as I reported earlier, arrived by envoy.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022envoys were in the earlier bulletin and briefing says the Throne sends envoys, but \u0027the demand arrived by envoy\u0027 links them as fact; mild inference\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Dry and on-brief, leading with the new fact and flagging guesses properly; the only blemish is the slightly inferred claim that the demand came by envoy. The second item is a decent wry remark on faction sizes, though the \u0027arithmetic\u0027 joke is a bit vague.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.7798282,
+      "inputTokens": 3623,
+      "outputTokens": 223
+    }
+  ]
+}

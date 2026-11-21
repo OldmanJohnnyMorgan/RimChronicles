@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-14-mid-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Fernhollow League and the Blue Antler Tribe have a trade pact. They exchange furs for steel.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as if current, without marking it as old; furs-for-steel detail comes from earlier bulletin, not the briefing\u0022},{\u0022span\u0022:\u0022A Brackwater Corsair has returned with stories of being well fed. His crewmates are undecided on their reaction.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as current; crewmates\u0027 reaction is not in the briefing, only the earlier bulletin\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Only one new fact was heard, yet the bulletin repeats two old items as fresh news with no marker that they are old, and the first item has no wry remark. The second item is a redundant restatement of the first, and the whole piece is padded and flat.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.0365933,
+      "inputTokens": 3663,
+      "outputTokens": 306
+    }
+  ]
+}

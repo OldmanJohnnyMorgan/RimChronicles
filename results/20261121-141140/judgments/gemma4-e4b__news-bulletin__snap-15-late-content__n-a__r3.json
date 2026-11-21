@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-15-late-content__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022One assumes their new speaker is keeping the peace, or at least the tolls predictable.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, so not a claim; but it leans on old news (new speaker) without marking it as old\u0022},{\u0022span\u0022:\u0022The Greywater Concord holds ten settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news? No, it is a briefing fact; the \u0027new speaker\u0027 reference is old news told as current without an old-news marker\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and clean, with a properly hedged guess on the Leopold item. The second item is thin filler that brings back the old speaker story without marking it as old, and the wit is fairly generic.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.1237886,
+      "inputTokens": 3560,
+      "outputTokens": 259
+    }
+  ]
+}

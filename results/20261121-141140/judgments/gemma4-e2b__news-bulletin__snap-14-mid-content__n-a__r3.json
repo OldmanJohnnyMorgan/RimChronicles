@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-14-mid-content__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They exchange furs for steel.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as present fact; furs-for-steel detail comes from earlier bulletin, not the briefing\u0022},{\u0022span\u0022:\u0022A released Brackwater Corsair speaks of his captors\u0027 kindness.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as if just happening, with no marker that it is old\u0022},{\u0022span\u0022:\u0022Another one was heard about this.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022claims a second released corsair, a garbled event; briefing\u0027s two entries are the same story, not two men\u0022},{\u0022span\u0022:\u0022It seems the local sentiment is divided between relief and irritation.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news and invents a local reaction; hedged but stated as an observation of local sentiment\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin leads correctly with the barge raid, but then pads with two old items told as current, and \\\u0022Another one was heard about this\\\u0022 is confusing and invents a second corsair. The wit is thin and generic, and it breaks the instruction to mark old news with a short clause.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.3783626,
+      "inputTokens": 3678,
+      "outputTokens": 380
+    }
+  ]
+}

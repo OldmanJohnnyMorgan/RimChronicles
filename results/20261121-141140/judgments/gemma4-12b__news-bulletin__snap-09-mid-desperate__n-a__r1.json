@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the lack of actual fish in the nets suggests a very productive stalemate\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022stalemate stated as inference; implies state of war and fish absence beyond briefing, repeats old joke with a new claim\u0022},{\u0022span\u0022:\u0022As I reported last time\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a second item; the war is not new, and the item adds an unsupported \u0027stalemate\u0027 conclusion\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The Malley item is accurate and dry, but the second item pads with old news and recycles the previous fish joke, which the task forbade. A single short item would have been better for a quiet week.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.6329781,
+      "inputTokens": 3604,
+      "outputTokens": 242
+    }
+  ]
+}

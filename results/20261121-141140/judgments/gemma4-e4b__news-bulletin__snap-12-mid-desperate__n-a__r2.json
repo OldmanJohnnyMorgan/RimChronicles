@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-12-mid-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Gallows Crew still holds a doctor at their camp.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as current status; also uses forbidden \u0027still\u0027 implying prior state\u0022},{\u0022span\u0022:\u0022Their continued interest in medical personnel suggests they have more ambitions than mere raiding.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022inference stated as fact about ambitions and \u0027continued interest\u0027 not in briefing\u0022},{\u0022span\u0022:\u0022Masked envoys from the Glass Throne visited the Saltmarch Assembly.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says envoys were sent; \u0027visited\u0027 implies arrival, a small added outcome\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The second item recycles old news with the banned \u0027still\u0027 and adds an unsupported inference about ambitions. The writing is bland, with little of Odile\u0027s sardonic wit and no distinct voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.0554806,
+      "inputTokens": 3604,
+      "outputTokens": 316
+    }
+  ]
+}

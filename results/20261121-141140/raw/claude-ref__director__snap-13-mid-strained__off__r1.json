@@ -1,0 +1,53 @@
+{
+  "cell": "claude-ref__director__snap-13-mid-strained__off__r1",
+  "model": "claude-ref",
+  "task": "director",
+  "snapshot": "snap-13-mid-strained",
+  "grammar": "off",
+  "repeat": 1,
+  "promptVersion": "director/v1",
+  "outcome": "Model",
+  "value": "{\u0022choice\u0022: \u0022Empire:DemandTribute\u0022, \u0022reason\u0022: \u0022The Sun Throne\u0027s envoy left Stonewake unhappy after Corvin refused the title, so a formal tribute demand is the natural escalation. It also sharpens the colonists\u0027 existing argument over whether to submit.\u0022}",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are the plot director for a story told through a RimWorld colony. You decide what happens next in the colony\u0027s plots.\n\nRules:\n- Choose exactly one option from the allowed list. Copy it exactly, character for character.\n- Choose \u0022Wait\u0022 if the colony is in crisis or the story needs a pause.\n- Prefer the option that follows most naturally from what has already happened.\n- Give a reason in one or two short sentences. Use only facts from the briefing.\n\nAnswer with JSON only, in this form:\n{\u0022choice\u0022: \u0022\u003Cone allowed option\u003E\u0022, \u0022reason\u0022: \u0022\u003Cone or two sentences\u003E\u0022}\n",
+        "user": "## The world\nDate: day 254 (Aprimay 5504).\nColony: Stonewake, 9 people, wealth 176,000 silver, mood strained.\n\nPeople:\n- Corvin (40); traits: Steadfast, Too smart; backstory: Noble; once held an Imperial title.\n- Liesl (33); traits: Kind; backstory: Archivist.\n- Darro (29); traits: Brawler; backstory: Gladiator.\n- Yusra (36); traits: Industrious; backstory: Smith.\n\nHistory:\n- Day 230: Corvin refused a title from The Sun Throne.\n- Day 249: an envoy of The Sun Throne visited Stonewake.\n\nFactions:\n- The Sun Throne (Empire): goodwill -25, 6 settlements, Empire state: Stirring.\n- The Cobalt Free Towns (Outlanders): goodwill \u002B30, 7 settlements.\n- Rustback Raiders (Pirates): goodwill -80, 3 settlements.\n\nRecent events:\n- Corvin refused an Imperial title day 230\n- Imperial envoy visited day 249 and left unhappy\n- Colonists argue over whether to submit\n\n## Active plots\n- empire-01 (Awakened Empire): beat Stirring, protagonist Stonewake. Corvin refused an Imperial title on day 230. The Sun Throne has woken and sent an envoy demanding tribute from nearby towns.\n\n## Allowed options\n- Wait\n- Empire:EnvoyReturns\n- Empire:DemandTribute\n- Empire:Awaken\n\nChoose one allowed option.\n",
+        "maxOutputTokens": 300,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "choice": {
+              "type": "string",
+              "enum": [
+                "Wait",
+                "Empire:EnvoyReturns",
+                "Empire:DemandTribute",
+                "Empire:Awaken"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "choice",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "ok": true,
+      "text": "{\u0022choice\u0022: \u0022Empire:DemandTribute\u0022, \u0022reason\u0022: \u0022The Sun Throne\u0027s envoy left Stonewake unhappy after Corvin refused the title, so a formal tribute demand is the natural escalation. It also sharpens the colonists\u0027 existing argument over whether to submit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.5407369,
+      "inputTokens": 734,
+      "outputTokens": 197,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022model\u0022:\u0022claude-opus-5-5\u0022,\u0022id\u0022:\u0022msg_011ChFPuEkN38nrMQkXQVCyy\u0022,\u0022type\u0022:\u0022message\u0022,\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:[{\u0022type\u0022:\u0022thinking\u0022,\u0022thinking\u0022:\u0022\u0022,\u0022signature\u0022:\u0022CAQSlwcKEAgUGAI4AUIIdGhpbmtpbmcSDCa9\\u002Bd5KanqH9ey2phoMYIfL8SVqN34R8B71IjCdPWKgey23EsfnnSMVuwByXQgugSK2U1IQtAx2ZuVwWcTbnBxka/e0qMhMis1jzWAqtAZxqyIT6z/hN7/v2UqjAg19ICvqM\\u002BV6ltEunpZf6tobqs\\u002BPXM0u5ZOFWgXyp3JsH2duzFP43qiU4zfhrM7bf6O8lZA78yp8btFxrD7xfLUslAYe1ygMzG3JgUObwnPvlJPojvGCAlGyR\\u002Bxm/7PAcH\\u002Bn15UsbtKlsNvucRd/xiphEGhp53SwVaIsQUD76f76wKik1R/26QbE/Mb/Vq7QcyFOsFRdcZE0\\u002Bm4muKmDcIVgPhuYbNiVy6jVD7Z6w7ylIMM3dXhFnkt2gPEWW4sZyzoq9hsD\\u002BMybXFwBvhey3ga7l3DECTr4VeAtfklekCb1/1uKebGGlAYwtmjc1ax8jTVbh06KO/X3\\u002BrO\\u002BvKz76juXbmnUYnIvL4CpVe9CFdrHmvas6BFYQ\\u002BYfFVSaKVgJBBICKEMa18c7TyUHEW5sMw/pz7ixQZW9xJeyYWvB4C9YT8Swu\\u002BdriLxucFnBZ7gWKlxGkeX2rq0I6w37yAnX2Cw9GKl3kilhQRjBbOUzZhYIJGpMgtdeGBb/iVEwhdqeQPLvaP\\u002BB1bAyZjk6xV3KpGBa1\\u002B557M0XoI8sjXz7MGgSw1HByo6quNw6ppqKJEAKwzLClhpbq/4dm6RBX1cD1j7Tdx5CPeGtVtpfFZCQJipZB0xCfIjrFzdxU2ZEhH3Dpf\\u002Bx5FlbuU14B6KdSDsw\\u002BvYHwJHdRlTZkRPRc\\u002B28grZj14FvxLev4xbSAvjWpd\\u002B7Hi9IF3\\u002BFzqtwWPd5HfBa\\u002BO5m54IQwolHtgwpM34elug0C/bnDSQIHLaFirikpNP21wtvTXLyy5jqeuSbmySXdL6BnDivuy3DGzFG\\u002Bzuq0je2e7QF7nF8MKcEggoHOgsilzKyS8mQ/jopABT6thuauZ7beaMM6mDHYszOAJesOJh/nFtyHPhjue9l72C3lKbZ4hm9I/tlHQ0Pn52eTaWeMmn2HAk6dbGXFDsE6aGdSyiKD8oKZlaNmo9WfpIwo91p9Myilrvf4qxKR0zIzc2taEay1Ky9ks8ekbhpQRMfmOx5M/l4DudKRiCX7Gw2v0vTX/jTEITO5C4XmYhfDgVtdutalAK2Gajtc5fuWYHuR5wVG0mOdGaiGAE=\u0022},{\u0022type\u0022:\u0022text\u0022,\u0022text\u0022:\u0022{\\u0022choice\\u0022: \\u0022Empire:DemandTribute\\u0022, \\u0022reason\\u0022: \\u0022The Sun Throne\\u0027s envoy left Stonewake unhappy after Corvin refused the title, so a formal tribute demand is the natural escalation. It also sharpens the colonists\\u0027 existing argument over whether to submit.\\u0022}\u0022}],\u0022container\u0022:null,\u0022stop_reason\u0022:\u0022end_turn\u0022,\u0022stop_sequence\u0022:null,\u0022stop_details\u0022:null,\u0022usage\u0022:{\u0022input_tokens\u0022:734,\u0022cache_creation_input_tokens\u0022:0,\u0022cache_read_input_tokens\u0022:0,\u0022cache_creation\u0022:{\u0022ephemeral_5m_input_tokens\u0022:0,\u0022ephemeral_1h_input_tokens\u0022:0},\u0022iterations\u0022:[{\u0022input_tokens\u0022:734,\u0022output_tokens\u0022:197,\u0022cache_read_input_tokens\u0022:0,\u0022cache_creation_input_tokens\u0022:0,\u0022cache_creation\u0022:{\u0022ephemeral_5m_input_tokens\u0022:0,\u0022ephemeral_1h_input_tokens\u0022:0},\u0022type\u0022:\u0022message\u0022,\u0022model\u0022:null}],\u0022output_tokens\u0022:197,\u0022output_tokens_details\u0022:{\u0022thinking_tokens\u0022:102},\u0022service_tier\u0022:\u0022standard\u0022,\u0022inference_geo\u0022:\u0022global\u0022,\u0022speed\u0022:\u0022standard\u0022},\u0022diagnostics\u0022:null}"
+    }
+  ]
+}

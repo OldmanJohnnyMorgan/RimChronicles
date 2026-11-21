@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-20-late-strained__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Varrowgate is now subject to the Empire\u0027s proposal.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied consequence; briefing only says an offer was made, not that it binds the colony\u0022},{\u0022span\u0022:\u0022The Free Coast Alliance holds two settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news from the earlier bulletin as if fresh, without marking it as old\u0022},{\u0022span\u0022:\u0022scattered around\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022added detail about settlement layout not in briefing\u0022},{\u0022span\u0022:\u0022They seem content with their current arrangement.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022inference about the tribe\u0027s state; \u0027seem\u0027 hedges it but it is unsupported and implies a comparison with earlier state\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin is flat, with little dry wit; the first item merely restates the briefing line and items 2 and 3 are thin or padded. The Free Coast item repeats old news without marking it as old, and the three items run well beyond the one new thing, so this is not a quiet-week bulletin of 1-2 items.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.8724442,
+      "inputTokens": 3600,
+      "outputTokens": 376
+    }
+  ]
+}

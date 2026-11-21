@@ -1,0 +1,53 @@
+{
+  "cell": "claude-ref__director__snap-20-late-strained__on__r3",
+  "model": "claude-ref",
+  "task": "director",
+  "snapshot": "snap-20-late-strained",
+  "grammar": "on",
+  "repeat": 3,
+  "promptVersion": "director/v1",
+  "outcome": "Model",
+  "value": "{\u0022choice\u0022:\u0022Choice:AcceptOrRefuseGovernorship\u0022,\u0022reason\u0022:\u0022The envoy offered the governorship on day 1040, and the colony is now split over it, with Henrik and Aurel arguing and two colonists threatening to leave. Making Varrowgate decide is the natural next beat; jumping to an ending or a final demand would skip that decision.\u0022}",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are the plot director for a story told through a RimWorld colony. You decide what happens next in the colony\u0027s plots.\n\nRules:\n- Choose exactly one option from the allowed list. Copy it exactly, character for character.\n- Choose \u0022Wait\u0022 if the colony is in crisis or the story needs a pause.\n- Prefer the option that follows most naturally from what has already happened.\n- Give a reason in one or two short sentences. Use only facts from the briefing.\n\nAnswer with JSON only, in this form:\n{\u0022choice\u0022: \u0022\u003Cone allowed option\u003E\u0022, \u0022reason\u0022: \u0022\u003Cone or two sentences\u003E\u0022}\n",
+        "user": "## The world\nDate: day 1046 (Jugust 5517).\nColony: Varrowgate, 16 people, wealth 610,000 silver, mood strained.\n\nPeople:\n- Cassia (50); traits: Iron-willed, Too smart; backstory: Noble; role: Leader; holds the Imperial title of Count.\n- Henrik (43); traits: Tough; backstory: Soldier.\n- Mags (36); traits: Industrious; backstory: Smith.\n- Aurel (29); traits: Psychically sensitive; backstory: Psycaster.\n\nHistory:\n- Day 960: The Shattered Empire granted a title to Cassia.\n- Day 1012: The Shattered Empire conquered Brightwater.\n- Day 1040: an envoy of The Shattered Empire visited Varrowgate.\n\nFactions:\n- The Shattered Empire (Empire): goodwill \u002B40, 21 settlements, at war with The Free Coast Alliance, Empire state: Ascendant.\n- The Free Coast Alliance (Outlanders): goodwill -10, 2 settlements, at war with The Shattered Empire.\n- Driftwood Tribe (Tribe): goodwill \u002B15, 3 settlements.\n\nRecent events:\n- Imperial envoy offered a governorship day 1040\n- Henrik and Aurel argue about serving the Empire\n- Two colonists talk of leaving if Cassia accepts\n\n## Active plots\n- empire-04 (Awakened Empire): beat Ascendant, protagonist Varrowgate. Cassia served the Shattered Empire and was made a Count on day 960. The Empire now holds most of the region. On day 1040 its envoy offered Varrowgate a governorship if it helps take the last Free Coast towns.\n\n## Allowed options\n- Wait\n- Ending:ImperialGovernorship\n- Choice:AcceptOrRefuseGovernorship\n- Empire:FinalDemand\n\nChoose one allowed option.\n",
+        "maxOutputTokens": 300,
+        "useGrammar": true,
+        "thinking": "Off",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "choice": {
+              "type": "string",
+              "enum": [
+                "Wait",
+                "Ending:ImperialGovernorship",
+                "Choice:AcceptOrRefuseGovernorship",
+                "Empire:FinalDemand"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "choice",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "ok": true,
+      "text": "{\u0022choice\u0022:\u0022Choice:AcceptOrRefuseGovernorship\u0022,\u0022reason\u0022:\u0022The envoy offered the governorship on day 1040, and the colony is now split over it, with Henrik and Aurel arguing and two colonists threatening to leave. Making Varrowgate decide is the natural next beat; jumping to an ending or a final demand would skip that decision.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.6549845,
+      "inputTokens": 1136,
+      "outputTokens": 121,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022model\u0022:\u0022claude-opus-5-5\u0022,\u0022id\u0022:\u0022msg_011ChFPvsbSZcukYyi813osh\u0022,\u0022type\u0022:\u0022message\u0022,\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:[{\u0022type\u0022:\u0022text\u0022,\u0022text\u0022:\u0022{\\u0022choice\\u0022:\\u0022Choice:AcceptOrRefuseGovernorship\\u0022,\\u0022reason\\u0022:\\u0022The envoy offered the governorship on day 1040, and the colony is now split over it, with Henrik and Aurel arguing and two colonists threatening to leave. Making Varrowgate decide is the natural next beat; jumping to an ending or a final demand would skip that decision.\\u0022}\u0022}],\u0022container\u0022:null,\u0022stop_reason\u0022:\u0022end_turn\u0022,\u0022stop_sequence\u0022:null,\u0022stop_details\u0022:null,\u0022usage\u0022:{\u0022input_tokens\u0022:1136,\u0022cache_creation_input_tokens\u0022:0,\u0022cache_read_input_tokens\u0022:0,\u0022cache_creation\u0022:{\u0022ephemeral_5m_input_tokens\u0022:0,\u0022ephemeral_1h_input_tokens\u0022:0},\u0022iterations\u0022:[{\u0022input_tokens\u0022:1136,\u0022output_tokens\u0022:121,\u0022cache_read_input_tokens\u0022:0,\u0022cache_creation_input_tokens\u0022:0,\u0022cache_creation\u0022:{\u0022ephemeral_5m_input_tokens\u0022:0,\u0022ephemeral_1h_input_tokens\u0022:0},\u0022type\u0022:\u0022message\u0022,\u0022model\u0022:null}],\u0022output_tokens\u0022:121,\u0022output_tokens_details\u0022:{\u0022thinking_tokens\u0022:0},\u0022service_tier\u0022:\u0022standard\u0022,\u0022inference_geo\u0022:\u0022global\u0022,\u0022speed\u0022:\u0022standard\u0022},\u0022diagnostics\u0022:null}"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and free of invented facts, with a dry guess framed correctly. But at about 25 words it falls under the 40-word minimum, and it offers no fact from the briefing, such as faction sizes, to hang the wit on, so it reads thin and generic.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.0377795,
+      "inputTokens": 3521,
+      "outputTokens": 127
+    }
+  ]
+}

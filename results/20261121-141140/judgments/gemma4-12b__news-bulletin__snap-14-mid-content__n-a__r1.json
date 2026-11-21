@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-14-mid-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It is a lot of property to lose to a group of people who enjoy uninvited guests.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the League is losing property to the Corsairs; the briefing reports only one barge raid, not ongoing losses\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It leads with the new raid and adds nothing major. But the first joke is muddled (\\\u0022conversation\\\u0022 has no setup), the second item is a weak filler remark, and the whole is under the word range for a quiet week.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.5062524,
+      "inputTokens": 3598,
+      "outputTokens": 192
+    }
+  ]
+}

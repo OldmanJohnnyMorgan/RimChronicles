@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-15-late-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022though their expressions suggest otherwise\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022claims observed expressions of the Pale Choir; briefing gives no such observation, and it is stated as fact, not a guess\u0022},{\u0022span\u0022:\u0022even with a new speaker\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news about the new speaker without marking it as old, and implies a consequence\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Leads correctly with the new fact and keeps the dry register, but \\\u0022their expressions suggest otherwise\\\u0022 invents an observation. The second item reuses old news without framing it as old, and it is thin. Only one new item was heard, so the second item should have been a quiet remark, and it is not especially witty.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.6541062,
+      "inputTokens": 3554,
+      "outputTokens": 259
+    }
+  ]
+}

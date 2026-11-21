@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Ashen Hand still controls four settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027still\u0027 implies a comparison with an earlier state the briefing does not give; the task also forbids it\u0022},{\u0022span\u0022:\u0022They are apparently keeping to themselves.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing activity the briefing does not report; hedged with \u0027apparently\u0027 but stated as an observation about the Kinn\u0022},{\u0022span\u0022:\u0022which usually means something is brewing just out of sight\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies an unreported consequence; stated as a general claim, not clearly a guess\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The bulletin is clear and keeps to the briefing\u0027s numbers, but it uses the banned word \u0027still\u0027 and invents a small amount of Kinn behaviour. Its three short items are generic and the wit is thin, and the length is at the upper end of a quiet week\u0027s range.}\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.0824246,
+      "inputTokens": 3641,
+      "outputTokens": 323
+    }
+  ]
+}

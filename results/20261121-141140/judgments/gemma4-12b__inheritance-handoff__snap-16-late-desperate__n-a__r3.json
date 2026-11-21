@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__inheritance-handoff__snap-16-late-desperate__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022silenced by Dunmore\u2019s blade\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says Dunmore killed Bertram but not with a blade; weapon is invented\u0022},{\u0022span\u0022:\u0022his fur matted with dust\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022added detail about Rook\u0027s condition; staging at best, implies a journey, not given\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It stays within the briefing and ends on Elske resolving to finish the hunt against Dunmore, who is alive and escaped. The prose is generic, it names traits outright (\\\u0022bloodlust and toughness\\\u0022), and the weapon (\\\u0022blade\\\u0022) is invented.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.3033509,
+      "inputTokens": 3168,
+      "outputTokens": 240
+    }
+  ]
+}

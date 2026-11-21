@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-13-mid-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022One assumes they are still interested in noisy highway robbery.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, but \\\u0022still\\\u0022 implies ongoing activity and \\\u0022noisy\\\u0022 adds detail; the guess framing makes this borderline, and the \\\u0022still\\\u0022 breaks the no-continuity rule\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate to the briefing and the old caravan news is correctly marked, but the bulletin is padded, the first item has no dry take, and the \\\u0022still\\\u0022 breaks the rules. The second item mostly restates the faction line, and the whole thing reads as generic rather than distinctly wry.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8415357,
+      "inputTokens": 3628,
+      "outputTokens": 236
+    }
+  ]
+}

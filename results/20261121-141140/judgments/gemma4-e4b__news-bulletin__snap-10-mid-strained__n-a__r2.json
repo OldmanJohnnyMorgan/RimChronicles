@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-10-mid-strained__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Stonecutter Raiders hold captives from the Ochre Hand.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a fresh statement, not marked as old\u0022},{\u0022span\u0022:\u0022The Raiders have four settlements now.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\\\u0022now\\\u0022 implies a comparison with an earlier state the briefing does not give\u0022},{\u0022span\u0022:\u0022It seems the raiding continues with predictable enthusiasm.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies ongoing raiding and uses \\\u0022continues\\\u0022, which the task forbids; hedged with \\\u0022it seems\\\u0022 but the wording is banned\u0022},{\u0022span\u0022:\u0022eager for the payout\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022nonsensical; the Ochre Hand are the payers, so they get no payout. This is a muddled guess, not a fact\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It leads with the new fact, but the second item is mostly old news told as current, and it uses the forbidden \\\u0022now\\\u0022 and \\\u0022continues\\\u0022. The joke about the Ochre Hand wanting a payout makes no sense, since they are the ones paying. The bulletin is also short on dry wit and is not a polished item.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.6583121,
+      "inputTokens": 3613,
+      "outputTokens": 405
+    }
+  ]
+}

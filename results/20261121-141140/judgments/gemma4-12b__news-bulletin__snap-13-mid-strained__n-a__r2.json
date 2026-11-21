@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-13-mid-strained__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate to the briefing, with guesses properly framed and a dry voice. The second item is thin, and the first item\u0027s joke is a stock simile. A fine quiet-week bulletin overall.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.5257487,
+      "inputTokens": 3594,
+      "outputTokens": 105
+    }
+  ]
+}

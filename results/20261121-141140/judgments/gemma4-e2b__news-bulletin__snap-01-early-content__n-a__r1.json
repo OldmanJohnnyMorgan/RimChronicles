@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-01-early-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022This is the latest from them.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies an ongoing series of earlier announcements from the Tarn Union, which the briefing does not give\u0022},{\u0022span\u0022:\u0022Another predictable meteorological event.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027Another\u0027 implies earlier cold snaps or a comparison with an earlier state the briefing does not give\u0022},{\u0022span\u0022:\u0022One assumes the hills will get damp.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, but a cold snap implying dampness is weakly relevant; barely a claim, flagged only for the forecast embellishment\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate to the briefing, with both new items led and guesses framed as guesses, but the output is thin and the wit is weak (the \u0027damp\u0027 joke is flat, and \u0027latest from them\u0027 and \u0027another\u0027 imply history). It reads as generic rather than distinctly wry, and it is under the 40-word floor for a quiet week.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.8053628,
+      "inputTokens": 3372,
+      "outputTokens": 344
+    }
+  ]
+}

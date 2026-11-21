@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-19-late-desperate__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They are currently surrounding the Marrow League settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says besieging the League, not that all its settlements are surrounded\u0022},{\u0022span\u0022:\u0022This is a reduction from the start of the year.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news from the earlier bulletin; the briefing does not give the start-of-year figure\u0022},{\u0022span\u0022:\u0022They are currently holding their ground.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing status the briefing does not report\u0022},{\u0022span\u0022:\u0022They offered refuge to the Fenwick survivors previously.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news from an earlier bulletin as an item\u0022},{\u0022span\u0022:\u0022The Empire has taken Fenwick.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022changes razed to taken, which implies capture rather than destruction\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The first line copies the briefing note, and two of the three later items just repeat old news (the Marrow League\u0027s three settlements and the Tribe\u0027s shelter). The dry wit is thin, and the piece pads where a quiet short bulletin was needed. It also says \\\u0022taken\\\u0022 where Fenwick was razed, and adds status claims the briefing does not give.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.4129956,
+      "inputTokens": 3665,
+      "outputTokens": 421
+    }
+  ]
+}

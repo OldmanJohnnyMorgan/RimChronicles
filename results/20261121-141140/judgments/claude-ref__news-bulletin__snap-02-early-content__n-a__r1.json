@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-02-early-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Whether this is retreat or housekeeping, the pirates have not said.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the pirates were asked or are silent on it; the briefing gives no statement or silence\u0022},{\u0022span\u0022:\u0022no war at all\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing does not say Glimmer Coast is at no war; it only lists the Tannerfolk war with the pirates\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Leads correctly with the new fact, marks the old news briefly, and keeps a dry voice with guesses framed properly. It slips with two small unsupported claims (the pirates\u0027 silence and the Company having no war), and the second item is thin filler from faction numbers.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.1959882,
+      "inputTokens": 3696,
+      "outputTokens": 257
+    }
+  ]
+}

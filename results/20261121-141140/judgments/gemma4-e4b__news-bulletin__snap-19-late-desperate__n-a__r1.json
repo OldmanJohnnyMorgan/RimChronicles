@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-19-late-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022as usual\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a comparison with earlier behaviour the briefing does not give\u0022},{\u0022span\u0022:\u0022They appear to be expanding by force\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022hedged, but the briefing states it plainly, so the hedge is odd; not an invented fact (borderline)\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and clear, and it leads with the new siege, but the humour is thin and generic. It also doesn\u0027t mention the Marrow League by its allied war with Last Lantern, and \\\u0022as usual\\\u0022 implies a past the briefing doesn\u0027t give. The bulletin is 2 short items for one new thing, which is acceptable but bland.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.78321,
+      "inputTokens": 3581,
+      "outputTokens": 256
+    }
+  ]
+}

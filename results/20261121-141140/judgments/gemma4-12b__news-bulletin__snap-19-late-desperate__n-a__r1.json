@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-19-late-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022which is a luxury the Empire lacks\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the Empire is discontent with its tally; stated as fact, not a guess, and the briefing does not say so (it only says the Empire is expanding by force)\u0022},{\u0022span\u0022:\u0022They seem content with their current tally\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022inference about the tribe\u0027s attitude; hedged with \u0027seem\u0027, so borderline, but it leans on the unsupported claim about the Empire\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Dry, readable and mostly faithful: it leads with the new siege and frames its speculation as a guess. The second item is filler, with a weak joke, and its claim about the Empire\u0027s discontent is unsupported. The bulletin is also short of the 40-word quiet-week minimum, and it omits that Fenwick was razed, which was in the new items, though that item was old news.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.7681249,
+      "inputTokens": 3584,
+      "outputTokens": 315
+    }
+  ]
+}

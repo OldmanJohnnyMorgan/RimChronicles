@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__inheritance-handoff__snap-16-late-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Viggo watched from his chair and said nothing.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022places Viggo at home in a chair; briefing says only he was maimed, not that he is at home\u0022},{\u0022span\u0022:\u0022Rook lay across the doorway and moved for no one but Elske.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds a habit/behaviour of the warg not given in the briefing\u0022},{\u0022span\u0022:\u0022Slow, this time. And we come home.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the earlier hunts were rushed and Elske knows how they went, adding detail about the past\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022A restrained, well-staged scene that uses the best-friend bond and the traits correctly and ends on a concrete intent to hunt Dunmore. It adds small unsupported details, such as Viggo being at home and the earlier hunts being rushed, and the \u0027We go together\u0027 ending leans on Rook as a hunting partner without grounding.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.2395463,
+      "inputTokens": 3190,
+      "outputTokens": 338
+    }
+  ]
+}

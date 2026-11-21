@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-15-late-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Presumably the Choir does not either, or they would not be asking.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess (presumably), so not counted as a claim; kept only as low-risk inference\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Leads correctly with the new item and keeps a dry, consistent voice, with guesses properly hedged and faction numbers accurate. The second item is thin filler, and the word count is slightly low for a single new fact plus a filler item, but it stays within limits and invents nothing.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.7636959,
+      "inputTokens": 3605,
+      "outputTokens": 201
+    }
+  ]
+}

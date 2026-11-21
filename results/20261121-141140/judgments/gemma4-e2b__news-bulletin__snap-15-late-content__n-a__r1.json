@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-15-late-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Greywater Concord has a new speaker. She has promised lower tolls and fewer speeches. I expect one of those promises to survive the quadrum.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as if just happened, copying the earlier bulletin\u0027s sentences nearly verbatim\u0022},{\u0022span\u0022:\u0022The Fox-Lantern Tribe is holding its spring games. The events include racing and archery.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as current, with no marker that it was already reported\u0022},{\u0022span\u0022:\u0022One assumes the argument over the archery is merely a distraction.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; the argument comes from an earlier bulletin, not the briefing\u0022},{\u0022span\u0022:\u0022They are inquiring about a specific individual in the Greywater market.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022restates the first item and adds nothing; the guess that it is gossip is hedged\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Only one new fact existed, yet the bulletin pads with three recycled old items and copies earlier jokes and sentences, breaking the rules on old news and not reusing jokes. The Leopold item is also stated twice with little wit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.6438147,
+      "inputTokens": 3628,
+      "outputTokens": 413
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-01-early-content__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They need another place to hawk their wares.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\\\u0022another\\\u0022 implies earlier posts, which the briefing does not give; it is framed as a guess, so low weight\u0022},{\u0022span\u0022:\u0022A cold snap is forecast for the northern hills.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022none; supported (excluded). Placeholder not counted\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and clear, with guess framing on both items, but it is thin: two-sentence items with generic wit, and the total word count (about 40) sits at the very bottom of the range. \u0027Another place\u0027 faintly implies prior posts, and the wildlife joke is bland.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.3234078,
+      "inputTokens": 3369,
+      "outputTokens": 247
+    }
+  ]
+}

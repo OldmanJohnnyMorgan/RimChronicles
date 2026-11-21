@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-15-late-content__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022as is their usual habit\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a past pattern of the Pale Choir seeking trouble that the briefing does not give\u0022},{\u0022span\u0022:\u0022One assumes the new speaker will manage to keep the tolls low, though history suggests otherwise.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022tolls promise comes from an earlier bulletin, not the briefing; \u0027history suggests\u0027 asserts an unsupported past\u0022},{\u0022span\u0022:\u0022The Greywater Concord elected a new speaker.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as if just happened, with no clause marking it as old\u0022},{\u0022span\u0022:\u0022The Fox-Lantern Tribe is holding its spring games.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as if current, with no clause marking it as old\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The first item is fine, but two of three items retell old news as current, which the task forbids; the jokes are also generic and lack the sharpness of the earlier bulletins. A short one-item bulletin would have been better than padding with old stories.}\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.6454443,
+      "inputTokens": 3601,
+      "outputTokens": 376
+    }
+  ]
+}

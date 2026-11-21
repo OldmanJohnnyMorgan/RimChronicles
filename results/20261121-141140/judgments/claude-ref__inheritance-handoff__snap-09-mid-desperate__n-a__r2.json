@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__inheritance-handoff__snap-09-mid-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022never sated by a fight\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022added detail about his past habits; Bloodlust trait only loosely supports it\u0022},{\u0022span\u0022:\u0022she had only his temper, not his size\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022invented comparison of body size; briefing gives no size for Joska or Tamsin\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Restrained and well staged, with the relationship used correctly and an ending that turns to the Lancers\u0027 new captain. It loses points for small invented details about Joska\u0027s size and habits, and the closing line is a bit vague about what she will actually do.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.6190466,
+      "inputTokens": 3222,
+      "outputTokens": 223
+    }
+  ]
+}

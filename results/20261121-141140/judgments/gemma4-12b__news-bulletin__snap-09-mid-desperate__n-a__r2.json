@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-09-mid-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022One assumes his personal security was as porous as his leadership.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, but \u0027leadership\u0027 judgment is opinion; not a fact claim (borderline, effectively opinion)\u0022},{\u0022span\u0022:\u0022It is a fascinating way to spend a quadrum.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the war has lasted a quadrum; briefing gives no duration\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice works and it leads with the new news, and it marks the war as old. But the war item has no new information and implies a quadrum-long duration the briefing does not give, and the first item is thin at two sentences with a mild jab that adds little.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8385237,
+      "inputTokens": 3584,
+      "outputTokens": 254
+    }
+  ]
+}

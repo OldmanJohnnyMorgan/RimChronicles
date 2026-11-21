@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-04-early-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022That is the polite way of saying we have misplaced him.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022states as fact that the reporter is lost/misplaced; briefing only says the Dispatch is looking for news of him\u0022},{\u0022span\u0022:\u0022he owes us copy\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies Tomas owes copy, an added detail not in briefing\u0022},{\u0022span\u0022:\u0022Travellers on the south channel may wish to take up swimming.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies ferry service is gone or the channel is unsafe, an added consequence\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Dry, clear and well-structured, with correctly framed guesses and no major inventions. It states as fact that Tomas is misplaced and owes copy, and implies the ferry loss leaves travellers stranded, which go slightly beyond the briefing. The word count is about 100, at the upper end of what three items allow.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.8890653,
+      "inputTokens": 3524,
+      "outputTokens": 324
+    }
+  ]
+}

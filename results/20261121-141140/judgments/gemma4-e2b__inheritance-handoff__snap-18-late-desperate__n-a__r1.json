@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__inheritance-handoff__snap-18-late-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022He picked up a tool from the floor. He began to work on the unfinished structure.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022\u0027unfinished structure\u0027 is a new object/project the briefing does not give; it also does not match the unfinished business (Ada)\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The scene never reaches the ending the task requires: it does not turn to Ada in the Wailing Moth village, and instead invents an \u0027unfinished structure\u0027. It is a flat list of actions with no feeling, no mention of Constance, and little voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.6786892,
+      "inputTokens": 3084,
+      "outputTokens": 204
+    }
+  ]
+}

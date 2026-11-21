@@ -1,0 +1,51 @@
+{
+  "cell": "claude-ref__director__snap-03-early-strained__off__r3",
+  "model": "claude-ref",
+  "task": "director",
+  "snapshot": "snap-03-early-strained",
+  "grammar": "off",
+  "repeat": 3,
+  "promptVersion": "director/v1",
+  "outcome": "Model",
+  "value": "{\u0022choice\u0022: \u0022Seed:Rivalry:p1:p3\u0022, \u0022reason\u0022: \u0022Marek and Dov have already fought twice over stolen rations, so a formal rivalry follows naturally. With food down to six days, the tension between them will only grow.\u0022}",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are the plot director for a story told through a RimWorld colony. You decide what happens next in the colony\u0027s plots.\n\nRules:\n- Choose exactly one option from the allowed list. Copy it exactly, character for character.\n- Choose \u0022Wait\u0022 if the colony is in crisis or the story needs a pause.\n- Prefer the option that follows most naturally from what has already happened.\n- Give a reason in one or two short sentences. Use only facts from the briefing.\n\nAnswer with JSON only, in this form:\n{\u0022choice\u0022: \u0022\u003Cone allowed option\u003E\u0022, \u0022reason\u0022: \u0022\u003Cone or two sentences\u003E\u0022}\n",
+        "user": "## The world\nDate: day 23 (Jugust 5500).\nColony: Kettle Hollow, 5 people, wealth 26,800 silver, mood strained.\n\nPeople:\n- Marek (38); traits: Abrasive, Shooting accuracy; backstory: Imperial deserter.\n- Saoirse (27); traits: Nervous, Fast learner; backstory: Medical student.\n- Dov (45); traits: Greedy; backstory: Smuggler.\n- Kit (16); traits: Nimble; backstory: Vatgrown slave; adopted by Saoirse.\n- Agnes (61); traits: Bloodlust; backstory: Caravan guard.\n\nHistory:\n- Day 15: Marek fought Dov.\n- Day 18: Marek fought Dov.\n- Day 21: Kettle Hollow repelled a raid by Ashen Hand raiders.\n\nFactions:\n- The Ashen Hand (Pirates): goodwill -90, 4 settlements.\n- The Merrow Freeholds (Outlanders): goodwill \u002B5, 7 settlements.\n- Kinn of the Long Grass (Tribe): goodwill -15, 3 settlements.\n\nRecent events:\n- Marek and Dov fought twice over stolen rations\n- Ashen Hand raid repelled day 21, Agnes wounded\n- Food stores down to six days\n\n## Active plots\nNo active plots.\n\n## Allowed options\n- Wait\n- Seed:Rivalry:p1:p3\n\nChoose one allowed option.\n",
+        "maxOutputTokens": 300,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "choice": {
+              "type": "string",
+              "enum": [
+                "Wait",
+                "Seed:Rivalry:p1:p3"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "choice",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "ok": true,
+      "text": "{\u0022choice\u0022: \u0022Seed:Rivalry:p1:p3\u0022, \u0022reason\u0022: \u0022Marek and Dov have already fought twice over stolen rations, so a formal rivalry follows naturally. With food down to six days, the tension between them will only grow.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.4011798,
+      "inputTokens": 703,
+      "outputTokens": 172,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022model\u0022:\u0022claude-opus-5-5\u0022,\u0022id\u0022:\u0022msg_011ChFPsNFkqDtycZJYgVntT\u0022,\u0022type\u0022:\u0022message\u0022,\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:[{\u0022type\u0022:\u0022thinking\u0022,\u0022thinking\u0022:\u0022\u0022,\u0022signature\u0022:\u0022CAQSxQYKEAgUGAI4AUIIdGhpbmtpbmcSDIk/vhJQCzlN5f/jFhoMlQtC6e/P3R4dddgTIjD3NxLNFrkqkJhEU6hUh0l1wojltB7ZBQEBZZDO6geNTyaml9DfRYxBoT9ihVpZhMEq4gUqecJKzxWP0SVB7AltsLQtpcfgBhkrXfz0yWYqKJwZ\\u002BJleYPnVhpN0qH886JZH5xHE5gGvVvbSXPNlJPYT/rFq7pSH2R3TYeT0y4rKksXEfFDDkKgSw/NKMD6CBgcmsg1wnL5iqI3Y67Khv/cexKuMvlWnaKbdPE1YSESXsOscGTnvLcyqATJo6NNzCq8uS7VunI9EVJEf7Q4BshOnoqEujrcwkY\\u002B6weqrjSyI8YQ599a/wcuFoZ80MZQ\\u002B8mAypbA3jNdCvin\\u002B\\u002B7PTPm63yZaoKpUAlk5O\\u002BIOa7BmLn5u8vsFNS9qHRkl\\u002B6SYsUxWnPu3y6x\\u002BaNJ8Q\\u002Bn2nqQc7LCAq3JdN4IYfvjBgYrvJ0toNWo\\u002BEiWFWEOKs63aLZw/RWetzt5QLXyZA7LmjttP0YBjKZeU3H798PFTIGj1eXBz2X0ifq7229OHRY\\u002BcZdk8VAVirk66Pie3vhRr4bMlARZ3bel2Y9BmpCtCXLihw0OYAzA11AqJvbdAayuAENA70kZl\\u002B6cdTHW9pZQ0W/FHmDo56y9hIDT3Z25PG\\u002BgRue6P3vARTqgiHRraiAhRbhSzr9G/UbUlPxEOBl\\u002B1rsrEstOpYtQRM6QKGCovwNLMjVdW6UtHUxM2hu3cxjEm5/zWZ/bms2mNh7ShlaGawn\\u002BUiHwTN4HT74xVN76lXVaQw6gorLNJ2fULba3buw9q4wu2wcV1yUKW3Y55qaoBPL9qkJn4K\\u002BetCvjzH7JasHHh82/4/XToS4zRUj5Hi8bZfBy2R4veckGlI7cWV/MqATrFVGTWXfjsi5NkVRn8Cf1sju9C3GG5XaaRA3W/wO4GNf6LaIC2W6UO52vgyFTmSCo8\\u002BTk95Z34KfwATskj63Y\\u002BnW15KO4dTzvb/9G2AhDEvIWc9QbT97aeGr8xpHklivqYEwTnhSUMeR\\u002BKq3ZdJ7QrJeKNeRBq2ki9rXuid\\u002Bfy23XYH4/FND7wO/Wm/bpfOffgf09tkO/YYAQ==\u0022},{\u0022type\u0022:\u0022text\u0022,\u0022text\u0022:\u0022{\\u0022choice\\u0022: \\u0022Seed:Rivalry:p1:p3\\u0022, \\u0022reason\\u0022: \\u0022Marek and Dov have already fought twice over stolen rations, so a formal rivalry follows naturally. With food down to six days, the tension between them will only grow.\\u0022}\u0022}],\u0022container\u0022:null,\u0022stop_reason\u0022:\u0022end_turn\u0022,\u0022stop_sequence\u0022:null,\u0022stop_details\u0022:null,\u0022usage\u0022:{\u0022input_tokens\u0022:703,\u0022cache_creation_input_tokens\u0022:0,\u0022cache_read_input_tokens\u0022:0,\u0022cache_creation\u0022:{\u0022ephemeral_5m_input_tokens\u0022:0,\u0022ephemeral_1h_input_tokens\u0022:0},\u0022iterations\u0022:[{\u0022input_tokens\u0022:703,\u0022output_tokens\u0022:172,\u0022cache_read_input_tokens\u0022:0,\u0022cache_creation_input_tokens\u0022:0,\u0022cache_creation\u0022:{\u0022ephemeral_5m_input_tokens\u0022:0,\u0022ephemeral_1h_input_tokens\u0022:0},\u0022type\u0022:\u0022message\u0022,\u0022model\u0022:null}],\u0022output_tokens\u0022:172,\u0022output_tokens_details\u0022:{\u0022thinking_tokens\u0022:91},\u0022service_tier\u0022:\u0022standard\u0022,\u0022inference_geo\u0022:\u0022global\u0022,\u0022speed\u0022:\u0022standard\u0022},\u0022diagnostics\u0022:null}"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-10-mid-strained__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They seem to enjoy the scenery, even if they have to steal it from others.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the Raiders took their settlements from others; the briefing does not say this, though it is hedged as \u0027seem\u0027 and is partly a joke\u0022},{\u0022span\u0022:\u0022I suppose they find their people more valuable than the metal, or perhaps they just want the paperwork finished.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, so it is not an invented fact, but \u0027paperwork\u0027 is a loose and odd implication of bureaucracy among a tribe\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and it leads with the new fact, but the jokes are weak: the paperwork quip fits a tribal faction poorly and the \u0027steal the scenery\u0027 line implies the Raiders seized their settlements, which the briefing does not say. The second item is padding on a quiet week, and the whole bulletin is a little short at about 50 words, though that is allowed.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.3449015,
+      "inputTokens": 3602,
+      "outputTokens": 343
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-03-early-strained__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022no raid that I heard of\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a status (no raids) the briefing does not report; it only says nothing new was heard\u0022},{\u0022span\u0022:\u0022Presumably peace is nicer to live than to report.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a state of peace, though framed as a guess; mild inference\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Dry, readable quiet-week bulletin with correct faction counts (7\u002B4\u002B3=14) and guesses framed properly. The weakness is that the \u0027no raid\u0027 and \u0027peace\u0027 lines suggest a state of affairs the briefing doesn\u0027t give, and the Ashen Hand line leans on old news without marking it as old.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8038506,
+      "inputTokens": 3629,
+      "outputTokens": 255
+    }
+  ]
+}

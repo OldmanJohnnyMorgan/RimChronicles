@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-08-mid-content__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Accord\u0027s council\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022refers to a council the briefing does not mention, though it is framed as a joke\u0022},{\u0022span\u0022:\u0022The Ninefingers Gang controls three.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027controls\u0027 is a slight addition to \u0027has 3 settlements\u0027; mostly restates the briefing\u0022},{\u0022span\u0022:\u0022The Reedmother\u0027s Children operate five settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027operate\u0027 is a slight shift from \u0027have\u0027; restates the briefing\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The first item leads correctly with new news and has a dry jab, but the second is a flat recitation of faction counts and breaks the instruction not to use \u0027remains\u0027. The bulletin is also short of the word count for a quiet week and reads generic.  The council quip invents an institution, though only as a joke.  The second item\u0027s \u0027seems\u0027 framing is weak wit and the \u0027remains\u0027 wording violates the brief.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.5073761,
+      "inputTokens": 3598,
+      "outputTokens": 338
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-16-late-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It seems the pursuit of him is proving profitable for certain parties.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess (\u0027it seems\u0027), so arguably allowed; implies a pursuit under way, which the briefing does not report\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin restates the same two facts three times in three items, so it pads rather than reporting one new thing per item. The dry remarks are generic and the ambush detail is lost from the later items, so it reads as repetitive and thin.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.3632672,
+      "inputTokens": 3612,
+      "outputTokens": 196
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-15-late-content__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They seem to be expanding their reach, or perhaps just spreading out to avoid scrutiny.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess (\u0027seem\u0027, \u0027perhaps\u0027), but \u0027expanding\u0027 implies a comparison with an earlier state the briefing does not give\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and clear, and it leads with the new fact. The wit is thin and generic, though: the first item\u0027s quip says little, and the second item\u0027s \u0027expanding\u0027 hints at growth the briefing doesn\u0027t report. The bulletin runs about 40 words, so it is short but acceptable for a quiet week.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.5812367,
+      "inputTokens": 3556,
+      "outputTokens": 234
+    }
+  ]
+}

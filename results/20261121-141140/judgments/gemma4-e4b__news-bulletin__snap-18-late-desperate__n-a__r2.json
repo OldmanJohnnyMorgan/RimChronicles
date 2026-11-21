@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-18-late-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Thistle Commonwealth has six settlements now.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\\\u0022now\\\u0022 implies a comparison with an earlier state the briefing does not give\u0022},{\u0022span\u0022:\u0022One assumes the cold has claimed more than just supplies.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, so allowed, but it implies casualties the briefing does not report\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It leads correctly with the new caravan loss and stays close to the briefing, but the second item is thin filler, \\\u0022now\\\u0022 implies a prior state, and the voice is generic rather than earnest and worried. The dry remarks are weak, and the \u0027quiet\u0027 guess is odd given the blizzard and raiders.\u003C/comment\u003E\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.042059,
+      "inputTokens": 3568,
+      "outputTokens": 270
+    }
+  ]
+}

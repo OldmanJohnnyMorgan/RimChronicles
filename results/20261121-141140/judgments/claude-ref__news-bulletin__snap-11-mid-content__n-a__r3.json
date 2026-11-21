@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-11-mid-content__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022I was not invited, so the menu is a mystery.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies narrator\u0027s non-invitation and that there was a menu; added detail not in briefing, though it is wry colour\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate to the briefing, leads with the new item, and keeps a dry voice with guesses properly framed. The second item is thin and the wit a bit loose (\\\u0022arithmetic makes a quiet sort of diplomat\\\u0022 is muddled), and the first item\u0027s non-invitation aside is mild embellishment.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.0558532,
+      "inputTokens": 3558,
+      "outputTokens": 212
+    }
+  ]
+}

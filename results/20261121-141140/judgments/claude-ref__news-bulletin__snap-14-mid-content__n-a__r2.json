@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-14-mid-content__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022As I reported last time, one of their own came home praising his captors\u0027 kindness.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; also the previous bulletin is the latest one, and this is marked old, but the clause is a full sentence rather than a short clause\u0022},{\u0022span\u0022:\u0022I suspect the crew decided kindness was something you receive, not something you practise.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the raid is linked to the released Corsair\u0027s story; framed as a suspicion, so mostly acceptable\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Dry, consistent voice and leads with the new raid, but it spends a full sentence on old news and the second item is just a faction-size remark with a joke implying the barge couldn\u0027t fight back, which the briefing doesn\u0027t support. Length is fine but the second item lacks a real news fact beyond the briefing\u0027s background.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.2380579,
+      "inputTokens": 3636,
+      "outputTokens": 306
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-08-mid-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022I have not seen it, so I cannot judge the fuss.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022claims the reporter has not seen the sculpture, which the briefing does not state\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The dry voice is consistent and the arithmetic is correct (9 to 3 is three to one). The lead is plain and every claim is supported, but the first item is thin and the second item is only a remark on faction sizes, which is padding on a quiet week. The \u0027I have not seen it\u0027 line is a small unsupported claim about the reporter.}\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8181011,
+      "inputTokens": 3614,
+      "outputTokens": 213
+    }
+  ]
+}

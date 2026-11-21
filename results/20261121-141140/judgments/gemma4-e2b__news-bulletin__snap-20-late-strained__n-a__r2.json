@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-20-late-strained__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They exist somewhere between the warring factions.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022states the Tribe\u0027s position relative to the factions as fact; briefing gives no geography\u0022},{\u0022span\u0022:\u0022They seem content to observe the chaos.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022hedged with \u0027seem\u0027 but implies a status the briefing does not report about the Tribe\u0022},{\u0022span\u0022:\u0022It is a predictable stalemate, I suppose.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022calls the war a stalemate, which the briefing does not say; hedged only by \u0027I suppose\u0027\u0022},{\u0022span\u0022:\u0022Varrowgate is now offered a governorship by the Shattered Empire.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats the lead item as if it were a separate item, with \u0027now\u0027 implying a change in state\u0022},{\u0022span\u0022:\u0022The Free Coast Alliance holds two settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news from the earlier bulletin as if new, with no marker that it is old\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin pads a single new fact into five items, repeats the governorship line, retells old news without marking it, and invents the Tribe\u0027s position between the factions. The wit is weak and the format ignores the 1-2 item quiet-week brief.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.8423687,
+      "inputTokens": 3689,
+      "outputTokens": 434
+    }
+  ]
+}

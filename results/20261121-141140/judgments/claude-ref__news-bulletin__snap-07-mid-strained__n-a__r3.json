@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-07-mid-strained__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Charging admission to a hazard is bold.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the gorge road is a hazard; the briefing only says a wagon was lost near the gorge\u0022},{\u0022span\u0022:\u0022Presumably it simply prefers not to.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022hedged guess, so it does not count as a claim; listed only as borderline about the Empire\u0027s attitude\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Dry voice that leads with the new item, marks the wagon loss as old with a short clause, and hedges its guesses. The second item is a weak joke about counting, and the \u0027hazard\u0027 framing adds a slight implication beyond the briefing.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.4319562,
+      "inputTokens": 3623,
+      "outputTokens": 248
+    }
+  ]
+}

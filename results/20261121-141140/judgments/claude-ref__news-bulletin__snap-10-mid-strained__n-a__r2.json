@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-10-mid-strained__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022no war to speak of\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing lists no war for the Weir Federation, but absence of war is stated as fact, and it ignores the bounty on Stonecutter leaders\u0022},{\u0022span\u0022:\u0022as I reported earlier\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news about captives taken, though marked as old as the task allows; mild addition of the raid detail is supported, so this is only a light flag\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Dry, clean, and leads with the new item, with a properly guessed joke. The Weir paragraph asserts \u0027no war to speak of\u0027, which the briefing does not support and sits oddly beside the earlier bounty, and the second item is thin filler.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.9151094,
+      "inputTokens": 3642,
+      "outputTokens": 265
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-12-mid-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Glass Throne has sent masked envoys to the Saltmarch Assembly.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022present perfect is fine, but \u0027the visit\u0027 later implies the envoys arrived and visited, which the briefing does not say\u0022},{\u0022span\u0022:\u0022the masks were the most candid part of the visit\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a visit took place; stated inside a guess, so it is weak\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate, concise and dry, leading with the new fact and using a framed guess. The second item is a bit thin and \u0027Nobody has told me what they said\u0027 adds an implied claim about the meeting, but nothing major is invented.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.7617882,
+      "inputTokens": 3623,
+      "outputTokens": 252
+    }
+  ]
+}

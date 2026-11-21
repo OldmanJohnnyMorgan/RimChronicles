@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-10-mid-strained__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Weir Federation has seven settlements. They have put a bounty on Stonecutter leaders.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; the bounty was in the previous bulletin and is told as current without an old-news marker\u0022},{\u0022span\u0022:\u0022They are holding captives from the Ochre Hand.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; this was already covered and is presented as fresh\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin is padded with old news (the bounty and the captives) and has no clear item structure. The first line is a bare restatement with no wry take, and the jokes are weak. The quip about buying silence is an unsupported guess, though it is hedged. The text is accurate but flat and does not follow the quiet-week length or format instructions.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.1159018,
+      "inputTokens": 3674,
+      "outputTokens": 286
+    }
+  ]
+}

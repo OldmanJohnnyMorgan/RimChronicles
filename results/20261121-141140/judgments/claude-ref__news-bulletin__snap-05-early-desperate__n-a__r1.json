@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022outsiders may find their shopping lists rather shorter\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a consequence of the closure (outsiders can\u0027t buy) and links it to the crops; framed as a quip, borderline\u0022},{\u0022span\u0022:\u0022One assumes six closed doors make a firmer point than one.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies all six settlements closed their markets; briefing only says the Clans closed markets, and \u0027one assumes\u0027 makes it a guess but the framing slightly overreaches\u0022},{\u0022span\u0022:\u0022the most of anyone on the rim\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022comparison is supported by faction list (6 vs 5 and 4), but \u0027anyone on the rim\u0027 extends beyond the listed factions\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Dry, restrained and mostly faithful, with a nice \u0027I decline to invent one\u0027 line. Weakened by small implied causes and consequences (crops linked to the closure, the claim that all six settlements closed) and an extension to \u0027anyone on the rim\u0027.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.4259334,
+      "inputTokens": 3569,
+      "outputTokens": 362
+    }
+  ]
+}

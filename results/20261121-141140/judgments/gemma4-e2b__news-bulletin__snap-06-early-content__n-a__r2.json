@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-06-early-content__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They have two settlements operating in the region.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing gives two settlements but not that they operate in the region\u0022},{\u0022span\u0022:\u0022I suspect this was for basic sustenance, as is usually the case.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022guess, but \u0027as is usually the case\u0027 states a general claim as fact about past behaviour\u0022},{\u0022span\u0022:\u0022The Calder Combine reports good harvests along the delta.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a current item, with no marker that it is old\u0022},{\u0022span\u0022:\u0022One assumes the Combine is managing the spoils of whatever meager bounty they manage to secure.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022muddled guess implying the Combine got spoils and a meager bounty, which contradicts the good harvests\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin breaks the format: it has a 2-line opener with a repeated fact, three or four items instead of one or two, and old news repeated as a new item. The wit is weak and the Combine guess is garbled and contradicts the good harvests.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.473633,
+      "inputTokens": 3594,
+      "outputTokens": 376
+    }
+  ]
+}

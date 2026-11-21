@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-10-mid-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Silver is a language pirates speak fluently.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022opinion-like generalisation but implies pirates would accept silver; figure of speech, borderline\u0022},{\u0022span\u0022:\u0022Jugust, it seems, is a slow month for everyone else.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as guess but implies other factions are idle, which the briefing does not say\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Dry voice, leads correctly with the new fact and marks the captives as old news. The second item is filler built on the Weir settlement count, and the closing line about a slow month drifts toward unsupported claims.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.0199318,
+      "inputTokens": 3649,
+      "outputTokens": 236
+    }
+  ]
+}

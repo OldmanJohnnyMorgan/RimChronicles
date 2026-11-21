@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-13-mid-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Dry, accurate and on-brief: it leads with the new fact, marks the demand as old, and frames its guesses as guesses. The \u0027seven to six\u0027 item is a bit thin and the envoys\u0027 \u0027letter home\u0027 is a guess, but it stays within the briefing.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.1058206,
+      "inputTokens": 3614,
+      "outputTokens": 128
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-08-mid-content__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Ninefingers Gang has been quiet since a failed raid on Gladwater.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022repeats old news from the latest bulletin as if new, and the failed raid is not in this briefing\u0022},{\u0022span\u0022:\u0022They have three settlements scattered around.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027scattered around\u0027 adds a detail about their spread that the briefing does not give\u0022},{\u0022span\u0022:\u0022The Lantern Accord hosts a trade fair at Lantern Hill.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as an ongoing event; the briefing only says it is being hosted, and this is the lead-in to a rehash\u0022},{\u0022span\u0022:\u0022The Reedmother\u0027s Children report the river is full and the fish are foolish.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news from the previous bulletin as if new, with no marker that it is old\u0022},{\u0022span\u0022:\u0022One assumes they mean they have plenty of things to complain about.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, so not a fact; the \u0027good combination\u0027 attribution is a rehash of old news\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The only new item is a single bare sentence with no dry remark, and the rest rehashes old bulletins as if fresh, ignoring the rule against repeating old news. It runs too long for a quiet week and leans on the stale material instead of a short bulletin.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.3672704,
+      "inputTokens": 3674,
+      "outputTokens": 473
+    }
+  ]
+}

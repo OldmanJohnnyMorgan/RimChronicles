@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-16-late-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Mercenary Kael Dunmore now has a price on his head too.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022presents the second briefing item as a separate, additional bounty; the briefing\u0027s two items describe the same bounty, with an ambush as cause, which is omitted\u0022},{\u0022span\u0022:\u0022the pirates are not entirely pleased\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, so allowed; but treating Kael as the pirates\u0027 representative is an inference about faction link\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin treats one bounty as two separate events, leaves out the ambush near Gallowmere, and has little of Odile\u0027s sardonic precision. Its wit is generic, and it is padded for a quiet week.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.7482131,
+      "inputTokens": 3571,
+      "outputTokens": 266
+    }
+  ]
+}

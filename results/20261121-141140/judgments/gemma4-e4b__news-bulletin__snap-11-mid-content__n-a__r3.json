@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-11-mid-content__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022a temporary lull in the usual squabbling\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies prior conflict between the two factions; it is framed as a guess, but \\\u0022usual squabbling\\\u0022 presumes a history the briefing does not give\u0022},{\u0022span\u0022:\u0022The Hearthguard Compact still controls eight settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\\\u0022still\\\u0022 implies a comparison with an earlier state the briefing does not give; the task forbids it\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It leads correctly with the new feast and keeps the dry voice, but it breaks the explicit \\\u0022still\\\u0022 rule and the second item is padded with a guess about prize offerings. The first item has little wit beyond a stock remark.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.6730663,
+      "inputTokens": 3537,
+      "outputTokens": 262
+    }
+  ]
+}

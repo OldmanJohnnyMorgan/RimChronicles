@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-15-late-content__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Dry, clear and accurate: it leads with the new item and frames its guesses as guesses. The second item is a filler remark on faction size, which is allowed on a quiet week but is a bit thin. The paperwork joke is mild and the first item is only two short sentences.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 1.8814351,
+      "inputTokens": 3566,
+      "outputTokens": 129
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-14-mid-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Corsairs seem to be enjoying their river excursions.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies an ongoing, repeated activity (plural excursions) not in briefing, though hedged with \u0027seem\u0027\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and hedged guesses keep it clean, but the wit is thin and generic. The second item is filler faction counts, and \u0027hit\u0027 is an acceptable paraphrase of raided. A leaner single item would fit a quiet week better.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8312686,
+      "inputTokens": 3627,
+      "outputTokens": 195
+    }
+  ]
+}

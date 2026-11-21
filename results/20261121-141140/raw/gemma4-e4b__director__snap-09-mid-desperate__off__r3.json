@@ -1,0 +1,52 @@
+{
+  "cell": "gemma4-e4b__director__snap-09-mid-desperate__off__r3",
+  "model": "gemma4-e4b",
+  "task": "director",
+  "snapshot": "snap-09-mid-desperate",
+  "grammar": "off",
+  "repeat": 3,
+  "promptVersion": "director/v1",
+  "outcome": "Model",
+  "value": "{\u0022choice\u0022: \u0022Wait\u0022, \u0022reason\u0022: \u0022The colony is currently in a desperate mood and an infection is spreading among three colonists.\u0022}",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are the plot director for a story told through a RimWorld colony. You decide what happens next in the colony\u0027s plots.\n\nRules:\n- Choose exactly one option from the allowed list. Copy it exactly, character for character.\n- Choose \u0022Wait\u0022 if the colony is in crisis or the story needs a pause.\n- Prefer the option that follows most naturally from what has already happened.\n- Give a reason in one or two short sentences. Use only facts from the briefing.\n\nAnswer with JSON only, in this form:\n{\u0022choice\u0022: \u0022\u003Cone allowed option\u003E\u0022, \u0022reason\u0022: \u0022\u003Cone or two sentences\u003E\u0022}\n",
+        "user": "## The world\nDate: day 288 (Decembary 5504).\nColony: Cinder Rest, 8 people, wealth 121,000 silver, mood desperate.\n\nPeople:\n- Joska (42), dead; traits: Tough, Bloodlust; backstory: Pit fighter; husband of Lene, father of Tamsin.\n- Lene (39); traits: Iron-willed, Careful shooter; backstory: Bounty hunter; widow of Joska, mother of Tamsin.\n- Tamsin (17); traits: Nimble, Hot-tempered; backstory: Scavenger; daughter of Joska and Lene.\n- Orrin (60); traits: Kind; backstory: Doctor.\n- Vash (28); traits: Abrasive; backstory: Mechanoid nerd.\n\nHistory:\n- Day 201: Captain Rook Malley killed Pavo Inn and escaped.\n- Day 243: Captain Rook Malley maimed Joska and escaped.\n- Day 286: Captain Rook Malley killed Joska.\n- Day 286: Captain Rook Malley died.\n\nFactions:\n- Malley\u0027s Lancers (Pirates): goodwill -100, 1 settlement.\n- The Gray Wharf Syndicate (Outlanders): goodwill \u002B20, 6 settlements.\n- Embertail Tribe (Tribe): goodwill -30, 4 settlements, at war with The Gray Wharf Syndicate.\n\nRecent events:\n- Joska and Captain Rook Malley killed each other day 286\n- Infection spreading in the colony\n- Three colonists in bed\n\n## Active plots\n- nemesis-02 (Nemesis): beat Resolution, protagonist Joska. Captain Rook Malley killed the trader Pavo Inn, then maimed Joska. On day 286 Joska cornered Malley at the Lancers\u0027 camp; both died.\n\n## Allowed options\n- Wait\n- Resolution:InheritToKin:p3\n- Resolution:InheritToSpouse:p2\n\nChoose one allowed option.\n",
+        "maxOutputTokens": 300,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "choice": {
+              "type": "string",
+              "enum": [
+                "Wait",
+                "Resolution:InheritToKin:p3",
+                "Resolution:InheritToSpouse:p2"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "choice",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "ok": true,
+      "text": "{\u0022choice\u0022: \u0022Wait\u0022, \u0022reason\u0022: \u0022The colony is currently in a desperate mood and an infection is spreading among three colonists.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 0.2092403,
+      "inputTokens": 604,
+      "outputTokens": 29,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-545\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795232325,\u0022model\u0022:\u0022gemma4:e4b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022{\\\u0022choice\\\u0022: \\\u0022Wait\\\u0022, \\\u0022reason\\\u0022: \\\u0022The colony is currently in a desperate mood and an infection is spreading among three colonists.\\\u0022}\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:604,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:603},\u0022completion_tokens\u0022:29,\u0022total_tokens\u0022:633}}\n"
+    }
+  ]
+}

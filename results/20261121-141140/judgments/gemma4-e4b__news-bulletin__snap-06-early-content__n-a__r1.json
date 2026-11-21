@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-06-early-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Calder Combine now has five settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\\\u0022now\\\u0022 implies a change from an earlier state the briefing does not give\u0022},{\u0022span\u0022:\u0022They seem to be expanding their influence\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies expansion; framed as a guess, but \\\u0022now has\\\u0022 presents growth as fact\u0022},{\u0022span\u0022:\u0022their bountiful harvests\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news (the good harvests) as background in a new item\u0022},{\u0022span\u0022:\u0022The Ditch Kings relieved a grain barge on the delta.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\\\u0022relieved\\\u0022 is a euphemism for robbed; the fact is softened but not changed\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is correct, but the second item pads a quiet week and \\\u0022now has\\\u0022 implies growth the briefing never reports. The dry voice is generic, and \\\u0022relieved\\\u0022 could confuse a player about whether it was a robbery.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.0148504,
+      "inputTokens": 3503,
+      "outputTokens": 340
+    }
+  ]
+}

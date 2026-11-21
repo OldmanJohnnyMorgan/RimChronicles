@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-01-early-content__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022This is the latest from them.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies earlier news from the Tarn Union; this is the first bulletin\u0022},{\u0022span\u0022:\u0022Another predictable weather warning.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027Another\u0027 implies earlier warnings, which the briefing does not give\u0022},{\u0022span\u0022:\u0022One assumes the hills will get damp.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess but adds a cold-snap consequence (damp) that is unsupported and odd for cold\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Facts are reported accurately and the guesses are properly framed, but the output is only about 40 words and the wit is thin. \u0027Another\u0027 and \u0027the latest\u0027 imply earlier news in a first bulletin, and the damp joke does not fit a cold snap.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.0725141,
+      "inputTokens": 3372,
+      "outputTokens": 289
+    }
+  ]
+}

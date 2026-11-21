@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They have been raiding homesteads near the Merrow road, as I reported last time.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing activity: \u0027have been raiding\u0027 implies continuing raids; the briefing gives only a past raid, and the earlier bulletin said it ended\u0022},{\u0022span\u0022:\u0022I suspect their current activity is as predictable as the tide.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies current activity not in briefing, though framed as a guess\u0022},{\u0022span\u0022:\u0022The numbers of the factions remain as they were.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022comparison with earlier state and uses \u0027remain\u0027, which the task forbids; the briefing gives no earlier numbers\u0022},{\u0022span\u0022:\u0022They are reportedly not seeking trouble\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news from the latest bulletin (Kinn not looking for trouble), which is not in the briefing\u0027s old-news list and is told as current\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It is mostly accurate and readable, but it breaks the explicit rule against \u0027remain\u0027 and implies ongoing raids. It also exceeds the quiet-week format with four items and a flat, listy voice, and the Kinn item recycles the previous bulletin\u0027s joke.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.1094305,
+      "inputTokens": 3673,
+      "outputTokens": 422
+    }
+  ]
+}

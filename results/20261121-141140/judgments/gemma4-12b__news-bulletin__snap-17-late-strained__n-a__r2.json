@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-17-late-strained__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022which is a remarkably efficient way to lose property\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the Compact is losing property as a consequence of the war; this is an opinion, but it leans on Dunwold, already old news, without marking it as such\u0022},{\u0022span\u0022:\u0022it likely just means more mouths to feed\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022hedged guess with \u0027likely\u0027, so allowed in principle; borderline inference about the Empire\u0027s circumstances\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A fitting quiet-week bulletin that sticks to briefing facts (settlement counts, war) with dry remarks. The property-loss quip alludes to Dunwold as if current, and \u0027currently at war\u0027 is slightly redundant, but nothing major is invented.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.844972,
+      "inputTokens": 3613,
+      "outputTokens": 274
+    }
+  ]
+}

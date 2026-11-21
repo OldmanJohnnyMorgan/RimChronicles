@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__inheritance-handoff__snap-16-late-desperate__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Viggo watched from the bench and said nothing.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022places Viggo at home and present in the scene; the briefing only says he was maimed, not where he is now\u0022},{\u0022span\u0022:\u0022It was heavier than her own.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds a detail about the coat that the dossiers do not give\u0022},{\u0022span\u0022:\u0022\\\u0022You\u0027ll show me the way.\\\u0022\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022assumes Rook knows where Dunmore is, which the briefing does not say\u0022},{\u0022span\u0022:\u0022Three hunts were his.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022restates the three hunts as Bertram\u0027s, which is supported, but \u0027the fourth\u0027 implies a numbered continuation not in the briefing\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Restrained scene that uses the friend relationship correctly and ends on a clear intent to hunt Dunmore, who is alive. Viggo\u0027s presence at home and Rook as a guide are small additions beyond the briefing.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.9914255,
+      "inputTokens": 3197,
+      "outputTokens": 351
+    }
+  ]
+}

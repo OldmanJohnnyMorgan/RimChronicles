@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-06-early-content__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Calder Combine holds five settlements in the region.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027in the region\u0027 is not in the briefing, which gives only the faction\u0027s settlement count\u0022},{\u0022span\u0022:\u0022They report good harvests along the delta, which is hardly surprising given the yield.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a current item; \u0027the yield\u0027 implies a cause the briefing does not give\u0022},{\u0022span\u0022:\u0022they remain quiet behind their walls\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027remain\u0027 implies a prior state, which the task forbids; the briefing gives only \u0027quiet behind its walls\u0027\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin spends two of its three items on old news (the harvest) and on filler about the Empire, when only the barge robbery is new, and it breaks the rule against \u0027remain\u0027. The dry guesses are properly framed, but the padding and the repeated harvest report make it unfit to ship as is.}\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.4005821,
+      "inputTokens": 3556,
+      "outputTokens": 337
+    }
+  ]
+}

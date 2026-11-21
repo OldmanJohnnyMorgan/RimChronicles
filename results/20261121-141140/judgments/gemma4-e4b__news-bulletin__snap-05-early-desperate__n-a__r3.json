@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-05-early-desperate__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They continue their pattern of raiding, as I reported last time.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing activity stated as fact; \u0027continue\u0027 is also banned; briefing only reports past raids at three settlements\u0022},{\u0022span\u0022:\u0022It certainly makes acquiring necessary supplies rather more complicated.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022stated consequence not in briefing\u0022},{\u0022span\u0022:\u0022One suspects their appetite for plunder remains quite robust.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess but uses \u0027remains\u0027, which the task forbids; implies ongoing state\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is correct and the guess about the chill is properly hedged, but the second item breaks the rules by using \u0027continue\u0027 and \u0027remains\u0027 and by stating ongoing raiding as fact. The wit is mild and generic, and the second item leans on old news.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.9850552,
+      "inputTokens": 3563,
+      "outputTokens": 316
+    }
+  ]
+}

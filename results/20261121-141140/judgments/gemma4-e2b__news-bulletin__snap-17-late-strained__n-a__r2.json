@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-17-late-strained__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They exist somewhere between these two warring powers.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022states a geographic position for the Kestrel Tribe that the briefing does not give\u0022},{\u0022span\u0022:\u0022One assumes these skirmishes will keep the border lines shifting.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022calls the fighting skirmishes and implies shifting borders; the briefing gives neither (framed as a guess, but \u0027skirmishes\u0027 is asserted)\u0022},{\u0022span\u0022:\u0022waiting for a fool to sail too close\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the pirates operate by sea, which the briefing does not say, though it is framed as a supposition\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin just restates faction sizes, one short item per faction, so it breaks the 40-80 word quiet-week limit with four items and gives only a weak dry take on each. It also invents the Kestrel Tribe\u0027s position between the two powers.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8194121,
+      "inputTokens": 3715,
+      "outputTokens": 332
+    }
+  ]
+}

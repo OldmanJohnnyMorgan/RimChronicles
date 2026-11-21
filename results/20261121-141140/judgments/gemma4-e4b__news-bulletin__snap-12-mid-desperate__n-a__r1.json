@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-12-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Gallows Crew still occupies three settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027still\u0027 implies a prior state the briefing does not give; also breaks the task\u0027s explicit ban on \u0027still\u0027\u0022},{\u0022span\u0022:\u0022They continue to hold a doctor captive at their camp.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as ongoing status (\u0027continue\u0027), which the task forbids; adds an ongoing activity\u0022},{\u0022span\u0022:\u0022visited the Saltmarch Assembly\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says envoys were sent, not that they visited or arrived\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The lead item is correctly framed with a guess, but the second item breaks explicit rules by using \u0027still\u0027 and \u0027continue\u0027 and by repeating old news (the captive doctor) as if current. The voice is only mildly dry and the doctor item adds little wit beyond the earlier bulletin\u0027s point.\u003C/br\u003E\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8695784,
+      "inputTokens": 3621,
+      "outputTokens": 332
+    }
+  ]
+}

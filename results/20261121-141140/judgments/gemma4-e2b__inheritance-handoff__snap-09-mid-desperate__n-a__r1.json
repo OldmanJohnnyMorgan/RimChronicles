@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__inheritance-handoff__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Staging is safe and nothing is invented, but the scene never ends on what Tamsin means to do about the Lancers\u0027 new captain and Cinder Rest, so it misses the required ending. Lene is not mentioned, and the flat, choppy sentences barely register the handoff or the father-daughter bond.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.6147874,
+      "inputTokens": 3085,
+      "outputTokens": 141
+    }
+  ]
+}

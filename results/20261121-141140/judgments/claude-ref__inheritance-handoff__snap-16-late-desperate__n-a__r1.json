@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__inheritance-handoff__snap-16-late-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Viggo watched from the chair by the hearth and said nothing.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022places Viggo at home; the briefing says he was maimed but not that he is at home, and the task allows only named people if at home\u0022},{\u0022span\u0022:\u0022He had not eaten.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds a detail about Rook\u0027s status the briefing does not give\u0022},{\u0022span\u0022:\u0022Kael Dunmore was still out there.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022stated as fact; the briefing says he escaped, so this is a mild inference about his current whereabouts\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Restrained, clear scene that uses traits and the best-friend bond well and ends on the heir\u0027s resolve to hunt Dunmore. It is weakened by placing Viggo at the hearth without support from the briefing, and by a few small added details.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.343621,
+      "inputTokens": 3214,
+      "outputTokens": 306
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-11-mid-content__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022it was a miracle anyone survived the meal\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies danger or deaths at the feast, not in briefing; stated as fact, not a guess\u0022},{\u0022span\u0022:\u0022prizes for useless inventions\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022calls the inventions useless as a fact; briefing only says prizes for new inventions (and repeats old news without marking it as old)\u0022},{\u0022span\u0022:\u0022They seem to enjoy collecting land\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies expansion or acquisition not in briefing; hedged with \u0027seem\u0027, so weak\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Leads correctly with the feast and the settlement count matches, but the joke about surviving the meal is muddled and implies events not in the briefing. The second item mentions old news about the prizes without marking it as old and calls the inventions useless.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8548941,
+      "inputTokens": 3551,
+      "outputTokens": 307
+    }
+  ]
+}

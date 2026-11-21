@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-05-early-desperate__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The pirates have three settlements.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022contradicts briefing: Scythe Tooth has 5 settlements; confuses raids with settlements\u0022},{\u0022span\u0022:\u0022they are still making their rounds\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing activity not reported, and uses forbidden \u0027still\u0027\u0022},{\u0022span\u0022:\u0022Scythe Tooth raids have hit three settlements in a quadrum.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as if current, and \u0027in a quadrum\u0027 comes from an earlier bulletin, not the briefing\u0022},{\u0022span\u0022:\u0022The Ferrow Mutual has asked its members to share patrols. They have asked who is paying for this arrangement.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022repeats old news from the earlier bulletin as new, not in the briefing\u0022},{\u0022span\u0022:\u0022One assumes this is merely another predictable maneuver.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies earlier similar maneuvers; framed as a guess but suggests prior state\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022Only one new fact exists, yet the bulletin repeats it verbatim, retells old news as fresh, and wrongly gives Scythe Tooth three settlements instead of five. Its wit is thin and it breaks the \u0027still\u0027 rule.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.676808,
+      "inputTokens": 3612,
+      "outputTokens": 449
+    }
+  ]
+}

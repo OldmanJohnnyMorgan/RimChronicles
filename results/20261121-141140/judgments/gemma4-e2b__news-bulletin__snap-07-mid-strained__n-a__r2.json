@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-07-mid-strained__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022as usual\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a past pattern of the Empire demanding coin, which the briefing does not give\u0022},{\u0022span\u0022:\u0022They are likely busy with whatever petty theft occupies them.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies an ongoing activity for the pirates; it is hedged with \u0027likely\u0027, so it counts as a guess and only just qualifies\u0022},{\u0022span\u0022:\u0022They are probably just waiting for the next misfortune.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022hedged guess; implies status, but is framed as a guess and is weak\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It leads correctly with the new toll demand and invents nothing major. But two of its three items just restate faction sizes, and the wit is thin and generic. The \u0027This is the latest scrap of news\u0027 line is filler, and the whole bulletin is short of the dry, observational edge of the earlier ones.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.5304678,
+      "inputTokens": 3592,
+      "outputTokens": 321
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-09-mid-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022A man who spent his career visiting harm on others\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022stated as fact; earlier bulletins mention Lancers\u0027 violence but not his whole career\u0022},{\u0022span\u0022:\u0022a name belonging to a dead man\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the Lancers still carry his name, a status the briefing does not report; wit-based but stated as fact\u0022},{\u0022span\u0022:\u0022I have heard nothing. I choose to call that diplomacy.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the war is quiet or ongoing with no news; the briefing gives no such status\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is good and the lead is correct, but the Lancers line and the diplomacy joke imply status the briefing does not give. The first item also repeats the briefing\u0027s duplicate fact, and the bulletin runs only slightly short of the target length for one new thing.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.1891029,
+      "inputTokens": 3644,
+      "outputTokens": 316
+    }
+  ]
+}

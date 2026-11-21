@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-12-mid-desperate__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It is a charming way to ensure a medical professional remains available for the pirates\u0027 inevitable mishaps.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022states as fact a purpose for holding the doctor, which the briefing does not give\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022It leads with the new fact, keeps the dry voice, and marks the doctor item as old with a short clause. The one flaw is that it states a motive for the captivity as fact rather than as a guess, so it is capped at 4.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.3893187,
+      "inputTokens": 3632,
+      "outputTokens": 191
+    }
+  ]
+}

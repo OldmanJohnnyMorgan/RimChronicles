@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-13-mid-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and clear, with no invented facts and guesses properly framed. The wit is generic and thin, though: the first item\u0027s joke is obvious and the second is a filler restatement. It also runs under the usual length, but a quiet-week bulletin allows that.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.2517252,
+      "inputTokens": 3607,
+      "outputTokens": 125
+    }
+  ]
+}

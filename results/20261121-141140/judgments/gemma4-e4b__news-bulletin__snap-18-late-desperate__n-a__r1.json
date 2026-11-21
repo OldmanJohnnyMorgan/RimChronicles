@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-18-late-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022vanished in a blizzard\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says the caravan was lost, not that it vanished; implies disappearance\u0022},{\u0022span\u0022:\u0022The Thistle Commonwealth has opened its granaries.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022repeats old news from the latest bulletin, which is not in the current briefing, and is presented as a current item\u0022},{\u0022span\u0022:\u0022Reaching them remains a monumental task\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022claims an ongoing status and difficulty not in the briefing, and uses the forbidden word \u0027remains\u0027\u0022},{\u0022span\u0022:\u0022as I reported last time\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022the claim that last time\u0027s report said reaching the granaries is a monumental task is a stretch, but it marks the item as old\u0022},{\u0022span\u0022:\u0022as difficult as ever\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022comparison with earlier state not given in the briefing\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The second item wastes space on the granaries, which is old news from the previous bulletin and not in the briefing, and it breaks the \u0027remains\u0027 and \u0027as ever\u0027 rules. The first item is fine, but the caravan news deserved more than a guess about casualties.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.5178411,
+      "inputTokens": 3587,
+      "outputTokens": 412
+    }
+  ]
+}

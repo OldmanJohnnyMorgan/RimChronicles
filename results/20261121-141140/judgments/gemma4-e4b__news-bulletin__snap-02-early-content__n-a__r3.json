@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-02-early-content__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The dry voice is consistent and it leads with the new fact, with each guess framed as a guess. The second item is a little thin, and the \u0027loud ones\u0027 joke is not very sharp, but nothing is invented.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 1.8728993,
+      "inputTokens": 3665,
+      "outputTokens": 109
+    }
+  ]
+}

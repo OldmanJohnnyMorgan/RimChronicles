@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-10-mid-strained__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022what a blade took\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies captives were taken by blade/violence; briefing only says taken, framed as figure of speech but mildly implies method\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and in a dry voice, but the second item is filler about faction size and the wit is mild; the lead item could have named the Stonecutters as holders for clarity. Acceptable but not shippable as a strong bulletin.\u003C/br\u003E\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.9044117,
+      "inputTokens": 3584,
+      "outputTokens": 181
+    }
+  ]
+}

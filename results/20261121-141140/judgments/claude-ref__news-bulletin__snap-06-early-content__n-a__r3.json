@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-06-early-content__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the harvest there was a good one\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; briefing says Combine reported good harvests, stated here as fact in Ilse\u0027s own voice, and \u0027best in years\u0027 was not repeated but still tied to the barge\u0022},{\u0022span\u0022:\u0022simply skipped the part about earning it\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies pirates read the sheet and that the grain was from this harvest, a guess framed with \u0027I suspect\u0027 but linking barge to harvest is an implied cause\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Dry, consistent voice, correct lead, and the old news is marked as old. The link between the stolen grain and the good harvest is slightly inferred, and the second item is a filler remark on a faction fact, which is allowed but thin alongside one new fact.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.0327727,
+      "inputTokens": 3539,
+      "outputTokens": 289
+    }
+  ]
+}

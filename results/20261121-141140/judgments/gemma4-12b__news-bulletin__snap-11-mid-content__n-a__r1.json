@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-11-mid-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022One assumes the food was as bland as the diplomacy.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess about food, but \\\u0022bland diplomacy\\\u0022 is opinion; not a fact. Acceptable, listed only as low-risk\u0022},{\u0022span\u0022:\u0022a group that prefers prizes over progress\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news (the prizes) as a characterisation, and implies a claim about the Compact\u0027s priorities not in the briefing\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and concise, with the new feast leading, but it is shorter than the 40-word minimum for a quiet week and the wit is thin. The prizes jab leans on old news and the \\\u0022maintain\\\u0022 wording is slightly against the instructions.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.2702762,
+      "inputTokens": 3528,
+      "outputTokens": 273
+    }
+  ]
+}

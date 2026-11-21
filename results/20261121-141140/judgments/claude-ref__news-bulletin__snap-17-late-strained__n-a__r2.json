@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-17-late-strained__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Nothing reached me this stretch, which on the rim passes for a holiday.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022mild framing; briefing says quiet stretch, so essentially supported, not a real fact\u0022},{\u0022span\u0022:\u0022The Shattered Empire has nine settlements and is expanding by force against the Ashford Compact, which has five.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027expanding by force against the Ashford Compact\u0027 merges two briefing facts; implies the expansion targets the Compact, which the briefing does not state\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate, short and dry, with guesses properly framed and no \u0027still\u0027 or \u0027remains\u0027 slips. The jokes are a little thin, and the Empire\u0027s expansion is loosely tied to the Compact, but it is shippable as a quiet-week bulletin.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.2068945,
+      "inputTokens": 3650,
+      "outputTokens": 298
+    }
+  ]
+}

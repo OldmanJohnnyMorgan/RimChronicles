@@ -1,0 +1,79 @@
+{
+  "runId": "20261121-141140",
+  "startedUtc": "2026-11-21T14:11:40.3642598\u002B00:00",
+  "finishedUtc": "2026-11-21T14:16:16.9061824\u002B00:00",
+  "gitCommit": "be0f77113cf01ef9a7bceb1847b044211651fbf8",
+  "gitDirty": false,
+  "promptVersions": {
+    "director": "v1",
+    "inheritance-handoff": "v3",
+    "judge": "v3",
+    "news-bulletin": "v8"
+  },
+  "config": "C:\\RimworldMods\\RimChronicles\\RimChronicles\\harness\\models.json",
+  "configSha256": "2d3da0838d7fd1b6cd33e0eef0b579e96ece21f7e7ee150098c272c2190ca54a",
+  "models": [
+    "gemma4-e2b",
+    "gemma4-e4b",
+    "gemma4-12b",
+    "claude-ref"
+  ],
+  "tasks": [
+    "director",
+    "news-bulletin",
+    "inheritance-handoff"
+  ],
+  "snapshots": [
+    "*"
+  ],
+  "repeats": 3,
+  "cells": 756,
+  "cacheHits": 537,
+  "cacheMisses": 230,
+  "environment": {
+    "gemma4-e2b": {
+      "reachable": true,
+      "serverKind": "ollama",
+      "serverVersion": "0.40.16",
+      "modelListed": true,
+      "quantization": "Q4_K_M",
+      "parameterSize": "4.6B",
+      "vramBytes": 387438345,
+      "sizeBytes": 387438345,
+      "error": null
+    },
+    "gemma4-e4b": {
+      "reachable": true,
+      "serverKind": "ollama",
+      "serverVersion": "0.40.16",
+      "modelListed": true,
+      "quantization": "Q4_K_M",
+      "parameterSize": "7.5B",
+      "vramBytes": 498377685,
+      "sizeBytes": 498377685,
+      "error": null
+    },
+    "gemma4-12b": {
+      "reachable": true,
+      "serverKind": "ollama",
+      "serverVersion": "0.40.16",
+      "modelListed": true,
+      "quantization": "Q4_K_M",
+      "parameterSize": "11.9B",
+      "vramBytes": 1454553168,
+      "sizeBytes": 1454553168,
+      "error": null
+    },
+    "claude-ref": {
+      "reachable": true,
+      "serverKind": "anthropic",
+      "serverVersion": null,
+      "modelListed": null,
+      "quantization": null,
+      "parameterSize": null,
+      "vramBytes": null,
+      "sizeBytes": null,
+      "error": null
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-14-mid-content__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They seem to be expanding their reach\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a seeming, but implies a change in size from an earlier state the briefing does not give\u0022},{\u0022span\u0022:\u0022One assumes the pirates found the cargo more appetizing than the company.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022guess, but implies a cargo and a crew aboard the barge; framed as an assumption so only borderline\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Dry, accurate lead on the raid, with the second item a fair remark on faction size. The \u0027expanding their reach\u0027 line implies a comparison with an earlier state, which the briefing does not give. The bulletin is also a little thin: the first joke is mild and the second is somewhat strained.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.7716506,
+      "inputTokens": 3598,
+      "outputTokens": 267
+    }
+  ]
+}

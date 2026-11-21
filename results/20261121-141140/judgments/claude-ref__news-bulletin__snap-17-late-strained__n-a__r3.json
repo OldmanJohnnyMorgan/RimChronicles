@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-17-late-strained__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The arithmetic does not flatter the Compact.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied consequence: treats the settlement counts as a Compact disadvantage, which the briefing does not state\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Dry, clean quiet-week bulletin that sticks to briefing facts and frames its guesses as guesses. The \u0027arithmetic does not flatter\u0027 line is a mild inference stated as fact, and the second item\u0027s joke is a bit thin.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.4612146,
+      "inputTokens": 3657,
+      "outputTokens": 190
+    }
+  ]
+}

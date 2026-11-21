@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-14-mid-content__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022One assumes the League is now counting their lost cargo.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, but implies cargo was lost; acceptable as guess, borderline\u0022},{\u0022span\u0022:\u0022The Fernhollow League controls eight. The Blue Antler Tribe manages five.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027controls\u0027 and \u0027manages\u0027 add slight status wording beyond \u0027has settlements\u0027\u0022},{\u0022span\u0022:\u0022perpetually divided\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a long-standing state the briefing does not give, though hedged with \u0027it seems\u0027\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and clear, but the voice is flat and the second item is a list of faction numbers with a weak joke. The task asked for dry wit in every item, and the first item has barely any, so it reads generic rather than as Ilse Varrow.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8765356,
+      "inputTokens": 3604,
+      "outputTokens": 309
+    }
+  ]
+}

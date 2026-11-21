@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-12-mid-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Gallows Crew holds a doctor at their camp.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news: the doctor captive was in an earlier bulletin and is told as current news, not marked as old\u0022},{\u0022span\u0022:\u0022They are apparently valuing medical personnel above all else.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022inference about the Crew\u0027s motives stated as an observation, and it exaggerates (\u0027above all else\u0027)\u0022},{\u0022span\u0022:\u0022They are apparently keeping their numbers rather intact.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a comparison with an earlier state and a cause the briefing does not give\u0022},{\u0022span\u0022:\u0022merely another tedious formality\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies earlier envoy visits, which the briefing does not give; \u0027another\u0027 is a comparison with an earlier state\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The first item is a bare copy of the briefing line, and the second restates it. The doctor item repeats old news without marking it as old, and the fourth item is a weak, pointless filler. The wit is thin and \u0027apparently\u0027 is used as a crutch, so the voice is not sardonic or precise.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.4230644,
+      "inputTokens": 3636,
+      "outputTokens": 395
+    }
+  ]
+}

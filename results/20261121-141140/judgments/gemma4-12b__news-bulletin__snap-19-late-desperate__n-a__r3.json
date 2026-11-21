@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-19-late-desperate__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the Empire\u0027s heavy artillery\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022artillery is not in the briefing; it is a detail added to the siege, though it is framed within a guess\u0022},{\u0022span\u0022:\u0022a faction that seems to enjoy the scenery of scorched earth\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022hedged opinion, but it leans on Fenwick being razed, which is old news, without marking it as such\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice works and the siege is led first. But the heavy artillery is invented and the Fenwick razing is only hinted at, and only 2 items with the second just restating the settlement count. It also ignores the one-clause rule for old news and is somewhat thin.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.9820932,
+      "inputTokens": 3596,
+      "outputTokens": 260
+    }
+  ]
+}

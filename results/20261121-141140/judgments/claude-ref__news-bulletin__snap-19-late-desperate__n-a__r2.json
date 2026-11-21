@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-19-late-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Second in line is a small comfort\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies Last Lantern is second in the Throne\u0027s priorities; the briefing gives no ranking, and it is stated as fact after a guess\u0022},{\u0022span\u0022:\u0022One assumes we sit somewhere on its list, presumably below the League.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, so not counted as invented; the reporter placing herself at Last Lantern as \u0027we\u0027 is an unsupported inference\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate on the core facts, with a good dry voice and a correctly marked old-news clause. But the second item pads a quiet-ish week with a speculative ranking, and it states \u0027Second in line\u0027 as fact. The \u0027Having razed Fenwick\u0027 opening also leans on old news, and the bulletin runs under the word count for two new things, though that is acceptable here.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.6271696,
+      "inputTokens": 3634,
+      "outputTokens": 315
+    }
+  ]
+}

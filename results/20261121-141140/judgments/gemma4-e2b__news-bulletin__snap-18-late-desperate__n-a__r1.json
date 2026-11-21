@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-18-late-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The passes remain closed.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news and uses forbidden \u0027remain\u0027; implies ongoing status the briefing does not give\u0022},{\u0022span\u0022:\u0022The blizzard has not left the Wailing Moth villages.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; ongoing status not reported in briefing\u0022},{\u0022span\u0022:\u0022Harrow Teeth raiders are still robbing stranded travellers.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news told as current, with ongoing \u0027still\u0027 status\u0022},{\u0022span\u0022:\u0022They have four settlements operating in this area.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022briefing gives four settlements but not that they are in this area; location is invented\u0022},{\u0022span\u0022:\u0022The Thistle Commonwealth has opened its granaries.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022repeats the previous bulletin\u0027s news as new; not in the current briefing at all\u0022},{\u0022span\u0022:\u0022Anyone can reach them if they can manage the journey.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news from the latest bulletin, not in briefing\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It pads with old news, including a prior bulletin\u0027s granary item that is absent from the briefing, and breaks the \u0027still/remain\u0027 rule. The one new fact is stated flatly with no dry take, and the length and structure do not fit a quiet week.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.1086525,
+      "inputTokens": 3666,
+      "outputTokens": 465
+    }
+  ]
+}

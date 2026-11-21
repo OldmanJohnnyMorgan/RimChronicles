@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-16-late-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022One assumes they find his presence more profitable as a corpse than a neighbor.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, so not a claim; borderline implied motive\u0022},{\u0022span\u0022:\u0022a group that seems so eager to collect bounties\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022the Accord is the one posting the bounty, not collecting it; implies an activity the briefing does not report\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate on the main facts and reasonably dry, but the second item misreads the bounty (the Accord posts it, it doesn\u0027t collect it) and the humour is thin. The ambush is not tied to Dunmore as the target or the party responsible, which keeps the lead clear but bland.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8071952,
+      "inputTokens": 3561,
+      "outputTokens": 264
+    }
+  ]
+}

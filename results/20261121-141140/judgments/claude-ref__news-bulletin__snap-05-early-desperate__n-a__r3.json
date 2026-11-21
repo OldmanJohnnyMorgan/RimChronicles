@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-05-early-desperate__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Anyone who wanted furs this winter may wish to take up knitting.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies furs were traded and are now unavailable; furs came from an earlier bulletin, so this is an added consequence not in the briefing\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Dry, clear, and mostly faithful: the lead is the new item and the guesses are framed as guesses. The knitting joke implies a consequence (no more furs) the briefing does not give, and the second item is a bit thin, though acceptable for a quiet week.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.5163161,
+      "inputTokens": 3589,
+      "outputTokens": 212
+    }
+  ]
+}

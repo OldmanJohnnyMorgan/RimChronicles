@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-17-late-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022their new acquisitions\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies recently acquired settlements; only Dunwold is old news, and \u0027new\u0027 frames all nine as recent; framed as a guess but the \u0027new\u0027 is stated\u0022},{\u0022span\u0022:\u0022They seem to be making do with what is left.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the Compact has lost territory and is coping; a comparison with an earlier state the briefing does not give, though hedged with \u0027seem\u0027\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate on the numbers and appropriately short for a quiet week, but the jokes are thin and the \u0027new acquisitions\u0027 and \u0027what is left\u0027 lines imply changes the briefing doesn\u0027t give. It also omits the war between the factions, the more interesting fact available.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8987501,
+      "inputTokens": 3590,
+      "outputTokens": 279
+    }
+  ]
+}

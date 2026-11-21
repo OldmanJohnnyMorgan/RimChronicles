@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-06-early-content__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the Calder Combine boasted of its best harvest in years\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news with added detail; briefing only says good harvests, \u0027best in years\u0027 came from the earlier bulletin, not the briefing\u0027s summary, and \u0027boasted\u0027 is added\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent and the lead item is accurate, but the second item is a filler remark on a faction fact, and the old-news mention is longer than the one short clause the task allowed, with the harvest claim reworded.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.4999745,
+      "inputTokens": 3550,
+      "outputTokens": 205
+    }
+  ]
+}

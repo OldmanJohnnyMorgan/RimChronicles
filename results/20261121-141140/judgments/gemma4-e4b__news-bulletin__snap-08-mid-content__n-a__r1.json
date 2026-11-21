@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-08-mid-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The jade sculpture at Lantern Hill is currently drawing the attention of traders.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022places the sculpture at Lantern Hill; briefing says it is Gladwater\u0027s sculpture, talked about by Lantern Hill traders\u0022},{\u0022span\u0022:\u0022They seem to be keeping busy with their trade fair, as I reported last time.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing activity inferred about the fair, though hedged with \u0027seem\u0027 and marked as old news\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead misattributes the sculpture to Lantern Hill instead of Gladwater, which muddles the one new fact, and the second item is thin filler with only a weak joke. The old news is handled properly, but the dry wit is mild and the item count and length are acceptable but sparse.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.9566969,
+      "inputTokens": 3574,
+      "outputTokens": 299
+    }
+  ]
+}

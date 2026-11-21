@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__inheritance-handoff__snap-18-late-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Ada\u0027s letter lay folded on the shelf.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022the briefing gives the letter but not where it is kept; plausible staging of a briefing object\u0022},{\u0022span\u0022:\u0022read the name of the Wailing Moth village\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022the letter naming the village is implied but not stated; mild added detail\u0022},{\u0022span\u0022:\u0022fuel, furs, tents\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022specific supply list is not in the briefing, but it is the heir\u0027s present planning, not a past fact\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A restrained scene that uses the cups, hearth and coat well and ends on Elias turning to Ada, who is still alive, with a plan for a new caravan. The checking of the flue fits his Neurotic and Industrious traits. The final lines are a little flat, and the \u0027he would bring her home\u0027 close is slightly summary-like.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.0305431,
+      "inputTokens": 3182,
+      "outputTokens": 321
+    }
+  ]
+}

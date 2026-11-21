@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__inheritance-handoff__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Lene set out two cups, then stood looking at the second.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022staging implies the second cup was for Joska; mild, but plausible present-moment staging, so close to allowed\u0022},{\u0022span\u0022:\u0022He had been a man who never stayed down.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022added detail about Joska\u0027s past/character not in the dossier; arguably tied to Tough but implies past events\u0022},{\u0022span\u0022:\u0022set the bar across the door\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022a door bar is an ordinary object, but borderline; not a real fact\u0022},{\u0022span\u0022:\u0022she would be first at the wall\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022walls are allowed, but \u0027the wall\u0027 implies a defensive wall at the colony not given\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Restrained, concrete scene that uses the coat and hearth well and ends on facing the new captain\u0027s revenge. It weakens slightly with the stated trait line \u0027never stayed down\u0027 (implying past events) and the unsupported wall, and the sleeve-rolling is a bit predictable.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.7991431,
+      "inputTokens": 3206,
+      "outputTokens": 372
+    }
+  ]
+}

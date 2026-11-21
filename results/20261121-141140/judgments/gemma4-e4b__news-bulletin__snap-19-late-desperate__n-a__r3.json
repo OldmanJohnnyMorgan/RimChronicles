@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-19-late-desperate__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They are making quite a show of their military might.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022stated as fact; briefing only says expanding by force, no display reported\u0022},{\u0022span\u0022:\u0022It seems the Empire is enjoying a particularly vigorous season of expansion.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027particularly vigorous\u0027 implies a comparison with earlier state the briefing does not give\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It leads with the new fact and keeps the guesses framed as guesses, but the wit is thin and generic. The second item pads with a restated faction size, and \u0027currently commands\u0027 and \u0027making a show\u0027 add small unsupported colour.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.6347233,
+      "inputTokens": 3607,
+      "outputTokens": 239
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__inheritance-handoff__snap-18-late-desperate__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Sleds he could build himself, and build properly.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022sleds are a new plan item not in the briefing; staging of intent, though specific, adds a detail about equipment\u0022},{\u0022span\u0022:\u0022Constance had been kind to everyone\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027to everyone\u0027 extends the Kind trait beyond the briefing\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Restrained scene that uses the traits (Neurotic, Industrious, Kind, Iron-willed) well and ends on bringing Ada home. Small embellishments such as the sleds and \u0027kind to everyone\u0027 go slightly beyond the dossier, and \u0027Wren\u0027s Hollow was quiet\u0027 is fine as present staging.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.9284636,
+      "inputTokens": 3206,
+      "outputTokens": 270
+    }
+  ]
+}

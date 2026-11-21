@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-04-early-strained__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022If you have seen him, the Dispatch would like to hear.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds a request for sightings; briefing only says the Dispatch is looking for news of him\u0022},{\u0022span\u0022:\u0022Nobody has told me why.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022states as fact that no reason was given; the briefing says nothing about this\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent, guesses are framed properly, and the facts match the briefing, but it adds small unsupported claims and the Tomas item is thin. The swimming-lessons joke about the League is only loosely tied to the ferry.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.4841231,
+      "inputTokens": 3530,
+      "outputTokens": 235
+    }
+  ]
+}

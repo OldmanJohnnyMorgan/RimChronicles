@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__inheritance-handoff__snap-18-late-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Elias sat at the hearth with Ada\u0027s letter folded on his knee. He had read it until the creases went soft.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022the letter was Constance\u0027s, received day 744; having Elias hold it and read it repeatedly is added history, though it is a plausible object\u0022},{\u0022span\u0022:\u0022She had been kind to anyone who came to her door\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds a habit not given in the dossier (Kind trait only)\u0022},{\u0022span\u0022:\u0022waiting for a sister who would not come\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies Ada is waiting and unaware, which the briefing does not state\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Restrained, plain scene with good action-based feeling (the fidgeting, the coat on the chair) and an ending that turns toward Ada, the one left. It adds small unsupported details, such as Elias reading the letter and the door habit, which keep it from shipping unchanged.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.2438765,
+      "inputTokens": 3193,
+      "outputTokens": 334
+    }
+  ]
+}

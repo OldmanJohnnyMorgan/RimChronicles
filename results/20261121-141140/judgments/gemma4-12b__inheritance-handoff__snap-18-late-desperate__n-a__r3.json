@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__inheritance-handoff__snap-18-late-desperate__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the iron will that had driven her across the wastes\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022the story says passes, not wastes; adds a detail about her journey that the briefing does not give\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:4,\u0022comment\u0022:\u0022It stays within the briefing, uses the mother-son relationship correctly, and ends on Elias going to find Ada, who is still alive. The prose is generic, with some telling (\\\u0022face tight with focus\\\u0022) and a slightly off \\\u0022wastes\\\u0022 for the passes, and nothing in it is distinctive.\u003C/br\u003E\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.6680267,
+      "inputTokens": 3157,
+      "outputTokens": 204
+    }
+  ]
+}

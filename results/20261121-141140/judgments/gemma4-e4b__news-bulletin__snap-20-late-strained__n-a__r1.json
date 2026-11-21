@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-20-late-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They continue their war with the Free Coast Alliance.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027continue\u0027 implies an ongoing state and a comparison with earlier, which the task forbids; briefing only says at war\u0022},{\u0022span\u0022:\u0022The Alliance, meanwhile, clings to its two towns.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news (two towns already covered) and \u0027clings\u0027 implies an ongoing struggle the briefing does not report\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate and has a properly framed guess, but the second paragraph breaks the \u0027continue\u0027 ban, repeats old news, and has no real wry remark. The dryness is thin and the bulletin feels generic.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.6277217,
+      "inputTokens": 3581,
+      "outputTokens": 261
+    }
+  ]
+}

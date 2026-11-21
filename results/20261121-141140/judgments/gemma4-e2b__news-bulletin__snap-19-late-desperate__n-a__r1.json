@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-19-late-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Sun Throne continues its campaign against the Marrow League.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\\\u0022continues\\\u0022 implies an ongoing status the briefing does not give; the writer was also told never to use it\u0022},{\u0022span\u0022:\u0022They have razed Fenwick\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as if just happened; Fenwick\u0027s razing was in an earlier bulletin\u0022},{\u0022span\u0022:\u0022besieging the Marrow League settlements\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says besieging the Marrow League, not specifically its settlements; adds detail\u0022},{\u0022span\u0022:\u0022Arithmetic seems to be struggling against the Empire\u0027s expansion.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied cause linking the League\u0027s size to the Empire\u0027s expansion; hedged with \u0027seems\u0027 but weakly framed\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin leads with a banned \\\u0022continues\\\u0022, retells Fenwick\u0027s razing as fresh news, and its wit is thin and recycles the earlier arithmetic joke. The new fact (the siege) is present but buried, and the Last Lantern line is vague filler.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.7334549,
+      "inputTokens": 3604,
+      "outputTokens": 394
+    }
+  ]
+}

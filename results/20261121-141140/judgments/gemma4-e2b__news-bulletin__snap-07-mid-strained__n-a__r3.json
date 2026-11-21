@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-07-mid-strained__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They are always busy somewhere.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing activity of Vex\u0027s Crew not in briefing, stated as fact\u0022},{\u0022span\u0022:\u0022They are always complaining about what they lack.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing status stated as fact; complaints come from an earlier bulletin and are generalised to \u0027always\u0027\u0022},{\u0022span\u0022:\u0022This is the latest bit of noise from the Empire.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a pattern of noise not given; mild inference stated as fact\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Leads correctly with the toll demand and frames guesses as guesses, but the second and third items pad with generic faction-size remarks plus \u0027always\u0027 claims the briefing does not support. The wit is thin and the prose repetitive, so it reads flat for Ilse\u0027s voice, and it should not ship unchanged.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.2514266,
+      "inputTokens": 3630,
+      "outputTokens": 317
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-06-early-content__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They claim the yield is the best in years.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; \u0027best in years\u0027 came from the earlier bulletin, not the briefing, and is told as if new\u0022},{\u0022span\u0022:\u0022The Calder Combine reports good harvests along the delta.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a current item with no marker that it is old\u0022},{\u0022span\u0022:\u0022They seem content to keep their affairs internal.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022inference about the Empire\u0027s motives, hedged only lightly; adds a state the briefing does not give\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin opens by stating the barge robbery twice, with the second version as a bare restatement, and gives the old harvest news its own item with no marker that it is old. The wit is thin and the format breaks the rules: the first line is a headline-like fragment and the items are not 2 to 4 sentence paragraphs with a dry take.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.3514317,
+      "inputTokens": 3557,
+      "outputTokens": 333
+    }
+  ]
+}

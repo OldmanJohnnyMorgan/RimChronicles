@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-13-mid-strained__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate, with no invented facts and guesses properly framed, but the wit is generic (\\\u0022keeping their own coin\\\u0022) and the second item is a weak, mildly confusing joke about counting settlements; it reads as filler rather than a sharp quiet-week take.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 1.8720398,
+      "inputTokens": 3605,
+      "outputTokens": 127
+    }
+  ]
+}

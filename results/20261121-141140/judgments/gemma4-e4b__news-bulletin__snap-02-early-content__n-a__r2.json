@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-02-early-content__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Tannerfolk hold five settlements, while the Glimmer Coast Company maintains five.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\\\u0022maintains\\\u0022 implies an ongoing status the briefing does not give, which the task forbids\u0022},{\u0022span\u0022:\u0022It seems the territorial squabbles continue, as expected.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\\\u0022continue\\\u0022 implies an ongoing state; it is hedged with \\\u0022it seems\\\u0022 but the task also bans \\\u0022continues\\\u0022\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate and carries a guessed, wry take, but the second item breaks the explicit ban on \\\u0022maintains\\\u0022 and \\\u0022continue\\\u0022 and is a flat, dry restatement of faction numbers with little wit. The bulletin is also a little long for a quiet week, and the first joke is muddled (\\\u0022ran out of things to bother\\\u0022).)\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8349944,
+      "inputTokens": 3670,
+      "outputTokens": 311
+    }
+  ]
+}

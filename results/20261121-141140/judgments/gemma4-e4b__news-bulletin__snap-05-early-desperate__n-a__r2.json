@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-05-early-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022now control five settlements\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\\\u0022now\\\u0022 implies a comparison with an earlier state the briefing does not give\u0022},{\u0022span\u0022:\u0022It seems they have found a rather comfortable rhythm of raiding\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, but \\\u0022as I reported last time\\\u0022 implies a rhythm of raiding that the old news (three settlements hit) does not establish; borderline, and it leans on old news\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate lead on the market closure and mostly faithful, but the wit is thin and the second item pads with a faction count plus a slightly loaded callback to old news. \\\u0022Now control\\\u0022 breaks the no-prior-state rule.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.9997356,
+      "inputTokens": 3547,
+      "outputTokens": 262
+    }
+  ]
+}

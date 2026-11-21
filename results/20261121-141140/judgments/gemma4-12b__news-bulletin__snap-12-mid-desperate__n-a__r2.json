@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-12-mid-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It is a charming way to ensure the local population stays appropriately terrified.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a motive and effect on the local population that the briefing does not give, stated as fact\u0022},{\u0022span\u0022:\u0022The Gallows Crew holds a doctor at their camp, as I reported last time.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news, though it is marked as old with a short clause; the \u0027last time\u0027 framing is acceptable but the item still pads the bulletin\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead is correct and the guess is framed properly, but the second item repeats old news as a full item and states an invented motive (terrifying the locals) as fact. The wit is mild and generic rather than sharply sardonic.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.4355856,
+      "inputTokens": 3608,
+      "outputTokens": 269
+    }
+  ]
+}

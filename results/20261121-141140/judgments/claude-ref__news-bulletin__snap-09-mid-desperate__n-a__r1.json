@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Who did it has not reached me.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the killer is unknown or that reports exist about it; the briefing does not say, a mild inference stated as fact\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Dry, in-voice and mostly faithful, with the old war correctly flagged as old. But it runs two items on one new fact and pads with a second item on the old war, and the \u0027awkward debate about the name\u0027 joke is only mildly funny.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.6077673,
+      "inputTokens": 3623,
+      "outputTokens": 184
+    }
+  ]
+}

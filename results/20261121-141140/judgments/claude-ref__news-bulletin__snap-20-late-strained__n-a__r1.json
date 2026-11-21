@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-20-late-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The tribe is at war with nobody\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022briefing lists no war for the Driftwood Tribe, but does not say it is at war with nobody; stated as fact\u0022},{\u0022span\u0022:\u0022Staying out of things is, apparently, a strategy.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a cause for the tribe\u0027s status; hedged with \u0027apparently\u0027 but presents the tribe as deliberately neutral\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is good and the lead item is handled well with guesses framed as guesses. However, \u0027at war with nobody\u0027 is a claim the briefing does not support, and the second item runs a little short on wit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.5606111,
+      "inputTokens": 3619,
+      "outputTokens": 247
+    }
+  ]
+}

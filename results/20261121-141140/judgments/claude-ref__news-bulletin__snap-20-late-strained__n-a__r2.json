@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-20-late-strained__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The tribe is also at war with nobody.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022briefing lists no war for the Driftwood Tribe; stated as fact, claims it is at war with no one, which the briefing does not say\u0022},{\u0022span\u0022:\u0022One assumes this is not a coincidence.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a causal link between peace and settlement count; framed as an assumption, so only a mild implied cause\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate and dry, but the second item states as fact that the Tribe is at war with nobody, which the briefing does not give.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.6392653,
+      "inputTokens": 3604,
+      "outputTokens": 226
+    }
+  ]
+}

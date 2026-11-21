@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-02-early-content__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They always reach the ford.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a habitual pattern the briefing does not give; stated as fact\u0022},{\u0022span\u0022:\u0022The Tannerfolk and the Hollow Spire Pirates are fighting over the salt flats.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as current reporting, not marked as old\u0022},{\u0022span\u0022:\u0022A Glimmer Coast Company caravan reached the eastern ford.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news told as if it just happened\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin pads with two old news items as if they were fresh, breaking the instruction to treat them as background only. The only new fact is stated flatly with no dry remark, so the wit is weak and generic.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.5268141,
+      "inputTokens": 3682,
+      "outputTokens": 278
+    }
+  ]
+}
