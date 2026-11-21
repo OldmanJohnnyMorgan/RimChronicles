@@ -1,0 +1,32 @@
+{
+  "cell": "gemma4-e4b__plot-letter__snap-07-mid-strained__n-a__r2",
+  "model": "gemma4-e4b",
+  "task": "plot-letter",
+  "snapshot": "snap-07-mid-strained",
+  "grammar": "n/a",
+  "repeat": 2,
+  "promptVersion": "plot-letter/v1",
+  "outcome": "Model",
+  "value": "Word has reached Hearthstead. Vex of Vex\u0027s Crew was seen. The raider was spotted near the gorge road. Vex is alive and shows no sign of haste to conceal himself.\n\nMara has not forgotten the death of her husband, Dorin. Vex seems to share that memory. The colony should ensure its walls remain heavily manned.",
+  "attempts": [
+    {
+      "request": {
+        "system": "You write the letters that tell a RimWorld player how a story in their colony is unfolding. Each letter marks one beat of an arc.\n\nWhat to write:\n- Rewrite the plain letter you are given in your own words: 40 to 100 words, in two short paragraphs.\n- Keep every fact in the plain letter. Add none.\n- The first paragraph says what happened. The second gives the protagonist\u0027s side of it: what it means to them, or what they will do.\n- Match the letter\u0027s purpose: a sighting unsettles, a raid is urgent, a choice is fair to both options, an ending feels final.\n\nWhat you know:\n- Use only the facts and names below. Never invent people, places, factions, numbers, quotes, dates or events.\n- Never say what anyone is thinking unless the plain letter does. Show it through what they do or how they hold themselves now.\n- If the letter is a choice, name both options plainly, with the price in silver exactly as given.\n\nStyle:\n- Write like the game\u0027s own letters: plain, vivid and a little grim. Third person. No poetry, no rhetorical questions.\n- Keep sentences short, mostly under 20 words.\n- Write only the letter: no title, no greeting, no sign-off, no notes.\n",
+        "user": "## The arc\nNemesis: a raider who killed or maimed one of the colonists escaped, and the colony has not forgotten.\n\n## This letter\nThe hook: news reaches the colony that the raider was seen. It should unsettle, and remind the reader what the raider did.\n\n## Facts\n- Colony: Hearthstead\n- Protagonist: Mara\n- What the raider did: killed\n- Raider\u0027s faction: Vex\u0027s Crew\n- Raider: Vex\n- Where the raider was seen: the gorge road\n- Victim\u0027s relation to the protagonist: husband\n- Victim: Dorin\n\n## The plain letter\nTravellers bring word of Vex of Vex\u0027s Crew, who killed Mara\u0027s husband Dorin. Vex was seen near the gorge road, alive and unpunished, and in no hurry to hide.\n\nMara has not forgotten. Neither, it seems, has Vex. The colony would do well to keep its walls manned.\n\nWrite the letter now.\n",
+        "maxOutputTokens": 260,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "Word has reached Hearthstead. Vex of Vex\u0027s Crew was seen. The raider was spotted near the gorge road. Vex is alive and shows no sign of haste to conceal himself.\n\nMara has not forgotten the death of her husband, Dorin. Vex seems to share that memory. The colony should ensure its walls remain heavily manned.",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 0.6751893,
+      "inputTokens": 516,
+      "outputTokens": 74,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-174\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795300100,\u0022model\u0022:\u0022gemma4:e4b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022Word has reached Hearthstead. Vex of Vex\u0027s Crew was seen. The raider was spotted near the gorge road. Vex is alive and shows no sign of haste to conceal himself.\\n\\nMara has not forgotten the death of her husband, Dorin. Vex seems to share that memory. The colony should ensure its walls remain heavily manned.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:516,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:515},\u0022completion_tokens\u0022:74,\u0022total_tokens\u0022:590}}\n"
+    }
+  ]
+}

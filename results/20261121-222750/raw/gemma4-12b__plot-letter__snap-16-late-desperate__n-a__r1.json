@@ -1,0 +1,32 @@
+{
+  "cell": "gemma4-12b__plot-letter__snap-16-late-desperate__n-a__r1",
+  "model": "gemma4-12b",
+  "task": "plot-letter",
+  "snapshot": "snap-16-late-desperate",
+  "grammar": "n/a",
+  "repeat": 1,
+  "promptVersion": "plot-letter/v1",
+  "outcome": "Model",
+  "value": "Kael Dunmore leads a raid against Gallowmere. He commands the Dunmore\u0027s Free Company. This is the same raider who maimed Viggo and took his leg.\n\nViggo recognizes the face of his enemy. This is the moment to settle the debt. If the colony holds, Viggo will strike.",
+  "attempts": [
+    {
+      "request": {
+        "system": "You write the letters that tell a RimWorld player how a story in their colony is unfolding. Each letter marks one beat of an arc.\n\nWhat to write:\n- Rewrite the plain letter you are given in your own words: 40 to 100 words, in two short paragraphs.\n- Keep every fact in the plain letter. Add none.\n- The first paragraph says what happened. The second gives the protagonist\u0027s side of it: what it means to them, or what they will do.\n- Match the letter\u0027s purpose: a sighting unsettles, a raid is urgent, a choice is fair to both options, an ending feels final.\n\nWhat you know:\n- Use only the facts and names below. Never invent people, places, factions, numbers, quotes, dates or events.\n- Never say what anyone is thinking unless the plain letter does. Show it through what they do or how they hold themselves now.\n- If the letter is a choice, name both options plainly, with the price in silver exactly as given.\n\nStyle:\n- Write like the game\u0027s own letters: plain, vivid and a little grim. Third person. No poetry, no rhetorical questions.\n- Keep sentences short, mostly under 20 words.\n- Write only the letter: no title, no greeting, no sign-off, no notes.\n",
+        "user": "## The arc\nNemesis: a raider who killed or maimed one of the colonists escaped, and the colony has not forgotten.\n\n## This letter\nThe complication: the raider leads a raid on the colony right now. It should be urgent.\n\n## Facts\n- Colony: Gallowmere\n- Protagonist: Viggo\n- What the raider did: maimed\n- Raider\u0027s faction: Dunmore\u0027s Free Company\n- Raider: Kael Dunmore\n- Body part lost: leg\n- Victim: Viggo\n\n## The plain letter\nKael Dunmore of Dunmore\u0027s Free Company rides at the head of this raid: the same raider who cost Viggo their leg. This time Kael Dunmore came to the colony\u0027s door.\n\nViggo knows the face. This may be the chance to end it, if the colony can hold.\n\nWrite the letter now.\n",
+        "maxOutputTokens": 260,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "Kael Dunmore leads a raid against Gallowmere. He commands the Dunmore\u0027s Free Company. This is the same raider who maimed Viggo and took his leg.\n\nViggo recognizes the face of his enemy. This is the moment to settle the debt. If the colony holds, Viggo will strike.",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 1.1122414,
+      "inputTokens": 497,
+      "outputTokens": 69,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-932\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795300128,\u0022model\u0022:\u0022gemma4:12b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022Kael Dunmore leads a raid against Gallowmere. He commands the Dunmore\u0027s Free Company. This is the same raider who maimed Viggo and took his leg.\\n\\nViggo recognizes the face of his enemy. This is the moment to settle the debt. If the colony holds, Viggo will strike.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:497,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:69,\u0022total_tokens\u0022:566}}\n"
+    }
+  ]
+}

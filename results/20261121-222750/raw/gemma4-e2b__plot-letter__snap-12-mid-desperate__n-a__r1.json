@@ -1,0 +1,32 @@
+{
+  "cell": "gemma4-e2b__plot-letter__snap-12-mid-desperate__n-a__r1",
+  "model": "gemma4-e2b",
+  "task": "plot-letter",
+  "snapshot": "snap-12-mid-desperate",
+  "grammar": "n/a",
+  "repeat": 1,
+  "promptVersion": "plot-letter/v1",
+  "outcome": "Model",
+  "value": "Imre has escaped once more. Word travels that the bounty hunters at the Gallows camp will take the job. They will kill Imre for 350 silver.\n\nSabine knows this is a grim reality. She can pay the bounty hunters now. Or she can wait for Imre to return. If she waits, the colony accepts that no one else will be blamed for this.",
+  "attempts": [
+    {
+      "request": {
+        "system": "You write the letters that tell a RimWorld player how a story in their colony is unfolding. Each letter marks one beat of an arc.\n\nWhat to write:\n- Rewrite the plain letter you are given in your own words: 40 to 100 words, in two short paragraphs.\n- Keep every fact in the plain letter. Add none.\n- The first paragraph says what happened. The second gives the protagonist\u0027s side of it: what it means to them, or what they will do.\n- Match the letter\u0027s purpose: a sighting unsettles, a raid is urgent, a choice is fair to both options, an ending feels final.\n\nWhat you know:\n- Use only the facts and names below. Never invent people, places, factions, numbers, quotes, dates or events.\n- Never say what anyone is thinking unless the plain letter does. Show it through what they do or how they hold themselves now.\n- If the letter is a choice, name both options plainly, with the price in silver exactly as given.\n\nStyle:\n- Write like the game\u0027s own letters: plain, vivid and a little grim. Third person. No poetry, no rhetorical questions.\n- Keep sentences short, mostly under 20 words.\n- Write only the letter: no title, no greeting, no sign-off, no notes.\n",
+        "user": "## The arc\nNemesis: a raider who killed or maimed one of the colonists escaped, and the colony has not forgotten.\n\n## This letter\nThe choice: the raider escaped again, and the colony must decide between paying bounty hunters and waiting for the raider to return. Present both options fairly, with the price.\n\n## Facts\n- Colony: Red Furrow\n- Protagonist: Sabine\n- Bounty price (silver): 350\n- What the raider did: killed\n- Raider\u0027s faction: the Gallows Crew\n- Raider: Imre\n- Where the raider was seen: the Gallows camp\n- Victim: Marta Venn\n\n## The plain letter\nImre escaped again. Word is that the bounty hunters at the Gallows camp would take the job for 350 silver, though it would be their kill, not Sabine\u0027s.\n\nOr the colony can wait: Imre will come back, and next time there will be no one else to blame.\n\nWrite the letter now.\n",
+        "maxOutputTokens": 220,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "Imre has escaped once more. Word travels that the bounty hunters at the Gallows camp will take the job. They will kill Imre for 350 silver.\n\nSabine knows this is a grim reality. She can pay the bounty hunters now. Or she can wait for Imre to return. If she waits, the colony accepts that no one else will be blamed for this.",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 0.5950862,
+      "inputTokens": 514,
+      "outputTokens": 80,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-415\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795300083,\u0022model\u0022:\u0022gemma4:e2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022Imre has escaped once more. Word travels that the bounty hunters at the Gallows camp will take the job. They will kill Imre for 350 silver.\\n\\nSabine knows this is a grim reality. She can pay the bounty hunters now. Or she can wait for Imre to return. If she waits, the colony accepts that no one else will be blamed for this.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:514,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:80,\u0022total_tokens\u0022:594}}\n"
+    }
+  ]
+}
