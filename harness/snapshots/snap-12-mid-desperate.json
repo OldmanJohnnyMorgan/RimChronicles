@@ -113,7 +113,13 @@
   ],
   "publicEvents": [
     "Toxic fallout is covering the region",
-    "The Gallows Crew is said to be holding a doctor at their camp"
+    "The Gallows Crew is said to be holding a doctor at their camp",
+    "The Glass Throne sent masked envoys to the Saltmarch Assembly"
+  ],
+  "reportedEvents": [
+    "Toxic fallout is covering the region",
+    "The Gallows Crew is said to be holding a doctor at their camp",
+    "The Gallows Crew is holding a doctor captive at their camp"
   ],
   "allowedTransitions": [
     "Wait",

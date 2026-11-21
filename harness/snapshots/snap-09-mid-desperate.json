@@ -142,6 +142,9 @@
     "Pirate captain Rook Malley was killed at his camp",
     "The Embertail Tribe declared war on the Gray Wharf Syndicate"
   ],
+  "reportedEvents": [
+    "The Embertail Tribe declared war on the Gray Wharf Syndicate"
+  ],
   "allowedTransitions": [
     "Wait",
     "Resolution:InheritToKin:p3",

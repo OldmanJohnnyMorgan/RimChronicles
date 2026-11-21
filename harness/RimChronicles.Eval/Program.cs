@@ -34,6 +34,7 @@ const string usage = """
       --repeats <n>            Override the config's repeat count
       --judge                  Judge the run straight after generating it
       --dry-run                List the cells without calling any model
+      --temperature <t>        Sampling temperature for the local models, or "default" to leave it to the server
 
     check options:
       --models a,b             Only these model ids
@@ -54,7 +55,7 @@ if (args.Length == 0 || args[0] is "-h" or "--help" or "help")
 var root = FindRepoRoot();
 var valueOptions = new HashSet<string>
 {
-    "config", "prompts", "snapshots-dir", "passbars", "models", "tasks", "snapshots", "repeats", "out", "cache", "compare", "rate", "seed", "vram-budget",
+    "config", "prompts", "snapshots-dir", "passbars", "models", "tasks", "snapshots", "repeats", "out", "cache", "compare", "rate", "seed", "vram-budget", "temperature",
 };
 var flags = new HashSet<string> { "no-cache", "dry-run", "judge", "resample" };
 
@@ -104,6 +105,11 @@ try
         case "run":
         {
             var config = HarnessConfig.Load(configPath);
+            if (cli.Get("temperature") is { } temperature)
+            {
+                config = config.WithLocalTemperature(temperature);
+            }
+
             var result = await Runner.RunAsync(new RunOptions
             {
                 Config = config,

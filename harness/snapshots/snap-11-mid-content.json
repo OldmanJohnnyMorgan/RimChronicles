@@ -107,6 +107,11 @@
   ],
   "publicEvents": [
     "The Hearthguard Compact is offering prizes for new inventions",
+    "Mire Rats were driven out of the eastern marsh",
+    "Children of the Green Bell held a peace feast with the Hearthguard Compact"
+  ],
+  "reportedEvents": [
+    "The Hearthguard Compact is offering prizes for new inventions",
     "Mire Rats were driven out of the eastern marsh"
   ],
   "allowedTransitions": [

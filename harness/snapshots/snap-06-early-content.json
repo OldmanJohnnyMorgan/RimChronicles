@@ -92,6 +92,11 @@
   ],
   "publicEvents": [
     "The Calder Combine reports good harvests along the delta",
+    "Imperial shuttles were seen over the eastern mountains",
+    "Ditch Kings robbed a grain barge on the delta"
+  ],
+  "reportedEvents": [
+    "The Calder Combine reports good harvests along the delta",
     "Imperial shuttles were seen over the eastern mountains"
   ],
   "allowedTransitions": [

@@ -34,6 +34,10 @@ public static class ValidateCommand
                     errors.Add($"{name}: id '{snapshot.Id}' does not match the file name");
                 }
 
+                var known = snapshot.PublicEvents.Concat(snapshot.ActivePlots.Select(p => p.PublicHint).OfType<string>()).ToHashSet(StringComparer.Ordinal);
+                errors.AddRange(snapshot.ReportedEvents.Where(e => !known.Contains(e))
+                    .Select(e => $"{name}: reportedEvents entry is not a public event or plot hint: '{e}'"));
+
                 snapshots.Add(snapshot);
             }
             catch (JsonException ex)

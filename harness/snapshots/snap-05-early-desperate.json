@@ -104,6 +104,11 @@
   ],
   "publicEvents": [
     "A cold snap has killed crops across the northern basin",
+    "Scythe Tooth raids reported at three settlements",
+    "The Gorse Clans closed their markets to outsiders"
+  ],
+  "reportedEvents": [
+    "A cold snap has killed crops across the northern basin",
     "Scythe Tooth raids reported at three settlements"
   ],
   "allowedTransitions": [

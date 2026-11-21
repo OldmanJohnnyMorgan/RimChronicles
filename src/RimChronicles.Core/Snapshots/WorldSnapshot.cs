@@ -34,6 +34,10 @@ public sealed record WorldSnapshot
     /// <summary>World events anyone on the rim could hear about, oldest first. The reporter's sources.</summary>
     public IReadOnlyList<string> PublicEvents { get; init; } = [];
 
+    /// <summary>Public news the reporter's earlier bulletins already covered: entries of <see cref="PublicEvents"/>
+    /// or a plot's public hint, word for word. In the game the mod records what each bulletin used.</summary>
+    public IReadOnlyList<string> ReportedEvents { get; init; } = [];
+
     /// <summary>The director's legal options right now. Always includes "Wait".</summary>
     public IReadOnlyList<string> AllowedTransitions { get; init; } = [];
 

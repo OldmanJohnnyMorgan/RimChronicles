@@ -78,6 +78,30 @@ public class WorldSummarizerTests
     }
 
     [Fact]
+    public void NewsDigest_SplitsNewNewsFromAlreadyReported()
+    {
+        var digest = WorldSummarizer.ForNewsBulletin(Snap("snap-08-mid-content"), ModelTier.Recommended).Variables["digest"];
+
+        var fresh = digest.IndexOf("News since your last bulletin:", StringComparison.Ordinal);
+        var old = digest.IndexOf("Already reported", StringComparison.Ordinal);
+        var jade = digest.IndexOf("jade sculpture", StringComparison.Ordinal);
+        var fair = digest.IndexOf("trade fair", StringComparison.Ordinal);
+        Assert.True(fresh >= 0 && fresh < jade && jade < old && old < fair, digest);
+    }
+
+    [Theory]
+    [InlineData("snap-03-early-strained")]
+    [InlineData("snap-17-late-strained")]
+    public void NewsDigest_QuietStretch_SaysThereIsNoNewNews(string id) =>
+        Assert.Contains("News since your last bulletin: none.",
+            WorldSummarizer.ForNewsBulletin(Snap(id), ModelTier.Recommended).Variables["digest"]);
+
+    [Fact]
+    public void EverySnapshotWithEarlierBulletins_MarksWhatTheyReported() =>
+        Assert.All(Directory.GetFiles(Repo.Snapshots, "*.json").Select(SnapshotJson.Load).Where(s => s.PreviousBulletins.Count > 0),
+            s => Assert.NotEmpty(s.ReportedEvents));
+
+    [Fact]
     public void FirstBulletin_SaysThereAreNoEarlierOnes() =>
         Assert.Contains("first bulletin",
             WorldSummarizer.ForNewsBulletin(Snap("snap-01-early-content"), ModelTier.Recommended).Variables["previousBulletins"]);

@@ -132,6 +132,9 @@
     "The Lantern Accord put a price on the head of Kael Dunmore",
     "A heatwave has dried the wells across the southern plain"
   ],
+  "reportedEvents": [
+    "A heatwave has dried the wells across the southern plain"
+  ],
   "allowedTransitions": [
     "Wait",
     "Resolution:InheritToFriend:p2",

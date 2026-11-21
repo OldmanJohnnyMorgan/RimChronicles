@@ -117,6 +117,10 @@
     "The Reedmother's Children report a good fishing season",
     "Gladwater's jade sculpture is the talk of Lantern Hill traders"
   ],
+  "reportedEvents": [
+    "The Lantern Accord is hosting a trade fair at Lantern Hill",
+    "The Reedmother's Children report a good fishing season"
+  ],
   "allowedTransitions": [
     "Wait",
     "Seed:Rivalry:p4:p2"

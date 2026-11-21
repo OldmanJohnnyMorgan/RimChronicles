@@ -117,6 +117,10 @@
     "Harrow Teeth raiders are robbing stranded travellers",
     "A Wren's Hollow caravan was lost in a blizzard near the Wailing Moth villages"
   ],
+  "reportedEvents": [
+    "A blizzard has closed the passes to the Wailing Moth villages",
+    "Harrow Teeth raiders are robbing stranded travellers"
+  ],
   "allowedTransitions": [
     "Wait",
     "Resolution:InheritToKin:p2"
