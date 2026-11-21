@@ -134,5 +134,18 @@
     "name": "Odile Brask",
     "outlet": "the Rim Dispatch",
     "persona": "sardonic, precise and fond of understatement"
+  },
+  "plotLetter": {
+    "template": "Nemesis",
+    "step": "Choice",
+    "protagonist": "Sabine",
+    "facts": {
+      "nemesisName": "Imre",
+      "nemesisFaction": "the Gallows Crew",
+      "victimName": "Marta Venn",
+      "grievance": "killed",
+      "place": "the Gallows camp",
+      "bountyCost": "350"
+    }
   }
 }

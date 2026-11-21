@@ -1,5 +1,6 @@
 using System.Text.Json.Nodes;
 using RimChronicles.Core.News;
+using RimChronicles.Core.Plots;
 using RimChronicles.Core.Snapshots;
 using RimChronicles.Core.Summaries;
 using RimChronicles.Eval.Config;
@@ -32,7 +33,7 @@ public sealed record OutputMetrics
 public static class EvalTasks
 {
     public static readonly IReadOnlyList<string> All =
-        [WorldSummarizer.DirectorTask, WorldSummarizer.NewsBulletinTask, WorldSummarizer.HandoffTask];
+        [WorldSummarizer.DirectorTask, WorldSummarizer.NewsBulletinTask, WorldSummarizer.HandoffTask, PlotLetterTask.TaskName];
 
     /// <summary>Word ranges from the design spec, except the bulletin minimum: lowered from 80 to 60 (2026-11-21)
     /// because an 80-word floor made models pad thin news weeks with embellishments.</summary>
@@ -40,12 +41,18 @@ public static class EvalTasks
     {
         WorldSummarizer.NewsBulletinTask => WorldSummarizer.BulletinWordRange(s),
         WorldSummarizer.HandoffTask => WorldSummarizer.HandoffWordRange,
+        PlotLetterTask.TaskName => PlotLetterTask.WordRange,
         _ => throw new ArgumentException($"{task} has no word range."),
     };
 
     public static bool UsesSchema(string task) => task == WorldSummarizer.DirectorTask;
 
-    public static bool AppliesTo(string task, WorldSnapshot s) => task != WorldSummarizer.HandoffTask || s.Handoff is not null;
+    public static bool AppliesTo(string task, WorldSnapshot s) => task switch
+    {
+        WorldSummarizer.HandoffTask => s.Handoff is not null,
+        PlotLetterTask.TaskName => s.PlotLetter is not null,
+        _ => true,
+    };
 
     public static EvalTask Build(PromptLibrary library, string task, WorldSnapshot s, ModelConfig model, bool grammar)
     {
@@ -57,6 +64,7 @@ public static class EvalTasks
             WorldSummarizer.DirectorTask => WorldSummarizer.ForDirector(s, tier),
             WorldSummarizer.NewsBulletinTask => WorldSummarizer.ForNewsBulletin(s, tier),
             WorldSummarizer.HandoffTask => WorldSummarizer.ForHandoff(s),
+            PlotLetterTask.TaskName => WorldSummarizer.ForPlotLetter(s.PlotLetter!, s.Colony.Name),
             _ => throw new ArgumentException($"Unknown task '{task}'."),
         };
 
@@ -76,9 +84,12 @@ public static class EvalTasks
             words = WordRange(task, s);
             var (min, max) = words.Value;
             // The bulletin's checks come from Core, the same ones the game runs.
-            checks = task == WorldSummarizer.NewsBulletinTask
-                ? BulletinTask.Checks(s, input)
-                : [new WordCountCheck(min, max), new GroundingCheck(input.AllowedNames), new BannedPhraseCheck()];
+            checks = task switch
+            {
+                WorldSummarizer.NewsBulletinTask => BulletinTask.Checks(s, input),
+                PlotLetterTask.TaskName => PlotLetterTask.Checks(s.PlotLetter!, input),
+                _ => [new WordCountCheck(min, max), new GroundingCheck(input.AllowedNames), new BannedPhraseCheck()],
+            };
         }
 
         var definition = new TaskDefinition<string>

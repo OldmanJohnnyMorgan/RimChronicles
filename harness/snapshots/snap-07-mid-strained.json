@@ -149,5 +149,18 @@
     "name": "Ilse Varrow",
     "outlet": "the Rim Dispatch",
     "persona": "dry, wry and slightly cynical"
+  },
+  "plotLetter": {
+    "template": "Nemesis",
+    "step": "Sighting",
+    "protagonist": "Mara",
+    "facts": {
+      "nemesisName": "Vex",
+      "nemesisFaction": "Vex's Crew",
+      "victimName": "Dorin",
+      "relation": "husband",
+      "grievance": "killed",
+      "place": "the gorge road"
+    }
   }
 }

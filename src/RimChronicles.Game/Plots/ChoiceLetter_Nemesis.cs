@@ -11,11 +11,10 @@ public sealed class ChoiceLetter_Nemesis : ChoiceLetter
     public string plotId = "";
     public int cost;
 
-    public static void Send(Core.Plots.Plot plot, NemesisLetters.Facts facts, int cost)
+    public static void Send(string plotId, string label, string text, int cost)
     {
-        var (label, text) = NemesisLetters.Choice(facts, cost);
         var letter = (ChoiceLetter_Nemesis)LetterMaker.MakeLetter(label, text, NemesisLetterDefOf.RimChronicles_NemesisChoice);
-        letter.plotId = plot.Id;
+        letter.plotId = plotId;
         letter.cost = cost;
         letter.StartTimeout(NemesisArc.ChoiceTimeoutDays * GenDate.TicksPerDay);
         Find.LetterStack.ReceiveLetter(letter);

@@ -48,6 +48,9 @@ public sealed record WorldSnapshot
 
     /// <summary>An inheritance case for the handoff task, when the snapshot has one.</summary>
     public HandoffCase? Handoff { get; init; }
+
+    /// <summary>A plot letter to write (the plot-letter task), or null.</summary>
+    public PlotLetterCase? PlotLetter { get; init; }
 }
 
 public sealed record ColonyInfo
@@ -150,4 +153,20 @@ public sealed record HandoffCase
     public required string Relation { get; init; }
 
     public required string PlotSummary { get; init; }
+}
+
+/// <summary>One plot letter: which arc and beat, and the facts it may use (Stage 3 M3b).</summary>
+public sealed record PlotLetterCase
+{
+    /// <summary>The arc, e.g. "Nemesis".</summary>
+    public required string Template { get; init; }
+
+    /// <summary>The beat's step, e.g. "Sighting", "Raid", "Choice", "SecondRaid" or "Ending:KilledByColony".</summary>
+    public required string Step { get; init; }
+
+    public required string Protagonist { get; init; }
+
+    /// <summary>The plot's facts by key (nemesisName, nemesisFaction, victimName, relation, grievance, part, place,
+    /// bountyCost).</summary>
+    public IReadOnlyDictionary<string, string> Facts { get; init; } = new Dictionary<string, string>();
 }

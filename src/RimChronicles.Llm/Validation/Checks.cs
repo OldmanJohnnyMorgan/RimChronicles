@@ -209,3 +209,19 @@ public sealed partial class RepetitionCheck(IEnumerable<string> earlier, int min
     private static string[] Words(string text) =>
         Word().Matches(text ?? "").Select(m => m.Value.ToLowerInvariant().Replace('’', '\'')).ToArray();
 }
+
+/// <summary>Fails output that leaves out a required piece of text, such as a price a choice depends on.</summary>
+public sealed class RequiredTextCheck(IEnumerable<string> required, string what) : IOutputCheck
+{
+    private readonly IReadOnlyList<string> _required = required.ToList();
+
+    public string Name => "required-text";
+
+    public CheckResult Check(string output)
+    {
+        var missing = _required.Where(r => !output.Contains(r, StringComparison.OrdinalIgnoreCase)).ToList();
+        return missing.Count == 0
+            ? CheckResult.Pass
+            : CheckResult.Fail($"Mention {what}: {string.Join(", ", missing.Select(m => $"\"{m}\""))}.");
+    }
+}

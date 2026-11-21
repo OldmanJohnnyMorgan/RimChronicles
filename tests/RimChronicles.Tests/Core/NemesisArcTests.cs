@@ -63,7 +63,7 @@ public class NemesisArcTests
     [Theory]
     [InlineData(NemesisEnd.KilledByColony, "killed by the people of New Arrivals", "was killed by New Arrivals")]
     [InlineData(NemesisEnd.KilledByBounty, "bounty hunters caught up", "Bounty hunters killed")]
-    [InlineData(NemesisEnd.Captured, "prisoner now", "is a prisoner of New Arrivals")]
+    [InlineData(NemesisEnd.Captured, "now a prisoner of New Arrivals", "is a prisoner of New Arrivals")]
     [InlineData(NemesisEnd.Vanished, "slipped away once more", null)]
     [InlineData(NemesisEnd.FeudFaded, "feud fades", null)]
     public void Endings_HaveALetterAndNewsWhenPublic(NemesisEnd end, string letter, string? news)

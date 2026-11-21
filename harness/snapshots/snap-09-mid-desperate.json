@@ -164,5 +164,17 @@
     "heir": "p3",
     "relation": "daughter",
     "plotSummary": "Joska spent a year hunting the pirate captain Rook Malley, who maimed him. He finally caught Malley at the Lancers' camp, and both died in the fight. Malley's Lancers still hold the camp, and their new captain has sworn revenge on Cinder Rest."
+  },
+  "plotLetter": {
+    "template": "Nemesis",
+    "step": "Ending:KilledByColony",
+    "protagonist": "Lene",
+    "facts": {
+      "nemesisName": "Rook Malley",
+      "nemesisFaction": "Malley's Lancers",
+      "victimName": "Joska",
+      "relation": "husband",
+      "grievance": "killed"
+    }
   }
 }

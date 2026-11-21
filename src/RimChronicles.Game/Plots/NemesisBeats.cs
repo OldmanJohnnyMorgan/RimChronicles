@@ -35,7 +35,7 @@ public static class NemesisBeats
             case NemesisStep.Sighting:
                 plot.SetFact(NemesisArc.Place, SightingPlace(nemesis));
                 facts = NemesisLetters.Facts.From(plot, Colony);
-                Send(NemesisLetters.Sighting(facts), LetterDefOf.NeutralEvent);
+                Narrate(component, plot, "Sighting", NemesisLetters.Sighting(facts), LetterDefOf.NeutralEvent);
                 plot.PublicHint = NemesisLetters.SightingNews(facts);
                 component.News.Add(new NewsEvent(today, "PlotHint", plot.PublicHint, facts.Faction));
                 break;
@@ -53,7 +53,8 @@ public static class NemesisBeats
                     return false; // no home map, or the raid couldn't start: try again tomorrow
                 }
 
-                Send(step == NemesisStep.Raid ? NemesisLetters.Raid(facts) : NemesisLetters.SecondRaid(facts), LetterDefOf.ThreatBig);
+                Narrate(component, plot, step == NemesisStep.Raid ? "Raid" : "SecondRaid",
+                    step == NemesisStep.Raid ? NemesisLetters.Raid(facts) : NemesisLetters.SecondRaid(facts), LetterDefOf.ThreatBig);
                 if (step == NemesisStep.SecondRaid)
                 {
                     plot.SetFact(NemesisArc.SecondRaidDone, "yes");
@@ -69,7 +70,10 @@ public static class NemesisBeats
 
                 var cost = NemesisArc.BountyCost(WealthUtility.PlayerWealth);
                 plot.SetFact(NemesisArc.BountyCostFact, cost.ToString(System.Globalization.CultureInfo.InvariantCulture));
-                ChoiceLetter_Nemesis.Send(plot, facts, cost);
+                var (choiceLabel, choiceTemplate) = NemesisLetters.Choice(facts, cost);
+                var plotId = plot.Id;
+                PlotNarrator.Write(component, PlotNarrator.CaseFor(plot, "Choice"), Colony, choiceTemplate,
+                    text => ChoiceLetter_Nemesis.Send(plotId, choiceLabel, text, cost));
                 gap = NemesisArc.ChoiceTimeoutDays;
                 break;
 
@@ -106,7 +110,8 @@ public static class NemesisBeats
         }
 
         var facts = NemesisLetters.Facts.From(plot, Colony);
-        Send(NemesisLetters.Ending(facts, end), end is NemesisEnd.Vanished or NemesisEnd.FeudFaded ? LetterDefOf.NeutralEvent : LetterDefOf.PositiveEvent);
+        Narrate(component, plot, $"Ending:{end}", NemesisLetters.Ending(facts, end),
+            end is NemesisEnd.Vanished or NemesisEnd.FeudFaded ? LetterDefOf.NeutralEvent : LetterDefOf.PositiveEvent);
         if (NemesisLetters.EndingNews(facts, end) is { } news)
         {
             component.News.Add(new NewsEvent(today, "PlotResolved", news, facts.Faction));
@@ -189,8 +194,10 @@ public static class NemesisBeats
         return true;
     }
 
-    private static void Send((string Label, string Text) letter, LetterDef def) =>
-        Find.LetterStack.ReceiveLetter(letter.Label, letter.Text, def);
+    /// <summary>Sends a beat's letter: written by the model when one is set up, else the template. The label is fixed.</summary>
+    private static void Narrate(RimChroniclesGameComponent component, Plot plot, string step, (string Label, string Text) template, LetterDef def) =>
+        PlotNarrator.Write(component, PlotNarrator.CaseFor(plot, step), Colony, template.Text,
+            text => Find.LetterStack.ReceiveLetter(template.Label, text, def));
 }
 
 /// <summary>The payoff memories, defined in Defs/ThoughtDefs/RimChronicles_Thoughts.xml.</summary>
