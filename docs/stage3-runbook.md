@@ -112,3 +112,22 @@ likes them. **Show plots** shows the protagonist and the facts. Save before row 
 | 7 | Finish an inherited arc (kill the nemesis). | The heir, not the dead protagonist, gains **avenged**. |
 
 Send me pass or fail per row, and the text of one model-written handoff scene.
+
+## M5: Silent Press
+
+The arc starts when the colony silences its reporter: killing them, or recruiting them. **Silent Press: silence the
+reporter** does it at once (without killing anyone), and **Silent Press: advance** fires the arc's next beat. Save
+before row 1, so you can reload to try each answer.
+
+| # | Do | Pass when |
+| --- | --- | --- |
+| 1 | **Reporter: kill (by colony)** (from Stage 2), then play a day. **Show plots**. | A `silentpress-N` plot with the colony as protagonist, `Hook: the news stopped`, and no letter. No bulletins arrive. |
+| 2 | **Silent Press: advance**. | A letter **A trader's remark**: the Dispatch "isn't sending anyone out to <colony> anymore". It names no one. |
+| 3 | **Silent Press: advance** again. | **A rumour on the road**: "that <colony> murdered a journalist". |
+| 4 | **Silent Press: advance** again. | **The Rim Dispatch: an envoy**, with **Pay N silver**, **Haggle: offer M silver** (60%) and **Refuse**. The pay buttons are greyed out without the silver. |
+| 5 | **Pay**, play a day or two (or **Silent Press: advance**). | **reparations accepted**. A few days later, a "new correspondent" letter, and the next 2 bulletins are cool and clipped about the colony, with no jokes at its expense. After that, the usual voice returns. |
+| 6 | Reload, and **Haggle** instead. | The same, with a small goodwill loss to the old reporter's faction, and 3 cold bulletins. |
+| 7 | Reload, and **Refuse** (or let the letter time out after 7 days). | **silence**, and the reporter's faction loses 20 goodwill. No bulletins. About 30 days later (or with **Silent Press: advance**), **an offer stands**, with **Pay** or **Refuse**. Paying then reinstates the news as in row 5. |
+| 8 | Recruit the reporter during a visit instead of killing them. | Silent Press starts the same way. After paying, a different reporter is assigned. |
+
+Send me pass or fail per row, and the first cold bulletin from row 5.

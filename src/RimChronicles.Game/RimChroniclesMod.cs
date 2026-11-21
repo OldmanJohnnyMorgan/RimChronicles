@@ -21,6 +21,7 @@ public sealed class RimChroniclesMod : Mod
         PromptsRoot = Path.Combine(content.RootDir, "prompts");
         PatchEach(new Harmony(HarmonyId));
         Plots.NemesisBeats.Register();
+        Plots.SilentPressBeats.Register();
         Log.Message($"[Rim Chronicles] Loaded on {System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription}; "
             + $"Harmony patches applied; tier {Settings.Tier}, model {Settings.Model} at {Settings.Endpoint}.");
     }

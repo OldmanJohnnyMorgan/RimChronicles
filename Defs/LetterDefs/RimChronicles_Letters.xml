@@ -8,4 +8,12 @@
     <flashInterval>90</flashInterval>
     <bounce>true</bounce>
   </LetterDef>
+  <LetterDef>
+    <defName>RimChronicles_SilentPressChoice</defName>
+    <letterClass>RimChronicles.Game.Plots.ChoiceLetter_SilentPress</letterClass>
+    <color>(0.7, 0.7, 0.75)</color>
+    <flashColor>(0.85, 0.85, 0.9)</flashColor>
+    <flashInterval>90</flashInterval>
+    <bounce>true</bounce>
+  </LetterDef>
 </Defs>

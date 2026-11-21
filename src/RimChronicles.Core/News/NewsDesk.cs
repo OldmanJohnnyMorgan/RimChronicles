@@ -121,6 +121,11 @@ public sealed class NewsDesk : IArchivable
         }
 
         NextDueDay = today + cadenceDays;
+        if (Reporter.ColdBulletinsLeft > 0)
+        {
+            Reporter.ColdBulletinsLeft--;
+        }
+
         return bulletin;
     }
 
@@ -185,6 +190,21 @@ public sealed class NewsDesk : IArchivable
         Reporter.ReplaceDay = today + replaceInDays;
         Reporter.NextVisitDay = -1;
         Pending = null;
+    }
+
+    /// <summary>Silent Press reparations paid: the outlet sends a new reporter in <paramref name="inDays"/> days, whose
+    /// first <paramref name="coldBulletins"/> bulletins are cold toward the colony.</summary>
+    public void Reinstate(int today, int inDays, int coldBulletins, string coldPersona)
+    {
+        if (Reporter.Status != ReporterStatus.Silenced)
+        {
+            return;
+        }
+
+        Reporter.Status = ReporterStatus.Replacing;
+        Reporter.ReplaceDay = today + inDays;
+        Reporter.ColdBulletinsLeft = coldBulletins;
+        Reporter.ColdPersona = coldPersona;
     }
 
     /// <summary>The colony took the reporter prisoner: the news pauses.</summary>

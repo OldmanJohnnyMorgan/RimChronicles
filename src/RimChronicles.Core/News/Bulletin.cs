@@ -78,11 +78,20 @@ public sealed class ReporterState : IArchivable
     /// <summary>The day the colony silenced the reporter, or -1. Stage 3's Silent Press arc starts from it.</summary>
     public int SilencedDay = -1;
 
+    /// <summary>Bulletins still to be written in a cold voice (after Silent Press reparations); 0 normally.</summary>
+    public int ColdBulletinsLeft;
+
+    /// <summary>The persona to use while <see cref="ColdBulletinsLeft"/> is above 0.</summary>
+    public string ColdPersona = "";
+
+    /// <summary>The persona the next bulletin is written with.</summary>
+    public string CurrentPersona => ColdBulletinsLeft > 0 && ColdPersona.Length > 0 ? ColdPersona : Persona;
+
     /// <summary>The last tick the colony hurt the reporter, or -1: a later death with no killer (bleeding out) counts
     /// as the colony's doing if it comes soon after.</summary>
     public int LastColonyHarmTick = -1;
 
-    public ReporterInfo ToInfo() => new() { Name = Name, Outlet = Outlet, Persona = Persona };
+    public ReporterInfo ToInfo() => new() { Name = Name, Outlet = Outlet, Persona = CurrentPersona };
 
     public void Expose(IArchive archive)
     {
@@ -96,6 +105,9 @@ public sealed class ReporterState : IArchivable
         archive.Value(ref ReplaceDay, "replaceDay", -1);
         archive.Value(ref SilencedDay, "silencedDay", -1);
         archive.Value(ref LastColonyHarmTick, "lastColonyHarmTick", -1);
+        archive.Value(ref ColdBulletinsLeft, "coldBulletinsLeft");
+        archive.Value(ref ColdPersona, "coldPersona", "");
+        ColdPersona ??= "";
         Faction ??= "";
         Name = string.IsNullOrWhiteSpace(Name) ? d.Name : Name;
         Outlet = string.IsNullOrWhiteSpace(Outlet) ? d.Outlet : Outlet;

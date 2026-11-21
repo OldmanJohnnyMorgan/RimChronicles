@@ -126,6 +126,7 @@ public sealed class RimChroniclesGameComponent : GameComponent
         Game.News.ReporterKeeper.EnsureReporter(this);
         Game.Plots.NemesisTracker.Daily(this);
         Game.Plots.SuccessionDriver.Daily(this);
+        Game.Plots.SilentPressBeats.Daily(this);
         Game.Plots.PlotDriver.Daily(this);
         Game.News.NewsDriver.Tick(this);
     }
