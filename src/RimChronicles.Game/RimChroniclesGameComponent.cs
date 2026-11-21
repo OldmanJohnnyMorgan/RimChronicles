@@ -57,11 +57,27 @@ public sealed class RimChroniclesGameComponent : GameComponent
         _desk ??= new NewsDesk();
     }
 
-    /// <summary>Called by the daily patch once per in-game day (spike test 2).</summary>
-    internal void OnNewDay(int day)
+    /// <summary>The last day the daily work ran for, or -1 until the first tick after a new game or a load. Not
+    /// saved: the first tick after loading runs the daily work once, so anything that fell due while the game was
+    /// saved (or during a clock jump) happens then.</summary>
+    private int _lastDay = -1;
+
+    /// <summary>Called by the daily patch every tick with the current day number.</summary>
+    internal void CheckDay(int day)
     {
-        _spike.DaysSeen++;
-        _spike.AddLog($"day {day}: daily patch ran ({_spike.DaysSeen} days seen)");
+        if (day == _lastDay)
+        {
+            return;
+        }
+
+        var firstSinceLoad = _lastDay < 0;
+        _lastDay = day;
+        if (!firstSinceLoad)
+        {
+            _spike.DaysSeen++;
+            _spike.AddLog($"day {day}: daily patch ran ({_spike.DaysSeen} days seen)");
+        }
+
         Game.News.NewsDriver.Tick(this);
     }
 }
