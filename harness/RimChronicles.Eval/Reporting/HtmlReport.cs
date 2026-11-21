@@ -15,13 +15,15 @@ namespace RimChronicles.Eval.Reporting;
 /// </summary>
 public static class HtmlReport
 {
-    private static readonly string[] Tasks = [WorldSummarizer.DirectorTask, WorldSummarizer.NewsBulletinTask, WorldSummarizer.HandoffTask];
+    private static readonly string[] Tasks =
+        [WorldSummarizer.DirectorTask, WorldSummarizer.NewsBulletinTask, WorldSummarizer.HandoffTask, RimChronicles.Core.Plots.PlotLetterTask.TaskName];
 
     private static readonly Dictionary<string, string> TaskTitles = new()
     {
         [WorldSummarizer.DirectorTask] = "Director decision",
         [WorldSummarizer.NewsBulletinTask] = "News bulletin",
         [WorldSummarizer.HandoffTask] = "Inheritance handoff",
+        [RimChronicles.Core.Plots.PlotLetterTask.TaskName] = "Plot letter",
     };
 
     public static string Write(RunData run, RunData? compare)

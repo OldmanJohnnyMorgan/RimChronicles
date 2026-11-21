@@ -15,29 +15,6 @@ namespace RimChronicles.Game.News;
 /// of the background task, which works only on plain data and hands its result back through the main-thread queue.</summary>
 public static class NewsDriver
 {
-    private static PromptLibrary? _prompts;
-
-    /// <summary>The prompts shipped with the mod, loaded once. Null (templates only) if they can't be read.</summary>
-    private static PromptLibrary? Prompts
-    {
-        get
-        {
-            if (_prompts is null && RimChroniclesMod.PromptsRoot is { } root)
-            {
-                try
-                {
-                    _prompts = PromptLibrary.Load(root);
-                }
-                catch (Exception ex)
-                {
-                    Log.ErrorOnce($"[Rim Chronicles] Could not load prompts from {root}; bulletins will use templates. {ex.Message}", 0x52434e01);
-                }
-            }
-
-            return _prompts;
-        }
-    }
-
     /// <summary>Called once per in-game day by the daily patch.</summary>
     public static void Tick(RimChroniclesGameComponent component)
     {
@@ -80,7 +57,7 @@ public static class NewsDriver
         var fallback = new DelegateFallback<string>(() => BulletinTemplates.Compose(reporter, fresh, today));
         var provider = ProviderFactory.Create(settings);
         var tier = settings.Tier == ModelTier.Off ? ModelTier.Recommended : settings.Tier;
-        var prompts = Prompts;
+        var prompts = PromptStore.Library;
         var mainThread = component.MainThread;
         var token = component.GameToken;
 

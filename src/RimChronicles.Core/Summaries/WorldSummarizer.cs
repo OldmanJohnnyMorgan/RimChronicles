@@ -158,6 +158,41 @@ public static partial class WorldSummarizer
     /// <summary>The director's legal options, for filling the choice enum in the schema.</summary>
     public static IReadOnlyList<string> DirectorChoices(WorldSnapshot s) => s.AllowedTransitions;
 
+    /// <summary>Variables: arc, purpose, facts (the colony is one), plainLetter. The plain letter is the template the model rewrites.</summary>
+    public static TaskPromptInput ForPlotLetter(PlotLetterCase c, string colony)
+    {
+        var plain = Plots.PlotLetterTask.Template(c, colony);
+        var facts = new StringBuilder();
+        facts.Append(CultureInfo.InvariantCulture, $"- Colony: {colony}\n- Protagonist: {c.Protagonist}\n");
+        foreach (var (key, value) in c.Facts.Where(kv => kv.Value.Length > 0).OrderBy(kv => kv.Key, StringComparer.Ordinal))
+        {
+            facts.Append(CultureInfo.InvariantCulture, $"- {FactLabel(key)}: {value}\n");
+        }
+
+        return Build(new()
+        {
+            ["arc"] = c.Template == Plots.Nemesis.NemesisPlot.TemplateId
+                ? "Nemesis: a raider who killed or maimed one of the colonists escaped, and the colony has not forgotten."
+                : c.Template,
+            ["purpose"] = Plots.Nemesis.NemesisLetters.Purpose(c.Step),
+            ["facts"] = facts.ToString().TrimEnd(),
+            ["plainLetter"] = plain.Text,
+        });
+    }
+
+    private static string FactLabel(string key) => key switch
+    {
+        "nemesisName" => "Raider",
+        "nemesisFaction" => "Raider's faction",
+        "victimName" => "Victim",
+        "relation" => "Victim's relation to the protagonist",
+        "grievance" => "What the raider did",
+        "part" => "Body part lost",
+        "place" => "Where the raider was seen",
+        "bountyCost" => "Bounty price (silver)",
+        _ => key,
+    };
+
     private static TaskPromptInput Build(Dictionary<string, string> variables)
     {
         var allowed = new SortedSet<string>(StringComparer.Ordinal);

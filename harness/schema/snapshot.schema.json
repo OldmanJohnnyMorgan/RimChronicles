@@ -112,6 +112,17 @@
       },
       "required": ["deadPawn", "heir", "relation", "plotSummary"],
       "additionalProperties": false
+    },
+    "plotLetter": {
+      "type": "object",
+      "properties": {
+        "template": { "type": "string" },
+        "step": { "type": "string" },
+        "protagonist": { "type": "string" },
+        "facts": { "type": "object", "additionalProperties": { "type": "string" } }
+      },
+      "required": ["template", "step", "protagonist", "facts"],
+      "additionalProperties": false
     }
   },
   "required": ["id", "day", "season", "year", "colony", "allowedTransitions"],

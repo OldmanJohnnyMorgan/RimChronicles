@@ -154,5 +154,17 @@
     "heir": "p2",
     "relation": "closest friend",
     "plotSummary": "Kael Dunmore, a mercenary sergeant, killed Hester Brightwell and maimed Viggo. Bertram swore to hunt him down and led three hunts. On the last one Dunmore ambushed the hunters and killed Bertram. Bertram's bonded warg Rook came home alone."
+  },
+  "plotLetter": {
+    "template": "Nemesis",
+    "step": "Raid",
+    "protagonist": "Viggo",
+    "facts": {
+      "nemesisName": "Kael Dunmore",
+      "nemesisFaction": "Dunmore's Free Company",
+      "victimName": "Viggo",
+      "grievance": "maimed",
+      "part": "leg"
+    }
   }
 }

@@ -213,14 +213,15 @@ public sealed class JudgePipelineTests : IDisposable
         var rows = await Judge.RunAsync(JudgeOptions(run.Folder, _ => new RecordingProvider(judgeRequests)) with { UseCache = false },
             TextWriter.Null, CancellationToken.None);
 
-        // snap-09 has a handoff: per stub model one bulletin and one handoff scene; the director is not judged.
-        Assert.Equal(4, rows.Count);
+        // snap-09 has a handoff and a plot letter: per stub model one bulletin, one handoff scene and one letter; the
+        // director is not judged.
+        Assert.Equal(6, rows.Count);
         Assert.All(rows, r => Assert.True(r.Judged));
         Assert.DoesNotContain(rows, r => r.Task == "director");
         Assert.All(judgeRequests, r => Assert.DoesNotContain("stub-", r.System + r.User));
         Assert.Contains("## Output to evaluate", judgeRequests[0].User);
-        Assert.Equal(4, JudgeFiles.Read(Path.Combine(run.Folder, "judge.csv")).Count);
-        Assert.Equal(4, Directory.GetFiles(Path.Combine(run.Folder, "judgments")).Length);
+        Assert.Equal(6, JudgeFiles.Read(Path.Combine(run.Folder, "judge.csv")).Count);
+        Assert.Equal(6, Directory.GetFiles(Path.Combine(run.Folder, "judgments")).Length);
     }
 
     [Fact]
@@ -257,7 +258,7 @@ public sealed class JudgePipelineTests : IDisposable
         Assert.Contains("Meets all bars", html);
         Assert.Contains("The stub judge approves of everything.", html);
         Assert.Contains("&quot;choice&quot;", html); // director JSON is shown escaped, never as raw markup
-        Assert.Equal(3, System.Text.RegularExpressions.Regex.Matches(html, "<svg ").Count);
+        Assert.Equal(4, System.Text.RegularExpressions.Regex.Matches(html, "<svg ").Count);
         Assert.DoesNotContain("<script", html);
     }
 

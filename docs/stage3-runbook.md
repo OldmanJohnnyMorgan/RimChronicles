@@ -55,3 +55,43 @@ both choices.
 | 7 | Leave a choice letter unanswered for 5 days. | It disappears, and the next beat is the second raid (the colony waited). |
 
 Send me pass or fail per row, and anything in the letters that reads oddly.
+
+## M3b: letters written by the model
+
+### 1. Harness trial of the plot-letter prompt (rule 8)
+
+Four hand-written snapshots now carry a Nemesis letter case: a sighting (`snap-07`), a raid (`snap-16`), a choice
+(`snap-12`) and an ending (`snap-09`). This runs only the new task, 3 times each, on the three Gemma models: 36 letters.
+It runs **without the Claude judge** (no API spend): the automated checks still score every letter, and Claude Code
+reviews the raw letters from the pushed run. Start Ollama first.
+
+```powershell
+cd C:\RimworldMods\RimChronicles\RimChronicles
+git pull
+dotnet run --project harness/RimChronicles.Eval -- run --tasks plot-letter --models gemma4-e2b,gemma4-e4b,gemma4-12b
+```
+
+Push the run to the results branch as before, with the run ID from the `Report:` line:
+
+```powershell
+$run = "<new runId>"
+cd ..\rc-results
+git pull
+Copy-Item -Recurse ..\RimChronicles\results\$run results\
+git add -f results\$run
+git commit -m "Stage 3 M3b trial: plot-letter v1 (run $run)"
+git push
+cd ..\RimChronicles
+```
+
+### 2. In game
+
+With Dev mode on, each plot letter ends with a grey note of who wrote it: `(Model, plot-letter/v1)` or `(Template)`.
+
+| # | Do | Pass when |
+| --- | --- | --- |
+| 1 | **Nemesis: force seed**, then **Plot: advance beat** four times, letting the raid leave before the choice. | The sighting, raid and choice letters arrive a few seconds after each beat, marked `(Model, …)`. They name only the raider, the faction, the colonists and places the template named. The choice letter gives the price, and its buttons work as in M3a. |
+| 2 | Pick **Off** in the mod settings, and run the arc again. | The same letters arrive at once, marked `(Template)`, with no red errors. |
+| 3 | Pick **Recommended** again, then quit Ollama and fire a beat. | After the connection times out (up to a minute), the letter arrives as `(Template)`, with a yellow `fell back to its template` line in the debug log. |
+
+Paste me two or three of the model's letters.

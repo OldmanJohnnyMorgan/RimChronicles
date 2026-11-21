@@ -116,6 +116,7 @@ public static class ValidateCommand
             {
                 WorldSummarizer.DirectorTask => WorldSummarizer.ForDirector(s, tier),
                 WorldSummarizer.NewsBulletinTask => WorldSummarizer.ForNewsBulletin(s, tier),
+                RimChronicles.Core.Plots.PlotLetterTask.TaskName => WorldSummarizer.ForPlotLetter(s.PlotLetter!, s.Colony.Name),
                 _ => WorldSummarizer.ForHandoff(s),
             };
         }

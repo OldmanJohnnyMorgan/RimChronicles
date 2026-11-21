@@ -35,7 +35,7 @@ public static class Judge
     /// <summary>Tasks whose outputs are judged.</summary>
     public static readonly IReadOnlySet<string> JudgedTasks = new HashSet<string>
     {
-        WorldSummarizer.NewsBulletinTask, WorldSummarizer.HandoffTask,
+        WorldSummarizer.NewsBulletinTask, WorldSummarizer.HandoffTask, RimChronicles.Core.Plots.PlotLetterTask.TaskName,
     };
 
     private static readonly JsonSerializerOptions Indented = new() { WriteIndented = true };
