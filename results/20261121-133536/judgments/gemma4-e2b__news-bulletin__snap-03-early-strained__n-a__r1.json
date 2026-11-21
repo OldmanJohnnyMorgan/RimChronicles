@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They have been raiding homesteads near the Merrow road, as I reported last time.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies ongoing raiding (\\\u0022have been raiding\\\u0022); briefing says they raided two homesteads, a past event\u0022},{\u0022span\u0022:\u0022They are moving in the south due to grass fires.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as present; the Kinn grass fire item came from the latest bulletin, not the briefing, and is told as current\u0022},{\u0022span\u0022:\u0022Neither side seems to be actively seeking conflict, which is a relief for the local populace.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022unsupported inference about \\\u0022neither side\\\u0022 and a relief for the populace, stated as fact; no briefing support\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It is three items for a quiet week, each opening with a bare faction count, and the dry wit is thin and generic. It also rehashes old news and adds unsupported claims, such as the Kinn\u0027s grass-fire move and a relief for the populace, so it should not ship.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.4374022,
+      "inputTokens": 3585,
+      "outputTokens": 360
+    }
+  ]
+}

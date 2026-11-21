@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-02-early-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It seems the rim is settling into a predictable pattern of territorial skirmishes.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, but implies a pattern and skirmishes between the Company and Tannerfolk that the briefing does not give; borderline\u0022},{\u0022span\u0022:\u0022The Glimmer Coast Company also controls five settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027controls\u0027 and \u0027also\u0027 are mild additions; the briefing only gives the count\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It leads correctly with the new fact and avoids major inventions, but the second item is a flat recitation of faction counts with a weak, vague wry remark, and the quip \\\u0022better place to bother\\\u0022 is thin. The word count is also at the low end, and the voice is more generic than Ilse\u0027s earlier bulletins.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.060899,
+      "inputTokens": 3582,
+      "outputTokens": 293
+    }
+  ]
+}

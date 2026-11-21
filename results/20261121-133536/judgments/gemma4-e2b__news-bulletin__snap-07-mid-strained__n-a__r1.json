@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-07-mid-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022This is the latest chatter from the Empire.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022vague framing, \u0027chatter\u0027 implies communications not in briefing\u0022},{\u0022span\u0022:\u0022They are likely busy counting their loot or arguing over who gets the best scrap.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies ongoing activity; hedged with \u0027likely\u0027 so mostly a guess, but loot is implied\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate to the briefing and leads with the new item, but the wit is thin and generic, with filler sentences like \u0027This is the latest chatter\u0027 and two padded items about faction sizes. The first item\u0027s joke about \u0027goods\u0027 makes little sense for a toll demand, and \u0027inevitable trouble\u0027 leans on the old wagon news without marking it as such.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.2597104,
+      "inputTokens": 3544,
+      "outputTokens": 282
+    }
+  ]
+}

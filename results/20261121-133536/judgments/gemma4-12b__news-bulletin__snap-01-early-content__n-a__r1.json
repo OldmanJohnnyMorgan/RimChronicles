@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-01-early-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It is a predictable bit of weather for a place that seems determined to be miserable.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the hills are usually miserable and the cold is routine, which the briefing does not give; stated as fact despite \u0027seems\u0027\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate to the briefing and appropriately short, but the jokes are generic and the first one (\u0027dust\u0027 versus \u0027scenery\u0027) is muddled. The second item\u0027s quip implies a baseline the briefing does not supply, and the word count is under the 40-80 target for a quiet week.}\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.415251,
+      "inputTokens": 3303,
+      "outputTokens": 217
+    }
+  ]
+}
