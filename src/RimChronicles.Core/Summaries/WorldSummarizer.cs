@@ -104,6 +104,12 @@ public static partial class WorldSummarizer
         _ => (60, 150),
     };
 
+    /// <summary>
+    /// Allowed handoff scene length in words. The prompt asks for 60 to 120; the range leaves some slack either side
+    /// so a near miss isn't sent back.
+    /// </summary>
+    public static readonly (int Min, int Max) HandoffWordRange = (50, 130);
+
     private static List<string> NewsItems(WorldSnapshot s, int events) =>
         s.PublicEvents.TakeLast(events)
             .Concat(s.ActivePlots.Select(p => p.PublicHint).OfType<string>())
