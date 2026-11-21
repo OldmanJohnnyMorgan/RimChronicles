@@ -1,0 +1,4 @@
+model,tier,task,grammar,n,first_ok_rate,json_valid_rate,choice_allowed_rate,length_ok_rate,grounded_rate,passed_first_rate,fallback_rate,median_latency_s,p90_latency_s,mean_output_tokens,mean_reasoning_tokens
+gemma4-e2b,Minimum,plot-letter,n/a,12,1,,,0.917,1,0.917,0,0.429,0.538,69.417,
+gemma4-e4b,Recommended,plot-letter,n/a,12,1,,,1,1,1,0,0.581,0.655,70.5,
+gemma4-12b,High,plot-letter,n/a,12,1,,,1,1,1,0,1.22,1.409,74.167,

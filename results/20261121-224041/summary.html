@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eval run 20261121-224041</title>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #898781;
+  --grid: #e1e0d9; --axis: #c3c2b7; --border: rgba(11,11,11,0.10);
+  --series: #2a78d6; --pass: #006300; --fail: #d03b3b;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --muted: #898781;
+    --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,0.10);
+    --series: #3987e5; --pass: #0ca30c; --fail: #e05555;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink); font: 14px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 1100px; margin: 0 auto; padding: 24px 16px 64px; }
+h1 { font-size: 22px; margin: 0 0 4px; }
+h2 { font-size: 18px; margin: 32px 0 8px; }
+h3 { font-size: 15px; margin: 20px 0 8px; }
+p { max-width: 75ch; }
+.meta { color: var(--ink-2); margin: 4px 0; }
+.note { color: var(--ink-2); border-left: 3px solid var(--axis); padding-left: 10px; }
+.muted { color: var(--muted); }
+code { font: 12px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.scroll { overflow-x: auto; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; }
+table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+th, td { padding: 6px 10px; text-align: left; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+thead th { color: var(--ink-2); font-weight: 600; font-size: 12px; }
+tbody th { font-weight: 600; }
+tbody tr:last-child > * { border-bottom: none; }
+.num { text-align: right; }
+.icon { font-weight: 700; }
+.icon.pass { color: var(--pass); }
+.icon.fail { color: var(--fail); }
+figure { margin: 12px 0 0; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px; overflow-x: auto; }
+.chart { width: 100%; min-width: 520px; height: auto; display: block; }
+.chart text { fill: var(--ink-2); font-size: 12px; }
+.chart .chart-title { fill: var(--ink); font-weight: 600; font-size: 13px; }
+.chart .tick { fill: var(--muted); font-size: 11px; }
+.chart .grid { stroke: var(--grid); stroke-width: 1; }
+.chart .threshold { stroke: var(--ink-2); stroke-width: 1.5; stroke-dasharray: 4 4; }
+.chart .whisker { stroke: var(--series); stroke-width: 2; stroke-linecap: round; }
+.chart .dot { fill: var(--series); stroke: var(--surface); stroke-width: 2; }
+.chart .hit { fill: transparent; }
+.chart .row:hover .hit { fill: var(--grid); fill-opacity: 0.5; }
+details { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; padding: 8px 12px; }
+summary { cursor: pointer; font-weight: 600; }
+article { border-top: 1px solid var(--grid); padding: 8px 0; }
+pre { white-space: pre-wrap; font: 13px/1.5 system-ui, sans-serif; margin: 4px 0; }
+.judge { color: var(--ink-2); font-size: 13px; margin: 4px 0; }
+a { color: var(--series); }
+</style>
+</head>
+<body>
+<main>
+<header>
+<h1>Rim Chronicles model evaluation</h1>
+<p class="meta">Run <strong>20261121-224041</strong> · 36 outputs · 3 models · commit <code>925182b0</code> · prompts <code>director/v1</code>, <code>inheritance-handoff/v3</code>, <code>judge/v3</code>, <code>news-bulletin/v10</code>, <code>plot-letter/v2</code></p>
+<p class="note">Not judged yet: invented facts and prose quality are empty. Run <code>rimchron-eval judge 20261121-224041</code>.</p>
+</header>
+<section>
+<h2>At a glance</h2>
+<p>Whether each model meets every pass bar that applies to it, per task. Failing bars are named; details follow below.</p>
+<div class="scroll"><table>
+<thead><tr><th>Model</th><th>Tier</th><th>Server</th><th>Quantization</th><th class="num">VRAM</th><th>Plot letter</th></tr></thead>
+<tbody>
+<tr><th scope="row">gemma4-e2b</th><td>Minimum</td><td>ollama</td><td>Q4_K_M</td><td class="num">0.4 GB</td><td><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> Meets all bars</td></tr>
+<tr><th scope="row">gemma4-e4b</th><td>Recommended</td><td>ollama</td><td>Q4_K_M</td><td class="num">0.5 GB</td><td><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> Meets all bars</td></tr>
+<tr><th scope="row">gemma4-12b</th><td>High</td><td>ollama</td><td>Q4_K_M</td><td class="num">1.5 GB</td><td><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> Meets all bars</td></tr>
+</tbody></table></div>
+</section>
+<section>
+<h2>Plot letter</h2>
+<p>Pass bars: length in range at least 90%; at most 1 invented fact per 10 outputs (a new person, place, number, quote or event, or a contradiction); overall quality at least 3.5 (Recommended tier). Rates use first answers only.</p>
+<div class="scroll"><table>
+<thead><tr><th>Model</th><th>Tier</th><th class="num">Outputs</th><th class="num">Judged</th><th class="num">Length in range</th><th class="num">Invented facts / 10</th><th class="num">Embellishments / 10</th><th class="num">Voice</th><th class="num">Clarity</th><th class="num">Tone</th><th class="num">Overall</th><th class="num">Names grounded</th><th class="num">Passed first try</th><th class="num">Fell back</th><th class="num">Median s</th><th class="num">p90 s</th><th class="num">Output tokens</th><th class="num">Reasoning tokens</th></tr></thead>
+<tbody>
+<tr><th scope="row">gemma4-e2b</th><td>Minimum</td><td class="num">12</td><td class="num">–</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 92%</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">100%</td><td class="num">92%</td><td class="num">0%</td><td class="num">0.4</td><td class="num">0.5</td><td class="num">69</td><td class="num">–</td></tr>
+<tr><th scope="row">gemma4-e4b</th><td>Recommended</td><td class="num">12</td><td class="num">–</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">100%</td><td class="num">100%</td><td class="num">0%</td><td class="num">0.6</td><td class="num">0.7</td><td class="num">71</td><td class="num">–</td></tr>
+<tr><th scope="row">gemma4-12b</th><td>High</td><td class="num">12</td><td class="num">–</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">100%</td><td class="num">100%</td><td class="num">0%</td><td class="num">1.2</td><td class="num">1.4</td><td class="num">74</td><td class="num">–</td></tr>
+</tbody></table></div>
+<figure>
+<svg class="chart" viewBox="0 0 710 160" role="img" aria-label="Plot letter latency: median (dot) and 90th percentile (line end), seconds">
+<text class="chart-title" x="0" y="16">Plot letter latency: median (dot) and 90th percentile (line end), seconds</text>
+<line class="grid" x1="230" x2="230" y1="34" y2="130"/><text class="tick" x="230" y="148" text-anchor="middle">0</text>
+<line class="grid" x1="376.7" x2="376.7" y1="34" y2="130"/><text class="tick" x="376.7" y="148" text-anchor="middle">0.5</text>
+<line class="grid" x1="523.3" x2="523.3" y1="34" y2="130"/><text class="tick" x="523.3" y="148" text-anchor="middle">1</text>
+<line class="grid" x1="670" x2="670" y1="34" y2="130"/><text class="tick" x="670" y="148" text-anchor="middle">1.5</text>
+<g class="row"><title>gemma4-e2b: median 0.4 s, p90 0.5 s (12 outputs)</title><rect class="hit" x="0" y="40" width="710" height="28"/><text class="label" x="218" y="58" text-anchor="end">gemma4-e2b</text><line class="whisker" x1="355.8" x2="387.8" y1="54" y2="54"/><circle class="dot" cx="355.8" cy="54" r="5"/></g>
+<g class="row"><title>gemma4-e4b: median 0.6 s, p90 0.7 s (12 outputs)</title><rect class="hit" x="0" y="68" width="710" height="28"/><text class="label" x="218" y="86" text-anchor="end">gemma4-e4b</text><line class="whisker" x1="400.4" x2="422.1" y1="82" y2="82"/><circle class="dot" cx="400.4" cy="82" r="5"/></g>
+<g class="row"><title>gemma4-12b: median 1.2 s, p90 1.4 s (12 outputs)</title><rect class="hit" x="0" y="96" width="710" height="28"/><text class="label" x="218" y="114" text-anchor="end">gemma4-12b</text><line class="whisker" x1="587.9" x2="643.3" y1="110" y2="110"/><circle class="dot" cx="587.9" cy="110" r="5"/></g>
+</svg>
+</figure>
+</section>
+<section>
+<h2>Outputs</h2>
+<p>Every first answer, grouped by task and model. Open the raw file for the full request, retries and timings.</p>
+<h3>Plot letter</h3>
+<details>
+<summary>gemma4-e2b · 12 outputs</summary>
+<article><p class="meta"><a href="raw/gemma4-e2b__plot-letter__snap-07-mid-strained__n-a__r1.json">snap-07-mid-strained</a> · repeat 1 · Model · 43 words · 0.4 s</p>
+<pre>Travellers brought news of Vex of Vex&#39;s Crew. He killed Mara&#39;s husband, Dorin. Vex was seen near the gorge road. He was alive and unpunished.
+
+Mara remembers the killing clearly. She knows Vex is out there. She will ensure the walls remain manned.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__plot-letter__snap-07-mid-strained__n-a__r2.json">snap-07-mid-strained</a> · repeat 2 · Model · 41 words · 0.4 s</p>
+<pre>Travellers brought news of Vex of Vex&#39;s Crew. He killed Mara&#39;s husband, Dorin. Vex was seen near the gorge road. He was alive and unpunished.
+
+Mara remembers the killing clearly. She knows Vex escaped. She will ensure the walls remain manned.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__plot-letter__snap-07-mid-strained__n-a__r3.json">snap-07-mid-strained</a> · repeat 3 · Model · 43 words · 0.4 s</p>
+<pre>Travellers brought news of Vex of Vex&#39;s Crew. He killed Mara&#39;s husband, Dorin. Vex was seen near the gorge road. He was alive and unpunished.
+
+Mara remembers the killing clearly. She will not let this go. She will ensure the walls remain manned.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__plot-letter__snap-09-mid-desperate__n-a__r1.json">snap-09-mid-desperate</a> · repeat 1 · Model · 33 words · 0.4 s</p>
+<pre>Rook Malley of Malley&#39;s Lancers is dead. The people of Cinder Rest killed him. This ends the raider&#39;s run.
+
+Lene can now rest. The act is done. She will let the past go.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__plot-letter__snap-09-mid-desperate__n-a__r2.json">snap-09-mid-desperate</a> · repeat 2 · ModelRetry · 28 words · 0.3 s</p>
+<pre>Rook Malley of Malley&#39;s Lancers is dead. The people of Cinder Rest killed him. This ends the raider&#39;s run.
+
+Lene can finally rest now. The killing is done.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__plot-letter__snap-09-mid-desperate__n-a__r3.json">snap-09-mid-desperate</a> · repeat 3 · Model · 34 words · 0.4 s</p>
+<pre>Rook Malley of Malley&#39;s Lancers is dead. The people of Cinder Rest killed him. This ends the raider&#39;s run.
+
+Lene can now rest. The memory of Joska&#39;s death remains, but the threat is gone.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__plot-letter__snap-12-mid-desperate__n-a__r1.json">snap-12-mid-desperate</a> · repeat 1 · Model · 64 words · 0.6 s</p>
+<pre>Imre escaped from the Gallows camp again. Marta Venn was killed by her. The colony now faces a decision regarding this event.
+
+Sabine can hire bounty hunters for 350 silver. They will take the job to kill Imre. Alternatively, the colony can wait for Imre to return. This means they wait for the next time, and there will be no one else to blame.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__plot-letter__snap-12-mid-desperate__n-a__r2.json">snap-12-mid-desperate</a> · repeat 2 · Model · 65 words · 0.5 s</p>
+<pre>Imre has escaped from the Gallows camp again. She killed Marta Venn. The colony must now decide how to proceed.
+
+Sabine can hire bounty hunters. They will take the job for 350 silver. This will result in another killing. Alternatively, the colony can wait. They can wait for Imre to return. This means there will be no one else to blame for the next event.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__plot-letter__snap-12-mid-desperate__n-a__r3.json">snap-12-mid-desperate</a> · repeat 3 · Model · 63 words · 0.5 s</p>
+<pre>Imre has escaped from the Gallows camp once more. Marta Venn was killed by Imre. The colony now faces a difficult decision regarding this event.
+
+Sabine can hire bounty hunters for 350 silver to seek Imre. Alternatively, the colony can choose to wait for Imre to return. This means they wait for the next time, accepting that no one else will be blamed.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__plot-letter__snap-16-late-desperate__n-a__r1.json">snap-16-late-desperate</a> · repeat 1 · Model · 52 words · 0.4 s</p>
+<pre>Kael Dunmore of Dunmore&#39;s Free Company is leading a raid on Gallowmere. He is the raider who previously maimed Viggo by taking his leg. Kael Dunmore is at the colony&#39;s door now.
+
+Viggo knows Kael Dunmore&#39;s face. He sees this as a chance to end the threat if the colony can hold.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__plot-letter__snap-16-late-desperate__n-a__r2.json">snap-16-late-desperate</a> · repeat 2 · Model · 54 words · 0.4 s</p>
+<pre>Kael Dunmore of Dunmore&#39;s Free Company leads a raid on Gallowmere. He is the same raider who maimed Viggo by taking his leg. Kael Dunmore has arrived at the colony&#39;s door.
+
+Viggo recognizes the raider&#39;s face. This is a chance to end the threat if the colony can hold. Viggo prepares for the confrontation.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__plot-letter__snap-16-late-desperate__n-a__r3.json">snap-16-late-desperate</a> · repeat 3 · Model · 55 words · 0.4 s</p>
+<pre>Kael Dunmore of Dunmore&#39;s Free Company leads a raid on Gallowmere. Kael Dunmore is the raider who maimed Viggo by taking his leg. He is now at the colony&#39;s door.
+
+Viggo knows this face well. He sees this as a chance to end the threat if the colony can hold. Viggo prepares for the confrontation.</pre>
+</article>
+</details>
+<details>
+<summary>gemma4-e4b · 12 outputs</summary>
+<article><p class="meta"><a href="raw/gemma4-e4b__plot-letter__snap-07-mid-strained__n-a__r1.json">snap-07-mid-strained</a> · repeat 1 · Model · 52 words · 0.7 s</p>
+<pre>Travellers report that Vex of Vex&#39;s Crew was spotted. He is the one who killed Dorin, Mara&#39;s husband. Vex was seen near the gorge road. He showed no signs of haste to hide.
+
+Mara has not forgotten the act. Vex seems to share that memory. The colony should keep its walls manned.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__plot-letter__snap-07-mid-strained__n-a__r2.json">snap-07-mid-strained</a> · repeat 2 · Model · 49 words · 0.6 s</p>
+<pre>Travellers have brought word of Vex. He is from Vex&#39;s Crew. He killed Dorin, Mara&#39;s husband. Vex was seen near the gorge road. He showed no hurry to hide.
+
+Mara has not forgotten what happened. Vex seems to share that memory. The colony should ensure its walls remain manned.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__plot-letter__snap-07-mid-strained__n-a__r3.json">snap-07-mid-strained</a> · repeat 3 · Model · 49 words · 0.5 s</p>
+<pre>Travellers have brought news of Vex. He is from Vex&#39;s Crew. Vex killed Dorin, Mara&#39;s husband. He was seen near the gorge road. He appeared unhurried and showed no sign of hiding.
+
+Mara remembers what Vex did. It seems Vex does too. The colony should keep its walls manned.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__plot-letter__snap-09-mid-desperate__n-a__r1.json">snap-09-mid-desperate</a> · repeat 1 · Model · 46 words · 0.6 s</p>
+<pre>Rook Malley of Malley&#39;s Lancers is dead. He was killed by the people of Cinder Rest. The raider who took Joska&#39;s life is gone. His run has ended here.
+
+Lene can finally rest now. The memory of what he did to her husband is finally over.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__plot-letter__snap-09-mid-desperate__n-a__r2.json">snap-09-mid-desperate</a> · repeat 2 · Model · 40 words · 0.5 s</p>
+<pre>Rook Malley of Malley&#39;s Lancers is dead. He was killed by the people of Cinder Rest. This ends the threat he posed to the colony.
+
+Lene can finally rest now. The violence that took Joska from her life is over.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__plot-letter__snap-09-mid-desperate__n-a__r3.json">snap-09-mid-desperate</a> · repeat 3 · Model · 44 words · 0.5 s</p>
+<pre>Rook Malley of Malley&#39;s Lancers is dead. He was killed by the people of Cinder Rest. The raider who killed Joska has met his end.
+
+Lene can finally rest now. The threat that took her husband is gone. The violence has reached its conclusion.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__plot-letter__snap-12-mid-desperate__n-a__r1.json">snap-12-mid-desperate</a> · repeat 1 · Model · 55 words · 0.7 s</p>
+<pre>Imre has slipped away from the Gallows camp once more. She killed Marta Venn in her last encounter. The colony now faces a decision regarding the escaped raider.
+
+Sabine may hire bounty hunters for 350 silver. They would hunt Imre down for her kill. Alternatively, the colony can choose to wait for Imre to return.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__plot-letter__snap-12-mid-desperate__n-a__r2.json">snap-12-mid-desperate</a> · repeat 2 · Model · 57 words · 0.6 s</p>
+<pre>Imre has slipped away once more. She was the one who killed Marta Venn. Word has reached Red Furrow that bounty hunters will take the job for 350 silver.
+
+Sabine must decide the path forward. She can pay the bounty hunters to track her down. Alternatively, she can wait for Imre to return to the Gallows camp.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__plot-letter__snap-12-mid-desperate__n-a__r3.json">snap-12-mid-desperate</a> · repeat 3 · Model · 56 words · 0.6 s</p>
+<pre>Imre, the raider from the Gallows Crew, has slipped away once more. She killed Marta Venn in the last encounter. Bounty hunters are willing to track her down for 350 silver.
+
+Sabine must decide how to proceed. She can pay the bounty hunters to finish the job. Alternatively, Red Furrow can wait for Imre to return.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__plot-letter__snap-16-late-desperate__n-a__r1.json">snap-16-late-desperate</a> · repeat 1 · Model · 50 words · 0.6 s</p>
+<pre>Kael Dunmore of Dunmore&#39;s Free Company is leading a raid on Gallowmere. He is the same raider who maimed Viggo, costing him his leg.
+
+Viggo recognizes his face as the attack begins. He sees this as a chance to end the threat if the colony can hold against the assault.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__plot-letter__snap-16-late-desperate__n-a__r2.json">snap-16-late-desperate</a> · repeat 2 · Model · 59 words · 0.7 s</p>
+<pre>Kael Dunmore, of Dunmore&#39;s Free Company, leads this assault on Gallowmere. He is the same raider who maimed Viggo, costing him his leg. He has now arrived at the colony&#39;s door.
+
+Viggo recognizes his face. He sees this as a chance to end the threat. He will meet this attack head on, if the colony can hold against him.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__plot-letter__snap-16-late-desperate__n-a__r3.json">snap-16-late-desperate</a> · repeat 3 · Model · 51 words · 0.5 s</p>
+<pre>Kael Dunmore, from Dunmore&#39;s Free Company, leads the current raid on Gallowmere. He is the same raider who maimed Viggo, costing him his leg.
+
+Viggo sees his face at the breach. He knows this is a chance to end the threat. He must see if the colony can hold against him.</pre>
+</article>
+</details>
+<details>
+<summary>gemma4-12b · 12 outputs</summary>
+<article><p class="meta"><a href="raw/gemma4-12b__plot-letter__snap-07-mid-strained__n-a__r1.json">snap-07-mid-strained</a> · repeat 1 · Model · 54 words · 1.3 s</p>
+<pre>Travelers report that Vex of Vex&#39;s Crew was spotted near the gorge road. He remains alive and unpunished. He showed no signs of trying to hide from the colony.
+
+Mara has not forgotten that Vex killed her husband, Dorin. She watches the horizon with a steady gaze. The colony should keep its walls manned.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__plot-letter__snap-07-mid-strained__n-a__r2.json">snap-07-mid-strained</a> · repeat 2 · Model · 58 words · 1.3 s</p>
+<pre>Travelers have reported a sighting of Vex from Vex&#39;s Crew. He was seen near the gorge road. He remains alive and unpunished, moving without any apparent haste to hide from the colony.
+
+Mara has not forgotten the day Vex killed her husband, Dorin. She watches the horizon with a steady gaze. The colony should keep its walls manned.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__plot-letter__snap-07-mid-strained__n-a__r3.json">snap-07-mid-strained</a> · repeat 3 · Model · 57 words · 1.1 s</p>
+<pre>Travelers report a sighting of Vex from Vex&#39;s Crew. He was seen near the gorge road. He remains alive and unpunished. He showed no signs of trying to hide from the colony.
+
+Mara has not forgotten that Vex killed her husband, Dorin. She watches the horizon with a heavy heart. The colony should keep its walls manned.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__plot-letter__snap-09-mid-desperate__n-a__r1.json">snap-09-mid-desperate</a> · repeat 1 · Model · 45 words · 1.3 s</p>
+<pre>The people of Cinder Rest have killed Rook Malley of Malley&#39;s Lancers. He was the raider who killed Joska. His run has ended here.
+
+Lene can finally rest. The weight of the loss is eased now that the man who took her husband is dead.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__plot-letter__snap-09-mid-desperate__n-a__r2.json">snap-09-mid-desperate</a> · repeat 2 · Model · 35 words · 0.8 s</p>
+<pre>The people of Cinder Rest have killed Rook Malley of Malley&#39;s Lancers. He was the raider who killed Joska. His run has ended here.
+
+Lene can finally rest. The weight of the past is lifted.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__plot-letter__snap-09-mid-desperate__n-a__r3.json">snap-09-mid-desperate</a> · repeat 3 · Model · 35 words · 0.7 s</p>
+<pre>The people of Cinder Rest have killed Rook Malley of Malley&#39;s Lancers. He was the raider who killed Joska. His journey has ended here.
+
+Lene can finally rest. The weight of his death is lifted.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__plot-letter__snap-12-mid-desperate__n-a__r1.json">snap-12-mid-desperate</a> · repeat 1 · Model · 66 words · 1.5 s</p>
+<pre>Imre escaped from the Gallows camp again. She remains at large after killing Marta Venn. Bounty hunters are available to track her down for 350 silver.
+
+Sabine watches the horizon. She can pay the 350 silver to let others do the work. Alternatively, she can wait for Imre to return to Red Furrow. If she waits, she will ensure there is no one else to blame.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__plot-letter__snap-12-mid-desperate__n-a__r2.json">snap-12-mid-desperate</a> · repeat 2 · Model · 65 words · 1.0 s</p>
+<pre>Imre from the Gallows Crew escaped again. She was last seen at the Gallows camp. She killed Marta Venn, and the colony has not forgotten this act.
+
+Sabine faces a choice. The colony can hire bounty hunters for 350 silver to track her down. Alternatively, the colony can wait for Imre to return. If she comes back, there will be no one else to blame.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__plot-letter__snap-12-mid-desperate__n-a__r3.json">snap-12-mid-desperate</a> · repeat 3 · Model · 68 words · 1.4 s</p>
+<pre>Imre escaped from the Gallows camp again. She remains at large after killing Marta Venn. The colony of Red Furrow must decide how to proceed.
+
+Sabine weighs two paths. She can pay 350 silver to hire bounty hunters to track Imre down. Alternatively, she can wait for Imre to return to the colony. If she waits, she will ensure Imre is the only one to blame next time.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__plot-letter__snap-16-late-desperate__n-a__r1.json">snap-16-late-desperate</a> · repeat 1 · Model · 55 words · 1.4 s</p>
+<pre>Kael Dunmore leads a raid against Gallowmere. He is the same raider from Dunmore&#39;s Free Company who maimed Viggo. This time, Kael Dunmore has come directly to the colony&#39;s door.
+
+Viggo recognizes the face of his attacker. If the colony can hold against the assault, this may be the chance to finally end the threat.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__plot-letter__snap-16-late-desperate__n-a__r2.json">snap-16-late-desperate</a> · repeat 2 · Model · 59 words · 1.2 s</p>
+<pre>Kael Dunmore of Dunmore&#39;s Free Company leads a raid against Gallowmere. He is the same raider who maimed Viggo and took his leg. The attackers are at the colony&#39;s door now.
+
+Viggo recognizes the face of his attacker. He sees this as a chance to end the threat. He will fight to ensure the colony holds against the raid.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__plot-letter__snap-16-late-desperate__n-a__r3.json">snap-16-late-desperate</a> · repeat 3 · Model · 60 words · 1.2 s</p>
+<pre>Kael Dunmore of Dunmore&#39;s Free Company leads a raid against Gallowmere. He is the same raider who maimed Viggo and cost him his leg. The raiders are at the colony&#39;s door now.
+
+Viggo recognizes the face of his attacker. He sees this as a chance to end the threat. He will fight to ensure the colony holds against the assault.</pre>
+</article>
+</details>
+</section>
+</main>
+</body>
+</html>

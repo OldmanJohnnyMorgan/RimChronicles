@@ -1,0 +1,32 @@
+{
+  "cell": "gemma4-12b__plot-letter__snap-12-mid-desperate__n-a__r3",
+  "model": "gemma4-12b",
+  "task": "plot-letter",
+  "snapshot": "snap-12-mid-desperate",
+  "grammar": "n/a",
+  "repeat": 3,
+  "promptVersion": "plot-letter/v2",
+  "outcome": "Model",
+  "value": "Imre escaped from the Gallows camp again. She remains at large after killing Marta Venn. The colony of Red Furrow must decide how to proceed.\n\nSabine weighs two paths. She can pay 350 silver to hire bounty hunters to track Imre down. Alternatively, she can wait for Imre to return to the colony. If she waits, she will ensure Imre is the only one to blame next time.",
+  "attempts": [
+    {
+      "request": {
+        "system": "You write the letters that tell a RimWorld player how a story in their colony is unfolding. Each letter marks one beat of an arc.\n\nWhat to write:\n- Rewrite the plain letter you are given in your own words: 40 to 100 words, in two short paragraphs.\n- Keep every fact in the plain letter. Add none.\n- The first paragraph says what happened. The second gives the protagonist\u0027s side of it: what it means to them, or what they will do.\n- Match the letter\u0027s purpose: a sighting unsettles, a raid is urgent, a choice is fair to both options, an ending feels final.\n\nWhat you know:\n- Use only the facts and names below. Never invent people, places, factions, numbers, quotes, dates or events.\n- Never say what anyone is thinking unless the plain letter does. Show it through what they do or how they hold themselves now.\n- Refer to each person by name, or by the pronoun the facts give for them. Never guess anyone\u0027s gender.\n- Give people no rank, title or role the facts don\u0027t give: no \u0022commander\u0022, \u0022leader\u0022 or \u0022captain\u0022. Bring in no outside powers either: no authorities, law or guards.\n- If the letter is a choice, name both options plainly, with the price in silver exactly as given.\n\nStyle:\n- Write like the game\u0027s own letters: plain, vivid and a little grim. Third person. No poetry, no rhetorical questions.\n- Keep sentences short, mostly under 20 words.\n- Write only the letter: no title, no greeting, no sign-off, no notes.\n",
+        "user": "## The arc\nNemesis: a raider who killed or maimed one of the colonists escaped, and the colony has not forgotten.\n\n## This letter\nThe choice: the raider escaped again, and the colony must decide between paying bounty hunters and waiting for the raider to return. Present both options fairly, with the price.\n\n## Facts\n- Colony: Red Furrow\n- Protagonist: Sabine\n- Bounty price (silver): 350\n- What the raider did: killed\n- Raider\u0027s faction: the Gallows Crew\n- Raider: Imre\n- Raider\u0027s pronoun: she\n- Where the raider was seen: the Gallows camp\n- Protagonist\u0027s pronoun: she\n- Victim: Marta Venn\n- Victim\u0027s pronoun: she\n\n## The plain letter\nImre escaped again. Word is that bounty hunters would take the job for 350 silver, though it would be their kill, not Sabine\u0027s.\n\nOr the colony can wait: Imre will come back, and next time there will be no one else to blame.\n\nWrite the letter now.\n",
+        "maxOutputTokens": 260,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "Imre escaped from the Gallows camp again. She remains at large after killing Marta Venn. The colony of Red Furrow must decide how to proceed.\n\nSabine weighs two paths. She can pay 350 silver to hire bounty hunters to track Imre down. Alternatively, she can wait for Imre to return to the colony. If she waits, she will ensure Imre is the only one to blame next time.",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 1.4091883,
+      "inputTokens": 606,
+      "outputTokens": 88,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-17\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795300892,\u0022model\u0022:\u0022gemma4:12b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022Imre escaped from the Gallows camp again. She remains at large after killing Marta Venn. The colony of Red Furrow must decide how to proceed.\\n\\nSabine weighs two paths. She can pay 350 silver to hire bounty hunters to track Imre down. Alternatively, she can wait for Imre to return to the colony. If she waits, she will ensure Imre is the only one to blame next time.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:606,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:601},\u0022completion_tokens\u0022:88,\u0022total_tokens\u0022:694}}\n"
+    }
+  ]
+}
