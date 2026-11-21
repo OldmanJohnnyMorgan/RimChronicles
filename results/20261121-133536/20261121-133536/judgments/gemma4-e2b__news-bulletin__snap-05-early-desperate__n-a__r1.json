@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Ferrow Mutual has asked its members to share patrols.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news from an earlier bulletin, though flagged as old right after\u0022},{\u0022span\u0022:\u0022Scythe Tooth raiders have hit three settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news, presented as a full item rather than a short clause\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It leads correctly with the new fact, but then pads with two whole items of old news, breaking the quiet-week rule. The wit is thin and generic, with meta lines like \\\u0022This is the only news to report this cycle\\\u0022, so the dry voice does not come through.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8389723,
+      "inputTokens": 3510,
+      "outputTokens": 243
+    }
+  ]
+}

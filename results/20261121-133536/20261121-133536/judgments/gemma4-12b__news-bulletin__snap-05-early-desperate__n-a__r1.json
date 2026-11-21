@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022as tiresome as we find their prices\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the Clans\u0027 prices are a known complaint; the briefing gives no prices this week (only an earlier bulletin did), so it leans on old news as current fact\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate, concise, and dry, with the new item leading and the faction-size remark framed as opinion. The first joke leans slightly on earlier-bulletin pricing, and the second item is a thin filler remark, but it is within the quiet-week brief.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.4245564,
+      "inputTokens": 3458,
+      "outputTokens": 205
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-07-mid-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They seem to be keeping their heads down while the Empire makes its pronouncements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022hedged with \u0027seem\u0027, but implies Covenant behaviour and reaction the briefing does not report\u0022},{\u0022span\u0022:\u0022The Empire believes the road is somehow their personal thoroughfare.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as \u0027One assumes\u0027, so a guess, not a claim; borderline and not counted as invented\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate lead on the toll demand, but the second item is a thin filler about Covenant size with an unsupported suggestion of how they are reacting. The wit is mild and generic compared with the earlier bulletins\u0027 sharper jokes.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.9185571,
+      "inputTokens": 3502,
+      "outputTokens": 266
+    }
+  ]
+}

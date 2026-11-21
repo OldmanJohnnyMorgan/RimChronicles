@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-06-early-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Calder Combine reports good harvests along the delta.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as if it were a fresh item, though the facts are unchanged\u0022},{\u0022span\u0022:\u0022They are apparently happy about the yield.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied status of the Combine\u0027s mood, which the briefing does not give\u0022},{\u0022span\u0022:\u0022I suspect this is just another Tuesday for them.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies robbery is routine, but it is framed as a guess, so only a very weak concern\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin is padded well past a quiet week\u0027s 40 to 80 words, with three items and no real dry wit. It also gives a full item to old news (the Combine harvest), and the first item is a bare restatement with no take.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.9594191,
+      "inputTokens": 3497,
+      "outputTokens": 288
+    }
+  ]
+}
