@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022leaving Thornreach with nothing but empty shelves and angry customers who refuse to pay for goods that no longer exist\u0022,\u0022reason\u0022:\u0022Effects on Thornreach not in briefing; inside colony unknown\u0022},{\u0022span\u0022:\u0022perhaps an attempt to force the Scythe Tooth pirates into a more favorable negotiation\u0022,\u0022reason\u0022:\u0022Invents a motive linking the closure to Scythe Tooth\u0022},{\u0022span\u0022:\u0022leaving debris scattered across the ground and silence hanging heavy in the air\u0022,\u0022reason\u0022:\u0022Adds details to the raids that the briefing does not give\u0022},{\u0022span\u0022:\u0022the colony currently lacks funds to cover the additional costs\u0022,\u0022reason\u0022:\u0022Invented colony finances; inside colony unknown\u0022},{\u0022span\u0022:\u0022The Ferrow Mutual has formally requested that all members increase their patrol frequency to match the severity of the attack\u0022,\u0022reason\u0022:\u0022Embellishes the patrol request beyond the briefing\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:1,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The output duplicates its paragraphs, giving four items where three were required. It re-presents the old raid news as current and invents several details about Thornreach and the raids, with none of Odile\u0027s sardonic voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.6915004,
+      "inputTokens": 2691,
+      "outputTokens": 407
+    }
+  ]
+}

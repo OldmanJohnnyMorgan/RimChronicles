@@ -1,0 +1,115 @@
+{
+  "runId": "20261121-013649",
+  "startedUtc": "2026-11-21T01:36:49.7733679\u002B00:00",
+  "finishedUtc": "2026-11-21T01:41:04.5034948\u002B00:00",
+  "gitCommit": "8b13c63f20f434acc90ef12bb00081a9b8a155e0",
+  "gitDirty": false,
+  "promptVersions": {
+    "director": "v1",
+    "inheritance-handoff": "v1",
+    "judge": "v1",
+    "news-bulletin": "v3"
+  },
+  "config": "C:\\RimworldMods\\RimChronicles\\RimChronicles\\harness\\models.json",
+  "configSha256": "0f9efaa1e4b86d0dcfea20c2866ca81fef1db46de03c628a806613e6e9482ed8",
+  "models": [
+    "qwen3.5-2b",
+    "gemma4-e2b",
+    "qwen3.5-4b",
+    "gemma4-e4b",
+    "gemma4-12b",
+    "qwen3-14b",
+    "claude-ref"
+  ],
+  "tasks": [
+    "director",
+    "news-bulletin",
+    "inheritance-handoff"
+  ],
+  "snapshots": [
+    "snap-0*"
+  ],
+  "repeats": 1,
+  "cells": 196,
+  "cacheHits": 134,
+  "cacheMisses": 85,
+  "environment": {
+    "qwen3.5-2b": {
+      "reachable": true,
+      "serverKind": "ollama",
+      "serverVersion": "0.40.16",
+      "modelListed": true,
+      "quantization": "Q8_0",
+      "parameterSize": "1.9B",
+      "vramBytes": 2481937447,
+      "sizeBytes": 2481937447,
+      "error": null
+    },
+    "gemma4-e2b": {
+      "reachable": true,
+      "serverKind": "ollama",
+      "serverVersion": "0.40.16",
+      "modelListed": true,
+      "quantization": "Q4_K_M",
+      "parameterSize": "4.6B",
+      "vramBytes": 387438345,
+      "sizeBytes": 387438345,
+      "error": null
+    },
+    "qwen3.5-4b": {
+      "reachable": true,
+      "serverKind": "ollama",
+      "serverVersion": "0.40.16",
+      "modelListed": true,
+      "quantization": "Q4_K_M",
+      "parameterSize": "4.2B",
+      "vramBytes": 3364911840,
+      "sizeBytes": 3364911840,
+      "error": null
+    },
+    "gemma4-e4b": {
+      "reachable": true,
+      "serverKind": "ollama",
+      "serverVersion": "0.40.16",
+      "modelListed": true,
+      "quantization": "Q4_K_M",
+      "parameterSize": "7.5B",
+      "vramBytes": 498377685,
+      "sizeBytes": 498377685,
+      "error": null
+    },
+    "gemma4-12b": {
+      "reachable": true,
+      "serverKind": "ollama",
+      "serverVersion": "0.40.16",
+      "modelListed": true,
+      "quantization": "Q4_K_M",
+      "parameterSize": "11.9B",
+      "vramBytes": 1454553168,
+      "sizeBytes": 1454553168,
+      "error": null
+    },
+    "qwen3-14b": {
+      "reachable": true,
+      "serverKind": "ollama",
+      "serverVersion": "0.40.16",
+      "modelListed": true,
+      "quantization": "Q4_K_M",
+      "parameterSize": "14.8B",
+      "vramBytes": 10489430015,
+      "sizeBytes": 10489430015,
+      "error": null
+    },
+    "claude-ref": {
+      "reachable": true,
+      "serverKind": "anthropic",
+      "serverVersion": null,
+      "modelListed": null,
+      "quantization": null,
+      "parameterSize": null,
+      "vramBytes": null,
+      "sizeBytes": null,
+      "error": null
+    }
+  }
+}

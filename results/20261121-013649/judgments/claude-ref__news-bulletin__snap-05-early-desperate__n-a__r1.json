@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate, well-structured and dry; it leads with the market closure and handles old news only as background. Rephrasing the earlier bulletin\u0027s usurer joke as \u0027prices worthy of a moneylender\u0027 comes close to reusing it.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.646273,
+      "inputTokens": 2352,
+      "outputTokens": 373
+    }
+  ]
+}

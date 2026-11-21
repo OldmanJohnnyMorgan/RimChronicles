@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-01-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate, well-structured and follows the format exactly, with a consistently dry voice and good jokes such as \u0027everyone else is free to feel smug\u0027. The jump from the Raiders wanting more settlements to \u0027latch your doors\u0027 is a slightly forced link.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.3516579,
+      "inputTokens": 2165,
+      "outputTokens": 340
+    }
+  ]
+}

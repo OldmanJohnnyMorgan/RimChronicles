@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It sticks to the briefing, but it breaks the format: the paragraphs have 2, 2 and 1 sentences instead of 3 each. The voice is only faintly sardonic and slides into office phrasing (\u0027conducive to internal organization\u0027, \u0027impacted the harvest\u0027), and the closing paragraph is a weak recap of old news.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.6289438,
+      "inputTokens": 2301,
+      "outputTokens": 418
+    }
+  ]
+}

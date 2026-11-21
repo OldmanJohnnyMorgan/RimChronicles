@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-06-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022yesterday\u0022,\u0022reason\u0022:\u0022Briefing gives no timing for the robbery.\u0022},{\u0022span\u0022:\u0022The Combine says this marks the worst theft in years\u0022,\u0022reason\u0022:\u0022Invented claim attributed to the Combine.\u0022},{\u0022span\u0022:\u0022they insist their own harvests are good enough to ignore the loss\u0022,\u0022reason\u0022:\u0022Invented Combine statement about the robbery.\u0022},{\u0022span\u0022:\u0022Saltreed\u0027s population has barely changed since last week\u0022,\u0022reason\u0022:\u0022Colony internals and population are not in the briefing.\u0022},{\u0022span\u0022:\u0022enduring another dry spell or perhaps just waiting for the next storm\u0022,\u0022reason\u0022:\u0022Invented weather conditions at the colony.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The bulletin invents several facts: a Combine statement, the timing of the robbery and Saltreed\u0027s population. It also presents the old shuttle sighting as current news. The third item is only two sentences, repeats the Combine claim, and its logic, such as stealing grain \u0027for scrap metal\u0027, is muddled.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.7928624,
+      "inputTokens": 2357,
+      "outputTokens": 343
+    }
+  ]
+}

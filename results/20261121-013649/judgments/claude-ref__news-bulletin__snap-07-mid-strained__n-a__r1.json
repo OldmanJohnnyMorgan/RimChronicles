@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-07-mid-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:4,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate, well-structured and properly dry; it leads with the toll news, keeps old news as background and makes neat comment from faction sizes. The hedged link between the envoys\u0027 scrolls and the tolls is speculation, and the second sentence of the opening item is slightly clumsy, but this is close to shippable.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.782986,
+      "inputTokens": 2379,
+      "outputTokens": 570
+    }
+  ]
+}

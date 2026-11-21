@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-06-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022turning what the Combine calls a record harvest into fuel for their engines\u0022,\u0022reason\u0022:\u0022The briefing does not say what the grain was used for.\u0022},{\u0022span\u0022:\u0022The Combine\u0027s optimism about the crops seems to have evaporated\u0022,\u0022reason\u0022:\u0022The briefing gives no Combine reaction to the robbery.\u0022},{\u0022span\u0022:\u0022the usual border skirmishes and empty coffers\u0022,\u0022reason\u0022:\u0022There are no skirmishes or financial troubles in the briefing.\u0022},{\u0022span\u0022:\u0022The Ditch Kings have grown from two to perhaps more\u0022,\u0022reason\u0022:\u0022Speculates growth that contradicts the briefing\u0027s 2 settlements.\u0022},{\u0022span\u0022:\u0022A quiet week is not exactly what this colony needs right now\u0022,\u0022reason\u0022:\u0022Claims knowledge of the colony\u0027s needs that is not public in the briefing.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The robbery is invented on top of: the grain fuelling engines, the Combine\u0027s mood, skirmishes, and the Ditch Kings growing past their stated two settlements. The second item is muddled and seems to credit the shuttles to the quiet Throne, and the bulletin runs well over the 130-word limit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 8.845234,
+      "inputTokens": 2346,
+      "outputTokens": 832
+    }
+  ]
+}

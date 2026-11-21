@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-07-mid-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and clearly ordered, but it reads as a flat recital of faction counts with almost none of Ilse\u0027s dry, cynical wit. Phrases like \\\u0022adds a layer of bureaucracy\\\u0022 lean toward office-speak rather than frontier reporting.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.4191097,
+      "inputTokens": 2360,
+      "outputTokens": 431
+    }
+  ]
+}

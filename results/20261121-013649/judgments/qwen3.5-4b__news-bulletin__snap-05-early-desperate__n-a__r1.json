@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022having now raided three settlements in the quadrum since my last report\u0022,\u0022reason\u0022:\u0022The three raids are old news from the last bulletin; framing them as happening since then misstates timing.\u0022},{\u0022span\u0022:\u0022While the Scythe Tooth and Ferrow Mutual vie for control\u0022,\u0022reason\u0022:\u0022The briefing records no contest for control between these two factions.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin re-presents the old Scythe Tooth raids as fresh news, invents a power struggle and lifts a line straight from the instructions. The voice is generic and overwrought (\u0027relentless\u0027, \u0027grim\u0027), not Odile\u0027s dry understatement, and it runs over the word limit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 8.021195,
+      "inputTokens": 2407,
+      "outputTokens": 681
+    }
+  ]
+}

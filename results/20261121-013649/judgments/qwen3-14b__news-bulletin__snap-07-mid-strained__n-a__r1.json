@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-07-mid-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The road has always been a contested route\u0022,\u0022reason\u0022:\u0022The briefing gives no history of the gorge road being contested.\u0022},{\u0022span\u0022:\u0022They have not yet found the raiders responsible\u0022,\u0022reason\u0022:\u0022Adds a detail to the wagon loss that the briefing does not give.\u0022},{\u0022span\u0022:\u0022their complaints grow louder with each passing day\u0022,\u0022reason\u0022:\u0022Presents an ongoing development the briefing does not support.\u0022},{\u0022span\u0022:\u0022Vex\u0027s Crew has said little about the Empire\u0027s demands\u0022,\u0022reason\u0022:\u0022The briefing records no reaction from Vex\u0027s Crew.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The voice is generic and hedging, with almost none of the dry wit of the earlier bulletins, and it runs well over the word limit; the third item has only two sentences. It also invents several details: the road\u0027s history, the unfound raiders, the growing complaints and Vex\u0027s Crew\u0027s silence, and it revives the old wagon story as if it were still developing.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.8261892,
+      "inputTokens": 2436,
+      "outputTokens": 592
+    }
+  ]
+}

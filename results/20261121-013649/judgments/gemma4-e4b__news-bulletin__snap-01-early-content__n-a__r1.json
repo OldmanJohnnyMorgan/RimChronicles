@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-01-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022no significant shifts in the established faction counts since the last count\u0022,\u0022reason\u0022:\u0022This is the first bulletin; the briefing gives no earlier count to compare against.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Both news items are crammed into one paragraph and every paragraph has two sentences, not three, so the required structure is broken. The voice is only faintly wry, and the closing paragraph implies a previous faction count that doesn\u0027t exist.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.8924376,
+      "inputTokens": 2163,
+      "outputTokens": 524
+    }
+  ]
+}

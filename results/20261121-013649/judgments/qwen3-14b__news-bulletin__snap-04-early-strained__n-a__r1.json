@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-04-early-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022who last filed a dispatch from Lowmere over a month ago\u0022,\u0022reason\u0022:\u0022Briefing gives no last location or timing for Quell\u0022},{\u0022span\u0022:\u0022citing \u201Cunforeseen risks.\u201D\u0022,\u0022reason\u0022:\u0022Invented quote and reason\u0022},{\u0022span\u0022:\u0022last night\u0022,\u0022reason\u0022:\u0022Timing not given\u0022},{\u0022span\u0022:\u0022leaving two crew members injured\u0022,\u0022reason\u0022:\u0022Casualties not in briefing\u0022},{\u0022span\u0022:\u0022This is the third such attack in as many weeks\u0022,\u0022reason\u0022:\u0022Invented number and pattern of attacks\u0022},{\u0022span\u0022:\u0022the Brine Coast League has yet to respond publicly\u0022,\u0022reason\u0022:\u0022No League response or non-response in briefing\u0022},{\u0022span\u0022:\u0022The incident has disrupted trade\u0022,\u0022reason\u0022:\u0022Consequence not given\u0022},{\u0022span\u0022:\u0022the Brine Coast League continues to expand its influence\u0022,\u0022reason\u0022:\u0022No expansion mentioned; briefing only gives settlement count\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022Readable, but it heavily embellishes every item with invented details: a quote, casualties, attack counts, timings. The third item mostly repeats the first instead of offering dry comment on the briefing facts, and the voice is generic rather than wry.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.4164215,
+      "inputTokens": 2286,
+      "outputTokens": 402
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-01-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Red Gully Raiders continue their usual pattern of harassing supply lines near the outer sectors\u0022,\u0022reason\u0022:\u0022Briefing reports no raider activity or supply-line attacks.\u0022},{\u0022span\u0022:\u0022It is a quiet week, much like the last\u0022,\u0022reason\u0022:\u0022First bulletin; the briefing says nothing about the previous week.\u0022},{\u0022span\u0022:\u0022Their numbers remain static\u0022,\u0022reason\u0022:\u0022Briefing gives one settlement count, not a change over time.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It invents raider attacks on supply lines and a previous quiet week, and it ignores the settlement counts it could have used instead. Both real news items are crammed into one paragraph, the word count runs long, and words like \u0027sectors\u0027 and \u0027threat level\u0027 sound more like modern bureaucracy than the rim.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.2282749,
+      "inputTokens": 2199,
+      "outputTokens": 558
+    }
+  ]
+}

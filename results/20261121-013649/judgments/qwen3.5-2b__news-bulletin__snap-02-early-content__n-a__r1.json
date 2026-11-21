@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-02-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022leaving behind scattered debris and no sign of organized retreat\u0022,\u0022reason\u0022:\u0022Adds details to the abandonment that the briefing does not give.\u0022},{\u0022span\u0022:\u0022The company claims this is a strategic withdrawal to conserve supplies for the coming winter\u0022,\u0022reason\u0022:\u0022Invented claim and motive. It is also odd, since it is Aprimay, not winter.\u0022},{\u0022span\u0022:\u0022the colony\u0027s population remains static\u0022,\u0022reason\u0022:\u0022Claims knowledge of the colony\u0027s interior that the briefing never makes public.\u0022},{\u0022span\u0022:\u0022the tide of war appears to have turned against the pirates\u0022,\u0022reason\u0022:\u0022Asserts a shift in the war that the briefing does not support.\u0022},{\u0022span\u0022:\u0022no major skirmishes reported\u0022,\u0022reason\u0022:\u0022An unsupported claim about the state of the region.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The bulletin pads the one real story with invented motives, debris and a claim about the colony\u0027s population it cannot know. It also recycles the \u0027profitable week\u0027 joke as if it were new, runs well over length, and reads flat and analytical rather than dry and wry.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.2958557,
+      "inputTokens": 2562,
+      "outputTokens": 705
+    }
+  ]
+}

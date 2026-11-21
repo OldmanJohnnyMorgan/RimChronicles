@@ -1,0 +1,32 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-04-early-strained__n-a__r1",
+  "model": "gemma4-e2b",
+  "task": "news-bulletin",
+  "snapshot": "snap-04-early-strained",
+  "grammar": "n/a",
+  "repeat": 1,
+  "promptVersion": "news-bulletin/v3",
+  "outcome": "Model",
+  "value": "The usual static hums through the lines, mostly about the ongoing search for Tomas Quell by the Rim Dispatch. Reports persist that the Black Fen Raiders managed to burn a ferry in the south channel recently. Furthermore, the Dispatch has apparently decided to cease sending reporters toward Lowmere for the time being.\n\nThe Brine Coast League maintains its established presence across six settlements, a stable arrangement that rarely requires much reporting. Their current activities remain consistent with previous cycles, offering little fresh material for the readership. It is a quiet week, as is often the case out here.\n\nThe Black Fen Raiders continue their usual pattern of piracy, though specific targets remain unconfirmed by reliable sources. The current tally of settlements for the Raiders remains fixed at three locations within the sector. This predictable pattern is hardly news worth noting in the grand scheme of things.",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.\n\nWrite your next news bulletin.\n\nWhat to write:\n- Exactly 3 news items, most important first, each a paragraph of 3 sentences, separated by a blank line. About 100 to 130 words in all.\n- Start with what you heard since your last bulletin.\n- What your earlier bulletins already covered is old news. You may mention it briefly as background, but never present it as new or happening again.\n- If there is little new news, make the remaining items dry comment on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.\n\nWhat you know:\n- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events, and never add details to an event that the briefing does not give.\n- You do not know what happens inside the colony unless your briefing says it became public.\n\nStyle:\n- Keep your voice the same as in your earlier bulletins, but do not reuse their jokes or sentences.\n- Write plain paragraphs of prose. The briefing\u0027s headings and labels are notes for you: never copy them into the bulletin.\n- Write only the bulletin itself: no title, no headings, no dateline, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 38 (Septober 5500).\nThe colony you report near: Lowmere. You do not know what happens inside it unless listed below.\n\nFactions:\n- The Rim Dispatch (Outlanders): 1 settlement\n- The Brine Coast League (Outlanders): 6 settlements\n- Black Fen Raiders (Pirates): 3 settlements\n\nHeard since your last bulletin (lead with these):\n- The Rim Dispatch is looking for news of its reporter Tomas Quell\n- Black Fen Raiders burned a ferry on the south channel\n- The Rim Dispatch has stopped sending reporters toward Lowmere\n\n## Your earlier bulletins\nNone yet. This is your first bulletin.\n\nWrite the bulletin now.\n",
+        "maxOutputTokens": 350,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "The usual static hums through the lines, mostly about the ongoing search for Tomas Quell by the Rim Dispatch. Reports persist that the Black Fen Raiders managed to burn a ferry in the south channel recently. Furthermore, the Dispatch has apparently decided to cease sending reporters toward Lowmere for the time being.\n\nThe Brine Coast League maintains its established presence across six settlements, a stable arrangement that rarely requires much reporting. Their current activities remain consistent with previous cycles, offering little fresh material for the readership. It is a quiet week, as is often the case out here.\n\nThe Black Fen Raiders continue their usual pattern of piracy, though specific targets remain unconfirmed by reliable sources. The current tally of settlements for the Raiders remains fixed at three locations within the sector. This predictable pattern is hardly news worth noting in the grand scheme of things.",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 1.123824,
+      "inputTokens": 487,
+      "outputTokens": 169,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-341\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795225054,\u0022model\u0022:\u0022gemma4:e2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022The usual static hums through the lines, mostly about the ongoing search for Tomas Quell by the Rim Dispatch. Reports persist that the Black Fen Raiders managed to burn a ferry in the south channel recently. Furthermore, the Dispatch has apparently decided to cease sending reporters toward Lowmere for the time being.\\n\\nThe Brine Coast League maintains its established presence across six settlements, a stable arrangement that rarely requires much reporting. Their current activities remain consistent with previous cycles, offering little fresh material for the readership. It is a quiet week, as is often the case out here.\\n\\nThe Black Fen Raiders continue their usual pattern of piracy, though specific targets remain unconfirmed by reliable sources. The current tally of settlements for the Raiders remains fixed at three locations within the sector. This predictable pattern is hardly news worth noting in the grand scheme of things.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:487,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:169,\u0022total_tokens\u0022:656}}\n"
+    }
+  ]
+}

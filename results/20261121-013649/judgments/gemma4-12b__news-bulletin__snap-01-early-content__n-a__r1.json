@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-01-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022A severe cold snap\u0022,\u0022reason\u0022:\u0022Briefing gives no severity; \u0027severe\u0027 adds a detail.\u0022},{\u0022span\u0022:\u0022They still hold the majority over the Red Gully Raiders and the Seven Ash Clans.\u0022,\u0022reason\u0022:\u0022The Union\u0027s 6 settlements are fewer than the other two factions\u0027 combined 7, so this is not a majority.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Structure and length follow the brief, but the voice is flat and generic rather than dry or wry. It also embellishes the cold snap as \u0027severe\u0027 and wrongly claims the Tarn Union holds a majority: its 6 settlements are fewer than the other factions\u0027 combined 7.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.1573935,
+      "inputTokens": 2131,
+      "outputTokens": 542
+    }
+  ]
+}

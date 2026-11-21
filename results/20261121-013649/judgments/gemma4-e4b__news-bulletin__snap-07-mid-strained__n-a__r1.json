@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-07-mid-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022This move puts immediate pressure on the local settlements, who are already dealing with the fallout\u0022,\u0022reason\u0022:\u0022Adds consequences and an ongoing situation that the briefing does not report.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It reads like a flat policy analyst rather than Ilse\u0027s dry, wry voice. It leans on \u0027predictable\u0027 three times and on office phrasing such as \u0027freshest development\u0027 and \u0027underlying balance of power\u0027. Each paragraph has two sentences instead of three, and the consequence it adds to the toll demand has no support in the briefing.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.4334766,
+      "inputTokens": 2393,
+      "outputTokens": 591
+    }
+  ]
+}

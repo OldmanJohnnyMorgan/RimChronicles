@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-01-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Since my last report\u0022,\u0022reason\u0022:\u0022This is the first bulletin; there was no earlier report.\u0022},{\u0022span\u0022:\u0022allowing the Union and Raiders to regroup without the distraction of active warfare\u0022,\u0022reason\u0022:\u0022The briefing mentions no war or conflict between the Tarn Union and the Red Gully Raiders.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It invents a prior report and a war between the Union and the Raiders. It also ignores the format: paragraphs of 2, 2 and 1 sentences, roughly 170 words, and modern phrasing like \u0027pause button\u0027 and \u0027shifting power dynamics\u0027 that undercuts the frontier tone.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.4813265,
+      "inputTokens": 2241,
+      "outputTokens": 560
+    }
+  ]
+}

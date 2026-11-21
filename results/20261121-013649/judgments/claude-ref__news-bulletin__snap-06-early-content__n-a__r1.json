@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-06-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:4,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate and sharply dry, with the old harvest news used correctly as background and lines like \u0027on the water paper does not float\u0027 that fit Ilse\u0027s voice. The second item\u0027s closing sentence, \u0027move their grain past somebody\u0027, is a little muddled, and the filler items lean on restating faction counts.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.7376533,
+      "inputTokens": 2297,
+      "outputTokens": 408
+    }
+  ]
+}

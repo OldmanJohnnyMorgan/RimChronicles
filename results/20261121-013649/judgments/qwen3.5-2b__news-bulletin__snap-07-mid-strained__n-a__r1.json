@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-07-mid-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They claimed the route had become too dangerous for their own men\u0022,\u0022reason\u0022:\u0022The briefing gives no reason or claim for the tolls.\u0022},{\u0022span\u0022:\u0022The locals simply shrugged and kept their horses moving without complaint\u0022,\u0022reason\u0022:\u0022This local reaction is invented.\u0022},{\u0022span\u0022:\u0022seems to be ignoring the imperial demands entirely\u0022,\u0022reason\u0022:\u0022The briefing does not say how Vex\u0027s Crew responded.\u0022},{\u0022span\u0022:\u0022too busy fighting nearby outlanders\u0022,\u0022reason\u0022:\u0022The briefing mentions no fighting between the pirates and outlanders.\u0022},{\u0022span\u0022:\u0022They have not lost another supply wagon\u0022,\u0022reason\u0022:\u0022The briefing does not say this.\u0022},{\u0022span\u0022:\u0022last month\u0022,\u0022reason\u0022:\u0022The briefing gives no timing for the wagon loss.\u0022},{\u0022span\u0022:\u0022Their complaints about imperial pressure are loud enough to be heard by anyone walking past their gates\u0022,\u0022reason\u0022:\u0022The Covenant\u0027s reaction to imperial pressure is invented.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The bulletin invents reactions, motives and timing throughout, including the toll rationale, the pirates\u0027 indifference and the Covenant\u0027s complaints. The prose is flat, lacks Ilse\u0027s dry wit, and includes an awkward meta line about the toll amount not being stated.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 8.1070884,
+      "inputTokens": 2391,
+      "outputTokens": 791
+    }
+  ]
+}

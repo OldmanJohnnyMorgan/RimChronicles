@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Captain Rook Malley\u0027s Lancers are getting bolder.\u0022,\u0022reason\u0022:\u0022Presented as current, but the briefing says Malley is dead.\u0022},{\u0022span\u0022:\u0022It seems the colony is simply waiting for the next skirmish to break out\u0022,\u0022reason\u0022:\u0022Claims knowledge of the colony\u0027s state, which the briefing does not make public.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It misses the only new story, Rook Malley\u0027s death, and instead copies the earlier bulletins nearly word for word, reusing their sentences and jokes and presenting old news as current. The structure also breaks the brief: the third item is a single sentence.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.7132447,
+      "inputTokens": 2396,
+      "outputTokens": 637
+    }
+  ]
+}

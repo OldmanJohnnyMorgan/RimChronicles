@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-08-mid-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The bulletin is accurate and well structured, and it leads correctly with the jade sculpture. The voice is flat for Ilse: phrases like \\\u0022primary topic of conversation\\\u0022 and \\\u0022state of uneasy proximity\\\u0022 read stiff rather than dry, and the wit is thin.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.263963,
+      "inputTokens": 2353,
+      "outputTokens": 572
+    }
+  ]
+}

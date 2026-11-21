@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The remaining settlement in that area remains untouched by this latest assault\u0022,\u0022reason\u0022:\u0022No other settlement in that area is mentioned in the briefing.\u0022},{\u0022span\u0022:\u0022rather than committing to a full-scale siege again\u0022,\u0022reason\u0022:\u0022Implies an earlier siege that the briefing never mentions.\u0022},{\u0022span\u0022:\u0022now requiring caravan escorts for every single journey across the open plains\u0022,\u0022reason\u0022:\u0022The briefing says caravans travel in pairs, not that escorts are required on every journey.\u0022},{\u0022span\u0022:\u0022continuing to patrol the grasslands\u0022,\u0022reason\u0022:\u0022The Kinn were said to be on the move because of fires, not patrolling.\u0022},{\u0022span\u0022:\u0022where fires have recently begun to spread\u0022,\u0022reason\u0022:\u0022Adds spreading fires, a detail the briefing does not give.\u0022},{\u0022span\u0022:\u0022trouble is actively hunting them down\u0022,\u0022reason\u0022:\u0022Asserts an event the briefing does not support and contradicts the earlier bulletin.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It ignores the quiet week and presents old news as new (\u0027fresh scar\u0027, \u0027latest assault\u0027), adding invented details and rehashing earlier jokes. The flat, report-like prose also loses Ilse\u0027s dry voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.720172,
+      "inputTokens": 2500,
+      "outputTokens": 672
+    }
+  ]
+}

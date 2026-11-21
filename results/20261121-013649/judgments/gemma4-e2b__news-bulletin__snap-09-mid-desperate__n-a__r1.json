@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The real news, Rook Malley\u0027s death, is buried as background noise when it should lead, and the remaining items are flat, office-like filler (\u0027territorial distribution\u0027, \u0027static arrangement\u0027) with none of Odile\u0027s sardonic voice. The paragraphs also break the three-sentence structure.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.2126234,
+      "inputTokens": 2358,
+      "outputTokens": 505
+    }
+  ]
+}

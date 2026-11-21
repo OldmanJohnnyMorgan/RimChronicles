@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022noted the Kinn moving south due to grass fires\u0022,\u0022reason\u0022:\u0022The earlier bulletin placed the fires in the south and said the Kinn were moving. It never said they were moving south.\u0022},{\u0022span\u0022:\u0022The Kinn of the Long Grass remain settled in their three designated areas\u0022,\u0022reason\u0022:\u0022This contradicts the earlier report that the Kinn are on the move. Nothing in the briefing says they have settled.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin misreports the Kinn\u0027s movement and then contradicts itself by calling them settled. The voice is flat and bureaucratic, with almost none of Ilse\u0027s dry wit, and each paragraph has two sentences instead of the required three.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.3991477,
+      "inputTokens": 2317,
+      "outputTokens": 552
+    }
+  ]
+}

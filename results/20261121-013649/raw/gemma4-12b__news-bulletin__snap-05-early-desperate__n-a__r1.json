@@ -1,0 +1,32 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "model": "gemma4-12b",
+  "task": "news-bulletin",
+  "snapshot": "snap-05-early-desperate",
+  "grammar": "n/a",
+  "repeat": 1,
+  "promptVersion": "news-bulletin/v3",
+  "outcome": "Model",
+  "value": "The Gorse Clans have officially closed their markets to all outsiders. This shift follows the earlier news of their aggressive fur-for-grain trading. One can only assume they have run out of patience for our persistent haggling.\n\nThe Scythe Tooth pirates continue to maintain their presence across five settlements. Their recent raids on three settlements remain a persistent nuisance for the region. It is a predictable, if tiresome, display of maritime thuggery.\n\nThe Ferrow Mutual currently oversees four settlements while coordinating shared patrols. This arrangement follows their previous inquiries regarding the funding of such security. It is a quiet week of bureaucratic maneuvering and watchful eyes.",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are Odile Brask, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is sardonic, precise and fond of understatement.\n\nWrite your next news bulletin.\n\nWhat to write:\n- Exactly 3 news items, most important first, each a paragraph of 3 sentences, separated by a blank line. About 100 to 130 words in all.\n- Start with what you heard since your last bulletin.\n- What your earlier bulletins already covered is old news. You may mention it briefly as background, but never present it as new or happening again.\n- If there is little new news, make the remaining items dry comment on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.\n\nWhat you know:\n- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events, and never add details to an event that the briefing does not give.\n- You do not know what happens inside the colony unless your briefing says it became public.\n\nStyle:\n- Keep your voice the same as in your earlier bulletins, but do not reuse their jokes or sentences.\n- Write plain paragraphs of prose. The briefing\u0027s headings and labels are notes for you: never copy them into the bulletin.\n- Write only the bulletin itself: no title, no headings, no dateline, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 47 (Decembary 5500).\nThe colony you report near: Thornreach. You do not know what happens inside it unless listed below.\n\nFactions:\n- Scythe Tooth (Pirates): 5 settlements\n- The Ferrow Mutual (Outlanders): 4 settlements\n- The Gorse Clans (Tribe): 6 settlements\n\nHeard since your last bulletin (lead with these):\n- The Gorse Clans closed their markets to outsiders\n\nYour earlier bulletins already covered (old news, background only):\n- A cold snap has killed crops across the northern basin\n- Scythe Tooth raids reported at three settlements\n\n## Your earlier bulletins\nEarlier bulletin:\nThe cold has come early. Every farm north of the Ferrow road reports lost crops, and the Gorse Clans are trading furs for grain at prices that would make a usurer blush.\n\nLatest bulletin:\nScythe Tooth raiders have now hit three settlements in a quadrum. The Ferrow Mutual has asked its members to share patrols. Its members have asked who is paying.\n\nWrite the bulletin now.\n",
+        "maxOutputTokens": 500,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "The Gorse Clans have officially closed their markets to all outsiders. This shift follows the earlier news of their aggressive fur-for-grain trading. One can only assume they have run out of patience for our persistent haggling.\n\nThe Scythe Tooth pirates continue to maintain their presence across five settlements. Their recent raids on three settlements remain a persistent nuisance for the region. It is a predictable, if tiresome, display of maritime thuggery.\n\nThe Ferrow Mutual currently oversees four settlements while coordinating shared patrols. This arrangement follows their previous inquiries regarding the funding of such security. It is a quiet week of bureaucratic maneuvering and watchful eyes.",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.3072442,
+      "inputTokens": 575,
+      "outputTokens": 129,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-949\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795225148,\u0022model\u0022:\u0022gemma4:12b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022The Gorse Clans have officially closed their markets to all outsiders. This shift follows the earlier news of their aggressive fur-for-grain trading. One can only assume they have run out of patience for our persistent haggling.\\n\\nThe Scythe Tooth pirates continue to maintain their presence across five settlements. Their recent raids on three settlements remain a persistent nuisance for the region. It is a predictable, if tiresome, display of maritime thuggery.\\n\\nThe Ferrow Mutual currently oversees four settlements while coordinating shared patrols. This arrangement follows their previous inquiries regarding the funding of such security. It is a quiet week of bureaucratic maneuvering and watchful eyes.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:575,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:129,\u0022total_tokens\u0022:704}}\n"
+    }
+  ]
+}

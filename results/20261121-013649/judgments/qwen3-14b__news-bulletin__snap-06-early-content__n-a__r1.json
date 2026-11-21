@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-06-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The haul was substantial\u0022,\u0022reason\u0022:\u0022The briefing gives no size or value for the robbery.\u0022},{\u0022span\u0022:\u0022the Combine is already talking about retaliation\u0022,\u0022reason\u0022:\u0022Invented reaction; the briefing gives none.\u0022},{\u0022span\u0022:\u0022This isn\u2019t the first time they\u2019ve taken what isn\u2019t theirs\u0022,\u0022reason\u0022:\u0022Invented prior history of Ditch Kings thefts.\u0022},{\u0022span\u0022:\u0022it\u2019s the first time they\u2019ve done so with such boldness\u0022,\u0022reason\u0022:\u0022Unsupported claim about the nature of the robbery.\u0022},{\u0022span\u0022:\u0022The Combine has been careful not to provoke the Ditch Kings\u0022,\u0022reason\u0022:\u0022Invented relationship between the factions.\u0022},{\u0022span\u0022:\u0022Imperial shuttles still linger over the eastern mountains\u0022,\u0022reason\u0022:\u0022Recasts old news as an ongoing current event, which the briefing does not support.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin is readable and correctly structured, but it pads the one real story with an invented retaliation, invented history and a size for the haul. It also presents the old shuttle sighting as still happening. The voice is mostly generic, with only a flicker of wryness at the end.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.5430446,
+      "inputTokens": 2291,
+      "outputTokens": 642
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-02-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It just means the pirates have found a new place to be nuisances.\u0022,\u0022reason\u0022:\u0022Briefing says only that the camp was abandoned, not that the pirates relocated.\u0022},{\u0022span\u0022:\u0022the price of salt continues to climb\u0022,\u0022reason\u0022:\u0022Earlier bulletins say salt is dear; nothing says the price is still rising.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin leads correctly with the abandoned camp, but it adds that the pirates relocated and that salt prices are rising, neither of which the briefing supports. The voice drifts into flat phrasing like \u0027As previously noted\u0027 and recycles the earlier joke about the Company\u0027s profitable weeks.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.3965741,
+      "inputTokens": 2423,
+      "outputTokens": 549
+    }
+  ]
+}

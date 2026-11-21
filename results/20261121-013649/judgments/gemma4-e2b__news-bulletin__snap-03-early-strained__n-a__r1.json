@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Ashen Hand continue their usual pattern of opportunistic raiding across the sector.\u0022,\u0022reason\u0022:\u0022Presents ongoing raiding as current; the briefing reports nothing new and only two past raids.\u0022},{\u0022span\u0022:\u0022the specific targets of their current ventures\u0022,\u0022reason\u0022:\u0022Implies current Ashen Hand raids that the briefing does not mention.\u0022},{\u0022span\u0022:\u0022merely a continuation of their seasonal movements\u0022,\u0022reason\u0022:\u0022The Kinn moved because of grass fires; nothing in the briefing calls this seasonal.\u0022},{\u0022span\u0022:\u0022they do not draw undue attention from any local elements\u0022,\u0022reason\u0022:\u0022Claims an outcome of the Merrow pairing that the briefing does not give.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It breaks the format with four paragraphs and roughly double the word count, and it recasts old news as ongoing activity with invented details. The prose is flat and bureaucratic (\u0027local elements\u0027, \u0027measured approach\u0027) rather than Ilse\u0027s dry wit, and it never uses the faction counts the task suggested for a quiet week.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.9348407,
+      "inputTokens": 2470,
+      "outputTokens": 675
+    }
+  ]
+}

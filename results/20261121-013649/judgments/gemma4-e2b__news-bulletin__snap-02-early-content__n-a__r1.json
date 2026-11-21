@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-02-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Reports from the western fringe suggest the Tannerfolk are consolidating their positions following recent engagements.\u0022,\u0022reason\u0022:\u0022Briefing gives no western fringe, no Tannerfolk consolidation, no recent engagements.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin leads correctly with the abandoned camp, but it invents a Tannerfolk consolidation on a \u0027western fringe\u0027. The prose is flat and repetitive (\u0027as usual\u0027, \u0027predictable\u0027), with almost none of Ilse\u0027s dry wit, and it runs over the word target.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.9569278,
+      "inputTokens": 2497,
+      "outputTokens": 462
+    }
+  ]
+}

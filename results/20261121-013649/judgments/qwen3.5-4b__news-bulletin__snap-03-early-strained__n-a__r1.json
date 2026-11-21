@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It seems even the Kinn of the Long Grass have found some peace after their recent relocation from the burning south.\u0022,\u0022reason\u0022:\u0022The briefing only says the Kinn were on the move; it does not say they settled, relocated or found peace.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It breaks the format with only two items instead of three, and the second paragraph has two sentences. It also asserts the Kinn have finished relocating and found peace, which the briefing does not support, and the wit leans on clich\u00E9s like \u0027deafening silence\u0027 and \u0027stark contrast\u0027 rather than Ilse\u0027s dry voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.3943286,
+      "inputTokens": 2324,
+      "outputTokens": 493
+    }
+  ]
+}

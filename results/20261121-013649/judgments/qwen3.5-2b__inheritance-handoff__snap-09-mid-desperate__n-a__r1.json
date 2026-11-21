@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__inheritance-handoff__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Joska\u0027s laugh when he told stories about how pirates were nothing but rats\u0022,\u0022reason\u0022:\u0022Invented memory and quoted belief not in briefing\u0022},{\u0022span\u0022:\u0022the small scar on his neck where Malley had tried to stab him\u0022,\u0022reason\u0022:\u0022Specific wound and stabbing not in briefing; only \u0027maimed\u0027\u0022},{\u0022span\u0022:\u0022Now, she was the only one left to carry that memory.\u0022,\u0022reason\u0022:\u0022Contradicts briefing; Lene, Joska\u0027s wife, is not stated dead\u0022},{\u0022span\u0022:\u0022Tamsin knew the ground was unstable there\u0022,\u0022reason\u0022:\u0022Unsupported detail about the camp\u0022},{\u0022span\u0022:\u0022I\u0027m going to find out who is really behind that\u0022,\u0022reason\u0022:\u0022Implies a hidden instigator the briefing never mentions\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The scene runs about 190 words, well over the 120 limit, and invents several facts, including a stab scar and Tamsin being \u0027the only one left\u0027 despite Lene. It names emotions outright (\u0027grief mixed with a fierce determination\u0027) and has muddled details such as a rifle in a \u0027shoulder holster\u0027 and a vague conspiracy aim.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.684918,
+      "inputTokens": 2072,
+      "outputTokens": 737
+    }
+  ]
+}

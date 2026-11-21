@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The bulletin is accurate, clear and dryly wry. It turns faction counts and the date into decent filler without inventing anything, and old news is kept as background. It runs a little over the word target, and the opening is somewhat flat.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.6510018,
+      "inputTokens": 2385,
+      "outputTokens": 397
+    }
+  ]
+}

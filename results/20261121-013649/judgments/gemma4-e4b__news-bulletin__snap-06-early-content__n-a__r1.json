@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-06-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It is accurate and leads correctly with the barge robbery, using the harvest only as background. But items two and three have two sentences each instead of the required three. They are also flat faction-count recitals with little of Ilse\u0027s wry edge, and \u0027another slow rotation of the sun\u0027 is limp filler.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.5416317,
+      "inputTokens": 2280,
+      "outputTokens": 457
+    }
+  ]
+}

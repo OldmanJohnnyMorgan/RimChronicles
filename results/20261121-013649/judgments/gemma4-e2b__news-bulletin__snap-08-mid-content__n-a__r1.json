@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-08-mid-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Reports suggest the piece is proving more durable than anticipated\u0022,\u0022reason\u0022:\u0022The briefing says nothing about the sculpture\u0027s durability or any such reports.\u0022},{\u0022span\u0022:\u0022no official statement has been issued by the Accord\u0022,\u0022reason\u0022:\u0022This adds a detail about the Accord\u0027s response that the briefing does not give.\u0022},{\u0022span\u0022:\u0022The Reedmother\u0027s Children continue to report on their fishing success\u0022,\u0022reason\u0022:\u0022This presents an old-news item as a fresh, ongoing report; the briefing gives no new fishing report.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It invents details about the sculpture and recycles both old-news items as current events instead of offering dry comment. The prose leans on flat, office-like phrasing (\u0027current activity levels\u0027, \u0027standard lull\u0027) that lacks Ilse\u0027s wry bite.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.4561969,
+      "inputTokens": 2387,
+      "outputTokens": 649
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-06-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Ditch Kings have once again made a nuisance of themselves\u0022,\u0022reason\u0022:\u0022Implies earlier robberies; briefing gives only this one.\u0022},{\u0022span\u0022:\u0022The Calder Combine continues to report on their harvest yields, which remain satisfactory according to their own records.\u0022,\u0022reason\u0022:\u0022Presents an ongoing new report that isn\u0027t in the briefing. It also contradicts the earlier \u0027best in years\u0027.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The lead item is handled correctly, but the second item recycles old harvest news as a continuing report and waters it down to \u0027satisfactory\u0027. The filler items are bland and skip the briefing\u0027s concrete facts, such as settlement counts and the date.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.2062993,
+      "inputTokens": 2314,
+      "outputTokens": 548
+    }
+  ]
+}

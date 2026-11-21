@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-04-early-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022a search that has yielded nothing but silence and empty roads since he vanished without a trace\u0022,\u0022reason\u0022:\u0022The briefing says only that the Dispatch is looking for news of him; it gives no search results and no details of a disappearance.\u0022},{\u0022span\u0022:\u0022a move that likely complicates any future attempts to cross the water between our factions\u0022,\u0022reason\u0022:\u0022The briefing does not say the channel lies between factions.\u0022},{\u0022span\u0022:\u0022leaving travelers stranded and supplies cut off\u0022,\u0022reason\u0022:\u0022These are consequences of the ferry burning that the briefing does not give.\u0022},{\u0022span\u0022:\u0022September 5500\u0022,\u0022reason\u0022:\u0022The briefing gives Septober 5500, so the month is misstated.\u0022},{\u0022span\u0022:\u0022The Rim Dispatch remains the only settlement holding together\u0022,\u0022reason\u0022:\u0022The briefing does not support this claim, and other factions hold more settlements.\u0022},{\u0022span\u0022:\u0022effectively cutting off the main line of communication with the settlement\u0022,\u0022reason\u0022:\u0022This adds a consequence the briefing does not give.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin breaks character with \\\u0022without inventing new events\\\u0022 and pads the three real facts with invented consequences and a misstated date. It also runs well over the word limit, and its voice reads like generic analysis rather than dry wit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 9.2064936,
+      "inputTokens": 2375,
+      "outputTokens": 826
+    }
+  ]
+}

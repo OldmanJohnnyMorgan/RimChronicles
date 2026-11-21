@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-02-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The output sticks to the briefing\u0027s facts, but the voice is flat and report-like, nothing like Ilse\u0027s dry wit in earlier bulletins. Each paragraph has two sentences instead of the required three, and the old caravan news is recycled as \u0027recently\u0027 rather than kept as background.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.4695681,
+      "inputTokens": 2409,
+      "outputTokens": 441
+    }
+  ]
+}

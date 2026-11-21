@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022This follows months of tense negotiations and a recent spike in skirmishes along their borders.\u0022,\u0022reason\u0022:\u0022Negotiations and skirmishes not in briefing\u0022},{\u0022span\u0022:\u0022The move has left traders from the Ferrow Mutual and Scythe Tooth scrambling for alternatives.\u0022,\u0022reason\u0022:\u0022Effect on specific factions\u0027 traders not given\u0022},{\u0022span\u0022:\u0022trading furs in a way that suggests they\u2019ve secured enough reserves to weather the season\u0022,\u0022reason\u0022:\u0022Reserves claim unsupported; also contradicts market closure\u0022},{\u0022span\u0022:\u0022Their latest strike was at a settlement on the edge of the Ferrow Mutual\u2019s territory.\u0022,\u0022reason\u0022:\u0022New raid presented as news; location invented\u0022},{\u0022span\u0022:\u0022left behind a message carved into a barn door\u2014something about \u201Cunpaid debts\u201D and \u201Cold blood.\u201D\u0022,\u0022reason\u0022:\u0022Invented event and quote\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The bulletin invents several events, including negotiations, skirmishes, a new raid and a carved message with quotes. It also presents old raid news as ongoing. It opens with the briefing\u0027s meta-phrasing and has none of Odile\u0027s sardonic understatement.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.1294839,
+      "inputTokens": 2372,
+      "outputTokens": 405
+    }
+  ]
+}

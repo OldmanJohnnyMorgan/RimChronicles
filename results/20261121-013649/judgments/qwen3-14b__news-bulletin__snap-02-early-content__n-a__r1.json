@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-02-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022This is the second such retreat in as many weeks\u0022,\u0022reason\u0022:\u0022The briefing mentions only one abandoned camp and gives no timeframe.\u0022},{\u0022span\u0022:\u0022With each abandoned camp, the balance of power tilts further toward the tribe\u0022,\u0022reason\u0022:\u0022Implies several abandoned camps and a shifting balance, which the briefing does not give.\u0022},{\u0022span\u0022:\u0022though the pirates are losing ground\u0022,\u0022reason\u0022:\u0022The briefing gives no outcome or trend for the war; this adds detail to the event.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It invents a second retreat and a pirate decline from a single abandoned camp. It also copies \u0027The salt flats remain contested and the salt remains expensive\u0027 word for word from the last bulletin, and it reworks the old profitable-week and caravan-guard jokes. The voice is flat analysis rather than Ilse\u0027s dry wit, and at about 150 words it runs over length.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.4904295,
+      "inputTokens": 2481,
+      "outputTokens": 717
+    }
+  ]
+}

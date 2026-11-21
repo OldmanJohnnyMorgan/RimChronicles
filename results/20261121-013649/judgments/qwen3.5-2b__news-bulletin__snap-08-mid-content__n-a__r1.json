@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-08-mid-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022this time with a sharper edge than usual\u0022,\u0022reason\u0022:\u0022No prior talk of the sculpture or any \u0027edge\u0027 is in the briefing.\u0022},{\u0022span\u0022:\u0022The Accord claims it is for cultural preservation\u0022,\u0022reason\u0022:\u0022Invented Accord claim about the sculpture.\u0022},{\u0022span\u0022:\u0022Merchants from the Ninefingers Gang are already lining up outside the main gate, demanding to see the artifact before they pay their toll\u0022,\u0022reason\u0022:\u0022Invented event, invented gate and invented toll.\u0022},{\u0022span\u0022:\u0022The Lantern Accord\u0027s trade fair opens next week at Lantern Hill.\u0022,\u0022reason\u0022:\u0022Old news presented as current, and the timing is now wrong.\u0022},{\u0022span\u0022:\u0022They claim it was an ambush, but the reports suggest they were simply waiting for the right opportunity to strike again\u0022,\u0022reason\u0022:\u0022Invented claim and invented reports.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The second paragraph copies an earlier bulletin word for word, and the first item is padded with invented details: a Ninefingers queue, a toll and Accord claims. The third item rehashes old news with made-up reports, and the item paragraphs miss the required three-sentence length.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.308571,
+      "inputTokens": 2363,
+      "outputTokens": 401
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-04-early-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It stays within the briefing, but it packs all three real stories into one flat paragraph, then pads with filler and calls it a quiet week despite a missing reporter and a burned ferry. The voice is bland and office-like (\u0027Furthermore\u0027, \u0027readership\u0027, \u0027previous cycles\u0027) rather than dry and wry.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.9184085,
+      "inputTokens": 2264,
+      "outputTokens": 523
+    }
+  ]
+}

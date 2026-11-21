@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__inheritance-handoff__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Tamsin sat in the mud where Joska had fallen\u0022,\u0022reason\u0022:\u0022Puts Tamsin at the Lancers\u0027 camp, which the briefing says the Lancers still hold.\u0022},{\u0022span\u0022:\u0022the Lancers\u0027 ruined camp\u0022,\u0022reason\u0022:\u0022Nothing says the camp is ruined; the Lancers still hold it.\u0022},{\u0022span\u0022:\u0022The memory of his final scream\u0022,\u0022reason\u0022:\u0022Implies Tamsin witnessed his death, which the briefing does not support.\u0022},{\u0022span\u0022:\u0022the cold, rusted hilt of his old blade\u0022,\u0022reason\u0022:\u0022No weapon of Joska\u0027s is mentioned in the briefing.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The scene contradicts the briefing by putting Tamsin in the camp the Lancers still hold. It garbles the new captain as \\\u0022Captain Malley\u0027s new face\\\u0022, and the pronouns in \\\u0022make sure he never found peace\\\u0022 are muddled. It also names emotions outright (\\\u0022the anger felt different\\\u0022), which the rules forbid.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 8.1134446,
+      "inputTokens": 1952,
+      "outputTokens": 708
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022per reports from his own camp\u0022,\u0022reason\u0022:\u0022The briefing says he was killed at his camp, not that the reports came from there.\u0022},{\u0022span\u0022:\u0022the settlement count remains unchanged across the known factions\u0022,\u0022reason\u0022:\u0022The briefing gives no earlier counts, so nothing supports \u0027unchanged\u0027.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The voice is flat and generic rather than sardonic, and lines like \u0027undoubtedly shift the local balance of power\u0027 read like office prose. Each paragraph has two sentences instead of three, and it adds a news source and a claim that settlement counts are \u0027unchanged\u0027, neither of which the briefing supports.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.5802023,
+      "inputTokens": 2338,
+      "outputTokens": 544
+    }
+  ]
+}

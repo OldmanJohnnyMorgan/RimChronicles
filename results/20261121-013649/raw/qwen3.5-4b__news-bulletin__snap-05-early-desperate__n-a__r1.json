@@ -1,0 +1,55 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "model": "qwen3.5-4b",
+  "task": "news-bulletin",
+  "snapshot": "snap-05-early-desperate",
+  "grammar": "n/a",
+  "repeat": 1,
+  "promptVersion": "news-bulletin/v3",
+  "outcome": "Template",
+  "value": "(template)",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are Odile Brask, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is sardonic, precise and fond of understatement.\n\nWrite your next news bulletin.\n\nWhat to write:\n- Exactly 3 news items, most important first, each a paragraph of 3 sentences, separated by a blank line. About 100 to 130 words in all.\n- Start with what you heard since your last bulletin.\n- What your earlier bulletins already covered is old news. You may mention it briefly as background, but never present it as new or happening again.\n- If there is little new news, make the remaining items dry comment on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.\n\nWhat you know:\n- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events, and never add details to an event that the briefing does not give.\n- You do not know what happens inside the colony unless your briefing says it became public.\n\nStyle:\n- Keep your voice the same as in your earlier bulletins, but do not reuse their jokes or sentences.\n- Write plain paragraphs of prose. The briefing\u0027s headings and labels are notes for you: never copy them into the bulletin.\n- Write only the bulletin itself: no title, no headings, no dateline, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 47 (Decembary 5500).\nThe colony you report near: Thornreach. You do not know what happens inside it unless listed below.\n\nFactions:\n- Scythe Tooth (Pirates): 5 settlements\n- The Ferrow Mutual (Outlanders): 4 settlements\n- The Gorse Clans (Tribe): 6 settlements\n\nHeard since your last bulletin (lead with these):\n- The Gorse Clans closed their markets to outsiders\n\nYour earlier bulletins already covered (old news, background only):\n- A cold snap has killed crops across the northern basin\n- Scythe Tooth raids reported at three settlements\n\n## Your earlier bulletins\nEarlier bulletin:\nThe cold has come early. Every farm north of the Ferrow road reports lost crops, and the Gorse Clans are trading furs for grain at prices that would make a usurer blush.\n\nLatest bulletin:\nScythe Tooth raiders have now hit three settlements in a quadrum. The Ferrow Mutual has asked its members to share patrols. Its members have asked who is paying.\n\nWrite the bulletin now.\n",
+        "maxOutputTokens": 500,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "The Gorse Clans have shuttered their markets, leaving traders with empty hands and no place to sell their winter stores. This sudden closure follows a cold snap that has already decimated the northern basin\u0027s harvests. It seems the clans prefer hoarding furs over feeding the hungry settlements nearby.\n\nScythe Tooth continues its relentless campaign, having now raided three settlements in the quadrum since my last report. The Ferrow Mutual is scrambling to organize patrols, though their members remain strangely eager to debate who should foot the bill. Their internal squabbles are as profitable as the pirate raids themselves.\n\nThe date marks day forty-seven of this grim season, and the factions maintain their respective hold on five, four, and six settlements respectively. While the Scythe Tooth and Ferrow Mutual vie for control, the Gorse Clans sit quietly with their gates barred against the world. A quiet week is a fine story when one considers the state of the rim.",
+      "error": null,
+      "failures": [
+        "Use 80-150 words; this has 158"
+      ],
+      "latencySeconds": 2.0867546,
+      "inputTokens": 581,
+      "outputTokens": 195,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-891\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795225085,\u0022model\u0022:\u0022qwen3.5:4b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022The Gorse Clans have shuttered their markets, leaving traders with empty hands and no place to sell their winter stores. This sudden closure follows a cold snap that has already decimated the northern basin\u0027s harvests. It seems the clans prefer hoarding furs over feeding the hungry settlements nearby.\\n\\nScythe Tooth continues its relentless campaign, having now raided three settlements in the quadrum since my last report. The Ferrow Mutual is scrambling to organize patrols, though their members remain strangely eager to debate who should foot the bill. Their internal squabbles are as profitable as the pirate raids themselves.\\n\\nThe date marks day forty-seven of this grim season, and the factions maintain their respective hold on five, four, and six settlements respectively. While the Scythe Tooth and Ferrow Mutual vie for control, the Gorse Clans sit quietly with their gates barred against the world. A quiet week is a fine story when one considers the state of the rim.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:581,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:195,\u0022total_tokens\u0022:776}}\n"
+    },
+    {
+      "request": {
+        "system": "You are Odile Brask, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is sardonic, precise and fond of understatement.\n\nWrite your next news bulletin.\n\nWhat to write:\n- Exactly 3 news items, most important first, each a paragraph of 3 sentences, separated by a blank line. About 100 to 130 words in all.\n- Start with what you heard since your last bulletin.\n- What your earlier bulletins already covered is old news. You may mention it briefly as background, but never present it as new or happening again.\n- If there is little new news, make the remaining items dry comment on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.\n\nWhat you know:\n- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events, and never add details to an event that the briefing does not give.\n- You do not know what happens inside the colony unless your briefing says it became public.\n\nStyle:\n- Keep your voice the same as in your earlier bulletins, but do not reuse their jokes or sentences.\n- Write plain paragraphs of prose. The briefing\u0027s headings and labels are notes for you: never copy them into the bulletin.\n- Write only the bulletin itself: no title, no headings, no dateline, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 47 (Decembary 5500).\nThe colony you report near: Thornreach. You do not know what happens inside it unless listed below.\n\nFactions:\n- Scythe Tooth (Pirates): 5 settlements\n- The Ferrow Mutual (Outlanders): 4 settlements\n- The Gorse Clans (Tribe): 6 settlements\n\nHeard since your last bulletin (lead with these):\n- The Gorse Clans closed their markets to outsiders\n\nYour earlier bulletins already covered (old news, background only):\n- A cold snap has killed crops across the northern basin\n- Scythe Tooth raids reported at three settlements\n\n## Your earlier bulletins\nEarlier bulletin:\nThe cold has come early. Every farm north of the Ferrow road reports lost crops, and the Gorse Clans are trading furs for grain at prices that would make a usurer blush.\n\nLatest bulletin:\nScythe Tooth raiders have now hit three settlements in a quadrum. The Ferrow Mutual has asked its members to share patrols. Its members have asked who is paying.\n\nWrite the bulletin now.\n\n\nYour previous answer was rejected:\n- Use 80-150 words; this has 158\nAnswer again, following every rule.",
+        "maxOutputTokens": 500,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "The Gorse Clans have closed their markets to outsiders, a move that leaves northern traders staring at empty stalls while the cold snap continues to rot the northern basin crops. This isolation is a quiet end to what was once a bustling exchange of furs for grain, prices that previously made any usurer blush.\n\nScythe Tooth raids remain active at three settlements, though the ferocity of these attacks has not changed since last week\u0027s report. The Ferrow Mutual continues to request shared patrols from its four members, yet no one has answered who is actually paying for this collective vigilance.\n\nThe date is day forty-seven, and the Rim Dispatch travels on as usual between scattered settlements where nothing new happens. Faction sizes remain static: five Scythe Tooth pirates, six Gorse Clans, and four Ferrow Mutuals waiting in the cold.",
+      "error": null,
+      "failures": [
+        "Do not mention names that are not in the briefing: Mutuals"
+      ],
+      "latencySeconds": 1.8122726,
+      "inputTokens": 614,
+      "outputTokens": 171,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-299\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795225087,\u0022model\u0022:\u0022qwen3.5:4b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022The Gorse Clans have closed their markets to outsiders, a move that leaves northern traders staring at empty stalls while the cold snap continues to rot the northern basin crops. This isolation is a quiet end to what was once a bustling exchange of furs for grain, prices that previously made any usurer blush.\\n\\nScythe Tooth raids remain active at three settlements, though the ferocity of these attacks has not changed since last week\u0027s report. The Ferrow Mutual continues to request shared patrols from its four members, yet no one has answered who is actually paying for this collective vigilance.\\n\\nThe date is day forty-seven, and the Rim Dispatch travels on as usual between scattered settlements where nothing new happens. Faction sizes remain static: five Scythe Tooth pirates, six Gorse Clans, and four Ferrow Mutuals waiting in the cold.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:614,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:171,\u0022total_tokens\u0022:785}}\n"
+    }
+  ]
+}

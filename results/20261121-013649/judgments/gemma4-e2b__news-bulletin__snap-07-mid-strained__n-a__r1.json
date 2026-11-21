@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-07-mid-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022maintaining their usual pattern of opportunistic scavenging\u0022,\u0022reason\u0022:\u0022Briefing gives no behaviour pattern for Vex\u0027s Crew\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The structure is clear and leads correctly with the toll demand, but the voice is flat and newsroom-generic rather than Ilse\u0027s wry cynicism, with clich\u00E9s like \u0027remains to be seen\u0027. It also gives Vex\u0027s Crew an unsupported habit of \u0027opportunistic scavenging\u0027.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.0466778,
+      "inputTokens": 2383,
+      "outputTokens": 551
+    }
+  ]
+}

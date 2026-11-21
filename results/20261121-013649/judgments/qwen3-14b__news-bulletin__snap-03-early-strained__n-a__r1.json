@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022but their numbers are growing\u0022,\u0022reason\u0022:\u0022The briefing gives no change in Kinn numbers; it only lists 3 settlements.\u0022},{\u0022span\u0022:\u0022I hear no complaints about the doubled prices\u0022,\u0022reason\u0022:\u0022The reporter has heard nothing new, so this is an invented report of traders\u0027 reactions.\u0022},{\u0022span\u0022:\u0022though no one seems to know why\u0022,\u0022reason\u0022:\u0022The earlier bulletin attributes the Kinn\u0027s movement to grass fires, so this contradicts known background.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin mostly restates old news as if it were still current, and it recycles the earlier \u0027out in numbers\u0027 line and the doubled-prices joke. It also invents details, such as the Kinn\u0027s numbers growing and the traders\u0027 lack of complaints, instead of offering dry comment on the faction counts or the date.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.9084437,
+      "inputTokens": 2369,
+      "outputTokens": 692
+    }
+  ]
+}

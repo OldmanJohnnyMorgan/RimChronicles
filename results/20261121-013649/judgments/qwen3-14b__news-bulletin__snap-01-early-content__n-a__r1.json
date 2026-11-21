@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-01-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The post is modest but well-armed\u0022,\u0022reason\u0022:\u0022Briefing gives no size or defences for the trading post.\u0022},{\u0022span\u0022:\u0022suggesting the Union is preparing for more than just commerce\u0022,\u0022reason\u0022:\u0022Adds an unsupported motive to the trading-post event.\u0022},{\u0022span\u0022:\u0022This follows their recent expansion into the area, which has already caused tension with the Red Gully Raiders.\u0022,\u0022reason\u0022:\u0022No expansion or tension with the Raiders appears in the briefing.\u0022},{\u0022span\u0022:\u0022who rely heavily on seasonal hunting\u0022,\u0022reason\u0022:\u0022Briefing says nothing about the Clans\u0027 livelihood.\u0022},{\u0022span\u0022:\u0022The Tarn Union continues to grow\u0022,\u0022reason\u0022:\u0022Briefing gives a settlement count but no growth.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin invents several details: a well-armed post, a Union expansion causing tension with the Raiders, and the Clans\u0027 hunting. It also opens with \u0027Since my last bulletin\u0027 although this is the first one, runs well over the word limit, and reads as generic news copy rather than Ilse\u0027s dry, wry voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.3563227,
+      "inputTokens": 2239,
+      "outputTokens": 763
+    }
+  ]
+}

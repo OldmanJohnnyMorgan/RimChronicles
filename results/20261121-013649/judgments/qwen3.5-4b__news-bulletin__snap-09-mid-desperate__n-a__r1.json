@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the Malley\u0027s Lancers no longer pose a threat from their former base\u0022,\u0022reason\u0022:\u0022The briefing still lists the Lancers with one settlement. Nothing says they are finished or have left their base.\u0022},{\u0022span\u0022:\u0022the shifting allegiances among the six remaining settlements of the Gray Wharf Syndicate\u0022,\u0022reason\u0022:\u0022The briefing mentions no shifting allegiances. \u0027Remaining\u0027 also implies losses it does not support.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It presents the old war as new (\u0027now faces a new adversary\u0027, \u0027officially underway\u0027), recycles the earlier fish joke, and copies the task\u0027s \u0027A quiet week is a fine story\u0027 line. At about 200 words with two sentences per paragraph, it also breaks the length and structure rules, and the voice is wordy rather than sardonic.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 8.3917503,
+      "inputTokens": 2515,
+      "outputTokens": 755
+    }
+  ]
+}

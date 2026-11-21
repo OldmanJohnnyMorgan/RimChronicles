@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-08-mid-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:5,\u0022comment\u0022:\u0022It leads correctly with the jade sculpture, keeps the fair and the failed raid as background, and fills the quiet week with dry comment on faction sizes and the date. The \u0027fingers to spare\u0027 joke is fresh and in character. Calling it \u0027the Accord\u0027s own fair\u0027 leans slightly on the assumption that the fair is still running.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.3281922,
+      "inputTokens": 2373,
+      "outputTokens": 546
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-07-mid-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022after losing another wagon near the gorge this week\u0022,\u0022reason\u0022:\u0022Invents a second wagon loss and presents old news as new.\u0022},{\u0022span\u0022:\u0022has arrived at the gorge\u0022,\u0022reason\u0022:\u0022The briefing gives only a toll demand on the gorge road, not an arrival at the gorge.\u0022},{\u0022span\u0022:\u0022demanding tolls that no one here can afford to pay\u0022,\u0022reason\u0022:\u0022Unsupported detail about who can afford the tolls.\u0022},{\u0022span\u0022:\u0022long scrolls and empty promises\u0022,\u0022reason\u0022:\u0022Ties the toll demand to scrolls and promises; neither is in the briefing.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin recycles earlier jokes (\u0027short on\u2026 long on complaints\u0027, \u0027polite smile\u0027, \u0027long scrolls\u0027) and reports the old wagon theft as a new loss. It also runs to about 230 words, well past the 100\u2013130 limit, and its third item drifts into vague filler.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.0413753,
+      "inputTokens": 2535,
+      "outputTokens": 583
+    }
+  ]
+}

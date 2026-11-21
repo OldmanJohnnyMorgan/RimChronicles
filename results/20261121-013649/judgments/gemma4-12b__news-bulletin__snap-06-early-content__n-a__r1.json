@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-06-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They haven\u0027t moved a muscle or sent a single word since the Imperial shuttles were spotted over the mountains.\u0022,\u0022reason\u0022:\u0022The briefing says only that the Empire is quiet. It does not mention a lack of messages or tie the silence to the shuttle sighting.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The bulletin follows the structure, leads with the barge robbery and treats the harvest and shuttles as background. The voice is only mildly wry, though, and the closing Combine item is limp filler. It also stretches the Empire\u0027s quiet into a timeline the briefing doesn\u0027t give.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.5407003,
+      "inputTokens": 2274,
+      "outputTokens": 572
+    }
+  ]
+}

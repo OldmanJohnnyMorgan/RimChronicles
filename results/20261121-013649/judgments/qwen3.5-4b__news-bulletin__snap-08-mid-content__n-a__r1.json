@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-08-mid-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It stays within the briefing\u0027s facts, but it misses the format: each paragraph has two sentences rather than three, and it runs well over 130 words. The second item is entirely recycled old news, and the stiff, slightly broken phrasing (\u0027where their usual threats once occupied it\u0027, \u0027static nature of the Rim Dispatch itself\u0027) lacks Ilse\u0027s wry bite.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.0512009,
+      "inputTokens": 2456,
+      "outputTokens": 516
+    }
+  ]
+}

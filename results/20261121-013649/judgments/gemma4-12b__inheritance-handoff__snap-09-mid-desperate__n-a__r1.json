@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__inheritance-handoff__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Tamsin knelt in the red-stained dirt of the Lancers\u0027 camp\u0022,\u0022reason\u0022:\u0022Briefing never places Tamsin at the camp, which the Lancers still hold.\u0022},{\u0022span\u0022:\u0022her father\u2019s heavy, notched blade\u0022,\u0022reason\u0022:\u0022Joska\u0027s weapon is never specified.\u0022},{\u0022span\u0022:\u0022his mangled arm, the jagged scar from Rook Malley\u2019s initial strike\u0022,\u0022reason\u0022:\u0022Briefing says Joska was maimed but does not say where.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Clear and correctly aimed at the new captain, but it puts Tamsin inside the enemy-held camp and invents details of the wound and the weapon. The prose leans on clich\u00E9s such as trembling fingers and white knuckles.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.3040007,
+      "inputTokens": 1932,
+      "outputTokens": 627
+    }
+  ]
+}

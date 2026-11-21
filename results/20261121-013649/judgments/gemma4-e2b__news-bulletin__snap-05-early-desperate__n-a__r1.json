@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022This move solidifies their existing trade arrangements within the region.\u0022,\u0022reason\u0022:\u0022The briefing says nothing about the closure\u0027s effect or any existing trade arrangements.\u0022},{\u0022span\u0022:\u0022Scattered reports confirm that the Scythe Tooth pirates have made incursions into three settlements this past cycle.\u0022,\u0022reason\u0022:\u0022Presents already-covered raids as freshly confirmed reports and gives an unsupported timeframe.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin re-presents the old Scythe Tooth raid news as freshly confirmed and pads the market closure with unsupported analysis. Its stiff, generic prose (\u0027quietude\u0027, \u0027maneuver\u0027, \u0027this cycle\u0027) has none of Odile\u0027s sardonic understatement.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.6669342,
+      "inputTokens": 2337,
+      "outputTokens": 733
+    }
+  ]
+}

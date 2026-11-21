@@ -1,0 +1,32 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-03-early-strained__n-a__r1",
+  "model": "gemma4-12b",
+  "task": "news-bulletin",
+  "snapshot": "snap-03-early-strained",
+  "grammar": "n/a",
+  "repeat": 1,
+  "promptVersion": "news-bulletin/v3",
+  "outcome": "Model",
+  "value": "I have heard nothing new since my last report. The rim remains as stagnant as a dried-up well. It seems the only thing moving is the dust.\n\nThe Ashen Hand still controls four settlements across the wastes. They remain a persistent thorn in the side of anyone trying to trade. Their presence is a constant, if tiresome, fact of life.\n\nThe Merrow Freeholds maintain their grip on seven settlements. They continue to move their caravans in pairs to avoid the pirates. It is a slow, expensive way to stay alive.\n\nThe Kinn of the Long Grass still occupy three settlements. They are currently displaced by the southern fires. A quiet week is a rare luxury in these parts.",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.\n\nWrite your next news bulletin.\n\nWhat to write:\n- Exactly 3 news items, most important first, each a paragraph of 3 sentences, separated by a blank line. About 100 to 130 words in all.\n- Start with what you heard since your last bulletin.\n- What your earlier bulletins already covered is old news. You may mention it briefly as background, but never present it as new or happening again.\n- If there is little new news, make the remaining items dry comment on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.\n\nWhat you know:\n- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events, and never add details to an event that the briefing does not give.\n- You do not know what happens inside the colony unless your briefing says it became public.\n\nStyle:\n- Keep your voice the same as in your earlier bulletins, but do not reuse their jokes or sentences.\n- Write plain paragraphs of prose. The briefing\u0027s headings and labels are notes for you: never copy them into the bulletin.\n- Write only the bulletin itself: no title, no headings, no dateline, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 23 (Jugust 5500).\nThe colony you report near: Kettle Hollow. You do not know what happens inside it unless listed below.\n\nFactions:\n- The Ashen Hand (Pirates): 4 settlements\n- The Merrow Freeholds (Outlanders): 7 settlements\n- Kinn of the Long Grass (Tribe): 3 settlements\n\nYou have heard nothing new since your last bulletin. It has been a quiet stretch.\n\nYour earlier bulletins already covered (old news, background only):\n- The Ashen Hand raided two homesteads near the Merrow road\n- Merrow Freeholds caravans now travel only in pairs\n\n## Your earlier bulletins\nEarlier bulletin:\nThe Ashen Hand are out in numbers. Two homesteads on the Merrow road lost their stores, and one lost its roof. Merrow traders are travelling in pairs now, which doubles the guards and, they assure me, the prices.\n\nLatest bulletin:\nGrass fires in the south have the Kinn on the move. They are not, by their account, looking for trouble. Neither, I suspect, is trouble looking for them, but it usually finds someone.\n\nWrite the bulletin now.\n",
+        "maxOutputTokens": 500,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "I have heard nothing new since my last report. The rim remains as stagnant as a dried-up well. It seems the only thing moving is the dust.\n\nThe Ashen Hand still controls four settlements across the wastes. They remain a persistent thorn in the side of anyone trying to trade. Their presence is a constant, if tiresome, fact of life.\n\nThe Merrow Freeholds maintain their grip on seven settlements. They continue to move their caravans in pairs to avoid the pirates. It is a slow, expensive way to stay alive.\n\nThe Kinn of the Long Grass still occupy three settlements. They are currently displaced by the southern fires. A quiet week is a rare luxury in these parts.",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.2889159,
+      "inputTokens": 591,
+      "outputTokens": 142,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-231\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795225144,\u0022model\u0022:\u0022gemma4:12b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022I have heard nothing new since my last report. The rim remains as stagnant as a dried-up well. It seems the only thing moving is the dust.\\n\\nThe Ashen Hand still controls four settlements across the wastes. They remain a persistent thorn in the side of anyone trying to trade. Their presence is a constant, if tiresome, fact of life.\\n\\nThe Merrow Freeholds maintain their grip on seven settlements. They continue to move their caravans in pairs to avoid the pirates. It is a slow, expensive way to stay alive.\\n\\nThe Kinn of the Long Grass still occupy three settlements. They are currently displaced by the southern fires. A quiet week is a rare luxury in these parts.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:591,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:142,\u0022total_tokens\u0022:733}}\n"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-08-mid-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022has left Gladwater\u2019s central square\u0022,\u0022reason\u0022:\u0022The briefing gives no location for the sculpture and nothing about it leaving the colony; this also describes the colony\u0027s interior.\u0022},{\u0022span\u0022:\u0022is now being paraded through Lantern Hill by a group of traders\u0022,\u0022reason\u0022:\u0022Invented event. The briefing only says the sculpture is the talk of the traders.\u0022},{\u0022span\u0022:\u0022who claim it\u2019s a relic from the old world\u0022,\u0022reason\u0022:\u0022Invented claim about the sculpture\u0027s origin.\u0022},{\u0022span\u0022:\u0022their fishing boats have been spotted farther out than usual\u0022,\u0022reason\u0022:\u0022Invented event; the briefing mentions no boats or sightings.\u0022},{\u0022span\u0022:\u0022Their silence on the matter\u0022,\u0022reason\u0022:\u0022Invented detail about how the tribe has behaved.\u0022},{\u0022span\u0022:\u0022Their usual haunts near the river are quiet\u0022,\u0022reason\u0022:\u0022Invented location and detail for the Ninefingers Gang.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin heavily embellishes the one new fact, inventing the parade, the relic claim, the boats and the pirates\u0027 riverside haunts. Its voice is generic, with \u0027remains to be seen\u0027 used twice, and at roughly 170 words it overruns the length limit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.6026458,
+      "inputTokens": 2413,
+      "outputTokens": 655
+    }
+  ]
+}

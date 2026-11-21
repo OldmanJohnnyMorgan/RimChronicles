@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:5,\u0022comment\u0022:\u0022Accurate, well structured bulletin in a dry, understated voice. It openly declines to invent details of Malley\u0027s death, and lines like \u0027Arithmetic is not destiny, but it does tend to have opinions\u0027 land without reusing earlier jokes.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.7175536,
+      "inputTokens": 2375,
+      "outputTokens": 479
+    }
+  ]
+}

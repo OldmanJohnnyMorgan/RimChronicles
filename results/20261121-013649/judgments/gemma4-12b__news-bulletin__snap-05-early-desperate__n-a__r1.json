@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022maritime thuggery\u0022,\u0022reason\u0022:\u0022Nothing in the briefing says Scythe Tooth operates at sea; it adds a detail about the faction.\u0022},{\u0022span\u0022:\u0022while coordinating shared patrols\u0022,\u0022reason\u0022:\u0022The earlier bulletin says only that patrols were requested and members asked who was paying; they are not confirmed as happening.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It leads correctly with the market closure and keeps the old news as background, but the voice is flat and repetitive (\u0027persistent\u0027 twice, stock phrasing) next to the earlier bulletins. It also overstates the Ferrow patrols as under way and calls Scythe Tooth maritime, neither of which the briefing supports.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.8063628,
+      "inputTokens": 2320,
+      "outputTokens": 649
+    }
+  ]
+}
