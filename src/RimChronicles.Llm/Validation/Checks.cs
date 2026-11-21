@@ -66,6 +66,9 @@ public sealed partial class GroundingCheck : IOutputCheck
     [GeneratedRegex(@"(?<start>^|[.!?:;""“”]\s+|\n\s*)?(?<word>\p{Lu}[\p{L}'’\-]*)")]
     private static partial Regex CapitalisedWord();
 
+    [GeneratedRegex(@"^I['’](m|ve|d|ll)$")]
+    private static partial Regex IContraction();
+
     private readonly HashSet<string> _allowedWords;
 
     public GroundingCheck(IEnumerable<string> allowedNames, IEnumerable<string>? stockVocabulary = null)
@@ -86,7 +89,7 @@ public sealed partial class GroundingCheck : IOutputCheck
         "I", "Rim", "Dispatch", "Aprimay", "Jugust", "Septober", "Decembary",
         "Spring", "Summer", "Fall", "Winter", "Empire", "Imperial", "Imperials",
         "Lord", "Lady", "Sir", "Captain", "Commander", "Knight", "Count", "Baron", "Duke", "Stellarch",
-        "Monday", "News", "Week", "Day", "Quadrum",
+        "News", "Week", "Day", "Quadrum",
     ];
 
     public string Name => "grounding";
@@ -110,6 +113,11 @@ public sealed partial class GroundingCheck : IOutputCheck
     private static string Normalise(string word)
     {
         var trimmed = word.Trim('\'', '’', '‘', '"', '“', '”', '-', ',', '.', '(', ')');
+        if (IContraction().IsMatch(trimmed))
+        {
+            return "I"; // "I'm", "I've", "I'd", "I'll"
+        }
+
         foreach (var possessive in (string[])["'s", "’s"])
         {
             if (trimmed.EndsWith(possessive, StringComparison.Ordinal))
