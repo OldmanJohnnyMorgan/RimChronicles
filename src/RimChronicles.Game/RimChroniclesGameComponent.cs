@@ -1,7 +1,6 @@
 using RimChronicles.Core.Engine;
 using RimChronicles.Core.News;
 using RimChronicles.Core.Plots;
-using RimChronicles.Core.Spike;
 using RimChronicles.Game.Engine;
 using Verse;
 
@@ -17,7 +16,6 @@ public sealed class RimChroniclesGameComponent : GameComponent
     private readonly MainThreadQueue _queue = new();
     private readonly CancellationTokenSource _cancel = new();
 
-    private SpikeState _spike = new();
     private NewsLog _news = new();
     private NewsDesk _desk = new();
     private PlotBook _plots = new();
@@ -35,7 +33,6 @@ public sealed class RimChroniclesGameComponent : GameComponent
     /// <summary>Cancelled when this game ends, so background work for an old game stops.</summary>
     public CancellationToken GameToken => _cancel.Token;
 
-    public SpikeState Spike => _spike;
 
     /// <summary>Public world news collected during play (Stage 2 M2).</summary>
     public NewsLog News => _news;
@@ -62,12 +59,10 @@ public sealed class RimChroniclesGameComponent : GameComponent
 
     public override void ExposeData()
     {
-        ScribeArchive.Instance.Deep(ref _spike, "spike");
         ScribeArchive.Instance.Deep(ref _news, "news");
         ScribeArchive.Instance.Deep(ref _desk, "newsDesk");
         ScribeArchive.Instance.Deep(ref _plots, "plots");
         Scribe_References.Look(ref _reporterPawn, "reporterPawn");
-        _spike ??= new SpikeState();
         _news ??= new NewsLog();
         _desk ??= new NewsDesk();
         _plots ??= new PlotBook();
@@ -86,14 +81,7 @@ public sealed class RimChroniclesGameComponent : GameComponent
             return;
         }
 
-        var firstSinceLoad = _lastDay < 0;
         _lastDay = day;
-        if (!firstSinceLoad)
-        {
-            _spike.DaysSeen++;
-            _spike.AddLog($"day {day}: daily patch ran ({_spike.DaysSeen} days seen)");
-        }
-
         Game.News.ReporterLife.Daily(this);
         Game.News.ReporterKeeper.EnsureReporter(this);
         Game.Plots.PlotDriver.Daily(this);
