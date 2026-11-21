@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-06-early-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022One assumes they are getting quite comfortable with their delta harvests\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, so not counted as invented; a mild stretch only\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and within limits, with the old harvest news properly marked as old, but the wit is thin and generic. The first joke about timing is vague, and the second item is padding about faction size with a weak link to the harvest.\u003C/br\u003E\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.3122488,
+      "inputTokens": 3499,
+      "outputTokens": 177
+    }
+  ]
+}

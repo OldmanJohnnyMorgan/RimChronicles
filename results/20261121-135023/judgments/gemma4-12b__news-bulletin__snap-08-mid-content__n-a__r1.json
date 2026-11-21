@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-08-mid-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022One assumes the locals are more interested in the stone than the actual trade.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, but \u0027locals\u0027 is unclear; mostly acceptable colour, borderline\u0022},{\u0022span\u0022:\u0022They have fewer places to hide\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied comparison with other factions, stated as fact, not in briefing\u0022},{\u0022span\u0022:\u0022a group that promises such fair prices\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news from earlier bulletin (Accord\u0027s fair-price promise) as present fact\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Leads correctly with the new item and the dry guesses are framed properly, but the second and third items are filler that recycle old news and add a comparison; the humor is mild and the first item adds little beyond restating the briefing. Word count is also on the short side for the task, with padding rather than a quiet-week approach.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.4368866,
+      "inputTokens": 3602,
+      "outputTokens": 319
+    }
+  ]
+}

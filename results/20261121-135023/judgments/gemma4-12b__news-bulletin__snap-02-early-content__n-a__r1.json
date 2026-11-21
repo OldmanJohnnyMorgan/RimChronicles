@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-02-early-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It is a lovely way to spend a quadrum, provided you enjoy being shot at.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies shooting and a quadrum-long duration of the war, which the briefing does not give\u0022},{\u0022span\u0022:\u0022perhaps they simply ran out of things to burn\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022hedged guess that leans on the burning from an earlier bulletin, not part of the briefing\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022It leads with the new fact, keeps the dry voice, and marks the war as old news. The second item is mostly a rehash of the earlier bulletin, and the quip about being shot at and a quadrum adds unsupported detail.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.6907887,
+      "inputTokens": 3677,
+      "outputTokens": 253
+    }
+  ]
+}

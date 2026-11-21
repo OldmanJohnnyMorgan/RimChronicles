@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-04-early-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They seem intent on making the water a hazard for everyone.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022hedged with \u0027seem\u0027 but states an intent/motive and implied consequence not in the briefing; borderline guess\u0022},{\u0022span\u0022:\u0022The Rim Dispatch is looking for Tomas Quell.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022omits that Quell is a Dispatch reporter; not invented, but \u0027finally found a quiet corner\u0027 implies he chose to vanish, framed as a guess\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate to the briefing with no real invented facts and properly hedged guesses, but it is thin: items are only two sentences, it never says Quell is a Dispatch reporter, and the wit is generic. Total length is about 65 words, in range for three items only barely, since the minimum is 70, so it runs short.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.4079094,
+      "inputTokens": 3460,
+      "outputTokens": 305
+    }
+  ]
+}

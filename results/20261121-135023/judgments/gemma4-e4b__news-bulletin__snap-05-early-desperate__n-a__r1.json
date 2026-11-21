@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They continue their raiding activities.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing activity not reported in briefing; also uses forbidden \u0027continue\u0027 and repeats old raid news\u0022},{\u0022span\u0022:\u0022The Scythe Tooth pirates now hold five settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027now\u0027 implies comparison with an earlier state the briefing does not give\u0022},{\u0022span\u0022:\u0022the ongoing chill\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022treats the cold snap as ongoing, which the briefing does not say; the guess framing covers the cause but not the chill\u0027s status\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The second item breaks the brief by using \u0027continue\u0027, implying a before-and-after with \u0027now\u0027, and recycling old raid news, while the writing is flat and has little of the sardonic wit the persona calls for. The first item is accurate but has almost no dry take of its own.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.4398051,
+      "inputTokens": 3516,
+      "outputTokens": 314
+    }
+  ]
+}

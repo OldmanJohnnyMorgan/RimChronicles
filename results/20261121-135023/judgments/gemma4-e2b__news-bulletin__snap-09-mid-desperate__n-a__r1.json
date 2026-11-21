@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Embertail Tribe is engaged with the Gray Wharf Syndicate.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news about the war, told as current without marking it as old\u0022},{\u0022span\u0022:\u0022They are currently in opposition to the Embertail Tribe.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news (the war) a second time, presented as current status\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin leads correctly with Malley\u0027s death but then wastes two items on the old war and recycles the fishing-rights joke from the earlier bulletin. It is also padded, has weak dry wit, and breaks the \u0027one short clause for old news\u0027 rule. The \u0027tidbit\u0027 framing undersells a captain\u0027s death.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8707851,
+      "inputTokens": 3641,
+      "outputTokens": 266
+    }
+  ]
+}

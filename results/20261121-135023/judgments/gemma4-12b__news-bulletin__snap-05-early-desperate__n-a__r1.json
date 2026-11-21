@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022for those who prefer their neighbors to be terrified\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the pirates terrorise their neighbours; the briefing gives no such status, though it is framed as a quip and loosely tied to the earlier raid report\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and clear, leading with the new item and using the faction count as a quiet-week filler. The wit is thin and generic, though, and the Scythe Tooth line reads as a slight embellishment with no fresh fact.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.5679043,
+      "inputTokens": 3546,
+      "outputTokens": 199
+    }
+  ]
+}

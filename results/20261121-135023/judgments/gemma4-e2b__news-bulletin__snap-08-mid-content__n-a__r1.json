@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-08-mid-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Lantern Accord is hosting a trade fair at Lantern Hill. They promise fair prices;\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a lead-in item with no marker that it is old, told as current\u0022},{\u0022span\u0022:\u0022The Reedmother\u0027s Children report the river is full and the fish are foolish. They call this a good combination.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news from the latest bulletin, presented as if just reported\u0022},{\u0022span\u0022:\u0022One assumes they enjoy the resulting bounty.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022guess framed as such, but adds a bounty not in the briefing; very mild\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The only new item is a bare restatement of the briefing with no dry remark, while two of the three items are old news retold as fresh, which the task forbids. It also exceeds a quiet-week scope and pads instead of staying short.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.2104433,
+      "inputTokens": 3607,
+      "outputTokens": 322
+    }
+  ]
+}

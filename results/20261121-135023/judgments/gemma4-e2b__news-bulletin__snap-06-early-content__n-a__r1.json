@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-06-early-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They have two settlements operating in the area.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing gives two settlements but not that they are in the delta area\u0022},{\u0022span\u0022:\u0022They have five settlements spread out.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027spread out\u0027 is an added detail not in the briefing\u0022},{\u0022span\u0022:\u0022The Calder Combine reports good harvests along the delta.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a current item with no marker that it is old\u0022},{\u0022span\u0022:\u0022They are keeping quiet.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says \u0027quiet behind its walls\u0027, which does not say they are keeping quiet as an ongoing choice; slight status addition\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin opens with a duplicated line, then pads with old news (the harvests) as if fresh and spreads one new fact across three items, exceeding the length limit for a quiet week. The dry voice is thin and the jokes are weak.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.1282479,
+      "inputTokens": 3581,
+      "outputTokens": 338
+    }
+  ]
+}

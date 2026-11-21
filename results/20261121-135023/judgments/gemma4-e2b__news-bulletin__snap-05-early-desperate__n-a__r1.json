@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Ferrow Mutual has asked its members to share patrols. This is new information.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022repeats old news from the earlier bulletin and presents it as new; it is not in the briefing\u0027s new items\u0022},{\u0022span\u0022:\u0022Scythe Tooth raids are reported at three settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a full item, though flagged as old\u0022},{\u0022span\u0022:\u0022the outlanders are finally finding a way to coordinate their meager defenses\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022hedged with \u0027it seems\u0027, but \u0027meager defenses\u0027 and \u0027finally\u0027 imply unsupported history\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Pads a one-item quiet week with old news, and wrongly labels the Ferrow patrol item as new. The voice is flat and bureaucratic rather than sardonic, with no real wit and a stilted line like \u0027the only piece of movement I have noted\u0027.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.0088973,
+      "inputTokens": 3613,
+      "outputTokens": 331
+    }
+  ]
+}

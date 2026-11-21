@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-02-early-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Glimmer Coast Company reports a profitable week.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022repeats old news from the previous bulletin, and not in the briefing; told as current fact\u0022},{\u0022span\u0022:\u0022The Tannerfolk and the Hollow Spire Pirates are fighting over the salt flats.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a main item rather than a short clause marking it as old\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin leads with the one new fact but gives it no dry remark. It then pads with old news (the war, and the Company\u0027s profitable week, borrowed from the earlier bulletin), which the task forbids, and the wit is thin.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.0652375,
+      "inputTokens": 3685,
+      "outputTokens": 253
+    }
+  ]
+}
