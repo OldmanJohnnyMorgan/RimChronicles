@@ -17,9 +17,15 @@ public static class ReporterKeeper
             return;
         }
 
-        if (PickFaction() is not { } faction || faction.def.basicMemberKind is not { } kind)
+        if (PickFaction() is not { } faction || ReporterKind(faction) is not { } kind)
         {
-            return; // no friendly outlanders yet; the default reporter writes, and we try again tomorrow
+            if (Prefs.DevMode)
+            {
+                Log.WarningOnce("[Rim Chronicles] No faction can supply a reporter yet (all hostile, hidden or without humanlike "
+                    + "pawn kinds); the default reporter writes until one can.", 0x52434e03);
+            }
+
+            return; // the default reporter writes, and we try again tomorrow
         }
 
         Pawn pawn;
@@ -59,9 +65,24 @@ public static class ReporterKeeper
     private static Faction? PickFaction() =>
         Find.FactionManager.AllFactionsListForReading
             .Where(f => !f.IsPlayer && !f.Hidden && !f.defeated && !f.temporary && f.def.humanlikeFaction && !f.def.permanentEnemy
-                        && f.def.basicMemberKind is not null && f.PlayerRelationKind != FactionRelationKind.Hostile)
+                        && ReporterKind(f) is not null && f.PlayerRelationKind != FactionRelationKind.Hostile)
             .OrderByDescending(f => f.def == FactionDefOf.OutlanderCivil)
             .ThenByDescending(f => (int)f.def.techLevel)
             .ThenBy(f => f.loadID)
             .FirstOrDefault();
+
+    /// <summary>A humanlike pawn kind from the faction's group makers (traders, guards, members), preferring non-fighters
+    /// such as villagers and traders. Falls back to <c>basicMemberKind</c>, which most NPC factions leave unset: the
+    /// game's own <c>Faction.RandomPawnKind</c> does the same.</summary>
+    private static PawnKindDef? ReporterKind(Faction faction)
+    {
+        var kinds = (faction.def.pawnGroupMakers ?? [])
+            .SelectMany(g => g.options.Concat(g.traders).Concat(g.guards))
+            .Select(o => o.kind)
+            .Where(k => k?.RaceProps?.Humanlike == true)
+            .Distinct()
+            .ToList();
+        return kinds.OrderBy(k => k.isFighter).ThenByDescending(k => k.trader).ThenBy(k => k.defName).FirstOrDefault()
+               ?? faction.def.basicMemberKind;
+    }
 }
