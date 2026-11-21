@@ -48,10 +48,11 @@ public sealed partial class WordCountCheck(int min, int max) : IOutputCheck
 
     public CheckResult Check(string output)
     {
+        // The message is the retry feedback, so it says what to change, not just the numbers.
         var count = Count(output);
-        return count >= min && count <= max
-            ? CheckResult.Pass
-            : CheckResult.Fail($"Use {min}-{max} words; this has {count}");
+        return count < min ? CheckResult.Fail($"Too short: {count} words, but at least {min} are needed. Add a sentence or two to each paragraph.")
+            : count > max ? CheckResult.Fail($"Too long: {count} words, but at most {max} are allowed. Cut a sentence or two from each paragraph.")
+            : CheckResult.Pass;
     }
 }
 
