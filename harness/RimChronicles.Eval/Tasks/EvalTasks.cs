@@ -29,10 +29,11 @@ public static class EvalTasks
     public static readonly IReadOnlyList<string> All =
         [WorldSummarizer.DirectorTask, WorldSummarizer.NewsBulletinTask, WorldSummarizer.HandoffTask];
 
-    /// <summary>Word ranges from the design spec.</summary>
+    /// <summary>Word ranges from the design spec, except the bulletin minimum: lowered from 80 to 60 (2026-11-21)
+    /// because an 80-word floor made models pad thin news weeks with embellishments.</summary>
     public static (int Min, int Max) WordRange(string task) => task switch
     {
-        WorldSummarizer.NewsBulletinTask => (80, 150),
+        WorldSummarizer.NewsBulletinTask => (60, 150),
         WorldSummarizer.HandoffTask => (60, 120),
         _ => throw new ArgumentException($"{task} has no word range."),
     };
