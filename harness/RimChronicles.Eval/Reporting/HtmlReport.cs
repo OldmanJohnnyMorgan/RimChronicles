@@ -142,7 +142,8 @@ public static class HtmlReport
         if (r.JsonValid == BarVerdict.Fail) yield return "JSON validity" + grammar;
         if (r.ChoiceAllowed == BarVerdict.Fail) yield return "allowed choice" + grammar;
         if (r.LengthOk == BarVerdict.Fail) yield return "length";
-        if (r.Invented == BarVerdict.Fail) yield return "invented facts";
+        if (r.MajorInvented == BarVerdict.Fail) yield return "invented facts";
+        if (r.MinorInvented == BarVerdict.Fail) yield return "embellishments";
         if (r.Overall == BarVerdict.Fail) yield return "prose quality";
         if (r.Latency == BarVerdict.Fail) yield return "latency" + grammar;
     }
@@ -157,7 +158,7 @@ public static class HtmlReport
         var prose = task != WorldSummarizer.DirectorTask;
         if (prose)
         {
-            sb.Append("<th class=\"num\">Outputs</th><th class=\"num\">Judged</th><th class=\"num\">Length in range</th><th class=\"num\">Invented facts / 10</th>")
+            sb.Append("<th class=\"num\">Outputs</th><th class=\"num\">Judged</th><th class=\"num\">Length in range</th><th class=\"num\">Invented facts / 10</th><th class=\"num\">Embellishments / 10</th>")
               .Append("<th class=\"num\">Voice</th><th class=\"num\">Clarity</th><th class=\"num\">Tone</th><th class=\"num\">Overall</th>")
               .Append("<th class=\"num\">Names grounded</th>");
         }
@@ -176,7 +177,8 @@ public static class HtmlReport
             {
                 sb.Append(Num(m.N)).Append(Num(r.Judge?.Judged))
                   .Append(Cell(Pct(m.LengthOkRate), r.LengthOk))
-                  .Append(Cell(Fixed(r.Judge?.InventedPer10), r.Invented))
+                  .Append(Cell(Fixed(r.Judge?.MajorPer10), r.MajorInvented))
+                  .Append(Cell(Fixed(r.Judge?.MinorPer10), r.MinorInvented))
                   .Append(Num(Fixed(r.Judge?.Voice))).Append(Num(Fixed(r.Judge?.Clarity))).Append(Num(Fixed(r.Judge?.Tone)))
                   .Append(Cell(Fixed(r.Judge?.Overall), r.Overall))
                   .Append(Num(Pct(m.GroundedRate)));
@@ -205,7 +207,8 @@ public static class HtmlReport
         if (b.JsonValidGrammarOn is { } on) parts.Add($"valid JSON {P(on)} with grammar and {P(b.JsonValidGrammarOff ?? 0)} without");
         if (b.ChoiceAllowed is { } choice) parts.Add($"allowed choice {P(choice)}");
         if (b.LengthOk is { } len) parts.Add($"length in range at least {P(len)}");
-        if (b.InventedPer10 is { } inv) parts.Add($"at most {inv.ToString("0.#", CultureInfo.InvariantCulture)} invented fact per 10 outputs");
+        if (b.MajorInventedPer10 is { } inv) parts.Add($"at most {inv.ToString("0.#", CultureInfo.InvariantCulture)} invented fact per 10 outputs (a new person, place, number, quote or event, or a contradiction)");
+        if (b.MinorInventedPer10 is { } emb) parts.Add($"at most {emb.ToString("0.#", CultureInfo.InvariantCulture)} embellishments per 10 (an added detail or inference about a briefed fact)");
         if (b.Overall is { } overall) parts.Add($"overall quality at least {overall.ToString("0.0", CultureInfo.InvariantCulture)}" + Tiers(b.OverallTiers));
         if (b.MedianLatencySeconds is { } lat) parts.Add($"median latency at most {lat.ToString("0", CultureInfo.InvariantCulture)} s" + Tiers(b.LatencyTiers));
         return parts.Count == 0 ? "No pass bars for this task." : "Pass bars: " + string.Join("; ", parts) + ". Rates use first answers only.";
@@ -294,7 +297,7 @@ public static class HtmlReport
 
         sb.Append("<p>Earlier value → this run. ▲ is better, ▼ is worse; unchanged values show no arrow.</p>\n");
         sb.Append("<div class=\"scroll\"><table>\n<thead><tr><th>Model</th><th>Task</th><th>Grammar</th><th class=\"num\">Valid JSON</th><th class=\"num\">Allowed choice</th>")
-          .Append("<th class=\"num\">Length in range</th><th class=\"num\">Invented / 10</th><th class=\"num\">Overall</th><th class=\"num\">Fell back</th><th class=\"num\">Median s</th></tr></thead>\n<tbody>\n");
+          .Append("<th class=\"num\">Length in range</th><th class=\"num\">Invented / 10</th><th class=\"num\">Embellished / 10</th><th class=\"num\">Overall</th><th class=\"num\">Fell back</th><th class=\"num\">Median s</th></tr></thead>\n<tbody>\n");
 
         foreach (var r in matched)
         {
@@ -303,7 +306,8 @@ public static class HtmlReport
               .Append(Delta(o.Metrics.JsonValidRate, r.Metrics.JsonValidRate, higherIsBetter: true, pct: true))
               .Append(Delta(o.Metrics.ChoiceAllowedRate, r.Metrics.ChoiceAllowedRate, true, true))
               .Append(Delta(o.Metrics.LengthOkRate, r.Metrics.LengthOkRate, true, true))
-              .Append(Delta(o.Judge?.InventedPer10, r.Judge?.InventedPer10, false, false))
+              .Append(Delta(o.Judge?.MajorPer10, r.Judge?.MajorPer10, false, false))
+              .Append(Delta(o.Judge?.MinorPer10, r.Judge?.MinorPer10, false, false))
               .Append(Delta(o.Judge?.Overall, r.Judge?.Overall, true, false))
               .Append(Delta(o.Metrics.FallbackRate, r.Metrics.FallbackRate, false, true))
               .Append(Delta(o.Metrics.MedianLatency, r.Metrics.MedianLatency, false, false))
@@ -390,7 +394,7 @@ public static class HtmlReport
 
     private static string? ReadText(string folder, string rawFile)
     {
-        var path = Path.Combine(folder, rawFile);
+        var path = RunPaths.Raw(folder, rawFile);
         return rawFile.Length > 0 && File.Exists(path) ? RawOutput.Load(path).Text : null;
     }
 

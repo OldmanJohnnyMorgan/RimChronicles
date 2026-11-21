@@ -41,7 +41,7 @@ dotnet run --project harness/RimChronicles.Eval -- run --repeats 1 --snapshots "
 dotnet run --project harness/RimChronicles.Eval -- report latest --compare <previous runId>
 ```
 
-`summary.html` then shows the change in every number next to the old one. Each round takes about 20–30 minutes and costs a few dollars for Claude and the judge.
+`summary.html` then shows the change in every number next to the old one. The judge (v2) splits invented facts into *major* ones (a new person, place, number, quote or event, or a contradiction), held to at most 1 per 10 outputs, and *minor* embellishments of briefed facts ("a severe cold snap"), allowed up to 5 per 10. Each round takes about 20–30 minutes and costs a few dollars for Claude and the judge.
 
 The local models sample at temperature 0.4 (set in `harness/models.json`). To see whether that setting helps, run the same trial with the servers' own defaults and compare the two runs:
 
@@ -68,7 +68,7 @@ dotnet run --project harness/RimChronicles.Eval -- spotcheck latest
 
 This writes `spotcheck.csv` into the run folder: about 55 outputs with no model names and no judge scores. Open it in Excel. For each row, read the briefing and the output, then fill in:
 
-- `human_invented_count`: how many names, numbers or events in the output aren't in the briefing
+- `human_invented_count`: how many names, numbers, quotes or events in the output aren't in the briefing, plus claims that contradict it. These are the judge's *major* invented facts; leave out small embellishments such as an added adjective, which the judge counts separately as *minor*.
 - `human_overall`: 1–5, using the rubric in `prompts/judge/v1/system.md`
 
 Save it as CSV, then run the same command again to see how often the judge agreed with you.

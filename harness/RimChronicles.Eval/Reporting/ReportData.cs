@@ -6,7 +6,7 @@ using RimChronicles.Eval.Servers;
 namespace RimChronicles.Eval.Reporting;
 
 /// <summary>Judge aggregates for one model, task and grammar mode.</summary>
-public sealed record JudgeStats(int Judged, int Failed, double? InventedPer10, double? Voice, double? Clarity, double? Tone, double? Overall);
+public sealed record JudgeStats(int Judged, int Failed, double? MajorPer10, double? MinorPer10, double? Voice, double? Clarity, double? Tone, double? Overall);
 
 /// <summary>One report row: deterministic metrics plus judge scores, with pass/fail against the bars.</summary>
 public sealed record ReportRow(SummaryRow Metrics, JudgeStats? Judge, TaskBars Bars)
@@ -18,7 +18,8 @@ public sealed record ReportRow(SummaryRow Metrics, JudgeStats? Judge, TaskBars B
 
     public BarVerdict ChoiceAllowed => PassBars.AtLeast(Metrics.ChoiceAllowedRate, Bars.ChoiceAllowed);
     public BarVerdict LengthOk => PassBars.AtLeast(Metrics.LengthOkRate, Bars.LengthOk);
-    public BarVerdict Invented => PassBars.AtMost(Judge?.InventedPer10, Bars.InventedPer10);
+    public BarVerdict MajorInvented => PassBars.AtMost(Judge?.MajorPer10, Bars.MajorInventedPer10);
+    public BarVerdict MinorInvented => PassBars.AtMost(Judge?.MinorPer10, Bars.MinorInventedPer10);
 
     public BarVerdict Overall => PassBars.AppliesTo(Bars.OverallTiers, Metrics.Tier)
         ? PassBars.AtLeast(Judge?.Overall, Bars.Overall)
@@ -33,7 +34,7 @@ public sealed record ReportRow(SummaryRow Metrics, JudgeStats? Judge, TaskBars B
     {
         get
         {
-            var verdicts = new[] { JsonValid, ChoiceAllowed, LengthOk, Invented, Overall, Latency };
+            var verdicts = new[] { JsonValid, ChoiceAllowed, LengthOk, MajorInvented, MinorInvented, Overall, Latency };
             return verdicts.Contains(BarVerdict.Fail) ? BarVerdict.Fail
                 : verdicts.Contains(BarVerdict.Pass) ? BarVerdict.Pass
                 : BarVerdict.None;
@@ -83,6 +84,9 @@ public sealed record RunData(string RunId, string Folder, IReadOnlyList<CellResu
         return env.ToDictionary(kv => kv.Key, kv => ServerInfo.FromJson(kv.Key, kv.Value), StringComparer.Ordinal);
     }
 
+    private static double? Per10(IReadOnlyList<JudgeRow> judged, Func<JudgeRow, int> count) =>
+        judged.Count == 0 ? null : judged.Sum(count) * 10.0 / judged.Count;
+
     private static JudgeStats Stats(IReadOnlyList<JudgeRow> rows)
     {
         var judged = rows.Where(r => r.Judged).ToList();
@@ -90,7 +94,8 @@ public sealed record RunData(string RunId, string Folder, IReadOnlyList<CellResu
         return new JudgeStats(
             judged.Count,
             rows.Count - judged.Count,
-            judged.Count == 0 ? null : judged.Sum(r => r.InventedCount!.Value) * 10.0 / judged.Count,
+            Per10(judged, r => r.MajorCount ?? r.InventedCount ?? 0),
+            Per10(judged, r => r.MinorCount ?? 0),
             Mean(r => r.Voice), Mean(r => r.Clarity), Mean(r => r.Tone), Mean(r => r.Overall));
     }
 }
