@@ -43,6 +43,9 @@ public sealed class RimChroniclesGameComponent : GameComponent
     /// <summary>The bulletin schedule and archive (Stage 2 M3).</summary>
     public NewsDesk Desk => _desk;
 
+    /// <summary>Plots whose director decision is being made in the background. Not saved: after a reload it starts again.</summary>
+    public HashSet<string> Deciding { get; } = [];
+
     /// <summary>Every minor plot in this save (Stage 3).</summary>
     public PlotBook Plots => _plots;
 

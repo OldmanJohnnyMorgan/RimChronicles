@@ -72,4 +72,48 @@ public static class NemesisArc
 
     /// <summary>Days the choice letter stays open; unanswered, the colony waits.</summary>
     public const int ChoiceTimeoutDays = 5;
+
+    public const string Sightings = "sightings";
+
+    /// <summary>The most sightings before the nemesis must act.</summary>
+    public const int MaxSightings = 2;
+
+    /// <summary>What the director may choose from now. One option fires without asking (the first sighting, and the
+    /// consequences of the colony's answer); otherwise the director picks, with "Wait" for a quiet stretch at most once
+    /// per beat.</summary>
+    public static IReadOnlyList<PlotTransition> Transitions(Plot plot)
+    {
+        var name = Compact(plot.Fact(NemesisPlot.NemesisName) ?? "Nemesis");
+        var options = new List<PlotTransition>();
+        switch (plot.Beat)
+        {
+            case PlotBeat.Hook when plot.BeatDay < 0:
+                return [new($"Hook:{name}Sighted", nameof(NemesisStep.Sighting), 1)];
+            case PlotBeat.Hook:
+                options.Add(new($"Complication:{name}LeadsARaid", nameof(NemesisStep.Raid), 3));
+                var seen = int.TryParse(plot.Fact(Sightings), out var n) ? n : 1; // the hook was the first sighting
+                if (seen < MaxSightings)
+                {
+                    options.Add(new($"Hook:{name}SightedAgain", nameof(NemesisStep.Sighting), 1));
+                }
+
+                break;
+            case PlotBeat.Complication:
+                options.Add(new($"Choice:BountyOrWaitFor{name}", nameof(NemesisStep.Choice), 3));
+                break;
+            default:
+                var step = NextStep(plot);
+                return [new($"{BeatAfter(step)}:{step}", step.ToString(), 1)];
+        }
+
+        if (!PlotBook.HasWaitedThisBeat(plot))
+        {
+            options.Add(new(Director.WaitId, Director.WaitId, 1));
+        }
+
+        return options;
+    }
+
+    /// <summary>"Kael Dunmore" → "KaelDunmore", "'Hatchet' Imre" → "HatchetImre": a name fit for a transition id.</summary>
+    public static string Compact(string name) => new(name.Where(char.IsLetterOrDigit).ToArray());
 }

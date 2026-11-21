@@ -29,6 +29,33 @@ public sealed class PlotBook : IArchivable
 
     public int NextId = 1;
 
+    /// <summary>Every director decision, oldest first, capped at <see cref="MaxDecisionsKept"/>.</summary>
+    public List<DirectorDecision> Decisions = [];
+
+    public const int MaxDecisionsKept = 200;
+
+    public void Record(DirectorDecision decision)
+    {
+        Decisions.Add(decision);
+        if (Decisions.Count > MaxDecisionsKept)
+        {
+            Decisions.RemoveRange(0, Decisions.Count - MaxDecisionsKept);
+        }
+    }
+
+    /// <summary>A plot holds off for <paramref name="days"/> days without firing a beat (the director's "Wait").</summary>
+    public static void Hold(Plot plot, int today, int days, string why)
+    {
+        plot.NextBeatDay = today + Math.Max(1, days);
+        plot.SetFact(WaitedOnBeat, plot.Beat.ToString());
+        plot.Note(today, $"waited: {why}");
+    }
+
+    /// <summary>Fact recording the beat a plot last waited on, so it waits at most once per beat.</summary>
+    public const string WaitedOnBeat = "waitedOnBeat";
+
+    public static bool HasWaitedThisBeat(Plot plot) => plot.Fact(WaitedOnBeat) == plot.Beat.ToString();
+
     public int CountingTowardCap(Func<string, PlotTemplate?> templates) =>
         Active.Count(p => templates(p.Template)?.CountsTowardCap ?? true);
 
@@ -134,6 +161,7 @@ public sealed class PlotBook : IArchivable
         archive.Value(ref LastStartDay, "lastStartDay", -1);
         archive.Value(ref LastBeatDay, "lastBeatDay", -1);
         archive.Value(ref NextId, "nextId", 1);
+        archive.DeepList(ref Decisions, "decisions");
         Active.RemoveAll(p => string.IsNullOrEmpty(p.Id));
         NextId = Math.Max(NextId, 1);
     }

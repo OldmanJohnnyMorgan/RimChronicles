@@ -8,6 +8,23 @@ namespace RimChronicles.Game.Plots;
 /// <summary>Dev Mode actions for minor plots, under "Rim Chronicles". Arcs add their own (force seed, advance beat).</summary>
 public static class PlotDevActions
 {
+    /// <summary>The director's last decisions, newest last: the story outline, with the reason for each beat.</summary>
+    [DebugAction("Rim Chronicles", "Plot: director log", allowedGameStates = AllowedGameStates.Playing)]
+    public static void DirectorLog()
+    {
+        if (RimChroniclesGameComponent.Current is not { } component)
+        {
+            return;
+        }
+
+        var decisions = component.Plots.Decisions;
+        var text = decisions.Count == 0
+            ? "No decisions yet."
+            : string.Join("\n\n", decisions.TakeLast(25).Select(d =>
+                $"Day {d.Day}, {d.PlotId}: {d.Choice} ({d.Source})" + (d.Reason.Length > 0 ? $"\n  {d.Reason}" : "") + $"\n  options: {d.Options}"));
+        LetterSink.Instance.Send($"Rim Chronicles: director log ({decisions.Count})", text);
+    }
+
     [DebugAction("Rim Chronicles", "Show plots", allowedGameStates = AllowedGameStates.Playing)]
     public static void ShowPlots()
     {

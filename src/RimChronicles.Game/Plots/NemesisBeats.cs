@@ -13,12 +13,13 @@ namespace RimChronicles.Game.Plots;
 /// Main thread only.</summary>
 public static class NemesisBeats
 {
-    public static void Register() => PlotDriver.Register(NemesisPlot.TemplateId, Fire);
+    public static void Register() => PlotDriver.Register(NemesisPlot.TemplateId, NemesisArc.Transitions, Fire);
 
     private static string Colony => Faction.OfPlayer.Name;
 
-    /// <summary>The plot driver's beat handler. Returns false when the beat couldn't fire today (it retries tomorrow).</summary>
-    public static bool Fire(RimChroniclesGameComponent component, Plot plot, PlotTemplate template, int today)
+    /// <summary>The plot driver's beat handler: fires the step the director chose. Returns false when it couldn't fire
+    /// today (it is decided again tomorrow).</summary>
+    public static bool Fire(RimChroniclesGameComponent component, Plot plot, PlotTemplate template, int today, PlotTransition transition)
     {
         var nemesis = component.Tracked(plot.Fact(NemesisPlot.NemesisId) ?? "");
         if (nemesis is null || nemesis.Dead || nemesis.Destroyed)
@@ -27,13 +28,15 @@ public static class NemesisBeats
             return true;
         }
 
-        var step = NemesisArc.NextStep(plot);
+        var step = Enum.TryParse<NemesisStep>(transition.Step, out var chosen) ? chosen : NemesisArc.NextStep(plot);
         var gap = Rand.RangeInclusive(template.MinGapDays, template.MaxGapDays);
         var facts = NemesisLetters.Facts.From(plot, Colony);
         switch (step)
         {
             case NemesisStep.Sighting:
                 plot.SetFact(NemesisArc.Place, SightingPlace(nemesis));
+                var sightings = int.TryParse(plot.Fact(NemesisArc.Sightings), out var n) ? n + 1 : 1;
+                plot.SetFact(NemesisArc.Sightings, sightings.ToString(System.Globalization.CultureInfo.InvariantCulture));
                 facts = NemesisLetters.Facts.From(plot, Colony);
                 Narrate(component, plot, "Sighting", NemesisLetters.Sighting(facts), LetterDefOf.NeutralEvent);
                 plot.PublicHint = NemesisLetters.SightingNews(facts);

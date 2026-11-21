@@ -67,6 +67,13 @@ public static class SilentPressArc
         };
     }
 
+    /// <summary>Silent Press never asks the director: each step follows from the last, or from the colony's answer.</summary>
+    public static IReadOnlyList<PlotTransition> Transitions(Plot plot)
+    {
+        var step = NextStep(plot);
+        return [new($"{step}", step.ToString(), 1)];
+    }
+
     /// <summary>The reparations: a fiftieth of colony wealth, rounded to 50, between 300 and 3,000 silver.</summary>
     public static int Price(float colonyWealth) => (int)Math.Clamp(Math.Round(colonyWealth / 50f / 50f) * 50f, 300f, 3000f);
 
