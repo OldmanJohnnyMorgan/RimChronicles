@@ -25,7 +25,9 @@ public static class GrudgeKillPatch
 
 /// <summary>A colonist losing a body part at least as big as a hand to a raider. The game adds a missing part as a
 /// hediff with the damage that caused it.</summary>
-[HarmonyPatch(typeof(Pawn_HealthTracker), nameof(Pawn_HealthTracker.AddHediff))]
+// AddHediff has two overloads in 1.7 (Hediff and HediffDef); name the Hediff one exactly.
+[HarmonyPatch(typeof(Pawn_HealthTracker), nameof(Pawn_HealthTracker.AddHediff),
+    [typeof(Hediff), typeof(BodyPartRecord), typeof(DamageInfo?), typeof(DamageWorker.DamageResult)])]
 public static class GrudgeMaimPatch
 {
     public static void Postfix(Pawn ___pawn, Hediff hediff, BodyPartRecord? part, DamageInfo? dinfo)
