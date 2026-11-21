@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 1,
+  "id": "snap-22-real-conditions",
+  "day": 19,
+  "season": "Decembary",
+  "year": 5500,
+  "colony": {
+    "name": "New Arrivals",
+    "wealth": 16267,
+    "population": 3,
+    "mood": "content"
+  },
+  "pawns": [
+    {
+      "id": "Human911",
+      "name": "Jerrol",
+      "age": 13,
+      "traits": [
+        "Industrious"
+      ],
+      "backstory": "Apocalypse survivor",
+      "relations": [
+        "son of Human905"
+      ],
+      "status": "alive"
+    },
+    {
+      "id": "Human908",
+      "name": "Eina",
+      "age": 22,
+      "traits": [
+        "Ascetic"
+      ],
+      "backstory": "Ascetic priest",
+      "relations": [],
+      "status": "alive"
+    },
+    {
+      "id": "Human905",
+      "name": "Furr",
+      "age": 44,
+      "traits": [
+        "Ascetic",
+        "Nimble"
+      ],
+      "backstory": "Mercenary captain",
+      "relations": [
+        "mother of Human911"
+      ],
+      "status": "alive"
+    }
+  ],
+  "tales": [
+    {
+      "day": 2,
+      "type": "ToxicFallout",
+      "actor": "Jerrol"
+    },
+    {
+      "day": 1,
+      "type": "Wounded",
+      "actor": "alpaca",
+      "victim": "Furr"
+    },
+    {
+      "day": 1,
+      "type": "KilledCapacity",
+      "actor": "Furr",
+      "victim": "alpaca"
+    },
+    {
+      "day": 1,
+      "type": "Prayed",
+      "actor": "Jerrol"
+    },
+    {
+      "day": 0,
+      "type": "LandedInPod",
+      "actor": "Furr"
+    },
+    {
+      "day": 0,
+      "type": "LandedInPod",
+      "actor": "Jerrol"
+    },
+    {
+      "day": 0,
+      "type": "LandedInPod",
+      "actor": "Eina"
+    }
+  ],
+  "factions": [
+    {
+      "name": "Ania Confederacy",
+      "kind": "civil outlander union",
+      "goodwill": 0,
+      "settlements": 27,
+      "atWarWith": []
+    },
+    {
+      "name": "Wioog",
+      "kind": "rough pig union",
+      "goodwill": -80,
+      "settlements": 29,
+      "atWarWith": []
+    },
+    {
+      "name": "The Red Swan Verea",
+      "kind": "gentle tribe",
+      "goodwill": 0,
+      "settlements": 19,
+      "atWarWith": []
+    },
+    {
+      "name": "Wegkilsud",
+      "kind": "fierce neanderthal tribe",
+      "goodwill": -80,
+      "settlements": 38,
+      "atWarWith": []
+    },
+    {
+      "name": "Firehome of Fovvtch",
+      "kind": "savage impid tribe",
+      "goodwill": -100,
+      "settlements": 30,
+      "atWarWith": []
+    },
+    {
+      "name": "Shewokott",
+      "kind": "yttakin pirates",
+      "goodwill": -100,
+      "settlements": 25,
+      "atWarWith": []
+    },
+    {
+      "name": "Virus Gang",
+      "kind": "waster pirates",
+      "goodwill": -100,
+      "settlements": 35,
+      "atWarWith": []
+    },
+    {
+      "name": "Empire of Kaseur",
+      "kind": "shattered empire",
+      "goodwill": 0,
+      "settlements": 29,
+      "atWarWith": []
+    },
+    {
+      "name": "Orbital Bazaar",
+      "kind": "traders guild",
+      "goodwill": 0,
+      "settlements": 10,
+      "atWarWith": []
+    }
+  ],
+  "activePlots": [],
+  "recentEvents": [
+    "The worst of the toxic fallout has settled. (day 19)",
+    "The cold snap is over. (day 19)",
+    "Cold snap (day 2)",
+    "Toxic fallout (day 2)",
+    "Visitor (day 2)",
+    "The three of you awake in your cryptosleep sarcophagi to the sound of sirens and ripping metal. (day 0)"
+  ],
+  "publicEvents": [
+    "The toxic fallout around New Arrivals has ended",
+    "The cold snap around New Arrivals has ended"
+  ],
+  "reportedEvents": [],
+  "allowedTransitions": [
+    "Wait"
+  ],
+  "previousBulletins": []
+}

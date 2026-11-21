@@ -48,8 +48,18 @@ public partial class SnapshotTests
 
         Assert.Equal(System.IO.Path.GetFileNameWithoutExtension(file), s.Id);
         Assert.Equal(ids.Count, ids.Distinct().Count());
-        Assert.Equal(5500 + s.Day / 60, s.Year);
-        Assert.Equal(Quadrums[s.Day % 60 / 15], s.Season);
+        if (IsRealExport(s))
+        {
+            // Exported from a real game, which may start in any quadrum: just a real quadrum and a plausible year.
+            Assert.Contains(s.Season, Quadrums);
+            Assert.InRange(s.Year, 5500, 5500 + s.Day / 60 + 1);
+        }
+        else
+        {
+            Assert.Equal(5500 + s.Day / 60, s.Year);
+            Assert.Equal(Quadrums[s.Day % 60 / 15], s.Season);
+        }
+
         Assert.Contains("Wait", s.AllowedTransitions);
         Assert.True(s.Colony.Population >= s.Pawns.Count(p => p.Status == "alive"), "population is below the living pawns listed");
 
@@ -73,7 +83,7 @@ public partial class SnapshotTests
     [Fact]
     public void SnapshotSet_HasTheCoverageTheSpecRequires()
     {
-        var all = All();
+        var all = All().Where(s => !IsRealExport(s)).ToList();
         string Phase(WorldSnapshot s) => s.Id.Split('-')[2];
 
         Assert.Equal(20, all.Count);
@@ -87,6 +97,20 @@ public partial class SnapshotTests
         Assert.True(all.Count(s => s.ActivePlots.Any(p => p.Template == "Nemesis")) >= 4);
         Assert.True(all.Count(s => s.Handoff is not null) >= 3);
         Assert.All(all, s => Assert.EndsWith(s.Colony.Mood, s.Id));
+    }
+
+    /// <summary>Snapshots exported from real games (Stage 2 M6) are named snap-NN-real-*.</summary>
+    private static bool IsRealExport(WorldSnapshot s) => s.Id.Split('-')[2] == "real";
+
+    [Fact]
+    public void RealExports_CoverAQuietWeekAndRealNews()
+    {
+        var real = All().Where(IsRealExport).ToList();
+
+        Assert.Equal(3, real.Count);
+        Assert.Contains(real, s => s.PublicEvents.Count == 0);
+        Assert.Contains(real, s => s.PublicEvents.Any(e => e.Contains("correspondent", StringComparison.Ordinal)));
+        Assert.All(real, s => Assert.Null(s.Handoff));
     }
 
     [Fact]

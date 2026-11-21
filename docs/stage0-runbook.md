@@ -55,7 +55,7 @@ dotnet run --project harness/RimChronicles.Eval -- run --repeats 1 --snapshots "
 dotnet run --project harness/RimChronicles.Eval -- run --judge
 ```
 
-This is 20 snapshots, 3 repeats and 4 models (Gemma 4 E2B, E4B and 12B, plus the Claude reference): 756 outputs. The judge reads 276 of them (bulletins and handoff scenes). The Claude reference (Opus 5.5) and the judge (Sonnet 5.5) together should cost roughly $5–8.
+This is 20 snapshots (23 since Stage 2 M6 added three real exports), 3 repeats and 4 models (Gemma 4 E2B, E4B and 12B, plus the Claude reference): 756 outputs. The judge reads 276 of them (bulletins and handoff scenes). The Claude reference (Opus 5.5) and the judge (Sonnet 5.5) together should cost roughly $5–8.
 
 - **Safe to interrupt.** Ctrl+C stops the run; every finished answer is cached, so running the same command again carries on where it stopped.
 - **Don't game during the run.** Other programs on the GPU change the latency numbers and the VRAM readings.
