@@ -1,6 +1,7 @@
 using RimChronicles.Core.Engine;
 using RimChronicles.Core.News;
 using RimChronicles.Core.Plots;
+using RimChronicles.Core.Plots.Nemesis;
 using RimChronicles.Game.Engine;
 using Verse;
 
@@ -19,6 +20,8 @@ public sealed class RimChroniclesGameComponent : GameComponent
     private NewsLog _news = new();
     private NewsDesk _desk = new();
     private PlotBook _plots = new();
+    private GrudgeLedger _grudges = new();
+    private List<Pawn> _tracked = [];
     private Pawn? _reporterPawn;
 
     public RimChroniclesGameComponent(Verse.Game game)
@@ -43,6 +46,37 @@ public sealed class RimChroniclesGameComponent : GameComponent
     /// <summary>Every minor plot in this save (Stage 3).</summary>
     public PlotBook Plots => _plots;
 
+    /// <summary>Raiders who killed or maimed colonists (Stage 3 M2).</summary>
+    public GrudgeLedger Grudges => _grudges;
+
+    /// <summary>Keeps a reference to a pawn a grudge or plot needs (raider or victim), saved with the game.</summary>
+    public void Track(Pawn pawn)
+    {
+        if (!_tracked.Contains(pawn))
+        {
+            _tracked.Add(pawn);
+        }
+    }
+
+    public Pawn? Tracked(string thingId) => _tracked.FirstOrDefault(p => p?.ThingID == thingId);
+
+    /// <summary>A tracked pawn, or a colonist (living or dead) with this id.</summary>
+    public Pawn? TrackedOrFind(string thingId) =>
+        Tracked(thingId) ?? RimWorld.PawnsFinder.AllMapsWorldAndTemporary_AliveOrDead.FirstOrDefault(p => p.ThingID == thingId);
+
+    /// <summary>True for a living raider with an open grudge or in an active plot: the world-pawn cleanup must keep them.</summary>
+    public bool KeepsAlive(Pawn pawn) =>
+        !pawn.Dead && (_grudges.TrackedKillers.Contains(pawn.ThingID) || _plots.Active.Any(p => p.Fact(NemesisPlot.NemesisId) == pawn.ThingID));
+
+    /// <summary>Drops pawns no grudge or active plot refers to any more.</summary>
+    public void ForgetUntracked()
+    {
+        var needed = _grudges.Grudges.SelectMany(g => new[] { g.KillerId, g.VictimId })
+            .Concat(_plots.Active.SelectMany(p => p.Facts.Select(f => f.Value)))
+            .ToHashSet();
+        _tracked.RemoveAll(p => p is null || !needed.Contains(p.ThingID));
+    }
+
     /// <summary>The reporter's pawn, a world pawn kept forever, or null until one is recruited (Stage 2 M4).</summary>
     public Pawn? ReporterPawn
     {
@@ -62,10 +96,15 @@ public sealed class RimChroniclesGameComponent : GameComponent
         ScribeArchive.Instance.Deep(ref _news, "news");
         ScribeArchive.Instance.Deep(ref _desk, "newsDesk");
         ScribeArchive.Instance.Deep(ref _plots, "plots");
+        ScribeArchive.Instance.Deep(ref _grudges, "grudges");
+        Scribe_Collections.Look(ref _tracked, "trackedPawns", LookMode.Reference);
         Scribe_References.Look(ref _reporterPawn, "reporterPawn");
         _news ??= new NewsLog();
         _desk ??= new NewsDesk();
         _plots ??= new PlotBook();
+        _grudges ??= new GrudgeLedger();
+        _tracked ??= [];
+        _tracked.RemoveAll(p => p is null);
     }
 
     /// <summary>The last day the daily work ran for, or -1 until the first tick after a new game or a load. Not
@@ -84,6 +123,7 @@ public sealed class RimChroniclesGameComponent : GameComponent
         _lastDay = day;
         Game.News.ReporterLife.Daily(this);
         Game.News.ReporterKeeper.EnsureReporter(this);
+        Game.Plots.NemesisTracker.Daily(this);
         Game.Plots.PlotDriver.Daily(this);
         Game.News.NewsDriver.Tick(this);
     }

@@ -45,17 +45,22 @@ public static class ReporterHarmedPatch
     }
 }
 
-/// <summary>Keeps the living reporter from being cleaned up as an unimportant world pawn. Spawning a world pawn removes
+/// <summary>Keeps the living reporter, and raiders with a grudge or a Nemesis plot, from being cleaned up as unimportant
+/// world pawns. Spawning a world pawn removes
 /// it from the game's keep-forever set, and leaving the map passes it back with the default discard rule.</summary>
 [HarmonyPatch(typeof(WorldPawns), nameof(WorldPawns.PassToWorld))]
 public static class ReporterKeptPatch
 {
     public static void Postfix(WorldPawns __instance, Pawn pawn)
     {
-        if (RimChroniclesGameComponent.Current?.ReporterPawn is { } reporter && reporter == pawn && !pawn.Dead
-            && __instance.Contains(pawn))
+        if (RimChroniclesGameComponent.Current is not { } component || pawn.Dead || !__instance.Contains(pawn))
         {
-            __instance.ForcefullyKeptPawns.Add(pawn);
+            return;
+        }
+
+        if (component.ReporterPawn == pawn || component.KeepsAlive(pawn))
+        {
+            __instance.ForcefullyKeptPawns.Add(pawn); // the reporter, or a raider a grudge or Nemesis plot needs
         }
     }
 }
