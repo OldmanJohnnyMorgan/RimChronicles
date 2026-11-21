@@ -72,14 +72,14 @@ Each task runs twice per model: once with grammar-constrained JSON where support
 
 | Tier | Model | Why it's in the test |
 | --- | --- | --- |
-| Minimum (\~2B) | Raon-1 nano | Best in its class on instruction following and grounding; built for game NPCs. Runs only on Krafton's llama.cpp fork (or vLLM with their patch); mainline llama.cpp support (PR #32200) isn't merged, so Ollama can't run it yet. |
-| Minimum (\~2B) | Qwen3.5 2B | Mainstream baseline at the same size |
-| Minimum (\~2B) | Gemma 4 E2B | Mainstream baseline at the same size |
-| Recommended (\~4B) | Qwen3.5 4B | Strong instruction following at 4B |
+| Minimum (\~2B) | Gemma 4 E2B | Mainstream baseline at the smallest size |
 | Recommended (\~4B) | Gemma 4 E4B | Token-efficient, so faster bulletins |
-| Reference | Claude (cloud) | Quality ceiling; also used as the judge |
+| High (12B) | Gemma 4 12B | Ceiling for local models on a single consumer GPU |
+| Reference | Claude (cloud) | Quality ceiling; a Claude model is also the judge |
 
-Candidates are just entries in a config file, each with its own endpoint URL, so new models can be added without code changes and Raon-1 nano can run on Krafton's fork while the others run on Ollama.
+Candidates are just entries in a config file, each with its own endpoint URL, so new models can be added without code changes.
+
+Qwen3.5 (2B and 4B) and Raon-1 nano were in the original candidate list and are out of the project. The Qwen models invented far more facts than Gemma in the trial rounds. Raon-1 nano runs only on Krafton's llama.cpp fork, which is too much setup to ask of players.
 
 ### Scoring
 
@@ -99,7 +99,8 @@ The judge is a cloud model with a fixed rubric prompt. Spot-check 10% of its sco
 
 - A default model chosen for the Recommended tier, and a fallback for the Minimum tier.
 - The final prompt templates for all three tasks, versioned in the repo.
-- Raon-1 nano tested through Krafton's fork. If it scores well, it ships as an advanced preset for players willing to run the fork, and becomes a standard preset once PR #32200 merges.
+
+**Status: done (2026-11-21).** Gemma 4 E4B is the Recommended default, Gemma 4 E2B the Minimum fallback, and Gemma 4 12B the High preset. The prose-quality bar was waived on the project owner's reading of the outputs, since even the Claude reference scored under 3.5 on the handoff. Results and reasoning are in `docs/stage0-results.md`.
 
 ## Stage 1: RimWorld 1.7 technical spike
 
@@ -365,11 +366,11 @@ The director can promote a minor plot into the major one: a Past-Catches-Up colo
 | Tier | Size | Example models | What it does |
 | --- | --- | --- | --- |
 | Off | none | none | Template text everywhere; the story still runs |
-| Minimum | \~2B | Qwen3.5 2B, Gemma 4 E2B; Raon-1 nano for players running Krafton's fork | Director decisions, short bulletins |
-| Recommended | \~4B | Qwen3.5 4B, Gemma 4 E4B | Full narration; the default |
-| High | 12B+ or cloud | Any large local model, or a cloud API | Richer prose and epilogues |
+| Minimum | \~2B | Gemma 4 E2B | Director decisions, short bulletins |
+| Recommended | \~4B | Gemma 4 E4B | Full narration; the default |
+| High | 12B+ or cloud | Gemma 4 12B, or any larger local model or cloud API | Richer prose and epilogues |
 
-The defaults are confirmed by the Stage 0 results.
+The presets were chosen by Stage 0 (`docs/stage0-results.md`). Each preset fills in the Ollama model tag, thinking off and temperature 0.4; players can still point any tier at another OpenAI-compatible endpoint.
 
 ### Dev Mode debug actions
 
@@ -407,7 +408,7 @@ These go in the repo's `CLAUDE.md` (or equivalent) so every coding session follo
 
 ### Roadmap
 
-1. **Stage 0:** model evaluation harness (no game needed)
+1. **Stage 0:** model evaluation harness (no game needed). Done 2026-11-21.
 2. **Stage 1:** 1.7 technical spike and snapshot exporter
 3. **Stage 2:** news agent (first playable release)
 4. **Stage 3:** minor plots, starting with Nemesis
@@ -418,4 +419,4 @@ Each stage ends with its exit criteria met and a playable build. Stage 2 is a go
 
 ### Open questions
 
-- None open. Watch llama.cpp PR #32200 (Raon-1 nano support): when it merges, Ollama support should follow, and Raon-1 nano can move to a standard preset.
+- None open.

@@ -9,10 +9,8 @@
 // Local models sample at temperature 0.4: the server defaults (about 0.6-1.0) encouraged invented detail in
 // bulletins. `run --temperature default` drops the setting to compare against the server default.
 //
-// Raon-1 nano is left out of the current evaluation (decided 2026-11-20). To test it later, set up its server
-// (docs/local-setup.md, "Later: Raon-1 nano") and add this entry back to "models":
-//   { "id": "raon-1-nano", "tier": "Minimum", "provider": "OpenAi",
-//     "endpoint": "http://localhost:8081", "model": "raon-1-nano", "supportsGrammar": true },
+// Raon-1 nano was dropped on 2026-11-21 (Stage 0 closed with the Gemma models; see docs/stage0-results.md):
+// it runs only on Krafton's llama.cpp fork, which is too much setup to ask of players.
 //
 // The Qwen models (qwen3.5:2b, qwen3.5:4b, qwen3:14b) were dropped on 2026-11-21: across four bulletin prompt
 // versions they invented major facts at 10-37 per 10 bulletins, against 2-3 for the Gemma models. Each entry was
