@@ -55,12 +55,13 @@ public static class ConditionStartedPatch
 {
     public static void Postfix(GameCondition cond)
     {
-        if (cond?.def is null || string.IsNullOrWhiteSpace(cond.Label))
+        if (cond?.def is null || string.IsNullOrWhiteSpace(cond.def.label))
         {
             return;
         }
 
-        NewsRecorder.Record(NewsKind.ConditionStarted, NewsPhrasing.Condition(cond.Label, NewsRecorder.Place(cond), ended: false));
+        // def.label, not Label: some conditions add detail to Label ("psychic soothe: Female").
+        NewsRecorder.Record(NewsKind.ConditionStarted, NewsPhrasing.Condition(cond.def.label, NewsRecorder.Place(cond), ended: false));
     }
 }
 
@@ -72,12 +73,12 @@ public static class ConditionEndedPatch
 
     public static void Postfix(GameCondition __instance)
     {
-        if (__instance?.def is null || string.IsNullOrWhiteSpace(__instance.Label) || __instance.TicksPassed < MinDays * GenDate.TicksPerDay)
+        if (__instance?.def is null || string.IsNullOrWhiteSpace(__instance.def.label) || __instance.TicksPassed < MinDays * GenDate.TicksPerDay)
         {
             return;
         }
 
-        NewsRecorder.Record(NewsKind.ConditionEnded, NewsPhrasing.Condition(__instance.Label, NewsRecorder.Place(__instance), ended: true));
+        NewsRecorder.Record(NewsKind.ConditionEnded, NewsPhrasing.Condition(__instance.def.label, NewsRecorder.Place(__instance), ended: true));
     }
 }
 

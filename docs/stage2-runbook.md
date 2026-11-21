@@ -92,7 +92,7 @@ between them.
 | 1 | **Reporter: visit now**. | A letter **correspondent visiting** arrives, and the reporter walks in from the map edge as a visitor of their faction. They hang around for about a day, then leave. Afterwards, **Show news desk** says `in the world`, with a next visit 15–30 days out. |
 | 2 | Play on a few days after they've left, then **Show news desk**. | Still `in the world`. The game's world-pawn cleanup didn't delete them. |
 | 3 | During a visit, arrest the reporter. Then **Force bulletin**. | No bulletin arrives. **Show news desk** says `Held`. Release them: once they've left, the status goes back to `Active` and bulletins resume. |
-| 4 | **Reporter: kill (raiders)**. | No letter right away. **Show news desk** says `Replacing`, with a replacement day 5–10 days out. On that day, a "new correspondent" letter names someone new, and their first bulletin mentions the old reporter's death. |
+| 4 | **Reporter: kill (raiders)**. | No letter right away. **Show news desk** says `Replacing`, with a replacement day 5–10 days out. To skip the wait, use **Reporter: replacement now**. On that day, a "new correspondent" letter names someone new, and their first bulletin mentions the old reporter's death. |
 | 5 | Reload the save from before row 4, then **Reporter: kill (by colony)**. | No letter, no notice, and no bulletins from then on. The Dispatch tab still shows the old bulletins, but no next due day. **Show news desk** says `Silenced`. |
 | 6 (optional) | During a visit, have a colonist shoot the reporter so they go down and bleed out, rather than dying on the spot. | Same as row 5: `Silenced`. |
 
