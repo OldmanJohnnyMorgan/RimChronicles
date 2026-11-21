@@ -242,21 +242,22 @@ public static partial class WorldSummarizer
         sb.Append(CultureInfo.InvariantCulture,
             $"The colony you report near: {s.Colony.Name}. You do not know what happens inside it unless listed below.\n");
 
+        // No settlement counts: they rarely change in a real game, and small models recited them on every quiet week
+        // (Stage 2 M6). Real changes in a faction's size reach the reporter as news.
         AppendList(sb, "Factions:", s.Factions.Take(limits.Factions).Select(f =>
         {
-            var line = $"{f.Name}" + (f.Kind is { } kind ? $" ({kind})" : "") +
-                       $": {f.Settlements} settlement{(f.Settlements == 1 ? "" : "s")}";
+            var details = new List<string>();
             if (f.AtWarWith.Count > 0)
             {
-                line += $", at war with {string.Join(" and ", f.AtWarWith)}";
+                details.Add($"at war with {string.Join(" and ", f.AtWarWith)}");
             }
 
             if (f.PlotState is { } state)
             {
-                line += $", {EmpireRumour(state)}";
+                details.Add(EmpireRumour(state));
             }
 
-            return line;
+            return $"{f.Name}" + (f.Kind is { } kind ? $" ({kind})" : "") + (details.Count > 0 ? $": {string.Join(", ", details)}" : "");
         }));
 
         // Split the news into what the reporter may lead with and what earlier bulletins already covered,
