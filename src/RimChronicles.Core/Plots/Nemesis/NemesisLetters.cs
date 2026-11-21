@@ -57,11 +57,13 @@ public static class NemesisLetters
     public static (string Label, string Text) Choice(Facts f, int cost) => (
         $"Nemesis: what to do about {f.Nemesis}",
         $"{f.Nemesis} escaped again. Word is that bounty hunters would take the job for {cost} silver, "
-        + $"though it would be their kill, not {f.Protagonist}'s.\n\nOr the colony can wait: {f.Nemesis} will come back, "
+        + $"though it would be their kill, not {f.Protagonist}'s. Or {f.Protagonist} can go after {f.Nemesis} in person, "
+        + $"to the camp near {f.Place}.\n\nOr the colony can wait: {f.Nemesis} will come back, "
         + "and next time there will be no one else to blame.");
 
     public const string BountyOption = "Post a bounty ({0} silver)";
     public const string WaitOption = "Wait for them to return";
+    public const string HuntOption = "Hunt them down";
 
     public static (string Label, string Text) SecondRaid(Facts f) => (
         $"Nemesis: {f.Nemesis} returns",
@@ -119,7 +121,7 @@ public static class NemesisLetters
     {
         "Sighting" => "The hook: news reaches the colony that the raider was seen. It should unsettle, and remind the reader what the raider did.",
         "Raid" => "The complication: the raider leads a raid on the colony right now. It should be urgent.",
-        "Choice" => "The choice: the raider escaped again, and the colony must decide between paying bounty hunters and waiting for the raider to return. Present both options fairly, with the price.",
+        "Choice" => "The choice: the raider escaped again, and the colony must decide between paying bounty hunters, going after the raider in person, and waiting for the raider to return. Present all three options fairly, with the price.",
         "SecondRaid" => "The raider returns with a second raid, as the colony expected. It should feel like a reckoning.",
         _ when step.EndsWith("Vanished", StringComparison.Ordinal) || step.EndsWith("FeudFaded", StringComparison.Ordinal)
             => "The end: the raider is gone for good, unpunished. It should feel unfinished and bitter.",

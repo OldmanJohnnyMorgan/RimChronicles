@@ -90,6 +90,23 @@ public static class NemesisBeats
                 nemesis.Kill(null); // the death patch ends the plot as KilledByBounty
                 return true;
 
+            case NemesisStep.Hunt:
+                if (nemesis.Spawned)
+                {
+                    return false;
+                }
+
+                var hunt = Quests.QuestOffers.Hunt(component, plot, nemesis, $"Hunt {facts.Nemesis}",
+                    $"{facts.Raider}, who {facts.Deed}, is holed up in a camp near {facts.Place}. {facts.Protagonist} means to end it there. "
+                    + "Kill or capture the raider before they slip away again.");
+                if (hunt is null)
+                {
+                    plot.SetFact(NemesisArc.HuntQuestFact, Core.Plots.QuestOutcome.Other); // no camp could be placed: the raider comes back instead
+                }
+
+                gap = NemesisArc.HuntWaitDays;
+                break;
+
             case NemesisStep.Vanished:
                 if (nemesis.Spawned)
                 {

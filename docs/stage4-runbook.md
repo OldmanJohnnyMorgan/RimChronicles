@@ -54,3 +54,23 @@ seed**). Each quest's outcome comes back to the plot as in M2; **Quest: show lin
 | 4 | **Quest: Deliver (test)**, then accept. Send a caravan with 50 steel to the named settlement. | The settlement asks for 50 steel. Delivering it completes the quest, with silver worth more than the steel. Not delivering within 20 days fails it. |
 | 5 | **Quest: Choice letter (test)**. Pick **Pay 10 silver**, then try again and pick **Decline**. | The plot gets `choice.Test=paid` (10 silver gone), then `choice.Test=declined`. Without 10 silver, the pay button is greyed out. |
 | 6 | Leave any offered quest unaccepted. | It expires after 4 days, and the link says `Ignored`. |
+
+## M4: Nemesis gets a Hunt option
+
+The Nemesis choice letter now has three options: **Post a bounty**, **Hunt them down** (a Hunt quest against the
+nemesis) and **Wait for them to return**. Killing or capturing the nemesis at the camp ends the plot as before. A failed
+or ignored hunt brings them back for the second raid, or makes them vanish if that raid already happened.
+
+**Harness, before the session (free, no judge):** the choice letter's template and the plot-letter prompt (now v3)
+changed, so re-run the plot-letter trial and push it as before:
+
+```powershell
+dotnet run --project harness/RimChronicles.Eval -- run --tasks plot-letter --models gemma4-e2b,gemma4-e4b,gemma4-12b
+```
+
+| # | Do | Pass when |
+| --- | --- | --- |
+| 1 | **Nemesis: force seed**, then **Plot: advance beat** to the choice letter (let the raid leave). | Three options. The letter mentions the bounty price, hunting them in person near the sighting place, and waiting. |
+| 2 | **Hunt them down**, then play a day. | A Hunt quest named after the nemesis. **Show plots** has `quest.Hunt=pending`, and **Plot: advance beat** says the beat can't fire (the quest decides). |
+| 3 | Accept, go to the camp, and kill the nemesis. | The Nemesis plot ends `KilledByColony` (avenged), the Hunt quest succeeds, and silver arrives. |
+| 4 | Reload. Hunt again, but let the quest fail or expire, then play a day or two. | `quest.Hunt=Fail` (or `Ignored`), then the second raid: **<name> returns**. |

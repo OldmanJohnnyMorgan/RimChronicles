@@ -20,6 +20,9 @@ public enum NemesisStep
 
     /// <summary>The nemesis survived the second raid too: they vanish for good (resolution).</summary>
     Vanished,
+
+    /// <summary>The colony chose to hunt: a Hunt quest sends them to the nemesis's camp (Stage 4).</summary>
+    Hunt,
 }
 
 /// <summary>How a Nemesis plot ended, which picks the payoff, the letter and the news.</summary>
@@ -39,6 +42,10 @@ public static class NemesisArc
     public const string Choice = "choice";
     public const string ChoiceBounty = "bounty";
     public const string ChoiceWait = "wait";
+    public const string ChoiceHunt = "hunt";
+
+    /// <summary>The plot fact that carries the Hunt quest's outcome.</summary>
+    public static readonly string HuntQuestFact = QuestLink.FactFor(QuestTemplates.Hunt);
     public const string SecondRaidDone = "secondRaid";
     public const string Place = "place";
     public const string BountyCostFact = "bountyCost";
@@ -50,8 +57,9 @@ public static class NemesisArc
         PlotBeat.Hook => NemesisStep.Raid,
         PlotBeat.Complication => NemesisStep.Choice,
         PlotBeat.Choice when plot.Fact(Choice) == ChoiceBounty => NemesisStep.BountyKill,
+        PlotBeat.Choice when plot.Fact(Choice) == ChoiceHunt && plot.Fact(HuntQuestFact) is null => NemesisStep.Hunt,
         PlotBeat.Choice when plot.Fact(SecondRaidDone) == "yes" => NemesisStep.Vanished,
-        _ => NemesisStep.SecondRaid,
+        _ => NemesisStep.SecondRaid, // waited, didn't answer, or the hunt failed or was ignored
     };
 
     /// <summary>The beat a step moves the plot to.</summary>
@@ -102,6 +110,11 @@ public static class NemesisArc
                 options.Add(new($"Choice:BountyOrWaitFor{name}", nameof(NemesisStep.Choice), 3));
                 break;
             default:
+                if (HuntUnderWay(plot))
+                {
+                    return []; // the Hunt quest is offered or under way: its outcome decides
+                }
+
                 var step = NextStep(plot);
                 return [new($"{BeatAfter(step)}:{step}", step.ToString(), 1)];
         }
@@ -113,6 +126,12 @@ public static class NemesisArc
 
         return options;
     }
+
+    /// <summary>True while the colony's Hunt quest for the nemesis is offered or under way.</summary>
+    public static bool HuntUnderWay(Plot plot) => plot.Fact(HuntQuestFact) == "pending";
+
+    /// <summary>Days the plot waits on a Hunt quest before deciding again; its outcome makes it due sooner.</summary>
+    public const int HuntWaitDays = QuestTemplates.SiteDays + 5;
 
     /// <summary>"Kael Dunmore" → "KaelDunmore", "'Hatchet' Imre" → "HatchetImre": a name fit for a transition id.</summary>
     public static string Compact(string name) => new(name.Where(char.IsLetterOrDigit).ToArray());
