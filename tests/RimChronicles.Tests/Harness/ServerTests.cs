@@ -145,6 +145,19 @@ public class CheckCommandTests
     }
 
     [Fact]
+    public async Task CutOffWhileThinking_SaysWhy()
+    {
+        const string raw = """{"choices":[{"message":{"content":"","reasoning":"let me think about the raid..."},"finish_reason":"length"}]}""";
+        ChatResult CutOff() => new() { Ok = false, Text = "", Error = "Output cut off by the token limit before any answer", ModelId = "thinker", RawResponse = raw };
+        var provider = new FakeChatProvider(CutOff(), CutOff());
+
+        var check = Assert.Single(await Check(provider, Loaded(4_000_000_000, 4_000_000_000)));
+
+        Assert.Contains(check.Problems, p => p.StartsWith("director:", StringComparison.Ordinal) && p.Contains("server ignores thinkingOffBody"));
+        Assert.Contains(check.Problems, p => p.StartsWith("news-bulletin:", StringComparison.Ordinal) && p.Contains("set \"thinking\": \"Off\""));
+    }
+
+    [Fact]
     public async Task OverBudgetAndPartlyOnCpu_AreWarnings()
     {
         var provider = new FakeChatProvider(Answer("""{"choice":"Wait","reason":"quiet"}"""), Answer(Bulletin));

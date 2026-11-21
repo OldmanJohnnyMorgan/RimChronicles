@@ -3,5 +3,6 @@
   <ItemGroup>
     <ProjectReference Include="..\RimChronicles.Llm\RimChronicles.Llm.csproj" />
     <PackageReference Include="Anthropic" />
+    <InternalsVisibleTo Include="RimChronicles.Tests" />
   </ItemGroup>
 </Project>

@@ -27,6 +27,11 @@ public sealed record AnthropicOptions
     public bool ServerSideFallbacks { get; init; } = true;
 
     public TimeSpan Timeout { get; init; } = TimeSpan.FromMinutes(5);
+
+    /// <summary>Tokens added to each request's output limit for thinking. Claude Opus 5.5 always thinks and its
+    /// thinking counts against max_tokens, so the prompts' caps (sized for the answer alone) would cut it off.
+    /// Answer length is held by the prompt and the word-count checks instead.</summary>
+    public int ThinkingHeadroomTokens { get; init; } = 8000;
 }
 
 /// <summary>Claude through the official Anthropic SDK (Messages API). Never throws for API or transport errors.</summary>
@@ -114,7 +119,7 @@ public sealed class AnthropicProvider : IChatProvider
         return new MessageCreateParams
         {
             Model = _options.Model,
-            MaxTokens = request.MaxOutputTokens,
+            MaxTokens = MaxTokensFor(request.MaxOutputTokens, _options.ThinkingHeadroomTokens),
             System = request.System,
             Messages = [new BetaUserMessageParam { Content = request.User }],
             OutputConfig = outputConfig,
@@ -122,6 +127,9 @@ public sealed class AnthropicProvider : IChatProvider
             Fallbacks = _options.ServerSideFallbacks ? new Default() : (BetaFallbacksParam?)null,
         };
     }
+
+    /// <summary>The max_tokens sent: the answer's cap plus room for thinking. Internal for tests.</summary>
+    internal static long MaxTokensFor(int answerTokens, int headroom) => (long)answerTokens + Math.Max(0, headroom);
 
     private static Effort ParseEffort(string effort) => effort switch
     {

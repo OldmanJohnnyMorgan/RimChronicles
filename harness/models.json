@@ -1,10 +1,10 @@
 // Stage 0 candidate models. Adding a model is a config change only.
 // Keys come from environment variables (apiKeyEnv), never this file.
 //
-// Before the first real run (M5), check:
-//  - the Ollama tags below with `ollama list` (they are the expected names, not yet confirmed);
-//  - that each server honours the thinkingOffBody fields. Ollama's OpenAI-compatible endpoint and llama.cpp
-//    take different fields; the director's thinking is switched off so its 300-token cap isn't used up by reasoning.
+// Thinking is Off for every task on the local models: the prompts' token caps are sized for the answer alone,
+// and the game can't wait for long reasoning. Ollama's OpenAI-compatible endpoint ignores {"think": false};
+// it takes "reasoning_effort": "none". (llama.cpp takes {"chat_template_kwargs": {"enable_thinking": false}}.)
+// `check` warns when a model still thinks with thinking Off.
 //
 // Raon-1 nano is left out of the current evaluation (decided 2026-11-20). To test it later, set up its server
 // (docs/local-setup.md, "Later: Raon-1 nano") and add this entry back to "models":
@@ -16,32 +16,32 @@
     {
       "id": "qwen3.5-2b", "tier": "Minimum", "provider": "OpenAi",
       "endpoint": "http://localhost:11434", "model": "qwen3.5:2b",
-      "thinkingByTask": { "director": "Off" },
-      "thinkingOffBody": { "think": false }
+      "thinking": "Off", "thinkingOffBody": { "reasoning_effort": "none" }
     },
     {
       "id": "gemma4-e2b", "tier": "Minimum", "provider": "OpenAi",
-      "endpoint": "http://localhost:11434", "model": "gemma4:e2b"
+      "endpoint": "http://localhost:11434", "model": "gemma4:e2b",
+      "thinking": "Off", "thinkingOffBody": { "reasoning_effort": "none" }
     },
     {
       "id": "qwen3.5-4b", "tier": "Recommended", "provider": "OpenAi",
       "endpoint": "http://localhost:11434", "model": "qwen3.5:4b",
-      "thinkingByTask": { "director": "Off" },
-      "thinkingOffBody": { "think": false }
+      "thinking": "Off", "thinkingOffBody": { "reasoning_effort": "none" }
     },
     {
       "id": "gemma4-e4b", "tier": "Recommended", "provider": "OpenAi",
-      "endpoint": "http://localhost:11434", "model": "gemma4:e4b"
+      "endpoint": "http://localhost:11434", "model": "gemma4:e4b",
+      "thinking": "Off", "thinkingOffBody": { "reasoning_effort": "none" }
     },
     {
       "id": "gemma4-12b", "tier": "High", "provider": "OpenAi",
-      "endpoint": "http://localhost:11434", "model": "gemma4:12b"
+      "endpoint": "http://localhost:11434", "model": "gemma4:12b",
+      "thinking": "Off", "thinkingOffBody": { "reasoning_effort": "none" }
     },
     {
       "id": "qwen3-14b", "tier": "High", "provider": "OpenAi",
       "endpoint": "http://localhost:11434", "model": "qwen3:14b",
-      "thinkingByTask": { "director": "Off" },
-      "thinkingOffBody": { "think": false }
+      "thinking": "Off", "thinkingOffBody": { "reasoning_effort": "none" }
     },
     {
       "id": "claude-ref", "tier": "Reference", "provider": "Anthropic",

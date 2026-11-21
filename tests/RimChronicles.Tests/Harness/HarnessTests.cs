@@ -58,8 +58,14 @@ public sealed class HarnessConfigTests : IDisposable
         Assert.Equal(7, config.Models.Count);
         Assert.DoesNotContain(config.Models, m => m.Id == "raon-1-nano"); // deferred; see the comment in models.json
         Assert.Equal(["Minimum", "Recommended", "High", "Reference"], config.Models.Select(m => m.Tier).Distinct());
-        Assert.Equal(ThinkingMode.Off, config.Models.Single(m => m.Id == "qwen3.5-4b").ThinkingFor("director"));
-        Assert.Equal(ThinkingMode.Default, config.Models.Single(m => m.Id == "qwen3.5-4b").ThinkingFor("news-bulletin"));
+        // Local models think on no task (the token caps are sized for the answer), using the field Ollama's OpenAI endpoint honours.
+        foreach (var local in config.Models.Where(m => m.Provider == ProviderKind.OpenAi))
+        {
+            Assert.All(new[] { "director", "news-bulletin", "inheritance-handoff" }, t => Assert.Equal(ThinkingMode.Off, local.ThinkingFor(t)));
+            Assert.Equal("none", local.ThinkingOffBody?["reasoning_effort"]?.GetValue<string>());
+        }
+
+        Assert.Equal(ThinkingMode.Off, config.Models.Single(m => m.Id == "claude-ref").ThinkingFor("director"));
         Assert.Equal("claude-opus-5-5", config.Judge!.Model);
     }
 
