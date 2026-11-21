@@ -147,8 +147,9 @@ Send me pass or fail per row, the debug log's Rim Chronicles lines if any are re
 The proof run's bulletins reused whole sentences on quiet weeks, and its reporter was 13. A repetition check now sends a
 bulletin back once if it repeats 8 or more words in a row from either of the last two. Reporters are now 20 or older.
 
-1. **Harness (free, no judge):** the v10 trial's answers are cached, so this re-checks them with the new rule, at no
-   cost, and shows how often the first answer would now be sent back:
+1. **Harness (free, no judge, Ollama running):** the v10 trial's first answers are cached, so this re-checks them
+   with the new rule. Only answers the check sends back are asked again, from the local models. It shows how often the
+   first answer is now sent back:
 
    ```powershell
    dotnet run --project harness/RimChronicles.Eval -- run --repeats 1 --tasks news-bulletin --models gemma4-e2b,gemma4-e4b,gemma4-12b
