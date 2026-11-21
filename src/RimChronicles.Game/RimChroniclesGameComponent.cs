@@ -87,6 +87,7 @@ public sealed class RimChroniclesGameComponent : GameComponent
             _spike.AddLog($"day {day}: daily patch ran ({_spike.DaysSeen} days seen)");
         }
 
+        Game.News.ReporterLife.Daily(this);
         Game.News.ReporterKeeper.EnsureReporter(this);
         Game.News.NewsDriver.Tick(this);
     }

@@ -82,8 +82,41 @@ public static class SpikeDebugActions
             ? $"written ({p.Source}), due day {p.DueDay}:\n{p.Text}"
             : component.WritingBulletin ? "being written" : "not written yet";
         var last = d.Delivered.Count == 0 ? "none yet" : string.Join("\n", d.Delivered.TakeLast(3).Select(b => $"Day {b.DeliveredDay} ({b.Source}): {b.Text}"));
+        var r = d.Reporter;
+        var where = component.ReporterPawn is not { } pawn ? "no pawn" : pawn.Dead ? "dead" : pawn.Spawned ? "on the map" : "in the world";
         LetterSink.Instance.Send("Rim Chronicles: news desk",
-            $"Reporter: {d.Reporter.Name}, {d.Reporter.Outlet}\nNext bulletin due: day {d.NextDueDay} (cadence {RimChroniclesMod.Settings.NewsCadenceDays} days)\n"
+            $"Reporter: {r.Name} of {(r.Faction.Length > 0 ? r.Faction : "no faction")}, {r.Outlet} ({where})\n"
+            + $"Status: {r.Status}; next visit day {r.NextVisitDay}; replacement day {r.ReplaceDay}; silenced day {r.SilencedDay}\nNext bulletin due: day {d.NextDueDay} (cadence {RimChroniclesMod.Settings.NewsCadenceDays} days)\n"
             + $"Next bulletin: {pending}\nOld news remembered: {d.Reported.Count}\n\nLast bulletins:\n{last}");
+    }
+
+    [DebugAction(Category, "Reporter: visit now", allowedGameStates = AllowedGameStates.PlayingOnMap)]
+    public static void ReporterVisitNow()
+    {
+        if (RimChroniclesGameComponent.Current is { } component && !News.ReporterLife.TryVisit(component))
+        {
+            Messages.Message("Rim Chronicles: the reporter can't visit now (none, dead, hostile, already here, or the colony is under attack).",
+                RimWorld.MessageTypeDefOf.RejectInput, historical: false);
+        }
+    }
+
+    [DebugAction(Category, "Reporter: kill (raiders)", allowedGameStates = AllowedGameStates.Playing)]
+    public static void KillReporterOther() => KillReporter(byColony: false);
+
+    [DebugAction(Category, "Reporter: kill (by colony)", allowedGameStates = AllowedGameStates.Playing)]
+    public static void KillReporterByColony() => KillReporter(byColony: true);
+
+    /// <summary>Kills the reporter through the real Kill path, with a colonist or no one as the killer, so the death
+    /// patch is what gets tested.</summary>
+    private static void KillReporter(bool byColony)
+    {
+        if (RimChroniclesGameComponent.Current?.ReporterPawn is not { Dead: false } pawn)
+        {
+            Messages.Message("Rim Chronicles: there is no living reporter.", RimWorld.MessageTypeDefOf.RejectInput, historical: false);
+            return;
+        }
+
+        var killer = byColony ? RimWorld.PawnsFinder.AllMaps_FreeColonists.FirstOrDefault() : null;
+        pawn.Kill(new DamageInfo(RimWorld.DamageDefOf.Cut, 9999f, instigator: killer));
     }
 }

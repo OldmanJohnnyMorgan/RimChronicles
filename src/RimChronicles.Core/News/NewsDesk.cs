@@ -47,6 +47,11 @@ public sealed class NewsDesk : IArchivable
     /// after a reload the write simply starts again).</summary>
     public DeskAction Plan(int today, int cadenceDays, bool writing)
     {
+        if (Reporter.Status != ReporterStatus.Active)
+        {
+            return DeskAction.None; // held, silenced or awaiting a replacement: no news
+        }
+
         if (NextDueDay < 0)
         {
             NextDueDay = today + cadenceDays;
@@ -117,6 +122,87 @@ public sealed class NewsDesk : IArchivable
 
         NextDueDay = today + cadenceDays;
         return bulletin;
+    }
+
+    /// <summary>How long a bleed-out may follow the colony's attack and still count as the colony's kill.</summary>
+    public const int ColonyHarmWindowTicks = 2 * 60000;
+
+    public const int MinVisitGapDays = 15;
+    public const int MaxVisitGapDays = 30;
+    public const int MinReplaceDays = 5;
+    public const int MaxReplaceDays = 10;
+
+    /// <summary>A new reporter takes over: active, with a first visit <paramref name="visitInDays"/> from now.</summary>
+    public void NewReporter(string name, string faction, int today, int visitInDays)
+    {
+        Reporter.Name = name;
+        Reporter.Faction = faction;
+        Reporter.Status = ReporterStatus.Active;
+        Reporter.ReplaceDay = -1;
+        Reporter.LastColonyHarmTick = -1;
+        Reporter.NextVisitDay = today + visitInDays;
+    }
+
+    /// <summary>True when an active reporter's visit is due today.</summary>
+    public bool VisitDue(int today) =>
+        Reporter.Status == ReporterStatus.Active && Reporter.NextVisitDay >= 0 && today >= Reporter.NextVisitDay;
+
+    public void ScheduleVisit(int today, int inDays) => Reporter.NextVisitDay = today + inDays;
+
+    /// <summary>True when an outlet's replacement reporter is due.</summary>
+    public bool ReplacementDue(int today) => Reporter.Status == ReporterStatus.Replacing && today >= Reporter.ReplaceDay;
+
+    /// <summary>Whether a death with this cause was the colony's doing. <paramref name="killerIsColony"/> is null when
+    /// the game gave no killer (bleeding out, disease).</summary>
+    public bool KilledByColony(bool? killerIsColony, bool heldByColony, bool recruitedByColony, int nowTick) =>
+        killerIsColony == true || heldByColony || recruitedByColony ||
+        (killerIsColony is null && Reporter.LastColonyHarmTick >= 0 && nowTick - Reporter.LastColonyHarmTick <= ColonyHarmWindowTicks);
+
+    /// <summary>The colony killed or recruited the reporter: the news stops, with no letter and no notice. The waiting
+    /// bulletin is dropped.</summary>
+    public void Silence(int today)
+    {
+        if (Reporter.Status == ReporterStatus.Silenced)
+        {
+            return;
+        }
+
+        Reporter.Status = ReporterStatus.Silenced;
+        Reporter.SilencedDay = today;
+        Reporter.NextVisitDay = -1;
+        Pending = null;
+    }
+
+    /// <summary>The reporter died some other way: a replacement comes in <paramref name="replaceInDays"/> days.</summary>
+    public void ReporterLost(int today, int replaceInDays)
+    {
+        if (Reporter.Status is ReporterStatus.Silenced or ReporterStatus.Replacing)
+        {
+            return;
+        }
+
+        Reporter.Status = ReporterStatus.Replacing;
+        Reporter.ReplaceDay = today + replaceInDays;
+        Reporter.NextVisitDay = -1;
+        Pending = null;
+    }
+
+    /// <summary>The colony took the reporter prisoner: the news pauses.</summary>
+    public void Held()
+    {
+        if (Reporter.Status == ReporterStatus.Active)
+        {
+            Reporter.Status = ReporterStatus.Held;
+        }
+    }
+
+    /// <summary>The reporter is free again: the news resumes, and anything overdue goes out next.</summary>
+    public void Freed()
+    {
+        if (Reporter.Status == ReporterStatus.Held)
+        {
+            Reporter.Status = ReporterStatus.Active;
+        }
     }
 
     public void Expose(IArchive archive)

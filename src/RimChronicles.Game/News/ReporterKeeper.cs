@@ -1,3 +1,4 @@
+using RimChronicles.Core.News;
 using RimChronicles.Game.Engine;
 using RimWorld;
 using RimWorld.Planet;
@@ -9,10 +10,14 @@ namespace RimChronicles.Game.News;
 /// kept as a world pawn, so it is saved with the world and can later be met, kidnapped or killed. Main thread only.</summary>
 public static class ReporterKeeper
 {
-    /// <summary>Called daily. Recruits a reporter if there is none yet; does nothing once one exists (M5 handles deaths).</summary>
+    /// <summary>Called daily. Recruits a reporter if there is none yet, or when a replacement is due after a death.
+    /// Never while the colony holds or has silenced the reporter.</summary>
     public static void EnsureReporter(RimChroniclesGameComponent component)
     {
-        if (component.ReporterPawn is not null)
+        var desk = component.Desk;
+        var today = GenDate.DaysPassed;
+        if (component.ReporterPawn is not null || desk.Reporter.Status is ReporterStatus.Silenced or ReporterStatus.Held
+            || (desk.Reporter.Status == ReporterStatus.Replacing && !desk.ReplacementDue(today)))
         {
             return;
         }
@@ -44,9 +49,8 @@ public static class ReporterKeeper
         Find.WorldPawns.PassToWorld(pawn, PawnDiscardDecideMode.KeepForever);
         component.ReporterPawn = pawn;
 
-        var reporter = component.Desk.Reporter;
-        reporter.Name = DisplayName(pawn);
-        reporter.Faction = faction.Name;
+        desk.NewReporter(DisplayName(pawn), faction.Name, today, Rand.RangeInclusive(NewsDesk.MinVisitGapDays, NewsDesk.MaxVisitGapDays));
+        var reporter = desk.Reporter;
         LetterSink.Instance.Send($"{reporter.Outlet.CapitalizeFirst()}: new correspondent",
             $"{reporter.Name} of {faction.Name} will be reporting for {reporter.Outlet}, with a bulletin every "
             + $"{RimChroniclesMod.Settings.NewsCadenceDays} days. Past bulletins are kept in the Dispatch tab.");
