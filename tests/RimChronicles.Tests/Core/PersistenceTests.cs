@@ -1,6 +1,6 @@
 using RimChronicles.Core.Persistence;
 using RimChronicles.Core.Snapshots;
-using RimChronicles.Core.Spike;
+using RimChronicles.Core.News;
 using RimChronicles.Tests.TestSupport;
 
 namespace RimChronicles.Tests.Core;
@@ -9,63 +9,34 @@ public class PersistenceTests
 {
     private sealed class Holder : IArchivable
     {
-        public SpikeState State = new();
+        public ReporterState Reporter = new();
 
-        public void Expose(IArchive archive) => archive.Deep(ref State, "spike");
+        public void Expose(IArchive archive) => archive.Deep(ref Reporter, "reporter");
     }
 
     [Fact]
-    public void SpikeState_RoundTrips()
+    public void Deep_RoundTripsANestedObject()
     {
-        var state = new SpikeState { DaysSeen = 4, LastReply = "Quiet week.", LastReplyDay = 3 };
-        state.AddLog("day 3: reply");
-
+        var holder = new Holder();
+        holder.Reporter.Name = "Kael Dunmore";
         var saving = new DictionaryArchive(ArchiveMode.Saving);
-        state.Expose(saving);
-        var loaded = new SpikeState();
+        holder.Expose(saving);
+
+        var loaded = new Holder { Reporter = null! };
         loaded.Expose(new DictionaryArchive(ArchiveMode.Loading, saving.Data));
 
-        Assert.Equal(4, loaded.DaysSeen);
-        Assert.Equal("Quiet week.", loaded.LastReply);
-        Assert.Equal(3, loaded.LastReplyDay);
-        Assert.Equal(["day 3: reply"], loaded.Log);
-    }
-
-    [Fact]
-    public void SpikeState_LoadsDefaultsFromASaveWithoutTheMod()
-    {
-        var loaded = new SpikeState { DaysSeen = 9, LastReply = "stale", Log = null! };
-
-        loaded.Expose(new DictionaryArchive(ArchiveMode.Loading));
-
-        Assert.Equal(0, loaded.DaysSeen);
-        Assert.Equal("", loaded.LastReply);
-        Assert.Equal(-1, loaded.LastReplyDay);
-        Assert.Empty(loaded.Log);
+        Assert.Equal("Kael Dunmore", loaded.Reporter.Name);
     }
 
     [Fact]
     public void Deep_MissingOnLoadGivesANewInstance()
     {
-        var holder = new Holder { State = null! };
+        var holder = new Holder { Reporter = null! };
 
         holder.Expose(new DictionaryArchive(ArchiveMode.Loading));
 
-        Assert.NotNull(holder.State);
-        Assert.Equal(-1, holder.State.LastReplyDay);
-    }
-
-    [Fact]
-    public void SpikeState_LogKeepsTheNewestLines()
-    {
-        var state = new SpikeState();
-        for (var i = 0; i < SpikeState.MaxLog + 5; i++)
-        {
-            state.AddLog($"line {i}");
-        }
-
-        Assert.Equal(SpikeState.MaxLog, state.Log.Count);
-        Assert.Equal("line 5", state.Log[0]);
+        Assert.NotNull(holder.Reporter);
+        Assert.Equal(ReporterStatus.Active, holder.Reporter.Status);
     }
 
     [Theory]

@@ -211,6 +211,8 @@ Template bulletins per event type ("\[Faction\] forces seized \[Settlement\] thi
 - Reload never changes a delivered bulletin.
 - Turning the model off mid-game falls back to templates with no errors.
 
+**Status: done (2026-11-21).** All three passed in a 60-day test game on the reference PC. The reporter is recruited from a non-hostile faction, visits every 15–30 days, and can be held, killed or lost: a colony kill stops the news (Silent Press itself comes with Stage 3), any other death brings a replacement. Bulletin prompt v10 writes one short item on a quiet week and never pads with faction sizes. Results and lessons are in `docs/stage2-results.md`.
+
 ## Stage 3: Minor plots
 
 Minor plots are short arcs, about one season each, grown from the colony's own history. When a protagonist dies, the plot passes to someone else. The first build ships one arc (Nemesis) end to end; the rest follow once it plays well.
@@ -412,7 +414,7 @@ These go in the repo's `CLAUDE.md` (or equivalent) so every coding session follo
 
 1. **Stage 0:** model evaluation harness (no game needed). Done 2026-11-21.
 2. **Stage 1:** 1.7 technical spike and snapshot exporter. Done 2026-11-21.
-3. **Stage 2:** news agent (first playable release)
+3. **Stage 2:** news agent (first playable release). Done 2026-11-21.
 4. **Stage 3:** minor plots, starting with Nemesis
 5. **Stage 4:** plot director and quest templates
 6. **Stage 5:** Awakened Empire and endings
