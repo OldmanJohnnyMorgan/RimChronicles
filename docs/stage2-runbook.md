@@ -27,3 +27,21 @@ Open **Options → Mod settings → Rim Chronicles**.
 | 9 | Click **Reset to defaults**. | Recommended, `http://localhost:11434/`, `gemma4:e4b`, no key, 3 days. |
 
 Send me pass or fail for each row, and a screenshot of the page if anything looks cramped or cut off.
+
+## M2: world news collector
+
+Load a colony with **Development mode** on. "Debug actions" is the second icon in the dev toolbar. The news log is
+**Debug actions → Rim Chronicles → Show news log**. With Dev mode on, the debug log also prints a `[Rim Chronicles] News:`
+line each time news is recorded.
+
+| # | Do | Pass when |
+| --- | --- | --- |
+| 1 | **Show news log** on a fresh colony. | "No world news yet". |
+| 2 | **Debug actions → Incidents**, execute **Cold snap**, then **Toxic fallout**. | The log has `The cold snap has begun around <colony>` and `The toxic fallout has begun …`, once each. |
+| 3 | Open the **Factions** tab. Dev mode adds goodwill buttons: lower a neutral faction until it turns hostile, then raise it back until it's neutral. | `<faction> turned hostile to <colony>`, then `<faction> made peace with <colony>`. Each change is logged once. |
+| 4 | Let a condition run 3+ days (use dev speed or **Debug actions → Time → Advance 1 day**), or wait for it to end. | `The cold snap around <colony> has ended`, logged only if it lasted 3 days or more. |
+| 5 | Save, quit to the menu, and load the save. Then **Show news log**. | The same entries as before. Loading added nothing new. |
+| 6 | **Dump world snapshot**. | The file's `publicEvents` lists the news from the last 15 days. |
+| 7 (optional) | Kill a faction leader (find one in the **Factions** tab), or destroy a settlement with a caravan. | `<name>, <title> of <faction>, has died…`, or `<colony> destroyed <settlement>…`. |
+
+Send me pass or fail per row, the news log text from row 5, and the snapshot from row 6, uploaded to `reference`.

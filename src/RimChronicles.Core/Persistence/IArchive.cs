@@ -28,6 +28,9 @@ public interface IArchive
 
     /// <summary>Saves or loads a nested object under <paramref name="label"/>. Missing on load → a new instance.</summary>
     void Deep<T>(ref T value, string label) where T : class, IArchivable, new();
+
+    /// <summary>Saves or loads a list of nested objects. Missing on load → an empty list, never null; null items are dropped.</summary>
+    void DeepList<T>(ref List<T> list, string label) where T : class, IArchivable, new();
 }
 
 /// <summary>A Core type that is stored in the save file.</summary>

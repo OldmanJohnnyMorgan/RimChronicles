@@ -60,4 +60,73 @@ public sealed class ScribeArchive : IArchive
             value = new T();
         }
     }
+
+    /// <summary>Writes the list as <c>&lt;label&gt;&lt;count/&gt;&lt;i0&gt;…&lt;/i0&gt;&lt;i1&gt;…</c> using only
+    /// <c>Scribe.EnterNode</c> and <c>Scribe_Values</c>, so no Core type needs to be an <c>IExposable</c> or be found by
+    /// name on load. Core types hold no cross-references, so passes other than save and load are skipped.</summary>
+    public void DeepList<T>(ref List<T> list, string label) where T : class, IArchivable, new()
+    {
+        if (Scribe.mode == LoadSaveMode.Saving)
+        {
+            var items = (list ?? []).Where(x => x is not null).ToList();
+            Scribe.EnterNode(label);
+            try
+            {
+                var count = items.Count;
+                Scribe_Values.Look(ref count, "count");
+                for (var i = 0; i < items.Count; i++)
+                {
+                    Scribe.EnterNode($"i{i}");
+                    try
+                    {
+                        items[i].Expose(this);
+                    }
+                    finally
+                    {
+                        Scribe.ExitNode();
+                    }
+                }
+            }
+            finally
+            {
+                Scribe.ExitNode();
+            }
+        }
+        else if (Scribe.mode == LoadSaveMode.LoadingVars)
+        {
+            list = [];
+            if (!Scribe.EnterNode(label))
+            {
+                return;
+            }
+
+            try
+            {
+                var count = 0;
+                Scribe_Values.Look(ref count, "count");
+                for (var i = 0; i < count; i++)
+                {
+                    if (!Scribe.EnterNode($"i{i}"))
+                    {
+                        continue;
+                    }
+
+                    try
+                    {
+                        var item = new T();
+                        item.Expose(this);
+                        list.Add(item);
+                    }
+                    finally
+                    {
+                        Scribe.ExitNode();
+                    }
+                }
+            }
+            finally
+            {
+                Scribe.ExitNode();
+            }
+        }
+    }
 }

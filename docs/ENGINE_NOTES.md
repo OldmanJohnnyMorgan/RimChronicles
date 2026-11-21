@@ -50,6 +50,26 @@ dlls/<name>.dll` for `Assembly-CSharp`, `RimWorld`, `Waylith`, `UnityStubs`, `Wa
 | `Find.FactionManager.AllFactionsVisible`, `Faction.PlayerGoodwill`, `Find.WorldObjects.Settlements` | Snapshot factions |
 | `Find.Archive.ArchivablesListForReading`, `GenLocalDate.Twelfth(map).GetQuadrum()`, `GenLocalDate.Year(map)`, `WealthUtility.PlayerWealth` | Snapshot events, date and wealth |
 
+## World news hooks (Stage 2 M2)
+
+All are postfixes in `src/RimChronicles.Game/Patches/NewsPatches.cs`. They read game state only, and record only while
+`Current.ProgramState == Playing`, so loading a save records nothing.
+
+| Hook | News |
+| --- | --- |
+| `GameConditionManager.RegisterCondition(GameCondition cond)` | A condition starting. `ownerMap` is null for world-wide conditions. |
+| `GameCondition.End()` | A condition ending. Only ones that ran 3+ days (`TicksPassed`) are logged. |
+| `Faction.Notify_RelationKindChanged(Faction other, FactionRelationKind previousKind, …)` | War and peace. The game calls it on **both** factions, so we skip the colony's side, and keep one side for two other factions. |
+| `Faction.Notify_LeaderDied()` | A faction leader dying. A prefix reads `leader` before `TryGenerateNewLeader` replaces it. |
+| `SettlementDefeatUtility.CheckDefeated(Settlement factionBase)` | A settlement destroyed, and its faction wiped out if it was the last. Vanilla only destroys settlements through the colony. |
+
+Vanilla RimWorld makes little world news: no wars between other factions, no expansion. Most bulletins will be quiet
+weeks until the plots of Stages 3–5 add news.
+
+Core lists are saved as `<label><count/><i0>…</i0>…`, using only `Scribe.EnterNode` and `Scribe_Values`
+(`ScribeArchive.DeepList`). This keeps Core types from having to be `IExposable`, and keeps Scribe from looking a
+type up by name on load, which might not resolve nested generic types.
+
 ## Differences that matter later
 
 - `Mod.DoSettingsWindowContents(Rect)` still takes `UnityEngine.Rect`, which is now a type in `UnityStubs`.

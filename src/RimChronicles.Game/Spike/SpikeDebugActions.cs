@@ -44,4 +44,19 @@ public static class SpikeDebugActions
         LetterSink.Instance.Send("Rim Chronicles: spike state",
             $"Days seen by the daily patch: {s.DaysSeen}\nLast LLM reply: {reply}\n\nLog:\n{string.Join("\n", s.Log)}");
     }
+
+    [DebugAction(Category, "Show news log", allowedGameStates = AllowedGameStates.Playing)]
+    public static void ShowNewsLog()
+    {
+        if (RimChroniclesGameComponent.Current is not { } component)
+        {
+            return;
+        }
+
+        var events = component.News.Events;
+        var text = events.Count == 0
+            ? "No world news yet. Try the debug incidents for a cold snap, toxic fallout or a faction leader's death."
+            : string.Join("\n", events.OrderBy(e => e.Day).Select(e => $"Day {e.Day} [{e.Kind}]: {e.Text}"));
+        LetterSink.Instance.Send($"Rim Chronicles: news log ({events.Count})", text);
+    }
 }
