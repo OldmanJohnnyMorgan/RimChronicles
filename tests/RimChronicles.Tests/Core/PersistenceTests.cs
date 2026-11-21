@@ -84,4 +84,20 @@ public class PersistenceTests
     [InlineData("", 5, "export-colony-day5")]
     public void SnapshotIds_AreFileNameSafe(string colony, int day, string expected) =>
         Assert.Equal(expected, SnapshotIds.ForExport(colony, day));
+
+    [Theory]
+    [InlineData("Raid repelled", "Raid repelled")]
+    [InlineData("The three of you awake in your cryptosleep sarcophagi to the sound of sirens. You barely get to the pods.", "The three of you awake in your cryptosleep sarcophagi to the sound of sirens.")]
+    [InlineData("Trader arrived.", "Trader arrived.")]
+    public void EventText_KeepsTheFirstSentence(string text, string expected) =>
+        Assert.Equal(expected, EventText.Shorten(text));
+
+    [Fact]
+    public void EventText_CutsALongSentenceAtAWord()
+    {
+        var shortened = EventText.Shorten(string.Join(' ', Enumerable.Repeat("word", 40)), max: 30);
+
+        Assert.True(shortened.Length <= 30);
+        Assert.EndsWith("word…", shortened);
+    }
 }

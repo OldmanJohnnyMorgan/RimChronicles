@@ -20,7 +20,6 @@ public sealed class WorldReader : IWorldReader
     {
         var map = Find.AnyPlayerHomeMap;
         var colonists = PawnsFinder.AllMaps_FreeColonists;
-        var colonistIds = colonists.Select(p => p.ThingID).ToHashSet();
         var day = GenDate.DaysPassed;
 
         var moods = colonists.Select(p => p.needs?.mood?.CurLevel).Where(m => m.HasValue).Select(m => m!.Value).ToList();
@@ -38,26 +37,33 @@ public sealed class WorldReader : IWorldReader
                 Population = colonists.Count,
                 Mood = ColonyMood.FromAverage(moods.Count == 0 ? null : moods.Average()),
             },
-            Pawns = colonists.Select(p => ReadPawn(p, colonistIds)).ToList(),
+            Pawns = colonists.Select(p => ReadPawn(p, colonists)).ToList(),
             Tales = ReadTales(day),
             Factions = ReadFactions(),
             RecentEvents = ReadRecentEvents(),
         };
     }
 
-    private static PawnInfo ReadPawn(Pawn pawn, HashSet<string> colonistIds) => new()
+    private static PawnInfo ReadPawn(Pawn pawn, List<Pawn> colonists) => new()
     {
         Id = pawn.ThingID,
         Name = pawn.Name?.ToStringShort ?? pawn.LabelShort,
         Age = pawn.ageTracker?.AgeBiologicalYears ?? 0,
         Traits = pawn.story?.traits?.allTraits.Select(t => t.LabelCap).ToList() ?? [],
         Backstory = (pawn.story?.Adulthood ?? pawn.story?.Childhood)?.TitleCapFor(pawn.gender),
-        Relations = pawn.relations?.DirectRelations
-            .Where(r => r.otherPawn is not null && colonistIds.Contains(r.otherPawn.ThingID))
-            .Select(r => $"{r.def.label} of {r.otherPawn.ThingID}")
-            .ToList() ?? [],
+        Relations = ReadRelations(pawn, colonists),
         Status = pawn.Dead ? "dead" : "alive",
     };
+
+    /// <summary>"What this pawn is to each other colonist", e.g. "son of Human905". <c>other.GetRelations(pawn)</c>
+    /// gives what <paramref name="pawn"/> is to <c>other</c> (the Social tab reads it the same way), including implied
+    /// relations such as child or sibling.</summary>
+    private static List<string> ReadRelations(Pawn pawn, List<Pawn> colonists) =>
+        colonists
+            .Where(other => other != pawn)
+            .SelectMany(other => other.GetRelations(pawn).Select(def => $"{def.GetGenderSpecificLabel(pawn)} of {other.ThingID}"))
+            .Distinct()
+            .ToList();
 
     private static List<TaleInfo> ReadTales(int today)
     {
@@ -69,6 +75,7 @@ public sealed class WorldReader : IWorldReader
             .OrderByDescending(x => x.Tale.date)
             .Select(x => ReadTale(x.Tale, x.Day))
             .OfType<TaleInfo>()
+            .Distinct() // a fight logs one Wounded tale per hit
             .Take(MaxTales)
             .ToList();
     }
@@ -79,17 +86,21 @@ public sealed class WorldReader : IWorldReader
         {
             Day = day,
             Type = tale.def.defName,
-            Actor = d.firstPawnData.name?.ToStringShort ?? "someone",
-            Victim = d.secondPawnData?.name?.ToStringShort,
+            Actor = TalePawnName(d.firstPawnData),
+            Victim = d.secondPawnData is null ? null : TalePawnName(d.secondPawnData),
         },
         Tale_SinglePawn s when s.pawnData is not null => new TaleInfo
         {
             Day = day,
             Type = tale.def.defName,
-            Actor = s.pawnData.name?.ToStringShort ?? "someone",
+            Actor = TalePawnName(s.pawnData),
         },
         _ => null,
     };
+
+    /// <summary>A named pawn's short name, else its kind ("boomalope", "pirate"), for animals and unnamed raiders.</summary>
+    private static string TalePawnName(TaleData_Pawn data) =>
+        data.name?.ToStringShort ?? data.kind?.label ?? "someone";
 
     private static List<FactionInfo> ReadFactions()
     {
@@ -115,9 +126,10 @@ public sealed class WorldReader : IWorldReader
         }
 
         return archive.ArchivablesListForReading
+            .Where(a => !(a.ArchivedLabel ?? "").StartsWith("Rim Chronicles", StringComparison.Ordinal)) // our own letters
             .OrderByDescending(a => a.CreatedTicksGame)
             .Take(MaxRecentEvents)
-            .Select(a => $"{a.ArchivedLabel} day {a.CreatedTicksGame / GenDate.TicksPerDay}")
+            .Select(a => $"{EventText.Shorten(a.ArchivedLabel ?? "")} (day {a.CreatedTicksGame / GenDate.TicksPerDay})")
             .ToList();
     }
 }
