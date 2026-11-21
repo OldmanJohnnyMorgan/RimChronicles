@@ -139,5 +139,17 @@
     "heir": "p2",
     "relation": "son",
     "plotSummary": "Constance learned from a letter that her sister Ada, lost for thirty years, was alive in a Wailing Moth village. She led a caravan through the passes to bring Ada home. A blizzard caught them; the caravan was lost, and Constance died of cold. Ada is still in the village."
+  },
+  "plotLetter": {
+    "template": "LostFamily",
+    "step": "Letter",
+    "protagonist": "Elias",
+    "facts": {
+      "kinName": "Ada",
+      "relation": "aunt",
+      "kinFaction": "the Wailing Moth Tribe",
+      "kinPronoun": "she",
+      "protagonistPronoun": "he"
+    }
   }
 }

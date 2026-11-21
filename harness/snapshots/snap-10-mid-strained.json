@@ -125,5 +125,18 @@
     "name": "Ilse Varrow",
     "outlet": "the Rim Dispatch",
     "persona": "dry, wry and slightly cynical"
+  },
+  "plotLetter": {
+    "template": "LostFamily",
+    "step": "Taken",
+    "protagonist": "Anouk",
+    "facts": {
+      "kinName": "Saskia",
+      "relation": "sister",
+      "kinFaction": "the Ochre Hand",
+      "captor": "the Stonecutter Raiders",
+      "kinPronoun": "she",
+      "protagonistPronoun": "she"
+    }
   }
 }

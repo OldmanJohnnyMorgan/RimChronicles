@@ -166,22 +166,28 @@ public static partial class WorldSummarizer
         facts.Append(CultureInfo.InvariantCulture, $"- Colony: {colony}\n- Protagonist: {c.Protagonist}\n");
         foreach (var (key, value) in c.Facts.Where(kv => kv.Value.Length > 0).OrderBy(kv => kv.Key, StringComparer.Ordinal))
         {
-            facts.Append(CultureInfo.InvariantCulture, $"- {FactLabel(key)}: {value}\n");
+            facts.Append(CultureInfo.InvariantCulture, $"- {FactLabel(key, c.Template)}: {value}\n");
         }
 
         return Build(new()
         {
-            ["arc"] = c.Template == Plots.Nemesis.NemesisPlot.TemplateId
-                ? "Nemesis: a raider who killed or maimed one of the colonists escaped, and the colony has not forgotten."
-                : c.Template,
-            ["purpose"] = Plots.Nemesis.NemesisLetters.Purpose(c.Step),
+            ["arc"] = c.Template switch
+            {
+                Plots.Nemesis.NemesisPlot.TemplateId => "Nemesis: a raider who killed or maimed one of the colonists escaped, and the colony has not forgotten.",
+                Plots.LostFamily.LostFamilyArc.TemplateId => "Lost Family: a colonist has a living relative in another faction, far from the colony.",
+                _ => c.Template,
+            },
+            ["purpose"] = c.Template == Plots.LostFamily.LostFamilyArc.TemplateId
+                ? Plots.LostFamily.LostFamilyLetters.Purpose(c.Step)
+                : Plots.Nemesis.NemesisLetters.Purpose(c.Step),
             ["facts"] = facts.ToString().TrimEnd(),
             ["plainLetter"] = plain.Text,
         });
     }
 
-    private static string FactLabel(string key) => key switch
+    private static string FactLabel(string key, string template) => key switch
     {
+        "relation" when template == Plots.LostFamily.LostFamilyArc.TemplateId => "Relative's relation to the protagonist",
         "nemesisName" => "Raider",
         "nemesisFaction" => "Raider's faction",
         "victimName" => "Victim",
@@ -193,6 +199,10 @@ public static partial class WorldSummarizer
         "nemesisPronoun" => "Raider's pronoun",
         "protagonistPronoun" => "Protagonist's pronoun",
         "victimPronoun" => "Victim's pronoun",
+        "kinName" => "Relative",
+        "kinFaction" => "Relative's faction",
+        "kinPronoun" => "Relative's pronoun",
+        "captor" => "Captors",
         _ => key,
     };
 

@@ -67,9 +67,10 @@ public sealed class RimChroniclesGameComponent : GameComponent
     public Pawn? TrackedOrFind(string thingId) =>
         Tracked(thingId) ?? RimWorld.PawnsFinder.AllMapsWorldAndTemporary_AliveOrDead.FirstOrDefault(p => p.ThingID == thingId);
 
-    /// <summary>True for a living raider with an open grudge or in an active plot: the world-pawn cleanup must keep them.</summary>
+    /// <summary>True for a living raider with an open grudge, or any living pawn an active plot names (a nemesis, a
+    /// relative): the world-pawn cleanup must keep them.</summary>
     public bool KeepsAlive(Pawn pawn) =>
-        !pawn.Dead && (_grudges.TrackedKillers.Contains(pawn.ThingID) || _plots.Active.Any(p => p.Fact(NemesisPlot.NemesisId) == pawn.ThingID));
+        !pawn.Dead && (_grudges.TrackedKillers.Contains(pawn.ThingID) || _plots.Active.Any(p => p.Facts.Any(f => f.Value == pawn.ThingID)));
 
     /// <summary>Drops pawns no grudge or active plot refers to any more.</summary>
     public void ForgetUntracked()
@@ -131,6 +132,7 @@ public sealed class RimChroniclesGameComponent : GameComponent
         Game.Quests.QuestStarter.Daily(this);
         Game.Plots.SuccessionDriver.Daily(this);
         Game.Plots.SilentPressBeats.Daily(this);
+        Game.Plots.LostFamilyBeats.Daily(this);
         Game.Plots.PlotDriver.Daily(this);
         Game.News.NewsDriver.Tick(this);
     }
