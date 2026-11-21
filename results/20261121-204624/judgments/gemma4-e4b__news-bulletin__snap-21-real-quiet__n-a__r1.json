@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-21-real-quiet__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They seem to be keeping busy, which, for them, is usually a sign of trouble brewing.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022states ongoing activity and a past pattern the briefing does not give; \u0027seem\u0027 hedges only the first half\u0022},{\u0022span\u0022:\u0022Pirates, as always, finding ways to be inconvenient.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing activity and past behaviour stated as fact, not as a guess\u0022},{\u0022span\u0022:\u0022Traders, always finding a way to profit from the general misery.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022unsupported ongoing activity and general claim stated as fact\u0022},{\u0022span\u0022:\u0022They probably haven\u0027t bothered to check the local news feed.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a news feed exists; it is hedged but adds a specific detail\u0022},{\u0022span\u0022:\u0022I suspect they are busy arguing over municipal bylaws again.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027again\u0027 implies a past pattern; it is a guess but adds a comparison with an earlier state\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It breaks the brief by turning a quiet week into a list of faction settlement counts, which the task explicitly forbids, and it uses the wrong format of nine items instead of one short item of 40 to 80 words. Its guesses are mostly hedged and the voice is dry, but the length and padding make it unshippable.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.1452554,
+      "inputTokens": 3849,
+      "outputTokens": 471
+    }
+  ]
+}

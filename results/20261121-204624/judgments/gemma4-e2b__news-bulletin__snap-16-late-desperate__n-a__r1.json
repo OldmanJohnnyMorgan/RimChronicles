@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-16-late-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It seems the local arrangements are proving rather lucrative.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022hedged inference, but \u0027local arrangements\u0027 and \u0027lucrative\u0027 imply an unreported situation; vague colour\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The two items restate the same fact (the bounty on Dunmore) as if they were separate news, and the briefing\u0027s two lines are nearly copied. The wit is thin and unclear (\u0027standard negotiation tactic\u0027, \u0027lucrative\u0027), and the briefing\u0027s key link, the Lantern Accord, is never tied to the ambush.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.6309601,
+      "inputTokens": 3617,
+      "outputTokens": 221
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-18-late-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022As I reported last time, the Harrow Teeth raiders are robbing stranded travellers.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a second item; presented as present-tense ongoing activity the briefing gives only as earlier news\u0022},{\u0022span\u0022:\u0022It seems the weather is providing them with a steady supply of victims.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied ongoing status and consequence; \u0027steady supply\u0027 asserts ongoing victims, though hedged with \u0027it seems\u0027\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead is correct and the guess is properly hedged, but the second item pads the bulletin with old news, which breaks the instruction that a short bulletin beats a padded one. It also runs under the length for one new thing (about 40 words is borderline), and the humour is mild and the voice is not especially worried or earnest.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8572194,
+      "inputTokens": 3643,
+      "outputTokens": 306
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-13-mid-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Sun Throne has six settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022faction size filler the task said to avoid; stated plainly and supported by briefing, but not news\u0022},{\u0022span\u0022:\u0022It seems they are trying to expand their reach through paperwork rather than actual movement.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, but contradicts briefing that envoys are being sent; weak inference\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate and has a dry guess, but the second item is padding about faction size, which the task forbade, and its joke ignores that the Throne is sending envoys. Two items for one new fact breaks the length rule, too.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.7883027,
+      "inputTokens": 3659,
+      "outputTokens": 250
+    }
+  ]
+}

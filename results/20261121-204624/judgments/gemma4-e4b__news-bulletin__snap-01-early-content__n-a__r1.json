@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-01-early-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022their dubious wares\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds an unsupported claim about the goods the Union sells; it is opinion-flavoured but stated within a guess framing, so only mildly factual\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:5,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and clear, with the two items in the right format. But the length is thin: two items of two sentences each come to about 40 words, so they fall short of the 50-word minimum for two items. The wit is generic, and the \u0027dubious wares\u0027 jab is a bit lazy.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8017594,
+      "inputTokens": 3432,
+      "outputTokens": 200
+    }
+  ]
+}

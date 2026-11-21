@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-21-real-quiet__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022since my last bulletin\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022this is the first bulletin; implies an earlier one that does not exist (mirrors briefing phrasing though)\u0022},{\u0022span\u0022:\u0022a place this desperate\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds a characterisation of the colony/rim not in the briefing, though close to colour\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Concise, clear and properly frames its guess, but the voice is fairly generic and it ignores the date and season, which the task suggested as material for a dry remark. The \u0027last bulletin\u0027 reference is slightly off for a first bulletin.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.4722868,
+      "inputTokens": 3529,
+      "outputTokens": 230
+    }
+  ]
+}

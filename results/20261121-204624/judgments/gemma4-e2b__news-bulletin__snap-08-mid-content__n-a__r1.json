@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-08-mid-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022I suspect it is merely another trinket to be bartered for passage.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, so not a claim; the \u0027another\u0027 comparison is hedged, so not counted\u0022},{\u0022span\u0022:\u0022The Lantern Accord is hosting a trade fair at Lantern Hill.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as present, told as if current; the earlier bulletin said the fair opens next week\u0022},{\u0022span\u0022:\u0022The Reedmother\u0027s Children report the river is full and the fish are foolish.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news from the latest bulletin as if freshly reported\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Only one new item exists, but the output pads to three items, with two of them recycling old news, which the task forbids; the dry jokes are also weak. The jade sculpture item itself is accurate but thin.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.576337,
+      "inputTokens": 3693,
+      "outputTokens": 313
+    }
+  ]
+}

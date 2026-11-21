@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-13-mid-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022decided to ignore the Sun Throne\u0027s latest requests\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says they refused to pay tribute, not that they ignored requests; implies a new set of requests\u0022},{\u0022span\u0022:\u0022The Sun Throne continues to send its envoys and make its pronouncements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news and uses \u0027continues\u0027, an ongoing activity framing the task forbids\u0022},{\u0022span\u0022:\u0022It seems the Empire has an endless supply of demands.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news about demands; hedged but adds no new information\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The second item is padded with old news about envoys and demands, and uses the forbidden word \u0027continues\u0027. The first item is only loosely accurate (ignoring requests rather than refusing tribute) and the jokes are weak, so the bulletin should be one item of 40 to 80 words rather than two.\u003C/br\u003E\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.0175118,
+      "inputTokens": 3664,
+      "outputTokens": 333
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-07-mid-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Imperial envoys are making demands again.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022repeats old news as a second item (envoy visits already covered); also \u0027again\u0027 implies a prior pattern and it pads beyond the single new fact\u0022},{\u0022span\u0022:\u0022It seems the Empire finds a new way to extract coin from everyone nearby.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022claims coin extraction from \u0027everyone nearby\u0027; briefing only gives a toll demand on the gorge road, and \u0027new way\u0027 implies comparison\u0022},{\u0022span\u0022:\u0022their endless bureaucracy\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess but adds unsupported detail about the Empire\u0027s bureaucracy funding\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The brief called for one item of 40 to 80 words, but the writer padded it with a second, redundant item that recycles old news about envoys and adds unsupported claims. The first item is acceptable, if generic in its wit, and the whole piece is too thin and repetitive to ship.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.0962498,
+      "inputTokens": 3627,
+      "outputTokens": 355
+    }
+  ]
+}

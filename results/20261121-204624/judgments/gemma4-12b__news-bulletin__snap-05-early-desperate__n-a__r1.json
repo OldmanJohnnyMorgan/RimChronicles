@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The first item is accurate, dry and properly framed as a guess. The second item is old news, marked as such with a short clause, but it is a whole item given to a topic the task said to avoid leading with, and the bulletin runs to two items when the briefing has only one new thing and so calls for a single item. It also runs a little under the word range for two items, so it reads as padding.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.7577909,
+      "inputTokens": 3605,
+      "outputTokens": 157
+    }
+  ]
+}

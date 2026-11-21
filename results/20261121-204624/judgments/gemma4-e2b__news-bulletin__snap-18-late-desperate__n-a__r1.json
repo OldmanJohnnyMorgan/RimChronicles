@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-18-late-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The blizzard continues to block the passes to the Wailing Moth villages.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news and adds ongoing status (\u0027continues\u0027) the briefing does not report\u0022},{\u0022span\u0022:\u0022Harrow Teeth raiders are still robbing stranded travellers.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news and adds ongoing status (\u0027still\u0027)\u0022},{\u0022span\u0022:\u0022They seem to find a steady supply of easy targets.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022added claim about the raiders; \u0027steady supply\u0027 is not in the briefing\u0022},{\u0022span\u0022:\u0022The Thistle Commonwealth has opened its granaries. Reaching them remains the problem, as always.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news from the latest bulletin as if new; \u0027remains\u0027 is an ongoing status\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Only the first item is new; the other three items rehash old bulletins as current news and use banned words like \u0027continues\u0027, \u0027still\u0027 and \u0027remains\u0027. It is padded far beyond the one-item, 40-80 word limit, and the lead sentence has no dry take.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.2577087,
+      "inputTokens": 3710,
+      "outputTokens": 390
+    }
+  ]
+}

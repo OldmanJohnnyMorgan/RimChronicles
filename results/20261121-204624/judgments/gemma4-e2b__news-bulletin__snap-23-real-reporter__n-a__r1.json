@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-23-real-reporter__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate, with no invented facts, and the guess in the second item is properly framed. But it is thin: the first item has only a weak remark, and the opening sentence \\\u0022I suppose that is the only news worth noting\\\u0022 is contradicted by the second item. Total length is below the 50-word minimum, and the wit is bland and generic.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.2325996,
+      "inputTokens": 3585,
+      "outputTokens": 146
+    }
+  ]
+}

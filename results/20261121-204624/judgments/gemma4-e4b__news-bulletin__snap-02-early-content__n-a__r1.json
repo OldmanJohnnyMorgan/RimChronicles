@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-02-early-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Tannerfolk continue their skirmishes with the pirates.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news and adds ongoing status (\u0027continue\u0027) and \u0027skirmishes\u0027 not in briefing; briefing only says at war\u0022},{\u0022span\u0022:\u0022It seems the salt flats are proving to be a very expensive patch of ground for everyone involved.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022hedged inference about cost, but it echoes old news and implies ongoing consequence\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate and properly hedged, but the second item is padding built from old news and uses \u0027continue\u0027, which the task forbids. It also gives two items for one new fact, and the humour is mild.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.0475822,
+      "inputTokens": 3723,
+      "outputTokens": 261
+    }
+  ]
+}

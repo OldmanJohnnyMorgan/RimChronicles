@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-19-late-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Sun Throne razed Fenwick and is besieging the Marrow League.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news: the razing of Fenwick was in an earlier bulletin, told here as new\u0022},{\u0022span\u0022:\u0022The Sun Throne continues its expansion.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing activity stated as fact; briefing says \u0027expanding by force\u0027 but \u0027continues\u0027 implies prior state, banned by the task\u0022},{\u0022span\u0022:\u0022The Marrow League holds three settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news: the three-settlement count was in an earlier bulletin\u0022},{\u0022span\u0022:\u0022Last Lantern is apparently in a position to influence things.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022the briefing gives no news of Last Lantern influencing anything; it only echoes a prior joke, hedged with \u0027apparently\u0027 but still stated as a claim\u0022},{\u0022span\u0022:\u0022this means they are playing a more active role in the current skirmishes\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, but invents skirmishes and a role for Last Lantern\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin pads a single new fact into four items, repeating old news and recycling the earlier Arithmetic joke, and it invents a role for Last Lantern. It also uses the banned \u0027continues\u0027 and its lead sentence is a flat restatement of the briefing with no dry take.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.6794673,
+      "inputTokens": 3697,
+      "outputTokens": 485
+    }
+  ]
+}

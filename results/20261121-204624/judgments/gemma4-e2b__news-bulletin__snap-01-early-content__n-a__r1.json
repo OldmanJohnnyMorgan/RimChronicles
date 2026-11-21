@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-01-early-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022This is the latest from the Outlanders.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies earlier news from the Outlanders; no earlier bulletin exists, so this is a comparison with an earlier state\u0022},{\u0022span\u0022:\u0022Another dreary forecast for the northern reaches.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027Another\u0027 implies earlier forecasts; the briefing gives none and this is the first bulletin\u0022},{\u0022span\u0022:\u0022One assumes the hills will just get colder, as usual.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027as usual\u0027 implies a past pattern the briefing does not give\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate on the two facts and correctly led with both, and each item has a framed guess. The wit is thin and generic, and the filler lines (\u0027This is the latest from the Outlanders\u0027, \u0027Another dreary forecast\u0027) imply earlier news that does not exist. The second item is only 2 sentences of real content and is padded.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.5545799,
+      "inputTokens": 3454,
+      "outputTokens": 334
+    }
+  ]
+}

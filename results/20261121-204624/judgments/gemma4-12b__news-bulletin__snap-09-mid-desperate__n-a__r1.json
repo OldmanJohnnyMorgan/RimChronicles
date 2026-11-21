@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It is a fascinating way to spend a quadrum, provided one enjoys the scenery of a stalemate.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a stalemate and a quadrum-long duration of the war, which the briefing does not give\u0022},{\u0022span\u0022:\u0022As I reported last time, the Embertail Tribe is at war with the Gray Wharf Syndicate.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a full second item rather than a short clause, though it is marked as old\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The Malley item is accurate and dry, but the second item pads the bulletin with old news and a stalemate the briefing never mentions. With one new fact the brief was a single 40 to 80 word item, so the war item should not be there.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.5772602,
+      "inputTokens": 3674,
+      "outputTokens": 277
+    }
+  ]
+}

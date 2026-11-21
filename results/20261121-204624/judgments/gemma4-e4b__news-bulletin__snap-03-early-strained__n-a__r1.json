@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The rim seems to be taking a collective nap this quadrum.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022quadrum is not given; the briefing only says a quiet stretch, though it is hedged with \u0027seems\u0027 and is mostly colour\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It correctly treats the week as quiet and invents nothing significant, but it is generic and thin, with no real wit, no remark on the date or season, and at around 30 words it falls short of the 40-word minimum. The first sentence also echoes the briefing\u0027s own wording.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.5144537,
+      "inputTokens": 3592,
+      "outputTokens": 208
+    }
+  ]
+}

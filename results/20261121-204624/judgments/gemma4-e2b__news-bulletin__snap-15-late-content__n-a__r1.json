@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-15-late-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Greywater Concord elected a new speaker. I expect one of those promises to survive the quadrum.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as if new; also reuses the earlier joke and refers to \u0027those promises\u0027 that were never mentioned in this bulletin\u0022},{\u0022span\u0022:\u0022The Fox-Lantern Tribe is holding its spring games. The archery argument is now in its third day.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as current; \u0027is holding\u0027 is ongoing status, and the argument\u0027s duration is stale and was not reported as current\u0022},{\u0022span\u0022:\u0022It seems tribal disputes are as predictable as the rising tide.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022generalisation about the tribe stated from old news; framed as a guess so not a real fact, but adds nothing new\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Only one item is actually new; the other two pad the bulletin with old news, one of them reusing the earlier joke word for word. The task said a single new thing deserves a single short item of 40 to 80 words, and the Leopold item alone would have been the right answer.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.7107061,
+      "inputTokens": 3665,
+      "outputTokens": 384
+    }
+  ]
+}

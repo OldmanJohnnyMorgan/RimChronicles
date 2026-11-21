@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-06-early-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Calder Combine reports good harvests along the delta. They claim the yield is the best in years.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a fresh item, not marked as old\u0022},{\u0022span\u0022:\u0022One assumes they are exaggerating for morale.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022guess framed as such, but it is attached to old news; no new fact beyond the guess\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Only one new item exists, so the bulletin should be a single 40-80 word item. It pads with the old harvest news as if fresh and adds a faction-size filler item about the Sundered Throne, both of which the task forbids.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.7892426,
+      "inputTokens": 3608,
+      "outputTokens": 241
+    }
+  ]
+}

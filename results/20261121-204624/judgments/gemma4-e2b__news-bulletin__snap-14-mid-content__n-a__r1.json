@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-14-mid-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Fernhollow League and the Blue Antler Tribe have signed a trade pact.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as if it just happened, with no marker that it is old\u0022},{\u0022span\u0022:\u0022They exchange furs for steel\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; also stated in present tense as ongoing activity\u0022},{\u0022span\u0022:\u0022A released Brackwater Corsair is talking about his captors\u0027 kindness.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as if new, with no marker that it is old\u0022},{\u0022span\u0022:\u0022I suspect this is just the usual river skirmish, nothing more.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies earlier similar raids (\u0027usual\u0027) the briefing does not give, though framed as a guess\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Only one new thing was heard, so the bulletin should be a single 40-80 word item, but it pads with two old-news items told as fresh. The wit is thin and generic, and the raid item has no real dry take.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.1877908,
+      "inputTokens": 3724,
+      "outputTokens": 354
+    }
+  ]
+}

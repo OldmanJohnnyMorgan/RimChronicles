@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-19-late-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Sun Throne is now besieging the Marrow League.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\\\u0022now\\\u0022 implies a comparison with an earlier state, which the prompt forbids; the siege itself is supported\u0022},{\u0022span\u0022:\u0022The Sun Throne is at war with the Marrow League.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news and adds nothing; the war is background, not something just heard, and it is presented as a separate item\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin is padded: it splits one new fact into two items and restates the siege as a war. It also uses the banned \\\u0022now\\\u0022, fails the one-item, 40 to 80 word target, and its jokes are thin and generic. It omits the razing of Fenwick, which was new in the briefing\u0027s one item.  The wit is weak, not sardonic or precise.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.3597831,
+      "inputTokens": 3633,
+      "outputTokens": 299
+    }
+  ]
+}

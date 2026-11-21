@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-15-late-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They seem to be making excellent progress on their long-running argument about the archery.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news and adds a new claim about the argument\u0027s progress and its being long-running; the earlier bulletin only said it was in its third day\u0022},{\u0022span\u0022:\u0022As I reported last time, the Fox-Lantern Tribe is holding its spring games.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a present-tense status the briefing does not give; the reference is marked as old but the item is padded\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate and dry, but the second item pads a one-new-thing bulletin with old news and adds an invented claim about the archery argument\u0027s progress, breaking the \u0027one item\u0027 rule.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.9585276,
+      "inputTokens": 3631,
+      "outputTokens": 271
+    }
+  ]
+}

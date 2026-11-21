@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Lancers have one settlement.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022faction size filler, and implies Lancers still exist as a settlement; the task said not to fill with settlement counts\u0022},{\u0022span\u0022:\u0022One assumes this is a minor inconvenience for the Syndicate.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022guess framed as assumption, but it implies a link between Lancers and Syndicate that the briefing does not give\u0022},{\u0022span\u0022:\u0022The Embertail Tribe is engaged with the Gray Wharf Syndicate.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news (the war) as current status, with no clause marking it as old\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin has almost no wit and pads with old news about the war and a faction count, which the task forbade. The one real news item is a single flat sentence with no dry take, and the Lancers/Syndicate joke is baseless.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8360644,
+      "inputTokens": 3663,
+      "outputTokens": 324
+    }
+  ]
+}

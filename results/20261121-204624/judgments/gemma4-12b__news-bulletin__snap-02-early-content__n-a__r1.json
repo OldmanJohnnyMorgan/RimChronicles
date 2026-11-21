@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-02-early-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022One assumes the extra guards were for the goods, but in this rim, the guards are usually the main attraction.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news: refers to extra guards from an earlier bulletin, adding detail to the caravan not in the briefing; framed partly as a guess but second clause is stated as fact\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Dry voice and a good lead with the new item, but the task called for one item of 40 to 80 words, and the second item pads with old caravan news and the earlier guards detail. A short bulletin would have been better.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.4258339,
+      "inputTokens": 3739,
+      "outputTokens": 218
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-07-mid-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They are apparently still managing their supply lines.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing activity not in briefing; \u0027still\u0027 also banned; hedge \u0027apparently\u0027 is weak and it\u0027s stated as status\u0022},{\u0022span\u0022:\u0022Vex\u0027s Crew has two settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022faction mentioned with no news; briefing had none for it, and it is filler (a rule violation, not a new fact)\u0022},{\u0022span\u0022:\u0022The Iron Covenant has eight settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022faction with no new news; filler of settlement counts\u0022},{\u0022span\u0022:\u0022This is the latest murmur from the Empire.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies murmurs/rumour sourcing not in briefing\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It pads a one-item week into three items, filling two with faction settlement counts the task explicitly forbids, and uses the banned word \u0027still\u0027. The single real news item is stated plainly, but the wit is flat and generic.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.3304894,
+      "inputTokens": 3693,
+      "outputTokens": 353
+    }
+  ]
+}

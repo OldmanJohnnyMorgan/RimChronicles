@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-12-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022This suggests some tiresome diplomatic maneuvering is underway.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022inference about the envoys\u0027 purpose stated as fact rather than a guess\u0022},{\u0022span\u0022:\u0022The Gallows Crew has a doctor held at their camp.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as if new, with no clause marking it as earlier\u0022},{\u0022span\u0022:\u0022The fallout continues to cover the region.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as new, and \u0027continues\u0027 implies an ongoing status the briefing does not give\u0022},{\u0022span\u0022:\u0022It is a predictable feature of this stretch of the rim.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a pattern of past fallout the briefing does not give\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin has only one new item but pads it with two old-news items, which breaks the \u0027one new thing: 1 item\u0027 rule. It also uses the banned \u0027continues\u0027 and leaves the wit generic and weak, so it should not ship.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.0071083,
+      "inputTokens": 3699,
+      "outputTokens": 354
+    }
+  ]
+}

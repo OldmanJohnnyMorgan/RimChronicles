@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-14-mid-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022One assumes the League is now counting its losses.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, but uses \\\u0022now\\\u0022; barely a claim, so not counted as invented\u0022},{\u0022span\u0022:\u0022They are certainly not sitting still in their three settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies ongoing activity the briefing does not report, stated as fact\u0022},{\u0022span\u0022:\u0022The Corsairs seem to be keeping busy.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies ongoing activity beyond the one raid; hedged with \\\u0022seem\\\u0022 but pads\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The first item is accurate, but the second paragraph is a padded second item with only one new fact to report. It breaks the one-item rule and mentions settlement counts, which the task forbade. The wit is thin and the length is under the 40-word minimum.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.9388258,
+      "inputTokens": 3641,
+      "outputTokens": 304
+    }
+  ]
+}

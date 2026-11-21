@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Embertail Tribe continues its conflict with the Gray Wharf Syndicate.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing status not in briefing; \u0027continues\u0027 also forbidden by the task\u0022},{\u0022span\u0022:\u0022the war is over fishing rights\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a second item; cause came from an earlier bulletin, not this briefing\u0022},{\u0022span\u0022:\u0022the Lancers have suddenly become less... bold\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied consequence of the death, though framed as a guess (\\\u0022One assumes\\\u0022), so only borderline\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The first item is accurate and plainly stated, though it repeats the death twice. The second item pads with old news, uses the banned word \\\u0022continues\\\u0022, and has a weak joke, which breaks the rule against leading or filling with earlier bulletins; the bulletin should have been one item only.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.032908,
+      "inputTokens": 3673,
+      "outputTokens": 325
+    }
+  ]
+}

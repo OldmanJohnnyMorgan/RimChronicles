@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-02-early-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Glimmer Coast Company reports a profitable week.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022repeats old news from an earlier bulletin as if new; not in the briefing\u0027s new items\u0022},{\u0022span\u0022:\u0022This old feud over the salt flats\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news and calls the feud \u0027old\u0027, which the briefing does not say\u0022},{\u0022span\u0022:\u0022The Tannerfolk are at war with the Hollow Spire Pirates.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a standalone item rather than a short marking clause\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Only one new fact exists, so a single 40-80 word item was required. Instead the bulletin opens with a verbatim restatement of the briefing line and then pads with recycled old news, including the Glimmer Coast joke from the previous bulletin. The wit is thin, and the format is wrong (four paragraphs).\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.7368746,
+      "inputTokens": 3760,
+      "outputTokens": 326
+    }
+  ]
+}

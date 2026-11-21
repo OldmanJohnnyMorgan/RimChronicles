@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Scythe Tooth raids continue at three settlements.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022repeats old news as current and adds \u0027continue\u0027, an ongoing status the briefing does not give\u0022},{\u0022span\u0022:\u0022One assumes this is a prudent measure given the current climate.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, so allowed; \u0027current climate\u0027 is vague colour only\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The second item recycles old news (the Scythe Tooth raids) as if current, and uses the banned \u0027continue\u0027; the briefing gave only one new thing, so this should have been a single item. The Gorse Clans item is accurate but the wit is thin and generic.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.4833783,
+      "inputTokens": 3589,
+      "outputTokens": 251
+    }
+  ]
+}

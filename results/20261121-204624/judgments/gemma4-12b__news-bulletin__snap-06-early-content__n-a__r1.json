@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-06-early-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It seems the pirates have a very efficient way of redistributing that surplus.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022links the robbed barge to the Combine\u0027s harvest; the briefing does not say the grain came from there (hedged with \u0027it seems\u0027, so borderline)\u0022},{\u0022span\u0022:\u0022I suppose the pirates are tired of hunting for scraps and decided to take the whole meal instead.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied cause for the robbery, though framed as a guess\u0022},{\u0022span\u0022:\u0022the Calder Combine had a good harvest\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a second item rather than a short clause, and the earlier bulletin said \u0027best in years\u0027; mostly consistent\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead is accurate and the dry jokes work, but the second paragraph pads with old news as a full item and implies the stolen grain came from the Combine harvest. A single-item bulletin of 40 to 80 words was needed, and this is padded with a recycled topic.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.604042,
+      "inputTokens": 3574,
+      "outputTokens": 358
+    }
+  ]
+}

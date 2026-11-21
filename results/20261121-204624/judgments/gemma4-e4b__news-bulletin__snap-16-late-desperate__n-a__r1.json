@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-16-late-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It seems the pirates have become rather conspicuous lately.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a comparison with an earlier state and links Dunmore to the pirates as a cause; framed with \u0027it seems\u0027 but \u0027lately\u0027 asserts change\u0022},{\u0022span\u0022:\u0022Conversely, Kael Dunmore now carries a price tag after an ambush near Gallowmere.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027now\u0027 is forbidden and implies a before/after; \u0027conversely\u0027 wrongly frames the same fact as contrasting\u0022},{\u0022span\u0022:\u0022One assumes the skirmish was rather spirited.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, so acceptable; only the idea of a skirmish is implied, not stated\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The two briefing items are really one fact, and the bulletin splits them into two items, so the second repeats the first with an illogical \u0027Conversely\u0027. It also uses the banned \u0027now\u0027, and the wit is thin and generic rather than sardonic.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.1345193,
+      "inputTokens": 3618,
+      "outputTokens": 359
+    }
+  ]
+}

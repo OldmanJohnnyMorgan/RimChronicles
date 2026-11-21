@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-11-mid-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022though a truce is a start\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the feast produced a truce; briefing only says a peace feast was held, and implies prior hostility\u0022},{\u0022span\u0022:\u0022As I reported last time, the Hearthguard Compact is offering prizes for new inventions.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; it is the second-to-last bulletin, not the last, and the instruction says to lead only with new things and mention old at most in a short clause\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice works and the new item leads, but the second item pads with old news and ignores the one-new-thing rule (1 item, 40-80 words). The \u0027truce\u0027 wording also adds a small unsupported implication.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.9972766,
+      "inputTokens": 3610,
+      "outputTokens": 264
+    }
+  ]
+}

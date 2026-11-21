@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-16-late-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The bounty follows an ambush near Gallowmere.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the bounty was a consequence of the ambush; the briefing says only he has a price on his head after an ambush\u0022},{\u0022span\u0022:\u0022the pirate\u0027s hospitality\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022calls Kael a pirate and implies he hosted the Accord; the briefing calls him a mercenary, and the quip is only loosely hedged as a guess\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It is short, accurate and uses the hedges, but the wit is thin, and calling Kael a pirate when the briefing says mercenary is sloppy. Two items would have been better handled as one, and the \u0027hospitality\u0027 joke makes little sense.\u0027\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.0054058,
+      "inputTokens": 3611,
+      "outputTokens": 274
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-17-late-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Correctly treats the week as quiet with one short item, avoids old news and invented facts, and keeps a dry voice with the guess properly framed. The \u0027local rot\u0027 joke is a bit vague, and the piece is slightly under the 40-word minimum, but it is a clean, shippable quiet-week item.\u003C/br\u003E\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.0164661,
+      "inputTokens": 3673,
+      "outputTokens": 145
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-18-late-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022vanished in a blizzard\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says the caravan was lost, not that it vanished; implies disappearance\u0022},{\u0022span\u0022:\u0022The passes remain shut due to the blizzard.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as current status; \u0027remain\u0027 implies ongoing state not reported\u0022},{\u0022span\u0022:\u0022Harrow Teeth raiders continue to take advantage of stranded travellers, as I reported last time.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; \u0027continue\u0027 asserts an ongoing activity the briefing does not report\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Only one new item is warranted (40-80 words), but the second paragraph pads with old news and uses banned words \u0027remain\u0027 and \u0027continue\u0027, breaking explicit rules. The lead is fine, and the guess is properly framed, but the output is too short for its form and lacks a real dry wit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.9994483,
+      "inputTokens": 3639,
+      "outputTokens": 326
+    }
+  ]
+}

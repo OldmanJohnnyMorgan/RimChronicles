@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-20-late-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Empire issues final demands to the Free Coast Alliance.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022briefing says the Empire issues final demands, not that they went to the Free Coast Alliance; target is invented\u0022},{\u0022span\u0022:\u0022They seem eager to wrap up the paperwork before the season turns.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022hedged inference about motive and timing, not in briefing\u0022},{\u0022span\u0022:\u0022Empire prefers its subjects to be well-fed and obedient\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, so acceptable, but adds no support; leaning toward opinion only\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The first item is accurate and dry, but the second item is a padded second item with no new news, and it assigns the final demands to the Free Coast Alliance, which the briefing does not say. A single item would have been better, since only one new thing was heard.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.0367162,
+      "inputTokens": 3633,
+      "outputTokens": 316
+    }
+  ]
+}

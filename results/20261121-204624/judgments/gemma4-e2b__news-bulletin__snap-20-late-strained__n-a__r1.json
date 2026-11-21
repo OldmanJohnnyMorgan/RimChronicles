@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-20-late-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They are offering a position in Varrowgate.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022restates the offer in a way that implies the governorship is a local post; mostly redundant but adds nothing supported\u0022},{\u0022span\u0022:\u0022The Driftwood Tribe has three settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022faction with no news in the briefing, and a settlement count the task said not to include\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Only one new fact exists, so the bulletin should be one 40-80 word item; instead it pads with a repeated offer, war status and a Driftwood Tribe count the task forbade. The wit is thin, and the structure is fragmented, with one fact split across several paragraphs.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.819759,
+      "inputTokens": 3678,
+      "outputTokens": 258
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-22-real-conditions__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The output has no invented facts, since its guesses are framed as guesses. But it breaks the format: it opens with a bare two-sentence paragraph, then splits the same two events into separate items, with the first item doubling up on them. The remarks are flat and the voice is generic, not distinctly wry.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.0007278,
+      "inputTokens": 3598,
+      "outputTokens": 137
+    }
+  ]
+}

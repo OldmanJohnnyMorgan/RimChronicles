@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-13-mid-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Sun Throne is demanding tribute from the Cobalt Free Towns.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a current item, not marked as old\u0022},{\u0022span\u0022:\u0022The Rustback Raiders hit a caravan on the old highway.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news told as if new, not marked as old\u0022},{\u0022span\u0022:\u0022They are offering a reward for its return.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022misattributes the reward to the raiders; the earlier bulletin says the caravan\u0027s owners offered it\u0022},{\u0022span\u0022:\u0022It seems the usual negotiation tactics are proving tiresome.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a usual pattern and a consequence not in the briefing, though hedged with \u0027it seems\u0027\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Only one new fact, so the bulletin should have been a single item of 40 to 80 words. It pads with two old-news items, one of which gets the facts wrong by giving the raiders the caravan owners\u0027 reward. The jokes are weak and generic.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.3357103,
+      "inputTokens": 3720,
+      "outputTokens": 370
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-20-late-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Empire continues its war against the Free Coast Alliance.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\\\u0022continues\\\u0022 implies an ongoing status the briefing does not report; the task also bans the word. Also not news from this week.\u0022},{\u0022span\u0022:\u0022They are issuing final demands across the region.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022background faction detail presented as news; \\\u0022across the region\\\u0022 adds scope the briefing does not give\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The lead item is accurate and carries a guess-framed quip, but the second item pads with faction background, uses the banned word \\\u0022continues\\\u0022, and has no dry remark. It should have been a single 40 to 80 word item, and at about 45 words it is also thin on wit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.6812579,
+      "inputTokens": 3612,
+      "outputTokens": 262
+    }
+  ]
+}

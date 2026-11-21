@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-21-real-quiet__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They are, as usual, just another group of outlanders trying to make sense of the void.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027as usual\u0027 implies a comparison with earlier state; \u0027trying to make sense of the void\u0027 is an added claim about activity not in the briefing\u0022},{\u0022span\u0022:\u0022They seem content with their rough existence\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022inference about the Polpbal\u0027s state of mind; the \u0027seem\u0027 hedge makes it borderline, but it is an unsupported claim about their condition\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It breaks the brief by filling a quiet week with faction settlement counts, which the task forbids, and it runs to four paragraphs instead of one short item. The jokes are weak, and there is no remark on the quiet itself, the season or the date.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.0899876,
+      "inputTokens": 3631,
+      "outputTokens": 282
+    }
+  ]
+}

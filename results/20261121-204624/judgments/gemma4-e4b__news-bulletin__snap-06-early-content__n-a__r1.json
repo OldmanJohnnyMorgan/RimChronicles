@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-06-early-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Ditch Kings took a grain barge near the delta.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says \u0027robbed a grain barge on the delta\u0027; \u0027near\u0027 shifts location slightly\u0022},{\u0022span\u0022:\u0022One suspects the pirates are simply hungry, as usual.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027as usual\u0027 implies a past pattern of behavior the briefing does not give (framed as a guess, but the \u0027as usual\u0027 claims history)\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The task called for one item of 40 to 80 words, but this has two paragraphs and about 45 words, and the second one repeats old news (the harvest) as a filler item rather than a new fact. The dry quips are thin, and the \u0027previously\u0027 repeat breaks the rule against padding with old news; the pirates-hungry joke is fine but \u0027as usual\u0027 implies history.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.026925,
+      "inputTokens": 3557,
+      "outputTokens": 309
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-12-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022arrived at the Saltmarch Assembly\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says envoys were sent, not that they arrived\u0022},{\u0022span\u0022:\u0022The Gallows Crew continues its quiet business with the captive doctor.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022repeats old news as an ongoing activity; \u0027quiet business\u0027 is not in the briefing\u0022},{\u0022span\u0022:\u0022this high-stakes negotiation over a single practitioner\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022invents a negotiation; the briefing mentions only a captive doctor\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The second item revisits old news with \u0027continues\u0027 (banned wording) and invents a negotiation. The first item is acceptable but the humour is thin, and the bulletin should have had one item since only one new thing was heard.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.4563482,
+      "inputTokens": 3676,
+      "outputTokens": 288
+    }
+  ]
+}

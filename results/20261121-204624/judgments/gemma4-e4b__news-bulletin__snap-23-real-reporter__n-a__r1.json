@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-23-real-reporter__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022another of its scribblers\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies earlier correspondent deaths or a pattern; the briefing gives only Harvey\u0027s death, though it is framed as a guess\u0022},{\u0022span\u0022:\u0022It\u0027s a strange thing, this sudden quiet.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022states as fact that the soothe brings quiet; the briefing gives no effect of the soothe\u0022},{\u0022span\u0022:\u0022has passed away\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022the briefing says \u0027died\u0027; the euphemism is the same fact, but the cause is not given, and \u0027the rim has claimed\u0027 implies one\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and brief, with both new items led correctly, but the wit is thin: the soothe item reads as generic and invents a \u0027quiet\u0027 effect. The second item has only vague colour, and the dry take on a colleague\u0027s death is light on bite.\\n\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.2793996,
+      "inputTokens": 3608,
+      "outputTokens": 320
+    }
+  ]
+}

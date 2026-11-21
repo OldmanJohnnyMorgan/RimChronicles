@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-15-late-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Greywater Concord has a new speaker. She promised lower tolls and fewer speeches; I expect one of those promises to survive the quadrum.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news: copies the earlier bulletin verbatim and presents it as a current item\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The first item is on target: it leads with the new fact and frames its guess as a guess. The second item reuses the earlier bulletin word for word as if it were news. That breaks the old-news rule and the instruction not to reuse jokes or sentences, and it also pads a one-item bulletin to two items.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8223567,
+      "inputTokens": 3619,
+      "outputTokens": 234
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-22-real-conditions__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022has finally ceased\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027finally\u0027 implies a long duration or anticipation the briefing does not give\u0022},{\u0022span\u0022:\u0022Perhaps the settlers can now worry about something more pressing than hypothermia.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies settlers were suffering hypothermia and that the cold was a hardship; inference not in briefing (though framed with \u0027perhaps\u0027)\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:5,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate, concise and clear, with guesses properly hedged, but the wit is mild and generic. \u0027Finally\u0027 adds an unsupported implication of duration, and the hypothermia line leans on an assumed effect on the colony.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8157262,
+      "inputTokens": 3587,
+      "outputTokens": 254
+    }
+  ]
+}

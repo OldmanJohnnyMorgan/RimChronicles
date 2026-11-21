@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-17-late-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022A quiet stretch, as I reported last time.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022the earlier bulletins did not report a quiet stretch, so this misattributes a claim to them\u0022},{\u0022span\u0022:\u0022They are pirates, as always.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027as always\u0027 implies a comparison with an earlier state the briefing does not give\u0022},{\u0022span\u0022:\u0022They exist in their own little corner of the rim.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds a location claim the briefing does not give\u0022},{\u0022span\u0022:\u0022They are engaged in conflict with the Ashford Compact.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027engaged in conflict\u0027 is fine, but the item pads with faction status the briefing gave as background\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It breaks the brief by filling the bulletin with faction sizes and settlement counts, and it never says plainly that nothing new happened. The jokes are weak (counting sheep, territorial marking) and the format is four padded items instead of one short quiet-week item of 40 to 80 words.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.2834518,
+      "inputTokens": 3801,
+      "outputTokens": 365
+    }
+  ]
+}

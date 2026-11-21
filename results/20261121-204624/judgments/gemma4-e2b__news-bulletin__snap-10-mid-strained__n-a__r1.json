@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-10-mid-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The sum is generous, and the leaders are well armed.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news from the earlier bulletin, including details the current briefing does not give\u0022},{\u0022span\u0022:\u0022The Weir Federation has a bounty on Stonecutter leaders.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news, with no marker that it is old\u0022},{\u0022span\u0022:\u0022They are currently holding captives from the Ochre Hand.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news and states an ongoing status as fresh\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin has only one new fact (the silver offer) but pads it with three paragraphs of old news and a faction size, which the task forbade; the wit is thin and the structure breaks the \u0027one item, 40 to 80 words\u0027 format.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.7968525,
+      "inputTokens": 3740,
+      "outputTokens": 290
+    }
+  ]
+}

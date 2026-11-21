@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-19-late-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent and nothing is invented, but the second item is a restatement of background (expanding by force is not in the \u0027heard since\u0027 list) and the bulletin does not follow the one-new-thing rule of a single 40-80 word item; at about 40 words it is also at the bottom of the range. The wit is decent, though \u0027erased\u0027 hints at old news without marking it as such.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.2547767,
+      "inputTokens": 3639,
+      "outputTokens": 163
+    }
+  ]
+}

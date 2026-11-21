@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It seems the pirates are still finding targets.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022hedged with \u0027it seems\u0027 but uses \u0027still\u0027, which the brief forbids; implies ongoing raiding the briefing does not report\u0022},{\u0022span\u0022:\u0022The Ferrow Mutual has asked its members to share patrols.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news from an earlier bulletin as if new, with no old-news marker\u0022},{\u0022span\u0022:\u0022Scythe Tooth raids have been reported at three settlements in a quadrum.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news, told as a fresh item even though it is flagged as old\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Only one new fact exists, so a single 40-80 word item was required, but the bulletin pads with two old-news items, one of them with no old-news marker, and uses the banned \u0027still\u0027. The wit is flat and the voice is generic.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.6863535,
+      "inputTokens": 3647,
+      "outputTokens": 323
+    }
+  ]
+}

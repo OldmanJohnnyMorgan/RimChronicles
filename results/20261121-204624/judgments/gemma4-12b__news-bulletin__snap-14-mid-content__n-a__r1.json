@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-14-mid-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022I suspect the League\u0027s cargo was less about profit and more about providing a pirate\u0027s afternoon snack.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, but implies the cargo was food; guess so not counted as a fact \u2014 borderline, low risk\u0022},{\u0022span\u0022:\u0022One assumes the food was at least edible\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess; not a real invented fact, but implies food details\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and leads with the new raid, but it breaks the one-new-thing rule by padding a second item with old news, and the jokes are mild. The second item is the main weakness: it is a repeat, not a fresh item, and the briefing calls for 1 item of 40 to 80 words.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8355612,
+      "inputTokens": 3678,
+      "outputTokens": 272
+    }
+  ]
+}

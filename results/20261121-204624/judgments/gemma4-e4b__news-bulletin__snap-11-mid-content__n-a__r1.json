@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-11-mid-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022less tense than the usual border skirmishes\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies past border skirmishes between the factions; the briefing gives none (though framed as a guess about tension, the skirmishes are asserted)\u0022},{\u0022span\u0022:\u0022This truce, following the Hearthguard\u0027s invention prizes\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a sequence or causal link to old news and presents a truce, which the briefing does not state\u0022},{\u0022span\u0022:\u0022Perhaps they simply ran out of things to argue about.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a prior dispute, though framed as a guess\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The item is short, but it has two items where the briefing gives one new thing, and it breaks the length rule by splitting a single piece of news. It invents a history of border skirmishes and ties the truce to old news, and the wit is mild.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.0353197,
+      "inputTokens": 3599,
+      "outputTokens": 310
+    }
+  ]
+}

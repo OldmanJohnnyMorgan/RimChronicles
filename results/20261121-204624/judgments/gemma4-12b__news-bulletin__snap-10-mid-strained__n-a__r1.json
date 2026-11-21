@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-10-mid-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022As I reported last time, the Stonecutter Raiders are holding those captives.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a second item, though marked as old; the task allowed only one new item, so it pads the bulletin\u0022},{\u0022span\u0022:\u0022It is a charming business model, provided the ransom actually arrives.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the Raiders are ransoming or running a business, a cause the briefing does not give\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice works and the lead is correct, but with only one new fact the bulletin should be a single item. The second paragraph repeats old news and implies the Raiders are running a ransom business, which the briefing does not say.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8686178,
+      "inputTokens": 3659,
+      "outputTokens": 257
+    }
+  ]
+}

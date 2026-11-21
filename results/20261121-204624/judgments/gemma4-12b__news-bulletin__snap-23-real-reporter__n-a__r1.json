@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-23-real-reporter__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022I suppose the news cycle is finally moving faster than his pulse.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies his death was from age or frailty; his pulse was slow, which the briefing does not say (framed as a guess, but the joke implies a cause)\u0022},{\u0022span\u0022:\u0022One assumes the mental fog is a mercy compared to the actual scenery.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the soothe causes a mental fog and that the scenery is bad; the briefing gives neither (framed as a guess)\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:5,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate, correctly sized for two items, and clear, with each fact stated plainly. The jokes are weak: the one about Harvey\u0027s pulse is a bit tasteless and implies a cause of death, and the \u0027mental fog\u0027 quip adds an effect the briefing never gives.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.0777668,
+      "inputTokens": 3598,
+      "outputTokens": 301
+    }
+  ]
+}

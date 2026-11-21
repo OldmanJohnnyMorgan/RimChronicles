@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-17-late-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It avoids invented facts and frames its guesses as guesses, but it breaks the format: a quiet week calls for one item of 40 to 80 words, and this is two short paragraphs of about 40 words that repeat the same point. It is also thin and generic, with no season or date remark.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.2108133,
+      "inputTokens": 3663,
+      "outputTokens": 133
+    }
+  ]
+}

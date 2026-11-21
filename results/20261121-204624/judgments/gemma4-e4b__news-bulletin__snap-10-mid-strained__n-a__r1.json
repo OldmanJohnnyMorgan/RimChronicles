@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-10-mid-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Stonecutter Raiders continue their raiding activities.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing activity not in briefing; also uses forbidden \u0027continue\u0027\u0022},{\u0022span\u0022:\u0022They are currently holding captives from the Ochre Hand.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a second item, not marked as old\u0022},{\u0022span\u0022:\u0022One suspects they are hoping to settle this mess without further bloodshed.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, so allowed; no unsupported fact\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The first item is accurate with a guess-framed quip, but the second item pads with old news and an unreported ongoing activity, and uses the banned \u0027continue\u0027. The bulletin should have been a single item of 40 to 80 words, and the wit is thin.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8046917,
+      "inputTokens": 3650,
+      "outputTokens": 299
+    }
+  ]
+}
