@@ -19,6 +19,7 @@ public sealed class RimChroniclesGameComponent : GameComponent
     private SpikeState _spike = new();
     private NewsLog _news = new();
     private NewsDesk _desk = new();
+    private Pawn? _reporterPawn;
 
     public RimChroniclesGameComponent(Verse.Game game)
     {
@@ -40,6 +41,13 @@ public sealed class RimChroniclesGameComponent : GameComponent
     /// <summary>The bulletin schedule and archive (Stage 2 M3).</summary>
     public NewsDesk Desk => _desk;
 
+    /// <summary>The reporter's pawn, a world pawn kept forever, or null until one is recruited (Stage 2 M4).</summary>
+    public Pawn? ReporterPawn
+    {
+        get => _reporterPawn;
+        set => _reporterPawn = value;
+    }
+
     /// <summary>True while a bulletin is being written in the background. Not saved: after a reload, writing restarts.</summary>
     public bool WritingBulletin { get; set; }
 
@@ -52,6 +60,7 @@ public sealed class RimChroniclesGameComponent : GameComponent
         ScribeArchive.Instance.Deep(ref _spike, "spike");
         ScribeArchive.Instance.Deep(ref _news, "news");
         ScribeArchive.Instance.Deep(ref _desk, "newsDesk");
+        Scribe_References.Look(ref _reporterPawn, "reporterPawn");
         _spike ??= new SpikeState();
         _news ??= new NewsLog();
         _desk ??= new NewsDesk();
@@ -78,6 +87,7 @@ public sealed class RimChroniclesGameComponent : GameComponent
             _spike.AddLog($"day {day}: daily patch ran ({_spike.DaysSeen} days seen)");
         }
 
+        Game.News.ReporterKeeper.EnsureReporter(this);
         Game.News.NewsDriver.Tick(this);
     }
 }

@@ -66,3 +66,17 @@ show where they came from (`Model` or `Template`) in grey under the text, and th
 
 Send me pass or fail per row, and paste 2–3 of the model's bulletins (from step 3 onwards), so I can check how the
 prompt reads real game news.
+
+## M4: the reporter and the Dispatch tab
+
+| # | Do | Pass when |
+| --- | --- | --- |
+| 1 | Start a **new colony**, and play until the first in-game day changes. | A letter **The Rim Dispatch: new correspondent** names a reporter from a non-hostile faction (civil outlanders if there are any), and the bulletin cadence. |
+| 2 | Load an **existing save** (one with bulletins from Ilse Varrow). | The same letter arrives just after loading. Later bulletins are signed by the new reporter. |
+| 3 | Look at the bottom bar. | A **Dispatch** button. Tell me where it sits and whether it looks out of place. |
+| 4 | Open **Dispatch** before any bulletin has arrived, then again after a few (use **Force bulletin**). | The outlet's name, the correspondent and their faction, the next due day, and then every bulletin, newest first, each under its day. Long lists scroll. |
+| 5 | **Show news desk**. | The reporter's name matches the letter. |
+| 6 | Save, quit to the menu, and load. | No second "new correspondent" letter. **Dispatch** shows the same reporter and bulletins. |
+| 7 | Open the **World** tab, then **Dispatch**. | It opens on the world map too, or tell me if it doesn't. |
+
+Send me pass or fail per row, and a screenshot of the Dispatch tab with a few bulletins in it.

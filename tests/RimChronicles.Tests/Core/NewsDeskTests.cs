@@ -119,6 +119,22 @@ public class NewsDeskTests
     }
 
     [Fact]
+    public void Reload_KeepsTheRecruitedReporter()
+    {
+        var desk = new NewsDesk();
+        desk.Reporter.Name = "Kael Dunmore";
+        desk.Reporter.Faction = "Ania Confederacy";
+        var saving = new DictionaryArchive(ArchiveMode.Saving);
+        desk.Expose(saving);
+
+        var loaded = new NewsDesk();
+        loaded.Expose(new DictionaryArchive(ArchiveMode.Loading, saving.Data));
+
+        Assert.Equal(("Kael Dunmore", "Ania Confederacy"), (loaded.Reporter.Name, loaded.Reporter.Faction));
+        Assert.Equal(WorldSummarizer.DefaultReporter.Outlet, loaded.Reporter.Outlet);
+    }
+
+    [Fact]
     public void Reload_FromASaveWithoutTheDeskStartsFresh()
     {
         var loaded = new NewsDesk { NextDueDay = 9, Pending = Written("x") };
@@ -129,6 +145,7 @@ public class NewsDeskTests
         Assert.Null(loaded.Pending);
         Assert.Empty(loaded.Delivered);
         Assert.Equal(WorldSummarizer.DefaultReporter.Name, loaded.Reporter.Name);
+        Assert.Equal("", loaded.Reporter.Faction);
     }
 
     [Fact]
