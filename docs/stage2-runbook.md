@@ -141,3 +141,21 @@ Use a new colony, Recommended tier, and a 3-day cadence. Dev mode can stay on.
 | 4 | At the end, open the debug log. | No red errors from Rim Chronicles. |
 
 Send me pass or fail per row, the debug log's Rim Chronicles lines if any are red, and 3–4 bulletins from the run.
+
+### 3. Follow-ups from the proof run
+
+The proof run's bulletins reused whole sentences on quiet weeks, and its reporter was 13. A repetition check now sends a
+bulletin back once if it repeats 8 or more words in a row from either of the last two. Reporters are now 20 or older.
+
+1. **Harness (free, no judge):** the v10 trial's answers are cached, so this re-checks them with the new rule, at no
+   cost, and shows how often the first answer would now be sent back:
+
+   ```powershell
+   dotnet run --project harness/RimChronicles.Eval -- run --repeats 1 --tasks news-bulletin --models gemma4-e2b,gemma4-e4b,gemma4-12b
+   ```
+
+   Send me the summary table it prints.
+
+2. **In game:** on a new colony, the "new correspondent" is 20 or older (check their **Bio** tab when they visit, or use
+   **Reporter: visit now**). With the cadence at 1 day and **Increment time**, about 6 quiet bulletins in a row never
+   repeat a whole sentence from the one before.

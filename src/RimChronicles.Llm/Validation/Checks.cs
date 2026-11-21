@@ -162,3 +162,50 @@ public sealed class BannedPhraseCheck(IEnumerable<string>? phrases = null) : IOu
             : CheckResult.Fail($"Write only the in-world text, without phrases like: {string.Join(", ", found.Select(p => $"\"{p}\""))}");
     }
 }
+
+/// <summary>
+/// Fails output that repeats an earlier text word for word: any run of <paramref name="minRun"/> or more words found in
+/// one of <paramref name="earlier"/>. Words are compared lower-case, with punctuation stripped. Small models reuse
+/// whole sentences across quiet weeks even when told not to (Stage 2 M6).
+/// </summary>
+public sealed partial class RepetitionCheck(IEnumerable<string> earlier, int minRun = 8) : IOutputCheck
+{
+    [GeneratedRegex(@"[\p{L}\p{N}'’]+")]
+    private static partial Regex Word();
+
+    private readonly List<string[]> _earlier = earlier.Select(Words).Where(w => w.Length >= minRun).ToList();
+
+    public string Name => "repetition";
+
+    public CheckResult Check(string output)
+    {
+        if (_earlier.Count == 0)
+        {
+            return CheckResult.Pass;
+        }
+
+        var runs = new HashSet<string>(StringComparer.Ordinal);
+        foreach (var words in _earlier)
+        {
+            for (var i = 0; i + minRun <= words.Length; i++)
+            {
+                runs.Add(string.Join(' ', words, i, minRun));
+            }
+        }
+
+        var mine = Words(output);
+        for (var i = 0; i + minRun <= mine.Length; i++)
+        {
+            var run = string.Join(' ', mine, i, minRun);
+            if (runs.Contains(run))
+            {
+                return CheckResult.Fail($"This repeats your earlier bulletin word for word (\"{run}…\"). Say it in new words, with a new joke.");
+            }
+        }
+
+        return CheckResult.Pass;
+    }
+
+    private static string[] Words(string text) =>
+        Word().Matches(text ?? "").Select(m => m.Value.ToLowerInvariant().Replace('’', '\'')).ToArray();
+}
