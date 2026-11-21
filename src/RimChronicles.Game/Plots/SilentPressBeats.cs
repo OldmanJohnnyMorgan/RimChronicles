@@ -11,7 +11,7 @@ namespace RimChronicles.Game.Plots;
 /// then an envoy demanding reparations. Template letters only. Main thread only.</summary>
 public static class SilentPressBeats
 {
-    public static void Register() => PlotDriver.Register(SilentPressArc.TemplateId, Fire);
+    public static void Register() => PlotDriver.Register(SilentPressArc.TemplateId, SilentPressArc.Transitions, Fire);
 
     private static string Colony => Faction.OfPlayer.Name;
 
@@ -43,7 +43,7 @@ public static class SilentPressBeats
         plot.Note(today, "Hook: the news stopped");
     }
 
-    public static bool Fire(RimChroniclesGameComponent component, Plot plot, PlotTemplate template, int today)
+    public static bool Fire(RimChroniclesGameComponent component, Plot plot, PlotTemplate template, int today, PlotTransition transition)
     {
         var f = SilentPressLetters.Facts.From(plot, Colony);
         var gap = Rand.RangeInclusive(template.MinGapDays, template.MaxGapDays);

@@ -109,19 +109,9 @@ public static class EvalTasks
         return new EvalTask(definition, input, prompt.Schema, choices) { Words = words };
     }
 
-    /// <summary>A copy of the schema whose "choice" property may only take the allowed options.</summary>
-    public static JsonSchemaSpec WithChoiceEnum(JsonSchemaSpec schema, IReadOnlyList<string> choices)
-    {
-        var copy = schema.DeepCopy();
-        if (copy.Schema["properties"]?["choice"] is JsonObject choice)
-        {
-            choice["enum"] = new JsonArray(choices.Select(c => (JsonNode?)JsonValue.Create(c)).ToArray());
-        }
+    /// <summary>A copy of the schema whose "choice" property may only take the allowed options (shared with the game).</summary>
+    public static JsonSchemaSpec WithChoiceEnum(JsonSchemaSpec schema, IReadOnlyList<string> choices) => Director.WithChoiceEnum(schema, choices);
 
-        return copy;
-    }
-
-    /// <summary>Scores one output on the deterministic metrics that apply to its task.</summary>
     public static OutputMetrics Score(string task, string? text, EvalTask evalTask)
     {
         if (text is null)

@@ -307,6 +307,8 @@ The LLM never writes quest logic. Quests are built from a library of parameteriz
 
 Rewards and threat points scale with the storyteller difficulty and the plot's act, never with the LLM's suggestion.
 
+**Scope (agreed 2026-11-21):** Stage 4 builds Hunt target, Rescue, Deliver and Choice letter. Escort, Defend ally and Sabotage are mainly for the Awakened Empire, so they move to Stage 5. The third arc type for the 200-day test is **Lost Family**, which uses the Rescue template.
+
 ### Outcomes
 
 A quest's success, failure or expiry is fed back to its plot as a transition trigger. Ignoring a quest is a valid choice, and the plot carries on without the player.

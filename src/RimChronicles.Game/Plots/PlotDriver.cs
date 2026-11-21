@@ -1,19 +1,34 @@
 using RimChronicles.Core.Plots;
+using RimChronicles.Core.Snapshots;
+using RimChronicles.Game.Engine;
+using RimChronicles.Game.Settings;
+using RimChronicles.Llm;
+using RimChronicles.Llm.Tasks;
 using RimWorld;
 using Verse;
 
 namespace RimChronicles.Game.Plots;
 
-/// <summary>Runs the minor plots once a day (Stage 3). M1 only checks which plot is due and logs why a beat waits;
-/// arcs register their beat handlers from M2 on.</summary>
+/// <summary>
+/// The plot director in game (Stage 4 M1), run once a day. When a plot's beat is due, its arc lists the allowed
+/// transitions. One option fires at once; with several, the model picks one with a reason (the director prompt, on a
+/// background task), or a weighted random pick stands in when no model is set up or it gives no valid answer. Every
+/// decision is logged in the plot book. At most one decision is made per day, and plots space their beats two days apart.
+/// </summary>
 public static class PlotDriver
 {
-    /// <summary>Fires the next beat of one plot, given today's date. Returns false if the arc has no handler yet.</summary>
-    public delegate bool BeatHandler(RimChroniclesGameComponent component, Plot plot, PlotTemplate template, int today);
+    /// <summary>The transitions a plot may take now.</summary>
+    public delegate IReadOnlyList<PlotTransition> TransitionsFor(Plot plot);
 
-    private static readonly Dictionary<string, BeatHandler> Handlers = [];
+    /// <summary>Fires the chosen transition (never "Wait", which the driver handles). Returns false if it couldn't fire
+    /// today; it is chosen again tomorrow.</summary>
+    public delegate bool BeatHandler(RimChroniclesGameComponent component, Plot plot, PlotTemplate template, int today, PlotTransition transition);
 
-    public static void Register(string templateId, BeatHandler handler) => Handlers[templateId] = handler;
+    private sealed record Arc(TransitionsFor Transitions, BeatHandler Fire);
+
+    private static readonly Dictionary<string, Arc> Arcs = [];
+
+    public static void Register(string templateId, TransitionsFor transitions, BeatHandler fire) => Arcs[templateId] = new(transitions, fire);
 
     /// <summary>Called once per in-game day.</summary>
     public static void Daily(RimChroniclesGameComponent component)
@@ -26,19 +41,123 @@ public static class PlotDriver
             Log.Message($"[Rim Chronicles] Plot beats wait: {blocked}.");
         }
 
-        // One beat per day at most; the plot book also spaces beats two days apart.
-        foreach (var plot in due)
+        foreach (var plot in due.Where(p => !component.Deciding.Contains(p.Id)))
         {
-            if (PlotTemplateDef.Find(plot.Template) is { } template && Handlers.TryGetValue(plot.Template, out var handler)
-                && handler(component, plot, template, today))
+            if (Decide(component, plot, today))
             {
-                break;
+                break; // one decision a day
             }
         }
     }
 
-    /// <summary>Fires one plot's handler now (Dev Mode). False if it has none or the beat couldn't fire.</summary>
+    /// <summary>Decides and fires one plot's next beat now (Dev Mode), ignoring its wait, the spacing and the gate.</summary>
     public static bool FireNow(RimChroniclesGameComponent component, Plot plot, int today) =>
-        PlotTemplateDef.Find(plot.Template) is { } template && Handlers.TryGetValue(plot.Template, out var handler)
-        && handler(component, plot, template, today);
+        !component.Deciding.Contains(plot.Id) && Decide(component, plot, today);
+
+    /// <summary>Starts a decision. Returns true if one was made or started (so no other plot decides today).</summary>
+    private static bool Decide(RimChroniclesGameComponent component, Plot plot, int today)
+    {
+        if (PlotTemplateDef.Find(plot.Template) is not { } template || !Arcs.TryGetValue(plot.Template, out var arc))
+        {
+            return false;
+        }
+
+        var options = arc.Transitions(plot);
+        if (options.Count == 0)
+        {
+            return false;
+        }
+
+        if (options.Count == 1)
+        {
+            return Apply(component, plot, template, arc, options[0], options, today, new DirectorChoice(options[0].Id, ""), "Only");
+        }
+
+        var settings = RimChroniclesMod.Settings;
+        var provider = ProviderFactory.Create(settings);
+        var prompts = PromptStore.Library;
+        var fallback = Director.PickWeighted(options, Rand.Value);
+        if (provider is null || prompts is null)
+        {
+            return Apply(component, plot, template, arc, fallback, options, today,
+                new DirectorChoice(fallback.Id, "picked by weight: no model is set up"), "Random");
+        }
+
+        // Main thread: read the world into plain data; the model call runs in the background.
+        var snapshot = WorldReader.Instance.Read() with { AllowedTransitions = options.Select(o => o.Id).ToList() };
+        var tier = settings.Tier == ModelTier.Off ? ModelTier.Recommended : settings.Tier;
+        var plotId = plot.Id;
+        var beat = plot.Beat;
+        var mainThread = component.MainThread;
+        var token = component.GameToken;
+        component.Deciding.Add(plotId);
+        Task.Run(async () =>
+        {
+            DirectorChoice choice;
+            string source;
+            try
+            {
+                var (definition, _) = Director.Build(prompts, snapshot, tier, grammar: true,
+                    new DelegateFallback<DirectorChoice>(() => new DirectorChoice(fallback.Id, "picked by weight: no valid answer from the model")));
+                var outcome = await new LlmTaskRunner(provider).RunAsync(definition, token).ConfigureAwait(false);
+                choice = outcome.Value;
+                source = outcome.Source == OutcomeSource.Template ? "Random" : outcome.Source.ToString();
+            }
+            catch (OperationCanceledException)
+            {
+                return; // the game ended
+            }
+            catch (Exception ex)
+            {
+                mainThread.Post(() => Log.Error($"[Rim Chronicles] The director failed; picking by weight. {ex}"));
+                choice = new DirectorChoice(fallback.Id, "picked by weight: the director failed");
+                source = "Random";
+            }
+
+            mainThread.Post(() =>
+            {
+                component.Deciding.Remove(plotId);
+                if (component.Plots.Active.FirstOrDefault(p => p.Id == plotId) is not { } live || live.Beat != beat)
+                {
+                    return; // the plot ended or moved on while the model was thinking
+                }
+
+                var now = arc.Transitions(live);
+                if (now.FirstOrDefault(o => o.Id == choice.Choice) is not { } chosen)
+                {
+                    return; // the options changed; it decides again on a later day
+                }
+
+                Apply(component, live, template, arc, chosen, now, GenDate.DaysPassed, choice, source);
+            });
+        }, token);
+        return true;
+    }
+
+    private static bool Apply(RimChroniclesGameComponent component, Plot plot, PlotTemplate template, Arc arc, PlotTransition chosen,
+        IReadOnlyList<PlotTransition> options, int today, DirectorChoice choice, string source)
+    {
+        var optionsText = string.Join(", ", options.Select(o => o.Id)); // as offered, before the beat changes them
+        if (chosen.Id != Director.WaitId && !arc.Fire(component, plot, template, today, chosen))
+        {
+            return false; // couldn't fire today (e.g. the nemesis is still on the map): no decision is logged
+        }
+
+        component.Plots.Record(new DirectorDecision
+        {
+            Day = today, PlotId = plot.Id, Options = optionsText, Choice = chosen.Id, Reason = choice.Reason, Source = source,
+        });
+
+        if (chosen.Id == Director.WaitId)
+        {
+            PlotBook.Hold(plot, today, Rand.RangeInclusive(template.MinGapDays, template.MaxGapDays), choice.Reason);
+        }
+
+        if (Prefs.DevMode && source != "Only")
+        {
+            Log.Message($"[Rim Chronicles] Director, {plot.Id}: {chosen.Id} ({source}). {choice.Reason}");
+        }
+
+        return true;
+    }
 }
