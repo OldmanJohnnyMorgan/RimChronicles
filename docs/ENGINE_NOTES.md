@@ -71,6 +71,15 @@ Core lists are saved as `<label><count/><i0>…</i0>…`, using only `Scribe.Ent
 (`ScribeArchive.DeepList`). This keeps Core types from having to be `IExposable`, and keeps Scribe from looking a
 type up by name on load, which might not resolve nested generic types.
 
+## Stage 3 notes
+
+- `TradeUtility.ColonyHasEnoughSilver` and `LaunchSilver` only see silver near a powered orbital trade beacon. Payments
+  use silver anywhere on the home maps (`Plots/Silver`).
+- A kidnapped colonist keeps the player's faction. It's on the kidnapping faction's `kidnapped.KidnappedPawnsListForReading`,
+  and is a world pawn, as is a colonist on a caravan.
+- A severed part is added as a `Hediff_MissingPart` through `Pawn_HealthTracker.AddHediff(Hediff, …)`, with the damage.
+- `ThoughtDef.thoughtClass` has no default: XML memories set `Thought_Memory`.
+
 ## Differences that matter later
 
 - `Mod.DoSettingsWindowContents(Rect)` still takes `UnityEngine.Rect`, which is now a type in `UnityStubs`.

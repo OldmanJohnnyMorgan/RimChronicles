@@ -276,6 +276,8 @@ Every resolution changes the game: a mood memory, a new trait (e.g. a nemesis ki
 - Every beat and handoff can be forced with Dev Mode actions.
 - With the LLM off, arcs still run on template text.
 
+**Status: done (2026-11-21).** All three passed in the proof run on the reference PC. Nemesis runs end to end, including the case where the nemesis kills the protagonist and the heir takes up revenge. Silent Press runs from the silence to reparations or a refused blackout. Model-written plot letters use the plot-letter prompt (v2). Results and lessons are in `docs/stage3-results.md`.
+
 ## Stage 4: Plot director and quest templates
 
 The plot director is the scheduler that decides when any plot moves, and what it moves to. It turns Stage 3's single arc into a system that runs many plots side by side and talks to the player through quests.
@@ -426,7 +428,7 @@ These go in the repo's `CLAUDE.md` (or equivalent) so every coding session follo
 1. **Stage 0:** model evaluation harness (no game needed). Done 2026-11-21.
 2. **Stage 1:** 1.7 technical spike and snapshot exporter. Done 2026-11-21.
 3. **Stage 2:** news agent (first playable release). Done 2026-11-21.
-4. **Stage 3:** minor plots, starting with Nemesis
+4. **Stage 3:** minor plots, starting with Nemesis. Done 2026-11-21.
 5. **Stage 4:** plot director and quest templates
 6. **Stage 5:** Awakened Empire and endings
 
