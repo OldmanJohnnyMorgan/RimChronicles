@@ -1,0 +1,10 @@
+{
+  "task": "news-bulletin",
+  "version": "v9",
+  "maxOutputTokens": 500,
+  "tiers": {
+    "Minimum": {
+      "maxOutputTokens": 350
+    }
+  }
+}

@@ -97,3 +97,46 @@ between them.
 | 6 (optional) | During a visit, have a colonist shoot the reporter so they go down and bleed out, rather than dying on the spot. | Same as row 5: `Silenced`. |
 
 Send me pass or fail per row, and the text of the replacement's first bulletin from row 4.
+
+## M6: prompt check and the 60-day proof run
+
+### 1. Harness trial of bulletin prompt v9
+
+Bulletin prompt v9 stops quiet weeks from being padded with faction settlement counts. The harness now has 23
+snapshots: the 20 hand-written ones plus 3 exported from your games (a quiet week, two conditions ending, and the
+reporter's death). This trial runs only the bulletin task, once per snapshot, on the three Gemma models, with the judge.
+That's 69 judged bulletins, about $1.
+
+```powershell
+cd C:\RimworldMods\RimChronicles\RimChronicles
+git pull
+dotnet run --project harness/RimChronicles.Eval -- run --repeats 1 --tasks news-bulletin --models gemma4-e2b,gemma4-e4b,gemma4-12b --judge
+dotnet run --project harness/RimChronicles.Eval -- report latest --compare 20261121-141140
+```
+
+The second command adds the change against the Stage 0 full run (bulletin v8) to `summary.html`. Push the run to the
+results branch as before, with the run ID from the `Report:` line:
+
+```powershell
+$run = "<new runId>"
+cd ..\rc-results
+git pull
+Copy-Item -Recurse ..\RimChronicles\results\$run results\
+git add -f results\$run
+git commit -m "Stage 2 M6 trial: bulletin v9 (run $run)"
+git push
+cd ..\RimChronicles
+```
+
+### 2. The 60-day proof run (the Stage 2 exit criteria)
+
+Use a new colony, Recommended tier, and a 3-day cadence. Dev mode can stay on.
+
+| # | Do | Pass when |
+| --- | --- | --- |
+| 1 | Play 60 in-game days at speed 3 (or use **Increment time** in 1-day steps, unpausing between them). | About 20 bulletins arrive, each on its due day. The game never stutters when one is written or delivered. |
+| 2 | Around day 30, note the newest bulletin in the Dispatch tab, then save, quit to the menu, and load. | The Dispatch tab shows every bulletin unchanged. |
+| 3 | Around day 40, pick **Off** in the mod settings, and play to the next bulletin. Then pick **Recommended** again. | The bulletin arrives as a template (`(Template)` in Dev mode), with no red errors. The next one is from the model again. |
+| 4 | At the end, open the debug log. | No red errors from Rim Chronicles. |
+
+Send me pass or fail per row, the debug log's Rim Chronicles lines if any are red, and 3–4 bulletins from the run.

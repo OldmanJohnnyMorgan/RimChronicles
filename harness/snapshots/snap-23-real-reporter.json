@@ -1,0 +1,198 @@
+{
+  "schemaVersion": 1,
+  "id": "snap-23-real-reporter",
+  "day": 29,
+  "season": "Jugust",
+  "year": 5500,
+  "colony": {
+    "name": "Ithleberium",
+    "wealth": 16173,
+    "population": 3,
+    "mood": "content"
+  },
+  "pawns": [
+    {
+      "id": "Human1045",
+      "name": "Goober",
+      "age": 40,
+      "traits": [
+        "Fast walker",
+        "Tough"
+      ],
+      "backstory": "Forester",
+      "relations": [],
+      "status": "alive"
+    },
+    {
+      "id": "Human1033",
+      "name": "Fjellsmel",
+      "age": 21,
+      "traits": [
+        "Jogger",
+        "Kind"
+      ],
+      "backstory": "Army scientist",
+      "relations": [
+        "brother of Human1037"
+      ],
+      "status": "alive"
+    },
+    {
+      "id": "Human1037",
+      "name": "Ye",
+      "age": 13,
+      "traits": [
+        "Ugly",
+        "Psychopath"
+      ],
+      "backstory": "Apocalypse survivor",
+      "relations": [
+        "brother of Human1033"
+      ],
+      "status": "alive"
+    }
+  ],
+  "tales": [
+    {
+      "day": 29,
+      "type": "IllnessRevealed",
+      "actor": "Goober"
+    },
+    {
+      "day": 2,
+      "type": "Wounded",
+      "actor": "alpaca",
+      "victim": "Ye"
+    },
+    {
+      "day": 2,
+      "type": "Downed",
+      "actor": "alpaca",
+      "victim": "Ye"
+    },
+    {
+      "day": 2,
+      "type": "KilledLongRange",
+      "actor": "Ye",
+      "victim": "alpaca"
+    },
+    {
+      "day": 2,
+      "type": "KilledCapacity",
+      "actor": "Ye",
+      "victim": "alpaca"
+    },
+    {
+      "day": 0,
+      "type": "Meditated",
+      "actor": "Ye"
+    },
+    {
+      "day": 0,
+      "type": "Vomited",
+      "actor": "Goober"
+    },
+    {
+      "day": 0,
+      "type": "LandedInPod",
+      "actor": "Fjellsmel"
+    },
+    {
+      "day": 0,
+      "type": "LandedInPod",
+      "actor": "Ye"
+    },
+    {
+      "day": 0,
+      "type": "LandedInPod",
+      "actor": "Goober"
+    }
+  ],
+  "factions": [
+    {
+      "name": "Tola",
+      "kind": "civil outlander union",
+      "goodwill": -5,
+      "settlements": 34,
+      "atWarWith": []
+    },
+    {
+      "name": "Polpbal",
+      "kind": "rough pig union",
+      "goodwill": -80,
+      "settlements": 32,
+      "atWarWith": []
+    },
+    {
+      "name": "Kinship of Comareiro",
+      "kind": "gentle tribe",
+      "goodwill": 0,
+      "settlements": 25,
+      "atWarWith": []
+    },
+    {
+      "name": "Wegsul'mouk",
+      "kind": "fierce neanderthal tribe",
+      "goodwill": -80,
+      "settlements": 22,
+      "atWarWith": []
+    },
+    {
+      "name": "Nchnoess",
+      "kind": "savage impid tribe",
+      "goodwill": -100,
+      "settlements": 24,
+      "atWarWith": []
+    },
+    {
+      "name": "Tribe of Kyshyodo",
+      "kind": "yttakin pirates",
+      "goodwill": -100,
+      "settlements": 25,
+      "atWarWith": []
+    },
+    {
+      "name": "Venom Gang",
+      "kind": "waster pirates",
+      "goodwill": -100,
+      "settlements": 32,
+      "atWarWith": []
+    },
+    {
+      "name": "The Refugee Dominion",
+      "kind": "shattered empire",
+      "goodwill": 0,
+      "settlements": 31,
+      "atWarWith": []
+    },
+    {
+      "name": "Space Consortium",
+      "kind": "traders guild",
+      "goodwill": 0,
+      "settlements": 9,
+      "atWarWith": []
+    }
+  ],
+  "activePlots": [],
+  "recentEvents": [
+    "Quest available: Hosting a Friend (day 29)",
+    "Disease: Malaria (day 29)",
+    "The psychic soothe is ending. (day 28)",
+    "Psychic soothe: Female (day 27)",
+    "Ambrosia sprout (day 26)",
+    "Relations with Tola have changed from 0 to -5 (member died). (day 25)",
+    "The Rim Dispatch: correspondent visiting (day 24)",
+    "Visitors from Tola are leaving. (day 9)",
+    "The Rim Dispatch: correspondent visiting (day 6)",
+    "Quest available: Mechanoid Signal (day 6)"
+  ],
+  "publicEvents": [
+    "Harvey Apafide, correspondent for the Rim Dispatch, has died",
+    "The psychic soothe has begun around Ithleberium"
+  ],
+  "reportedEvents": [],
+  "allowedTransitions": [
+    "Wait"
+  ],
+  "previousBulletins": []
+}

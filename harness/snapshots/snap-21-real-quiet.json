@@ -1,0 +1,187 @@
+{
+  "schemaVersion": 1,
+  "id": "snap-21-real-quiet",
+  "day": 3,
+  "season": "Aprimay",
+  "year": 5500,
+  "colony": {
+    "name": "New Arrivals",
+    "wealth": 15596,
+    "population": 3,
+    "mood": "content"
+  },
+  "pawns": [
+    {
+      "id": "Human1045",
+      "name": "Goober",
+      "age": 40,
+      "traits": [
+        "Fast walker",
+        "Tough"
+      ],
+      "backstory": "Forester",
+      "relations": [],
+      "status": "alive"
+    },
+    {
+      "id": "Human1037",
+      "name": "Ye",
+      "age": 13,
+      "traits": [
+        "Ugly",
+        "Psychopath"
+      ],
+      "backstory": "Apocalypse survivor",
+      "relations": [
+        "brother of Human1033"
+      ],
+      "status": "alive"
+    },
+    {
+      "id": "Human1033",
+      "name": "Fjellsmel",
+      "age": 21,
+      "traits": [
+        "Jogger",
+        "Kind"
+      ],
+      "backstory": "Army scientist",
+      "relations": [
+        "brother of Human1037"
+      ],
+      "status": "alive"
+    }
+  ],
+  "tales": [
+    {
+      "day": 2,
+      "type": "Wounded",
+      "actor": "alpaca",
+      "victim": "Ye"
+    },
+    {
+      "day": 2,
+      "type": "Downed",
+      "actor": "alpaca",
+      "victim": "Ye"
+    },
+    {
+      "day": 2,
+      "type": "KilledLongRange",
+      "actor": "Ye",
+      "victim": "alpaca"
+    },
+    {
+      "day": 2,
+      "type": "KilledCapacity",
+      "actor": "Ye",
+      "victim": "alpaca"
+    },
+    {
+      "day": 0,
+      "type": "Meditated",
+      "actor": "Ye"
+    },
+    {
+      "day": 0,
+      "type": "Vomited",
+      "actor": "Goober"
+    },
+    {
+      "day": 0,
+      "type": "LandedInPod",
+      "actor": "Fjellsmel"
+    },
+    {
+      "day": 0,
+      "type": "LandedInPod",
+      "actor": "Ye"
+    },
+    {
+      "day": 0,
+      "type": "LandedInPod",
+      "actor": "Goober"
+    }
+  ],
+  "factions": [
+    {
+      "name": "Tola",
+      "kind": "civil outlander union",
+      "goodwill": 0,
+      "settlements": 34,
+      "atWarWith": []
+    },
+    {
+      "name": "Polpbal",
+      "kind": "rough pig union",
+      "goodwill": -80,
+      "settlements": 32,
+      "atWarWith": []
+    },
+    {
+      "name": "Kinship of Comareiro",
+      "kind": "gentle tribe",
+      "goodwill": 0,
+      "settlements": 25,
+      "atWarWith": []
+    },
+    {
+      "name": "Wegsul'mouk",
+      "kind": "fierce neanderthal tribe",
+      "goodwill": -80,
+      "settlements": 22,
+      "atWarWith": []
+    },
+    {
+      "name": "Nchnoess",
+      "kind": "savage impid tribe",
+      "goodwill": -100,
+      "settlements": 24,
+      "atWarWith": []
+    },
+    {
+      "name": "Tribe of Kyshyodo",
+      "kind": "yttakin pirates",
+      "goodwill": -100,
+      "settlements": 25,
+      "atWarWith": []
+    },
+    {
+      "name": "Venom Gang",
+      "kind": "waster pirates",
+      "goodwill": -100,
+      "settlements": 32,
+      "atWarWith": []
+    },
+    {
+      "name": "The Refugee Dominion",
+      "kind": "shattered empire",
+      "goodwill": 0,
+      "settlements": 31,
+      "atWarWith": []
+    },
+    {
+      "name": "Space Consortium",
+      "kind": "traders guild",
+      "goodwill": 0,
+      "settlements": 9,
+      "atWarWith": []
+    }
+  ],
+  "activePlots": [],
+  "recentEvents": [
+    "Visitors from Tola are leaving. (day 2)",
+    "Gift from Tola (day 2)",
+    "Visitor (day 2)",
+    "Quest active: Young Traveler Requests Charity (day 1)",
+    "Ancient danger (day 1)",
+    "Torrential rain (day 0)",
+    "The three of you awake in your cryptosleep sarcophagi to the sound of sirens and ripping metal. (day 0)"
+  ],
+  "publicEvents": [],
+  "reportedEvents": [],
+  "allowedTransitions": [
+    "Wait"
+  ],
+  "previousBulletins": []
+}
