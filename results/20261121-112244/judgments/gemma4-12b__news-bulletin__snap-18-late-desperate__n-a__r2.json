@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-18-late-desperate__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They continue to rob stranded travelers while the passes remain closed.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Restates old news as still ongoing, which the briefing does not confirm.\u0022},{\u0022span\u0022:\u0022They have kept their granaries open to those who can make the trip.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The granary offer comes from an earlier bulletin; that it is still open is an assumption.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate and has a dry remark that is properly hedged. The other two items rehash old news as though it were still current, and the voice is generic rather than earnest and worried.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They continue to rob stranded travelers while the passes remain closed.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as ongoing activity; briefing gives no current status of raids or that passes remain closed\u0022},{\u0022span\u0022:\u0022They have kept their granaries open to those who can make the trip.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news (granaries from the latest bulletin) as ongoing status, not in the briefing\u0022},{\u0022span\u0022:\u0022One assumes the contents are now just part of the scenery.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022guess framed as assumption, but implies the contents were left in the snow; this is acceptable, so only minor if counted\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate and the dry remarks fit, but the second and third items rehash old news (raids, granaries) as ongoing status rather than new facts. Also the voice is more wry than earnest and worried, and it is a bit generic.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.3420878,
-      "inputTokens": 2721,
-      "outputTokens": 578
+      "latencySeconds": 3.2627875,
+      "inputTokens": 3392,
+      "outputTokens": 332
     }
   ]
 }

@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-01-early-content__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the freezing temperatures\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Adds \u0027freezing\u0027 to a cold snap the briefing does not size.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:5,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The bulletin is accurate, clear and the right length, and its six-settlement detail is correct. The wit is generic and slightly modern-office (\u0027bold strategy\u0027, \u0027magically generate customers out of thin air\u0027), and the second item\u0027s joke falls flat.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It is a predictable turn of events for a rim that rarely offers surprises.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022states as fact that the cold snap is predictable and the rim rarely changes; the briefing gives neither\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Facts are accurate and the guesses are properly framed, but the jokes are generic (\\\u0022magically generate customers out of thin air\\\u0022, \\\u0022refreshing change\\\u0022) and the bulletin falls short of the word count and the three-sentence minimum per item. It reads as passable but bland rather than ready to ship.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.0343685,
-      "inputTokens": 2479,
-      "outputTokens": 453
+      "latencySeconds": 2.7002692,
+      "inputTokens": 3150,
+      "outputTokens": 214
     }
   ]
 }

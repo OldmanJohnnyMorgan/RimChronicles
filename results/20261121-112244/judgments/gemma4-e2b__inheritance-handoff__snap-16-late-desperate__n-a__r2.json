@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__inheritance-handoff__snap-16-late-desperate__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Elske found the body near the northern ridge\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The briefing names no northern ridge and never says Elske found the body; only the warg Rook came home.\u0022},{\u0022span\u0022:\u0022the cooling skin\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies she reached the body soon after death, which the briefing does not support.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The scene is clear and ends on a fitting intent, but it invents a discovery scene at an unnamed ridge. It leans on clich\u00E9s (\u0027silence was heavy\u0027, \u0027cold comfort\u0027) and ignores the friendship and Rook, which leaves it generic.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Elske found the body near the northern ridge.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022the northern ridge is a place the briefing does not name, and the briefing does not say Elske found the body\u0022},{\u0022span\u0022:\u0022where the threat still lingered\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies Dunmore\u0027s ongoing presence nearby, which the briefing only says escaped\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The scene is clear and restrained and ends on Elske\u0027s intent to hunt Dunmore, but it invents a location and her finding the body, and it is generic with little that shows their friendship or uses Rook or the hunts.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 7.4521435,
-      "inputTokens": 2112,
-      "outputTokens": 604
+      "latencySeconds": 2.5085804,
+      "inputTokens": 2783,
+      "outputTokens": 231
     }
   ]
 }

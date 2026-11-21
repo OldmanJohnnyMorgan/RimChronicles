@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e4b__news-bulletin__snap-02-early-content__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Glimmer Coast Company, meanwhile, reports another profitable week.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022No such report this week. It recycles an earlier bulletin\u0027s item as new news.\u0022},{\u0022span\u0022:\u0022The Tannerfolk still hold ground\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The briefing says nothing about who holds ground in the war.\u0022},{\u0022span\u0022:\u0022ongoing skirmishes\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Adds a manner of fighting to the stated war.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The lead item is reported accurately, with properly hedged guesses. But the second paragraph states a battlefield position the briefing never gives and repeats the old Glimmer Coast \u0027profitable week\u0027 line as fresh news, which both invents facts and reuses an earlier joke. The voice is mildly dry but often flat (\u0027It is a development\u0027).\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Tannerfolk still hold ground\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing status not in briefing; implies Tannerfolk hold territory on the flats\u0022},{\u0022span\u0022:\u0022The Glimmer Coast Company, meanwhile, reports another profitable week.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news from the latest bulletin as if current; the briefing gives no such report\u0022},{\u0022span\u0022:\u0022As of day 11, the Tannerfolk and the Hollow Spire Pirates continue their dispute over the salt flats.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news and states it as ongoing without briefing support\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It leads correctly with the abandoned camp and frames its guesses as guesses, but the second item is mostly recycled old news, including the Company\u0027s profitable week, which the briefing doesn\u0027t support. The wit is mild and generic, and the second paragraph is padded with stated-as-fact status claims.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 7.1120416,
-      "inputTokens": 2796,
-      "outputTokens": 639
+      "latencySeconds": 3.0712879,
+      "inputTokens": 3467,
+      "outputTokens": 345
     }
   ]
 }

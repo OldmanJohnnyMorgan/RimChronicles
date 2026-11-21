@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-16-late-desperate__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate and well structured: it leads with the bounty, keeps every guess hedged, and fills the quiet second item with dry faction arithmetic. The second paragraph leans on \u0027quiet\u0027 repeatedly, and its closing line is a touch generic.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The notice follows an ambush near Gallowmere.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the bounty was caused by the ambush as a notice; briefing says Kael has a price after an ambush, but the notice following it is an added consequence link\u0022},{\u0022span\u0022:\u0022the Throne still says nothing\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing status of silence beyond \u0027quiet behind its walls\u0027; mild extension\u0022},{\u0022span\u0022:\u0022Silence from an empire is rarely an accident.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022opinion stated as general claim, borderline; not a world fact\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Dry, consistent voice with good jokes and sensible use of the faction figures, but the second item is thin padding and it does not note Kael is the Free Company\u0027s namesake link explicitly or avoid implying cause; the first item\u0027s bounty-follows-ambush link is slightly inferred. Total length is also likely under the 70-word floor risk but close enough, and the second paragraph\u0027s \u0027the Throne still says nothing\u0027 adds status.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.3571079,
-      "inputTokens": 2720,
-      "outputTokens": 493
+      "latencySeconds": 3.8050937,
+      "inputTokens": 3391,
+      "outputTokens": 372
     }
   ]
 }

@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-07-mid-strained__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Making demands of a neighbour twice your size takes a certain confidence\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies the tolls target the Iron Covenant. The briefing only says the Empire makes demands of its neighbours.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A tight, dry bulletin that leads with the one new item and handles a quiet week well with correct faction arithmetic and properly hedged guesses. It slightly implies the Iron Covenant is the target of the toll demand, which the briefing does not say.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Vex\u0027s Crew, with two settlements, has not been heard from.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022unreported status: the briefing says nothing about whether Vex\u0027s Crew has been heard from\u0022},{\u0022span\u0022:\u0022Making demands of a neighbour twice your size\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the Empire\u0027s demands are aimed at the Iron Covenant; the briefing does not say who the tolls target (arithmetic of 4 vs 8 is right)\u0022},{\u0022span\u0022:\u0022This is the same gorge where the Iron Covenant lost a supply wagon to raiders.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as background; acceptable but framed as a connection the briefing does not make\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent and the facts are mostly accurate, with guesses properly hedged. It implies the tolls target the Iron Covenant and says Vex\u0027s Crew has not been heard from, neither of which the briefing supports, and it falls short of the requested paragraph length of three sentences per item and 70 words minimum is borderline.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.9058879,
-      "inputTokens": 2747,
-      "outputTokens": 587
+      "latencySeconds": 3.5034702,
+      "inputTokens": 3418,
+      "outputTokens": 381
     }
   ]
 }

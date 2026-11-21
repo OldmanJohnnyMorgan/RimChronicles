@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e4b__news-bulletin__snap-07-mid-strained__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The output is accurate: it leads with the toll demand and uses the Covenant\u0027s size and the old wagon loss only as background. The wit is thin and generic (\u0027certainly keeping busy\u0027, \u0027background noise\u0027) next to the earlier bulletins, and \u0027credits\u0027 jars where rim currency is silver.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022squeeze a few extra credits out of the local traffic\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess (\\\u0022One assumes\\\u0022), but \\\u0022credits\\\u0022 is not RimWorld vocabulary here (silver); only a guess, so minor at most\u0022},{\u0022span\u0022:\u0022they are certainly keeping busy\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies an ongoing activity the briefing does not report\u0022},{\u0022span\u0022:\u0022the loss of that wagon earlier seems to have settled into the background noise\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied consequence about how the loss was received; hedged but stated as the narrator\u0027s impression of the Covenant\u0027s state\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and readable, with no major invented facts, but the dry voice is generic and the second item is padding about faction size. It is also thin on wit, at about 90 words with only two sentences of real take per item, and the \\\u0022credits\\\u0022 word feels off for the setting.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.6165183,
-      "inputTokens": 2699,
-      "outputTokens": 430
+      "latencySeconds": 3.4369251,
+      "inputTokens": 3370,
+      "outputTokens": 332
     }
   ]
 }

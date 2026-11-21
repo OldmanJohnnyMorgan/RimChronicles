@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-18-late-desperate__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The bulletin is accurate and well ordered: it leads with the lost caravan, treats the closed passes as background, and fits Quell\u0027s earnest, worried voice. The second item is thin filler, though, and the pirate-pride joke lands weakly.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The passes there have been closed by snow for a while now\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; \u0027for a while now\u0027 adds duration not in briefing, though the closure was covered earlier\u0022},{\u0022span\u0022:\u0022It is Jugust, which this year seems to mean blizzards\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies blizzards are a recurring feature of this Jugust, an inference stated as seeming fact beyond the briefing\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate, in a worried, dry voice, with the lead item correct and the quiet-week filler using faction counts as allowed. It is held back by a minor embellishment about the passes and the thin, slightly flat second item.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 4.5180343,
-      "inputTokens": 2753,
-      "outputTokens": 426
+      "latencySeconds": 3.0655164,
+      "inputTokens": 3424,
+      "outputTokens": 257
     }
   ]
 }

@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-15-late-content__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Grinning Jack\u0027s Men are reportedly making moves near the outer rim.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022No such event in the briefing; the pirates are only listed with a settlement count.\u0022},{\u0022span\u0022:\u0022Archery remains a point of contention, as expected.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Asserts the old archery argument is still ongoing; the briefing gives no update.\u0022},{\u0022span\u0022:\u0022They seem interested in someone who is likely trouble.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Characterises Leopold as trouble without support, only lightly hedged.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022With only one new item, the writer padded the bulletin with an invented pirate story and recycled the old spring games as a current development, which the instructions forbid. The wit is thin and generic: \\\u0022They always make moves\\\u0022 and \\\u0022good to see a tribe argue over a bow\\\u0022 lack the bite of the earlier bulletins.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They seem interested in someone who is likely trouble.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Inference about Leopold stated as likely fact; the briefing says nothing about who he is.\u0022},{\u0022span\u0022:\u0022Grinning Jack\u0027s Men are reportedly making moves near the outer rim.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Invented event and location; the briefing gives no activity for Grinning Jack\u0027s Men.\u0022},{\u0022span\u0022:\u0022They always make moves.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Claims a habitual pattern of behaviour that the briefing does not give.\u0022},{\u0022span\u0022:\u0022Archery remains a point of contention, as expected.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Repeats old news as current; the argument comes from an earlier bulletin and the briefing does not say it is ongoing.\u0022},{\u0022span\u0022:\u0022The Fox-Lantern Tribe\u0027s spring games continue their proceedings.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Repeats old news and implies the games are still running, which the briefing does not report.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The Leopold item is handled acceptably, but the Grinning Jack\u0027s Men item is invented from nothing and the tribe item recycles old news as if current. The wit is also thin and generic, and the item is not a three-sentence fact plus a take.}\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 7.4595368,
-      "inputTokens": 2685,
-      "outputTokens": 683
+      "latencySeconds": 3.6489425,
+      "inputTokens": 3356,
+      "outputTokens": 443
     }
   ]
 }

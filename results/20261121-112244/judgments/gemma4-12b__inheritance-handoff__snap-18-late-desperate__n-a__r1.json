@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__inheritance-handoff__snap-18-late-desperate__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Elias knelt in the snow, his fingers trembling as he brushed the frost from his mother\u0027s stiffened hand.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The briefing never places Elias at the pass or with her body; this is a new event.\u0022},{\u0022span\u0022:\u0022gripped the reins of the remaining pack mule\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Invents a surviving animal, though the briefing says the caravan was lost.\u0022},{\u0022span\u0022:\u0022He pulled her heavy coat tighter around his own shoulders\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Invented detail of him wearing her coat; it also muddles the image.\u0022},{\u0022span\u0022:\u0022pulling out the crumpled letter from Ada\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The letter exists, but its survival on her body is an embellishment.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The scene follows the brief\u0027s shape and ends correctly on his intent to bring Ada home. But it stages Elias at the death site with a surviving mule, which the briefing doesn\u0027t support. Stock phrasing like \u0027wind howled, mocking\u0027 and \u0027breath hitching\u0027 leans melodramatic.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022gripped the reins of the remaining pack mule\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022briefing says the caravan was lost; a surviving pack mule is a new fact\u0022},{\u0022span\u0022:\u0022pulling out the crumpled letter from Ada\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022places the letter in her pocket at her death; briefing only says she received it on day 744\u0022},{\u0022span\u0022:\u0022He pulled her heavy coat tighter around his own shoulders\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds that he took her coat; staging but implies he is at the death site, which the briefing does not place him\u0022},{\u0022span\u0022:\u0022The wind howled through the pass, mocking the silence of the caravan.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022places the scene in the pass with the caravan, and Elias at the site of her death, which the briefing does not state\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The ending lands on a clear intent and uses the mother-son link correctly, but it places Elias at the death site in the pass and invents a surviving pack mule, contradicting the lost caravan. The prose is also somewhat generic and melodramatic (\\\u0022mocking the silence\\\u0022).\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 8.0755337,
-      "inputTokens": 2166,
-      "outputTokens": 737
+      "latencySeconds": 3.717899,
+      "inputTokens": 2837,
+      "outputTokens": 394
     }
   ]
 }

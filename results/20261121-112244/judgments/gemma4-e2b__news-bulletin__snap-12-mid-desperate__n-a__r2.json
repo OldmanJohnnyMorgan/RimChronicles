@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-12-mid-desperate__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It is a predictable pattern for those who deal in illicit trade.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Briefing never says the Gallows Crew deals in illicit trade; this is an embellishment stated as fact.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The facts are clean and the guesses are framed, but the wit is flat and generic. \u0027Tedious formality\u0027 and \u0027fine, if unremarkable\u0027 read as bland rather than sardonic. The second item spends a full paragraph on old news about the doctor, and calls the Crew dealers in illicit trade without support.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Gallows Crew continues to hold a doctor.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as an ongoing status; the briefing gives it only as earlier background\u0022},{\u0022span\u0022:\u0022It is a predictable pattern for those who deal in illicit trade.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a trade and a pattern of behaviour the briefing does not give, stated as fact\u0022},{\u0022span\u0022:\u0022apparently undisturbed by the regional unpleasantness\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022claims a status inside the Empire\u0027s walls that the briefing does not report, only loosely hedged\u0022},{\u0022span\u0022:\u0022Such gestures rarely signal anything of real consequence in these dusty corners.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022generalisation stated as fact about past envoy visits; the briefing gives none\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate and in the right dry register, but the wit is generic, and the second and third items pad with old news and unsupported claims about illicit trade and the Empire\u0027s condition. The bulletin also runs short of the 70-word minimum.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.8363488,
-      "inputTokens": 2754,
-      "outputTokens": 594
+      "latencySeconds": 3.5143909,
+      "inputTokens": 3425,
+      "outputTokens": 385
     }
   ]
 }

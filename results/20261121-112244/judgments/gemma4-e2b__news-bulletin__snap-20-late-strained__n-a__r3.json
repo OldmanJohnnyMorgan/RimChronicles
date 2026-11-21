@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-20-late-strained__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They remain stubbornly separate from the larger squabbles.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing lists no wars for the tribe, but their staying out by choice is an inference stated as fact.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and readable, but the lead item is thin. The Free Coast item retreads old news and echoes the earlier bulletin\u0027s \u0027resolve\u0027 joke, so the wit feels recycled and generic.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022This is hardly a surprise in these parts.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied context/inference stated as fact; briefing gives no basis that such offers are expected\u0022},{\u0022span\u0022:\u0022They remain stubbornly separate from the larger squabbles.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing status not in briefing; tribe\u0027s neutrality is not reported\u0022},{\u0022span\u0022:\u0022The Free Coast Alliance holds two towns. Their resolve remains as predictable as the tide.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; the two-towns item was in the earlier bulletin and is presented as current news; resolve is a repeat of the earlier joke\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is correct and in order, but the second and third items pad with old or unreported material (the Alliance\u0027s two towns were already covered, and the Tribe\u0027s aloofness is added). The wit is mild and partly recycles the earlier bulletin\u0027s resolve joke, and the Governorship item is too thin to carry the piece.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.587288,
-      "inputTokens": 2690,
-      "outputTokens": 458
+      "latencySeconds": 3.4396688,
+      "inputTokens": 3361,
+      "outputTokens": 361
     }
   ]
 }

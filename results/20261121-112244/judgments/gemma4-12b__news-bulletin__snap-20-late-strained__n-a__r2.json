@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-20-late-strained__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022a settlement that is currently being squeezed by neighbors\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The briefing says nothing about Varrowgate being under pressure from neighbours.\u0022},{\u0022span\u0022:\u0022It is a bold strategy to demand everything while holding almost nothing.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022This contradicts the briefing: the Empire holds 21 settlements and controls most of the region.\u0022},{\u0022span\u0022:\u0022They are issuing final demands to the Free Coast Alliance.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing does not say who the final demands are addressed to.\u0022},{\u0022span\u0022:\u0022They seem content to watch the larger factions tear each other apart.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022This attributes a stance to the Driftwood Tribe and implies a scale of war that the briefing does not give.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The lead item is handled reasonably. The second item\u0027s joke contradicts the briefing, though: it mocks the Empire for \u0027holding almost nothing\u0027 right after crediting it with twenty-one settlements. The first item also invents pressure on Varrowgate.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022a settlement that is currently being squeezed by neighbors\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing gives no information that Varrowgate is being squeezed by neighbors; stated as fact\u0022},{\u0022span\u0022:\u0022They are issuing final demands to the Free Coast Alliance.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022briefing says the Empire issues final demands but does not say they are directed at the Free Coast Alliance\u0022},{\u0022span\u0022:\u0022It is a bold strategy to demand everything while holding almost nothing.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022contradicts the briefing: the Empire controls most of the region and 21 settlements, so it does not hold almost nothing\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The dry voice is serviceable and the lead item is correct, but the second item contradicts the briefing by saying the Empire holds almost nothing, and it invents who the final demands target. The Driftwood paragraph is filler, and it is hedged only partly with \u0027seem\u0027.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 7.4664095,
-      "inputTokens": 2728,
-      "outputTokens": 688
+      "latencySeconds": 2.9216213,
+      "inputTokens": 3399,
+      "outputTokens": 347
     }
   ]
 }

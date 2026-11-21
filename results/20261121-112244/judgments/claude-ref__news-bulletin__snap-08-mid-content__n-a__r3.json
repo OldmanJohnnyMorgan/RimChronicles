@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-08-mid-content__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Accord\u0027s fair was supposed to be about trade, yet art has wandered in uninvited.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Places the sculpture talk at the fair. The briefing only says Lantern Hill traders are talking about it.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A dry, well-paced bulletin with good jokes: the fox and henhouse line and the finger count on the Gang. Its one slip is tying the sculpture gossip to the fair, which the briefing does not do.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Accord\u0027s fair was supposed to be about trade, yet art has wandered in uninvited.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the sculpture is at the fair; briefing only says traders at Lantern Hill talk of it\u0022},{\u0022span\u0022:\u0022Elsewhere, Aprimay on the rim is quiet.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022states the rim is quiet as fact; briefing does not report this\u0022},{\u0022span\u0022:\u0022That still leaves them plenty spare.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022unclear claim about the Gang\u0027s fingers, an invented detail beyond the briefing, though framed as a joke\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:3,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice and the fox-henhouse line work, and the faction numbers are correct. But the first item is short of the required three sentences with a fact and a take, and the fair link and \u0027quiet\u0027 claim go beyond the briefing; the finger joke also muddles.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 4.1768275,
-      "inputTokens": 2745,
-      "outputTokens": 418
+      "latencySeconds": 3.0742661,
+      "inputTokens": 3416,
+      "outputTokens": 332
     }
   ]
 }

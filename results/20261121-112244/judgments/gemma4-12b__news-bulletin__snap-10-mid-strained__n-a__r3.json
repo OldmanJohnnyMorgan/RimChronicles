@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-10-mid-strained__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They are quite content to sit on their land while the other factions bicker.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022An inference stated as fact. It also sits oddly with the Federation\u0027s earlier bounty on Stonecutter leaders.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is clean and properly framed, and its ransom joke lands drily. The quiet-week second item asserts the Federation\u0027s passivity as fact, which undercuts their bounty, and the closing jab is generic.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They are quite content to sit on their land while the other factions bicker.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022stated as fact: the Weir\u0027s contentment and inaction are not in the briefing\u0022},{\u0022span\u0022:\u0022It seems they have discovered that ransom is a more efficient tool than honest warfare.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the Ochre Hand has turned from warfare to ransom; the briefing says they are at war and gives no such shift (hedged with \u0027it seems\u0027, so mild)\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent and the lead item is accurate, but the second item is thin padding about the Weir with a stated-as-fact claim of contentment. It also falls short of the three-sentence minimum per item and is probably under the word count, at roughly 75 words, so it barely clears the 70 minimum.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.4630423,
-      "inputTokens": 2711,
-      "outputTokens": 516
+      "latencySeconds": 3.2130557,
+      "inputTokens": 3382,
+      "outputTokens": 305
     }
   ]
 }

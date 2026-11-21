@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e4b__news-bulletin__snap-07-mid-strained__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They seem to be weathering the Imperial demands, for now.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies the Covenant is under Imperial demands and coping with them; the briefing gives neither.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The toll item is accurate and plainly reported, but the wit is thin and generic (\u0027more paperwork for everyone\u0027). The second item is padding that calls a week with fresh news \u0027quiet\u0027 and adds a soft inference about the Covenant.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They seem to be weathering the Imperial demands, for now.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022hedged with \u0027seem\u0027, but implies an ongoing status of the Covenant the briefing does not report\u0022},{\u0022span\u0022:\u0022It is a quiet week\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022the briefing has a new item, so calling it a quiet week is an inference stated as fact\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate to the briefing and clear, but the wit is thin and generic, and the second item pads with faction size and a vague \u0027quiet week\u0027 claim. It lacks the sharp absurd eye of the earlier bulletins and runs short of the required sentence count for the first item.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 4.8616503,
-      "inputTokens": 2675,
-      "outputTokens": 437
+      "latencySeconds": 2.7617996,
+      "inputTokens": 3346,
+      "outputTokens": 252
     }
   ]
 }

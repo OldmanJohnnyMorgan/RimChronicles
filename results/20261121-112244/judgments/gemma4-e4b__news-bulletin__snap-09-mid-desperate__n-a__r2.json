@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e4b__news-bulletin__snap-09-mid-desperate__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It is accurate and clear, but at about 55 words it falls short of the 70-word minimum. The wit is thin: the second item restates old news with almost no dry remark, and \u0027rather predictable\u0027 is bland next to the earlier bulletins\u0027 sharper voice.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Embertail Tribe continues its hostilities with the Gray Wharf Syndicate.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing status; briefing only says at war, so \\\u0022continues hostilities\\\u0022 is a mild extension of the war fact\u0022},{\u0022span\u0022:\u0022It seems the fishing rights dispute shows no sign of resolution.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news (fishing rights from earlier bulletin; not in this briefing) framed as hedged inference of no resolution\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and clear, but it is thin: the first item is only two plain sentences plus a mild quip, and the second item rehashes the war as if current news. Each paragraph falls short of the three-sentence minimum on wit, and the total length is below the 70-word minimum, so the sardonic voice never really shows.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 4.6109784,
-      "inputTokens": 2663,
-      "outputTokens": 418
+      "latencySeconds": 2.9960654,
+      "inputTokens": 3334,
+      "outputTokens": 310
     }
   ]
 }

@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-19-late-desperate__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022this relentless approach\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Adds a manner the briefing does not give; it says only \u0027expanding by force\u0027.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and clear, but the voice is generic rather than sardonic, with stiff phrasing like \u0027a certain level of stubbornness\u0027 and \u0027viable alternatives\u0027. It presents the old Fenwick razing as fresh news and pads the third item with already-covered background instead of finding wit in the siege.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They have razed Fenwick and are currently besieging the Marrow League.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news: the razing of Fenwick was already covered, presented here as fresh\u0022},{\u0022span\u0022:\u0022They offered sanctuary to the remnants of Fenwick.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news from an earlier bulletin, presented as current\u0022},{\u0022span\u0022:\u0022The Marrow League remains at three settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news about the League being down to three, and \u0027remains\u0027 implies an ongoing status\u0022},{\u0022span\u0022:\u0022One assumes this relentless approach will yield predictable results.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027relentless\u0027 adds characterisation, though the sentence is framed as a guess so it barely counts\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The bulletin is clear and accurate to the briefing, but two of its three items rehash old news as current, and the wit is generic rather than sardonic. The third item is padding with no new fact and no real joke.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.2385717,
-      "inputTokens": 2725,
-      "outputTokens": 503
+      "latencySeconds": 3.4612515,
+      "inputTokens": 3396,
+      "outputTokens": 362
     }
   ]
 }

@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-04-early-strained__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022I am told this is a sensible precaution.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies an unnamed source gave this view; the briefing gives no reason or comment.\u0022}],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A sharp, consistent wry voice that sticks closely to the briefing. The dark implication about Lowmere is left to the reader rather than stated as fact. The only blemish is the small \u0027I am told\u0027 attribution, which the briefing does not support.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022I am told this is a sensible precaution.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a source and a stated reason for the decision that the briefing does not give\u0022},{\u0022span\u0022:\u0022for reasons of professional solidarity and plain self-interest\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds a motive; mild, borders on the narrator\u0027s opinion\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent and the facts are mostly faithful, but \u0027I am told this is a sensible precaution\u0027 invents a source and a rationale. The last item is also slightly padded and the word count is probably near the upper limit.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 4.7295569,
-      "inputTokens": 2616,
-      "outputTokens": 441
+      "latencySeconds": 2.3358223,
+      "inputTokens": 3287,
+      "outputTokens": 226
     }
   ]
 }

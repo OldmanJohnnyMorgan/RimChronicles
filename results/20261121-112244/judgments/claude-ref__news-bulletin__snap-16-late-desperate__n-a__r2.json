@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-16-late-desperate__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The mercenary earned it after an ambush near Gallowmere.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027Earned it\u0027 implies Dunmore carried out the ambush; the briefing says only that the price followed an ambush, not who ambushed whom.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A clean, dry bulletin that leads correctly with the bounty and uses faction sizes well for the quiet items. However, \u0027earned it\u0027 quietly assigns blame for the ambush, which the briefing does not.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The mercenary earned it after an ambush near Gallowmere.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing gives the ambush as context but not that Dunmore caused or earned the bounty by it; implied cause\u0022},{\u0022span\u0022:\u0022It has said nothing about any of this.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says only \u0027quiet behind its walls\u0027; Throne\u0027s silence on the bounty is an added claim\u0022},{\u0022span\u0022:\u0022the Throne has always liked a bargain\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022unsupported claim about the Throne\u0027s past character, stated as fact\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry, understated voice is consistent and the wit is good, but it adds small unsupported claims (Dunmore \u0027earned\u0027 the bounty, the Throne \u0027said nothing\u0027). The final paragraph also strays from the lead items into padding, and the word count is on the edge of the limit.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.3596208,
-      "inputTokens": 2759,
-      "outputTokens": 487
+      "latencySeconds": 3.0597613,
+      "inputTokens": 3430,
+      "outputTokens": 323
     }
   ]
 }

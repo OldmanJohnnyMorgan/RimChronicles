@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__inheritance-handoff__snap-16-late-desperate__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022muzzle stained dark\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Embellishes Rook\u0027s return with implied blood not in the briefing.\u0022},{\u0022span\u0022:\u0022until she found no wound that was his\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies the blood is someone else\u0027s; this is an inference, not a given fact.\u0022},{\u0022span\u0022:\u0022She laid out Bertram\u0027s three hunting routes on the table\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Turns the three hunts into physical route maps; this is an embellishment.\u0022},{\u0022span\u0022:\u0022He had gone in fast and loud. Dunmore had learned that.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022States Bertram\u0027s tactics and Dunmore\u0027s adaptation as fact; the briefing only says Bertram was ambushed.\u0022},{\u0022span\u0022:\u0022Elske loaded five rounds\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Specific number not in the briefing, though it is only staging detail.\u0022}],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A restrained, well-built scene that shows grief through action and ends cleanly on Elske\u0027s intent, using her Careful shooter trait well. Several small embellishments, notably the stated tactical inference about Bertram\u0027s hunts, keep it from shipping unchanged.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022muzzle stained dark\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds detail about the warg\u0027s condition and implies blood, not in briefing\u0022},{\u0022span\u0022:\u0022She laid out Bertram\u0027s three hunting routes on the table and crossed out each one\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022invents a record of the routes; the briefing only says three hunts were led\u0022},{\u0022span\u0022:\u0022He had gone in fast and loud. Dunmore had learned that.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022invents how Bertram hunted and what Dunmore learned; the briefing only says Dunmore ambushed the hunters\u0022},{\u0022span\u0022:\u0022Elske loaded five rounds\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022specific number of rounds not given, though plausible staging\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A restrained scene that shows grief through small actions, and it ends on a clear intent that fits Elske\u0027s Careful shooter and Steadfast traits. It adds unsupported detail about Bertram\u0027s style and the hunt routes, and the stained muzzle makes the return slightly confusing.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 13.0573267,
-      "inputTokens": 2179,
-      "outputTokens": 1106
+      "latencySeconds": 3.4828223,
+      "inputTokens": 2850,
+      "outputTokens": 373
     }
   ]
 }

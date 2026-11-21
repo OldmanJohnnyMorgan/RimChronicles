@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e4b__news-bulletin__snap-13-mid-strained__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Their envoys are apparently quite persistent in their negotiations.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing only says envoys make demands. Persistence and negotiations are added manner.\u0022},{\u0022span\u0022:\u0022The faction counts remain stable.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing gives current counts, not whether they have changed.\u0022},{\u0022span\u0022:\u0022One suspects the Cobalt Free Towns are enjoying this unexpected lull.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022It implies a lull, which contradicts the item\u0027s own news of a tribute refusal.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item reports the refusal accurately with a framed guess. The second item rehashes old tribute news, and the third calls it a quiet week with an \u0027unexpected lull\u0027 right after a defiance story, which reads as padding. The wit is mild and generic next to the earlier bulletins.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The faction counts remain stable.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022comparison with earlier state; briefing gives no change history\u0022},{\u0022span\u0022:\u0022It is a quiet week in the rim.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022asserts a status the briefing does not give; contradicts the news just reported\u0022},{\u0022span\u0022:\u0022Their envoys are apparently quite persistent in their negotiations.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news and adds \u0027negotiations\u0027 and persistence not in briefing\u0022},{\u0022span\u0022:\u0022The Sun Throne continues its rounds of demanding tribute.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as ongoing activity\u0022},{\u0022span\u0022:\u0022Two Cobalt Free Towns have decided to ignore the Sun Throne\u2019s latest demands.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027latest demands\u0027 and \u0027decided to ignore\u0027 add framing not in briefing\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The first item is accurate, but the second repeats old news and the third calls it a quiet week right after reporting news, which muddles the bulletin. The wit is mild and generic, and the text only loosely meets the length and sentence-count requirements.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.8818365,
-      "inputTokens": 2761,
-      "outputTokens": 617
+      "latencySeconds": 3.4152109,
+      "inputTokens": 3432,
+      "outputTokens": 410
     }
   ]
 }

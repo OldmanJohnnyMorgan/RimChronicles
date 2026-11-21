@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-20-late-strained__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022nobody has offered the tribe anything\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Stated as fact; the briefing says nothing about offers to the tribe.\u0022},{\u0022span\u0022:\u0022Nobody outside the colony knows yet what it thinks of the offer\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Asserts public knowledge about the colony\u0027s response, which the briefing does not give.\u0022}],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A sharp, consistent Ilse voice with fresh jokes, and \u0027less a war than a sum\u0027 is a highlight. A couple of small unsupported assertions are stated as fact, notably that no one has offered the tribe anything.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Nobody outside the colony knows yet what it thinks of the offer.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022unreported status: briefing gives no information on the colony\u0027s response or what is publicly known\u0022},{\u0022span\u0022:\u0022nobody has offered the tribe anything\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022stated as fact; briefing does not say the tribe received no offers\u0022},{\u0022span\u0022:\u0022The war between the Empire and the Free Coast Alliance continues.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing status; briefing says only that they are at war, and the war was not reported as continuing\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Dry, consistent voice with good use of the faction numbers and properly hedged guesses, and it leads with the new item. A few unhedged claims (the tribe being offered nothing, nobody knowing the colony\u0027s reaction) go beyond the briefing, which keeps it from a 5.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.0259951,
-      "inputTokens": 2769,
-      "outputTokens": 475
+      "latencySeconds": 3.104671,
+      "inputTokens": 3440,
+      "outputTokens": 321
     }
   ]
 }

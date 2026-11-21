@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e4b__news-bulletin__snap-10-mid-strained__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Weir Federation continues its bounty hunt\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says only that a bounty was raised, not that an active hunt is under way.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The joke that the Ochre Hand \u0027need the coin\u0027 is backwards, since they are the ones offering silver, and it muddles the lead item. The bulletin is also short of the 70-word minimum, and the second item is bland filler built from old news.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Weir Federation continues its bounty hunt\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing activity not reported; briefing only says a bounty was raised\u0022},{\u0022span\u0022:\u0022The Ochre Hand still fights the Stonecutter Raiders.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing activity; briefing says only that they are at war, not that fighting continues\u0022},{\u0022span\u0022:\u0022Or perhaps they just need the coin for something less noble.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022muddled guess; the Ochre Hand is paying silver, not receiving it, so the remark contradicts the offer\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Reasonably dry, but it is short of the required length and paragraph structure, and the joke about needing the coin makes no sense since the Ochre Hand is paying. It also repeats old news as ongoing activity and says nothing about the Stonecutters\u0027 captives or the faction sizes.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.68033,
-      "inputTokens": 2683,
-      "outputTokens": 510
+      "latencySeconds": 3.1339804,
+      "inputTokens": 3354,
+      "outputTokens": 332
     }
   ]
 }

@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-12-mid-desperate__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The output stays within the briefing\u0027s facts and leads correctly with the envoys. Its second item, though, mostly rehashes old news as a full item and recycles the previous bulletin\u0027s \u0027worth more alive than dead\u0027 joke, which the brief forbids.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Gallows Crew continues to hold a doctor at their camp.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; \\\u0022continues to hold\\\u0022 implies an ongoing status the briefing does not report as current\u0022},{\u0022span\u0022:\u0022They seem remarkably consistent in their hostage-taking.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a pattern of repeated hostage-taking the briefing does not give, though hedged with \\\u0022seem\\\u0022\u0022},{\u0022span\u0022:\u0022as anonymous as its residents\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the Empire\u0027s residents are anonymous, which the briefing does not say\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is correct and the guesses are properly hedged, but the second item recycles old news as a current update and echoes the earlier doctor joke. The bulletin is also well under the 70-word minimum and has weak wit in the first item.\\n\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.4632393,
-      "inputTokens": 2714,
-      "outputTokens": 526
+      "latencySeconds": 3.3285842,
+      "inputTokens": 3385,
+      "outputTokens": 317
     }
   ]
 }

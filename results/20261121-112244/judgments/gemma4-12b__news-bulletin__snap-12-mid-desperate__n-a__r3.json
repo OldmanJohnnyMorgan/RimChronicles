@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-12-mid-desperate__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They seem to have found a way to keep the captive alive for a few more days.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies the captive\u0027s ongoing survival and a timeframe; the briefing gives no update on the doctor\u0027s state.\u0022},{\u0022span\u0022:\u0022The Gallows Crew continues to hold a doctor at their camp.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Presents old news as a current status update; the briefing gives no new information that the captivity continues.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate and has a decent dry quip, but the second item pads the bulletin by recycling old news as a full item with a speculative status update. It should have been a quiet-week remark on the briefing\u0027s facts.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Gallows Crew continues to hold a doctor at their camp.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as an ongoing status; the briefing only gives it as earlier coverage\u0022},{\u0022span\u0022:\u0022They seem to have found a way to keep the captive alive for a few more days.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied consequence and timeline not in briefing; hedged with \u0027seem\u0027 but states a few more days\u0022},{\u0022span\u0022:\u0022for a faction that claims to be quiet\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022the Glass Throne is described as quiet behind its walls, but no claim by the faction is given\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent and the lead item is accurate. The second item is mostly old news presented as ongoing and carries a small invented detail, and the piece falls short of the three-sentence-per-item requirement in spirit and likely the word count.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.6154277,
-      "inputTokens": 2700,
-      "outputTokens": 573
+      "latencySeconds": 3.1028382,
+      "inputTokens": 3371,
+      "outputTokens": 321
     }
   ]
 }

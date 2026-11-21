@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-07-mid-strained__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022is making demands of the Iron Covenant\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Briefing says the Empire makes demands of its neighbours generally; naming the Iron Covenant as the target is an inference stated as fact.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The dry voice is consistent and well paced, and the quiet-week faction count is handled with good restraint and properly framed guesses. The one slip is stating as fact that the Empire\u0027s demands are aimed specifically at the Iron Covenant.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022is making demands of the Iron Covenant, which holds eight\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022briefing says the Empire makes demands of its neighbours, not specifically the Iron Covenant; the target is invented\u0022},{\u0022span\u0022:\u0022the Empire has chosen the cold season to ask for money\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a deliberate choice and that Decembary is the cold season, which the briefing does not state\u0022},{\u0022span\u0022:\u0022That is the same road where the Iron Covenant recently lost a wagon to raiders.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says near the gorge, not on the gorge road; repeated as background but road link is inferred as fact\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent and the guesses are properly hedged, but it wrongly says the Empire is making demands of the Iron Covenant, which the briefing does not say. It also equates the gorge road with the place near the gorge where the wagon was lost.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.5284735,
-      "inputTokens": 2739,
-      "outputTokens": 567
+      "latencySeconds": 3.0792417,
+      "inputTokens": 3410,
+      "outputTokens": 343
     }
   ]
 }

@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e4b__news-bulletin__snap-04-early-strained__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Such dramatic flair for a Tuesday.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing gives day 38 of Septober, not a weekday. RimWorld has no Tuesdays.\u0022},{\u0022span\u0022:\u0022maintaining their usual six settlements\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027Usual\u0027 implies a history of the League\u0027s size. This is the first bulletin, so that history is not established.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry asides are serviceable, but two items are crammed into the first paragraph. \u0027Predictably dull\u0027 undercuts a missing reporter and a burned ferry, and the link between Quell\u0027s disappearance and the halt on reporters goes unremarked. The Tuesday quip and the stiff \u0027Lowmere has seen\u2026\u0027 phrasing also jar.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Such dramatic flair for a Tuesday.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022briefing gives no day of the week; Tuesday is an invented date\u0022},{\u0022span\u0022:\u0022Tomas Quell. One assumes he hasn\u0027t simply decided to become a hermit.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022none\u0022},{\u0022span\u0022:\u0022With the Brine Coast League maintaining their usual six settlements\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027usual\u0027 and \u0027maintaining\u0027 imply a past state and ongoing activity not in the briefing\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The dry voice is serviceable, but \u0027Tuesday\u0027 is an invented date and the League line implies an unreported earlier state. The bulletin also falls short of three sentences per item and is likely under the word count, and its jokes are thin.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 7.9792463,
-      "inputTokens": 2546,
-      "outputTokens": 724
+      "latencySeconds": 3.4481205,
+      "inputTokens": 3217,
+      "outputTokens": 290
     }
   ]
 }

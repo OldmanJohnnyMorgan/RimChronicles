@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e4b__news-bulletin__snap-19-late-desperate__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The bulletin stays accurate, but its wit is thin and generic. Lines like \u0027considerable amount of logistical effort\u0027 and \u0027inevitable skirmish\u0027 read as filler rather than Odile\u0027s sardonic voice, and calling a siege week \u0027quiet\u0027 is muddled. At about 68 words it also falls just short of the 70-word minimum.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Sun Throne has now moved its attention.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a shift from Fenwick to the Marrow League, a sequence the briefing does not give\u0022},{\u0022span\u0022:\u0022They are besieging the Marrow League settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says besieging the Marrow League, not specifically its settlements; small embellishment\u0022},{\u0022span\u0022:\u0022The Sun Throne maintains its fourteen settlements. The Starling Tribe remains at four.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027maintains\u0027 and \u0027remains\u0027 imply a status unchanged over time, which the briefing does not report\u0022},{\u0022span\u0022:\u0022It is a quiet week, at least by the standards of ongoing conflict.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022contradicts the new siege item; calling the week quiet is not supported\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The output is short of the required length, has only one real news item, and the second paragraph calls the week quiet right after reporting a siege, which muddles it. The voice is dry but thin, with little real wit, and it omits the razing of Fenwick as background.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.8890715,
-      "inputTokens": 2684,
-      "outputTokens": 579
+      "latencySeconds": 3.4456399,
+      "inputTokens": 3355,
+      "outputTokens": 391
     }
   ]
 }

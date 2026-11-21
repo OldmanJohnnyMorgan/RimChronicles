@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e4b__news-bulletin__snap-11-mid-content__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Mire Rats are still nowhere in sight after their marsh eviction.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing has no new information on the Mire Rats; their continued absence is stated as fact.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It leads correctly with the peace feast and frames its guesses as guesses, but the wit is thin and generic. The second item is mostly a restatement of old news, with a small unsupported claim about the Mire Rats.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022One assumes this means the tension has eased, at least for a few days.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as guess, but implies prior tension the briefing doesn\u0027t give; mild; guess so not counted\u0022},{\u0022span\u0022:\u0022The Mire Rats are still nowhere in sight after their marsh eviction.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing status not in briefing (whereabouts unknown/not seen); also repeats old news\u0022},{\u0022span\u0022:\u0022The Hearthguard Compact still offers prizes for new inventions.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; ongoing status \u0027still\u0027 not reported in briefing\u0022},{\u0022span\u0022:\u0022even if the prizes are dubious\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022opinion, borderline; draws on earlier bulletin joke\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Leads correctly with the new item and keeps a mild dry voice, but the second paragraph recycles old news as current status, and the jokes are thin; the first item is also only barely three sentences of real wit. Fine but not shippable without edits.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.256639,
-      "inputTokens": 2652,
-      "outputTokens": 458
+      "latencySeconds": 3.3864191,
+      "inputTokens": 3323,
+      "outputTokens": 377
     }
   ]
 }

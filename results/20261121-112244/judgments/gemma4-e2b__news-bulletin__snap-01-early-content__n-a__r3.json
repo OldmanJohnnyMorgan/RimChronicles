@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-01-early-content__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Another predictable weather pattern for this time of year.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Asserts the cold snap is seasonal and typical; the briefing does not say so.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The facts are accurate and the guesses are framed as guesses, but \\\u0022monetize\\\u0022 and \\\u0022paperwork\\\u0022 are modern-office language that does not fit the rim. The closing joke about the clans also contradicts itself and reads muddled.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Another predictable weather pattern for this time of year.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies seasonal normality; briefing gives only the forecast, and this is stated as fact\u0022},{\u0022span\u0022:\u0022It seems they are always finding a way to monetize the landscape.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies an ongoing pattern of Tarn Union behaviour not in briefing, though hedged with \u0027it seems\u0027\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and sticks to the briefing, but it is short of the 70-word minimum, and each item has only about 3 short sentences with generic wit. The \u0027predictable for this time of year\u0027 line states an unsupported claim as fact, and the clans\u0027 complaints are a hedged guess that wanders into the Seven Ash Clans without any link to the hills.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.7501649,
-      "inputTokens": 2463,
-      "outputTokens": 504
+      "latencySeconds": 3.4611798,
+      "inputTokens": 3134,
+      "outputTokens": 293
     }
   ]
 }

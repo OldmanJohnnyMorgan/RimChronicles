@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-04-early-strained__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022its missing reporter\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says the Dispatch is looking for news of him, not that he is missing.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Clean, well-ordered bulletin that sticks closely to the briefing and frames its guesses properly. Calling Quell \u0027missing\u0027 slightly overstates the briefing, and a few jokes (\u0027loud organization\u0027, the competition quip) are a touch generic.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022its missing reporter, Tomas Quell\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says the Dispatch is looking for news of him, not that he is \u0027missing\u0027 (implied status)\u0022},{\u0022span\u0022:\u0022They seem to have a flair for arson that most of us find inconvenient.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a pattern of arson; the briefing reports only one ferry burning (hedged with \u0027seem\u0027 but stated as habit)\u0022},{\u0022span\u0022:\u0022It makes my job slightly easier, though I doubt the editors appreciate the lack of competition.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies Quell was a competitor; the briefing says he is a Dispatch reporter, a colleague\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent and the items follow the briefing\u0027s three events in order. It slips on Quell, whom it treats as a rival and calls missing, and on the arson \u0027flair\u0027 that implies a pattern. It is also a little short of the word target, though acceptable.}\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.3336477,
-      "inputTokens": 2593,
-      "outputTokens": 401
+      "latencySeconds": 3.7495783,
+      "inputTokens": 3264,
+      "outputTokens": 355
     }
   ]
 }

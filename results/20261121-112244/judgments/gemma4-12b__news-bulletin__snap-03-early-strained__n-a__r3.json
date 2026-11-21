@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-03-early-strained__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They remain a persistent thorn in the side of any local commerce.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Generalises the old homestead raids into an ongoing effect on commerce that the briefing never states.\u0022},{\u0022span\u0022:\u0022They are currently doubling their guard costs to keep their caravans moving.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Turns \u0027travel in pairs\u0027 into a stated fact about doubled costs and presents old news as current activity.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It correctly treats the week as quiet and sticks to faction counts, but the wit is thin and clich\u00E9d (\u0027thorn in the side\u0027). The Merrow item restates old news as a present-tense fact with an added cost claim.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They remain a persistent thorn in the side of any local commerce.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022stated as fact; implied ongoing activity not in briefing\u0022},{\u0022span\u0022:\u0022They are currently doubling their guard costs to keep their caravans moving.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news: pairs travel was covered earlier, and \u0027currently doubling guard costs\u0027 is an ongoing status stated as fact\u0022},{\u0022span\u0022:\u0022Silence in these parts usually means someone is either sleeping or hiding.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022general quip, borderline; not a world fact\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Handles a quiet week reasonably by commenting on faction sizes, but the opening is padded and the Merrow item restates old news as a current cost claim. It also lacks the wry specificity of the earlier bulletins and runs short on length and Kinn coverage.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.3149019,
-      "inputTokens": 2689,
-      "outputTokens": 486
+      "latencySeconds": 2.7610242,
+      "inputTokens": 3360,
+      "outputTokens": 325
     }
   ]
 }

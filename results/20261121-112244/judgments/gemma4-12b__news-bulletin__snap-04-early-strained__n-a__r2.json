@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-04-early-strained__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022its missing reporter, Tomas Quell\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says only that the Dispatch is looking for news of him; \u0027missing\u0027 is an inference stated as fact.\u0022},{\u0022span\u0022:\u0022than the passengers\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing does not say the ferry had passengers; this implies people were aboard.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It covers all three items plainly and keeps guesses hedged, but the wit is thin and generic. \u0027A bit of a logistical headache for the office\u0027 slips into modern-office language, and calling the Lowmere withdrawal \u0027a quiet move for a quiet place\u0027 misreads a plainly ominous development.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022its missing reporter, Tomas Quell\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says the Dispatch is looking for news of him, not that he is missing; implied status\u0022},{\u0022span\u0022:\u0022It is a bit of a logistical headache for the office.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied consequence stated as fact, not in briefing\u0022},{\u0022span\u0022:\u0022It is a quiet move for a quiet place.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022states Lowmere is quiet as fact; briefing gives no such information\u0022},{\u0022span\u0022:\u0022passengers\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies passengers were aboard the ferry; briefing does not say\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Dry, readable and tonally right, and it stays close to the three briefing items. However, it adds small unsupported claims (missing, passengers, quiet place, logistical headache), and the items are short of the required three sentences, likely under length, with some generic wit.\u003C/br\u003E\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 7.0794252,
-      "inputTokens": 2586,
-      "outputTokens": 603
+      "latencySeconds": 3.2839343,
+      "inputTokens": 3257,
+      "outputTokens": 338
     }
   ]
 }

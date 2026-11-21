@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-15-late-content__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They seem quite determined to find him.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Adds a degree of intent the briefing does not give; it only says they asked about him.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The Leopold item is accurate and has a decent wry line. The second item is flat filler about faction sizes with almost no wit. \u0027Real estate\u0027 and \u0027footprint\u0027 read as slightly modern-office language, and \u0027quite determined\u0027 embellishes the briefing.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They seem quite determined to find him.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022hedged with \u0027seem\u0027, but implies determination the briefing does not report\u0022},{\u0022span\u0022:\u0022Members of the Pale Choir have been inquiring\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says the Pale Choir asked, not specific members; slight embellishment\u0022},{\u0022span\u0022:\u0022while the Tribe is content with a smaller footprint\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022states the Tribe\u0027s contentment as fact, though framed after \u0027One assumes\u0027 so borderline\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate on the numbers and the lead item, with a decent dry guess about Leopold. But the second item is thin filler, the item paragraphs have only 3 sentences at best, and the wit is generic rather than sharp.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 4.3390965,
-      "inputTokens": 2661,
-      "outputTokens": 387
+      "latencySeconds": 2.9167607,
+      "inputTokens": 3332,
+      "outputTokens": 290
     }
   ]
 }

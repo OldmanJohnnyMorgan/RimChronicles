@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-05-early-desperate__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022though old is not the same as over\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies the cold snap and raids are still ongoing, which the briefing does not say.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A dry, well-judged bulletin that leads correctly and handles the quiet week by commenting on faction sizes and the date. The aside that the old troubles are not over hints they continue, which the briefing does not support, and \\\u0022may now presumably miss them\\\u0022 reads a little clumsily.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Those who grumbled about Gorse prices before may now presumably miss them.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies people grumbled about Gorse prices; the earlier bulletin only gives high prices, not grumbling (hedged with \u0027presumably\u0027)\u0022},{\u0022span\u0022:\u0022every door shut\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022stated as fact; markets closed to outsiders, not every door, and it implies a total closure\u0022},{\u0022span\u0022:\u0022though old is not the same as over\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the cold snap and raids are ongoing, a status the briefing does not report\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent and the new item leads, but it runs to only two short items and ends with a mild joke about day 47. A few small embellishments (ongoing raids and cold, \u0027every door shut\u0027) go beyond the briefing, and the first item is short of three full sentences of fact plus take.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.3573435,
-      "inputTokens": 2693,
-      "outputTokens": 554
+      "latencySeconds": 3.1151496,
+      "inputTokens": 3364,
+      "outputTokens": 328
     }
   ]
 }

@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-19-late-desperate__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The bulletin is accurate and well ordered. It leads with the siege, keeps Fenwick as background and frames its guesses as guesses. The dry asides are serviceable but a little soft, and \u0027a poor listener\u0027 lands vaguely.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the odds have not improved with the season\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a comparison with an earlier state the briefing does not give\u0022},{\u0022span\u0022:\u0022is at war with nobody at all\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing does not say the Tribe is at peace; it only lists no wars for it\u0022},{\u0022span\u0022:\u0022Last Lantern remains at war with the Sun Throne\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats a background fact as ongoing status, \u0027remains\u0027 implies continuity not reported\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent and the facts largely follow the briefing, but it adds minor claims (the Tribe being at war with nobody, odds not improving) and is thin on the word count and three-sentence-per-item structure. The \u0027razed Fenwick\u0027 mention is properly framed as background.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.6387684,
-      "inputTokens": 2745,
-      "outputTokens": 447
+      "latencySeconds": 3.1903197,
+      "inputTokens": 3416,
+      "outputTokens": 301
     }
   ]
 }

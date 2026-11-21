@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-10-mid-strained__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It seems these pirates have a steady supply of bargaining chips.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies repeated or ongoing captive-taking; the briefing records a single capture.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Only one item is new; the other two restate old news as current, and the closing line recycles the last bulletin\u0027s unclaimed-bounty joke. Several remarks are also muddled: silver being \u0027less lucrative than freedom\u0027 and captives caring more about price than return make little sense.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022This suggests a predictable cycle of violence and ransom.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022inference about a recurring cycle, stated as fact without a briefing basis\u0022},{\u0022span\u0022:\u0022Stonecutter Raiders are currently holding captives from the Ochre Hand.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a new item\u0022},{\u0022span\u0022:\u0022The Weir Federation maintains a bounty on Stonecutter leaders.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a new item\u0022},{\u0022span\u0022:\u0022This is standard procedure for those who cause trouble.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022added claim about a standard practice, stated as fact\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Only the first item is new; the other two repeat earlier bulletins as current news, and the bounty line nearly copies the previous bulletin\u0027s joke. The wit is thin and generic, and the item about captives wanting the price is muddled.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.5958178,
-      "inputTokens": 2759,
-      "outputTokens": 521
+      "latencySeconds": 3.4228656,
+      "inputTokens": 3430,
+      "outputTokens": 336
     }
   ]
 }

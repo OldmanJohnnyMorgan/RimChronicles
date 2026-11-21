@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-06-early-content__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Its shuttles over the eastern mountains still lack an explanation\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022States as current fact that no explanation has emerged since; the briefing only gives the old sighting.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate and clearly ordered. The new robbery leads, and the harvest and shuttles are framed as background, with guesses properly hedged. The wit is competent but a little repetitive, with \\\u0022one assumes\\\u0022 used twice and \\\u0022presumably\\\u0022 alongside, and the shuttle line slightly implies ongoing knowledge the briefing doesn\u0027t give.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Calder Combine boasted of a fine harvest only recently\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as background; \u0027boasted\u0027 and \u0027only recently\u0027 add timing/manner, though framed as background\u0022},{\u0022span\u0022:\u0022Its shuttles over the eastern mountains still lack an explanation\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news and adds an ongoing status (\u0027still\u0027) the briefing does not report\u0022},{\u0022span\u0022:\u0022and the rim already has a robbery to its name\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies this is the first robbery of the season, a comparison with an earlier state the briefing does not give\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent and the lead item is accurate, with guesses properly hedged. The second item mostly recycles old news and adds small unsupported claims (\u0027still lack an explanation\u0027, \u0027first robbery\u0027 implication), and the first item is thin at only the fact plus guesses.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.3340185,
-      "inputTokens": 2674,
-      "outputTokens": 548
+      "latencySeconds": 3.3823146,
+      "inputTokens": 3345,
+      "outputTokens": 331
     }
   ]
 }

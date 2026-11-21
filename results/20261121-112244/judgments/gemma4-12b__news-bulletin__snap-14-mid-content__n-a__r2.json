@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-14-mid-content__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They are a small group with a very large appetite for other people\u0027s cargo.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies habitual raiding beyond the single reported raid.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate lead, but the \\\u0022insurance premiums\\\u0022 joke is modern-office language that jars with the RimWorld setting. The third item pads with faction counts and a generic quip, and the trade pact is restated rather than used as brief background.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They have also secured a trade pact with the Blue Antler Tribe.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; presented with \u0027also\u0027 as a current development rather than background\u0022},{\u0022span\u0022:\u0022It seems the pirates have found a new way to spend their afternoons.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the raid happened in the afternoon and is a new activity, but it is framed as a guess (\u0027It seems\u0027), so only borderline; implied time of day unsupported\u0022},{\u0022span\u0022:\u0022They are a small group with a very large appetite for other people\u0027s cargo.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022states as fact that the Corsairs are small and habitually steal cargo; the briefing gives only three settlements and one raid\u0022},{\u0022span\u0022:\u0022It is a miracle they haven\u0027t run out of things to steal yet.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a long ongoing history of raiding the briefing does not report\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate and the guesses are properly hedged, but the second item rehashes old news and the third pads with faction-size trivia and unsupported claims of habitual raiding. The wit is serviceable but generic, and it ignores the earlier released-prisoner story as background.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.1187372,
-      "inputTokens": 2752,
-      "outputTokens": 437
+      "latencySeconds": 3.5644889,
+      "inputTokens": 3423,
+      "outputTokens": 423
     }
   ]
 }

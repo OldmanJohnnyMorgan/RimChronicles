@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-18-late-desperate__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Anyone can reach them, but getting there is the real hurdle.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Garbles the earlier bulletin, which said the granaries were open to anyone who *can* reach them.\u0022},{\u0022span\u0022:\u0022The faction counts remain as they were.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies earlier counts were reported; the briefing gives no prior figures.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It leads correctly with the lost caravan, but then re-presents the granary story from the latest bulletin as if it were new. The faction-count paragraph is a flat list padded to fill space. \u0027Just another Tuesday\u0027 is a modern idiom, and the dismissive tone misses the earnest, quick-to-worry persona.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022went missing in a blizzard\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says the caravan was lost, not missing; slight change of fact\u0022},{\u0022span\u0022:\u0022This is just another Tuesday out here.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022names a weekday; the date is day 805, no weekday given, and implies this is routine\u0022},{\u0022span\u0022:\u0022The Thistle Commonwealth has opened its granaries.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news from the latest bulletin, presented as new\u0022},{\u0022span\u0022:\u0022Anyone can reach them, but getting there is the real hurdle.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news and the earlier joke about reaching the granaries\u0022},{\u0022span\u0022:\u0022The faction counts remain as they were.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022claims no change from before, which the briefing does not report\u0022},{\u0022span\u0022:\u0022Harrow Teeth pirates still hold four settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027still\u0027 implies a comparison with an earlier state the briefing does not give\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The second item recycles the previous bulletin\u0027s granary news and joke as if new, which the task forbids, and the third is a flat list of faction counts. The caravan item is fine, but the piece is thin and the voice is only generic dry, not worried or earnest.}\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 9.358158,
-      "inputTokens": 2738,
-      "outputTokens": 838
+      "latencySeconds": 4.1174314,
+      "inputTokens": 3409,
+      "outputTokens": 454
     }
   ]
 }

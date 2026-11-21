@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-11-mid-content__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They have successfully avoided the eastern marsh for now.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Recasts being driven out as voluntary avoidance, implying an ongoing state the briefing does not give.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate, and \u0027teeth to toasts\u0027 is a good line. The two quiet-week items are flat filler, though: the faction-size remarks read generically, and the Mire Rats item spins old news.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It is a rare moment of cooperation in a wasteland that usually prefers teeth to toasts.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies earlier conflict or rarity of peace not in briefing, stated as fact\u0022},{\u0022span\u0022:\u0022They seem content with their current numbers.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022status claim about Hearthguard\u0027s contentment not given; hedged only by \u0027seem\u0027\u0022},{\u0022span\u0022:\u0022They have successfully avoided the eastern marsh for now.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news and changes it: Mire Rats were driven out, not avoiding by success; adds ongoing status\u0022},{\u0022span\u0022:\u0022The Mire Rats still occupy two settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats faction size as ongoing status (\u0027still\u0027), mildly implies a comparison with earlier state\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Leads correctly with the new feast and stays mostly within the briefing, but the second and third items are thin filler on faction sizes and the Mire Rats item distorts the old news (driven out becomes \u0027successfully avoided\u0027). The wit is mild and the wasteland line adds an unsupported generalisation about the rim.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.8442456,
-      "inputTokens": 2677,
-      "outputTokens": 466
+      "latencySeconds": 3.4800299,
+      "inputTokens": 3348,
+      "outputTokens": 418
     }
   ]
 }

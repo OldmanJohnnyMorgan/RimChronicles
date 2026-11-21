@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-14-mid-content__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Tribe\u0027s trade pact with the League still stands\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing only says the pact was signed; that it still stands is an inference stated as fact.\u0022},{\u0022span\u0022:\u0022a single barge on open water\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027Open water\u0027 embellishes the briefing, which only says the barge was on the river.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A dry, consistent voice that handles the single new item and the old background well, and the closing joke about silence lands. It is slightly marred by stating the pact\u0027s continued standing as fact and by small embellishments of the setting.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022So much for the freed Corsair we heard from recently, praising his captors\u0027 kindness.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a causal link between the raid and the released Corsair\u0027s talk that the briefing does not give\u0022},{\u0022span\u0022:\u0022One assumes his crewmates skipped his lectures.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, but implies the Corsair gave lectures, which the briefing does not say; mostly colour\u0022},{\u0022span\u0022:\u0022the Blue Antler Tribe\u0027s five settlements have produced nothing worth carrying\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022stated as fact; the briefing gives no information about what the Tribe has or has not produced\u0022},{\u0022span\u0022:\u0022The Tribe\u0027s trade pact with the League still stands\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a current status; the briefing does not say the pact still stands\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent and the faction-size joke is good, but it states a few unsupported claims as fact (the Tribe producing nothing, the pact still standing). It also runs a bit long and splits into a second, filler-heavy paragraph rather than three items with three sentences each.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.3916234,
-      "inputTokens": 2799,
-      "outputTokens": 521
+      "latencySeconds": 3.6049201,
+      "inputTokens": 3470,
+      "outputTokens": 410
     }
   ]
 }

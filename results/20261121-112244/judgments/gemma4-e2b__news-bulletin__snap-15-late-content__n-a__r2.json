@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-15-late-content__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They are apparently interested in his business.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says only that they asked about Leopold, not about his business.\u0022},{\u0022span\u0022:\u0022The archery dispute is ongoing, as expected.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Presents a current status the briefing never gives, as a fresh update.\u0022},{\u0022span\u0022:\u0022The Greywater Concord has elected a new speaker.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Old news presented as a new item, not as background.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It pads a one-item week by restating both old stories as current news and claims the archery dispute is still going. The wit is thin and generic (\u0027a hollow gesture\u0027, \u0027occupy a great deal of time\u0027) next to the sharper earlier bulletins.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They are apparently interested in his business.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022inference about why the Choir asks; hedged with \u0027apparently\u0027 but \u0027his business\u0027 implies Leopold has a business, not in briefing\u0022},{\u0022span\u0022:\u0022The Greywater Concord has elected a new speaker.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news, presented as current without framing as background\u0022},{\u0022span\u0022:\u0022They promised lower tolls, which is usually a hollow gesture.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; also \u0027they\u0027 is wrong, the earlier bulletin says the speaker (she) promised\u0022},{\u0022span\u0022:\u0022The Fox-Lantern Tribe is holding its spring games.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news, presented as current\u0022},{\u0022span\u0022:\u0022The archery dispute is ongoing, as expected.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news and claims ongoing status the briefing does not report\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is correct and hedged, but the other two items just restate old news as if current, and the archery dispute is claimed as ongoing. The wit is mild and generic, and the bulletin runs short on words and on the three-sentence-per-item requirement for the final item\u0027s substance.\\u0000\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 7.8691133,
-      "inputTokens": 2690,
-      "outputTokens": 712
+      "latencySeconds": 3.8241224,
+      "inputTokens": 3361,
+      "outputTokens": 438
     }
   ]
 }

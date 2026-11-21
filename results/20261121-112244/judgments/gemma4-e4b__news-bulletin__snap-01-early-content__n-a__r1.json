@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e4b__news-bulletin__snap-01-early-content__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The settlement counts remain unchanged.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022This is the first bulletin, so there are no earlier counts to compare against. It implies a past state the briefing does not give.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The bulletin is accurate and well ordered, but the wit is thin and generic, and the \u0027dampness\u0027 quip sits oddly against a cold snap. Calling it \u0027a quiet week\u0027 after two pieces of news, and saying the counts are \u0027unchanged\u0027 in a first bulletin, both ring false.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The settlement counts remain unchanged.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022comparison with an earlier state the briefing does not give; first bulletin, no prior counts\u0022},{\u0022span\u0022:\u0022The Tarn Union holds six posts.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says 6 settlements, not trading posts; also unclear whether it includes the new one\u0022},{\u0022span\u0022:\u0022The Clans still claim four.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027still\u0027 implies ongoing status or comparison the briefing does not give\u0022},{\u0022span\u0022:\u0022It\u0027s a predictable expansion, really.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies earlier expansions, a comparison not in the briefing, stated as fact\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Readable and mostly faithful, but the \u0027unchanged\u0027 and \u0027still\u0027 claims imply a prior state that doesn\u0027t exist in a first bulletin, and the jokes are generic. The third item is also thin and the closing line is flat.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.7448252,
-      "inputTokens": 2512,
-      "outputTokens": 506
+      "latencySeconds": 2.8546735,
+      "inputTokens": 3183,
+      "outputTokens": 343
     }
   ]
 }

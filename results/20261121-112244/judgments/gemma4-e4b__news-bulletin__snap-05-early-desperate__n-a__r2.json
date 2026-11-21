@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e4b__news-bulletin__snap-05-early-desperate__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Their decision leaves the usual trade routes rather sparse this cycle.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022A consequence of the market closure stated as fact; the briefing gives no effect on trade routes.\u0022},{\u0022span\u0022:\u0022The Scythe Tooth continue their sporadic raids.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Presents old news as ongoing and adds \u0027sporadic\u0027; the briefing reports no new raids.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The voice is flat and lacks Odile\u0027s sardonic bite, and the second item contradicts itself by calling the raids continuing and then a lull. The bulletin also falls short of the 70-word minimum and states unsupported consequences as fact.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Their decision leaves the usual trade routes rather sparse this cycle.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied consequence of the closure not given in briefing\u0022},{\u0022span\u0022:\u0022The Scythe Tooth continue their sporadic raids.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing activity not reported in briefing; also \u0027sporadic\u0027 is an added characterisation\u0022},{\u0022span\u0022:\u0022the current low activity is merely a lull between endeavors\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022guess framed with \u0027I suspect\u0027 but \u0027current low activity\u0027 is stated as fact, with no basis in briefing\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin is generic and mostly lacks Odile\u0027s sardonic wit, with only faint dry remarks. It also pads with unsupported claims (ongoing raids, sparse trade routes) and has only two thin items that don\u0027t meet the three-sentence, wry-take brief well.\\n\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 8.0501632,
-      "inputTokens": 2627,
-      "outputTokens": 766
+      "latencySeconds": 3.413752,
+      "inputTokens": 3298,
+      "outputTokens": 332
     }
   ]
 }

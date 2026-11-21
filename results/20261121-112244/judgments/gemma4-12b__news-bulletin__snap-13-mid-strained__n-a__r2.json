@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-13-mid-strained__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They remain a constant, if predictable, nuisance on the rim.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies ongoing, repeated raiding; the briefing gives only one caravan hit.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022It leads correctly with the tribute refusal and stays accurate, with guesses properly framed. The voice is serviceable but generic, the \u0027reach longer than their patience\u0027 line doesn\u0027t quite land, and the filler items lean on restating faction sizes.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They remain a constant, if predictable, nuisance on the rim.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022stated as fact; ongoing status of the raiders not in briefing\u0022},{\u0022span\u0022:\u0022It is a quiet week for the Raiders\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing status not reported; briefing gives no info on Raiders\u0027 activity this week\u0022},{\u0022span\u0022:\u0022The Rustback Raiders still occupy three settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027still\u0027 implies a comparison with an earlier state the briefing does not give\u0022},{\u0022span\u0022:\u0022the Outlanders have suddenly developed a sense of backbone\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027suddenly\u0027 implies a prior state of compliance not in briefing, though largely opinion\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate on the main item and uses guess framing well, but the third paragraph pads with claims about the Raiders\u0027 quiet week and ongoing nuisance that the briefing does not support. The wit is mild and generic, and the Sun Throne item largely restates the old tribute story as ongoing.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.6201653,
-      "inputTokens": 2758,
-      "outputTokens": 594
+      "latencySeconds": 3.1878996,
+      "inputTokens": 3429,
+      "outputTokens": 382
     }
   ]
 }

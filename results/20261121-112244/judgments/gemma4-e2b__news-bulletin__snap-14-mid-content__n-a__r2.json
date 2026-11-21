@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-14-mid-content__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022have been spotted near the river\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing reports only the barge raid, not any sighting; this adds a separate event.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Only the barge raid is new, yet two of the three items rehash old news (the trade pact and the released Corsair) as full stories, padding the bulletin. They also recycle the earlier bulletins\u0027 furs-and-steel and crewmates material, against the instruction not to reuse jokes or sentences. The wit is thin, and \u0027just another Tuesday\u0027 is a modern idiom that sits oddly on the rim.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Brackwater Corsairs have been spotted near the river.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says raided a barge on the river, not that they were spotted near it; added status\u0022},{\u0022span\u0022:\u0022One assumes this is just another Tuesday for maritime larceny.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies raiding is routine; framed as an assumption, so mild, and Tuesday is a figure of speech\u0022},{\u0022span\u0022:\u0022The League secures furs, and the Tribe gets steel.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as current present-tense item; details come from earlier bulletin, not new\u0022},{\u0022span\u0022:\u0022His crewmates are reportedly conflicted.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; reworded from earlier bulletin\u0027s reaction, which is not in the briefing\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Only the first item is new; the second and third re-present old news (the trade pact and the released Corsair) as if fresh, which the task forbids. The wit is mild and partly recycled from earlier bulletins, though the writing is clear.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 7.2934006,
-      "inputTokens": 2761,
-      "outputTokens": 615
+      "latencySeconds": 3.4251462,
+      "inputTokens": 3432,
+      "outputTokens": 382
     }
   ]
 }

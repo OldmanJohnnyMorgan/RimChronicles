@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-01-early-content__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The bulletin is accurate and stays within the briefing, but the wit is flat and generic. Jabs like \u0027content with just existing\u0027 and \u0027remind us of our insignificance\u0027 lean toward vague cynicism rather than sharp, dry observation.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the lack of actual progress\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed after \u0027I suppose\u0027, but \u0027lack of progress\u0027 is stated as a fact about the Union that the briefing does not give\u0022},{\u0022span\u0022:\u0022a group that seems content with just existing\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022hedged with \u0027seems\u0027, so mostly opinion; borderline implied status not in the briefing\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The facts are accurate and the dry voice is consistent, but the bulletin is under the required length and its items run only three short sentences each, with generic quips. It ignores the faction numbers that could have padded a quiet week, and the wit is bland rather than sharp. The \u0027lack of actual progress\u0027 line leans on an unsupported premise about the Union.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.544354,
-      "inputTokens": 2468,
-      "outputTokens": 594
+      "latencySeconds": 3.1015285,
+      "inputTokens": 3139,
+      "outputTokens": 276
     }
   ]
 }

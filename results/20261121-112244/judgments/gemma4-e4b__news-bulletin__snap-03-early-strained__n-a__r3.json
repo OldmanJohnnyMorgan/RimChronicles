@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e4b__news-bulletin__snap-03-early-strained__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Merrow Freeholds continue their slow migration across seven settlements.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The briefing mentions no migration. The Freeholds simply have seven settlements.\u0022},{\u0022span\u0022:\u0022The Kinn of the Long Grass hold their ground in three settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022This says the Kinn are settled. The last bulletin had them on the move from grass fires.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It handles the quiet week by commenting on faction sizes, as asked, but the voice is generic and repetitive. The \u0027across X settlements\u0027 frame is used three times and the \u0027company\u0027 quip is weak. It also invents a Merrow \u0027migration\u0027.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Merrow Freeholds continue their slow migration across seven settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022migration is not in the briefing; implies ongoing activity not reported\u0022},{\u0022span\u0022:\u0022They are still travelling in pairs, I hear.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as an ongoing status; \u0027still\u0027 is not supported\u0022},{\u0022span\u0022:\u0022The Kinn of the Long Grass hold their ground in three settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a status (\u0027hold their ground\u0027) the briefing does not report, and ignores the earlier bulletin that they were on the move\u0022},{\u0022span\u0022:\u0022Another day dawns on Kettle Hollow.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies coverage of the colony, which the briefing says the reporter knows nothing about; mild filler\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Competent and clear, and it leans on the faction sizes for a quiet week as instructed, but the wit is thin and generic. Several small additions (migration, \u0027still\u0027, \u0027hold their ground\u0027) go beyond the briefing, and the Kinn line contradicts their earlier move.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 8.0251967,
-      "inputTokens": 2722,
-      "outputTokens": 722
+      "latencySeconds": 3.4338509,
+      "inputTokens": 3393,
+      "outputTokens": 396
     }
   ]
 }

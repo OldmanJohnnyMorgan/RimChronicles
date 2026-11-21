@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-04-early-strained__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:5,\u0022comment\u0022:\u0022All three items lead with the briefing\u0027s facts stated plainly, then add dry remarks with guesses properly hedged. The closing joke about already being near Lowmere is sharp and grounded in the briefing. This could ship unchanged.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022That is the polite way of saying nobody knows where he is.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022stated as fact; implies nobody at the Dispatch knows his whereabouts, which the briefing does not say\u0022},{\u0022span\u0022:\u0022If you have seen him, my editors would like a word.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds editors\u0027 intent not in briefing\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Dry, consistent voice that keeps to the briefing\u0027s three items, with guesses framed properly. Overall is held to 3 because the first item states unsupported inferences as fact and the bulletin is likely under the 70-word minimum, with some filler lines.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.9702275,
-      "inputTokens": 2588,
-      "outputTokens": 480
+      "latencySeconds": 3.0144843,
+      "inputTokens": 3259,
+      "outputTokens": 243
     }
   ]
 }

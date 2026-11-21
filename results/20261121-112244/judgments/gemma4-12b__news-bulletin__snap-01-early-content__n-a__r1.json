@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-01-early-content__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and well structured, with no invented facts and both briefing items reported plainly. The wit is thin, though: the dust and shivering jokes are generic, and the final line reads as filler rather than a sharp, wry observation.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022a place where the only thing moving fast is the dust\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022describes the river road as quiet and dusty, which the briefing does not give; reads as a claim of fact rather than an opinion\u0022},{\u0022span\u0022:\u0022The locals will likely find a way to complain about the temperature while shivering.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies locals live in the northern hills, which the briefing does not say; hedged with \u0027likely\u0027, but still adds to the briefing\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate to the briefing and dry, with the guesses framed properly, but it is short of the 70-word minimum and the jokes are generic. It adds mild unsupported colour about the road and the locals, and it makes no use of the faction figures.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.995485,
-      "inputTokens": 2471,
-      "outputTokens": 597
+      "latencySeconds": 2.6382114,
+      "inputTokens": 3142,
+      "outputTokens": 274
     }
   ]
 }

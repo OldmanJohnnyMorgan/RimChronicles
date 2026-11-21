@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-16-late-desperate__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022officially placed\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027Officially\u0027 adds a manner the briefing does not give.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The bulletin is accurate and clear, and it leads correctly with the bounty and gives it a dry, framed guess. It runs short of the 70-word minimum, and the Glass Throne item\u0027s closing quip is fairly limp.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Lantern Accord has officially placed a price on Kael Dunmore\u2019s head. This follows an ambush near Gallowmere.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027officially\u0027 and the link between the bounty and the ambush as cause are slightly beyond the briefing, which only says he has a price after the ambush; also the briefing says the ambush was the occasion, so mild inference stated as fact\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and mostly clean, with guesses properly framed, but it is short of the 70-word minimum, the second item has no real fact beyond a restated faction size, and the wit is mild and generic. The paragraphs also fall short of the three-sentence minimum in places and the first item lacks a distinct dry remark that lands.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 4.603293,
-      "inputTokens": 2644,
-      "outputTokens": 346
+      "latencySeconds": 3.3795434,
+      "inputTokens": 3315,
+      "outputTokens": 281
     }
   ]
 }

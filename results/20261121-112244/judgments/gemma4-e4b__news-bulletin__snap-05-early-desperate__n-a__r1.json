@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e4b__news-bulletin__snap-05-early-desperate__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Scythe Tooth continue their opportunistic raids.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Says the raids are ongoing. The briefing lists them only as old news already covered.\u0022},{\u0022span\u0022:\u0022The Ferrow Mutual seems to be managing the resulting patrols\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The earlier bulletin says only that patrol-sharing was requested. That anyone is managing patrols is an inference, softly hedged.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is reported plainly with a properly hedged guess, but the voice is generic (\u0027rather\u2026 exclusive\u0027, \u0027hardly a surprising development\u0027). The second item rehashes old raid news as if ongoing and extends the patrol story beyond the briefing.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Scythe Tooth continue their opportunistic raids.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing activity not reported in briefing; repeats old news as current\u0022},{\u0022span\u0022:\u0022They have hit three settlements in a quadrum, which is hardly a surprising development.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as if current; \u0027in a quadrum\u0027 comes from earlier bulletin, not the briefing\u0022},{\u0022span\u0022:\u0022The Ferrow Mutual seems to be managing the resulting patrols\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; patrol arrangement framed as ongoing status, hedged only with \u0027seems\u0027\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate and the guess is properly hedged, but the second paragraph rehashes old raids and patrols as ongoing, and the second item is padded with little new wit. The first item is also only two real sentences of take, and the piece is thin on the dry voice.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.8667317,
-      "inputTokens": 2661,
-      "outputTokens": 656
+      "latencySeconds": 3.2633585,
+      "inputTokens": 3332,
+      "outputTokens": 342
     }
   ]
 }

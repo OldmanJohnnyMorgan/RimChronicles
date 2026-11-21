@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-07-mid-strained__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022their endless demands\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Embellishes the briefing\u0027s \u0027making demands\u0027 with a claim of scale.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Accurate but flat. It calls the only real news item \u0027hardly news\u0027 and then a \u0027quiet week\u0027, which undercuts the lead. The second and third items are padding about faction sizes with limp, repetitive guesses rather than the sharp, wry voice of the earlier bulletins.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022This is hardly news.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the tolls are unsurprising or a repeat, which the briefing does not support; the tolls are new\u0022},{\u0022span\u0022:\u0022Vex\u0027s Crew has two settlements operating.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027operating\u0027 adds an ongoing activity status the briefing does not report\u0022},{\u0022span\u0022:\u0022The Iron Covenant has eight settlements scattered about.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027scattered about\u0027 adds an unsupported detail about their layout\u0022},{\u0022span\u0022:\u0022It is a quiet week, which is always the most tedious sort of week.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022contradicts the lead item, since a new toll demand means the week was not quiet\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Facts stay close to the briefing and the guesses are properly hedged, but the toll news is dismissed as \u0027hardly news\u0027 and then the bulletin calls the week quiet. The wit is generic, the Vex and Covenant items are filler, and there is no link to the earlier bulletins\u0027 dry observational style or to the gorge context.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.3467153,
-      "inputTokens": 2693,
-      "outputTokens": 509
+      "latencySeconds": 3.5443881,
+      "inputTokens": 3364,
+      "outputTokens": 384
     }
   ]
 }

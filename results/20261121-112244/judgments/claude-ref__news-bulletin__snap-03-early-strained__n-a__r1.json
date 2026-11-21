@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-03-early-strained__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A clean quiet-week bulletin that uses only briefing facts, and \u0027the Ashen Hand, presumably, see seven larders\u0027 is a sharp, in-voice line. It is held back from a 5 by the repeated \u0027presumably\u0027 and a flat third item that leans on old news.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022No raids, no fires, no traders weeping into their ledgers.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022asserts absence of raids and fires; briefing only says nothing new was heard, and \u0027traders weeping\u0027 is colour\u0022},{\u0022span\u0022:\u0022The Ashen Hand, presumably, see seven larders.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, but implies Ashen Hand targeting Freeholds; guess so acceptable, borderline\u0022},{\u0022span\u0022:\u0022guarding each other from a quiet road\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the road is quiet, which the briefing does not state, though it follows from the quiet stretch\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Dry voice that handles a quiet week well, using faction sizes and the date as the briefing suggests. Weaknesses: it runs to three short paragraphs of fewer than three sentences each, and it leans on the \u0027no raids, no fires\u0027 framing that is slightly beyond the briefing, so it falls short of shipping unchanged.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 4.5499638,
-      "inputTokens": 2749,
-      "outputTokens": 383
+      "latencySeconds": 3.1473972,
+      "inputTokens": 3420,
+      "outputTokens": 363
     }
   ]
 }

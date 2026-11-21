@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-16-late-desperate__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It stays within the briefing, but it reports the bounty twice as if it were two separate events, which reads as padding. The wit is stiff and generic (\\\u0022organized desperation\\\u0022, \\\u0022new forms of commerce\\\u0022) rather than Odile\u0027s sharp understatement, and calling the bounty profitable for the side paying it makes little sense.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022This suggests a certain level of organized desperation among the Outlanders.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022inference about the Accord\u0027s state stated as fact (hedged only by \u0027suggests\u0027)\u0022},{\u0022span\u0022:\u0022It is predictable that such incidents generate new forms of commerce.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022general claim stated as fact, implies consequence not in briefing\u0022},{\u0022span\u0022:\u0022The Glass Throne maintains a quiet presence behind its walls.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says quiet behind walls, but \u0027maintains a presence\u0027 adds ongoing status; low risk\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Facts are mostly faithful, but the first two items are the same news restated, which reads as padding, and the humour is mild and generic rather than sharp. Hedged guesses are used correctly, and the Glass Throne item is a fair quiet-week filler.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.8835637,
-      "inputTokens": 2724,
-      "outputTokens": 493
+      "latencySeconds": 2.8409721,
+      "inputTokens": 3395,
+      "outputTokens": 324
     }
   ]
 }

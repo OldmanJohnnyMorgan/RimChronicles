@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-10-mid-strained__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022which makes it the largest crowd on the rim\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Extends a comparison of three listed factions to the whole rim.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Leads correctly with the ransom offer, keeps old news as background, and adds framed, dry guesses. The only stretch is calling the Federation the rim\u0027s largest, and the closing \u0027fair war\u0027 quip is a little soft.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022I have heard of no one collecting.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022status of the bounty not in briefing; claim about nothing heard is an added status\u0022},{\u0022span\u0022:\u0022which makes it the largest crowd on the rim\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022inference stated as fact; seven is the largest faction count in the briefing, but \u0027on the rim\u0027 goes beyond it\u0022},{\u0022span\u0022:\u0022that is close enough to call a fair war\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022arithmetic framing implies a balanced war; 4 vs 3 settlements is opinion, but implies Weir not involved; mild inference\u0022},{\u0022span\u0022:\u0022Jugust 5503 is passing quietly here near Wyrmfold\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022asserts a quiet period near the colony; status not given in briefing\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Dry, consistent voice, accurate on the main item and the faction numbers, with only minor embellishments. It runs to two items and the second paragraph is somewhat padded, and the Weir bounty is repeated old news, though it is flagged as such.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.3753058,
-      "inputTokens": 2801,
-      "outputTokens": 383
+      "latencySeconds": 3.6659407,
+      "inputTokens": 3472,
+      "outputTokens": 384
     }
   ]
 }

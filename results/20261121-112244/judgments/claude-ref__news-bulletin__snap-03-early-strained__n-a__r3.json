@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-03-early-strained__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022raiding two Merrow homesteads earlier\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says the homesteads were near the Merrow road, not that they belonged to the Freeholds.\u0022},{\u0022span\u0022:\u0022day 23 of Jugust\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing gives day 23 with Jugust as the quadrum; calling it day 23 of Jugust reframes the date, and quadrums are only 15 days.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A solid quiet-week bulletin that comments drily on faction sizes and keeps old news as background. It slightly misreads \u0027homesteads near the Merrow road\u0027 as Merrow-owned, and the Kinn item is thin and a little repetitive.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022and still the smaller crowd sets the terms\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022stated as fact; implies the Ashen Hand dictate terms, which the briefing does not say\u0022},{\u0022span\u0022:\u0022By their own account, they are not looking for trouble.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news from the latest bulletin about the Kinn, presented as current\u0022},{\u0022span\u0022:\u0022which did not stop them raiding two Merrow homesteads earlier\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news, but framed as background with \u0027earlier\u0027, so mild\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent and it handles the quiet week well by riffing on faction sizes. But it states \u0027the smaller crowd sets the terms\u0027 as fact and recycles the Kinn \u0027not looking for trouble\u0027 line from the prior bulletin as if current.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 8.3941732,
-      "inputTokens": 2761,
-      "outputTokens": 845
+      "latencySeconds": 3.0167286,
+      "inputTokens": 3432,
+      "outputTokens": 309
     }
   ]
 }

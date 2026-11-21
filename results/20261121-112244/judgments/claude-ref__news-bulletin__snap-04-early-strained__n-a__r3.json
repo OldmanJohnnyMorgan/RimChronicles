@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-04-early-strained__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate and well within length, with good dry asides, especially the quietly ominous Lowmere item. Each paragraph opens by copying the briefing line word for word, which makes the voice feel slightly mechanical.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Anyone with word of him should send it our way.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a request/appeal the briefing does not report\u0022},{\u0022span\u0022:\u0022Travellers on the south channel may wish to bring their own boat.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies ferry service is gone or unavailable, a consequence the briefing does not give\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent and the facts track the briefing closely, with the guesses properly hedged. It is held back by the lead item running slightly long, the third item\u0027s thin joke, and word count likely under 70, plus minor implied consequences.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.5733207,
-      "inputTokens": 2606,
-      "outputTokens": 546
+      "latencySeconds": 2.709607,
+      "inputTokens": 3277,
+      "outputTokens": 232
     }
   ]
 }

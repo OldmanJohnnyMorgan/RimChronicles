@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__inheritance-handoff__snap-16-late-desperate__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Beside them, Rook let out a low, mourning whine\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The briefing says Rook came home alone. Placing him beside the body with Elske at the death site contradicts that.\u0022},{\u0022span\u0022:\u0022The heavy weight of his mercenary rifle lay in the grass, its barrel still warm\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The weapon is not in the briefing, and \u0027still warm\u0027 implies Elske reached him moments after the ambush.\u0022},{\u0022span\u0022:\u0022the jagged scar on Bertram\u0027s chest\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022An invented physical detail. A scar also reads oddly for a fresh death wound.\u0022},{\u0022span\u0022:\u0022her own sidearm\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022An item the briefing does not give.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The scene is clear and shows feeling through action, but it puts Elske and Rook at the body when the briefing has Rook coming home alone. It also leans on clich\u00E9s (\u0027knuckles turning white\u0027, \u0027mask of stone\u0027) and ends on checking a chamber rather than plainly stating what Elske means to do.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Beside them, Rook let out a low, mourning whine, his fur matted with grime.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022briefing says Rook came home alone, so placing him at the death site contradicts it\u0022},{\u0022span\u0022:\u0022She looked at the jagged scar on Bertram\u0027s chest\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022invented detail about Bertram\u0027s past wound, not in briefing\u0022},{\u0022span\u0022:\u0022The heavy weight of his mercenary rifle lay in the grass, its barrel still warm.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022warm barrel implies he fired recently, a detail about the fight not given; Elske at the scene while the shooting just ended is implied\u0022},{\u0022span\u0022:\u0022toward the horizon where Dunmore had vanished\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022puts Elske at or just after the ambush scene as if she saw Dunmore flee; briefing only says he escaped and she was not on the hunt\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The scene reads cleanly and ends on a clear action, but it places Rook and Elske at the death site, contradicting that Rook came home alone and that Elske was not on the hunt. It also uses stock phrases like \u0027face hardening into a mask of stone\u0027 and does not show her intent to hunt Dunmore explicitly.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 8.5216529,
-      "inputTokens": 2174,
-      "outputTokens": 797
+      "latencySeconds": 3.3976831,
+      "inputTokens": 2845,
+      "outputTokens": 444
     }
   ]
 }

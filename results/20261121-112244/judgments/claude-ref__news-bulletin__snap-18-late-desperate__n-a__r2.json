@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-18-late-desperate__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the middle of Jugust\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing gives only day 805 and Jugust; \u0027middle\u0027 is an unstated inference.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The bulletin leads correctly with the lost caravan and treats the closed passes as background. Its worried, dry voice suits Tomas Quell, but \u0027middle of Jugust\u0027 is an unsupported embellishment, and the closing line about counting villages rather than caravans is a little muddled.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the middle of Jugust\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing gives only \u0027Jugust 5513\u0027 and day 805; \u0027middle\u0027 is not stated (date is Jugust 5)\u0022},{\u0022span\u0022:\u0022which is a strange month for blizzards\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022unsupported claim about the season\u0027s climate, stated as fact\u0022},{\u0022span\u0022:\u0022The pirates hold the fewest\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022true by the numbers (4), so supported; the \u0027efficiency\u0027 joke is framed as a guess\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Mostly faithful and dry, but \u0027the middle of Jugust\u0027 misreads the date (it is Jugust 5) and the \u0027strange month for blizzards\u0027 claim is unsupported. It is also short of 70 words in places and pads with the faction tally, though that is allowed on a quiet week.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.6679947,
-      "inputTokens": 2739,
-      "outputTokens": 525
+      "latencySeconds": 2.745695,
+      "inputTokens": 3410,
+      "outputTokens": 311
     }
   ]
 }

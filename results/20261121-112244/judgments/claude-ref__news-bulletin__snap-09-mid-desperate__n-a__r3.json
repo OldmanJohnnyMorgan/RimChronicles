@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-09-mid-desperate__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:5,\u0022comment\u0022:\u0022Accurate and restrained: it leads with Malley\u0027s death without inventing a killer and frames the \u0027tidy\u0027 remark as a guess. The war item is handled as background with dry, correct arithmetic, and the voice stays consistent throughout.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022His Lancers still hold their single settlement.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing status: briefing gives 1 settlement but not that they still hold it after his death\u0022},{\u0022span\u0022:\u0022They also keep his name, which now seems a touch sentimental.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied consequence/status not in briefing; claims Lancers keep his name\u0022},{\u0022span\u0022:\u0022A man who made the coast road unsafe has found his own doorstep no safer.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022coast road claim comes from an earlier bulletin, but the contrast implies camp was unsafe; mostly opinion, slight added inference\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent and it honestly admits not knowing the killer, and the war item is correctly framed as background. However, the Lancers\u0027 post-death status and name-keeping are stated as fact, and the second paragraph is thin and the piece sits at or beyond the length target with some padding.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 4.0694853,
-      "inputTokens": 2760,
-      "outputTokens": 363
+      "latencySeconds": 3.2682569,
+      "inputTokens": 3431,
+      "outputTokens": 344
     }
   ]
 }

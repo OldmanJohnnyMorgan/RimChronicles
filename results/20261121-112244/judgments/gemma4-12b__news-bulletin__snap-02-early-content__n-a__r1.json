@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-02-early-content__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They have managed to leave a site without being caught or killed\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Adds how the abandonment went; the briefing only says the camp was abandoned.\u0022},{\u0022span\u0022:\u0022It is a long-running dispute with very little progress to show for it.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022States the war\u0027s duration and lack of progress as fact; neither is in the briefing.\u0022},{\u0022span\u0022:\u0022a company that thrives on the chaos of others\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Gives the Company a characterisation as fact that the briefing does not support.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The bulletin leads correctly with the abandoned camp and stays within length. Its humour is weaker than the earlier bulletins: the salt \u0027movement\u0027 line is muddled, and several asides state unsupported details as fact instead of framing them as guesses.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They have managed to leave a site without being caught or killed, which is a rare feat for them.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies they were at risk of capture or death when leaving; the briefing gives no such circumstances\u0022},{\u0022span\u0022:\u0022It is a long-running dispute with very little progress to show for it.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022stated as fact: duration and lack of progress are not in the briefing\u0022},{\u0022span\u0022:\u0022The Tannerfolk and the Hollow Spire Pirates continue their war over the salt flats.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as an ongoing status; the briefing treats it as background only\u0022},{\u0022span\u0022:\u0022a company that thrives on the chaos of others\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022stated as fact; implies a cause the briefing does not give\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It leads correctly with the new item and keeps a dry tone, but the pirates joke implies circumstances the briefing does not give. The third item pads with a bland faction-size remark, and the wit is mild and generic.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 7.2555759,
-      "inputTokens": 2799,
-      "outputTokens": 695
+      "latencySeconds": 3.1702584,
+      "inputTokens": 3470,
+      "outputTokens": 370
     }
   ]
 }

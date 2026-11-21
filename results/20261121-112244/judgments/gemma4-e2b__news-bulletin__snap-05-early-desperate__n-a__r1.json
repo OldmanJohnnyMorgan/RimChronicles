@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-05-early-desperate__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They have inquired about the funding for these efforts.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The earlier bulletin says the Mutual\u0027s members asked who was paying. The output has the Mutual itself asking, which contradicts it.\u0022},{\u0022span\u0022:\u0022The Ferrow Mutual has requested increased patrols.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The earlier bulletin says the Mutual asked members to share patrols. \u0027Increased\u0027 adds scale.\u0022},{\u0022span\u0022:\u0022The Gorse Clans have ceased trading with outsiders.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says only that markets closed to outsiders. A total halt to trade is an inference stated as fact.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Only the first item is new. The other two rehash old news as though current, and the last recycles the earlier bulletin\u0027s \u0027who is paying\u0027 joke while misattributing it. The wit is flat and the phrasing stiff (\u0027as reported\u0027, \u0027noted in three locations\u0027), so Odile\u0027s voice barely shows.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Scythe Tooth raids have been noted in three locations.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as if current; presented without being framed as background\u0022},{\u0022span\u0022:\u0022The Ferrow Mutual has requested increased patrols. They have inquired about the funding for these efforts.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022repeats old news from an earlier bulletin and changes it: the earlier bulletin said the Mutual asked members to share patrols, and that its members asked who is paying, not the Mutual\u0022},{\u0022span\u0022:\u0022This suggests a predictable pattern of petty larceny.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022inference stated as fact; \u0027petty\u0027 is an added characterisation of the raids\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Only the first item is new, and the other two recycle earlier bulletins as if current, with the Ferrow item garbling who asked whom. The wit is thin, with some flat lines, and the first item is padded with a restatement of the fact.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 9.5732657,
-      "inputTokens": 2667,
-      "outputTokens": 818
+      "latencySeconds": 3.2212472,
+      "inputTokens": 3338,
+      "outputTokens": 345
     }
   ]
 }

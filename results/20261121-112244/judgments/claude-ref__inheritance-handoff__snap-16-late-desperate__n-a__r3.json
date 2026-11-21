@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__inheritance-handoff__snap-16-late-desperate__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Bertram\u0027s rifle across her knees\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022No rifle of Bertram\u0027s is in the briefing, and only Rook came home, so his weapon being there contradicts the setup.\u0022},{\u0022span\u0022:\u0022his muzzle dark and one flank torn\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Rook\u0027s injuries are an embellishment; the briefing says only that he came home alone.\u0022},{\u0022span\u0022:\u0022the slow way he never had\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022An invented detail about Bertram\u0027s habits, stated as fact.\u0022},{\u0022span\u0022:\u0022And each time Bertram had charged straight in\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022His tactics on the hunts are inferred, perhaps from Bloodlust, and stated as fact.\u0022},{\u0022span\u0022:\u0022Elske knelt in the mud and ran her hand along his neck\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Elske\u0027s gender (her/she) is not given in the briefing.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022A restrained scene that shows grief through action and turns Elske\u0027s Careful shooter trait into a clear, earned resolve. However, it builds its central image on Bertram\u0027s rifle, which the briefing does not support and which conflicts with Rook returning alone.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022his muzzle dark and one flank torn\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Rook\u0027s injuries are not in briefing; added detail about the past fight\u0022},{\u0022span\u0022:\u0022Bertram\u0027s rifle\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Bertram\u0027s rifle is not mentioned, though plausible staging of an object\u0022},{\u0022span\u0022:\u0022cleaned it the slow way he never had\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds a past habit of Bertram not in briefing\u0022},{\u0022span\u0022:\u0022Hester\u0027s grave\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says Hester was killed but not that she has a grave\u0022},{\u0022span\u0022:\u0022each time Bertram had charged straight in\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022how Bertram fought on the hunts is not given\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Restrained, clear scene that uses the best-friend bond and ends on a concrete intent that suits Elske\u0027s careful-shooter trait. It adds small past details (Bertram\u0027s reckless charging, his sloppy cleaning, Hester\u0027s grave) that the briefing does not support, which keeps it from a 5.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 11.0835539,
-      "inputTokens": 2196,
-      "outputTokens": 1121
+      "latencySeconds": 4.2253779,
+      "inputTokens": 2867,
+      "outputTokens": 384
     }
   ]
 }

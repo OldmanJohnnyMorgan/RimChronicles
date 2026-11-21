@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-19-late-desperate__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They have managed to keep these three despite the ongoing war\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies the League has held its ground, which the briefing does not say.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The bulletin is accurate and plainly ordered, but the wit is weak: the \u0027bold strategy\u0027 joke is logically muddled. The second item restates old news with only a limp quip.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They have managed to keep these three despite the ongoing war with the Sun Throne.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the League has held these three through the war; the briefing gives no such history or ongoing status\u0022},{\u0022span\u0022:\u0022The Sun Throne has moved from razing Fenwick to besieging the Marrow League.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news (Fenwick\u0027s razing) and implies a sequence; the briefing lists both as new\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate in the main and in a dry register, but the second item restates the old three-settlements news as if fresh and implies they held them through the war. The wit is mild and generic, and the first item\u0027s joke about being busy destroying things is thin.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.2474992,
-      "inputTokens": 2692,
-      "outputTokens": 430
+      "latencySeconds": 2.7243643,
+      "inputTokens": 3363,
+      "outputTokens": 268
     }
   ]
 }

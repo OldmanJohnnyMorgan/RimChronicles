@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-03-early-strained__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022This is an accurate quiet-week bulletin, and the faction arithmetic (seven equals four plus three) is correct, with dry asides throughout. It loses a little by saying \u0027no raids\u0027 twice, and the third item mostly restates the first.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022No raids, no lost caravans, no rumours worth the ink.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022states as fact that no raids or lost caravans occurred; briefing only says nothing new was heard\u0022},{\u0022span\u0022:\u0022Nobody has raided anybody, as far as I have heard.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022hedged by \u0027as far as I have heard\u0027 but asserts a status of no raiding the briefing does not report\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice suits a quiet week, and the arithmetic is right (7 is 4\u002B3). However, the claims of no raids and no lost caravans go slightly beyond the briefing. The item count also stretches the \u0027at least 3 sentences\u0027 rule and the second item reads more like a list than a take. It is decent but not ship-ready.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 4.7147996,
-      "inputTokens": 2749,
-      "outputTokens": 411
+      "latencySeconds": 2.6328476,
+      "inputTokens": 3420,
+      "outputTokens": 290
     }
   ]
 }

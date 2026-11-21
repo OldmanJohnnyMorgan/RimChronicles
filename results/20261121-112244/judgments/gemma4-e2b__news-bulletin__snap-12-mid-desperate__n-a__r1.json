@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-12-mid-desperate__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022given the usual tedious dance between the Empire and the Outlanders\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies an ongoing history of dealings that the briefing never mentions, stated as fact.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It is accurate and leads correctly with the envoys, but the wit is thin and generic, with phrases like \\\u0022medical personnel\\\u0022 sounding office-like. The middle item spends a full paragraph on old news, and both later items close with \\\u0022One assumes\\\u0022.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022given the usual tedious dance between the Empire and the Outlanders\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a history of repeated exchanges the briefing does not give\u0022},{\u0022span\u0022:\u0022The Gallows Crew continues to hold a doctor.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as an ongoing status without framing it as background\u0022},{\u0022span\u0022:\u0022which is a welcome respite from the usual regional commotion\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies regional commotion the briefing does not report\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is correct and the guesses are properly hedged. The second item mostly rehashes old news, and the third is thin filler. The wit is generic, and the \u0027tedious dance\u0027 line implies a history the briefing does not support. The piece also omits the captive status and the fallout background in any useful way.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.0441498,
-      "inputTokens": 2780,
-      "outputTokens": 512
+      "latencySeconds": 2.8469852,
+      "inputTokens": 3451,
+      "outputTokens": 301
     }
   ]
 }

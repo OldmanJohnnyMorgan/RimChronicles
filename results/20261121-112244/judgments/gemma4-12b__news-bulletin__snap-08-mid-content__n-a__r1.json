@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-08-mid-content__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They have managed to maintain their dominance\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies a history of holding dominance over time; the briefing gives only current settlement counts.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The bulletin is accurate, plainly structured and leads correctly with the sculpture news. The wit is thin: the \u0027speak for itself\u0027 and \u0027lonely at the top\u0027 remarks are generic, and \u0027lonely\u0027 sits oddly with a nine-settlement faction.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Lantern Accord remains the largest faction with nine settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027remains\u0027 implies a prior state of dominance the briefing does not give; the Accord is largest by count, but the earlier-state comparison is added\u0022},{\u0022span\u0022:\u0022They have managed to maintain their dominance\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied history and cause; briefing gives no earlier state or effort\u0022},{\u0022span\u0022:\u0022the Ninefingers Gang lingers in only three\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027lingers\u0027 implies ongoing activity and a comparison; also ignores that the Reedmother\u0027s Children (5) are second\u0022},{\u0022span\u0022:\u0022more interesting than the actual goods on display\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022stated as a guess (\u0027one assumes\u0027) but implies goods are on display at the fair; low severity as framed guess\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Dry and readable, but the second item adds implied history (\u0027remains\u0027, \u0027maintain their dominance\u0027), and the output is short of the three-sentence-per-item, 70-word target. The wit is mild and the sculpture item has a weak joke.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.5327565,
-      "inputTokens": 2679,
-      "outputTokens": 487
+      "latencySeconds": 3.7040523,
+      "inputTokens": 3350,
+      "outputTokens": 393
     }
   ]
 }

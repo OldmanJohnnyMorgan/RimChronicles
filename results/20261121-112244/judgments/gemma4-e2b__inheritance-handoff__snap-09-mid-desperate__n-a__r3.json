@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__inheritance-handoff__snap-09-mid-desperate__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022where Malley\u2019s crew had fled\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Contradicts the briefing: the Lancers still hold the camp; they did not flee.\u0022},{\u0022span\u0022:\u0022The Lancers\u2019 camp was silent now\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies the camp is abandoned, though the briefing says the Lancers still hold it.\u0022},{\u0022span\u0022:\u0022the charred remains of the fight\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022No fire is mentioned in the briefing.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The scene contradicts the briefing: it has Malley\u0027s crew fleeing and Tamsin wandering an empty camp the Lancers still hold. It also drops the sworn revenge, ends on vague scavenging rather than a clear intent, and uses an awkward phrase (\u0027the memory of his toughness a cold weight in her hands\u0027).\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022where Malley\u2019s crew had fled\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022briefing says the Lancers still hold the camp; no crew fled, contradicts the story\u0022},{\u0022span\u0022:\u0022The Lancers\u2019 camp was silent now, only the wind whistling through broken timbers.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022camp is still held by Lancers; empty silent ruin contradicts or embellishes the situation\u0022},{\u0022span\u0022:\u0022charred remains of the fight\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022added detail about the past fight not in briefing\u0022},{\u0022span\u0022:\u0022She traced the outline of where her father fell\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022places Tamsin at the fight site as if the body fell there; unsupported past detail\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The scene contradicts the briefing by showing the Lancers\u0027 camp empty and Malley\u0027s crew fled, when the Lancers still hold it. It also ends on vague scavenging rather than a clear intent to avenge Joska or face the new captain, so it misses the moment.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.6974899,
-      "inputTokens": 2143,
-      "outputTokens": 634
+      "latencySeconds": 3.1676683,
+      "inputTokens": 2814,
+      "outputTokens": 361
     }
   ]
 }

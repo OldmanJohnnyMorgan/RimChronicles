@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-18-late-desperate__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022No invented facts, but the bulletin pads two of its three items with old news. The granary item restates the previous bulletin\u0027s joke almost word for word, and the Harrow Teeth remark is muddled. The lead also shrugs off the loss of a Wren\u0027s Hollow caravan as \\\u0022usual business\\\u0022, which clashes with Tomas\u0027s earnest, quick-to-worry voice.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022A caravan near the Wailing Moth villages was lost in a blizzard.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022omits that it was a Wren\u0027s Hollow caravan; not invented, but vague. Not a fact error\u0022},{\u0022span\u0022:\u0022The Thistle Commonwealth has opened its granaries. Anyone can try to reach them now.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news from the latest bulletin as if new\u0022},{\u0022span\u0022:\u0022The Harrow Teeth are still robbing stranded travellers.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; also asserts ongoing activity the briefing does not report\u0022},{\u0022span\u0022:\u0022This is just the usual business out here.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies caravan losses are routine, which the briefing does not state\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The lead item omits that the lost caravan was Wren\u0027s Hollow\u0027s, and two of the three items rehash old news as current. Items are also short of three sentences with a dry take, and the voice is flat rather than earnest and worried.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.7415754,
-      "inputTokens": 2700,
-      "outputTokens": 523
+      "latencySeconds": 3.5872624,
+      "inputTokens": 3371,
+      "outputTokens": 368
     }
   ]
 }

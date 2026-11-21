@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e4b__news-bulletin__snap-02-early-content__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and properly hedged, but the lowercase \u0027the company reports\u0027 is an unclear callback, and the second item repeats itself (\u0027continue their war... They are still fighting\u0027) with flat jokes. The dry voice is there but thinner than in the earlier bulletins.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They are still fighting, which is predictable given the geography.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing activity stated as fact; the briefing says they are at war but not that fighting continues now\u0022},{\u0022span\u0022:\u0022The Tannerfolk continue their war with the Hollow Spire Pirates over the flats.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as an ongoing state; the war itself is in the briefing, but the continuation over the flats is old news presented as current\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate on the lead item and the guesses are framed correctly, but the second paragraph mostly repeats old news and the jokes are weak. The Glimmer Coast quip is muddled, and the \u0027company\u0027 reference is unclear. It reads generic rather than distinctly dry or wry.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.6769198,
-      "inputTokens": 2741,
-      "outputTokens": 480
+      "latencySeconds": 2.9962691,
+      "inputTokens": 3412,
+      "outputTokens": 291
     }
   ]
 }

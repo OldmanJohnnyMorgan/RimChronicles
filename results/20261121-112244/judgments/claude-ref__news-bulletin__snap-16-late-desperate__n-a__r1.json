@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-16-late-desperate__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate and dry, and it handles the missing ambush details honestly. It does recycle the previous bulletin\u0027s \u0027be elsewhere\u0027 joke against instructions, and that callback\u0027s \u0027added incentive not to be\u0027 is muddled.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Readers who meet him are still advised to be elsewhere, now with added incentive not to be.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news from the latest bulletin\u0027s advice and implies a continuing status\u0022},{\u0022span\u0022:\u0022Dunmore\u0027s Free Company holds two settlements against the Accord\u0027s nine.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies Dunmore leads the Free Company and a rivalry with the Accord; the briefing names only the faction (Dunmore\u0027s Free Company) and does not link Kael to it or frame it as a contest\u0022},{\u0022span\u0022:\u0022Its six settlements have nothing to say\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022slight embellishment of \u0027quiet behind its walls\u0027, stated as fact\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent and the bounty facts are handled carefully, including an honest admission of missing details. The weaknesses are minor drift: it reuses the old \u0027be elsewhere\u0027 joke and presumes Kael runs the Free Company. The text is also likely under the 70-word floor at roughly 100 words, so that is fine, but the second item is filler.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.7726436,
-      "inputTokens": 2747,
-      "outputTokens": 514
+      "latencySeconds": 3.7079209,
+      "inputTokens": 3418,
+      "outputTokens": 393
     }
   ]
 }

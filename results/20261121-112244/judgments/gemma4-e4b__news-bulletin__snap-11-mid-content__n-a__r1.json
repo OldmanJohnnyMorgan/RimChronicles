@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e4b__news-bulletin__snap-11-mid-content__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Mire Rats remain confined to their two settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing gives two settlements but not that they are confined to them.\u0022},{\u0022span\u0022:\u0022the usual posturing has temporarily paused\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies prior hostility between the two factions, which the briefing does not state.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The peace feast leads correctly, but the bulletin then calls it a quiet week and spends its second item on old news and a disconnected Mire Rats line. At about 67 words it is below the 70-word minimum, and the wit is generic rather than sharp.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Mire Rats remain confined to their two settlements.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022briefing says only that they have 2 settlements and were driven from the eastern marsh; \u0027confined\u0027 and ongoing status are invented\u0022},{\u0022span\u0022:\u0022The Hearthguard Compact still offers prizes for new inventions.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as an ongoing status the briefing does not confirm\u0022},{\u0022span\u0022:\u0022It is a quiet week, which in rim terms usually means something is brewing just out of sight.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022claims a quiet week while a new item exists, and states a generalization about brewing trouble as fact\u0022},{\u0022span\u0022:\u0022the usual posturing has temporarily paused\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies prior posturing between the factions; framed as a guess but asserts a prior state\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The dry voice is serviceable, but the claim that the Mire Rats are \u0027confined\u0027 to their two settlements is a new, unsupported fact. The second item mostly rehashes old news, and the bulletin runs short of the three-sentence-per-item brief and has weak wit.}\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.8488442,
-      "inputTokens": 2625,
-      "outputTokens": 667
+      "latencySeconds": 3.8512555,
+      "inputTokens": 3296,
+      "outputTokens": 408
     }
   ]
 }

@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-10-mid-strained__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022offer coin for people they already have\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Contradicts the briefing: the Stonecutters hold the captives, not the Ochre Hand.\u0022},{\u0022span\u0022:\u0022The Weir Federation maintains its bounty on Stonecutter leaders\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing only says the bounty was raised; that it is still in place is an inference stated as fact.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The lead item contradicts itself: it calls the one new fact \u0027hardly news\u0027, then says the Ochre Hand already has its captives. The last two items rehash old news, and the closing line reuses the earlier bulletin\u0027s \u0027unclaimed bounty\u0027 joke.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Stonecutter Raiders are still holding captives from the Ochre Hand.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as an ongoing status, presented as a fresh item\u0022},{\u0022span\u0022:\u0022The Weir Federation maintains its bounty on Stonecutter leaders.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; the \u0027maintains\u0027 status is not reported in the briefing\u0022},{\u0022span\u0022:\u0022One assumes they are desperate enough to offer coin for people they already have.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022garbled: the Ochre Hand does not hold the captives, so this is a muddled claim, though framed as a guess\u0022},{\u0022span\u0022:\u0022They are clearly keen on keeping the local riff-raff busy.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022an inference about motive stated as fact (\u0027clearly\u0027)\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Two of the three items repeat old news as if current, and the first item\u0027s joke is confused, since the Ochre Hand does not hold the captives. The dry voice is generic, and there is little new content beyond the one real fact.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.9535712,
-      "inputTokens": 2743,
-      "outputTokens": 534
+      "latencySeconds": 3.272712,
+      "inputTokens": 3414,
+      "outputTokens": 379
     }
   ]
 }

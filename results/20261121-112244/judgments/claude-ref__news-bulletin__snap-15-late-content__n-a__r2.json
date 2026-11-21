@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-15-late-content__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:5,\u0022comment\u0022:\u0022The bulletin is accurate. It leads with the only new item and handles the quiet rest of the week by commenting drily on faction sizes. Every guess is framed as a guess, and the closing jab at Grinning Jack\u0027s arithmetic is sharp and does not reuse earlier jokes.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The rumour does not say who Leopold is, or what the Choir wants with him.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds that a rumour exists and what it omits; briefing only says the Choir has been asking\u0022},{\u0022span\u0022:\u0022it is Jugust, and the rim is quiet\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022asserts the rim is quiet, a status the briefing does not report\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent and the faction counts are accurate, with guesses properly hedged. It falls short on the brief: it has only two paragraphs, the first is a bit padded, and the second says little about the new speaker beyond a guess. The \u0027rumour\u0027 framing and \u0027rim is quiet\u0027 add small unsupported claims.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.0287162,
-      "inputTokens": 2739,
-      "outputTokens": 489
+      "latencySeconds": 2.7998995,
+      "inputTokens": 3410,
+      "outputTokens": 274
     }
   ]
 }

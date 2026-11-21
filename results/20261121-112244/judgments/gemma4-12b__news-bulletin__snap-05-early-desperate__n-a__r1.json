@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-05-early-desperate__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate and suitably dry. However, the Scythe Tooth raids are already-covered news, and the bulletin presents them again as fresh rather than as background, which breaks the brief. The date item is thin filler, and its humour (\u0027quite alarming\u0027) feels generic rather than sharp.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Scythe Tooth pirates have hit three settlements in a quadrum.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as if current; presented without background framing (briefing gives raids at three settlements, \u0027quadrum\u0027 from earlier bulletin)\u0022},{\u0022span\u0022:\u0022closed their markets to all outsiders\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds \u0027all\u0027; briefing says only \u0027outsiders\u0027\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent and the guesses are properly hedged, but the second item presents the earlier Scythe Tooth raids as fresh news, which the task forbids. The third item is a decent quiet-week joke but pads the bulletin with filler and the first item adds a small embellishment (\u0027all\u0027).\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.0388865,
-      "inputTokens": 2717,
-      "outputTokens": 431
+      "latencySeconds": 3.4460902,
+      "inputTokens": 3388,
+      "outputTokens": 279
     }
   ]
 }

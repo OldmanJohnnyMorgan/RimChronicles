@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-01-early-content__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They are always there, demanding tribute or plunder.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022States the raiders\u0027 behaviour as fact; the briefing gives only their settlement count.\u0022},{\u0022span\u0022:\u0022They continue their usual tribal arrangements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Asserts ongoing activity that the briefing does not report.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The bulletin is plain and mostly faithful, and it frames its guesses correctly. But it merges the two new items into one paragraph, leaving the cold snap with only two sentences. The filler items about the Raiders and Clans lean on stock, somewhat generic cynicism and slide into unsupported claims about what the factions do.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They are always there, demanding tribute or plunder.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022stated as fact; briefing gives no ongoing activity or tribute demands\u0022},{\u0022span\u0022:\u0022They continue their usual tribal arrangements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing status not in briefing\u0022},{\u0022span\u0022:\u0022Another dreary weather prediction for another unremarkable week.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies earlier predictions; this is the first bulletin\u0022},{\u0022span\u0022:\u0022The Red Gully Raiders maintain their presence in three settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022presence/ongoing status stated as fact beyond the faction count\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate on the two headline items and the faction counts, but the raider and clan paragraphs are filler with unsupported claims of ongoing behaviour (tribute demands, tribal arrangements), and the first item runs only two sentences of take. The dry voice is generic rather than distinct, and the first item\u0027s \\\u0022meager supplies\\\u0022 colour is bland.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.1569286,
-      "inputTokens": 2536,
-      "outputTokens": 530
+      "latencySeconds": 3.9132368,
+      "inputTokens": 3207,
+      "outputTokens": 374
     }
   ]
 }

@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-14-mid-content__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It is accurate and treats the trade pact properly as background, but the corporate phrasing (\u0027business model\u0027, \u0027profit margins\u0027) clashes with the frontier tone. The second item\u0027s wit is flat, so the voice reads more generic than the earlier bulletins.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022I suspect the League enjoys having more territory to manage while the Tribe simply enjoys the steel.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022the steel detail comes from an earlier bulletin; stated as a guess, but it leans on background and the claim is a guess about attitudes, so borderline\u0022},{\u0022span\u0022:\u0022They have a trade pact with the Blue Antler Tribe, who occupy five settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news about the pact without framing it as background\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Facts are accurate and the guesses are properly framed, but the second item mostly rehashes old news and the wit is generic (\\\u0022business model\\\u0022, \\\u0022profit margins\\\u0022 sound modern-office). It also falls short of three sentences per item in spirit and lacks the earlier bulletins\u0027 eye for the absurd.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 4.9440732,
-      "inputTokens": 2714,
-      "outputTokens": 413
+      "latencySeconds": 3.0363132,
+      "inputTokens": 3385,
+      "outputTokens": 304
     }
   ]
 }

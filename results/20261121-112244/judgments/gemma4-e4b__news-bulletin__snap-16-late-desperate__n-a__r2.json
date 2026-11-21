@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e4b__news-bulletin__snap-16-late-desperate__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Conversely, a price has also been set on Dunmore by some unnamed party following an ambush near Gallowmere.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Splits one bounty into two and invents a second, separate party. The briefing names no other party.\u0022},{\u0022span\u0022:\u0022six strongholds\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Upgrades the briefing\u0027s plain \u0027settlements\u0027 to fortified strongholds.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin reads the two briefing lines as two separate bounties and invents an \u0027unnamed party\u0027, which leaves the lead item muddled and contradictory. The voice leans on \u0027rather\u0027 three times, and the second item is flat filler about faction counts.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022a price has also been set on Dunmore by some unnamed party following an ambush near Gallowmere\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022presents the same bounty as a second, separate one by an unnamed party; the briefing gives one price, and no other party\u0022},{\u0022span\u0022:\u0022Conversely, a price has also been set\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022treats a repeated briefing item as a distinct new event, which misstates the facts\u0022},{\u0022span\u0022:\u0022It has been a quiet stretch since the heatwave settled over the southern plain.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as the current framing and implies a quiet period the briefing does not report\u0022},{\u0022span\u0022:\u0022the Glass Throne remains comfortably contained within its six strongholds\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027strongholds\u0027 and \u0027contained\u0027 go beyond \u0027six settlements, quiet behind its walls\u0027\u0022},{\u0022span\u0022:\u0022The Dunmore Free Company continues to hold two settlements\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027continues to hold\u0027 implies ongoing status; also the briefing says Dunmore\u0027s Free Company is a faction, and no link between the faction and Kael is given beyond the earlier bulletin\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bounty is split into two events with an invented \u0027unnamed party\u0027, which is a real factual error, and the one-line guess about territory is weakly supported. The second paragraph is fair faction colour but the voice is only mildly dry.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 7.9082821,
-      "inputTokens": 2714,
-      "outputTokens": 747
+      "latencySeconds": 4.6551623,
+      "inputTokens": 3385,
+      "outputTokens": 494
     }
   ]
 }

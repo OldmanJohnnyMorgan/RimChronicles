@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-08-mid-content__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They are currently content with their haul.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Infers the tribe\u0027s mood, which the briefing does not give.\u0022},{\u0022span\u0022:\u0022a tribe that usually prefers the river to the land\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Unsupported claim about the tribe\u0027s habits, stated as fact.\u0022},{\u0022span\u0022:\u0022It is a rare moment of peace\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies the tribe is usually not at peace, which the briefing does not say.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate and has a decent wry guess. The second and third items rework old news about the fair and the fishing season into near-full items, and the third adds unsupported characterisation of the tribe. Some phrasing is stiff, such as \\\u0022primary topic of conversation\\\u0022 and \\\u0022fairy tale\\\u0022.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Lantern Accord continues to manage its nine settlements while hosting their trade fair.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; trade fair is presented as ongoing activity, which the briefing does not state (earlier bulletin said it opens next week)\u0022},{\u0022span\u0022:\u0022They are currently content with their haul.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022added status not in briefing\u0022},{\u0022span\u0022:\u0022a tribe that usually prefers the river to the land\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022added claim about tribe\u0027s habits, not in briefing; stated as fact\u0022},{\u0022span\u0022:\u0022It is a rare moment of peace\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies past conflict and comparison with earlier state not in briefing\u0022},{\u0022span\u0022:\u0022They claim to offer fair prices\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news from earlier bulletin\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate and drily handled, but two of the three items rehash old news as if current, and the third adds unsupported claims about the tribe. The prose is also a bit flat and generic, with the wit thinner than the persona demands.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.7283179,
-      "inputTokens": 2764,
-      "outputTokens": 625
+      "latencySeconds": 3.2090283,
+      "inputTokens": 3435,
+      "outputTokens": 393
     }
   ]
 }

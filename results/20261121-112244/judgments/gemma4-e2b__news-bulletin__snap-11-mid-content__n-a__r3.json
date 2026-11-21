@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-11-mid-content__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Reports indicate the Hearthguard Compact continues to offer prizes for new inventions.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Old news recast as a fresh report; the briefing does not say the prizes continue.\u0022},{\u0022span\u0022:\u0022The Mire Rats remain a nuisance\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Claims ongoing trouble from the Mire Rats that the briefing does not report.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022With only one new item, the bulletin pads itself with two rehashes of old news, one framed as a fresh report, which breaks the brief. The cynicism is generic, and the invention-fight joke leans on an earlier bulletin rather than offering fresh wit.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022This suggests a temporary truce, which is usually just a pause before the next inevitable squabble.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022inference stated as fact: calls the peace temporary, though the briefing only reports a feast\u0022},{\u0022span\u0022:\u0022Reports indicate the Hearthguard Compact continues to offer prizes for new inventions.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a current, ongoing status the briefing does not report\u0022},{\u0022span\u0022:\u0022The Mire Rats remain a nuisance, though their whereabouts are still murky.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news and adds an ongoing status (\u0027remain a nuisance\u0027) the briefing does not give\u0022},{\u0022span\u0022:\u0022They were driven out of the eastern marsh previously.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news, though it is framed as background\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is correct, but two of the three items are padded with old news. The wit is generic, and it reads as filler on a quiet week instead of using the faction numbers or the date.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 7.002846,
-      "inputTokens": 2723,
-      "outputTokens": 656
+      "latencySeconds": 2.8413554,
+      "inputTokens": 3394,
+      "outputTokens": 371
     }
   ]
 }

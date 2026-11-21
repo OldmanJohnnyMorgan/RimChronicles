@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-07-mid-strained__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022This is the same road where the Iron Covenant lost a wagon to raiders\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing places the loss only \u0027near the gorge\u0027, not on the gorge road itself.\u0022},{\u0022span\u0022:\u0022Making demands of a neighbour twice your size takes real nerve\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing does not say the toll or any demand was aimed at the Iron Covenant.\u0022}],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A sharp, consistent bulletin that ties the toll to earlier news and makes good jokes from the faction sizes. It slightly overstates the links, placing the wagon loss on the toll road and aiming the demands at the Covenant.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Vex\u0027s Crew, with two settlements, has made no demands that I have heard of.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022status not reported in briefing; claims absence of demands, though hedged as personal knowledge\u0022},{\u0022span\u0022:\u0022Making demands of a neighbour twice your size takes real nerve\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the Empire\u0027s demands target the Covenant, which the briefing does not say (only neighbours generally)\u0022},{\u0022span\u0022:\u0022This is the same road where the Iron Covenant lost a wagon to raiders\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says wagon lost \u0027near the gorge\u0027, not on the gorge road\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Dry voice, good use of faction sizes, and mostly guesses are framed properly. But it ties the toll to the Covenant and the wagon road more firmly than the briefing allows, and the second item is padded with an unsupported claim about Vex\u0027s Crew.  Also the second paragraph is not a new item but filler, and the text runs close to the limit of the guidance on adding detail.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.5365013,
-      "inputTokens": 2762,
-      "outputTokens": 571
+      "latencySeconds": 3.8902529,
+      "inputTokens": 3433,
+      "outputTokens": 378
     }
   ]
 }

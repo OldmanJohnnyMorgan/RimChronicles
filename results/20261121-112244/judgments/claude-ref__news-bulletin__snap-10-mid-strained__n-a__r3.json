@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-10-mid-strained__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:5,\u0022comment\u0022:\u0022Accurate and well built: it leads with the one new item, keeps the captive-taking and bounty as background, and gets the 3\u002B4=7 comparison right. The dry asides are framed as guesses; \u0027sound business model\u0027 leans slightly modern but works as irony.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Paying pirates for what pirates stole is an old arrangement\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022stated as fact; implies a history of ransoming not in the briefing\u0022},{\u0022span\u0022:\u0022The Weir Federation still counts seven settlements, as many as both warring parties combined.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022arithmetic is correct (3\u002B4=7), so no error; but \u0027still\u0027 implies a prior state not given\u0022},{\u0022span\u0022:\u0022Presumably that is why it posts bounties rather than fighting.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, but \u0027rather than fighting\u0027 implies the Federation is not fighting, which the briefing does not say\u0022},{\u0022span\u0022:\u0022so the arithmetic favours the pirates, as it so often does\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the pirates are favoured by numbers in a way the briefing does not support; opinion-ish but stated as fact\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent and the item order and arithmetic are right, but a few claims go past the briefing, such as the \u0027old arrangement\u0027 and the Federation \u0027rather than fighting\u0027. The bulletin runs two items and the second item\u0027s bounty mention is only background, which is fine; it mostly stays within the facts.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.5806184,
-      "inputTokens": 2781,
-      "outputTokens": 525
+      "latencySeconds": 3.7392739,
+      "inputTokens": 3452,
+      "outputTokens": 432
     }
   ]
 }

@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-10-mid-strained__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Weir Federation continues to maintain a bounty on Stonecutter leaders.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022States as fact that the bounty is still active; the briefing only says it was raised.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022With only one new item, the writer padded the bulletin by giving two items of old news full paragraphs of their own, against the brief. The wit is thin and muddled: silver as \u0027a poor substitute for freedom\u0027 makes little sense, since the silver is meant to buy that freedom. Phrases like \u0027a certain level of desperation\u0027 and \u0027better trade terms\u0027 sound like office language.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Stonecutter Raiders are currently holding captives from the Ochre Hand.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a separate item; presented as a current item rather than brief background\u0022},{\u0022span\u0022:\u0022The Weir Federation continues to maintain a bounty on Stonecutter leaders.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a full item; \u0027continues to maintain\u0027 is an ongoing status the briefing does not report\u0022},{\u0022span\u0022:\u0022They are always holding something, it seems.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a habitual pattern of captive-taking not in the briefing, though hedged with \u0027it seems\u0027\u0022},{\u0022span\u0022:\u0022It is a predictable pattern for outlanders; they always want to pay for trouble.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022generalisation stated as fact about outlanders, implying a past pattern the briefing does not give\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Only one new item exists, yet two of the three paragraphs just restate old news, which the task said to avoid (two items were enough). The dry voice is present but generic, and the first item\u0027s speculation about desperation and trade terms is mild filler, though hedged correctly.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.6011159,
-      "inputTokens": 2781,
-      "outputTokens": 507
+      "latencySeconds": 3.4686681,
+      "inputTokens": 3452,
+      "outputTokens": 412
     }
   ]
 }

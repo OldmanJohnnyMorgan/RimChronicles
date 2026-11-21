@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-18-late-desperate__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The facts are accurate. However, the second item repeats the granary story from the latest bulletin as if it were new. The voice is flat and lacks Tomas\u0027s worry: a lost caravan gets only a limp \u0027persistent nuisance\u0027 remark, and phrases like \u0027for access\u0027 and \u0027logistics\u0027 sound bland and office-like.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022A Wren\u0027s Hollow caravan went missing in a blizzard\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says the caravan was lost, not merely missing; softened but close\u0022},{\u0022span\u0022:\u0022The Thistle Commonwealth has opened its granaries for access. Reaching them remains the main obstacle, as usual.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; this was in the latest bulletin and is not in the briefing\u0027s new items\u0022},{\u0022span\u0022:\u0022The factions remain as they have been.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022comparison with an earlier state the briefing does not give\u0022},{\u0022span\u0022:\u0022This is not a surprise.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022stated as fact; implies expectation the briefing does not support\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The second item repeats the previous bulletin\u0027s news as if current, and the third is a flat recital of faction counts. The voice is generic, with little earnest worry and weak, filler-like wit.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 7.1457391,
-      "inputTokens": 2742,
-      "outputTokens": 519
+      "latencySeconds": 2.9446555,
+      "inputTokens": 3413,
+      "outputTokens": 340
     }
   ]
 }

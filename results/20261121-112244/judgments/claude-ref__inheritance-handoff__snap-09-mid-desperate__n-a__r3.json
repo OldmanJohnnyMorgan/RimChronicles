@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__inheritance-handoff__snap-09-mid-desperate__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They carried Joska back to Cinder Rest on a door torn from its hinges.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing never says the body was recovered; the return and the door are added scene detail.\u0022},{\u0022span\u0022:\u0022unwound the wraps from his fists, stiff and brown from the pits\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Fist wraps kept from the pits are an embellishment of his pit-fighter backstory.\u0022},{\u0022span\u0022:\u0022Out past the wall, smoke rose from the Lancers\u0027 camp.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies the camp is visible from Cinder Rest with smoke rising, which the briefing does not say.\u0022}],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A restrained, well-built scene that shows grief through the inherited fist wraps and ends firmly on Tamsin\u0027s intent. Its staging details (the door, the wraps, the visible smoke) embellish the briefing slightly but invent nothing major.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Out past the wall, smoke rose from the Lancers\u0027 camp.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022smoke and a wall at Cinder Rest are not in the briefing; the camp\u0027s visible activity is added staging beyond the present moment\u0022},{\u0022span\u0022:\u0022Lene washed the blood from his knuckles.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Lene\u0027s presence and action are not in the briefing, though plausible as staging for his wife\u0022},{\u0022span\u0022:\u0022stiff and brown from the pits\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022added detail about the wraps\u0027 past use; consistent with pit fighter backstory\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Restrained, concrete scene that uses the father-daughter relationship well and ends on a clear intent, with the wraps as a strong image. Small added details (smoke, wall, wraps\u0027 condition) are harmless but go slightly beyond the briefing.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.763969,
-      "inputTokens": 2201,
-      "outputTokens": 640
+      "latencySeconds": 3.3123373,
+      "inputTokens": 2872,
+      "outputTokens": 321
     }
   ]
 }

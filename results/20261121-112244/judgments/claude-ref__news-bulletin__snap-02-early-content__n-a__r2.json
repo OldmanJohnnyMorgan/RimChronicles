@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-02-early-content__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They gave no reason\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing does not say whether any reason was given; this is stated as fact.\u0022}],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A sharp, consistent Ilse voice that leads correctly with the abandoned camp and fills a quiet week with accurate faction counts and the date. The only slip is the small unsupported claim that the pirates gave no reason.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They gave no reason, and nobody expected one.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing does not say whether a reason was given; stated as fact\u0022},{\u0022span\u0022:\u0022which makes their war look less like a contest and more like stubbornness\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022inference about the war\u0027s balance stated as the narrator\u0027s opinion, but implies a one-sided state not in briefing\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent, the guesses are framed properly, and the faction numbers are correct. The claim that the pirates gave no reason is stated as fact, though, and the item runs only two short paragraphs, with the second one mostly padding.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 3.9629741,
-      "inputTokens": 2819,
-      "outputTokens": 390
+      "latencySeconds": 2.6603455,
+      "inputTokens": 3490,
+      "outputTokens": 246
     }
   ]
 }

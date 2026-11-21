@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-05-early-desperate__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The bulletin leads correctly with the market closure and stays faithful to the briefing, using earlier bulletins only as background. Lines like \u0027haggle with the gate\u0027 land well. The quiet-week paragraph is solid but a little listy, and its closing line leans on a stock phrase.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Not long ago they were selling furs for grain at heroic prices. Now they are not selling at all.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; also implies they stopped selling at all, which the briefing does not state\u0022},{\u0022span\u0022:\u0022Scythe Tooth\u0027s raids on three settlements remain the last loud thing anyone heard.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; \u0027remain the last loud thing\u0027 is an added status claim\u0022},{\u0022span\u0022:\u0022The largest faction on the rim has just stopped dealing with the rest of it\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027stopped dealing with the rest\u0027 overstates closing markets to outsiders; \u0027largest\u0027 is inferred from settlement count\u0022},{\u0022span\u0022:\u0022the rim is mostly waiting to see who blinks first\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022asserts an ongoing state of affairs not in the briefing\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice fits and the lead item is correct, and the earlier bulletins are only background. But it drifts into small overstatements such as \u0027stopped dealing with the rest\u0027 and \u0027waiting to see who blinks\u0027. The second paragraph is also thin filler with no real new item.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.4122186,
-      "inputTokens": 2747,
-      "outputTokens": 609
+      "latencySeconds": 3.3105138,
+      "inputTokens": 3418,
+      "outputTokens": 415
     }
   ]
 }

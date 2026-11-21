@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e4b__news-bulletin__snap-18-late-desperate__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The passes remain sealed by the snowdrifts.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Asserts the closure is still ongoing; the briefing only says it was covered earlier.\u0022},{\u0022span\u0022:\u0022Harrow Teeth raiders are still taking advantage of those stuck in the area.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Old news restated as a current fact without support that it continues.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate and its guesses are properly hedged. The second paragraph mostly restates old news as ongoing fact, and the wit is thin throughout.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022vanished in a blizzard\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says the caravan was lost, not that it vanished; implies disappearance with no trace\u0022},{\u0022span\u0022:\u0022It is unclear what happened to the travelers.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies status of the travelers the briefing does not report\u0022},{\u0022span\u0022:\u0022The passes remain sealed by the snowdrifts.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news and adds snowdrifts and ongoing status not in briefing\u0022},{\u0022span\u0022:\u0022Harrow Teeth raiders are still taking advantage of those stuck in the area.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news with an ongoing activity stated as fact\u0022},{\u0022span\u0022:\u0022the Commonwealth\u0027s open granaries are still just a hopeful whisper on the wind\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news from the latest bulletin; granaries not in current briefing\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is mostly faithful and its guesses are properly framed, but the second paragraph rehashes old news as ongoing fact and the piece is thin on dry wit. It also falls short of the three-sentence item requirement and runs short on length.}\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.5506443,
-      "inputTokens": 2684,
-      "outputTokens": 531
+      "latencySeconds": 3.7677062,
+      "inputTokens": 3355,
+      "outputTokens": 423
     }
   ]
 }

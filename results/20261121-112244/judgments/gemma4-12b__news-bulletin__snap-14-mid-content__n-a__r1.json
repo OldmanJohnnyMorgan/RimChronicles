@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-14-mid-content__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Blue Antler Tribe continues to hold five settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies an unchanged count over time; the briefing gives only the current number.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and plainly reported, but the wit is limp and generic. The faction-count items read as filler, and \\\u0022administrative headache\\\u0022 and \\\u0022sprawling footprint\\\u0022 drift toward office-speak rather than Ilse\u0027s sharper earlier voice.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It seems the pirates have found a new way to spend their time.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, but implies the raid is a new pastime; mostly opinion, borderline\u0022},{\u0022span\u0022:\u0022The Blue Antler Tribe continues to hold five settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027continues\u0027 implies an unchanged status over time that the briefing does not report\u0022},{\u0022span\u0022:\u0022They remain a steady presence on the rim.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing status stated as fact; the briefing does not report it\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate on the raid and faction sizes, with little invented. But the last two items are padding with thin, generic wit, and the Tribe item has no news hook. The second and third items are also short of the three sentences required.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.7618333,
-      "inputTokens": 2747,
-      "outputTokens": 477
+      "latencySeconds": 3.1571986,
+      "inputTokens": 3418,
+      "outputTokens": 290
     }
   ]
 }

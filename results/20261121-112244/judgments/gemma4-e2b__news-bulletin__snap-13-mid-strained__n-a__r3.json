@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-13-mid-strained__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Rustback Raiders are still active on the old highway. They continue their usual business\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The briefing records one past caravan raid; ongoing current activity on the highway is not reported.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The lead item reports the tribute refusal correctly. However, with only one new fact the writer padded to three items by recycling old news as current, including an unsupported claim of ongoing Rustback raids. The wit is limp and generic (\u0027tiresome\u0027, \u0027predictable, really\u0027) next to the sharper earlier bulletins.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They seem quite keen on avoiding paperwork, which is always a good sign.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a motive for refusal not in briefing, though hedged with \u0027seem\u0027 and mostly wit\u0022},{\u0022span\u0022:\u0022The Rustback Raiders are still active on the old highway.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing activity not reported; the briefing only says they hit a caravan earlier\u0022},{\u0022span\u0022:\u0022They continue their usual business of making things inconvenient for anyone with a cargo.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing activity stated as fact, not in briefing\u0022},{\u0022span\u0022:\u0022The Sun Throne continues its tiresome demands for tribute.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a separate item; second item is a duplicate of the lead\u0027s context\u0022},{\u0022span\u0022:\u0022The Rustback Raiders are still active on the old highway.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news: the caravan raid was covered in an earlier bulletin and is presented as current\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate and suitably dry, but the second and third items pad with old news presented as ongoing, and the wit is generic. Fewer items would have been better than rehashing the tribute demand and the raid.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 7.3226088,
-      "inputTokens": 2751,
-      "outputTokens": 630
+      "latencySeconds": 3.6767962,
+      "inputTokens": 3422,
+      "outputTokens": 442
     }
   ]
 }

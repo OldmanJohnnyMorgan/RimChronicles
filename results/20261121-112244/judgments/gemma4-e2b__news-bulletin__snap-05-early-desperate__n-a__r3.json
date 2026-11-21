@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-05-early-desperate__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They have always preferred to keep their dealings to themselves.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Unsupported history stated as fact; it contradicts the earlier bulletin, where the Clans were trading furs for grain.\u0022},{\u0022span\u0022:\u0022It is a quiet week, which is hardly a novelty.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Calls the week quiet when the briefing has new news (the market closure).\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin repeats the old raid news as if it were current and pads with a flat \u0027quiet week\u0027 item that contradicts its own lead. It falls short of the word count, and the voice is limp, with stock hedges and none of Odile\u0027s sharp understatement.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They have always preferred to keep their dealings to themselves.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022stated as fact; briefing gives no history of Gorse Clans\u0027 trading habits, and it contradicts the earlier bulletin showing them trading furs for grain\u0022},{\u0022span\u0022:\u0022Scythe Tooth raids have been reported at three settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as if current, with no \u0027earlier\u0027 framing\u0022},{\u0022span\u0022:\u0022The Ferrow Mutual has requested shared patrols.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news from the previous bulletin as if new\u0022},{\u0022span\u0022:\u0022The factions remain in their established patterns.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022unreported status claim stated as fact\u0022},{\u0022span\u0022:\u0022It is a quiet week, which is hardly a novelty.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022contradicts the market closure it just reported and implies a comparison with earlier weeks not in briefing\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It leads correctly with the market closure, but presents old raid and patrol news as current and pads the last item with vacuous claims; the wit is mild and the \u0027always preferred\u0027 claim contradicts earlier trading. Third item says quiet week after reporting a closure, and word count is under the 70 minimum.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 7.2029345,
-      "inputTokens": 2653,
-      "outputTokens": 628
+      "latencySeconds": 4.1120785,
+      "inputTokens": 3324,
+      "outputTokens": 449
     }
   ]
 }

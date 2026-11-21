@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__inheritance-handoff__snap-16-late-desperate__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022took the hunting map pinned above it\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The briefing names no map; this adds a new item.\u0022},{\u0022span\u0022:\u0022Three hunts marked in his heavy hand\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022This dresses the three hunts as marks on the invented map.\u0022},{\u0022span\u0022:\u0022Not his blood, then. Bertram\u0027s.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022It implies Rook came home bloodied with Bertram\u0027s blood, which the briefing does not say.\u0022},{\u0022span\u0022:\u0022Elske cleaned her rifle\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022A specific weapon is inferred from the Careful shooter trait.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:5,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Restrained, well-observed grief told through action, ending on a clear intent that mirrors the ambush; but the invented hunting map is a new object that caps the score.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022took the hunting map pinned above it, and smoothed the creases flat on her knee. Three hunts marked in his heavy hand.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022a map marking the hunts is not in the briefing, though it is plausible staging of an object\u0022},{\u0022span\u0022:\u0022Not his blood, then. Bertram\u0027s.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies Rook carried blood and that she infers Bertram\u0027s death from it; the briefing only says Rook came home alone\u0022},{\u0022span\u0022:\u0022Dunmore had lain in wait for Bertram.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ambush is in the story, so this is supported; the added specific \u0027lain in wait\u0027 is mild embellishment\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022A restrained, well-paced scene that ends on Elske\u0027s resolve to hunt Dunmore and uses the friendship properly. It adds a few small unsupported details (the map, the blood on Rook), and the map is the only one that really matters.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 7.8590231,
-      "inputTokens": 2189,
-      "outputTokens": 636
+      "latencySeconds": 3.5140328,
+      "inputTokens": 2860,
+      "outputTokens": 346
     }
   ]
 }

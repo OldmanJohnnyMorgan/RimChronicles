@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-14-mid-content__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Presumably the other two hundred-odd days of the year are spent planning it.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Introduces a day count the briefing never gives. It also does not square with day 376 or a 60-day RimWorld year.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:3,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The raid lead is accurate and ties drily to the earlier bulletin about the well-fed Corsair. The closing joke rests on an invented, nonsensical \u0027two hundred-odd days\u0027 figure, which muddles the ending and caps the score.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Presumably the other two hundred-odd days of the year are spent planning it.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, and the arithmetic is vague; day 376 of the year is odd but not a claimed fact, so only a weak concern\u0022},{\u0022span\u0022:\u0022Their recently released crewmate\u0027s tales of kindness clearly did not travel far up the gangplank.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a cause/consequence link between the released crewmate and the raid, stated as fact (\u0027clearly\u0027)\u0022},{\u0022span\u0022:\u0022Otherwise, Jugust is quiet on the rim.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022states a status of the whole rim not given in the briefing\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:3,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent and the lead item matches the briefing, but it ties the raid to the released Corsair\u0027s tales as if causal, and the closing joke about \u0027two hundred-odd days\u0027 is muddled. Only two items and the second is thin filler.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.6504448,
-      "inputTokens": 2749,
-      "outputTokens": 515
+      "latencySeconds": 3.141914,
+      "inputTokens": 3420,
+      "outputTokens": 347
     }
   ]
 }

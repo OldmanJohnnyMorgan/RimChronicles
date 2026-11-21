@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e4b__news-bulletin__snap-15-late-content__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The bulletin is accurate and sticks to the briefing, with its guesses properly hedged. The wit is thin, though: the Leopold item rests on two near-identical speculations and the \u0027lost trinket\u0027 line lands oddly. The quiet-week paragraph ends on a generic platitude rather than the sharper dryness of the earlier bulletins.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Fox-Lantern Tribe still manages six.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\\\u0022still manages\\\u0022 implies an ongoing status or comparison with an earlier count that the briefing does not give\u0022},{\u0022span\u0022:\u0022It is a quiet week across the rim.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022states as fact that the week is quiet, which the briefing does not say\u0022},{\u0022span\u0022:\u0022even when the big dramas have settled into a low hum\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the earlier events (speaker election, games) have settled, which the briefing does not report\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate on the Leopold item, and the guesses are properly hedged, but the output is thin and the second paragraph is filler. The items are short of the three-sentence minimum, the wit is mild, the word count is probably under 70, and the faction-count padding adds status claims the briefing does not support.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.9903885,
-      "inputTokens": 2663,
-      "outputTokens": 538
+      "latencySeconds": 3.0939148,
+      "inputTokens": 3334,
+      "outputTokens": 320
     }
   ]
 }

@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-06-early-content__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Calder Combine continues to report good harvests along the delta. They claim the yield is excellent this cycle.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Re-presents old news as a fresh, ongoing report with a new claim attributed to the Combine.\u0022},{\u0022span\u0022:\u0022It is probably just a sign that they are waiting for something to happen.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022A loosely hedged inference about the Empire\u0027s motives, stated close to fact.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It leads correctly with the barge robbery, but the voice is flat and its jokes misfire (\u0027a proper statement\u0027, \u0027lying about the weather\u0027). The third item recycles the old harvest story as if it were current news.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The pirates managed to take some provisions from a transport vessel.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\\\u0022some provisions\\\u0022 implies a partial take; the briefing only says a grain barge was robbed, with no amount given\u0022},{\u0022span\u0022:\u0022They are three settlements in total, and they have not made any noise lately.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\\\u0022not made any noise lately\\\u0022 adds an ongoing status beyond \\\u0022quiet behind its walls\\\u0022\u0022},{\u0022span\u0022:\u0022It is probably just a sign that they are waiting for something to happen.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022hedged with \\\u0022probably\\\u0022, but still an inference about the Throne\u0027s intent; borderline, not counted as a fact\u0022},{\u0022span\u0022:\u0022The Calder Combine continues to report good harvests along the delta.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news and presents it as ongoing/new (\\\u0022continues to report\\\u0022) rather than as background\u0022},{\u0022span\u0022:\u0022They claim the yield is excellent this cycle.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; \\\u0022excellent this cycle\\\u0022 is a restatement with a slight change, no new briefing support\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate and the dry guesses are properly hedged, but two of the three items just rehash old news and quiet-faction filler, and the Combine harvest is presented as ongoing rather than as brief background. The wit is mild and the first item\u0027s joke is muddled.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.7985556,
-      "inputTokens": 2652,
-      "outputTokens": 558
+      "latencySeconds": 4.4262888,
+      "inputTokens": 3323,
+      "outputTokens": 488
     }
   ]
 }

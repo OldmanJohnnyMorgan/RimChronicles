@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-13-mid-strained__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:5,\u0022comment\u0022:\u0022Accurate and well within length: it leads with the refusal, gets the arithmetic right (five remaining towns, seven against six), and hedges every guess. The dry asides, such as \u0027saves on envoys\u0027 and the \u0027larger handwriting\u0027, are fresh and fit the earlier bulletins\u0027 voice.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Throne asked politely, by imperial standards, which means it asked at all.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022claims the Throne asked politely; the briefing says it demanded tribute, so the manner is added\u0022},{\u0022span\u0022:\u0022I have heard nothing yet from the other five.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the other five towns are still undecided; the briefing says nothing about their response\u0022},{\u0022span\u0022:\u0022They simply take things, which at least saves on envoys.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022stated as fact; the briefing gives no Raider behaviour beyond the earlier caravan hit, and it implies the Raiders send no envoys\u0022},{\u0022span\u0022:\u0022demand tribute from nobody\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022hedged with \u0027so far as I know\u0027, but still asserts a status the briefing does not give\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent and the lead item is accurate, but it adds minor claims such as the Throne asking politely and the Raiders demanding nothing. It is also only two items and about 110 words, and it reuses the earlier envoy joke somewhat.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.6423421,
-      "inputTokens": 2774,
-      "outputTokens": 526
+      "latencySeconds": 3.3544206,
+      "inputTokens": 3445,
+      "outputTokens": 393
     }
   ]
 }

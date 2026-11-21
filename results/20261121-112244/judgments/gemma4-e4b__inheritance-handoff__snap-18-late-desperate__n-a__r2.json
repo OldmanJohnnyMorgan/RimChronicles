@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e4b__inheritance-handoff__snap-18-late-desperate__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Elias stood by the cot, the thin blanket draped over Constance.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The caravan was lost in the blizzard; nothing says her body was recovered and brought home.\u0022},{\u0022span\u0022:\u0022the same fabric she wore when she taught in Midworld\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Embellishes her backstory and treats \u0027Midworld\u0027 as a named place.\u0022},{\u0022span\u0022:\u0022the way she faced the blizzard\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies Elias saw or knows how she faced the storm; the briefing does not say.\u0022},{\u0022span\u0022:\u0022The letter from Ada, still tucked into her bedside drawer\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Invented detail about where the letter is kept.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It meets the length and ends on a clear resolve, but placing Constance\u0027s body on a cot contradicts the lost caravan. The letter is both \u0027tucked into her bedside drawer\u0027 and \u0027heavy in his palm\u0027, which is contradictory, and \u0027iron will\u0027 is lifted straight from the trait list.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the same fabric she wore when she taught in Midworld\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds a past detail about her clothing in Midworld not in the briefing\u0022},{\u0022span\u0022:\u0022He remembered her iron will, the way she faced the blizzard.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022places Elias at or witnessing the blizzard; the briefing does not put him there\u0022},{\u0022span\u0022:\u0022still tucked into her bedside drawer\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022staging of the letter\u0027s location; mostly plausible but the briefing gives no drawer\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The ending correctly commits Elias to finding Ada and brings in the letter and the teaching past, but \\\u0022the way she faced the blizzard\\\u0022 implies he saw it, which the briefing does not support. The prose is plain and a little generic, and \\\u0022felt heavy\\\u0022 nearly names a feeling instead of showing it.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.9610568,
-      "inputTokens": 2117,
-      "outputTokens": 668
+      "latencySeconds": 3.4150016,
+      "inputTokens": 2788,
+      "outputTokens": 321
     }
   ]
 }

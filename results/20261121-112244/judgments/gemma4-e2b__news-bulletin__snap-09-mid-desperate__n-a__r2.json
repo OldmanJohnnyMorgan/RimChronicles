@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-09-mid-desperate__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022these smaller territorial squabbles\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Calls the war territorial and small; the briefing gives neither its scale nor this cause.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate and plain, but the second and third items repeat the same war fact as padding. Lines like \u0027This ongoing dispute is noted\u0027 read as bureaucratic filler, not Odile\u0027s sardonic voice.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Embertail Tribe continues its conflict with The Gray Wharf Syndicate.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; war was already covered, and \u0027continues\u0027 implies an ongoing status not reported\u0022},{\u0022span\u0022:\u0022They remain engaged with the Embertail Tribe.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as an ongoing status the briefing does not report\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The Malley item is accurate but thin, and the rest pads the bulletin by restating the already-covered war twice with generic filler. The voice is flat rather than sardonic, with little real wit and no new information.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.4783147,
-      "inputTokens": 2715,
-      "outputTokens": 579
+      "latencySeconds": 2.433904,
+      "inputTokens": 3386,
+      "outputTokens": 242
     }
   ]
 }

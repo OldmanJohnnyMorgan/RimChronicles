@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e4b__news-bulletin__snap-01-early-content__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022slapped up\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies a hasty or shoddy build; the briefing only says the post was opened.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and properly hedged, but the wit is thin: the first item repeats its own joke, and the livestock line ends in a muddled non sequitur. The faction-count closer is a dry list with a weak punchline.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022A remarkably stable arrangement, I suppose.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the faction arrangement is stable, which the briefing does not say; hedged only by \u0027I suppose\u0027\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Facts are accurate and the guesses are properly hedged, but the wit is thin and repetitive, and the third item only restates faction numbers. The second item\u0027s livestock remark is a hedged guess, but the first paragraph\u0027s \u0027more places\u0027 joke is circular and weak.\u003C/br\u003E\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 4.7369256,
-      "inputTokens": 2532,
-      "outputTokens": 401
+      "latencySeconds": 2.5517124,
+      "inputTokens": 3203,
+      "outputTokens": 202
     }
   ]
 }

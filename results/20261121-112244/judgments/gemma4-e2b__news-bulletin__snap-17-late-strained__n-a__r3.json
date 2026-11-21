@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-17-late-strained__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They are the usual pirates, making a predictable nuisance.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies Bonecutter activity that the briefing does not report.\u0022},{\u0022span\u0022:\u0022They remain a quiet entity in this volatile landscape.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022States the Kestrel Tribe\u0027s inactivity as fact; the briefing gives only their settlement count.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It handles the quiet week honestly, using only the briefing\u0027s faction facts. The voice is flat and generic, though. Phrases like \u0027expansionist posture\u0027 and \u0027quiet entity in this volatile landscape\u0027 read like a report rather than Ilse\u0027s dry wit.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They remain a quiet entity in this volatile landscape.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022quiet status of the Kestrel Tribe is not in the briefing\u0022},{\u0022span\u0022:\u0022They are the usual pirates, making a predictable nuisance.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing activity (nuisance-making) not reported in the briefing\u0022},{\u0022span\u0022:\u0022The Shattered Empire continues its expansionist posture.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says expanding by force; \u0027continues\u0027 is a mild added status, near restatement\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate to the factions and handles the quiet week as instructed, but the voice is generic and flat, with short choppy sentences and few real jokes. The Kestrel and Bonecutter items add small unsupported claims about their behavior, and the Bonecutter item offers little wit.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.4510205,
-      "inputTokens": 2796,
-      "outputTokens": 470
+      "latencySeconds": 3.011665,
+      "inputTokens": 3467,
+      "outputTokens": 316
     }
   ]
 }

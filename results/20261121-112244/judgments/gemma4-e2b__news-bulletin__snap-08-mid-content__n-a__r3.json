@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-08-mid-content__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022while the traders argue over its worth\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Adds an arguing-over-value detail the briefing does not give; the briefing says only that the sculpture is talked about.\u0022},{\u0022span\u0022:\u0022The Lantern Accord continues its trade fair preparations\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022States the fair\u0027s current status as fact. An earlier bulletin said it opened \u0027next week\u0027, so ongoing preparations are unsupported and likely contradict the timeline.\u0022},{\u0022span\u0022:\u0022This sounds like a predictable seasonal complaint\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Recasts a reported good fishing season as a complaint, which misreads the briefing.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Two of the three items rehash old news as if current, and the third reuses the \u0027fish are foolish\u0027 line from the latest bulletin, padding a one-item week instead of commenting drily on the factions. The wit is thin and the jokes miss: the Reedmother\u0027s \u0027complaint\u0027 reads a good season backwards.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Lantern Accord continues its trade fair preparations.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing activity not in briefing; fair is old news, and earlier bulletin said it opens next week, so \u0027continues preparations\u0027 is a status claim\u0022},{\u0022span\u0022:\u0022They are always busy with their displays.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022stated as fact; added detail about the Accord not in briefing\u0022},{\u0022span\u0022:\u0022The Reedmother\u0027s Children report the river is full. They claim the fish are foolish.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news presented as new; the fishing season was covered in an earlier bulletin\u0022},{\u0022span\u0022:\u0022This sounds like a predictable seasonal complaint.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022mischaracterises a good fishing report as a complaint\u0022},{\u0022span\u0022:\u0022It sits there, presumably, gathering dust while the traders argue over its worth.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022traders arguing over its worth is stated beyond the guess; briefing only says it is the talk of traders\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is correct, but the second and third items rehash old news as if it were new and add unsupported colour, including calling a good fishing report a complaint. The wit is thin and generic, and the guesses are repetitive (\u0027One assumes\u0027 twice), so the voice feels formulaic.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 9.4955796,
-      "inputTokens": 2711,
-      "outputTokens": 869
+      "latencySeconds": 3.7590311,
+      "inputTokens": 3382,
+      "outputTokens": 466
     }
   ]
 }

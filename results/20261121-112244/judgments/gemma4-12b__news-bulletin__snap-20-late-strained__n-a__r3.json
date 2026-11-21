@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-20-late-strained__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022a colony that is currently trying to avoid being conquered\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The briefing never says Varrowgate is under threat or resisting conquest, and the reporter cannot know the colony\u0027s internal situation.\u0022},{\u0022span\u0022:\u0022They are issuing final demands to the Free Coast Alliance.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says the Empire is issuing final demands but gives no recipient.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is right and the tax-blame quip has a dry bite. However, it invents a conquest threat against Varrowgate, and the second item assigns the final demands a target the briefing never names, all in a voice flatter than the earlier bulletins.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022a colony that is currently trying to avoid being conquered\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022unsupported status; briefing does not say Varrowgate is resisting conquest\u0022},{\u0022span\u0022:\u0022They are issuing final demands to the Free Coast Alliance.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says the Empire issues final demands but not to whom; target is an inference stated as fact\u0022},{\u0022span\u0022:\u0022people who have very little left to give\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied consequence/status of the Alliance stated as fact, though close to wit\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent and the lead item is correct, but it adds minor unsupported claims (Varrowgate resisting conquest, final demands aimed at the Alliance). The word count is also on the low side, with only two items and a thin second one.\\n\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.9569049,
-      "inputTokens": 2670,
-      "outputTokens": 629
+      "latencySeconds": 2.9018909,
+      "inputTokens": 3341,
+      "outputTokens": 305
     }
   ]
 }

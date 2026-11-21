@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__inheritance-handoff__snap-16-late-desperate__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022pulling out the notched hunting knife he had carried for years\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The briefing names no such knife; this is a new item with an invented history.\u0022},{\u0022span\u0022:\u0022Bertram\u2019s cooling cheek\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Places Elske at a freshly dead body with Rook beside her, which sits awkwardly with Rook coming home alone. It also clashes with the \u0027dried blood\u0027 in the same sentence.\u0022},{\u0022span\u0022:\u0022The heavy weight of his mercenary gear\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Embellishes his Mercenary backstory into physical gear he was wearing.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The scene is clear and ends on Elske\u0027s intent to hunt Dunmore, but it invents a significant heirloom knife. It also leans on clich\u00E9s like the white knuckles, the hardening gaze and the mourning howl, and the setting conflicts with Rook coming home alone.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Beside them, Rook let out a low, mourning howl, his fur matted with the grime of the failed hunt.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Briefing says Rook came home alone, so Rook being at the body contradicts it; also places Rook at the hunt.\u0022},{\u0022span\u0022:\u0022Elske reached into Bertram\u2019s belt pouch, pulling out the notched hunting knife he had carried for years.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022invented object and past detail (knife carried for years) not in briefing.\u0022},{\u0022span\u0022:\u0022Elske knelt in the mud, her hands trembling as she brushed a smear of dried blood from Bertram\u2019s cooling cheek.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Places Elske at the body and the ambush site; briefing says only the hunters were there and she is not named among them, and \u0027cooling\u0027 implies he just died.\u0022},{\u0022span\u0022:\u0022the horizon where Dunmore had vanished\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds detail about the escape direction and Elske\u0027s knowledge of it.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Competent and readable, but it stages Elske and Rook at the death site, contradicting the briefing\u0027s note that Rook came home alone, and it adds a knife not in the dossiers. Ending on tracking Dunmore fits the heir\u0027s intent but the handoff feels generic and includes \u0027trembling\u0027 and \u0027mourning\u0027 as telling.}}\u003C/br\u003EActually, correcting format: see below.\u003C/br\u003E{\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 9.8942466,
-      "inputTokens": 2179,
-      "outputTokens": 809
+      "latencySeconds": 4.8497948,
+      "inputTokens": 2850,
+      "outputTokens": 501
     }
   ]
 }

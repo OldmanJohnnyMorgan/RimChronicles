@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-06-early-content__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The bulletin is accurate and well structured, with sharp dry lines like \\\u0022Arithmetic has never yet stopped a pirate\\\u0022 and old news used properly as background. Its weak spot is the Empire remark, which echoes the earlier bulletin\u0027s \u0027not in the habit of explaining\u0027 joke rather than finding a fresh angle.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022I recently reported the Calder Combine\u0027s fine harvest along that same delta\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; framed as background, but the \u0027best in years\u0027 detail is not repeated, so this is a mild flag at most\u0022},{\u0022span\u0022:\u0022whoever owned the grain sees it differently\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess (\u0027one assumes\u0027), but implies an owner; borderline, not a real claim\u0022},{\u0022span\u0022:\u0022By my arithmetic the pirates are outnumbered.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022inference stated as fact about settlement counts; pirates have fewer settlements than the Combine, but \u0027outnumbered\u0027 implies a comparison of strength not in briefing\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent and the pirate-reads-the-news joke is good, and old news is correctly treated as background. It falls short on the brief: two items of fewer than 3 sentences each are padded with faction-size filler, and the \u0027outnumbered\u0027 inference goes slightly beyond the briefing.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 4.8136308,
-      "inputTokens": 2693,
-      "outputTokens": 476
+      "latencySeconds": 3.4527542,
+      "inputTokens": 3364,
+      "outputTokens": 372
     }
   ]
 }

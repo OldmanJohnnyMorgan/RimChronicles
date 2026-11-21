@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e4b__news-bulletin__snap-12-mid-desperate__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022continues their peculiar habit of acquiring medical personnel\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies repeated captures; the briefing mentions only one captive doctor.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It is accurate on the lead, but the wit is flat and self-contradictory: the envoys are called a prelude to something \u0027more tedious\u0027 and then \u0027more interesting\u0027. The second item rehashes old news while calling it a quiet week, and the \u0027damp scrap of canvas\u0027 line lands oddly.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Gallows Crew continues their peculiar habit of acquiring medical personnel.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies repeated acquisition of doctors and an ongoing activity; briefing gives one captive doctor\u0022},{\u0022span\u0022:\u0022One assumes this diplomatic gesture is merely a prelude to something more tedious.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022guess framed with \u0027one assumes\u0027, so acceptable; calling it a diplomatic gesture is a mild inference\u0022},{\u0022span\u0022:\u0022It is certainly more interesting than the usual silence from the Empire.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027usual silence\u0027 loosely supported by \u0027quiet behind its walls\u0027, but stated as fact\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Dry voice is passable and the lead item is correct, but it is short of the required length and paragraph structure (the second item is thin), and \u0027peculiar habit of acquiring medical personnel\u0027 implies repeated captures the briefing does not give. The doctor item is also old news, only lightly framed as background.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.8479723,
-      "inputTokens": 2703,
-      "outputTokens": 568
+      "latencySeconds": 3.4873283,
+      "inputTokens": 3374,
+      "outputTokens": 369
     }
   ]
 }

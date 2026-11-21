@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-03-early-strained__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Kinn of the Long Grass are reportedly moving south due to grass fires.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The earlier bulletin placed the fires in the south. It never said the Kinn were heading south, so this contradicts the source.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The second item repeats last bulletin\u0027s Kinn story as if it were current and gets the direction wrong, sending them toward the fires. The wit is thin and generic (\u0027cautious travel patterns\u0027, \u0027stable, if unremarkable\u0027), and the faction tally is listed flatly rather than commented on drily.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Ashen Hand remain where they have been\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing status not in briefing\u0022},{\u0022span\u0022:\u0022The Kinn of the Long Grass are reportedly moving south due to grass fires.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as current; also the earlier bulletin said fires were in the south, not that they moved south\u0022},{\u0022span\u0022:\u0022the Merrow Freeholds continue their cautious travel patterns\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as ongoing status\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate on faction counts and the guesses are framed properly, but the second item presents the earlier Kinn bulletin as present news and slightly changes it (moving south). The wit is mild and the third item is a flat recitation of numbers rather than a dry take.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 7.350158,
-      "inputTokens": 2774,
-      "outputTokens": 628
+      "latencySeconds": 2.8534022,
+      "inputTokens": 3445,
+      "outputTokens": 297
     }
   ]
 }

@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-11-mid-content__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The bulletin is accurate and keeps old news as background. It frames every guess properly and keeps the dry voice throughout, though the feast jokes are a touch obvious. The second item is a loose roundup of faction counts rather than a sharp single story, but it handles the quiet week well.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Otherwise it is Decembary 5502, and the rim is doing very little.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022unsupported claim that the rim is quiet; mild inference stated as fact\u0022},{\u0022span\u0022:\u0022The Mire Rats, lately evicted from the eastern marsh, cling to two.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as background; \u0027cling to\u0027 implies status, but it is only mild and framed as background\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Dry, consistent voice with guesses properly framed, and it leads with the new item and uses faction numbers accurately. It is slightly weak on structure (the second item runs two topics together), and \u0027the rim is doing very little\u0027 is a small unsupported claim.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.4240379,
-      "inputTokens": 2708,
-      "outputTokens": 406
+      "latencySeconds": 2.5239266,
+      "inputTokens": 3379,
+      "outputTokens": 268
     }
   ]
 }

@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-11-mid-content__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate and dry: it leads with the feast, keeps the Mire Rats as background, and frames every guess as a guess. The second paragraph leans on stacked guesses and a stock line about quiet weeks, so it reads slightly padded.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022now short one eastern marsh\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the Rats held the marsh as a settlement; briefing only says they were driven out, and repeats old news as consequence\u0022},{\u0022span\u0022:\u0022Quiet weeks are underrated. Dovecote may enjoy this one while it lasts.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022asserts the rim is quiet and implies Dovecote\u0027s situation; not in briefing, though mild colour\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent, with good guess-framing and accurate faction numbers. However, the word count looks slightly high, the second paragraph is not really a separate news item, and the marsh line implies the Rats lost a settlement, which blurs old news.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.1157086,
-      "inputTokens": 2717,
-      "outputTokens": 467
+      "latencySeconds": 2.800419,
+      "inputTokens": 3388,
+      "outputTokens": 272
     }
   ]
 }

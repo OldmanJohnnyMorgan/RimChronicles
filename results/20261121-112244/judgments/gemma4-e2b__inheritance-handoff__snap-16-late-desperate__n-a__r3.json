@@ -1,16 +1,27 @@
 {
   "cell": "gemma4-e2b__inheritance-handoff__snap-16-late-desperate__n-a__r3",
-  "promptVersion": "judge/v2",
-  "outcome": "Model",
+  "promptVersion": "judge/v3",
+  "outcome": "ModelRetry",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022She traced the scorched earth where Bertram had fallen.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says only that Bertram was ambushed. Scorched ground at the spot is added detail.\u0022},{\u0022span\u0022:\u0022broken only by the distant sounds of the colony\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022This implies the ambush site is near the colony, which the briefing does not say.\u0022},{\u0022span\u0022:\u0022Elske stood by the wreckage of the last hunt.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022This places Elske at the ambush site and adds wreckage. The briefing only says Rook came home alone.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It is accurate in outline and ends on the heir\u0027s intent, but the prose is flat, choppy and stock (\u0027silence was heavy\u0027, \u0027gaze hardening\u0027). It also never shows the closeness of the friendship, and its small embellishments add scene-setting the briefing does not support.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Elske stood by the wreckage of the last hunt.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022puts Elske at the site of the ambush and invents \u0027wreckage\u0027; briefing gives no location and she was not on the hunt\u0022},{\u0022span\u0022:\u0022She traced the scorched earth where Bertram had fallen.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022invents scorched earth and a specific death site; briefing gives no such detail\u0022},{\u0022span\u0022:\u0022Rook whined, nudging her hand.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Rook came home alone, so placing Rook at the scene of death with Elske contradicts or confuses the briefing\u0022},{\u0022span\u0022:\u0022picking up a piece of torn fabric, its color faded\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022invented object, though plausible staging\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The scene ends on Elske\u0027s resolve, but it places her and Rook at the ambush site, which muddles the briefing (Rook came home alone). The prose is generic and flat, with choppy sentences and little that is specific to the friendship.\u0022}",
+      "error": null,
+      "failures": [
+        "With 2 major and 2 minor invented fact(s) the rubric caps overall at 2, but overall is 3"
+      ],
+      "latencySeconds": 3.4144241,
+      "inputTokens": 2800,
+      "outputTokens": 369
+    },
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Elske stood by the wreckage of the last hunt.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022places her at the site of the ambush; the briefing never says she was there or that wreckage existed\u0022},{\u0022span\u0022:\u0022She traced the scorched earth where Bertram had fallen.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022invents scorched earth and a known place where Bertram fell; the briefing gives no location or fire\u0022},{\u0022span\u0022:\u0022Rook whined, nudging her hand.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Rook came home alone, so having Rook at the site contradicts the staging; it is a questionable detail\u0022},{\u0022span\u0022:\u0022picking up a piece of torn fabric, its color faded\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds an object tied to the past event that the briefing does not mention\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The scene places Elske and Rook at the ambush site and adds scorched earth, which changes the story (Rook came home alone). The prose is generic and the ending is flat, though it does end on her intent to hunt Dunmore.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 7.06207,
-      "inputTokens": 2129,
-      "outputTokens": 635
+      "latencySeconds": 3.305295,
+      "inputTokens": 2861,
+      "outputTokens": 366
     }
   ]
 }

@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-14-mid-content__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The League trades furs for steel from the Tribe.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The briefing gives no trade goods. It also reverses the earlier bulletin, where the League got furs and the Tribe got steel.\u0022},{\u0022span\u0022:\u0022spoke of being well fed by his captors\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says only \u0027kindness\u0027. \u0027Well fed\u0027 is lifted from the earlier bulletin\u0027s embellishment.\u0022},{\u0022span\u0022:\u0022His crewmates are reportedly conflicted about the experience.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The crewmates\u0027 reaction is not in the briefing. It is recycled from the earlier bulletin.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Two of the three items rehash old news as if current, reusing the earlier bulletins\u0027 jokes, when the single new raid should have stood with only a brief nod to background. The trade-pact item also invents and reverses the goods exchanged, and \u0027another Tuesday\u0027 sits oddly in RimWorld.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The League trades furs for steel from the Tribe.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022the briefing gives no trade terms; the furs and steel come from an earlier bulletin, and the direction is garbled (the earlier bulletin has the League getting furs and the Tribe getting steel, but this line says the League trades furs for steel from the Tribe)\u0022},{\u0022span\u0022:\u0022His crewmates are reportedly conflicted about the experience.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news and recycles the earlier bulletin\u0027s crewmate reaction, which is not in the current briefing\u0022},{\u0022span\u0022:\u0022The Fernhollow League and the Blue Antler Tribe have a trade pact.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news and presents it as new, not as background\u0022},{\u0022span\u0022:\u0022A released Brackwater Corsair spoke of being well fed by his captors.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a fresh item; the briefing says he is talking about his captors\u0027 kindness, and \u0027well fed\u0027 comes from the earlier bulletin\u0022},{\u0022span\u0022:\u0022just another Tuesday for maritime larceny\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies raids like this are routine, a comparison with earlier states the briefing does not give\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Two of the three items repeat old news as if it were fresh, and the furs-for-steel line garbles the earlier bulletin\u0027s trade terms. The raid item itself is fine but thin, and the wit is generic.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 8.9509286,
-      "inputTokens": 2771,
-      "outputTokens": 850
+      "latencySeconds": 3.8850738,
+      "inputTokens": 3442,
+      "outputTokens": 513
     }
   ]
 }

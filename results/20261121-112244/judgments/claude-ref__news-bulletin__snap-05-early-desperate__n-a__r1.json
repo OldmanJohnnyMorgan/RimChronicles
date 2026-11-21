@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-05-early-desperate__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the cold snap remains the season\u0027s chief farmer\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022States the old cold snap is still ongoing; the briefing only says it killed crops.\u0022},{\u0022span\u0022:\u0022they are the largest faction on the rim\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Generalises from the three listed factions to the whole rim.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The lead item is clean, with a good dry closing line. The second paragraph feels padded and rehashes the earlier \u0027who is paying\u0027 joke, and it slightly embellishes the cold snap as still ongoing.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the cold snap remains the season\u0027s chief farmer\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the cold snap is ongoing, a status the briefing does not report\u0022},{\u0022span\u0022:\u0022No reason has reached this sheet.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022claims no reason has been heard; the briefing is silent on any reason\u0022},{\u0022span\u0022:\u0022Otherwise, the rim is quiet.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022states the rim is quiet, but earlier raids are recent and the briefing gives no such status\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent, the lead item is correct, and the guesses are properly framed. But the output is only two items, the second has a few shaky claims about ongoing status, and the \u0027quiet\u0027 framing and the cold snap line stretch the briefing. The word count also sits near the lower bound and the second paragraph runs together several loosely linked points.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.552181,
-      "inputTokens": 2727,
-      "outputTokens": 563
+      "latencySeconds": 3.4180314,
+      "inputTokens": 3398,
+      "outputTokens": 321
     }
   ]
 }

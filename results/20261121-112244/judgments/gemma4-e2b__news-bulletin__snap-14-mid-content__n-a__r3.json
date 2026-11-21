@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-14-mid-content__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It seems the river is a reliable source of trouble for anyone traveling.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Generalises one barge raid into a pattern of river danger; the briefing reports only this single raid.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate but padded: the third item merely restates the raid, and the second re-airs the old trade pact with no new angle. The wit is flat and hedged (\u0027I suppose\u0027, \u0027It seems\u0027), far weaker than the earlier bulletins\u0027 dry humour.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They exchange furs for steel.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as present fact; the earlier bulletin gave the furs/steel detail, and the briefing\u0027s pact item does not\u0022},{\u0022span\u0022:\u0022The Blue Antler Tribe and the Fernhollow League have a trade pact.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news, presented without being framed as background\u0022},{\u0022span\u0022:\u0022The Brackwater Corsairs are still active.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing activity the briefing does not report\u0022},{\u0022span\u0022:\u0022The Corsairs are always busy, I suppose.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies ongoing habitual activity beyond the briefing, though hedged\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate, but the second item repeats the old trade pact, including the furs-for-steel detail, with no new information, and the third item is padding with no new fact. The dry voice is generic and the jokes are thin, and the output is short of the 70-word minimum.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.4114787,
-      "inputTokens": 2729,
-      "outputTokens": 436
+      "latencySeconds": 3.0386452,
+      "inputTokens": 3400,
+      "outputTokens": 363
     }
   ]
 }

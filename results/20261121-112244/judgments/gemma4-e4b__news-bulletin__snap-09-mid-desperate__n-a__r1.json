@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e4b__news-bulletin__snap-09-mid-desperate__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The facts are accurate, and the understated \u0027minor ripple\u0027 line about Malley\u0027s death works. However, the bulletin is only about 55 words, well under the 70-word minimum, and the second item is a flat restatement of old news with only a weak dry remark.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Embertail Tribe continues its hostilities with the Gray Wharf Syndicate.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing activity beyond the briefing; the briefing says only that they are at war\u0022},{\u0022span\u0022:\u0022It seems the fishing rights dispute is proving quite persistent.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022fishing rights come from an earlier bulletin, not the briefing; persistence is an added status, though hedged with \u0027it seems\u0027\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate on the main fact and the guess is properly hedged, but the item is short and the wit is thin: the second item mostly repeats old news as a continuing story, and it comes in under the 70-word minimum. The voice is only mildly sardonic and has little of the earlier bulletins\u0027 eye for the absurd.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 4.6963457,
-      "inputTokens": 2661,
-      "outputTokens": 369
+      "latencySeconds": 2.8746303,
+      "inputTokens": 3332,
+      "outputTokens": 300
     }
   ]
 }

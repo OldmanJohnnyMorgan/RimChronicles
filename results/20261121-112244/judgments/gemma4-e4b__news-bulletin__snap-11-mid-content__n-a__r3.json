@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e4b__news-bulletin__snap-11-mid-content__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Hearthguard Compact continues its prize offering for new inventions.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Asserts the old prize offer is still ongoing; the briefing only says it was covered before.\u0022},{\u0022span\u0022:\u0022The Mire Rats remain absent from the eastern marsh.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022States their continued absence as fact rather than as a guess.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It leads correctly with the peace feast and keeps things plain, but the wit is thin and generic. The second item rehashes old news and recycles the earlier bulletin\u0027s plough joke instead of finding a fresh angle.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Hearthguard Compact continues its prize offering for new inventions.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; \u0027continues\u0027 adds an ongoing status the briefing does not report\u0022},{\u0022span\u0022:\u0022The Mire Rats remain absent from the eastern marsh.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; \u0027remain\u0027 adds an ongoing status not in the briefing\u0022},{\u0022span\u0022:\u0022It is a curious sight to see these groups sharing a meal.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the narrator witnessed the feast, which the briefing does not say; implies the groups were previously at odds\u0022},{\u0022span\u0022:\u0022this truce\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022calls the peace feast a truce, implying a prior conflict the briefing does not give\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is correct and the guesses are properly hedged, but the second paragraph reuses old news as if it were current. The first item is also thin and the wit is mild, so the voice is generic rather than sharp. The word count is also on the low side, with only 3 sentences in the first item and a merged second item.}\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.4427639,
-      "inputTokens": 2644,
-      "outputTokens": 530
+      "latencySeconds": 3.8587135,
+      "inputTokens": 3315,
+      "outputTokens": 393
     }
   ]
 }

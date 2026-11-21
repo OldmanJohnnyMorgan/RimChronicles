@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__inheritance-handoff__snap-18-late-desperate__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022His fingers stopped on the date, Day 744.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Day 744 is when Constance received the letter, not a date written on it.\u0022},{\u0022span\u0022:\u0022The memory of the blizzard\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies Elias was there or remembers it; the briefing does not place him on the caravan.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The scene is competent and within length, but flat. The wrench detail goes nowhere, and \\\u0022He needed to find Ada\\\u0022 misreads the brief, since Ada\u0027s location is known. The ending (checking manifests) gives only a weak sense of what Elias means to do.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The memory of the blizzard, the loss of the caravan, settled heavy in his chest.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022puts Elias at or in memory of the blizzard; the briefing does not say he was there, and \u0027memory\u0027 implies he witnessed it\u0022},{\u0022span\u0022:\u0022searching for any trace of the lost journey\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds an action and purpose not in the briefing, implying the lost caravan could be traced via manifests\u0022},{\u0022span\u0022:\u0022supply manifests\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022invents a specific record that the briefing does not mention\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The scene uses the letter and the Day 744 date correctly and ends on a clear intent (find Ada), but it names a feeling outright (\u0027settled heavy in his chest\u0027) and claims Elias remembers the blizzard. The ending drifts into checking manifests instead of going to the Wailing Moth village, and the wrench feels random.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.2850987,
-      "inputTokens": 2104,
-      "outputTokens": 580
+      "latencySeconds": 2.9509418,
+      "inputTokens": 2775,
+      "outputTokens": 340
     }
   ]
 }

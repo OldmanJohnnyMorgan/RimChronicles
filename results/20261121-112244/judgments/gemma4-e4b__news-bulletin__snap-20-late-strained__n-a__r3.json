@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e4b__news-bulletin__snap-20-late-strained__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022continues its skirmishes\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says only \u0027at war\u0027; calling it skirmishes adds a scale and manner it does not give.\u0022},{\u0022span\u0022:\u0022their three scattered posts\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027Scattered\u0027 is an added detail; the briefing gives only 3 settlements.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The output is accurate on its core facts, but the wit is thin. The second and third items are flat restatements with no real dry remark, and calling it \u0027a quiet week\u0027 right after leading with a governorship offer undercuts the bulletin.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Empire continues its skirmishes with the Free Coast Alliance.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says only \u0027at war\u0027; \u0027skirmishes\u0027 and ongoing activity are not reported\u0022},{\u0022span\u0022:\u0022The Driftwood Tribe holds their three scattered posts.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027scattered\u0027 and \u0027posts\u0027 are added detail; briefing gives only 3 settlements\u0022},{\u0022span\u0022:\u0022They maintain their grip on most of the region.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022restates the briefing\u0027s \u0027controlling most of the region\u0027 as an ongoing status, which is mild and acceptable but adds little; the Alliance \u0027clings\u0027 repeats old news\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Facts are mostly accurate and the guesses are properly framed, but the wit is thin and generic, the second and third items are flat restatements of faction sizes, and the Alliance two-town line repeats old news. The \u0027quiet week\u0027 line also contradicts leading with a new offer.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.4658577,
-      "inputTokens": 2695,
-      "outputTokens": 456
+      "latencySeconds": 3.0426041,
+      "inputTokens": 3366,
+      "outputTokens": 358
     }
   ]
 }

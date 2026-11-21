@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-20-late-strained__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They remain stubbornly separate from the larger squabbles.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing only lists no war for the tribe; their deliberate aloofness is an inference stated as fact.\u0022},{\u0022span\u0022:\u0022It is a predictable cycle of conflict.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027Cycle\u0027 implies repeated wars that the briefing does not mention.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate on the core facts and within length, but the wit is thin and generic. The closing guess about the Empire managing \u0027both sides\u0027 is confusing, and the bulletin ignores sharper material such as the 21 settlements and the final demands.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022This is hardly a surprise in these parts.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022stated as fact; implies a pattern of such offers the briefing does not give\u0022},{\u0022span\u0022:\u0022They remain stubbornly separate from the larger squabbles.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing status/neutrality not in briefing; stated as fact\u0022},{\u0022span\u0022:\u0022It is a predictable cycle of conflict.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies earlier wars or a repeating pattern not in briefing\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Leads correctly with the governorship offer and mostly stays within the briefing, but the Tribe\u0027s \\\u0022stubbornly separate\\\u0022 stance is asserted as fact, and the wit is generic with little of the sharpness of the earlier bulletins. The last item is padding, and \\\u0022manage both sides simultaneously\\\u0022 is muddled.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.9388889,
-      "inputTokens": 2700,
-      "outputTokens": 536
+      "latencySeconds": 2.9621999,
+      "inputTokens": 3371,
+      "outputTokens": 317
     }
   ]
 }

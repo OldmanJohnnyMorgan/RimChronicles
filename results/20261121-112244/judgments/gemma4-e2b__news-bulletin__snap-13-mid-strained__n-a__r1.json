@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-13-mid-strained__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The owners are offering compensation for the loss of goods.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The briefing does not mention this. An earlier bulletin said the owners offered a reward for the caravan\u0027s return, not compensation.\u0022},{\u0022span\u0022:\u0022Six settlements are currently involved in this tiresome exchange.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Misreads the Sun Throne\u0027s settlement count as the number of settlements involved in the tribute dispute.\u0022},{\u0022span\u0022:\u0022It seems the Empire has a very reliable, if tedious, revenue stream to rely on.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies tribute is being paid reliably, which the briefing does not support. The lead item says towns refused to pay.\u0022},{\u0022span\u0022:\u0022across the rim\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Widens demands made of the Cobalt Free Towns into rim-wide demands.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The lead item is fine, but the bulletin pads with old news (the caravan raid and the tribute demands) presented as current. It also invents details: compensation, and six settlements involved in the dispute. The final joke about reliable revenue contradicts the refusals it opened with.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The owners are offering compensation for the loss of goods.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022the reward detail comes from an earlier bulletin, not the briefing\u0027s facts, and it is changed from a reward for return to compensation\u0022},{\u0022span\u0022:\u0022The Rustback Raiders were heard to have targeted a caravan on the old highway.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as if newly heard\u0022},{\u0022span\u0022:\u0022Six settlements are currently involved in this tiresome exchange.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022wrong: six is the Sun Throne\u0027s settlement count, while the tribute demands went to the Cobalt Free Towns (seven settlements)\u0022},{\u0022span\u0022:\u0022It hardly changes the balance of power, but it does give the Empire something to grumble about.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied consequence not in the briefing\u0022},{\u0022span\u0022:\u0022It seems the Empire has a very reliable, if tedious, revenue stream to rely on.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022contradicts the new refusal and implies tribute is being paid; hedged but unsupported\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The dry voice is serviceable, but the second item repeats old news and distorts it (compensation instead of reward), and the third misstates the six settlements as involved in the tribute exchange. The new item is correct but gets padded with old material instead of a proper quiet-week treatment.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 7.882731,
-      "inputTokens": 2788,
-      "outputTokens": 786
+      "latencySeconds": 3.7157432,
+      "inputTokens": 3459,
+      "outputTokens": 481
     }
   ]
 }

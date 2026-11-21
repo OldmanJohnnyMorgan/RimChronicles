@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-11-mid-content__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022This suggests a temporary truce, which is always a fragile thing.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies prior conflict and fragility; the briefing reports only a peace feast.\u0022},{\u0022span\u0022:\u0022continues to offer prizes for new inventions\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022States that old news is ongoing; the briefing does not say the prizes are still on offer.\u0022},{\u0022span\u0022:\u0022The Mire Rats remain a nuisance\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Adds an ongoing threat the briefing does not report.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022With only one new item, it pads the bulletin with two items of old news, recycled as if still developing. The wit is generic (\u0027Reports indicate\u0027, \u0027something shiny\u0027) and weaker than the sharp earlier bulletins.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022This suggests a temporary truce, which is always a fragile thing.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022inference stated as fact: the feast is called a truce and temporary, which the briefing does not say\u0022},{\u0022span\u0022:\u0022Reports indicate that the Hearthguard Compact continues to offer prizes for new inventions.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a current, ongoing status; the briefing says only that the earlier bulletin covered it\u0022},{\u0022span\u0022:\u0022The Mire Rats remain a nuisance, though they are not currently near the eastern marsh.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news and adds an ongoing status (\u0027remain a nuisance\u0027) that the briefing does not report\u0022},{\u0022span\u0022:\u0022Their current whereabouts are, predictably, a mystery.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; the earlier bulletin said where they went was unclear, but this is presented as a current update\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The lead item is correct and the dry tone is passable, but two of the three items re-run old news as current developments, which the task forbids, and the remarks are generic. The \u0027temporary truce\u0027 line also asserts an inference as fact. The word count is also short of 70 words only in spirit; the real issue is padding with stale news.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 7.034805,
-      "inputTokens": 2712,
-      "outputTokens": 671
+      "latencySeconds": 3.6518782,
+      "inputTokens": 3383,
+      "outputTokens": 446
     }
   ]
 }

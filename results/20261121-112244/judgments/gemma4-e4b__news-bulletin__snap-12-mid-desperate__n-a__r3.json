@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e4b__news-bulletin__snap-12-mid-desperate__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022continues its peculiar habit of acquiring medical personnel\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies repeated captures; the briefing mentions only one captive doctor.\u0022},{\u0022span\u0022:\u0022signals a shift in the usual strained quietude\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies existing strained relations and a policy shift that the briefing does not give.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It leads correctly with the envoys and keeps old news mostly as background. But the voice reads stiff and bureaucratic (\u0027medical asset\u0027, \u0027quietude\u0027, \u0027atmospheric conditions\u0027), lacking the earlier bulletins\u0027 bite, and the second item recycles old news with a slight embellishment.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022reached the Saltmarch Assembly\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says envoys were sent; arrival is an added outcome\u0022},{\u0022span\u0022:\u0022The Gallows Crew continues its peculiar habit of acquiring medical personnel.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies repeated acquisition of doctors; briefing gives only one captive\u0022},{\u0022span\u0022:\u0022They are still reportedly holding a doctor at their camp.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as an ongoing status\u0022},{\u0022span\u0022:\u0022given the prevailing atmospheric conditions\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies fallout is still ongoing; briefing gives no current weather\u0022},{\u0022span\u0022:\u0022the regional factions remain largely static\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022unreported status claim stated as fact\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Readable and mostly faithful, but it leans on repeated old news (the doctor) and adds small unsupported claims like the envoys\u0027 arrival and the ongoing weather. The wit is thin and generic rather than sardonic, and the second and third items lack sharp dry takes.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 8.4687374,
-      "inputTokens": 2767,
-      "outputTokens": 776
+      "latencySeconds": 3.4905442,
+      "inputTokens": 3438,
+      "outputTokens": 397
     }
   ]
 }

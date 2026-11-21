@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-12-mid-desperate__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It is a polite way to say they are hiding their intentions.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022States as fact a motive the briefing does not give, instead of framing it as a guess.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The bulletin is accurate and clear, but the voice is fairly generic and the wit is thin. The second item spends a whole paragraph on old news instead of turning to faction sizes or the date for fresher dry commentary.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They seem to have found a way to keep the professional alive, which is a minor miracle.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the doctor\u0027s survival was in doubt and a method was found; hedged with \u0027seem\u0027 but the \u0027minor miracle\u0027 states it as fact\u0022},{\u0022span\u0022:\u0022It is a polite way to say they are hiding their intentions.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022inference stated as fact about the envoys\u0027 purpose, not framed as a guess\u0022},{\u0022span\u0022:\u0022The Gallows Crew continues to hold a doctor at their camp.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as an ongoing status; it is framed as a continuation but takes up half the bulletin\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate and the dry voice is passable, but the second item merely rehashes old news with unsupported inference, and the piece is too short at about 85 words with only two-sentence-plus items and little wit. Several claims are stated as fact rather than guess, so it is not ready to ship.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.7616455,
-      "inputTokens": 2702,
-      "outputTokens": 496
+      "latencySeconds": 3.7375437,
+      "inputTokens": 3373,
+      "outputTokens": 360
     }
   ]
 }

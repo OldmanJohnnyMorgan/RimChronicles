@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-15-late-content__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the Choir is not known for explaining itself\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Asserts a reputation for the Choir that the briefing does not give.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A clean, dry lead on the one new item, with wry callbacks that treat the old news as background and frame guesses as guesses. The only stretch is the unsupported claim about the Choir\u0027s reputation, and the archers line leans close to reusing the earlier bulletin\u0027s joke.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the Choir is not known for explaining itself\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022added characterisation of the faction\u0027s reputation, not in briefing, stated as fact\u0022},{\u0022span\u0022:\u0022Nobody has said why\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022unreported status; briefing does not say whether a reason was given\u0022},{\u0022span\u0022:\u0022A cult of two settlements asking after one man by name is rarely good news for the man\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied consequence stated as general fact\u0022},{\u0022span\u0022:\u0022which gives its new speaker plenty of tolls to lower, should she remember\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news (speaker\u0027s toll promise) in the briefing\u0027s background, though framed as a joke; it also relies on earlier bulletin detail\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Dry, consistent voice, and the lead item is correctly led with and the faction numbers are accurate. It loses points for several small unsupported assertions (the Choir\u0027s reputation, nobody explaining) and for leaning on earlier-bulletin jokes, and the second paragraph runs slightly long of what\u0027s needed, though it stays within the brief.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 4.9122758,
-      "inputTokens": 2748,
-      "outputTokens": 421
+      "latencySeconds": 3.7123482,
+      "inputTokens": 3419,
+      "outputTokens": 396
     }
   ]
 }

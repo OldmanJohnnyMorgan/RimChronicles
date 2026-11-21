@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-10-mid-strained__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate and well hedged: it leads with the ransom offer, treats the old captives and bounty strictly as background, and pads the quiet second item with real faction counts. The closing line about a busy summer is limp filler, and \u0027the rim is counting\u0027 is slightly muddled.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Federation\u0027s bounty on Stonecutter leaders still stands, as far as anyone has told me.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; hedged but presented as ongoing status the briefing does not report\u0022},{\u0022span\u0022:\u0022the summer looks set to stay busy\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022unsupported forecast stated as fact, though vague colour\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent and the lead item is correct, with guesses properly hedged. It is weakened by re-stating the old bounty news as an ongoing status and by a second item that is mostly padding from faction sizes. The item structure also falls short of the three-sentence paragraph format; the first paragraph is fine but the second blends two topics.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 4.5147215,
-      "inputTokens": 2784,
-      "outputTokens": 405
+      "latencySeconds": 2.5595909,
+      "inputTokens": 3455,
+      "outputTokens": 277
     }
   ]
 }

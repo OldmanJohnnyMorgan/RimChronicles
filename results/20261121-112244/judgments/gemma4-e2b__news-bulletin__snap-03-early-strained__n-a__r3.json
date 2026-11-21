@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-03-early-strained__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Ashen Hand remain where they are\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says nothing about the Ashen Hand\u0027s current movements or position.\u0022},{\u0022span\u0022:\u0022The current distribution of settlements remains unchanged.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies a comparison with an earlier count that the briefing never gives.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Readable and mostly grounded, but the Kinn item repeats the latest bulletin as if it were current news and echoes its sentences. The wit is thin and generic, and \\\u0022one assumes\\\u0022 is used twice; the settlement-count paragraph has no real joke.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Ashen Hand remain where they are\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing status not in briefing; implies no movement\u0022},{\u0022span\u0022:\u0022the Merrow Freeholds continue their cautious travel patterns\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as ongoing status; \u0027continue\u0027 not reported\u0022},{\u0022span\u0022:\u0022The Kinn of the Long Grass are reportedly moving due to grass fires in the south.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news from the latest bulletin as if current\u0022},{\u0022span\u0022:\u0022They claim they are not seeking conflict.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news from the latest bulletin\u0022},{\u0022span\u0022:\u0022The current distribution of settlements remains unchanged.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022comparison with an earlier state the briefing does not give\u0022},{\u0022span\u0022:\u0022The Merrow Freeholds maintain seven outposts.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says settlements, not outposts; minor wording shift\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Clear, but the second item re-presents the previous bulletin\u0027s Kinn story as current, and the status claims go beyond the briefing. The wit is thin and the third item is largely a flat restatement of numbers; it only lightly meets the dry-remark requirement.\\n\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.6708464,
-      "inputTokens": 2755,
-      "outputTokens": 581
+      "latencySeconds": 4.0165386,
+      "inputTokens": 3426,
+      "outputTokens": 455
     }
   ]
 }

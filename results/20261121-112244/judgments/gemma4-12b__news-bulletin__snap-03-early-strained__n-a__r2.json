@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-03-early-strained__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They are still moving\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The Kinn being on the move was old news; the briefing has nothing new on them, so asserting they are still moving states an inference as fact.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate on faction counts, but it breaks the format with four items, most only two sentences long, and reads like a list of statistics. The wit is thin and generic, and \\\u0022nothing is happening is still something\\\u0022 is clumsy, well short of the earlier bulletins\u0027 sharpness.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They seem content to sit on their loot rather than find new ways to ruin someone\u0027s afternoon.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022hedged with \u0027seem\u0027 but implies the Ashen Hand\u0027s current activity (idle, holding loot) that the briefing does not report\u0022},{\u0022span\u0022:\u0022They are still moving, presumably because staying still is less appealing than wandering.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027still moving\u0027 is an ongoing status the briefing does not report; the grass-fire move was in the earlier bulletin and the cause is only guessed\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Facts are accurate and the quiet week is handled sensibly, but it runs to four short items instead of 2 or 3. The wit is thin and generic, and the Kinn line implies an ongoing move the briefing does not report.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.4650169,
-      "inputTokens": 2715,
-      "outputTokens": 507
+      "latencySeconds": 3.5042157,
+      "inputTokens": 3386,
+      "outputTokens": 294
     }
   ]
 }

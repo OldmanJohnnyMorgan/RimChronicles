@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-08-mid-content__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022though history suggests otherwise\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies past crowd trouble at fairs that the briefing never mentions.\u0022},{\u0022span\u0022:\u0022They are still enjoying a productive fishing season.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Asserts the old fishing news is still true now, which the briefing does not say.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate and has a fair dry jab, but the second and third items just pad out old news and settlement counts with flat, repetitive phrasing (\u0027currently\u0027, \u0027still\u0027, \u0027as previously noted\u0027). The \u0027history suggests otherwise\u0027 line hints at events the briefing never gives.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They are currently hosting their trade fair as previously noted.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; briefing says the fair is being hosted, but \u0027currently\u0027 is an ongoing-status claim and earlier bulletin said it opens next week\u0022},{\u0022span\u0022:\u0022They are still enjoying a productive fishing season.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news and states ongoing status the briefing does not report\u0022},{\u0022span\u0022:\u0022It is a quiet week for the rim\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022unsupported stated claim about the whole rim; briefing gives no such characterization\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is faithful and dry, but the second and third items pad with old news and faction counts, and the ongoing-status claims are stated as fact. The humor is mild and the closing line is a bit generic.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 7.0967055,
-      "inputTokens": 2733,
-      "outputTokens": 584
+      "latencySeconds": 3.2001924,
+      "inputTokens": 3404,
+      "outputTokens": 302
     }
   ]
 }

@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e4b__news-bulletin__snap-06-early-content__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It seems even the Combine\u0027s bounty is a tempting target\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies the barge carried Combine grain; the briefing does not say whose barge it was.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The robbery leads correctly and the harvest callback is fair background, though the bulletin links the barge to the Combine without support. The quiet-week item is bland filler, and calling it a quiet week sits oddly after reporting a robbery.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Calder Combine maintains its five settlements, apparently content with their current state of affairs.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies ongoing status and contentment the briefing does not report; the \u0027apparently\u0027 hedge softens it\u0022},{\u0022span\u0022:\u0022It seems even the Combine\u0027s bounty is a tempting target for petty brigands.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the barge belonged to the Combine, which the briefing does not say; hedged with \u0027It seems\u0027 but still an implied owner\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice fits and the barge item is mostly accurate, with guesses properly hedged. But the second paragraph is thin and mostly restates faction sizes, and the item implies the Combine owned the barge without support. The report also has only two paragraphs and runs short of the requested length and sentence count per item.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.6515132,
-      "inputTokens": 2615,
-      "outputTokens": 596
+      "latencySeconds": 3.1547074,
+      "inputTokens": 3286,
+      "outputTokens": 305
     }
   ]
 }

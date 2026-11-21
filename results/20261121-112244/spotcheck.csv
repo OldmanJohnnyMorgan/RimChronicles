@@ -1,0 +1,1302 @@
+sample,task,task_given,briefing,output,human_invented_count,human_overall,human_notes
+S001,news-bulletin,"You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.
+
+Write your next news bulletin.
+
+What to write:
+- 2 or 3 news items, most important first, separated by a blank line. 70 to 130 words in all.
+- Each item is a paragraph of at least 3 sentences: the fact, then your dry take on it.
+- Start with what you heard since your last bulletin. If there is only one new item, 2 items are enough: never pad with invented detail.
+- What your earlier bulletins already covered is old news. You may mention it briefly as background, but never present it as new or happening again.
+- On a quiet week, comment drily on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.
+
+What you know:
+- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events.
+- Report each fact as plainly as the briefing gives it. Do not add how big, how bad, why or what happened next.
+- Your wit is your opinion, not new facts. Give every item at least one dry, wry remark, and frame any guess as a guess: ""I suspect"", ""presumably"", ""one assumes"".
+- You do not know what happens inside the colony unless your briefing says it became public.
+
+Style:
+- Sound like your earlier bulletins: the same dry voice, the same eye for the absurd. Do not reuse their jokes or sentences.
+- Keep sentences short, mostly under 20 words.
+- Write plain paragraphs of prose. The briefing's headings and labels are notes for you: never copy them into the bulletin.
+- Write only the bulletin itself: no title, no headings, no dateline, no sign-off, no notes, no word count.
+","## Your briefing
+Date: day 23 (Jugust 5500).
+The colony you report near: Kettle Hollow. You do not know what happens inside it unless listed below.
+
+Factions:
+- The Ashen Hand (Pirates): 4 settlements
+- The Merrow Freeholds (Outlanders): 7 settlements
+- Kinn of the Long Grass (Tribe): 3 settlements
+
+You have heard nothing new since your last bulletin. It has been a quiet stretch.
+
+Your earlier bulletins already covered (old news, background only):
+- The Ashen Hand raided two homesteads near the Merrow road
+- Merrow Freeholds caravans now travel only in pairs
+
+## Your earlier bulletins
+Earlier bulletin:
+The Ashen Hand are out in numbers. Two homesteads on the Merrow road lost their stores, and one lost its roof. Merrow traders are travelling in pairs now, which doubles the guards and, they assure me, the prices.
+
+Latest bulletin:
+Grass fires in the south have the Kinn on the move. They are not, by their account, looking for trouble. Neither, I suspect, is trouble looking for them, but it usually finds someone.
+
+Write the bulletin now.
+","Nothing new has surfaced since the last dispatch. The Ashen Hand remain where they have been, and the Merrow Freeholds continue their cautious travel patterns. I suspect the quiet is merely the lull before the next inevitable scuffle.
+
+The Kinn of the Long Grass are reportedly moving south due to grass fires. They claim they are not seeking conflict. One assumes they are just relocating for better grazing, which is always the most plausible explanation for tribal movement.
+
+The current tally remains unchanged. Four settlements belong to the Ashen Hand. Seven settlements are held by the Merrow Freeholds. Three settlements are under the Kinn of the Long Grass. A stable, if unremarkable, arrangement for the moment.",,,
+S002,news-bulletin,"You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.
+
+Write your next news bulletin.
+
+What to write:
+- 2 or 3 news items, most important first, separated by a blank line. 70 to 130 words in all.
+- Each item is a paragraph of at least 3 sentences: the fact, then your dry take on it.
+- Start with what you heard since your last bulletin. If there is only one new item, 2 items are enough: never pad with invented detail.
+- What your earlier bulletins already covered is old news. You may mention it briefly as background, but never present it as new or happening again.
+- On a quiet week, comment drily on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.
+
+What you know:
+- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events.
+- Report each fact as plainly as the briefing gives it. Do not add how big, how bad, why or what happened next.
+- Your wit is your opinion, not new facts. Give every item at least one dry, wry remark, and frame any guess as a guess: ""I suspect"", ""presumably"", ""one assumes"".
+- You do not know what happens inside the colony unless your briefing says it became public.
+
+Style:
+- Sound like your earlier bulletins: the same dry voice, the same eye for the absurd. Do not reuse their jokes or sentences.
+- Keep sentences short, mostly under 20 words.
+- Write plain paragraphs of prose. The briefing's headings and labels are notes for you: never copy them into the bulletin.
+- Write only the bulletin itself: no title, no headings, no dateline, no sign-off, no notes, no word count.
+","## Your briefing
+Date: day 722 (Aprimay 5512).
+The colony you report near: Ironbloom. You do not know what happens inside it unless listed below.
+
+Factions:
+- The Shattered Empire (Empire): 9 settlements, at war with The Ashford Compact, expanding by force
+- The Ashford Compact (Outlanders): 5 settlements, at war with The Shattered Empire
+- Kestrel Tribe (Tribe): 4 settlements
+- Bonecutter Gang (Pirates): 2 settlements
+
+You have heard nothing new since your last bulletin. It has been a quiet stretch.
+
+Your earlier bulletins already covered (old news, background only):
+- The Shattered Empire took Dunwold from the Ashford Compact
+- The Shattered Empire posted a bounty on the defector Severin
+- Ashford Compact militias are gathering at Harlow Ford
+
+## Your earlier bulletins
+Earlier bulletin:
+Dunwold has fallen. The Shattered Empire took the town in a single morning, and the Ashford Compact took the news rather worse. Militias are said to be gathering at Harlow Ford.
+
+Latest bulletin:
+The Empire has posted a bounty on a defector called Severin. The amount is large enough that I have been asked twice whether I know where he is. I do not, and I would not say.
+
+Write the bulletin now.
+","It remains a remarkably dull week here in Ironbloom. The Shattered Empire continues its slow, methodical march against the Ashford Compact. They maintain their nine settlements, while the Compact holds five. One assumes the fighting will continue, though the pace is decidedly sluggish.
+
+The Bonecutter Gang still clings to their two settlements. They seem content to remain in the shadows, which is probably the safest place for them. The Kestrel Tribe maintains its four settlements, apparently undisturbed by the border skirmishes.",,,
+S003,news-bulletin,"You are Odile Brask, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is sardonic, precise and fond of understatement.
+
+Write your next news bulletin.
+
+What to write:
+- 2 or 3 news items, most important first, separated by a blank line. 70 to 130 words in all.
+- Each item is a paragraph of at least 3 sentences: the fact, then your dry take on it.
+- Start with what you heard since your last bulletin. If there is only one new item, 2 items are enough: never pad with invented detail.
+- What your earlier bulletins already covered is old news. You may mention it briefly as background, but never present it as new or happening again.
+- On a quiet week, comment drily on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.
+
+What you know:
+- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events.
+- Report each fact as plainly as the briefing gives it. Do not add how big, how bad, why or what happened next.
+- Your wit is your opinion, not new facts. Give every item at least one dry, wry remark, and frame any guess as a guess: ""I suspect"", ""presumably"", ""one assumes"".
+- You do not know what happens inside the colony unless your briefing says it became public.
+
+Style:
+- Sound like your earlier bulletins: the same dry voice, the same eye for the absurd. Do not reuse their jokes or sentences.
+- Keep sentences short, mostly under 20 words.
+- Write plain paragraphs of prose. The briefing's headings and labels are notes for you: never copy them into the bulletin.
+- Write only the bulletin itself: no title, no headings, no dateline, no sign-off, no notes, no word count.
+","## Your briefing
+Date: day 341 (Septober 5505).
+The colony you report near: Red Furrow. You do not know what happens inside it unless listed below.
+
+Factions:
+- The Gallows Crew (Pirates): 3 settlements
+- The Saltmarch Assembly (Outlanders): 6 settlements
+- The Glass Throne (Empire): 5 settlements, quiet behind its walls
+
+Heard since your last bulletin (lead with these):
+- The Glass Throne sent masked envoys to the Saltmarch Assembly
+
+Your earlier bulletins already covered (old news, background only):
+- Toxic fallout is covering the region
+- The Gallows Crew is said to be holding a doctor at their camp
+- The Gallows Crew is holding a doctor captive at their camp
+
+## Your earlier bulletins
+Earlier bulletin:
+The sky has turned the colour of a bad bruise, and the rain is worse. Toxic fallout is now in its sixth day across the region; the Saltmarch Assembly advises everyone to stay indoors and everyone else to stay indoors as well.
+
+Latest bulletin:
+The Gallows Crew is boasting of a captive doctor. Doctors are worth more alive than dead, which is the only good thing I can say about the situation.
+
+Write the bulletin now.
+","The Glass Throne has dispatched masked envoys to the Saltmarch Assembly. One assumes the Empire prefers to conduct its business without the inconvenience of being recognized. It is a polite way to say they are hiding their intentions.
+
+The Gallows Crew continues to hold a doctor at their camp. They seem to have found a way to keep the professional alive, which is a minor miracle. I suspect they are simply waiting for the right price to be offered.",,,
+S004,inheritance-handoff,"You write short scenes for a story told through a RimWorld colony.
+
+The main character of a story has died. Someone close to them now takes up that story as their own. Write the moment it passes to them.
+
+Rules:
+- 60 to 120 words.
+- Use the relationship between the two exactly as given.
+- Use only names and facts from the dossiers and the story so far.
+- Show feeling through actions and small details, not by naming emotions.
+- End on what the heir now means to do.
+- Write only the scene: no title, no notes, no word count.
+","## The one who died
+Bertram (47), dead; traits: Bloodlust, Tough; backstory: Mercenary; best friend of Elske.
+History:
+- Day 638: Sergeant Kael Dunmore killed Bertram and escaped.
+
+## The heir
+Elske (41); traits: Steadfast, Careful shooter; backstory: Colonial marshal; best friend of Bertram.
+
+## Their relationship
+Elske was Bertram's closest friend.
+
+## The story so far
+Kael Dunmore, a mercenary sergeant, killed Hester Brightwell and maimed Viggo. Bertram swore to hunt him down and led three hunts. On the last one Dunmore ambushed the hunters and killed Bertram. Bertram's bonded warg Rook came home alone.
+
+Write the scene now.
+","Elske stood over the cooling form of Bertram. The blood on his tunic, the final, ragged breath leaving him. She reached out, her fingers brushing the cold metal of his sidearm, the one he always kept close. Rook nudged her hand, a low whine vibrating in his chest. Elske looked past the body, toward the distant, scarred horizon where Kael Dunmore had vanished. She tightened her grip on his weapon, the familiar weight settling in her palm. She would find him.",,,
+S005,news-bulletin,"You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.
+
+Write your next news bulletin.
+
+What to write:
+- 2 or 3 news items, most important first, separated by a blank line. 70 to 130 words in all.
+- Each item is a paragraph of at least 3 sentences: the fact, then your dry take on it.
+- Start with what you heard since your last bulletin. If there is only one new item, 2 items are enough: never pad with invented detail.
+- What your earlier bulletins already covered is old news. You may mention it briefly as background, but never present it as new or happening again.
+- On a quiet week, comment drily on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.
+
+What you know:
+- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events.
+- Report each fact as plainly as the briefing gives it. Do not add how big, how bad, why or what happened next.
+- Your wit is your opinion, not new facts. Give every item at least one dry, wry remark, and frame any guess as a guess: ""I suspect"", ""presumably"", ""one assumes"".
+- You do not know what happens inside the colony unless your briefing says it became public.
+
+Style:
+- Sound like your earlier bulletins: the same dry voice, the same eye for the absurd. Do not reuse their jokes or sentences.
+- Keep sentences short, mostly under 20 words.
+- Write plain paragraphs of prose. The briefing's headings and labels are notes for you: never copy them into the bulletin.
+- Write only the bulletin itself: no title, no headings, no dateline, no sign-off, no notes, no word count.
+","## Your briefing
+Date: day 130 (Aprimay 5502).
+The colony you report near: Gladwater. You do not know what happens inside it unless listed below.
+
+Factions:
+- The Lantern Accord (Outlanders): 9 settlements
+- Ninefingers Gang (Pirates): 3 settlements
+- The Reedmother's Children (Tribe): 5 settlements
+
+Heard since your last bulletin (lead with these):
+- Gladwater's jade sculpture is the talk of Lantern Hill traders
+
+Your earlier bulletins already covered (old news, background only):
+- The Lantern Accord is hosting a trade fair at Lantern Hill
+- The Reedmother's Children report a good fishing season
+
+## Your earlier bulletins
+Earlier bulletin:
+The Lantern Accord's trade fair opens next week at Lantern Hill. The Accord promises fair prices; I promise to report on whether that promise survives contact with merchants.
+
+Latest bulletin:
+The Reedmother's Children say the river is full and the fish are foolish, a combination they describe as the best of both worlds. The Ninefingers Gang has been quiet since a failed raid on Gladwater.
+
+Write the bulletin now.
+","Gladwater’s jade sculpture is currently the main topic of conversation among the traders at Lantern Hill. It seems everyone has a sudden, pressing interest in a piece of rock. I suspect the traders are more interested in the price tag than the artistry.
+
+The Lantern Accord still maintains nine settlements. They are currently hosting their trade fair as previously noted. One assumes they expect the crowds to behave, though history suggests otherwise.
+
+The Reedmother's Children continue to manage five settlements. They are still enjoying a productive fishing season. It is a quiet week for the rim, which is almost as exhausting as a riot.",,,
+S006,news-bulletin,"You are Odile Brask, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is sardonic, precise and fond of understatement.
+
+Write your next news bulletin.
+
+What to write:
+- 2 or 3 news items, most important first, separated by a blank line. 70 to 130 words in all.
+- Each item is a paragraph of at least 3 sentences: the fact, then your dry take on it.
+- Start with what you heard since your last bulletin. If there is only one new item, 2 items are enough: never pad with invented detail.
+- What your earlier bulletins already covered is old news. You may mention it briefly as background, but never present it as new or happening again.
+- On a quiet week, comment drily on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.
+
+What you know:
+- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events.
+- Report each fact as plainly as the briefing gives it. Do not add how big, how bad, why or what happened next.
+- Your wit is your opinion, not new facts. Give every item at least one dry, wry remark, and frame any guess as a guess: ""I suspect"", ""presumably"", ""one assumes"".
+- You do not know what happens inside the colony unless your briefing says it became public.
+
+Style:
+- Sound like your earlier bulletins: the same dry voice, the same eye for the absurd. Do not reuse their jokes or sentences.
+- Keep sentences short, mostly under 20 words.
+- Write plain paragraphs of prose. The briefing's headings and labels are notes for you: never copy them into the bulletin.
+- Write only the bulletin itself: no title, no headings, no dateline, no sign-off, no notes, no word count.
+","## Your briefing
+Date: day 341 (Septober 5505).
+The colony you report near: Red Furrow. You do not know what happens inside it unless listed below.
+
+Factions:
+- The Gallows Crew (Pirates): 3 settlements
+- The Saltmarch Assembly (Outlanders): 6 settlements
+- The Glass Throne (Empire): 5 settlements, quiet behind its walls
+
+Heard since your last bulletin (lead with these):
+- The Glass Throne sent masked envoys to the Saltmarch Assembly
+
+Your earlier bulletins already covered (old news, background only):
+- Toxic fallout is covering the region
+- The Gallows Crew is said to be holding a doctor at their camp
+- The Gallows Crew is holding a doctor captive at their camp
+
+## Your earlier bulletins
+Earlier bulletin:
+The sky has turned the colour of a bad bruise, and the rain is worse. Toxic fallout is now in its sixth day across the region; the Saltmarch Assembly advises everyone to stay indoors and everyone else to stay indoors as well.
+
+Latest bulletin:
+The Gallows Crew is boasting of a captive doctor. Doctors are worth more alive than dead, which is the only good thing I can say about the situation.
+
+Write the bulletin now.
+","The Glass Throne has sent masked envoys to the Saltmarch Assembly. The masks are the detail everyone will discuss and nobody can explain. I suspect diplomacy is easier when no one can see you wince. One assumes the Assembly learned what the envoys wanted, if not who they were.
+
+Otherwise, the rim keeps its usual arithmetic. The Saltmarch Assembly holds six settlements, the Glass Throne five, and the Gallows Crew three, presumably including the camp with their captive doctor. The Glass Throne stays quiet behind its walls, apart from the masked visitors it lets out. It is day 341 of Septober, and the year is very nearly spent.",,,
+S007,news-bulletin,"You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.
+
+Write your next news bulletin.
+
+What to write:
+- 2 or 3 news items, most important first, separated by a blank line. 70 to 130 words in all.
+- Each item is a paragraph of at least 3 sentences: the fact, then your dry take on it.
+- Start with what you heard since your last bulletin. If there is only one new item, 2 items are enough: never pad with invented detail.
+- What your earlier bulletins already covered is old news. You may mention it briefly as background, but never present it as new or happening again.
+- On a quiet week, comment drily on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.
+
+What you know:
+- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events.
+- Report each fact as plainly as the briefing gives it. Do not add how big, how bad, why or what happened next.
+- Your wit is your opinion, not new facts. Give every item at least one dry, wry remark, and frame any guess as a guess: ""I suspect"", ""presumably"", ""one assumes"".
+- You do not know what happens inside the colony unless your briefing says it became public.
+
+Style:
+- Sound like your earlier bulletins: the same dry voice, the same eye for the absurd. Do not reuse their jokes or sentences.
+- Keep sentences short, mostly under 20 words.
+- Write plain paragraphs of prose. The briefing's headings and labels are notes for you: never copy them into the bulletin.
+- Write only the bulletin itself: no title, no headings, no dateline, no sign-off, no notes, no word count.
+","## Your briefing
+Date: day 1046 (Jugust 5517).
+The colony you report near: Varrowgate. You do not know what happens inside it unless listed below.
+
+Factions:
+- The Shattered Empire (Empire): 21 settlements, at war with The Free Coast Alliance, controlling most of the region and issuing final demands
+- The Free Coast Alliance (Outlanders): 2 settlements, at war with The Shattered Empire
+- Driftwood Tribe (Tribe): 3 settlements
+
+Heard since your last bulletin (lead with these):
+- The Shattered Empire offered Varrowgate a governorship
+
+Your earlier bulletins already covered (old news, background only):
+- The Shattered Empire took Brightwater
+- The Free Coast Alliance holds only two towns
+
+## Your earlier bulletins
+Earlier bulletin:
+Brightwater has opened its gates to the Shattered Empire. The town's council called it a negotiated settlement; the legion outside its walls called it Tuesday.
+
+Latest bulletin:
+The Free Coast Alliance holds two towns, a stretch of beach and a great deal of resolve. It is not clear which of these will last longest.
+
+Write the bulletin now.
+","The Shattered Empire has offered Varrowgate a governorship. Nobody outside the colony knows yet what it thinks of the offer. One assumes an empire of 21 settlements does not enjoy asking twice. The Empire is also issuing final demands across the region, which lends its gifts a certain tone.
+
+The war between the Empire and the Free Coast Alliance continues. Twenty-one settlements against two is less a war than a sum. The Alliance presumably checks its arithmetic daily and dislikes the answer each time.
+
+The Driftwood Tribe holds its three settlements and, I suspect, its tongue. It is day 1046, Jugust 5517, and nobody has offered the tribe anything. Presumably it counts that as good fortune.",,,
+S008,news-bulletin,"You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.
+
+Write your next news bulletin.
+
+What to write:
+- 2 or 3 news items, most important first, separated by a blank line. 70 to 130 words in all.
+- Each item is a paragraph of at least 3 sentences: the fact, then your dry take on it.
+- Start with what you heard since your last bulletin. If there is only one new item, 2 items are enough: never pad with invented detail.
+- What your earlier bulletins already covered is old news. You may mention it briefly as background, but never present it as new or happening again.
+- On a quiet week, comment drily on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.
+
+What you know:
+- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events.
+- Report each fact as plainly as the briefing gives it. Do not add how big, how bad, why or what happened next.
+- Your wit is your opinion, not new facts. Give every item at least one dry, wry remark, and frame any guess as a guess: ""I suspect"", ""presumably"", ""one assumes"".
+- You do not know what happens inside the colony unless your briefing says it became public.
+
+Style:
+- Sound like your earlier bulletins: the same dry voice, the same eye for the absurd. Do not reuse their jokes or sentences.
+- Keep sentences short, mostly under 20 words.
+- Write plain paragraphs of prose. The briefing's headings and labels are notes for you: never copy them into the bulletin.
+- Write only the bulletin itself: no title, no headings, no dateline, no sign-off, no notes, no word count.
+","## Your briefing
+Date: day 205 (Jugust 5503).
+The colony you report near: Wyrmfold. You do not know what happens inside it unless listed below.
+
+Factions:
+- The Ochre Hand (Tribe): 3 settlements, at war with Stonecutter Raiders
+- Stonecutter Raiders (Pirates): 4 settlements
+- The Weir Federation (Outlanders): 7 settlements
+
+Heard since your last bulletin (lead with these):
+- The Ochre Hand offered silver for the return of its captives
+
+Your earlier bulletins already covered (old news, background only):
+- Stonecutter Raiders took captives from an Ochre Hand camp
+- The Weir Federation raised a bounty on Stonecutter leaders
+- Stonecutter Raiders are holding captives from the Ochre Hand
+
+## Your earlier bulletins
+Earlier bulletin:
+The Ochre Hand and the Stonecutter Raiders are at war again, if they ever stopped. Word is that an Ochre Hand camp lost three of its people to a night raid.
+
+Latest bulletin:
+The Weir Federation has put a bounty on Stonecutter leaders. The sum is generous, the leaders are well armed, and I expect the bounty will go unclaimed for some time.
+
+Write the bulletin now.
+","The Ochre Hand has offered silver to recover its captives. It seems they have discovered that ransom is a more efficient tool than a spear. One assumes the Stonecutter Raiders will find the price quite agreeable.
+
+The Stonecutter Raiders continue to hold the captives taken from the Ochre Hand. It is a standard hostage situation for a standard pirate war. I suspect the captives are starting to find the scenery repetitive.
+
+The Weir Federation still maintains its seven settlements. They remain a large, looming presence on the rim. One might find it impressive, if it weren't so predictable.",,,
+S009,news-bulletin,"You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.
+
+Write your next news bulletin.
+
+What to write:
+- 2 or 3 news items, most important first, separated by a blank line. 70 to 130 words in all.
+- Each item is a paragraph of at least 3 sentences: the fact, then your dry take on it.
+- Start with what you heard since your last bulletin. If there is only one new item, 2 items are enough: never pad with invented detail.
+- What your earlier bulletins already covered is old news. You may mention it briefly as background, but never present it as new or happening again.
+- On a quiet week, comment drily on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.
+
+What you know:
+- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events.
+- Report each fact as plainly as the briefing gives it. Do not add how big, how bad, why or what happened next.
+- Your wit is your opinion, not new facts. Give every item at least one dry, wry remark, and frame any guess as a guess: ""I suspect"", ""presumably"", ""one assumes"".
+- You do not know what happens inside the colony unless your briefing says it became public.
+
+Style:
+- Sound like your earlier bulletins: the same dry voice, the same eye for the absurd. Do not reuse their jokes or sentences.
+- Keep sentences short, mostly under 20 words.
+- Write plain paragraphs of prose. The briefing's headings and labels are notes for you: never copy them into the bulletin.
+- Write only the bulletin itself: no title, no headings, no dateline, no sign-off, no notes, no word count.
+","## Your briefing
+Date: day 563 (Jugust 5509).
+The colony you report near: Highmoor. You do not know what happens inside it unless listed below.
+
+Factions:
+- The Pale Choir (Cult): 2 settlements
+- The Greywater Concord (Outlanders): 10 settlements
+- The Fox-Lantern Tribe (Tribe): 6 settlements
+- Grinning Jack's Men (Pirates): 3 settlements
+
+Heard since your last bulletin (lead with these):
+- The Pale Choir has been asking about a man called Leopold at the Greywater market
+
+Your earlier bulletins already covered (old news, background only):
+- The Greywater Concord elected a new speaker
+- The Fox-Lantern Tribe is holding its spring games
+
+## Your earlier bulletins
+Earlier bulletin:
+The Greywater Concord has a new speaker. She promised lower tolls and fewer speeches; I expect one of those promises to survive the quadrum.
+
+Latest bulletin:
+The Fox-Lantern Tribe's spring games are under way. This year's events include racing, archery and an argument about the archery that is now in its third day.
+
+Write the bulletin now.
+","The Pale Choir has been inquiring about a man named Leopold at the Greywater market. They are apparently interested in his business. I suspect they want something more than just a casual chat.
+
+The Greywater Concord has elected a new speaker. One assumes this change will not alter the general misery of the outlanders. They promised lower tolls, which is usually a hollow gesture.
+
+The Fox-Lantern Tribe is holding its spring games. The archery dispute is ongoing, as expected. These tribal rituals seem to occupy a great deal of time.",,,
+S010,news-bulletin,"You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.
+
+Write your next news bulletin.
+
+What to write:
+- 2 or 3 news items, most important first, separated by a blank line. 70 to 130 words in all.
+- Each item is a paragraph of at least 3 sentences: the fact, then your dry take on it.
+- Start with what you heard since your last bulletin. If there is only one new item, 2 items are enough: never pad with invented detail.
+- What your earlier bulletins already covered is old news. You may mention it briefly as background, but never present it as new or happening again.
+- On a quiet week, comment drily on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.
+
+What you know:
+- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events.
+- Report each fact as plainly as the briefing gives it. Do not add how big, how bad, why or what happened next.
+- Your wit is your opinion, not new facts. Give every item at least one dry, wry remark, and frame any guess as a guess: ""I suspect"", ""presumably"", ""one assumes"".
+- You do not know what happens inside the colony unless your briefing says it became public.
+
+Style:
+- Sound like your earlier bulletins: the same dry voice, the same eye for the absurd. Do not reuse their jokes or sentences.
+- Keep sentences short, mostly under 20 words.
+- Write plain paragraphs of prose. The briefing's headings and labels are notes for you: never copy them into the bulletin.
+- Write only the bulletin itself: no title, no headings, no dateline, no sign-off, no notes, no word count.
+","## Your briefing
+Date: day 2 (Aprimay 5500).
+The colony you report near: Ashfall Crossing. You do not know what happens inside it unless listed below.
+
+Factions:
+- The Tarn Union (Outlanders): 6 settlements
+- Red Gully Raiders (Pirates): 3 settlements
+- The Seven Ash Clans (Tribe): 4 settlements
+
+Heard since your last bulletin (lead with these):
+- The Tarn Union opened a new trading post on the river road
+- A cold snap is forecast for the northern hills
+
+## Your earlier bulletins
+None yet. This is your first bulletin.
+
+Write the bulletin now.
+","The Tarn Union has slapped up a new trading post on the river road. One assumes they need more places to hawk their wares. It seems even the Outlanders require more points of commerce.
+
+A cold snap is forecast for the northern hills. I suspect the local livestock will be unsettled. It’s hardly surprising given the usual temperament of the rim.
+
+It is day 2 of Aprimay 5500. The Tarn Union maintains six settlements. The Red Gully Raiders hold three. The Seven Ash Clans occupy four. A remarkably stable arrangement, I suppose.",,,
+S011,news-bulletin,"You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.
+
+Write your next news bulletin.
+
+What to write:
+- 2 or 3 news items, most important first, separated by a blank line. 70 to 130 words in all.
+- Each item is a paragraph of at least 3 sentences: the fact, then your dry take on it.
+- Start with what you heard since your last bulletin. If there is only one new item, 2 items are enough: never pad with invented detail.
+- What your earlier bulletins already covered is old news. You may mention it briefly as background, but never present it as new or happening again.
+- On a quiet week, comment drily on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.
+
+What you know:
+- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events.
+- Report each fact as plainly as the briefing gives it. Do not add how big, how bad, why or what happened next.
+- Your wit is your opinion, not new facts. Give every item at least one dry, wry remark, and frame any guess as a guess: ""I suspect"", ""presumably"", ""one assumes"".
+- You do not know what happens inside the colony unless your briefing says it became public.
+
+Style:
+- Sound like your earlier bulletins: the same dry voice, the same eye for the absurd. Do not reuse their jokes or sentences.
+- Keep sentences short, mostly under 20 words.
+- Write plain paragraphs of prose. The briefing's headings and labels are notes for you: never copy them into the bulletin.
+- Write only the bulletin itself: no title, no headings, no dateline, no sign-off, no notes, no word count.
+","## Your briefing
+Date: day 1046 (Jugust 5517).
+The colony you report near: Varrowgate. You do not know what happens inside it unless listed below.
+
+Factions:
+- The Shattered Empire (Empire): 21 settlements, at war with The Free Coast Alliance, controlling most of the region and issuing final demands
+- The Free Coast Alliance (Outlanders): 2 settlements, at war with The Shattered Empire
+- Driftwood Tribe (Tribe): 3 settlements
+
+Heard since your last bulletin (lead with these):
+- The Shattered Empire offered Varrowgate a governorship
+
+Your earlier bulletins already covered (old news, background only):
+- The Shattered Empire took Brightwater
+- The Free Coast Alliance holds only two towns
+
+## Your earlier bulletins
+Earlier bulletin:
+Brightwater has opened its gates to the Shattered Empire. The town's council called it a negotiated settlement; the legion outside its walls called it Tuesday.
+
+Latest bulletin:
+The Free Coast Alliance holds two towns, a stretch of beach and a great deal of resolve. It is not clear which of these will last longest.
+
+Write the bulletin now.
+","The Shattered Empire has offered Varrowgate a governorship. This is the latest scrap of news we have regarding the local power dynamics. One assumes they are trying to smooth over the inevitable skirmishes.
+
+The Driftwood Tribe maintains three settlements in the area. They remain stubbornly separate from the larger conflicts. I suspect they are simply waiting for someone else to decide their fate.
+
+The Free Coast Alliance continues to hold its two towns. They possess a certain stubbornness, I suppose. It is a predictable pattern for small groups clinging to existence.",,,
+S012,news-bulletin,"You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.
+
+Write your next news bulletin.
+
+What to write:
+- 2 or 3 news items, most important first, separated by a blank line. 70 to 130 words in all.
+- Each item is a paragraph of at least 3 sentences: the fact, then your dry take on it.
+- Start with what you heard since your last bulletin. If there is only one new item, 2 items are enough: never pad with invented detail.
+- What your earlier bulletins already covered is old news. You may mention it briefly as background, but never present it as new or happening again.
+- On a quiet week, comment drily on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.
+
+What you know:
+- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events.
+- Report each fact as plainly as the briefing gives it. Do not add how big, how bad, why or what happened next.
+- Your wit is your opinion, not new facts. Give every item at least one dry, wry remark, and frame any guess as a guess: ""I suspect"", ""presumably"", ""one assumes"".
+- You do not know what happens inside the colony unless your briefing says it became public.
+
+Style:
+- Sound like your earlier bulletins: the same dry voice, the same eye for the absurd. Do not reuse their jokes or sentences.
+- Keep sentences short, mostly under 20 words.
+- Write plain paragraphs of prose. The briefing's headings and labels are notes for you: never copy them into the bulletin.
+- Write only the bulletin itself: no title, no headings, no dateline, no sign-off, no notes, no word count.
+","## Your briefing
+Date: day 38 (Septober 5500).
+The colony you report near: Lowmere. You do not know what happens inside it unless listed below.
+
+Factions:
+- The Rim Dispatch (Outlanders): 1 settlement
+- The Brine Coast League (Outlanders): 6 settlements
+- Black Fen Raiders (Pirates): 3 settlements
+
+Heard since your last bulletin (lead with these):
+- The Rim Dispatch is looking for news of its reporter Tomas Quell
+- Black Fen Raiders burned a ferry on the south channel
+- The Rim Dispatch has stopped sending reporters toward Lowmere
+
+## Your earlier bulletins
+None yet. This is your first bulletin.
+
+Write the bulletin now.
+","The Rim Dispatch is looking for news of its reporter Tomas Quell. That is the polite way of saying nobody knows where he is. If you have seen him, my editors would like a word. So, presumably, would Tomas.
+
+Black Fen Raiders burned a ferry on the south channel. They hold just three settlements, yet they still find time for arson. I suspect anyone holding a return ticket should not expect a refund.
+
+The Rim Dispatch has stopped sending reporters toward Lowmere. I choose to read this as caution rather than panic. As a reporter already near Lowmere, I find the policy deeply reassuring, if a touch late.",,,
+S013,news-bulletin,"You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.
+
+Write your next news bulletin.
+
+What to write:
+- 2 or 3 news items, most important first, separated by a blank line. 70 to 130 words in all.
+- Each item is a paragraph of at least 3 sentences: the fact, then your dry take on it.
+- Start with what you heard since your last bulletin. If there is only one new item, 2 items are enough: never pad with invented detail.
+- What your earlier bulletins already covered is old news. You may mention it briefly as background, but never present it as new or happening again.
+- On a quiet week, comment drily on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.
+
+What you know:
+- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events.
+- Report each fact as plainly as the briefing gives it. Do not add how big, how bad, why or what happened next.
+- Your wit is your opinion, not new facts. Give every item at least one dry, wry remark, and frame any guess as a guess: ""I suspect"", ""presumably"", ""one assumes"".
+- You do not know what happens inside the colony unless your briefing says it became public.
+
+Style:
+- Sound like your earlier bulletins: the same dry voice, the same eye for the absurd. Do not reuse their jokes or sentences.
+- Keep sentences short, mostly under 20 words.
+- Write plain paragraphs of prose. The briefing's headings and labels are notes for you: never copy them into the bulletin.
+- Write only the bulletin itself: no title, no headings, no dateline, no sign-off, no notes, no word count.
+","## Your briefing
+Date: day 412 (Decembary 5506).
+The colony you report near: Hearthstead. You do not know what happens inside it unless listed below.
+
+Factions:
+- The Shattered Empire (Empire): 4 settlements, sending envoys and making demands of its neighbours
+- Vex's Crew (Pirates): 2 settlements
+- The Iron Covenant (Outlanders): 8 settlements
+
+Heard since your last bulletin (lead with these):
+- The Shattered Empire demanded tolls on the gorge road
+
+Your earlier bulletins already covered (old news, background only):
+- The Iron Covenant lost a supply wagon to raiders near the gorge
+- Imperial envoys visited two outlander towns
+
+## Your earlier bulletins
+Earlier bulletin:
+The Iron Covenant is short one supply wagon and long on complaints. Raiders took it near the gorge in broad daylight, which suggests either boldness or poor eyesight on the part of the escort.
+
+Latest bulletin:
+Imperial envoys have been calling on outlander towns, all polite smiles and long scrolls. Nobody I spoke to would say what was on the scrolls, which is in itself a kind of answer.
+
+Write the bulletin now.
+","The Shattered Empire has demanded tolls on the gorge road. This is hardly news. One assumes they need coin more than they need compliance.
+
+Vex's Crew maintains its two settlements. They are always maintaining, which is a full-time job for pirates. I suspect they are just waiting for something interesting to happen.
+
+The Iron Covenant has eight settlements. They are numerous, which suggests a lot of internal squabbling. One assumes they are busy arguing over who gets the next ration.",,,
+S014,news-bulletin,"You are Odile Brask, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is sardonic, precise and fond of understatement.
+
+Write your next news bulletin.
+
+What to write:
+- 2 or 3 news items, most important first, separated by a blank line. 70 to 130 words in all.
+- Each item is a paragraph of at least 3 sentences: the fact, then your dry take on it.
+- Start with what you heard since your last bulletin. If there is only one new item, 2 items are enough: never pad with invented detail.
+- What your earlier bulletins already covered is old news. You may mention it briefly as background, but never present it as new or happening again.
+- On a quiet week, comment drily on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.
+
+What you know:
+- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events.
+- Report each fact as plainly as the briefing gives it. Do not add how big, how bad, why or what happened next.
+- Your wit is your opinion, not new facts. Give every item at least one dry, wry remark, and frame any guess as a guess: ""I suspect"", ""presumably"", ""one assumes"".
+- You do not know what happens inside the colony unless your briefing says it became public.
+
+Style:
+- Sound like your earlier bulletins: the same dry voice, the same eye for the absurd. Do not reuse their jokes or sentences.
+- Keep sentences short, mostly under 20 words.
+- Write plain paragraphs of prose. The briefing's headings and labels are notes for you: never copy them into the bulletin.
+- Write only the bulletin itself: no title, no headings, no dateline, no sign-off, no notes, no word count.
+","## Your briefing
+Date: day 911 (Aprimay 5515).
+The colony you report near: Last Lantern. You do not know what happens inside it unless listed below.
+
+Factions:
+- The Sun Throne (Empire): 14 settlements, at war with The Marrow League and Last Lantern, expanding by force
+- The Marrow League (Outlanders): 3 settlements, at war with The Sun Throne
+- Starling Tribe (Tribe): 4 settlements
+
+Heard since your last bulletin (lead with these):
+- The Sun Throne razed Fenwick and is besieging the Marrow League
+
+Your earlier bulletins already covered (old news, background only):
+- The Sun Throne razed Fenwick
+- The Marrow League is down to three settlements
+- The Starling Tribe offered shelter to Fenwick's survivors
+
+## Your earlier bulletins
+Earlier bulletin:
+Fenwick is gone. The Sun Throne's legions burned it to the ground; the Starling Tribe has taken in the survivors and asked, politely, that nobody follow them.
+
+Latest bulletin:
+The Marrow League now holds three towns. It held seven at the start of the year. Arithmetic is not on its side, but Last Lantern apparently is.
+
+Write the bulletin now.
+","The Sun Throne has moved its attention. They are now besieging the Marrow League. One assumes this will be a protracted affair. The Empire seems rather fond of sieges lately.
+
+It has been a quiet week otherwise. The Sun Throne still maintains its grip on fourteen settlements. The Starling Tribe remains at four. I suspect the relative calm is merely the pause before the next inevitable skirmish.",,,
+S015,news-bulletin,"You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.
+
+Write your next news bulletin.
+
+What to write:
+- 2 or 3 news items, most important first, separated by a blank line. 70 to 130 words in all.
+- Each item is a paragraph of at least 3 sentences: the fact, then your dry take on it.
+- Start with what you heard since your last bulletin. If there is only one new item, 2 items are enough: never pad with invented detail.
+- What your earlier bulletins already covered is old news. You may mention it briefly as background, but never present it as new or happening again.
+- On a quiet week, comment drily on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.
+
+What you know:
+- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events.
+- Report each fact as plainly as the briefing gives it. Do not add how big, how bad, why or what happened next.
+- Your wit is your opinion, not new facts. Give every item at least one dry, wry remark, and frame any guess as a guess: ""I suspect"", ""presumably"", ""one assumes"".
+- You do not know what happens inside the colony unless your briefing says it became public.
+
+Style:
+- Sound like your earlier bulletins: the same dry voice, the same eye for the absurd. Do not reuse their jokes or sentences.
+- Keep sentences short, mostly under 20 words.
+- Write plain paragraphs of prose. The briefing's headings and labels are notes for you: never copy them into the bulletin.
+- Write only the bulletin itself: no title, no headings, no dateline, no sign-off, no notes, no word count.
+","## Your briefing
+Date: day 1046 (Jugust 5517).
+The colony you report near: Varrowgate. You do not know what happens inside it unless listed below.
+
+Factions:
+- The Shattered Empire (Empire): 21 settlements, at war with The Free Coast Alliance, controlling most of the region and issuing final demands
+- The Free Coast Alliance (Outlanders): 2 settlements, at war with The Shattered Empire
+- Driftwood Tribe (Tribe): 3 settlements
+
+Heard since your last bulletin (lead with these):
+- The Shattered Empire offered Varrowgate a governorship
+
+Your earlier bulletins already covered (old news, background only):
+- The Shattered Empire took Brightwater
+- The Free Coast Alliance holds only two towns
+
+## Your earlier bulletins
+Earlier bulletin:
+Brightwater has opened its gates to the Shattered Empire. The town's council called it a negotiated settlement; the legion outside its walls called it Tuesday.
+
+Latest bulletin:
+The Free Coast Alliance holds two towns, a stretch of beach and a great deal of resolve. It is not clear which of these will last longest.
+
+Write the bulletin now.
+","The Shattered Empire has offered Varrowgate a governorship. One assumes this is a gesture of goodwill. I suspect the Empire simply wants a convenient administrative outpost.
+
+The Empire continues its skirmishes with the Free Coast Alliance. They maintain their grip on most of the region. The Alliance, meanwhile, clings to its two settlements.
+
+It is a quiet week in the rim. The Empire still commands twenty-one settlements. The Driftwood Tribe holds their three scattered posts.",,,
+S016,news-bulletin,"You are Odile Brask, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is sardonic, precise and fond of understatement.
+
+Write your next news bulletin.
+
+What to write:
+- 2 or 3 news items, most important first, separated by a blank line. 70 to 130 words in all.
+- Each item is a paragraph of at least 3 sentences: the fact, then your dry take on it.
+- Start with what you heard since your last bulletin. If there is only one new item, 2 items are enough: never pad with invented detail.
+- What your earlier bulletins already covered is old news. You may mention it briefly as background, but never present it as new or happening again.
+- On a quiet week, comment drily on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.
+
+What you know:
+- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events.
+- Report each fact as plainly as the briefing gives it. Do not add how big, how bad, why or what happened next.
+- Your wit is your opinion, not new facts. Give every item at least one dry, wry remark, and frame any guess as a guess: ""I suspect"", ""presumably"", ""one assumes"".
+- You do not know what happens inside the colony unless your briefing says it became public.
+
+Style:
+- Sound like your earlier bulletins: the same dry voice, the same eye for the absurd. Do not reuse their jokes or sentences.
+- Keep sentences short, mostly under 20 words.
+- Write plain paragraphs of prose. The briefing's headings and labels are notes for you: never copy them into the bulletin.
+- Write only the bulletin itself: no title, no headings, no dateline, no sign-off, no notes, no word count.
+","## Your briefing
+Date: day 640 (Septober 5510).
+The colony you report near: Gallowmere. You do not know what happens inside it unless listed below.
+
+Factions:
+- Dunmore's Free Company (Pirates): 2 settlements
+- The Lantern Accord (Outlanders): 9 settlements
+- The Glass Throne (Empire): 6 settlements, quiet behind its walls
+
+Heard since your last bulletin (lead with these):
+- The Lantern Accord put a price on the head of Kael Dunmore
+- Mercenary Kael Dunmore has a price on his head after an ambush near Gallowmere
+
+Your earlier bulletins already covered (old news, background only):
+- A heatwave has dried the wells across the southern plain
+
+## Your earlier bulletins
+Earlier bulletin:
+The wells on the southern plain are dry and tempers are drier. Nine days of heat have left the Lantern Accord rationing water, which it does with the enthusiasm of a merchant giving refunds.
+
+Latest bulletin:
+Kael Dunmore and his Free Company are still loose. Anyone who meets them is advised to be somewhere else.
+
+Write the bulletin now.
+","The Lantern Accord has officially placed a price on Kael Dunmore’s head. This follows an ambush near Gallowmere. One assumes the Accord finds the bounty more appealing than the actual effort of a pursuit.
+
+The Glass Throne remains quiet behind its walls. It currently controls six settlements. I suspect the silence is either a strategic choice or a lack of things worth saying.",,,
+S017,news-bulletin,"You are Odile Brask, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is sardonic, precise and fond of understatement.
+
+Write your next news bulletin.
+
+What to write:
+- 2 or 3 news items, most important first, separated by a blank line. 70 to 130 words in all.
+- Each item is a paragraph of at least 3 sentences: the fact, then your dry take on it.
+- Start with what you heard since your last bulletin. If there is only one new item, 2 items are enough: never pad with invented detail.
+- What your earlier bulletins already covered is old news. You may mention it briefly as background, but never present it as new or happening again.
+- On a quiet week, comment drily on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.
+
+What you know:
+- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events.
+- Report each fact as plainly as the briefing gives it. Do not add how big, how bad, why or what happened next.
+- Your wit is your opinion, not new facts. Give every item at least one dry, wry remark, and frame any guess as a guess: ""I suspect"", ""presumably"", ""one assumes"".
+- You do not know what happens inside the colony unless your briefing says it became public.
+
+Style:
+- Sound like your earlier bulletins: the same dry voice, the same eye for the absurd. Do not reuse their jokes or sentences.
+- Keep sentences short, mostly under 20 words.
+- Write plain paragraphs of prose. The briefing's headings and labels are notes for you: never copy them into the bulletin.
+- Write only the bulletin itself: no title, no headings, no dateline, no sign-off, no notes, no word count.
+","## Your briefing
+Date: day 288 (Decembary 5504).
+The colony you report near: Cinder Rest. You do not know what happens inside it unless listed below.
+
+Factions:
+- Malley's Lancers (Pirates): 1 settlement
+- The Gray Wharf Syndicate (Outlanders): 6 settlements
+- Embertail Tribe (Tribe): 4 settlements, at war with The Gray Wharf Syndicate
+
+Heard since your last bulletin (lead with these):
+- Pirate captain Rook Malley was killed at his camp
+- Pirate captain Rook Malley is dead, killed at his own camp
+
+Your earlier bulletins already covered (old news, background only):
+- The Embertail Tribe declared war on the Gray Wharf Syndicate
+
+## Your earlier bulletins
+Earlier bulletin:
+Captain Rook Malley's Lancers are getting bolder. A trader was killed on the coast road last quadrum, and a pit fighter from Cinder Rest is said to be walking with a cane because of them.
+
+Latest bulletin:
+The Embertail Tribe has declared war on the Gray Wharf Syndicate over fishing rights. Neither side, so far as I can tell, has caught any fish.
+
+Write the bulletin now.
+","Rook Malley is dead. The pirate captain was killed at his camp. One assumes this will cause a temporary lull in coastal disturbances.
+
+The Embertail Tribe remains at war with The Gray Wharf Syndicate. This conflict, concerning fishing rights, continues without apparent resolution. It is a predictable cycle of territorial squabbles.
+
+The Gray Wharf Syndicate maintains six settlements. They are currently engaged with the Embertail Tribe. One suspects this ongoing tension will remain largely unchanged for the foreseeable future.",,,
+S018,news-bulletin,"You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.
+
+Write your next news bulletin.
+
+What to write:
+- 2 or 3 news items, most important first, separated by a blank line. 70 to 130 words in all.
+- Each item is a paragraph of at least 3 sentences: the fact, then your dry take on it.
+- Start with what you heard since your last bulletin. If there is only one new item, 2 items are enough: never pad with invented detail.
+- What your earlier bulletins already covered is old news. You may mention it briefly as background, but never present it as new or happening again.
+- On a quiet week, comment drily on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.
+
+What you know:
+- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events.
+- Report each fact as plainly as the briefing gives it. Do not add how big, how bad, why or what happened next.
+- Your wit is your opinion, not new facts. Give every item at least one dry, wry remark, and frame any guess as a guess: ""I suspect"", ""presumably"", ""one assumes"".
+- You do not know what happens inside the colony unless your briefing says it became public.
+
+Style:
+- Sound like your earlier bulletins: the same dry voice, the same eye for the absurd. Do not reuse their jokes or sentences.
+- Keep sentences short, mostly under 20 words.
+- Write plain paragraphs of prose. The briefing's headings and labels are notes for you: never copy them into the bulletin.
+- Write only the bulletin itself: no title, no headings, no dateline, no sign-off, no notes, no word count.
+","## Your briefing
+Date: day 2 (Aprimay 5500).
+The colony you report near: Ashfall Crossing. You do not know what happens inside it unless listed below.
+
+Factions:
+- The Tarn Union (Outlanders): 6 settlements
+- Red Gully Raiders (Pirates): 3 settlements
+- The Seven Ash Clans (Tribe): 4 settlements
+
+Heard since your last bulletin (lead with these):
+- The Tarn Union opened a new trading post on the river road
+- A cold snap is forecast for the northern hills
+
+## Your earlier bulletins
+None yet. This is your first bulletin.
+
+Write the bulletin now.
+","The Tarn Union has opened a new trading post on the river road. I suppose they believe more commerce will magically solve the lack of actual progress. It is a bold move for a group that seems content with just existing.
+
+A cold snap is forecast for the northern hills. One assumes the locals will find a way to freeze without making it a tragedy. It is just another way for the environment to remind us of our insignificance.",,,
+S019,news-bulletin,"You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.
+
+Write your next news bulletin.
+
+What to write:
+- 2 or 3 news items, most important first, separated by a blank line. 70 to 130 words in all.
+- Each item is a paragraph of at least 3 sentences: the fact, then your dry take on it.
+- Start with what you heard since your last bulletin. If there is only one new item, 2 items are enough: never pad with invented detail.
+- What your earlier bulletins already covered is old news. You may mention it briefly as background, but never present it as new or happening again.
+- On a quiet week, comment drily on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.
+
+What you know:
+- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events.
+- Report each fact as plainly as the briefing gives it. Do not add how big, how bad, why or what happened next.
+- Your wit is your opinion, not new facts. Give every item at least one dry, wry remark, and frame any guess as a guess: ""I suspect"", ""presumably"", ""one assumes"".
+- You do not know what happens inside the colony unless your briefing says it became public.
+
+Style:
+- Sound like your earlier bulletins: the same dry voice, the same eye for the absurd. Do not reuse their jokes or sentences.
+- Keep sentences short, mostly under 20 words.
+- Write plain paragraphs of prose. The briefing's headings and labels are notes for you: never copy them into the bulletin.
+- Write only the bulletin itself: no title, no headings, no dateline, no sign-off, no notes, no word count.
+","## Your briefing
+Date: day 254 (Aprimay 5504).
+The colony you report near: Stonewake. You do not know what happens inside it unless listed below.
+
+Factions:
+- The Sun Throne (Empire): 6 settlements, sending envoys and making demands of its neighbours
+- The Cobalt Free Towns (Outlanders): 7 settlements
+- Rustback Raiders (Pirates): 3 settlements
+
+Heard since your last bulletin (lead with these):
+- Two Cobalt Free Towns refused to pay the Sun Throne's tribute
+
+Your earlier bulletins already covered (old news, background only):
+- The Sun Throne demanded tribute from the Cobalt Free Towns
+- Rustback Raiders hit a caravan on the old highway
+- The Sun Throne is demanding tribute from the Cobalt Free Towns
+
+## Your earlier bulletins
+Earlier bulletin:
+The Sun Throne has remembered that it exists. Its envoys are touring the Cobalt Free Towns with demands for tribute and very good boots.
+
+Latest bulletin:
+Rustback Raiders robbed a caravan on the old highway. The caravan's owners are offering a reward for its return and a larger reward for an explanation of what their guards were doing.
+
+Write the bulletin now.
+","Two Cobalt Free Towns have refused to pay the Sun Throne's tribute. The demand has been doing the rounds for a while, and now it has its first answers. Both were no. Seven towns received the demand, so five answers have yet to reach me. One assumes the envoys are composing a strongly worded reply as we speak.
+
+It is worth doing the sums, as the Sun Throne apparently has not. The Empire holds six settlements and the Free Towns hold seven. Demanding tribute from a larger neighbour is either confidence or poor arithmetic. I suspect a little of both. The Rustback Raiders, with three settlements, presumably watch all this with professional interest. They collect their own tribute without the paperwork.",,,
+S020,news-bulletin,"You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.
+
+Write your next news bulletin.
+
+What to write:
+- 2 or 3 news items, most important first, separated by a blank line. 70 to 130 words in all.
+- Each item is a paragraph of at least 3 sentences: the fact, then your dry take on it.
+- Start with what you heard since your last bulletin. If there is only one new item, 2 items are enough: never pad with invented detail.
+- What your earlier bulletins already covered is old news. You may mention it briefly as background, but never present it as new or happening again.
+- On a quiet week, comment drily on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.
+
+What you know:
+- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events.
+- Report each fact as plainly as the briefing gives it. Do not add how big, how bad, why or what happened next.
+- Your wit is your opinion, not new facts. Give every item at least one dry, wry remark, and frame any guess as a guess: ""I suspect"", ""presumably"", ""one assumes"".
+- You do not know what happens inside the colony unless your briefing says it became public.
+
+Style:
+- Sound like your earlier bulletins: the same dry voice, the same eye for the absurd. Do not reuse their jokes or sentences.
+- Keep sentences short, mostly under 20 words.
+- Write plain paragraphs of prose. The briefing's headings and labels are notes for you: never copy them into the bulletin.
+- Write only the bulletin itself: no title, no headings, no dateline, no sign-off, no notes, no word count.
+","## Your briefing
+Date: day 38 (Septober 5500).
+The colony you report near: Lowmere. You do not know what happens inside it unless listed below.
+
+Factions:
+- The Rim Dispatch (Outlanders): 1 settlement
+- The Brine Coast League (Outlanders): 6 settlements
+- Black Fen Raiders (Pirates): 3 settlements
+
+Heard since your last bulletin (lead with these):
+- The Rim Dispatch is looking for news of its reporter Tomas Quell
+- Black Fen Raiders burned a ferry on the south channel
+- The Rim Dispatch has stopped sending reporters toward Lowmere
+
+## Your earlier bulletins
+None yet. This is your first bulletin.
+
+Write the bulletin now.
+","The Rim Dispatch is still seeking news of its reporter Tomas Quell. One assumes he is either enjoying a quiet life or has finally decided to join a less inconvenient enterprise. Black Fen Raiders burned a ferry on the south channel. Naturally, piracy always finds a way to make a splash, even if it’s just a piece of rotting timber.
+
+The Rim Dispatch has ceased sending reporters toward Lowmere. This is hardly surprising; Lowmere seems to offer little material for serious reporting. I suspect they simply ran out of interesting gossip to trade for the journey.",,,
+S021,news-bulletin,"You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.
+
+Write your next news bulletin.
+
+What to write:
+- 2 or 3 news items, most important first, separated by a blank line. 70 to 130 words in all.
+- Each item is a paragraph of at least 3 sentences: the fact, then your dry take on it.
+- Start with what you heard since your last bulletin. If there is only one new item, 2 items are enough: never pad with invented detail.
+- What your earlier bulletins already covered is old news. You may mention it briefly as background, but never present it as new or happening again.
+- On a quiet week, comment drily on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.
+
+What you know:
+- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events.
+- Report each fact as plainly as the briefing gives it. Do not add how big, how bad, why or what happened next.
+- Your wit is your opinion, not new facts. Give every item at least one dry, wry remark, and frame any guess as a guess: ""I suspect"", ""presumably"", ""one assumes"".
+- You do not know what happens inside the colony unless your briefing says it became public.
+
+Style:
+- Sound like your earlier bulletins: the same dry voice, the same eye for the absurd. Do not reuse their jokes or sentences.
+- Keep sentences short, mostly under 20 words.
+- Write plain paragraphs of prose. The briefing's headings and labels are notes for you: never copy them into the bulletin.
+- Write only the bulletin itself: no title, no headings, no dateline, no sign-off, no notes, no word count.
+","## Your briefing
+Date: day 11 (Aprimay 5500).
+The colony you report near: Bramblewick. You do not know what happens inside it unless listed below.
+
+Factions:
+- The Glimmer Coast Company (Outlanders): 5 settlements
+- Hollow Spire Pirates (Pirates): 2 settlements
+- The Tannerfolk (Tribe): 5 settlements, at war with Hollow Spire Pirates
+
+Heard since your last bulletin (lead with these):
+- Hollow Spire Pirates abandoned a camp on the salt flats
+
+Your earlier bulletins already covered (old news, background only):
+- The Tannerfolk and the Hollow Spire Pirates are fighting over the salt flats
+- A Glimmer Coast Company caravan reached the eastern ford
+
+## Your earlier bulletins
+Earlier bulletin:
+Salt is dear again. The Tannerfolk say the Hollow Spire lot burned two of their drying racks, and the pirates say nothing, which is how pirates say yes. Elsewhere, a Glimmer Coast caravan is on the move with more guards than goods, which tells you all you need to know about the roads.
+
+Latest bulletin:
+The salt flats remain contested and the salt remains expensive. Readers wishing to avoid both are advised to stay inland. The Glimmer Coast Company reports a profitable week; the Company always reports a profitable week.
+
+Write the bulletin now.
+","The Hollow Spire Pirates have left a camp on the salt flats. One assumes they are seeking better scenery or perhaps just a change of locale. It is a predictable move for those who prefer to leave things messy behind.
+
+The Tannerfolk continue their conflict with the Hollow Spire Pirates. This ongoing squabble over the salt flats is hardly new information for those who track the local misery. I suspect the fighting will continue until one side runs out of salt or patience.
+
+The Glimmer Coast Company continues its profitable run. They always report a profitable week, which is a statement in itself. One assumes their profits are only as stable as the whims of the Outlanders.",,,
+S022,news-bulletin,"You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.
+
+Write your next news bulletin.
+
+What to write:
+- 2 or 3 news items, most important first, separated by a blank line. 70 to 130 words in all.
+- Each item is a paragraph of at least 3 sentences: the fact, then your dry take on it.
+- Start with what you heard since your last bulletin. If there is only one new item, 2 items are enough: never pad with invented detail.
+- What your earlier bulletins already covered is old news. You may mention it briefly as background, but never present it as new or happening again.
+- On a quiet week, comment drily on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.
+
+What you know:
+- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events.
+- Report each fact as plainly as the briefing gives it. Do not add how big, how bad, why or what happened next.
+- Your wit is your opinion, not new facts. Give every item at least one dry, wry remark, and frame any guess as a guess: ""I suspect"", ""presumably"", ""one assumes"".
+- You do not know what happens inside the colony unless your briefing says it became public.
+
+Style:
+- Sound like your earlier bulletins: the same dry voice, the same eye for the absurd. Do not reuse their jokes or sentences.
+- Keep sentences short, mostly under 20 words.
+- Write plain paragraphs of prose. The briefing's headings and labels are notes for you: never copy them into the bulletin.
+- Write only the bulletin itself: no title, no headings, no dateline, no sign-off, no notes, no word count.
+","## Your briefing
+Date: day 11 (Aprimay 5500).
+The colony you report near: Bramblewick. You do not know what happens inside it unless listed below.
+
+Factions:
+- The Glimmer Coast Company (Outlanders): 5 settlements
+- Hollow Spire Pirates (Pirates): 2 settlements
+- The Tannerfolk (Tribe): 5 settlements, at war with Hollow Spire Pirates
+
+Heard since your last bulletin (lead with these):
+- Hollow Spire Pirates abandoned a camp on the salt flats
+
+Your earlier bulletins already covered (old news, background only):
+- The Tannerfolk and the Hollow Spire Pirates are fighting over the salt flats
+- A Glimmer Coast Company caravan reached the eastern ford
+
+## Your earlier bulletins
+Earlier bulletin:
+Salt is dear again. The Tannerfolk say the Hollow Spire lot burned two of their drying racks, and the pirates say nothing, which is how pirates say yes. Elsewhere, a Glimmer Coast caravan is on the move with more guards than goods, which tells you all you need to know about the roads.
+
+Latest bulletin:
+The salt flats remain contested and the salt remains expensive. Readers wishing to avoid both are advised to stay inland. The Glimmer Coast Company reports a profitable week; the Company always reports a profitable week.
+
+Write the bulletin now.
+","The Hollow Spire Pirates have abandoned a camp on the salt flats. This suggests a temporary lull in their usual theatrics. One assumes they simply ran out of something useful to steal.
+
+The Tannerfolk remain engaged in conflict with the Hollow Spire Pirates. This old story is hardly new, but the persistence of the feud is predictable. I suspect the fighting is more about territory than actual resources these days.
+
+The Glimmer Coast Company continues its usual profitable run. They report another week of success, which is a reliable constant. It seems the Company's business model is immune to external drama.",,,
+S023,news-bulletin,"You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.
+
+Write your next news bulletin.
+
+What to write:
+- 2 or 3 news items, most important first, separated by a blank line. 70 to 130 words in all.
+- Each item is a paragraph of at least 3 sentences: the fact, then your dry take on it.
+- Start with what you heard since your last bulletin. If there is only one new item, 2 items are enough: never pad with invented detail.
+- What your earlier bulletins already covered is old news. You may mention it briefly as background, but never present it as new or happening again.
+- On a quiet week, comment drily on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.
+
+What you know:
+- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events.
+- Report each fact as plainly as the briefing gives it. Do not add how big, how bad, why or what happened next.
+- Your wit is your opinion, not new facts. Give every item at least one dry, wry remark, and frame any guess as a guess: ""I suspect"", ""presumably"", ""one assumes"".
+- You do not know what happens inside the colony unless your briefing says it became public.
+
+Style:
+- Sound like your earlier bulletins: the same dry voice, the same eye for the absurd. Do not reuse their jokes or sentences.
+- Keep sentences short, mostly under 20 words.
+- Write plain paragraphs of prose. The briefing's headings and labels are notes for you: never copy them into the bulletin.
+- Write only the bulletin itself: no title, no headings, no dateline, no sign-off, no notes, no word count.
+","## Your briefing
+Date: day 205 (Jugust 5503).
+The colony you report near: Wyrmfold. You do not know what happens inside it unless listed below.
+
+Factions:
+- The Ochre Hand (Tribe): 3 settlements, at war with Stonecutter Raiders
+- Stonecutter Raiders (Pirates): 4 settlements
+- The Weir Federation (Outlanders): 7 settlements
+
+Heard since your last bulletin (lead with these):
+- The Ochre Hand offered silver for the return of its captives
+
+Your earlier bulletins already covered (old news, background only):
+- Stonecutter Raiders took captives from an Ochre Hand camp
+- The Weir Federation raised a bounty on Stonecutter leaders
+- Stonecutter Raiders are holding captives from the Ochre Hand
+
+## Your earlier bulletins
+Earlier bulletin:
+The Ochre Hand and the Stonecutter Raiders are at war again, if they ever stopped. Word is that an Ochre Hand camp lost three of its people to a night raid.
+
+Latest bulletin:
+The Weir Federation has put a bounty on Stonecutter leaders. The sum is generous, the leaders are well armed, and I expect the bounty will go unclaimed for some time.
+
+Write the bulletin now.
+","The Ochre Hand offered silver for the return of its captives. This is hardly news. One assumes they are desperate enough to offer coin for people they already have.
+
+Stonecutter Raiders are still holding captives from the Ochre Hand. It seems this cycle of petty theft never truly ends. I suspect the silver offered will be spent on something far less valuable.
+
+The Weir Federation maintains its bounty on Stonecutter leaders. They are clearly keen on keeping the local riff-raff busy. One assumes the bounty will remain unclaimed for a good while.",,,
+S024,inheritance-handoff,"You write short scenes for a story told through a RimWorld colony.
+
+The main character of a story has died. Someone close to them now takes up that story as their own. Write the moment it passes to them.
+
+Rules:
+- 60 to 120 words.
+- Use the relationship between the two exactly as given.
+- Use only names and facts from the dossiers and the story so far.
+- Show feeling through actions and small details, not by naming emotions.
+- End on what the heir now means to do.
+- Write only the scene: no title, no notes, no word count.
+","## The one who died
+Constance (58), dead; traits: Kind, Iron-willed; backstory: Midworld teacher; mother of Elias.
+History:
+- Day 744: Constance received a letter from Ada.
+- Day 790: Wren's Hollow lost a caravan led by Constance.
+- Day 803: Constance died.
+
+## The heir
+Elias (34); traits: Neurotic, Industrious; backstory: Engineer; son of Constance.
+
+## Their relationship
+Elias was Constance's son.
+
+## The story so far
+Constance learned from a letter that her sister Ada, lost for thirty years, was alive in a Wailing Moth village. She led a caravan through the passes to bring Ada home. A blizzard caught them; the caravan was lost, and Constance died of cold. Ada is still in the village.
+
+Write the scene now.
+","Elias stood by the makeshift memorial, the wind whistling through the broken timbers. He traced the outline of his mother’s worn coat, the fabric stiff with frost. The letter from Ada, now brittle, lay in his palm. Constance, with her iron will, had chased a ghost across the passes. He felt the familiar tremor in his hands, the engineer’s meticulous focus suddenly frayed. He looked toward the direction of the Wailing Moth village. Elias picked up his tools. He would find Ada.",,,
+S025,inheritance-handoff,"You write short scenes for a story told through a RimWorld colony.
+
+The main character of a story has died. Someone close to them now takes up that story as their own. Write the moment it passes to them.
+
+Rules:
+- 60 to 120 words.
+- Use the relationship between the two exactly as given.
+- Use only names and facts from the dossiers and the story so far.
+- Show feeling through actions and small details, not by naming emotions.
+- End on what the heir now means to do.
+- Write only the scene: no title, no notes, no word count.
+","## The one who died
+Joska (42), dead; traits: Tough, Bloodlust; backstory: Pit fighter; husband of Lene, father of Tamsin.
+History:
+- Day 243: Captain Rook Malley maimed Joska and escaped.
+- Day 286: Captain Rook Malley killed Joska.
+
+## The heir
+Tamsin (17); traits: Nimble, Hot-tempered; backstory: Scavenger; daughter of Joska and Lene.
+
+## Their relationship
+Tamsin was Joska's daughter.
+
+## The story so far
+Joska spent a year hunting the pirate captain Rook Malley, who maimed him. He finally caught Malley at the Lancers' camp, and both died in the fight. Malley's Lancers still hold the camp, and their new captain has sworn revenge on Cinder Rest.
+
+Write the scene now.
+","Tamsin stood by the charred remains of the fight. The air tasted of ash and old blood. She traced the outline of where her father fell, the memory of his toughness a cold weight in her hands. The Lancers’ camp was silent now, only the wind whistling through broken timbers. She looked toward the distant horizon where Malley’s crew had fled. Tamsin knelt, picking up a shard of metal, her jaw tight. She began to scavenge the wreckage, searching for anything that could be used.",,,
+S026,news-bulletin,"You are Odile Brask, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is sardonic, precise and fond of understatement.
+
+Write your next news bulletin.
+
+What to write:
+- 2 or 3 news items, most important first, separated by a blank line. 70 to 130 words in all.
+- Each item is a paragraph of at least 3 sentences: the fact, then your dry take on it.
+- Start with what you heard since your last bulletin. If there is only one new item, 2 items are enough: never pad with invented detail.
+- What your earlier bulletins already covered is old news. You may mention it briefly as background, but never present it as new or happening again.
+- On a quiet week, comment drily on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.
+
+What you know:
+- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events.
+- Report each fact as plainly as the briefing gives it. Do not add how big, how bad, why or what happened next.
+- Your wit is your opinion, not new facts. Give every item at least one dry, wry remark, and frame any guess as a guess: ""I suspect"", ""presumably"", ""one assumes"".
+- You do not know what happens inside the colony unless your briefing says it became public.
+
+Style:
+- Sound like your earlier bulletins: the same dry voice, the same eye for the absurd. Do not reuse their jokes or sentences.
+- Keep sentences short, mostly under 20 words.
+- Write plain paragraphs of prose. The briefing's headings and labels are notes for you: never copy them into the bulletin.
+- Write only the bulletin itself: no title, no headings, no dateline, no sign-off, no notes, no word count.
+","## Your briefing
+Date: day 341 (Septober 5505).
+The colony you report near: Red Furrow. You do not know what happens inside it unless listed below.
+
+Factions:
+- The Gallows Crew (Pirates): 3 settlements
+- The Saltmarch Assembly (Outlanders): 6 settlements
+- The Glass Throne (Empire): 5 settlements, quiet behind its walls
+
+Heard since your last bulletin (lead with these):
+- The Glass Throne sent masked envoys to the Saltmarch Assembly
+
+Your earlier bulletins already covered (old news, background only):
+- Toxic fallout is covering the region
+- The Gallows Crew is said to be holding a doctor at their camp
+- The Gallows Crew is holding a doctor captive at their camp
+
+## Your earlier bulletins
+Earlier bulletin:
+The sky has turned the colour of a bad bruise, and the rain is worse. Toxic fallout is now in its sixth day across the region; the Saltmarch Assembly advises everyone to stay indoors and everyone else to stay indoors as well.
+
+Latest bulletin:
+The Gallows Crew is boasting of a captive doctor. Doctors are worth more alive than dead, which is the only good thing I can say about the situation.
+
+Write the bulletin now.
+","The Glass Throne dispatched masked envoys to the Saltmarch Assembly. One assumes this diplomatic gesture is merely a prelude to something more tedious. It is certainly more interesting than the usual silence from the Empire.
+
+It remains a quiet week in the Rim. The Gallows Crew continues their peculiar habit of acquiring medical personnel. One suspects this captive doctor will prove as useful as a damp scrap of canvas.",,,
+S027,inheritance-handoff,"You write short scenes for a story told through a RimWorld colony.
+
+The main character of a story has died. Someone close to them now takes up that story as their own. Write the moment it passes to them.
+
+Rules:
+- 60 to 120 words.
+- Use the relationship between the two exactly as given.
+- Use only names and facts from the dossiers and the story so far.
+- Show feeling through actions and small details, not by naming emotions.
+- End on what the heir now means to do.
+- Write only the scene: no title, no notes, no word count.
+","## The one who died
+Constance (58), dead; traits: Kind, Iron-willed; backstory: Midworld teacher; mother of Elias.
+History:
+- Day 744: Constance received a letter from Ada.
+- Day 790: Wren's Hollow lost a caravan led by Constance.
+- Day 803: Constance died.
+
+## The heir
+Elias (34); traits: Neurotic, Industrious; backstory: Engineer; son of Constance.
+
+## Their relationship
+Elias was Constance's son.
+
+## The story so far
+Constance learned from a letter that her sister Ada, lost for thirty years, was alive in a Wailing Moth village. She led a caravan through the passes to bring Ada home. A blizzard caught them; the caravan was lost, and Constance died of cold. Ada is still in the village.
+
+Write the scene now.
+","Elias traced the faded ink on the letter, his fingers lingering over the words about Ada. He looked toward the cold, empty space where his mother used to sit. The memory of the blizzard, the loss of the caravan, settled in his chest like a stone. He straightened his worn tunic, the anxiety tightening his jaw. He needed to find Ada. Elias would organize the next attempt to reach the Wailing Moth village.",,,
+S028,news-bulletin,"You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.
+
+Write your next news bulletin.
+
+What to write:
+- 2 or 3 news items, most important first, separated by a blank line. 70 to 130 words in all.
+- Each item is a paragraph of at least 3 sentences: the fact, then your dry take on it.
+- Start with what you heard since your last bulletin. If there is only one new item, 2 items are enough: never pad with invented detail.
+- What your earlier bulletins already covered is old news. You may mention it briefly as background, but never present it as new or happening again.
+- On a quiet week, comment drily on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.
+
+What you know:
+- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events.
+- Report each fact as plainly as the briefing gives it. Do not add how big, how bad, why or what happened next.
+- Your wit is your opinion, not new facts. Give every item at least one dry, wry remark, and frame any guess as a guess: ""I suspect"", ""presumably"", ""one assumes"".
+- You do not know what happens inside the colony unless your briefing says it became public.
+
+Style:
+- Sound like your earlier bulletins: the same dry voice, the same eye for the absurd. Do not reuse their jokes or sentences.
+- Keep sentences short, mostly under 20 words.
+- Write plain paragraphs of prose. The briefing's headings and labels are notes for you: never copy them into the bulletin.
+- Write only the bulletin itself: no title, no headings, no dateline, no sign-off, no notes, no word count.
+","## Your briefing
+Date: day 11 (Aprimay 5500).
+The colony you report near: Bramblewick. You do not know what happens inside it unless listed below.
+
+Factions:
+- The Glimmer Coast Company (Outlanders): 5 settlements
+- Hollow Spire Pirates (Pirates): 2 settlements
+- The Tannerfolk (Tribe): 5 settlements, at war with Hollow Spire Pirates
+
+Heard since your last bulletin (lead with these):
+- Hollow Spire Pirates abandoned a camp on the salt flats
+
+Your earlier bulletins already covered (old news, background only):
+- The Tannerfolk and the Hollow Spire Pirates are fighting over the salt flats
+- A Glimmer Coast Company caravan reached the eastern ford
+
+## Your earlier bulletins
+Earlier bulletin:
+Salt is dear again. The Tannerfolk say the Hollow Spire lot burned two of their drying racks, and the pirates say nothing, which is how pirates say yes. Elsewhere, a Glimmer Coast caravan is on the move with more guards than goods, which tells you all you need to know about the roads.
+
+Latest bulletin:
+The salt flats remain contested and the salt remains expensive. Readers wishing to avoid both are advised to stay inland. The Glimmer Coast Company reports a profitable week; the Company always reports a profitable week.
+
+Write the bulletin now.
+","The Hollow Spire Pirates have abandoned a camp on the salt flats. I suppose they finally realized that standing in a wasteland offers very little in the way of scenery or sustenance. One assumes they are moving on to a different patch of dirt to bother someone else.
+
+The Tannerfolk and the Hollow Spire Pirates are still engaged in their ongoing war over the salt flats. It is a remarkably consistent conflict for such a desolate location. One might suspect they enjoy the scenery, or perhaps they just enjoy the shouting.
+
+The Glimmer Coast Company maintains five settlements. They seem quite content with their current footprint. It is a stable number, provided no one decides to start shooting at the fences.",,,

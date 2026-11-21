@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e4b__news-bulletin__snap-17-late-strained__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It stays accurate and frames its guesses properly. But it mostly restates the faction list in flat sentences. The humour is thin, and the synth-coffee gag leans toward cosy office comedy rather than Ilse\u0027s dry frontier wit.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They continue their aggressive expansion against the Ashford Compact.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing activity: briefing says expanding by force, not specifically that it continues against the Compact\u0022},{\u0022span\u0022:\u0022Another week of predictable tension\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a week has passed and that tension is ongoing; briefing only says a quiet stretch\u0022},{\u0022span\u0022:\u0022The Ashford Compact maintains its five settlements. They remain locked in conflict with the Empire.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats faction status as ongoing; briefing gives no change, only status\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and clear, with guesses properly hedged, but it is thin and generic: only two items of three short sentences each, the dry wit is mild, and the \u0027recycled synth-coffee\u0027 joke is a stock sci-fi touch. It also misses the chance to mention the Kestrel Tribe, the Bonecutter Gang, or the date.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.7789559,
-      "inputTokens": 2743,
-      "outputTokens": 441
+      "latencySeconds": 3.5911572,
+      "inputTokens": 3414,
+      "outputTokens": 355
     }
   ]
 }

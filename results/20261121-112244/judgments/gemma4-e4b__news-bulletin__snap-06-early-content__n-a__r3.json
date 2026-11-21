@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e4b__news-bulletin__snap-06-early-content__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022even the Combine\u0027s bountiful harvests are a tempting target\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies the robbed barge carried Calder Combine grain. The briefing does not say whose barge it was, and \u0027It seems\u0027 only half-hedges the claim.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate and within length, with a wry \u0027relieve\u0027 and a sensible quiet-week second item. However, linking the barge to the Combine\u0027s harvest is an unhedged inference, and the closing \u0027calm before\u0027 line is a stock clich\u00E9 that dulls the voice.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Calder Combine still boasts five settlements in the region.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\\\u0022in the region\\\u0022 is not in the briefing, and \\\u0022still\\\u0022 implies an unreported ongoing status\u0022},{\u0022span\u0022:\u0022It seems even the Combine\u0027s bountiful harvests are a tempting target for petty thievery.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the barge carried the Combine\u0027s harvest, which the briefing does not say; hedged with \\\u0022it seems\\\u0022 but links the two items as cause\u0022},{\u0022span\u0022:\u0022The Sundered Throne maintains its three quiet strongholds.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\\\u0022strongholds\\\u0022 is an added detail; the briefing gives only settlements and \\\u0022quiet behind its walls\\\u0022\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The voice is dry but generic, and it ties the robbery to the Combine\u0027s harvest without the briefing\u0027s support. The second paragraph restates faction sizes without much wit, and the \\\u0022relieve a grain barge\\\u0022 phrasing is slightly muddy. It also falls short of the 70-word minimum.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.1462827,
-      "inputTokens": 2624,
-      "outputTokens": 434
+      "latencySeconds": 3.4354007,
+      "inputTokens": 3295,
+      "outputTokens": 376
     }
   ]
 }

@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-11-mid-content__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It is a rare moment of cooperation\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Stated as fact; the briefing does not say how rare such cooperation is.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The bulletin leads correctly with the peace feast, stays within the word count and keeps old news as background. Some jokes are muddled or flat, such as the borders-versus-scenery line.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Hearthguard Compact still maintains eight settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\\\u0022still\\\u0022 implies an ongoing status and comparison with an earlier state the briefing does not give\u0022},{\u0022span\u0022:\u0022They seem content to sit on their land and wait for someone to build them something useful.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022hedged with \\\u0022seem\\\u0022, but ties to the invention prizes as an inference; borderline, mostly opinion\u0022},{\u0022span\u0022:\u0022The Mire Rats still occupy two settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\\\u0022still\\\u0022 implies ongoing status the briefing does not report\u0022},{\u0022span\u0022:\u0022It is a rare moment of cooperation in a land that usually prefers teeth to toasts.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022states as fact that such cooperation is rare, a comparison with earlier states the briefing does not give\u0022},{\u0022span\u0022:\u0022They were driven from the eastern marsh, but they haven\u0027t vanished into thin air.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as background; the claim that they still exist and are elsewhere is added\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent and the lead item is correct. The second and third items pad with faction sizes and old news, and add small implied claims such as \\\u0022still\\\u0022 and \\\u0022rare\\\u0022, though the guesses are properly hedged.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.1827898,
-      "inputTokens": 2701,
-      "outputTokens": 453
+      "latencySeconds": 3.437062,
+      "inputTokens": 3372,
+      "outputTokens": 460
     }
   ]
 }

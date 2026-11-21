@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-17-late-strained__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022This is an accurate quiet-week bulletin. It uses only briefing facts, keeps old news as background and frames its guesses properly. The voice is dry and consistent, though a little safe compared with the sharper earlier bulletins.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The arithmetic does not favour the Compact\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022stated as fact; implies the Compact is losing or disadvantaged, which the briefing does not say beyond settlement counts\u0022},{\u0022span\u0022:\u0022Neither has troubled my notebook lately.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies status of the Kestrel Tribe and Bonecutter Gang, not given in briefing, though consistent with a quiet stretch\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A well-judged quiet-week bulletin that comments drily on faction sizes and the war without inventing anything major, and the old news is kept as background. Minor slips: the Compact\u0027s disadvantage is asserted rather than guessed, and the first item has only a thin dry remark; the word count is also near the lower bound but acceptable.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 4.7682327,
-      "inputTokens": 2802,
-      "outputTokens": 401
+      "latencySeconds": 3.1543002,
+      "inputTokens": 3473,
+      "outputTokens": 297
     }
   ]
 }

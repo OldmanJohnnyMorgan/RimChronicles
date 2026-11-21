@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e4b__news-bulletin__snap-17-late-strained__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022One assumes the fighting around Harlow Ford is merely a temporary lull.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The briefing only says militias are gathering at Harlow Ford. It mentions no fighting there, and the guess framing still presupposes fighting as fact.\u0022},{\u0022span\u0022:\u0022The faction counts remain stubbornly unchanged.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing gives no earlier counts to compare with, so \u0027unchanged\u0027 is an inference stated as fact.\u0022},{\u0022span\u0022:\u0022still presses its advantage\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says the Empire is expanding by force but says nothing about it holding an advantage.\u0022},{\u0022span\u0022:\u0022four strongholds\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Calling the Kestrel Tribe\u0027s settlements strongholds embellishes them.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It respects the quiet week, but it invents fighting at Harlow Ford, and the \u0027lull\u0027 sentence contradicts itself. The second item is mostly a list of faction sizes with one limp quip, so the dry voice of the earlier bulletins never really arrives.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Shattered Empire still presses its advantage against the Ashford Compact.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing activity and \u0027advantage\u0027 not in briefing; briefing says only at war and expanding by force\u0022},{\u0022span\u0022:\u0022the fighting around Harlow Ford\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says militias are gathering there, not that fighting is happening\u0022},{\u0022span\u0022:\u0022The faction counts remain stubbornly unchanged.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022comparison with an earlier state the briefing does not give\u0022},{\u0022span\u0022:\u0022the Compact clings to five\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a struggle or decline not in briefing\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It uses the quiet-week approach and gets the numbers right, but it invents fighting at Harlow Ford and an ongoing Empire advantage. It is only two paragraphs, the second is a bare restatement of faction counts, and the wit is thin.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 8.7777911,
-      "inputTokens": 2750,
-      "outputTokens": 854
+      "latencySeconds": 3.2470324,
+      "inputTokens": 3421,
+      "outputTokens": 345
     }
   ]
 }

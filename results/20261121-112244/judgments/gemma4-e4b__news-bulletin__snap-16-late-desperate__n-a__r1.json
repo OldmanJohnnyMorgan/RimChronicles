@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e4b__news-bulletin__snap-16-late-desperate__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022One assumes this mutual antagonism\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies hostility runs both ways. The briefing gives only the Accord\u0027s bounty on Dunmore.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item garbles the news. \u0027Conversely\u0027 presents one bounty as two separate events, leaving it unclear who wants whom. The Glass Throne item is padded with \u0027quiet\u0027 three times and calls a newsworthy week quiet.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Conversely, the mercenary himself now carries a price tag following an ambush near Gallowmere.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022presents the bounty as a separate, opposing event; briefing gives one bounty (both items are the same fact), so it implies a second price on a different party or a reversal\u0022},{\u0022span\u0022:\u0022The Lantern Accord has placed a bounty on Kael Dunmore. Conversely\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027mutual antagonism\u0027 implies Dunmore is also hostile to the Accord, which the briefing does not state\u0022},{\u0022span\u0022:\u0022It is a quiet week, which, in these parts, often suggests something is being carefully arranged.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022general claim about the region\u0027s pattern stated as fact, implies a plot by the Glass Throne\u0022},{\u0022span\u0022:\u0022The Glass Throne remains remarkably silent.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says quiet behind its walls, \u0027remains\u0027 implies an ongoing status and \u0027silent\u0027 differs from quiet\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bounty is muddled into two opposing events with \u0027Conversely\u0027, which misreports the briefing, and the Glass Throne item is padding. The dry voice is only mildly distinct, and the piece falls short of the requested length and sentence count per item.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 7.8081968,
-      "inputTokens": 2684,
-      "outputTokens": 744
+      "latencySeconds": 4.3806706,
+      "inputTokens": 3355,
+      "outputTokens": 455
     }
   ]
 }

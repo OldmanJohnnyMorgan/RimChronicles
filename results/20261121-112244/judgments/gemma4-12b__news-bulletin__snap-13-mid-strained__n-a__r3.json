@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-13-mid-strained__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022more than the actual gold\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing never says what form the tribute takes.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is reported accurately and framed as a guess. The second and third items are thin padding that restates faction facts and old tribute news with weak, repetitive jokes. The voice is mildly wry but lacks the bite of the earlier bulletins.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the locals have developed a sudden, inconvenient sense of independence\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022stated as fact; implies a change from an earlier state, which the briefing does not give\u0022},{\u0022span\u0022:\u0022They are currently being bothered by the Sun Throne\u0027s tribute demands.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as an ongoing status rather than background\u0022},{\u0022span\u0022:\u0022more than the actual gold\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022the briefing says \u0027tribute\u0027, not gold; the guess is framed with \u0027I suspect\u0027, but \u0027gold\u0027 is an added detail\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate on the core facts and the guesses are properly hedged, but the wit is bland and the third item just recycles old tribute news and faction numbers as filler. The word count is slightly short of the target, and \u0027gold\u0027 is not a briefing term.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 4.9179799,
-      "inputTokens": 2770,
-      "outputTokens": 412
+      "latencySeconds": 2.9870938,
+      "inputTokens": 3441,
+      "outputTokens": 310
     }
   ]
 }

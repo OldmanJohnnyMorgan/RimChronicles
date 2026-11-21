@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-06-early-content__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022to cover the shortfall\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Presupposes a shortfall the briefing never mentions; it sits awkwardly beside the reported good harvest.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The second item repeats the already-covered harvest report as if it were new, which the task forbids. The wit is thin, and the joke \u0027just another Tuesday\u0027 is a modern idiom that fits RimWorld poorly.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They took supplies from a vessel moving through the delta waters.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds detail: that it was moving and what was taken; the briefing says only a robbery of a grain barge\u0022},{\u0022span\u0022:\u0022The Calder Combine reports good harvests along the delta.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a main item, presented as current rather than background\u0022},{\u0022span\u0022:\u0022This suggests the Combine is managing its resources adequately.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022inference stated as fact, not framed as a guess\u0022},{\u0022span\u0022:\u0022just another Tuesday for the pirates\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies robberies are routine, a comparison with earlier state not in the briefing (framed as a guess, so borderline)\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The Ditch Kings item is accurate but padded by restating the same fact. The second item recycles old news as if current and adds a guess about a \u0027shortfall\u0027 that contradicts the good-harvest report. The wit is generic and the third item is filler, though acceptable for a quiet week.\\u200b\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.2485749,
-      "inputTokens": 2644,
-      "outputTokens": 597
+      "latencySeconds": 3.8242302,
+      "inputTokens": 3315,
+      "outputTokens": 383
     }
   ]
 }

@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-15-late-content__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate and tightly sourced: the Leopold item is reported plainly with a good dry aside, and the quiet-week item uses the briefing\u0027s faction counts correctly. The second paragraph reads a little like a list before its closing joke lands.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022which makes it the smallest outfit on the rim\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022inference stated as fact; the briefing lists only four factions, so this is a comparison of settlement counts, not a claim about every outfit on the rim\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Dry, consistent voice, and it sticks to the briefing, handling the quiet week well by commenting on faction sizes. The first item is only 4 short sentences, but the word count is under the 70-word minimum and there\u0027s no clear second item, so it misses the format a bit.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.7939602,
-      "inputTokens": 2692,
-      "outputTokens": 462
+      "latencySeconds": 2.406218,
+      "inputTokens": 3363,
+      "outputTokens": 210
     }
   ]
 }

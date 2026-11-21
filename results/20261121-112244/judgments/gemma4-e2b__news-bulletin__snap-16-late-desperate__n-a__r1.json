@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-16-late-desperate__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022even when those assets are a pirate\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Calls Dunmore a pirate and implies he is the Accord\u0027s asset; the briefing names him only as a mercenary.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It reports the same bounty as two separate items, which reads as padding and could suggest two different prices. The wit is mostly generic or muddled (\\\u0022assets\\\u0022, \\\u0022stillness is the loudest statement\\\u0022) rather than Odile\u0027s sharp understatement.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022even when those assets are a pirate\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022calls Kael a pirate; briefing calls him a mercenary, though Dunmore\u0027s Free Company is pirates, so this links him to the faction unsupported\u0022},{\u0022span\u0022:\u0022The Lantern Accord has set a price on Kael Dunmore\u0027s head. ... Mercenary Kael Dunmore now carries a price\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats the same fact twice as two separate items, presenting the briefing\u0027s duplicate as distinct news\u0022},{\u0022span\u0022:\u0022It seems the mercenary trade remains a reliable source of local commerce.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies status of mercenary trade not in briefing, though hedged with \u0027it seems\u0027\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is present but generic, and the first two items say the same thing, so the bulletin feels padded. The Glass Throne item adds nothing new and the heatwave background is missing; the \u0027pirate\u0027 label for a mercenary is a mild slip.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.9065458,
-      "inputTokens": 2734,
-      "outputTokens": 620
+      "latencySeconds": 3.2449551,
+      "inputTokens": 3405,
+      "outputTokens": 366
     }
   ]
 }

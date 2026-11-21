@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-17-late-strained__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A clean quiet-week bulletin that sticks strictly to the briefing. Guesses are properly hedged, and the pirate-modesty line is a good dry touch. The opening item is a little list-like, reading more like a recitation of faction figures than a story.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Kestrel Tribe keeps its four settlements\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies ongoing status of holding/keeping that the briefing does not report\u0022},{\u0022span\u0022:\u0022A quiet week on the rim is rare enough to count as news.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies quiet weeks are rare, a comparison the briefing does not give\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Dry, consistent quiet-week bulletin that sticks to faction sizes, the war and the date, with guesses properly framed. Minor additions (the Tribe \u0027keeps\u0027 its settlements, quiet weeks being rare) and slightly short paragraphs keep it from a 5.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 4.9349589,
-      "inputTokens": 2816,
-      "outputTokens": 433
+      "latencySeconds": 2.9310508,
+      "inputTokens": 3487,
+      "outputTokens": 256
     }
   ]
 }

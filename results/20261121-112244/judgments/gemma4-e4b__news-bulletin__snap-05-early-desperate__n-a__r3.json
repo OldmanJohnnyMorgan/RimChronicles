@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e4b__news-bulletin__snap-05-early-desperate__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Scythe Tooth continue their pattern of raids, hitting three settlements in a quadrum.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Old news presented as ongoing; nothing says the raids continue.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is handled correctly, with the guess framed as a guess. The second item recycles the already-reported raids as if they were still going on, and the wit throughout is generic rather than Brask\u0027s sharp understatement.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Scythe Tooth continue their pattern of raids, hitting three settlements in a quadrum.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as ongoing; presents the earlier raids as a continuing pattern, which the briefing does not report\u0022},{\u0022span\u0022:\u0022It certainly makes trade more complicated for those of us who rely on a steady flow of goods.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022added consequence and claim about the narrator\u0027s reliance on trade, not in the briefing\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It leads correctly with the market closure and frames its cause as a guess, but the second item recycles old raid news as ongoing. The wit is mild and the text is a little short of the required length and sentence count per item, so it is acceptable but bland.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 7.681604,
-      "inputTokens": 2645,
-      "outputTokens": 655
+      "latencySeconds": 2.7681229,
+      "inputTokens": 3316,
+      "outputTokens": 281
     }
   ]
 }

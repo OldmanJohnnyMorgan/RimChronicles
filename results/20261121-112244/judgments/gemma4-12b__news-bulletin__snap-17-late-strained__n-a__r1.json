@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-17-late-strained__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They are small in number\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing gives only a settlement count, not the gang\u0027s membership size.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and correctly treats the stretch as quiet, but the wit is thin and generic: the second item barely has a joke, and the closing line repeats the opening. \u0027Stay relevant\u0027 also reads as modern phrasing.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Bonecutter Gang maintains two settlements for their own purposes.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\\\u0022for their own purposes\\\u0022 adds an unreported motive; the briefing gives only the settlement count\u0022},{\u0022span\u0022:\u0022the Ashford Compact clings to five\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\\\u0022clings\\\u0022 implies the Compact is hard-pressed, a status the briefing does not report\u0022},{\u0022span\u0022:\u0022It is a quiet stretch of time for everyone involved.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022claims quiet for everyone, but the briefing says only that the reporter heard nothing new\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate on the faction numbers and framed as a quiet week, but the wit is thin and generic, and the second item is padded and repeats the quiet-stretch line. A few small embellishments (\\\u0022clings\\\u0022, \\\u0022for their own purposes\\\u0022) add implied facts, and the Tribe and the war are barely used.\\n\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.8081508,
-      "inputTokens": 2735,
-      "outputTokens": 472
+      "latencySeconds": 2.8750987,
+      "inputTokens": 3406,
+      "outputTokens": 343
     }
   ]
 }

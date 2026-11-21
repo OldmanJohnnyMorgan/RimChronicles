@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-19-late-desperate__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate and well ordered: it leads with the siege, keeps Fenwick as background, and gets its comedy from the briefing\u0027s own numbers. The \u0027generous curve\u0027 grading joke reads slightly modern-classroom, and the second item is a quiet-week filler that lands softer than the first.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Razing Fenwick evidently left the imperial calendar with gaps to fill.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied cause/consequence of the razing, stated as evident rather than as a guess\u0022},{\u0022span\u0022:\u0022remains at war with nobody\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing lists no war for the Tribe, but \u0027remains\u0027 implies an ongoing status it does not report\u0022},{\u0022span\u0022:\u0022the odds look much as they did\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022comparison with an earlier state the briefing does not give\u0022},{\u0022span\u0022:\u0022They have always graded on a generous curve.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022claim about the Throne\u0027s past behaviour not in briefing\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is solid and it stays close to the briefing\u0027s names and numbers. But it adds small unsupported claims and pads the second item with background, and the brief calls for items of at least 3 sentences with a dry take each, so the first item\u0027s lead is thin on the fact itself. It also never mentions the Fenwick razing as background, and the Starling item is not new news.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.4338756,
-      "inputTokens": 2753,
-      "outputTokens": 448
+      "latencySeconds": 3.6816691,
+      "inputTokens": 3424,
+      "outputTokens": 380
     }
   ]
 }

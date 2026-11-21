@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e4b__news-bulletin__snap-15-late-content__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and clean, with the guess about Leopold properly hedged. However, the second item is a limp filler observation, the wit is mild and generic next to the earlier bulletins, and at about 66 words it falls short of the 70-word minimum.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022This week has been remarkably dull for the rim.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022unsupported claim about the week overall, though it is close to a quiet-week framing\u0022},{\u0022span\u0022:\u0022The Greywater Concord remains at ten settlements strong.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027remains\u0027 implies a comparison with an earlier state the briefing does not give\u0022},{\u0022span\u0022:\u0022I suppose the sheer volume of outlanders keeps things predictably mundane.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022causal claim, though framed as a guess with \u0027I suppose\u0027\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The first item is accurate and guesses are properly framed, but the jokes are weak (the \u0027theological quandaries\u0027 line is filler) and the second item is thin. It also falls short of the three-sentence-per-item and 70-word minimums, and calling the week dull sits oddly beside the Leopold news.}\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.5588755,
-      "inputTokens": 2651,
-      "outputTokens": 506
+      "latencySeconds": 3.2599163,
+      "inputTokens": 3322,
+      "outputTokens": 326
     }
   ]
 }

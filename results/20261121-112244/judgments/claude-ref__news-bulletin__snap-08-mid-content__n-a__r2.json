@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-08-mid-content__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The bulletin leads correctly with the one new item and treats the failed raid only as background. Its dry asides (the unseen sculpture, the \u0027missing digit\u0027 gang) are clearly the narrator\u0027s opinion. The closing line \u0027a carved stone nobody can see\u0027 drifts close to stating a guess as fact, which keeps it just short of shipping unchanged.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022a carved stone nobody can see\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022stated as fact that nobody can see it; briefing only says it is the talk of traders (follows a guess about most people, but this claims nobody)\u0022},{\u0022span\u0022:\u0022people named after a missing digit\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022asserts the gang\u0027s name origin as fact; briefing gives only the name\u0022},{\u0022span\u0022:\u0022Since their failed raid on Gladwater\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news from the earlier bulletin as background, acceptable but adds the Gang being quiet context; mild\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent and the facts are mostly faithful, with a nice fair-prices callback. However, it adds a few small unsupported claims (nobody can see the sculpture, name origin) and the Gang paragraph stretches a quiet week into a second item built on old news.}\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.710271,
-      "inputTokens": 2757,
-      "outputTokens": 612
+      "latencySeconds": 3.5590995,
+      "inputTokens": 3428,
+      "outputTokens": 325
     }
   ]
 }

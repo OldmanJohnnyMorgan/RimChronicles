@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e4b__news-bulletin__snap-14-mid-content__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The faction counts remain steady.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing gives only current counts, not whether they have changed.\u0022},{\u0022span\u0022:\u0022here in Quillmarsh\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The reporter is near Quillmarsh, not inside it, and does not know its internal state.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and clear on the raid, but the wit is thin and the second item is a flat list of faction counts. The repeated \u0027One assumes/One suspects\u0027 makes it feel generic rather than wry.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Brackwater Corsairs hit a Fernhollow League barge on the river.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Briefing says raided, not hit; negligible. Word choice, not a fact.\u0022},{\u0022span\u0022:\u0022The faction counts remain steady.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies comparison with an earlier state the briefing does not give.\u0022},{\u0022span\u0022:\u0022It has been a quiet stretch of days here in Quillmarsh.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Reports a status for the area that the briefing does not give; also contradicts the raid just reported.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate on names and numbers, with guesses properly hedged, but the wit is thin and generic. It also runs short of the three-sentence-per-item rule and the 70-word minimum, and calling it a quiet stretch right after a raid sits oddly.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.447279,
-      "inputTokens": 2708,
-      "outputTokens": 574
+      "latencySeconds": 3.3092602,
+      "inputTokens": 3379,
+      "outputTokens": 314
     }
   ]
 }

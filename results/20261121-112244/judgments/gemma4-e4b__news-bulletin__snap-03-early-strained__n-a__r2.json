@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e4b__news-bulletin__snap-03-early-strained__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They remain in their established patterns.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Unsupported claim about Kinn behaviour; the last bulletin had them on the move from grass fires.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate, and it handles the quiet week by commenting on faction sizes, but the voice is flat and generic. The Merrow cost line recycles the earlier prices joke, and filler like \u0027Another day passes\u0027 and \u0027this current cycle\u0027 weakens the wit.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Another day passes in Kettle Hollow.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the reporter is in or knows the colony\u0027s daily life; briefing says she knows nothing of the inside\u0022},{\u0022span\u0022:\u0022It is day 23 of this current cycle.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027cycle\u0027 is not the briefing\u0027s term; the date is Jugust 5500, day 23\u0022},{\u0022span\u0022:\u0022They remain in their established patterns.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing status of the Kinn stated as fact; the briefing gives none, and the earlier bulletin said they were on the move\u0022},{\u0022span\u0022:\u0022Their caravans continue their paired journeys.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as an ongoing status the briefing does not report\u0022},{\u0022span\u0022:\u0022The Ashen Hand still command four settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027still\u0027 implies a comparison with an earlier state, which the briefing does not give\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It stays close to the briefing and frames its guesses as guesses, but it is dry rather than witty, the sentences are flat and repetitive, and some of its status claims (the Kinn\u0027s \u0027established patterns\u0027, the ongoing paired caravans) go beyond what the briefing says. At roughly 90 words it is acceptable but bland.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.8603581,
-      "inputTokens": 2712,
-      "outputTokens": 505
+      "latencySeconds": 3.2942322,
+      "inputTokens": 3383,
+      "outputTokens": 456
     }
   ]
 }

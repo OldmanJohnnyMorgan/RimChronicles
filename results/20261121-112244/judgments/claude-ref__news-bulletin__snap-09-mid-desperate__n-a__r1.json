@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-09-mid-desperate__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The bulletin is accurate and dry: it reports Malley\u0027s death plainly, frames every guess as a guess, and uses the faction counts and date well for the quiet second item. The closing fish line recycles the previous bulletin\u0027s joke, which the brief forbids, and that costs it some voice.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Malley\u0027s Lancers still hold their single settlement, now without the man whose name is on the door.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied ongoing status and consequence (leaderless, still holding) not in briefing; \u0027name on the door\u0027 is an added detail\u0022},{\u0022span\u0022:\u0022A man who built a career on other people\u0027s bad days\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022inferred characterisation stated as fact, though close to earlier bulletin about trader killed\u0022},{\u0022span\u0022:\u0022The fish, as far as anyone knows, remain uncaught.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news joke and \u0027fishing rights\u0027 cause which is not in this briefing; reuses prior bulletin\u0027s joke\u0022},{\u0022span\u0022:\u0022the Embertail Tribe remains at war with the Gray Wharf Syndicate, four settlements against six\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022war is stated in the faction list, so supported; but presented as ongoing status, fine; slight repeat of old news as background\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Dry, consistent voice and good use of hedged guesses, but it reuses the earlier fish joke, which the task forbade, and adds minor claims about the Lancers\u0027 status and Malley\u0027s career. The padding stretches a single new item into two paragraphs.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.0509313,
-      "inputTokens": 2756,
-      "outputTokens": 404
+      "latencySeconds": 3.6687431,
+      "inputTokens": 3427,
+      "outputTokens": 440
     }
   ]
 }

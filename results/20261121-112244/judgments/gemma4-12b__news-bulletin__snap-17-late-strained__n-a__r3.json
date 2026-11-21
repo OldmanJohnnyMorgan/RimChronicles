@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-17-late-strained__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Shattered Empire still holds Dunwold\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says only that Dunwold was taken. That it is still held is an inference stated as fact.\u0022},{\u0022span\u0022:\u0022The bounty remains active\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing does not say the bounty is still active. This is an inference stated as fact.\u0022},{\u0022span\u0022:\u0022The Empire continues to hunt for the defector Severin\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing mentions only that a bounty was posted. An ongoing hunt is not stated.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It reports a quiet week honestly and gets the 5-versus-9 tally right, but two of its three items rehash old news as ongoing, through unsupported \u0027still\u0027 and \u0027remains\u0027 claims. The wit leans on clich\u00E9s like \u0027deafening silence\u0027 and office phrasing like \u0027expansionist agenda\u0027, and the final line\u0027s \u0027they\u0027 is muddled.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Shattered Empire still holds Dunwold\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing status not reported; briefing only says it took Dunwold earlier\u0022},{\u0022span\u0022:\u0022The Empire continues to hunt for the defector Severin. The bounty remains active\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing activity/status not in briefing; only the posting of the bounty is known\u0022},{\u0022span\u0022:\u0022the silence from the target is deafening\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies Severin\u0027s behaviour/status not given in briefing; stated as fact\u0022},{\u0022span\u0022:\u0022The Ashford Compact still maintains five settlements\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022the count is given, but \u0027still\u0027 implies a comparison with an earlier state; Dunwold was lost so it is arguably changed\u0022},{\u0022span\u0022:\u0022a war that refuses to end\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied duration of the war not in briefing, though close to opinion\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Competent and readable, and it correctly treats the week as quiet. But it presents old news (Dunwold, bounty) as ongoing status, which the briefing did not report, and the wit is mild and generic; also the second item\u0027s \u0027enjoying anonymity\u0027 guess is fine but the \u0027deafening\u0027 line is a fact claim. Word count is within range, and the text lacks any new item beyond restating background.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.3023525,
-      "inputTokens": 2784,
-      "outputTokens": 628
+      "latencySeconds": 4.1829208,
+      "inputTokens": 3455,
+      "outputTokens": 470
     }
   ]
 }

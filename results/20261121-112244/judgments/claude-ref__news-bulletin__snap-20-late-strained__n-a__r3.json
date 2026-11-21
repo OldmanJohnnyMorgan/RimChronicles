@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-20-late-strained__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:5,\u0022comment\u0022:\u0022Clean and accurate. It leads with the one new item, treats the Alliance\u0027s two towns as background, and draws a dry joke from correct arithmetic about the Driftwood Tribe without inventing anything. The voice matches the earlier bulletins without reusing their lines.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022which makes it, by simple arithmetic, the second power on the rim this Jugust\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022inference stated as fact; \u0027second power\u0027 is a ranking the briefing does not give, though it follows from settlement counts\u0022},{\u0022span\u0022:\u0022The Free Coast Alliance, still at war with it, holds two.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news (Alliance holds two towns) as current background, though only briefly and not as new\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent, the lead item is correct and the guesses are properly framed. The second paragraph drifts into a ranking claim (\u0027second power\u0027) the briefing does not give, and the items are weakly separated, since the second one is a single filler paragraph about the quiet week.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.586733,
-      "inputTokens": 2729,
-      "outputTokens": 477
+      "latencySeconds": 3.0324456,
+      "inputTokens": 3400,
+      "outputTokens": 281
     }
   ]
 }

@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-01-early-content__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It sticks to the briefing\u0027s facts and frames its guesses properly. However, it crams both new items into one paragraph, and modern phrases like \u0027monetize the landscape\u0027 and \u0027keep the lights on\u0027 don\u0027t fit the frontier tone. The faction items read as generic filler rather than dry wit.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Red Gully Raiders have three settlements active this cycle.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\\\u0022active this cycle\\\u0022 adds an ongoing status the briefing does not report\u0022},{\u0022span\u0022:\u0022They continue their usual business of whatever it is they do best.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies an ongoing activity stated as fact, though it is vague\u0022},{\u0022span\u0022:\u0022They remain stubbornly rooted in their current arrangement.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds status or behaviour for the Clans that the briefing does not give\u0022},{\u0022span\u0022:\u0022Another predictable inconvenience for anyone trying to keep the lights on.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a consequence of the cold snap (power strain) and that cold snaps recur\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The first item is accurate and the dry remarks are serviceable, but the second and third items pad with faction-size filler and vague, slightly invented status claims. Several jokes are generic, and the sentences about the Raiders and the Clans say little. The cold snap item is also too short, with only one remark and no real take.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.3684345,
-      "inputTokens": 2554,
-      "outputTokens": 415
+      "latencySeconds": 3.9064792,
+      "inputTokens": 3225,
+      "outputTokens": 388
     }
   ]
 }

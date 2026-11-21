@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-06-early-content__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the pirates have a sudden appetite for the Calder Combine\u0027s surplus\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing does not say whose grain the barge carried or that this was sudden. It is hedged with \u0027It seems\u0027 but still links the barge to the Combine.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Clean, dry and well structured, with a sensible quiet-week second item drawn from the briefing. However, the first item implies the barge carried the Calder Combine\u0027s grain, which the briefing never states. The \u0027honest work\u0027 and \u0027doing nothing\u0027 jokes are serviceable rather than sharp.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the pirates have a sudden appetite for the Calder Combine\u0027s surplus\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the barge belonged to the Calder Combine; briefing does not say whose barge it was (framed with \u0027It seems\u0027, but the Combine link is an inference)\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent and the Ditch Kings item is faithful, but the output is short of the 70-word minimum and says little about the Empire beyond the briefing\u0027s own line. The Combine\u0027s surplus is an unsupported link to the barge, though hedged with \u0027it seems\u0027.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 4.494804,
-      "inputTokens": 2613,
-      "outputTokens": 407
+      "latencySeconds": 2.379149,
+      "inputTokens": 3284,
+      "outputTokens": 226
     }
   ]
 }

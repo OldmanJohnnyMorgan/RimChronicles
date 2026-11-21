@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e4b__news-bulletin__snap-20-late-strained__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The bulletin is accurate, and the barnacle line has some wit. However, at about 55 words it falls well short of the 70-word minimum. Calling it \u0027a quiet week\u0027 right after leading with a governorship offer is self-contradictory, and the first item\u0027s take is a fairly generic hedge.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Empire still controls the majority of settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says it controls most of the region and has 21 settlements, but \u0027majority of settlements\u0027 is a stretch: 21 of 26 is a majority, so mostly supported; \u0027still\u0027 implies ongoing status\u0022},{\u0022span\u0022:\u0022It remains a quiet week in the rim.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022asserts the week is quiet as fact; the briefing reports a governorship offer and does not characterize the week\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and clear, with guesses properly framed, but the wit is thin and generic and the item is shorter than asked (under 70 words, with items under three sentences). The barnacle line is the only real flourish, and the Alliance item repeats old news as filler.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 4.548769,
-      "inputTokens": 2637,
-      "outputTokens": 322
+      "latencySeconds": 3.1574658,
+      "inputTokens": 3308,
+      "outputTokens": 292
     }
   ]
 }

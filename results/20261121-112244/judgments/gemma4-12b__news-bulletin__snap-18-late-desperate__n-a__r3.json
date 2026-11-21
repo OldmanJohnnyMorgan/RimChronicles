@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-18-late-desperate__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The facts are accurate and the guesses are properly framed. However, the second item rehashes the earlier granary story and reuses its \u0027reaching them\u0027 joke, against the instructions. Phrases like \u0027primary obstacle\u0027 and \u0027still maintains\u0027 sound flat and office-like, and there is little of Quell\u0027s worried edge.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Thistle Commonwealth still maintains its six settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies ongoing status (\u0027still maintains\u0027) the briefing does not report; the six settlements are only a faction size\u0022},{\u0022span\u0022:\u0022They have already opened their granaries to those who can reach them.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news from the latest bulletin, framed as a new item with \u0027already\u0027\u0022},{\u0022span\u0022:\u0022It seems the weather is doing a better job of stopping travel than the pirates are.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022comparison implying the pirates are stopping travel; stated as \u0027it seems\u0027 so mostly opinion, but adds an inference about pirate effectiveness\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate and dry, but the second item recycles the previous bulletin\u0027s granary news and pads it with the faction size, which breaks the old-news rule. The voice is generic and carries little of Tomas\u0027s earnest worry, and the word count looks short of 70.}\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.8677645,
-      "inputTokens": 2673,
-      "outputTokens": 515
+      "latencySeconds": 3.377962,
+      "inputTokens": 3344,
+      "outputTokens": 356
     }
   ]
 }

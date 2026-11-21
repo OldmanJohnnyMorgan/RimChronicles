@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e4b__inheritance-handoff__snap-16-late-desperate__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the worn leather of his jacket\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Clothing detail not in the briefing.\u0022},{\u0022span\u0022:\u0022toward the woods where Dunmore had slipped away\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The ambush setting is not described; \u0027woods\u0027 is added.\u0022},{\u0022span\u0022:\u0022Elske knelt beside Bertram, the blood dark against the dirt\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies Elske found the body at the scene, though the briefing says only that Rook came home alone.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The scene is clear and restrained, and it ends correctly on Elske\u0027s intent. The prose is generic, though, and leans on small invented details, while \u0027sudden stillness\u0027 rings false for a body she has only just found.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Elske knelt beside Bertram, the blood dark against the dirt.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022places Elske at the death scene; the briefing says only that Bertram died on the hunt, and does not put Elske among the hunters\u0022},{\u0022span\u0022:\u0022Rook nudged her hand, a low whine vibrating in his chest.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Rook came home alone per briefing, so he cannot be at the body\u0022},{\u0022span\u0022:\u0022She looked toward the woods where Dunmore had slipped away.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds a specific detail (woods) about the escape and implies Elske witnessed it\u0022},{\u0022span\u0022:\u0022worn leather of his jacket\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022added detail about Bertram\u0027s clothing\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The scene puts Elske and Rook at the site of Bertram\u0027s death, contradicting the briefing that Rook came home alone and placing Elske at a past event. The prose is restrained and ends on her resolve, but the facts are wrong and the friendship is barely shown.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 8.8276167,
-      "inputTokens": 2114,
-      "outputTokens": 790
+      "latencySeconds": 3.2468279,
+      "inputTokens": 2785,
+      "outputTokens": 378
     }
   ]
 }

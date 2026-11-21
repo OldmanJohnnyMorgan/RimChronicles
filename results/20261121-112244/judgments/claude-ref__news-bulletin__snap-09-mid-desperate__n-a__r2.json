@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-09-mid-desperate__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022nobody has come forward to boast\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Asserts that no one has claimed the killing; the briefing says nothing about this.\u0022},{\u0022span\u0022:\u0022a man with a cane\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The earlier bulletin mentions only a pit fighter and never gives a gender.\u0022}],\u0022voice\u0022:5,\u0022clarity\u0022:4,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A sharp, dry bulletin that correctly leads with Malley\u0027s death and treats the war as background. The cane callback and the cold-weather guess land well. Two small embellishments keep it from a clean ship: that nobody has boasted of the killing, and the pit fighter\u0027s gender.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022nobody has come forward to boast\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied status not in briefing; claims no one has claimed the killing\u0022},{\u0022span\u0022:\u0022The Lancers still hold their one settlement and still carry his name.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing status not reported; briefing only gives settlement count, not that they still carry his name\u0022},{\u0022span\u0022:\u0022remains a war\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing status of war stated as fact; briefing only says at war, so this is acceptable but borders on repeating old news\u0022},{\u0022span\u0022:\u0022Neither has sent me anything worth printing.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies no developments in the war, an unreported status\u0022},{\u0022span\u0022:\u0022that silence counts as restraint\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022inference stated as fact about the war\u0027s inactivity\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent and the cane callback is good, but the war item is old news padded with extra status claims, and the cane joke implies something about the pit fighter\u0027s feelings. The second paragraph is thin and repeats background more than it should. It stays within briefing facts mostly, but a few minor unsupported statuses hold it back.}\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.238928,
-      "inputTokens": 2777,
-      "outputTokens": 561
+      "latencySeconds": 3.8893043,
+      "inputTokens": 3448,
+      "outputTokens": 416
     }
   ]
 }

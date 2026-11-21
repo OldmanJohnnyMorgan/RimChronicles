@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-12-mid-desperate__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It is day 341 of Septober\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing gives day 341 and Septober separately. Day 341 is not a day of Septober.\u0022},{\u0022span\u0022:\u0022the year is very nearly spent\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022This inference is stated as fact. Septober is not the final quadrum.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The lead item is dry and well judged, with its guesses properly hedged, and the quiet-week faction roundup works. The date handling garbles day 341 into a day of Septober and wrongly asserts the year is nearly over.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The masks are the detail everyone will discuss and nobody can explain.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022stated as fact; implies public discussion and no explanation, not in briefing\u0022},{\u0022span\u0022:\u0022One assumes the Assembly learned what the envoys wanted, if not who they were.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, but implies the envoys\u0027 identity was unknown; borderline, low impact\u0022},{\u0022span\u0022:\u0022apart from the masked visitors it lets out\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the Throne\u0027s policy of sending envoys is ongoing/deliberate; repeats the news as a status\u0022},{\u0022span\u0022:\u0022the year is very nearly spent\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Septober is not stated to be late in the year; the briefing gives only the date\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent and the facts are mostly faithful, but it has only two paragraphs, and the first states a few unsupported claims as fact, such as the masks being discussed and unexplained. The second paragraph is a fair quiet-week filler, though it recycles the doctor background and adds some small embellishments.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.7529069,
-      "inputTokens": 2781,
-      "outputTokens": 653
+      "latencySeconds": 3.6551726,
+      "inputTokens": 3452,
+      "outputTokens": 400
     }
   ]
 }

@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-10-mid-strained__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The bulletin leads correctly with the ransom offer, but the joke about the raiders finding the price \u0027too high\u0027 is muddled, since they would be receiving the silver. The second item restates old news about the captives as a full current story instead of using it briefly as background.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Stonecutter Raiders currently hold several captives from the Ochre Hand.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a present-tense status; \\\u0022several\\\u0022 is an added quantity the briefing does not give\u0022},{\u0022span\u0022:\u0022It seems they have finally realized that people are worth more than the dirt they stand on.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the Ochre Hand previously undervalued people, which the briefing does not say\u0022},{\u0022span\u0022:\u0022This is a continuation of the ongoing war between the two groups.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied cause: links the captives to the war, which the briefing does not state\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate on the lead item and it uses hedged guesses, but it is too short (about 85 words, with only two items of three sentences). The second item mostly repeats old news as current, and the jokes are generic, with weak \u0027dirt\u0027 and \u0027frost-bitten rock\u0027 quips that don\u0027t fit the rim.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.5661682,
-      "inputTokens": 2720,
-      "outputTokens": 468
+      "latencySeconds": 2.9812744,
+      "inputTokens": 3391,
+      "outputTokens": 348
     }
   ]
 }

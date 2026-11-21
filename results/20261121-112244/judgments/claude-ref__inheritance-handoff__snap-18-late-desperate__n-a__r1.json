@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__inheritance-handoff__snap-18-late-desperate__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Elias found the letter in his mother\u0027s footlocker\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing does not say where the letter was kept or that Elias found it.\u0022},{\u0022span\u0022:\u0022in a hand he didn\u0027t know\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing gives no detail about the handwriting or Elias\u0027s familiarity with Ada.\u0022},{\u0022span\u0022:\u0022his mother\u0027s sister was still waiting\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says Ada is still in the village, not that she is waiting for anyone.\u0022}],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A restrained, well-built scene: Elias\u0027s Neurotic and Industrious traits come through in the crossed-out, rechecked list, and it ends cleanly on his intent to bring Ada home. Only small embellishments, such as the footlocker and the unfamiliar handwriting, keep it from a perfect score.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022found the letter in his mother\u0027s footlocker\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022footlocker is an added detail about the past/setting not in briefing\u0022},{\u0022span\u0022:\u0022folded so many times the creases had worn through\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022added detail about the letter\u0027s past handling\u0022},{\u0022span\u0022:\u0022Ada\u0027s name sat at the bottom in a hand he didn\u0027t know\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Elias not knowing the handwriting, and the signature placement, are added details; he\u0027d be unfamiliar with an aunt lost for thirty years, but unstated\u0022},{\u0022span\u0022:\u0022The passes would open in time.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022asserted as fact about the passes\u0027 state; not in briefing\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Restrained, well-staged scene with a clear ending on Elias\u0027s intent to bring Ada home, using the mother-son relationship correctly; small added details (footlocker, worn creases, passes opening) are unsupported but minor.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.897899,
-      "inputTokens": 2181,
-      "outputTokens": 533
+      "latencySeconds": 2.9876045,
+      "inputTokens": 2852,
+      "outputTokens": 347
     }
   ]
 }

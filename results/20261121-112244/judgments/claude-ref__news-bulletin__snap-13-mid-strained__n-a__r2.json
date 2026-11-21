@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-13-mid-strained__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Seven towns received the demand, so five answers have yet to reach me.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing does not say every one of the seven settlements was sent the demand; this is an inference stated as fact.\u0022}],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A sharp, dry bulletin that leads correctly with the refusals and makes good use of the faction sizes. The one weakness is that it presents as fact that all seven towns received the demand.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Seven towns received the demand, so five answers have yet to reach me.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Briefing does not say all seven towns received the demand or that answers are pending; the arithmetic builds on an invented premise.\u0022},{\u0022span\u0022:\u0022now it has its first answers. Both were no.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies these are the first responses; the briefing does not say so.\u0022},{\u0022span\u0022:\u0022The demand has been doing the rounds for a while\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Duration is not given in the briefing.\u0022},{\u0022span\u0022:\u0022They collect their own tribute without the paperwork.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Stated as fact; the briefing says nothing about how the Raiders collect tribute.\u0022},{\u0022span\u0022:\u0022One assumes the envoys are composing a strongly worded reply as we speak.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Framed as a guess, so it is allowed; flagged only as borderline.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is solid and the second item makes good use of the faction sizes for a quiet-week joke. However, the claim that all seven towns received the demand and five answers are outstanding is an invented fact, which caps the score.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.3424175,
-      "inputTokens": 2790,
-      "outputTokens": 467
+      "latencySeconds": 3.1152457,
+      "inputTokens": 3461,
+      "outputTokens": 413
     }
   ]
 }

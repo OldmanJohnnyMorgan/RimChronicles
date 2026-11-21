@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e4b__news-bulletin__snap-03-early-strained__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022continue their slow migration across seven settlements\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The briefing reports no migration by the Merrow Freeholds; this is an invented ongoing event.\u0022},{\u0022span\u0022:\u0022hold three settlements in the area\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing gives no location for the Kinn settlements.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It handles the quiet week correctly by commenting on faction sizes. However, it invents a Merrow \u0027migration\u0027, and the second item has only two sentences. The wit is thin and recycles the earlier joke about pairs raising prices.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Merrow Freeholds continue their slow migration across seven settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027slow migration\u0027 is an ongoing activity the briefing does not report; settlements are not migrating\u0022},{\u0022span\u0022:\u0022The Kinn of the Long Grass hold three settlements in the area.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027in the area\u0027 is an added location; the briefing gives no placement for the settlements\u0022},{\u0022span\u0022:\u0022The Ashen Hand maintain their presence across four settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027maintain their presence\u0027 implies an ongoing status not in the briefing\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It correctly treats a quiet week by commenting on faction sizes and frames its guesses as guesses, but the wit is thin and generic, and \u0027slow migration\u0027 and \u0027in the area\u0027 add small unsupported details. The item on pairs of caravans repeats old news only as background, which is acceptable, though the closing line on the Kinn is weak.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.8913209,
-      "inputTokens": 2693,
-      "outputTokens": 566
+      "latencySeconds": 2.9048578,
+      "inputTokens": 3364,
+      "outputTokens": 351
     }
   ]
 }

@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e4b__news-bulletin__snap-14-mid-content__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the Corsairs are still practicing their maritime dentistry\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027Still\u0027 implies earlier river raids, which the briefing does not mention.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate, but the \u0027maritime dentistry\u0027 joke is obscure, and calling the week \u0027remarkably uneventful\u0027 right after reporting a raid contradicts itself. The second item also pads with a bare list of faction counts and lifts \u0027A quiet week is a fine story\u0027 straight from the instructions.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Brackwater Corsairs struck a Fernhollow League barge on the river.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says \u0027raided\u0027; \u0027struck\u0027 is a close paraphrase, not a real problem (negligible)\u0022},{\u0022span\u0022:\u0022It seems the Corsairs are still practicing their maritime dentistry.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies ongoing activity and a repeated pattern of raiding; framed as \u0027it seems\u0027 but \u0027still\u0027 implies earlier raids and the dentistry joke is obscure\u0022},{\u0022span\u0022:\u0022This week has been remarkably uneventful, considering the usual state of affairs.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022contradicts the raid just reported as news; claims the week was quiet\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The raid is reported accurately, but the second paragraph says the week was uneventful right after reporting a raid, and the \u0027maritime dentistry\u0027 joke is unclear. Word count is under 70, and the items are thin with few real dry takes.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.3718942,
-      "inputTokens": 2719,
-      "outputTokens": 495
+      "latencySeconds": 3.220104,
+      "inputTokens": 3390,
+      "outputTokens": 359
     }
   ]
 }

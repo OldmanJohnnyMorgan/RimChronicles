@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-02-early-content__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022has wisely stayed out of it\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing only omits the Company from the war; the narrator states it as a fact.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A clear, well-ordered bulletin that leads correctly with the abandoned camp and uses the faction counts well on a quiet week. \u0027Press releases\u0027 is a modern-office phrase that jars slightly with the frontier setting, and the Company\u0027s neutrality is presented as fact rather than inference.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022No reason was given\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a status the briefing does not report; the briefing gives no information about reasons or statements\u0022},{\u0022span\u0022:\u0022Whether the salt gets any cheaper is another matter\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022salt price comes from earlier bulletins, not the briefing; stated as ongoing context\u0022},{\u0022span\u0022:\u0022has wisely stayed out of it\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing status of the Company not reported in the briefing\u0022},{\u0022span\u0022:\u0022the war between them goes on\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing status; briefing only says they are at war, which is roughly supported\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The voice is dry and consistent, and guesses are properly framed, but a few added claims (no reason given, the Company staying out of it) go beyond the briefing. The bulletin is also slightly over the length and the second item is padded with faction sizes rather than a distinct news item.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.8917113,
-      "inputTokens": 2835,
-      "outputTokens": 506
+      "latencySeconds": 3.140462,
+      "inputTokens": 3506,
+      "outputTokens": 341
     }
   ]
 }

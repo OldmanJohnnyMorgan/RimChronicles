@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-19-late-desperate__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022besieging the Marrow League settlements\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says the League is being besieged, not which or how many of its settlements.\u0022},{\u0022span\u0022:\u0022relentless expansion\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027Relentless\u0027 adds scale and manner to the plain \u0027expanding by force\u0027.\u0022},{\u0022span\u0022:\u0022temporary sanctuary\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Nothing in the briefing says the shelter is temporary.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The prose is flat and generic, with little of Odile\u0027s sardonic precision. The third item is a muddled two-sentence remark about Last Lantern being an \u0027unlisted entity\u0027 that reads like the writer talking about its briefing, and it ignores the stated war with the Sun Throne.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They are currently besieging the Marrow League settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies siege of multiple settlements; briefing only says besieging the Marrow League\u0022},{\u0022span\u0022:\u0022The Starling Tribe remains in its four settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies ongoing status the briefing does not report (stays put)\u0022},{\u0022span\u0022:\u0022They offered aid to the remnants of Fenwick.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as if current, though loosely framed as background\u0022},{\u0022span\u0022:\u0022It is a predictable pattern for tribes to offer temporary sanctuary.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022claims a pattern and that sanctuary is temporary; stated as fact, not in briefing\u0022},{\u0022span\u0022:\u0022Last Lantern remains an unlisted entity in our current accounting.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Last Lantern is named in the briefing as a faction at war with the Sun Throne; calling it unlisted contradicts it\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The output misreads Last Lantern as unlisted when the briefing names it as at war with the Sun Throne, and the third item is empty filler. The Starling item rehashes old news with a dubious generalisation, and the wit is thin, so it is not ready to ship.\\n\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 7.1290837,
-      "inputTokens": 2718,
-      "outputTokens": 715
+      "latencySeconds": 3.8832812,
+      "inputTokens": 3389,
+      "outputTokens": 454
     }
   ]
 }

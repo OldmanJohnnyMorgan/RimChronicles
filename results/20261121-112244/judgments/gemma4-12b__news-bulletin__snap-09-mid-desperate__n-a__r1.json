@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-09-mid-desperate__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022provided they can find one willing to be shot\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies Malley was shot; the briefing gives no manner of death.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The bulletin is clear and leads correctly with Malley\u0027s death, but the second item rehashes the earlier bulletin\u0027s no-fish joke, which the task forbids. \u0027Willing to be shot\u0027 also adds a manner of death the briefing doesn\u0027t give.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Embertail Tribe remains at war with the Gray Wharf Syndicate.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as an ongoing item; the war was covered in an earlier bulletin, though the briefing does list the war\u0022},{\u0022span\u0022:\u0022yet to secure any actual fish\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats the earlier bulletin\u0027s fish joke and presents it as current fact; the briefing does not mention fishing\u0022},{\u0022span\u0022:\u0022It appears the pirates were less capable of defending their own doorstep than their reputation suggested.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022inference about cause stated as fact (hedged with \u0027It appears\u0027, but implies the pirates failed to defend)\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent and the lead item stays on the briefing, but the second item recycles the earlier fish joke, dwells on old news, and the paragraphs are on the short side of the sentence minimum. The Lancers\u0027 search for a leader is framed as a guess, which is fine, but the output does not use the briefing\u0027s new information beyond one item.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.0886573,
-      "inputTokens": 2711,
-      "outputTokens": 499
+      "latencySeconds": 3.2430363,
+      "inputTokens": 3382,
+      "outputTokens": 384
     }
   ]
 }

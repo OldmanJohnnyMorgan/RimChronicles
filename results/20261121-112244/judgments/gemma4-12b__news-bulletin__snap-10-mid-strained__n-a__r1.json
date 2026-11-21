@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-10-mid-strained__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate and dry, but the second item builds a whole paragraph out of old news, which the brief said to mention only as background. The third item\u0027s quip about Weir settlement counts is flat filler.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Stonecutter Raiders continue to hold the captives taken from the Ochre Hand.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a present-tense status paragraph\u0022},{\u0022span\u0022:\u0022It is a standard hostage situation for a standard pirate war.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022claims typicality/comparison not in briefing\u0022},{\u0022span\u0022:\u0022They remain a large, looming presence on the rim.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022stated as fact; briefing gives only seven settlements, no looming presence\u0022},{\u0022span\u0022:\u0022The Weir Federation still maintains its seven settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies ongoing status/comparison not reported; filler item\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent and the lead item is accurate. The second item repeats old news, the third is padding, and the whole thing runs slightly short of the 70-word minimum. The \u0027ransom more efficient than a spear\u0027 line is wit, not fact.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 3.8746889,
-      "inputTokens": 2755,
-      "outputTokens": 350
+      "latencySeconds": 3.429513,
+      "inputTokens": 3426,
+      "outputTokens": 354
     }
   ]
 }

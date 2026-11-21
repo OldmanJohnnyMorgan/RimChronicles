@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e4b__news-bulletin__snap-08-mid-content__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the collective wisdom of the Accord council\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing never mentions an Accord council; the joke presupposes a governing body.\u0022},{\u0022span\u0022:\u0022The Lantern Accord continues its trade fair at Lantern Hill.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing only says the Accord is hosting the fair; that it is still running now is an inference.\u0022},{\u0022span\u0022:\u0022They still insist on fair prices\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Restates the earlier bulletin\u0027s promise as a fresh, ongoing claim the briefing does not report.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It leads correctly with the sculpture and frames its guesses properly. But the second item recycles old news and the earlier \u0027fair prices\u0027 joke, and \u0027in this economy\u0027 is modern phrasing that jars with the frontier tone.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Lantern Accord continues its trade fair at Lantern Hill.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; ongoing status (\u0027continues\u0027) not in briefing, which only says it is hosting\u0022},{\u0022span\u0022:\u0022They still insist on fair prices, which is a bold claim in this economy.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; \u0027still insist\u0027 is an ongoing status and \u0027this economy\u0027 implies a condition the briefing does not give\u0022},{\u0022span\u0022:\u0022The jade sculpture from Gladwater is currently drawing the attention of Lantern Hill traders.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027currently\u0027 adds ongoing status; briefing says it is the talk of traders\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Clean and readable, with a dry voice, but the second item is old news dressed as an ongoing update, and the output is short of the 70-word minimum and its items are thin on the fact-then-take structure. The jokes are mild and the \u0027Accord council wisdom\u0027 jab is generic.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 8.2642743,
-      "inputTokens": 2676,
-      "outputTokens": 720
+      "latencySeconds": 3.1661687,
+      "inputTokens": 3347,
+      "outputTokens": 361
     }
   ]
 }

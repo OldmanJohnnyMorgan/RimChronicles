@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-09-mid-desperate__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It is accurate and clearly ordered, but the wit is nearly absent. The \u0027dry takes\u0027 are flat predictions rather than Odile\u0027s sardonic understatement. The third item is padding that restates the war already covered in the second.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022concerning fishing rights\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; the fishing-rights cause appears only in an earlier bulletin, not the current briefing, and is presented as a continuing fact\u0022},{\u0022span\u0022:\u0022continues without apparent resolution\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing status of the war not reported in the briefing\u0022},{\u0022span\u0022:\u0022They are currently engaged with the Embertail Tribe.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news about the war as ongoing activity, and duplicates the previous item\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The Malley item is accurate and the guess is properly framed, but the other two items recycle the old war news and repeat each other. The wit is thin and the prose is flat, so it reads as generic rather than sardonic.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.0327371,
-      "inputTokens": 2733,
-      "outputTokens": 376
+      "latencySeconds": 3.0268076,
+      "inputTokens": 3404,
+      "outputTokens": 290
     }
   ]
 }

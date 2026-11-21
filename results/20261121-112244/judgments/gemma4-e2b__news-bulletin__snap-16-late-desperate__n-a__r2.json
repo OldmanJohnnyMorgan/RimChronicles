@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-16-late-desperate__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It sticks to the briefing, but it reports the same bounty twice as separate items, and the second item contradicts the first by guessing at a price already set. The voice is flat and lacks Odile\u0027s sardonic bite: lines like \\\u0022It is always interesting to observe\\\u0022 are filler, not wit.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022This suggests the mercenary is still capable of causing trouble.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022inference stated as fact about his current ability; briefing gives only the ambush\u0022},{\u0022span\u0022:\u0022It is hardly surprising that the Outlanders are concerned with such matters.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied motive/state of the Accord not in briefing, stated as fact\u0022},{\u0022span\u0022:\u0022The Glass Throne maintains a quiet presence behind its walls.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says quiet behind its walls; \u0027maintains a presence\u0027 and \u0027preferred state of inaction\u0027 add an ongoing status not reported\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The first two items restate the same bounty twice as if separate news, so the bulletin is padded and repetitive, and the wit is mild and generic. It stays within briefing facts, but the jokes are weak and the Empire item adds little.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.2716642,
-      "inputTokens": 2724,
-      "outputTokens": 438
+      "latencySeconds": 3.2695976,
+      "inputTokens": 3395,
+      "outputTokens": 329
     }
   ]
 }

@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-06-early-content__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the pirates have a sudden appetite for the Calder Combine\u0027s bounty\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing does not say the barge or its grain belonged to the Calder Combine. That link is an inference, and only lightly hedged.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It is clear and appropriately dry, and it uses a briefing fact well for the quiet second item. But at about 60 words it falls short of the 70-word minimum, and it presents the barge\u0027s grain as the Calder Combine\u0027s without support.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the Calder Combine\u0027s bounty\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing does not say the barge or grain belonged to the Combine; implied ownership stated as fact\u0022},{\u0022span\u0022:\u0022before the next moon\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027moon\u0027 timeframe is colour but not RimWorld vocabulary; framed as a guess so mostly fine\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Dry voice and well-framed guesses, but the first item treats the barge as the Combine\u0027s grain, which the briefing never says. The bulletin is also short of the 70-word minimum and item two has only three sentences with thin content.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.6122895,
-      "inputTokens": 2598,
-      "outputTokens": 454
+      "latencySeconds": 3.0170719,
+      "inputTokens": 3269,
+      "outputTokens": 236
     }
   ]
 }

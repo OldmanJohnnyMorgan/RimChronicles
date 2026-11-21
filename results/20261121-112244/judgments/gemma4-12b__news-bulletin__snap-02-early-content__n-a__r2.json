@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-02-early-content__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The bulletin is accurate: it leads with the abandoned camp and frames every speculation as a guess. The wit is serviceable but slightly generic, and the \u0027scenery\u0027 joke is used twice in two consecutive items.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Tannerfolk and the Hollow Spire Pirates are still engaged in their ongoing war over the salt flats.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; the fighting is background from an earlier bulletin, and \\\u0022still\\\u0022 asserts an ongoing status the briefing does not report for this week, though the war itself is in the faction list\u0022},{\u0022span\u0022:\u0022They seem quite content with their current footprint.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022inference about the Company\u0027s attitude, hedged with \\\u0022seem\\\u0022 but loosely presented as observation\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and clear with no invented names or numbers, but the second item largely repeats old news and the third is filler about a faction size. The wit is mild and generic rather than sharp, and the last item feels padded.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 7.628634,
-      "inputTokens": 2841,
-      "outputTokens": 704
+      "latencySeconds": 2.7714618,
+      "inputTokens": 3512,
+      "outputTokens": 289
     }
   ]
 }

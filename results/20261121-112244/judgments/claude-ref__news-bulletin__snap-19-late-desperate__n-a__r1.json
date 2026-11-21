@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-19-late-desperate__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The bulletin is accurate and well framed: it leads with the siege, treats Fenwick as old news and fills the second item with dry commentary on the briefing\u0027s own faction facts. The second item is somewhat list-like, and \u0027the sequel nobody requested\u0027 leans a little modern.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Sun Throne, finished with Fenwick, is now besieging the Marrow League.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied sequence: \u0027finished with Fenwick\u0027 adds that one action ended before the next; briefing gives both without order\u0022},{\u0022span\u0022:\u0022is at war with nobody\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing lists no war for the Starling Tribe, but stating it is at war with nobody is an inference stated as fact\u0022},{\u0022span\u0022:\u0022Fenwick\u0027s razing is old news.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news (acknowledged as background, but the siege-as-sequel framing is fine); not a real invention\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent and the facts largely track the briefing, with guesses properly hedged. However, the second item only restates faction sizes, the first item is short on sentences, and \u0027at war with nobody\u0027 is an inference stated as fact. The text is also under the requested length.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 4.9029509,
-      "inputTokens": 2756,
-      "outputTokens": 387
+      "latencySeconds": 3.2361485,
+      "inputTokens": 3427,
+      "outputTokens": 342
     }
   ]
 }

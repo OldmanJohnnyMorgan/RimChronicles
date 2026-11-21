@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-20-late-strained__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and properly hedged, but the voice is flat and generic. Phrases like \\\u0022local power dynamics\\\u0022 read as office-speak, the jokes barely land, and \\\u0022stubborn\\\u0022 is used twice. The third item mostly restates old news without a fresh angle.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They remain stubbornly separate from the larger conflicts.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing status not in briefing; tribe\u0027s neutrality stated as fact\u0022},{\u0022span\u0022:\u0022The Free Coast Alliance continues to hold its two towns.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as an ongoing status\u0022},{\u0022span\u0022:\u0022the inevitable skirmishes\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies skirmishes near Varrowgate and presents inevitability as fact, not in briefing\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It leads correctly with the governorship offer and hedges its guesses, but the wit is mild and generic, and it adds unsupported status claims (Tribe aloof from conflicts, skirmishes) while recycling the Alliance\u0027s two towns as a third item.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.6326584,
-      "inputTokens": 2716,
-      "outputTokens": 493
+      "latencySeconds": 2.7921235,
+      "inputTokens": 3387,
+      "outputTokens": 298
     }
   ]
 }

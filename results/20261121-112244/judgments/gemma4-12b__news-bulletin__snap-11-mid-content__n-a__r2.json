@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-11-mid-content__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They have managed to keep their borders intact for another day.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing gives only the settlement count. Stable borders is an inference stated as fact.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate, with a decent dry joke framed as a guess. The two filler items on faction sizes are thin, though, and the Hearthguard one slips in an unsupported claim about borders.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They have managed to keep their borders intact for another day.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied status/ongoing activity not in briefing; borders intact is unreported\u0022},{\u0022span\u0022:\u0022It is a rare moment of cooperation in a land that usually prefers biting.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies cooperation is rare, a comparison with earlier state not given\u0022},{\u0022span\u0022:\u0022They have lost the eastern marsh, but they still have a home.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as background but adds that they still have a home; implied status\u0022},{\u0022span\u0022:\u0022The Mire Rats still occupy two settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news framing; \u0027still\u0027 implies ongoing status, though count matches briefing\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The feast lead is correct and the dry voice mostly holds, but the second and third items pad with faction sizes and add implied status such as intact borders. The wit is thin and the closing \u0027successful retreat\u0027 line is weak.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.8422246,
-      "inputTokens": 2659,
-      "outputTokens": 531
+      "latencySeconds": 2.926571,
+      "inputTokens": 3330,
+      "outputTokens": 356
     }
   ]
 }

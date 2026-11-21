@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-17-late-strained__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Shattered Empire still holds Dunwold\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Briefing says the Empire took Dunwold but not that it still holds it; an inference stated as fact.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It handles the quiet week properly, using real faction facts without inventing events. But the voice is generic next to the earlier bulletins, \u0027bruised egos\u0027 and \u0027monotony\u0027 are flat, and the second item has only two sentences.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Shattered Empire still holds Dunwold\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing status not reported in briefing; implies Dunwold still held\u0022},{\u0022span\u0022:\u0022The Ashford Compact maintains its five settlements despite the recent loss.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies five settlements after losing Dunwold, a status/consequence the briefing does not state\u0022},{\u0022span\u0022:\u0022preparing for the next inevitable skirmish\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing activity and future event stated as fact; only \u0027presumably\u0027 covers nursing egos\u0022},{\u0022span\u0022:\u0022The Kestrel Tribe and Bonecutter Gang remain in their respective territories.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing status not in briefing\u0022},{\u0022span\u0022:\u0022nothing explodes or disappears\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022claims nothing happened in the world, beyond \u0027heard nothing new\u0027\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Reads cleanly and the dry voice is passable, but it stacks several status claims the briefing never made (still holding Dunwold, tribe and gang staying put, inevitable skirmish). It also ignores the quiet-week advice to riff on faction sizes and the date, and the jokes are generic.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 4.7587106,
-      "inputTokens": 2781,
-      "outputTokens": 402
+      "latencySeconds": 3.4599287,
+      "inputTokens": 3452,
+      "outputTokens": 440
     }
   ]
 }

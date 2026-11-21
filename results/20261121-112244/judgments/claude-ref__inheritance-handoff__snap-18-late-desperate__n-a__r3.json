@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__inheritance-handoff__snap-18-late-desperate__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022still expecting her sister\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing never says Ada knew Constance was coming; this is an inference stated as fact.\u0022},{\u0022span\u0022:\u0022the weather logs from Day 790\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies the blizzard struck on Day 790, the day the caravan was recorded lost. Plausible, but not stated.\u0022}],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A restrained, well-observed scene: the wrench pinning the letter, the creases, and the torn-up lists show Elias\u0027s grief and his Neurotic and Industrious traits without naming emotions, and it ends cleanly on his intent. The only drawback is the small unsupported assumption that Ada was expecting her sister.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Elias sat at his workbench in Wren\u0027s Hollow\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022places Elias at a workbench in Wren\u0027s Hollow; the briefing only says Wren\u0027s Hollow lost the caravan, not that Elias lives or works there\u0022},{\u0022span\u0022:\u0022with Ada\u0027s letter flattened under a wrench\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022the letter was sent to Constance and Elias having it is plausible staging, but the briefing never says he holds it; the wrench is ordinary staging\u0022},{\u0022span\u0022:\u0022He had read it four times.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022added detail about the past that the briefing does not give; plausible but unsupported\u0022},{\u0022span\u0022:\u0022The creases were his mother\u0027s.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022added detail about how Constance handled the letter\u0022},{\u0022span\u0022:\u0022then the weather logs from Day 790, tallying the hours of snow in the margin\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022invents weather logs and a record of snow hours; the briefing mentions only a blizzard\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A restrained scene that uses the mother-son relationship correctly and ends on a clear intent, with small actions showing his anxiety (Neurotic, Industrious). The invented logs and the specific detail of the letter\u0027s creases are minor additions, and the ending is slightly abrupt.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.5836558,
-      "inputTokens": 2165,
-      "outputTokens": 587
+      "latencySeconds": 4.3476207,
+      "inputTokens": 2836,
+      "outputTokens": 464
     }
   ]
 }

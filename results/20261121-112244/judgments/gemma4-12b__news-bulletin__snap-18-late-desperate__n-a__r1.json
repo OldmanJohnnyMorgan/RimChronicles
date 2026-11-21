@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-18-late-desperate__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It is a shame to see such effort buried in the snow.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says only that the caravan was lost. \u0027Buried in the snow\u0027 states a consequence as fact.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It leads correctly with the new item, and its guesses are mostly framed as guesses. But the voice lacks Tomas\u0027s earnest worry, the \u0027frozen snack\u0027 joke reads as callous, and the second and third items are bland filler built on old news and faction counts.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Harrow Teeth continue to rob stranded travelers.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as an ongoing activity stated as current fact; the briefing gives it only as background\u0022},{\u0022span\u0022:\u0022It is a shame to see such effort buried in the snow.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the caravan was buried in snow, which the briefing does not say\u0022},{\u0022span\u0022:\u0022They are quite large for a group of outlanders.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022comparison with other outlander groups, stated as fact, that the briefing does not give\u0022},{\u0022span\u0022:\u0022The Thistle Commonwealth still maintains six settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027still\u0027 implies a comparison with an earlier state that the briefing does not give\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It leads correctly with the new caravan loss and frames its guesses as guesses. However, the second item is old news told as ongoing, the third is filler, and the voice is generic rather than earnest and quick to worry.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.4840393,
-      "inputTokens": 2711,
-      "outputTokens": 577
+      "latencySeconds": 3.1230266,
+      "inputTokens": 3382,
+      "outputTokens": 358
     }
   ]
 }

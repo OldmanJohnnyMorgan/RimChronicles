@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__inheritance-handoff__snap-09-mid-desperate__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022She would find the man who took her father\u2019s life and end him.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Contradicts the briefing: Malley, who killed Joska, already died in the same fight.\u0022},{\u0022span\u0022:\u0022his heavy, notched blade\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Introduces a specific weapon the briefing never mentions.\u0022},{\u0022span\u0022:\u0022the jagged scar on her father\u2019s chest\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Embellishes the maiming with an unstated wound and location.\u0022},{\u0022span\u0022:\u0022where the new captain sat\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Places the new captain within sight of the body, which the briefing does not say.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The ending has Tamsin vowing to kill her father\u0027s killer, but the briefing says Malley is already dead; the heir\u0027s aim should have been the new captain or the Lancers. The scene also contradicts itself: she traces the scar on her father\u0027s body, then his body lies \u0027a few feet away\u0027.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022jagged scar on her father\u2019s chest\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022added wound detail not in briefing; briefing says he was maimed, not a chest scar\u0022},{\u0022span\u0022:\u0022his heavy, notched blade\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022specific weapon for Joska not given; he was a pit fighter, so plausible but added past detail\u0022},{\u0022span\u0022:\u0022Tamsin knelt in the dirt ... staining the soil of the Lancers\u0027 camp\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022places Tamsin at the Lancers\u0027 camp where the fight occurred; briefing does not put her there\u0022},{\u0022span\u0022:\u0022where the new captain sat\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022new captain\u0027s activity/location not given; implied present at camp\u0022},{\u0022span\u0022:\u0022She would find the man who took her father\u2019s life and end him.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022the man who killed Joska was Malley, who died; the heir\u0027s goal misstates what happened and ignores that the killer is dead\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The scene is readable and restrained, but it puts Tamsin at the Lancers\u0027 camp and ends on a goal that contradicts the briefing: Malley is dead, so there is no killer left to find, and the vengeance-seeker is the new captain.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 7.6456578,
-      "inputTokens": 2168,
-      "outputTokens": 679
+      "latencySeconds": 3.4318921,
+      "inputTokens": 2839,
+      "outputTokens": 433
     }
   ]
 }

@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__inheritance-handoff__snap-18-late-desperate__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022faded ink on the letter\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Embellishes the letter\u0027s appearance; the briefing gives no detail of it.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The scene is clear and grounded, and the wrench and seals suit an industrious, neurotic engineer. But it fails the core task: Elias ends up securing the perimeter instead of taking up his mother\u0027s unfinished story of bringing Ada home, so Ada is mentioned and then dropped. \u0027Mirroring the chill that had taken his mother\u0027 is also a heavy-handed line.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022He needed to secure the perimeter, make sure nothing else could be lost.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022states the heir\u0027s intent as securing the colony, which the briefing does not give; it ignores Ada and the caravan story\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The scene is clear and restrained, and the letter and cold are used well. But it ends on checking wall seals rather than taking up his mother\u0027s story (Ada still in the village), so the handoff is not landed and the ending feels disconnected.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.6695126,
-      "inputTokens": 2104,
-      "outputTokens": 436
+      "latencySeconds": 2.3104093,
+      "inputTokens": 2775,
+      "outputTokens": 196
     }
   ]
 }

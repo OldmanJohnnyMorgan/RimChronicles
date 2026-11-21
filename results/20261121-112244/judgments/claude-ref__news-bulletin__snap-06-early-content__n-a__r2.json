@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-06-early-content__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The bulletin is accurate and stays in voice. It frames the barge-harvest link as a suspicion, and the pirate grain joke lands well. The second paragraph is a little diffuse, though: it bundles the Throne and the Combine into one item, which weakens the structure.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022After the Combine boasted of its finest harvest in years, I suspect someone was always going to come shopping.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as background and links it causally to the robbery, though framed as a guess\u0022},{\u0022span\u0022:\u0022the year has already lost a barge\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the barge was lost, which the briefing does not state; it was robbed, and the cargo\u0027s fate is unknown\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The dry voice is consistent, guesses are properly hedged, and the facts match the briefing. The barge-loss line and the harvest-to-robbery link push slightly past the briefing, and the second item is padded with old news and faction sizes, but nothing is major.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.8452043,
-      "inputTokens": 2689,
-      "outputTokens": 450
+      "latencySeconds": 3.0389212,
+      "inputTokens": 3360,
+      "outputTokens": 268
     }
   ]
 }

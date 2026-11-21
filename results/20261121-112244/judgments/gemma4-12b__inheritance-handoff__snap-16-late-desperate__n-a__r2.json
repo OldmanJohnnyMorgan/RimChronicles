@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__inheritance-handoff__snap-16-late-desperate__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022her hand closing around the notched hilt of his blade\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Introduces a specific item, Bertram\u0027s blade, that the briefing never mentions.\u0022},{\u0022span\u0022:\u0022compared to his boisterous laughter\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Gives Bertram a personality detail the briefing does not support.\u0022},{\u0022span\u0022:\u0022Elske reached into Bertram\u2019s pack\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Adds a pack the briefing does not mention.\u0022},{\u0022span\u0022:\u0022Elske knelt in the red-stained dirt, her fingers trembling as she smoothed the hair away from Bertram\u2019s still face\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies the body was recovered and that she is beside it, though the briefing only says Rook came home alone.\u0022},{\u0022span\u0022:\u0022looked toward the horizon where Dunmore had vanished\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies she is at the ambush site, which the briefing does not establish.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The scene is clear and ends correctly on Elske resolving to finish the hunt. However, it invents Bertram\u0027s blade as the inherited object and leans on stock melodrama (\u0027suffocating\u0027, \u0027mourning whine\u0027, \u0027weight of his unfinished vow\u0027) rather than restrained detail.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Beside them, Rook let out a low, mourning whine\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022places Rook at Bertram\u0027s body, but the briefing says Rook came home alone\u0022},{\u0022span\u0022:\u0022Elske knelt in the red-stained dirt\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022places Elske at the death site and the body on the hunt, which the briefing does not support (she was not stated to be on the hunt)\u0022},{\u0022span\u0022:\u0022his boisterous laughter\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022invented detail about Bertram\u0027s past personality\u0022},{\u0022span\u0022:\u0022the notched hilt of his blade\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022invented object detail with implied history (notched)\u0022},{\u0022span\u0022:\u0022looked toward the horizon where Dunmore had vanished\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds a detail about how or where Dunmore escaped\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The scene is clear and ends on a firm resolve, but it contradicts the briefing by putting Rook at Bertram\u0027s body when he came home alone, and by placing Elske at the death site. It also names feelings (mourning, suffocating) and leans on melodramatic phrasing like \\\u0022unfinished vow\\\u0022 and \\\u0022jaw set in a hard line.\\\u0022\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 8.5067971,
-      "inputTokens": 2163,
-      "outputTokens": 814
+      "latencySeconds": 3.2402621,
+      "inputTokens": 2834,
+      "outputTokens": 427
     }
   ]
 }

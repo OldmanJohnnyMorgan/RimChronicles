@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-19-late-desperate__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It is accurate and stays within the briefing, treating Fenwick correctly as background. The wit leans on modern-office and meme phrasing (\u0027bold strategy\u0027, \u0027manage a portfolio\u0027, \u0027aesthetic\u0027), which jars with the frontier tone and blunts the sardonic voice.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Sun Throne has moved from razing Fenwick to besieging the Marrow League.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news of Fenwick\u0027s razing, framed as a sequence; the briefing lists both as new, but the razing was already reported earlier\u0022},{\u0022span\u0022:\u0022a bold strategy to attack a target that is already shrinking\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the siege targets a weakened League as cause; opinion-like but stated as fact about shrinking, which is background\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is solid and the facts are accurate, but the bulletin has only two items with two or three sentences each, so it falls short of the 3-sentence paragraph requirement and the word count. It also leans on old news (Fenwick) and omits that Last Lantern is at war with the Sun Throne, which would have made a better second item.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 4.5576854,
-      "inputTokens": 2692,
-      "outputTokens": 381
+      "latencySeconds": 3.5293277,
+      "inputTokens": 3363,
+      "outputTokens": 315
     }
   ]
 }

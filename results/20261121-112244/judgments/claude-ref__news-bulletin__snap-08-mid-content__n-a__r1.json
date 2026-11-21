@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-08-mid-content__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022it makes a pleasant change for a trade fair to be discussing art\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies the fair is under way and the talk comes from it; the briefing only says Lantern Hill traders are talking.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A clean, accurate bulletin that sensibly handles a thin week with dry faction arithmetic. The finger joke lands, and the facts stay tight apart from a small inference tying the chatter to the fair.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022it makes a pleasant change for a trade fair to be discussing art instead of the cost of grain\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies traders at the fair usually discuss grain prices, and that the fair is ongoing; briefing gives neither\u0022},{\u0022span\u0022:\u0022Nobody appears keen to rearrange those numbers this week.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022states a status of no faction movement as fact; briefing does not report it\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent and the briefing\u0027s numbers and date are used correctly, with guesses properly framed. It slips by implying what traders usually talk about and that nobody is moving on the faction numbers, and it falls short of the three-sentence minimum per item.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 7.3492087,
-      "inputTokens": 2748,
-      "outputTokens": 528
+      "latencySeconds": 3.0562297,
+      "inputTokens": 3419,
+      "outputTokens": 271
     }
   ]
 }

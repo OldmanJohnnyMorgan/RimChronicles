@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__inheritance-handoff__snap-18-late-desperate__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Elias knelt in the frost, his hands trembling as he smoothed the stiff fabric of his mother\u2019s coat.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Places Elias with her body in the passes, an event the briefing never mentions; the caravan was lost.\u0022},{\u0022span\u0022:\u0022the letter she had clutched until her final breath\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Embellishes the letter into a deathbed detail the briefing does not give.\u0022},{\u0022span\u0022:\u0022the blizzard still howling\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Has the blizzard still going at this moment, which the briefing does not say.\u0022},{\u0022span\u0022:\u0022He would pack the remaining supplies\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies supplies survived the loss of the caravan.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The scene is clear, ends firmly on the heir\u0027s intent, and the grease-stained sleeve nicely evokes the engineer. However, it invents Elias being at his mother\u0027s body in the passes, and lines like \u0027howling like a ghost\u0027 and the marble skin lean toward melodramatic clich\u00E9.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022He touched the letter she had clutched until her final breath\u2014the one from Ada.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says she received the letter on day 744, not that she held it when she died; added detail about the past\u0022},{\u0022span\u0022:\u0022He would pack the remaining supplies\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies surviving supplies, though the caravan was lost; the briefing does not support this\u0022},{\u0022span\u0022:\u0022the blizzard still howling like a ghost\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022the blizzard was the cause of death on day 790; Constance died day 803, so a blizzard still howling is a questionable present-moment claim\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The scene is clear and ends on a fitting resolve to go to Ada, but it leans on stock melodrama (marble skin, howling ghost, stray tear). It also adds unsupported details, namely the letter clutched at death and supplies left after the caravan was lost, and it places the death scene in the passes although Constance died 13 days after the caravan was lost.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 8.5879403,
-      "inputTokens": 2165,
-      "outputTokens": 791
+      "latencySeconds": 3.6383494,
+      "inputTokens": 2836,
+      "outputTokens": 363
     }
   ]
 }

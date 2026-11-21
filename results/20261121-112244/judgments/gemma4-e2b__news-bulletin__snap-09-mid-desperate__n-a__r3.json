@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-09-mid-desperate__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The bulletin is accurate and leads correctly with Malley\u0027s death, framing its guess properly. But the wit is thin and generic: \\\u0022predictable squabble over sustenance\\\u0022 and \\\u0022established routine\\\u0022 read as filler rather than Odile\u0027s sardonic voice, and the third item is close to padding.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Embertail Tribe remains engaged with The Gray Wharf Syndicate.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing status of the war is not reported in the briefing; implies it is still active\u0022},{\u0022span\u0022:\u0022This conflict concerns fishing rights, as previously noted.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; the fishing-rights cause comes from an earlier bulletin, not this briefing\u0022},{\u0022span\u0022:\u0022It is a predictable squabble over sustenance.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022asserts the fishing-rights cause and frames it as sustenance, which is added interpretation\u0022},{\u0022span\u0022:\u0022This distribution suggests a certain level of established routine.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022inference stated as fact, not framed as a guess\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate on Malley\u0027s death and faction counts, but the voice is flat and generic rather than sardonic, and the second item re-reports old news. The third item is filler with little wit; the opening guess about the Lancers is the best line.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 4.8389023,
-      "inputTokens": 2720,
-      "outputTokens": 356
+      "latencySeconds": 2.7222991,
+      "inputTokens": 3391,
+      "outputTokens": 371
     }
   ]
 }

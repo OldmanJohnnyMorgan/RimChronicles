@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-01-early-content__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate and tightly built: every claim matches the briefing, and the guesses are properly hedged (\\\u0022I suspect\\\u0022, \\\u0022presumably\\\u0022). The wit lands, especially the pirates\u0027 \\\u0022fixed address\\\u0022, though the quiet-week third item is a little flat next to the first two.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022With six settlements already\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the post is an addition to six, whereas the briefing\u0027s six may already include it; ordering ambiguous, comparison with an earlier state not given\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Dry, consistent voice with guesses properly framed, and it stays within the briefing. The \u0027six already\u0027 phrasing slightly assumes the count excludes the new post, and the closing item is a bit thin, though acceptable on a quiet week.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 4.832837,
-      "inputTokens": 2555,
-      "outputTokens": 407
+      "latencySeconds": 2.6295622,
+      "inputTokens": 3226,
+      "outputTokens": 191
     }
   ]
 }

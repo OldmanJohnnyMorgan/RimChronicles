@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-04-early-strained__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022is still seeking news\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027Still\u0027 implies an ongoing search reported before, but this is the first bulletin.\u0022},{\u0022span\u0022:\u0022even if it\u2019s just a piece of rotting timber\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Adds a condition to the ferry that the briefing does not give.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The bulletin merges the Quell and ferry items into one paragraph, which breaks the required structure and leaves the ferry item only two sentences. The wit is serviceable but generic, and its glib treatment of a missing colleague and the Lowmere withdrawal misses a darker irony the briefing invites.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022even if it\u2019s just a piece of rotting timber\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the ferry was rotting; the briefing gives no condition for it\u0022},{\u0022span\u0022:\u0022Lowmere seems to offer little material for serious reporting\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022a hedged opinion, but it edges toward stating a cause for the Dispatch pulling out\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The facts are accurate, but the bulletin breaks the format: the first paragraph merges two items and the second is not a full item with a fact and a take. It is also short on the required three-sentence items, and the jokes are mild and generic. The \u0027rotting timber\u0027 line adds a small unsupported detail.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.4294357,
-      "inputTokens": 2579,
-      "outputTokens": 550
+      "latencySeconds": 2.5739997,
+      "inputTokens": 3250,
+      "outputTokens": 260
     }
   ]
 }

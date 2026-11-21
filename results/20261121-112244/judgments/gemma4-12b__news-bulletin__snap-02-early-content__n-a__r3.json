@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-02-early-content__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the pirates seem to be moving their theater of operations\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Infers relocation from the abandoned camp; the briefing gives no motive or destination.\u0022},{\u0022span\u0022:\u0022They are quite consistent in their expansion.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing gives only a settlement count. It says nothing about expansion.\u0022},{\u0022span\u0022:\u0022still maintains five settlements\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027Still\u0027 implies an earlier known count that no briefing or bulletin gives.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is handled correctly and the \u0027better place to be miserable\u0027 line works, but the bulletin runs under the 70-word minimum. The second item pads a static fact with unsupported talk of expansion and weak, hedging jokes far below the earlier bulletins\u0027 wit.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022though the pirates seem to be moving their theater of operations\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022inference about relocation stated as observation (\u0027seem\u0027), but implies unreported ongoing activity; borderline guess\u0022},{\u0022span\u0022:\u0022They are quite consistent in their expansion.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the Company has been expanding; briefing only gives a count of 5 settlements\u0022},{\u0022span\u0022:\u0022They are still at war with the Tannerfolk\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as ongoing status; briefing does give the war, so only mild\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Dry and readable, but it is thin and a bit generic, and the \u0027expansion\u0027 line adds an unsupported claim. It also looks short of the 70-word minimum and has weak jokes, with the second item lacking a clear fact-then-take shape.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.3466024,
-      "inputTokens": 2741,
-      "outputTokens": 540
+      "latencySeconds": 3.3407188,
+      "inputTokens": 3412,
+      "outputTokens": 309
     }
   ]
 }

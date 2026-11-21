@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-01-early-content__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:5,\u0022comment\u0022:\u0022Accurate throughout. Every claim traces to the briefing, the 6/4/3 settlement ordering is correct, and the guess about the raiders is framed as a guess. The voice is dry and consistent with short, clean sentences, and the third item uses the date and faction sizes well without padding.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Forecasts on the rim are educated guesses, but this one at least sounds confident.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the forecast\u0027s confidence, which the briefing does not give\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate and consistently dry, with guesses properly framed; the only slip is the small claim that the forecast sounds confident. Some sentences are a bit flat, and the third item is padding on a quiet week, but it is acceptable.}\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 4.9992863,
-      "inputTokens": 2571,
-      "outputTokens": 393
+      "latencySeconds": 2.3588723,
+      "inputTokens": 3242,
+      "outputTokens": 185
     }
   ]
 }

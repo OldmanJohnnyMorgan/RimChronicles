@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-17-late-strained__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the constant skirmishes\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says only that they are at war; \u0027constant skirmishes\u0027 adds scale and manner.\u0022},{\u0022span\u0022:\u0022looking for trouble to stir up the local waters\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies pirate activity and a maritime setting the briefing does not mention.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It handles the quiet week honestly and frames its guesses properly, but the wit is thin and generic. Phrases like \u0027expansionary maneuvers\u0027 and \u0027the usual pirates\u0027 lack the sharp, absurd eye of the earlier bulletins.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Shattered Empire continues its expansionary maneuvers against the Ashford Compact.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing activity: briefing says expanding by force and at war, but not continuing maneuvers against the Compact specifically\u0022},{\u0022span\u0022:\u0022until someone gets tired of the constant skirmishes\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, but \u0027constant skirmishes\u0027 implies ongoing fighting the briefing does not report\u0022},{\u0022span\u0022:\u0022The Kestrel Tribe maintains its four settlements quietly.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027quietly\u0027 is an unreported status; briefing only gives the count\u0022},{\u0022span\u0022:\u0022The Bonecutter Gang remains in their two settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies an ongoing status the briefing does not report\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It handles the quiet week acceptably by commenting on faction sizes and frames its guesses as guesses. But the wit is generic, it does not use the war or the date, and it adds minor status claims, so it falls short of Ilse\u0027s sharper voice.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 4.5619401,
-      "inputTokens": 2794,
-      "outputTokens": 456
+      "latencySeconds": 3.0045866,
+      "inputTokens": 3465,
+      "outputTokens": 393
     }
   ]
 }

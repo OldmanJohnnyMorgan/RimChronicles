@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e4b__news-bulletin__snap-01-early-content__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022tacked on another trading post\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027Another\u0027 implies earlier posts the briefing never mentions.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Clean, accurate and properly dry, with guesses correctly hedged. The closing lines of each item are a little generic, and \u0027another\u0027 quietly implies earlier trading posts.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022has tacked on another trading post\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027another\u0027 implies earlier posts; briefing only says a new post opened, and this is the first bulletin\u0022},{\u0022span\u0022:\u0022The expansion suggests a belief in endless commerce\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022inference about motive stated as fact, not framed as a guess\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent and the guesses are mostly well framed, but the first item states an inferred motive as fact. The bulletin is also short of the required 70 words and the three-sentence minimum per paragraph is barely met, so it should not ship unchanged.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 3.1885455,
-      "inputTokens": 2474,
-      "outputTokens": 304
+      "latencySeconds": 2.7899143,
+      "inputTokens": 3145,
+      "outputTokens": 239
     }
   ]
 }

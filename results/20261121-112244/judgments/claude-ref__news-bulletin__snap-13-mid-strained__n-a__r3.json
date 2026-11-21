@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-13-mid-strained__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The bulletin is accurate and drily funny, and it pads a thin week with correct arithmetic about faction sizes and properly hedged guesses. The \u0027bet my boots\u0027 line leans on the earlier bulletin\u0027s boots joke, which edges toward reuse.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Rustback Raiders hold three settlements and, as far as I know, demand nothing from anyone. They simply take it.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies ongoing raiding activity and a pattern of taking; partly hedged but \u0027They simply take it\u0027 is stated as fact, and loosely rests on the old caravan news\u0022},{\u0022span\u0022:\u0022Whether the other Free Towns intend to pay has not reached me\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies other towns have not refused or that payment is undecided; mild inference about status the briefing does not give\u0022},{\u0022span\u0022:\u0022The envoys presumably hoped for coin, or at least a polite excuse.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies envoys were the ones who received the refusal; framed as a guess, so barely counts\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent and the faction arithmetic joke suits a quiet week, with the lead item properly first. It runs a little over the 130-word limit, and the \u0027they simply take it\u0027 line is stated as fact beyond the briefing, while \u0027my boots\u0027 echoes the earlier bulletin\u0027s joke.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.5364241,
-      "inputTokens": 2785,
-      "outputTokens": 469
+      "latencySeconds": 2.9956438,
+      "inputTokens": 3456,
+      "outputTokens": 395
     }
   ]
 }

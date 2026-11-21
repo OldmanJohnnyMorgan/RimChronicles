@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__inheritance-handoff__snap-09-mid-desperate__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They carried Joska home to Cinder Rest on a stretcher.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Recovery of the body is plausible staging, but the briefing never says it was brought home.\u0022},{\u0022span\u0022:\u0022unwound the old pit wraps from his knuckles\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Embellishes his pit-fighter backstory with a specific item the briefing never mentions.\u0022},{\u0022span\u0022:\u0022Lene\u0027s hands shook too badly to hold the shovel\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Invented action for Lene at a burial the briefing does not describe.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:3,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The restrained, physical detail fits RimWorld, and the ending gives a clear resolve. However, the sequence breaks: Tamsin unwinds the wraps from Joska\u0027s knuckles after the grave is already packed, which undercuts the scene\u0027s central image.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They carried Joska home to Cinder Rest on a stretcher.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022how the body was returned is not in the briefing; arguably staging, but it implies a past event (the carrying home)\u0022},{\u0022span\u0022:\u0022At the grave, Lene\u0027s hands shook too badly to hold the shovel\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022places Lene at the scene; briefing gives her only as wife, so this is added detail about her state\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Restrained, concrete scene that uses the father-daughter bond well (wrapping his pit wraps on her fists) and ends on a clear intent to attack the camp. Minor staging additions (stretcher, Lene at the grave) keep it from a 5.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 8.6727991,
-      "inputTokens": 2214,
-      "outputTokens": 920
+      "latencySeconds": 2.7542554,
+      "inputTokens": 2885,
+      "outputTokens": 273
     }
   ]
 }

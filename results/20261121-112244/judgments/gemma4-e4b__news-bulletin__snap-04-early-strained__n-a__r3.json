@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e4b__news-bulletin__snap-04-early-strained__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Tomas Quell has gone silent.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing only says the Dispatch is looking for news of him. That he went silent is an inference stated as fact.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It reports all three items accurately with hedged guesses, but the wit is thin. \\\u0022Took a taste of the water\\\u0022 muddles the meaning, and \\\u0022just a Tuesday\\\u0022 sits oddly in a calendar of Septober and quadrums.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Tomas Quell has gone silent.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says only that the Dispatch is looking for news of him; \u0027gone silent\u0027 is an added status stated as fact\u0022},{\u0022span\u0022:\u0022The Black Fen Raiders took a taste of the water.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022figurative but implies raiders did something beyond burning the ferry; mostly colour, slight added framing\u0022},{\u0022span\u0022:\u0022It suggests things there have become decidedly uninteresting, or perhaps quite dangerous.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied cause of the Dispatch\u0027s withdrawal, though loosely hedged as a suggestion\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It stays faithful to the three briefing items and hedges its guesses, but the wit is mild and generic, and the first item\u0027s \u0027gone silent\u0027 adds an unsupported status. The Tuesday joke and \u0027taste of the water\u0027 are clumsy, and the piece falls short of the word count and leaves some paragraphs with fewer than 3 distinct sentences of fact and take.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.8995236,
-      "inputTokens": 2567,
-      "outputTokens": 484
+      "latencySeconds": 3.0755644,
+      "inputTokens": 3238,
+      "outputTokens": 379
     }
   ]
 }

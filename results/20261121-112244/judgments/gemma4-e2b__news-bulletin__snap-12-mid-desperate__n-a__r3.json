@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__news-bulletin__snap-12-mid-desperate__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Gallows Crew continues to hold a doctor at their camp.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing gives the captivity only as old news. Saying it \u0027continues\u0027 asserts a current state the briefing does not confirm.\u0022},{\u0022span\u0022:\u0022The Saltmarch Assembly remains in its usual state of quiet assembly.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing calls the Glass Throne quiet, not the Saltmarch Assembly. Saltmarch has just received envoys.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It leads correctly with the envoys, but the second item rehashes old news as a full paragraph and recycles the earlier \u0027worth more alive than dead\u0027 joke. The voice is generic understatement rather than Odile\u0027s sharper wit.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Such exchanges rarely signal anything of real consequence in this dreary expanse.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022stated as fact; implies a history of past exchanges the briefing does not give\u0022},{\u0022span\u0022:\u0022The Gallows Crew continues to hold a doctor at their camp.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as an ongoing status without framing it as background\u0022},{\u0022span\u0022:\u0022It is a predictable pattern for those who deal in such small, desperate possessions.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a pattern of past behaviour the briefing does not give\u0022},{\u0022span\u0022:\u0022The Saltmarch Assembly remains in its usual state of quiet assembly.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing status not in the briefing; \u0027quiet\u0027 belongs to the Glass Throne\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate on the lead item and roughly in voice, but the second item rehashes old news and the third is filler. The wit is bland and the added claims about patterns and a \u0027usual state\u0027 go beyond the briefing; the dry takes are generic and not very funny.\\n\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 6.5565344,
-      "inputTokens": 2760,
-      "outputTokens": 634
+      "latencySeconds": 3.2186755,
+      "inputTokens": 3431,
+      "outputTokens": 392
     }
   ]
 }

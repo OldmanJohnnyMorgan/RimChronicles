@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-12b__news-bulletin__snap-06-early-content__n-a__r2",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It is a miracle of agriculture that keeps the local bellies full.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Adds a consequence (feeding locals) the briefing does not state.\u0022},{\u0022span\u0022:\u0022The Calder Combine still reports good harvests along the delta.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies a fresh, ongoing report when the briefing marks the harvest as old news.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The output stays accurate on the barge robbery and the quiet Empire, but it recycles the old harvest story as a full item. The jokes, such as tired soil and superior stolen calories, are limp or nonsensical, not wry.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Calder Combine still reports good harvests along the delta.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news with \u0027still\u0027, implying an ongoing report rather than background\u0022},{\u0022span\u0022:\u0022It is a miracle of agriculture that keeps the local bellies full.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022states as fact that the harvest feeds local people; not in briefing\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate on the main item and the guesses are properly hedged, but the second item rehashes old news as if current, and the wit is generic. The first item is also thin, with the \u0027logistics\u0027 joke saying little about the robbery.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.820594,
-      "inputTokens": 2640,
-      "outputTokens": 510
+      "latencySeconds": 2.4656905,
+      "inputTokens": 3311,
+      "outputTokens": 234
     }
   ]
 }

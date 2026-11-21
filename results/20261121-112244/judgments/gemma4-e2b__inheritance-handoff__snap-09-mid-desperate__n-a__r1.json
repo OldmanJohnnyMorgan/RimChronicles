@@ -1,16 +1,16 @@
 {
   "cell": "gemma4-e2b__inheritance-handoff__snap-09-mid-desperate__n-a__r1",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The silence of the Lancers\u0027 camp pressed in.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Places Tamsin at the enemy-held camp. This is unsupported, and the scene itself later puts the camp on a distant horizon.\u0022},{\u0022span\u0022:\u0022the charred remains of their shared gear\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Invents a fire and shared possessions the briefing never mentions.\u0022},{\u0022span\u0022:\u0022the broken weapon\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Adds an unmentioned object, presumably Joska\u0027s, as a fact.\u0022},{\u0022span\u0022:\u0022Lene\u2019s face, etched with exhaustion, was visible in the shadows.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Places Lene in the scene and describes her state, neither of which the briefing gives.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The setting contradicts itself: Tamsin is at the Lancers\u0027 camp and also gazing at it on a distant horizon. It also invents charred gear and a broken weapon, and leans on clich\u00E9 (\u0027knuckles white\u0027). The sharpening ending gestures at intent but never names Malley\u0027s successor or what the hunt is for.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Tamsin stood by the charred remains of their shared gear.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022charred shared gear is an invented object/event not in the briefing\u0022},{\u0022span\u0022:\u0022The silence of the Lancers\u0027 camp pressed in.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022places Tamsin at the Lancers\u0027 camp, where Joska died, which the briefing does not do\u0022},{\u0022span\u0022:\u0022She traced the rough texture of the broken weapon\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022broken weapon is an added detail tied to the fight, not given in the briefing\u0022},{\u0022span\u0022:\u0022Lene\u2019s face, etched with exhaustion, was visible in the shadows.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022places Lene at the scene at the camp; exhaustion is added detail\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The scene puts Tamsin at the Lancers\u0027 camp, where her father died, and adds charred gear. It never shows the handoff of the story, and it ends on a vague hunt rather than a clear intent such as the new captain\u0027s revenge on Cinder Rest. The prose is generic and tells more than it shows.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 8.2601883,
-      "inputTokens": 2148,
-      "outputTokens": 755
+      "latencySeconds": 3.1899108,
+      "inputTokens": 2819,
+      "outputTokens": 388
     }
   ]
 }

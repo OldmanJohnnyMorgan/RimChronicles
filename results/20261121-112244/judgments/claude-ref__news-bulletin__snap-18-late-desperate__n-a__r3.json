@@ -1,16 +1,16 @@
 {
   "cell": "claude-ref__news-bulletin__snap-18-late-desperate__n-a__r3",
-  "promptVersion": "judge/v2",
+  "promptVersion": "judge/v3",
   "outcome": "Model",
   "attempts": [
     {
       "ok": true,
-      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The bulletin is accurate and disciplined: it leads with the one new item, uses the closed passes only as background and frames its guesses properly. The faction-count paragraph is a sound quiet-week filler with correct arithmetic. The line \u0027I will not dress it up\u0027 leans slightly self-aware, but the worried, plain voice holds throughout.\u0022}",
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The passes there were already closed\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as background; framed as fact and fine, but implies the caravan went through closed passes, an inference not in briefing\u0022},{\u0022span\u0022:\u0022I hope that judgment proves sound, and that the caravan simply turns up late and embarrassed.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022hope that caravan survives implies it may not be dead; speculation about its status the briefing does not give, though framed as hope\u0022},{\u0022span\u0022:\u0022people who earn their living from other people\u0027s cargo\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022added claim about how Harrow Teeth earn a living beyond briefing (only robbing travellers implied from old news)\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Voice is plain, worried and dry, and the arithmetic (fifteen settlements) is correct. The second item is padded with faction counts, and the claims that the caravan went through closed passes and that someone judged the trip worth it lean on inference; the word count is also around 100 so it fits, but the first item\u0027s jokes are thin.\u0022}",
       "error": null,
       "failures": [],
-      "latencySeconds": 5.947847,
-      "inputTokens": 2772,
-      "outputTokens": 531
+      "latencySeconds": 3.551808,
+      "inputTokens": 3443,
+      "outputTokens": 370
     }
   ]
 }
