@@ -32,6 +32,7 @@ dlls/<name>.dll` for `Assembly-CSharp`, `RimWorld`, `Waylith`, `UnityStubs`, `Wa
 | --- | --- | --- |
 | Harmony 3 is Workshop mod 2009463077, in its `1.7/Assemblies` folder (`packageId` `brrainz.harmony`). | The PC install, `AssemblyInfo` | — |
 | `new Harmony(id).PatchAll(assembly)`, `[HarmonyPatch(typeof(T), nameof(T.M))]` and `__instance` postfixes work as in Harmony 2. | `HarmonyLib` source | Yes (test 2) |
+| A patch on an overloaded method needs its argument types: `[HarmonyPatch(typeof(Pawn_HealthTracker), nameof(AddHediff), [typeof(Hediff), …])]`. 1.7 has `AddHediff(Hediff, …)` and `AddHediff(HediffDef, …)`, and without the types the patch throws an ambiguous-match error at load. Check the decompiled source for overloads before patching. The mod patches each class on its own (`RimChroniclesMod.PatchEach`), so one failure doesn't stop the rest. | The M2 load error | Yes |
 | The mod references `0Harmony.dll` with `Private=false`, so the DLL is never copied into the mod (rule 2). | `RimChronicles.Game.csproj` | — |
 
 ## Game APIs used by the spike (all unchanged from 1.6)

@@ -19,9 +19,34 @@ public sealed class RimChroniclesMod : Mod
     {
         Settings = GetSettings<RimChroniclesSettings>();
         PromptsRoot = Path.Combine(content.RootDir, "prompts");
-        new Harmony(HarmonyId).PatchAll(typeof(RimChroniclesMod).Assembly);
+        PatchEach(new Harmony(HarmonyId));
         Log.Message($"[Rim Chronicles] Loaded on {System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription}; "
             + $"Harmony patches applied; tier {Settings.Tier}, model {Settings.Model} at {Settings.Endpoint}.");
+    }
+
+    /// <summary>Applies each patch class on its own, so one failing patch (a 1.7 signature change, an overload) logs an
+    /// error naming it and the others still apply. <c>PatchAll</c> would stop at the first failure.</summary>
+    private static void PatchEach(Harmony harmony)
+    {
+        var failed = new List<string>();
+        foreach (var type in AccessTools.GetTypesFromAssembly(typeof(RimChroniclesMod).Assembly)
+                     .Where(t => t.GetCustomAttributes(typeof(HarmonyPatch), inherit: false).Length > 0))
+        {
+            try
+            {
+                harmony.CreateClassProcessor(type).Patch();
+            }
+            catch (Exception ex)
+            {
+                failed.Add(type.Name);
+                Log.Error($"[Rim Chronicles] Patch {type.Name} failed and is skipped: {ex.GetBaseException().Message}");
+            }
+        }
+
+        if (failed.Count > 0)
+        {
+            Log.Error($"[Rim Chronicles] {failed.Count} patch(es) failed: {string.Join(", ", failed)}. Related features won't work.");
+        }
     }
 
     public override string SettingsCategory() => "Rim Chronicles";
