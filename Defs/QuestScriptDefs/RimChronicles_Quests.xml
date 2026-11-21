@@ -10,4 +10,28 @@
     <defaultChallengeRating>1</defaultChallengeRating>
     <root Class="RimChronicles.Game.Quests.QuestNode_Root_ChroniclesTest" />
   </QuestScriptDef>
+  <QuestScriptDef>
+    <defName>RimChronicles_Hunt</defName>
+    <randomlySelectable>false</randomlySelectable>
+    <autoAccept>false</autoAccept>
+    <expireDaysRange>4~4</expireDaysRange>
+    <defaultChallengeRating>2</defaultChallengeRating>
+    <root Class="RimChronicles.Game.Quests.QuestNode_Root_ChroniclesHunt" />
+  </QuestScriptDef>
+  <QuestScriptDef>
+    <defName>RimChronicles_Rescue</defName>
+    <randomlySelectable>false</randomlySelectable>
+    <autoAccept>false</autoAccept>
+    <expireDaysRange>4~4</expireDaysRange>
+    <defaultChallengeRating>2</defaultChallengeRating>
+    <root Class="RimChronicles.Game.Quests.QuestNode_Root_ChroniclesRescue" />
+  </QuestScriptDef>
+  <QuestScriptDef>
+    <defName>RimChronicles_Deliver</defName>
+    <randomlySelectable>false</randomlySelectable>
+    <autoAccept>false</autoAccept>
+    <expireDaysRange>4~4</expireDaysRange>
+    <defaultChallengeRating>1</defaultChallengeRating>
+    <root Class="RimChronicles.Game.Quests.QuestNode_Root_ChroniclesDeliver" />
+  </QuestScriptDef>
 </Defs>

@@ -40,3 +40,17 @@ links** lists every linked quest.
 | 3 | Offer another test quest and leave it unaccepted for a day. | It expires. The next day: `quest.Test=Ignored`. |
 | 4 | Save with a test quest offered, then load. | The quest and its link survive, and the outcome still comes back. |
 | 5 | Open the **Quests** tab after playing a while. | No Rim Chronicles quests appear on their own: only plots start them. |
+
+## M3: the quest templates
+
+Four templates, each with a Dev Mode test action that offers it for the oldest plot (start one with **Nemesis: force
+seed**). Each quest's outcome comes back to the plot as in M2; **Quest: show links** lists them. Save before each row.
+
+| # | Do | Pass when |
+| --- | --- | --- |
+| 1 | **Quest: Hunt (test)**, then accept. Send a caravan to the camp, and kill or capture the named raider. | A camp of the raider's faction appears 2–10 tiles away, and the raider is among its defenders. Killing or capturing them completes the quest, and drop pods bring the silver reward home. The link says `Success`. |
+| 2 | As row 1, but leave the camp with the raider alive, or let the camp vanish (15 days). | The quest fails, and the link says `Fail`. |
+| 3 | **Quest: Rescue (test)**, then accept, and go to the camp. | The captive is locked in a cell (or standing near the camp's centre). Clear the guards, then a colonist **offers help**. The captive joins the colony, the quest succeeds, and silver arrives. |
+| 4 | **Quest: Deliver (test)**, then accept. Send a caravan with 50 steel to the named settlement. | The settlement asks for 50 steel. Delivering it completes the quest, with silver worth more than the steel. Not delivering within 20 days fails it. |
+| 5 | **Quest: Choice letter (test)**. Pick **Pay 10 silver**, then try again and pick **Decline**. | The plot gets `choice.Test=paid` (10 silver gone), then `choice.Test=declined`. Without 10 silver, the pay button is greyed out. |
+| 6 | Leave any offered quest unaccepted. | It expires after 4 days, and the link says `Ignored`. |
