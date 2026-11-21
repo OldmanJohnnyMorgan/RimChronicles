@@ -1,9 +1,11 @@
 using HarmonyLib;
+using RimChronicles.Game.Settings;
+using UnityEngine;
 using Verse;
 
 namespace RimChronicles.Game;
 
-/// <summary>Mod entry point (spike test 1). RimWorld constructs it once at startup, before any game loads.</summary>
+/// <summary>Mod entry point. RimWorld constructs it once at startup, before any game loads.</summary>
 public sealed class RimChroniclesMod : Mod
 {
     public const string HarmonyId = "oldmanjohnnymorgan.rimchronicles";
@@ -14,7 +16,11 @@ public sealed class RimChroniclesMod : Mod
     {
         Settings = GetSettings<RimChroniclesSettings>();
         new Harmony(HarmonyId).PatchAll(typeof(RimChroniclesMod).Assembly);
-        Log.Message($"[Rim Chronicles] Loaded on {Environment.Version} ({System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription}); "
-            + $"Harmony patches applied; model {Settings.Model} at {Settings.Endpoint}.");
+        Log.Message($"[Rim Chronicles] Loaded on {System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription}; "
+            + $"Harmony patches applied; tier {Settings.Tier}, model {Settings.Model} at {Settings.Endpoint}.");
     }
+
+    public override string SettingsCategory() => "Rim Chronicles";
+
+    public override void DoSettingsWindowContents(Rect inRect) => SettingsWindow.Draw(inRect, Settings);
 }

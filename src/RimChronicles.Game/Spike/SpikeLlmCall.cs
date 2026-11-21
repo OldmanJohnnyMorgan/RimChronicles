@@ -1,7 +1,6 @@
 using RimChronicles.Core.Engine;
 using RimChronicles.Llm.Chat;
-using RimChronicles.Llm.Providers;
-using System.Text.Json.Nodes;
+using RimChronicles.Game.Settings;
 using Verse;
 
 namespace RimChronicles.Game.Spike;
@@ -10,8 +9,6 @@ namespace RimChronicles.Game.Spike;
 /// main-thread queue. If the server can't be reached, a template letter says so (rule 7's fallback).</summary>
 public static class SpikeLlmCall
 {
-    private static readonly HttpClient Http = new();
-
     private const string System = "You are a frontier radio reporter on a RimWorld rim planet. Reply with plain text only.";
 
     public static void Start(RimChroniclesGameComponent component)
@@ -22,15 +19,14 @@ public static class SpikeLlmCall
         var mainThread = component.MainThread;
         var token = component.GameToken;
 
-        var provider = new OpenAiCompatProvider(Http, new OpenAiCompatOptions
+        if (ProviderFactory.Create(settings) is not { } provider)
         {
-            ModelId = settings.Model,
-            Endpoint = new Uri(settings.Endpoint),
-            Model = settings.Model,
-            Timeout = TimeSpan.FromSeconds(60),
-            ThinkingOffBody = new JsonObject { ["reasoning_effort"] = "none" },
-            ExtraBody = new JsonObject { ["temperature"] = 0.4 },
-        });
+            Engine.LetterSink.Instance.Send("Rim Chronicles: radio silence",
+                "The model tier is Off (or the server address is invalid) in the mod settings, so this letter is the template fallback.",
+                LetterKind.Negative);
+            return;
+        }
+
         var request = new ChatRequest
         {
             System = System,
