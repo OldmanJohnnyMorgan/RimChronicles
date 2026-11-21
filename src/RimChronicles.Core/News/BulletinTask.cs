@@ -12,11 +12,16 @@ namespace RimChronicles.Core.News;
 /// keeps testing exactly what the game runs.</summary>
 public static class BulletinTask
 {
-    /// <summary>The checks a bulletin must pass: length scaled to the news, no names outside the digest, no banned phrases.</summary>
+    /// <summary>The checks a bulletin must pass: length scaled to the news, no names outside the digest, no banned
+    /// phrases, and no sentence copied from the last two bulletins.</summary>
     public static IReadOnlyList<IOutputCheck> Checks(WorldSnapshot snapshot, TaskPromptInput input)
     {
         var (min, max) = WorldSummarizer.BulletinWordRange(snapshot);
-        return [new WordCountCheck(min, max), new GroundingCheck(input.AllowedNames), new BannedPhraseCheck()];
+        return
+        [
+            new WordCountCheck(min, max), new GroundingCheck(input.AllowedNames), new BannedPhraseCheck(),
+            new RepetitionCheck(snapshot.PreviousBulletins.TakeLast(2)),
+        ];
     }
 
     public static (TaskDefinition<string> Definition, TaskPromptInput Input) Build(

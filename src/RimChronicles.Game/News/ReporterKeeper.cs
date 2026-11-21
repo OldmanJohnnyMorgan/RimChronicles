@@ -38,7 +38,7 @@ public static class ReporterKeeper
         {
             pawn = PawnGenerator.GeneratePawn(new PawnGenerationRequest(kind, faction,
                 forceGenerateNewPawn: true, canGeneratePawnRelations: false, allowPregnant: false,
-                developmentalStages: DevelopmentalStage.Adult));
+                developmentalStages: DevelopmentalStage.Adult, biologicalAgeRange: new FloatRange(MinAge, 65f)));
         }
         catch (Exception ex)
         {
@@ -55,6 +55,10 @@ public static class ReporterKeeper
             $"{reporter.Name} of {faction.Name} will be reporting for {reporter.Outlet}, with a bulletin every "
             + $"{RimChroniclesMod.Settings.NewsCadenceDays} days. Past bulletins are kept in the Dispatch tab.");
     }
+
+    /// <summary>The youngest a reporter may be. In 1.7 the adult life stage starts at 13, so the developmental stage
+    /// alone let a 13-year-old "teenage town trader" take the job.</summary>
+    private const int MinAge = 20;
 
     /// <summary>"Kael Dunmore" for a normal name, else the short name.</summary>
     public static string DisplayName(Pawn pawn) => pawn.Name switch
@@ -83,7 +87,7 @@ public static class ReporterKeeper
         var kinds = (faction.def.pawnGroupMakers ?? [])
             .SelectMany(g => g.options.Concat(g.traders).Concat(g.guards))
             .Select(o => o.kind)
-            .Where(k => k?.RaceProps?.Humanlike == true)
+            .Where(k => k?.RaceProps?.Humanlike == true && k.maxGenerationAge >= MinAge) // no teenage kinds
             .Distinct()
             .ToList();
         return kinds.OrderBy(k => k.isFighter).ThenByDescending(k => k.trader).ThenBy(k => k.defName).FirstOrDefault()
