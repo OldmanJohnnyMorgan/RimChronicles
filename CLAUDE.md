@@ -28,7 +28,9 @@ Run output goes to `results/<runId>/` (`results.csv`, `summary.csv`, `run.json`,
 
 Summarizer golden files live in `tests/RimChronicles.Tests/Golden/`. After an intended change to prompt text, run `UPDATE_GOLDEN=1 dotnet test`, then review the diff before committing.
 
-To build the real mod, copy `Directory.Build.props.user.example` to `Directory.Build.props.user` and set the RimWorld and Harmony paths.
+To build the real mod, copy `Directory.Build.props.user.example` to `Directory.Build.props.user` and set the RimWorld and Harmony paths. In the codespace they point at `/workspaces/reference/dlls`, so the Game project builds here too. Stage 1 in-game tests: `docs/stage1-runbook.md`; what 1.7 changed: `docs/ENGINE_NOTES.md`.
+
+The decompiled 1.7 source is in `/workspaces/reference/src/` (Assembly-CSharp, RimWorld, Waylith, UnityStubs, 0Harmony). The repo is public: never commit game DLLs or decompiled code.
 
 ## Layout
 
@@ -41,6 +43,7 @@ To build the real mod, copy `Directory.Build.props.user.example` to `Directory.B
 | `harness/` | Stage 0 eval app and snapshots | No |
 | `tests/` | Unit tests for Llm, Core and harness | No |
 | `prompts/` | Versioned prompt templates | No |
+| `About/`, `1.7/Assemblies/` | Mod metadata; built DLLs (git-ignored) | Loaded by the game |
 
 Package versions are central in `Directory.Packages.props`. Llm, Core and Game must not reference any NuGet package (`LayeringTests` enforces this for Llm and Core).
 

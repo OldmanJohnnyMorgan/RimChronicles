@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(RimWorldAvailable)' == 'true'">
+    <!-- No UnityStubs reference on purpose: new code never uses Unity types (rule 3). -->
     <Reference Include="$(RimWorldManagedDir)\Assembly-CSharp.dll" Private="false" />
     <Reference Include="$(HarmonyAssembliesDir)\0Harmony.dll" Private="false" Condition="'$(HarmonyAssembliesDir)' != ''" />
   </ItemGroup>
