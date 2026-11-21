@@ -52,9 +52,10 @@ dlls/<name>.dll` for `Assembly-CSharp`, `RimWorld`, `Waylith`, `UnityStubs`, `Wa
 
 ## Differences that matter later
 
-- `Mod.DoSettingsWindowContents(Rect)` still takes `UnityEngine.Rect`, which is now a type in `UnityStubs`. A settings
-  window means referencing `UnityStubs` for `Rect` and `Listing_Standard`, which bends rule 3. Decide this in Stage 2.
-  Until then, settings live in the mod's config file.
+- `Mod.DoSettingsWindowContents(Rect)` still takes `UnityEngine.Rect`, which is now a type in `UnityStubs`.
+  **Decided 2026-11-21:** UI code (the settings page, and windows such as the Rim Dispatch tab) may use the Unity stub
+  types RimWorld's UI needs (`Rect`, `Listing_Standard`). The Game project references `UnityStubs` with
+  `Private=false` for this alone, and nothing outside UI code uses Unity types.
 - A fight logs one `Wounded` tale per hit, and animals and unnamed raiders have no `name` in their tale data (use
   `kind.label`). Archived letters can carry a whole paragraph as their label (the scenario intro).
 - `WorldGrid.LongLatOf` returns a Unity `Vector2`. The snapshot reader uses `GenLocalDate` instead, to keep Unity types

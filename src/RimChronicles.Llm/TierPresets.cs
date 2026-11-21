@@ -1,0 +1,53 @@
+namespace RimChronicles.Llm;
+
+/// <summary>The model each tier preset picks, as chosen by Stage 0 (docs/stage0-results.md). All are Ollama tags,
+/// run with thinking off and temperature 0.4.</summary>
+public static class TierPresets
+{
+    public const string DefaultEndpoint = "http://localhost:11434/";
+
+    /// <summary>Sampling temperature for every preset; Stage 0 found server defaults invent more.</summary>
+    public const double Temperature = 0.4;
+
+    /// <summary>The preset's model, or null for <see cref="ModelTier.Off"/> (templates only).</summary>
+    public static string? ModelFor(ModelTier tier) => tier switch
+    {
+        ModelTier.Minimum => "gemma4:e2b",
+        ModelTier.Recommended => "gemma4:e4b",
+        ModelTier.High => "gemma4:12b",
+        _ => null,
+    };
+
+    /// <summary>One line for the settings window.</summary>
+    public static string Describe(ModelTier tier) => tier switch
+    {
+        ModelTier.Off => "Off: no model. Template text everywhere; the story still runs.",
+        ModelTier.Minimum => "Minimum (Gemma 4 E2B, about 2 GB of VRAM): director decisions and short bulletins.",
+        ModelTier.Recommended => "Recommended (Gemma 4 E4B, about 4 GB of VRAM): full narration. The default.",
+        ModelTier.High => "High (Gemma 4 12B, about 9 GB of VRAM): richer prose.",
+        _ => tier.ToString(),
+    };
+
+    /// <summary>Checks an endpoint URL: null if it is usable, else why not.</summary>
+    public static string? EndpointProblem(string? endpoint)
+    {
+        if (string.IsNullOrWhiteSpace(endpoint))
+        {
+            return "Enter the server address, e.g. http://localhost:11434/";
+        }
+
+        if (!Uri.TryCreate(endpoint.Trim(), UriKind.Absolute, out var uri) || (uri.Scheme != Uri.UriSchemeHttp && uri.Scheme != Uri.UriSchemeHttps))
+        {
+            return "The address must start with http:// or https://";
+        }
+
+        return null;
+    }
+
+    /// <summary>The endpoint as a base URI with a trailing slash, so "v1/chat/completions" resolves under it.</summary>
+    public static Uri EndpointUri(string endpoint)
+    {
+        var text = endpoint.Trim();
+        return new Uri(text.EndsWith('/') ? text : text + "/");
+    }
+}
