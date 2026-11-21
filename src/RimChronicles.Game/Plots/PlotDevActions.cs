@@ -113,4 +113,25 @@ public static class NemesisDevActions
             Messages.Message($"Rim Chronicles: {plot.Id}'s beat couldn't fire now (see Show plots).", MessageTypeDefOf.RejectInput, historical: false);
         }
     }
+
+    [DebugAction("Rim Chronicles", "Plot: kill protagonist (by nemesis)", allowedGameStates = AllowedGameStates.Playing)]
+    public static void KillProtagonistByNemesis() => KillProtagonist(byNemesis: true);
+
+    [DebugAction("Rim Chronicles", "Plot: kill protagonist (other)", allowedGameStates = AllowedGameStates.Playing)]
+    public static void KillProtagonistOther() => KillProtagonist(byNemesis: false);
+
+    /// <summary>Kills the oldest plot's protagonist through the real Kill path, so the succession patch is what runs.</summary>
+    private static void KillProtagonist(bool byNemesis)
+    {
+        if (RimChroniclesGameComponent.Current is not { } component
+            || component.Plots.Active.Where(p => p.Protagonist.Kind != Core.Plots.ProtagonistKind.Colony).OrderBy(p => p.StartDay).FirstOrDefault() is not { } plot
+            || component.TrackedOrFind(plot.Protagonist.PawnId) is not { Dead: false } pawn)
+        {
+            Messages.Message("Rim Chronicles: no plot with a living protagonist.", MessageTypeDefOf.RejectInput, historical: false);
+            return;
+        }
+
+        var killer = byNemesis ? component.Tracked(plot.Fact(Core.Plots.Nemesis.NemesisPlot.NemesisId) ?? "") : null;
+        pawn.Kill(new DamageInfo(DamageDefOf.Cut, 9999f, instigator: killer));
+    }
 }

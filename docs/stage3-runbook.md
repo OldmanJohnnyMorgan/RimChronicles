@@ -95,3 +95,20 @@ With Dev mode on, each plot letter ends with a grey note of who wrote it: `(Mode
 | 3 | Pick **Recommended** again, then quit Ollama and fire a beat. | After the connection times out (up to a minute), the letter arrives as `(Template)`, with a yellow `fell back to its template` line in the debug log. |
 
 Paste me two or three of the model's letters.
+
+## M4: inheritance
+
+Use a colony where the protagonist has family: ideally a spouse or child among the colonists, and a third colonist who
+likes them. **Show plots** shows the protagonist and the facts. Save before row 1, so you can reload between rows.
+
+| # | Do | Pass when |
+| --- | --- | --- |
+| 1 | **Nemesis: force seed**, then **Plot: advance beat** once (the sighting). Then **Plot: kill protagonist (by nemesis)**. | Within a few seconds, a letter **Story: <heir> takes up the cause**: a short scene of the heir at home, marked `(Model, inheritance-handoff/v3)`. The heir is the protagonist's kin if there is one, else their partner, else the colonist who liked them most. **Show plots**: the new protagonist; `victimName` is the old protagonist, and `relation` is what they were to the heir; the log says `inherited: … killed by the nemesis … the hunt becomes revenge`. |
+| 2 | **Plot: advance beat**. | The raid letter now names the old protagonist as the victim, from the heir's side (for example "killed Sela's mother Mara"). |
+| 3 | Reload. Seed and sight again, then **Plot: kill protagonist (other)**. | A handoff for the heir, but the victim and grievance stay the original ones. Only `relation` changes, to the original victim's relation to the heir. |
+| 4 | Reload. Arrange for the protagonist to be kidnapped in a raid, or banish them. Then play a day. | A template letter: **<protagonist> was taken, and no one knows where**, or **has left the colony**, then the heir. No model scene, because the scene is written only for deaths. |
+| 5 | Kill every colonist except one, then kill the protagonist. | If no one inherits, the colony takes it up: **the whole colony takes it up**. Later payoffs go to every colonist. |
+| 6 | Pick **Off** in the mod settings, and repeat row 1. | The handoff letter arrives at once, marked `(Template)`. |
+| 7 | Finish an inherited arc (kill the nemesis). | The heir, not the dead protagonist, gains **avenged**. |
+
+Send me pass or fail per row, and the text of one model-written handoff scene.

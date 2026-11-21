@@ -88,6 +88,7 @@ public static class EvalTasks
             {
                 WorldSummarizer.NewsBulletinTask => BulletinTask.Checks(s, input),
                 PlotLetterTask.TaskName => PlotLetterTask.Checks(s.PlotLetter!, input),
+                WorldSummarizer.HandoffTask => HandoffTask.Checks(input),
                 _ => [new WordCountCheck(min, max), new GroundingCheck(input.AllowedNames), new BannedPhraseCheck()],
             };
         }

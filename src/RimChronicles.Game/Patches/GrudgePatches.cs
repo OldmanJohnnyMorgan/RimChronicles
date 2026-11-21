@@ -60,3 +60,17 @@ public static class NemesisKilledPatch
         }
     }
 }
+
+/// <summary>A protagonist or co-lead dying passes their plots on (Stage 3 M4).</summary>
+[HarmonyPatch(typeof(Pawn), nameof(Pawn.Kill))]
+public static class ProtagonistKilledPatch
+{
+    public static void Postfix(Pawn __instance, DamageInfo? dinfo)
+    {
+        if (__instance.Dead && RimChroniclesGameComponent.Current is { } component && Current.ProgramState == ProgramState.Playing
+            && component.Plots.Active.Any(p => p.Protagonist.PawnId == __instance.ThingID || p.Protagonist.CoLeadId == __instance.ThingID))
+        {
+            SuccessionDriver.PawnDied(component, __instance, dinfo?.Instigator);
+        }
+    }
+}
