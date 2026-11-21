@@ -47,7 +47,7 @@ public sealed class WorldReader : IWorldReader
         };
     }
 
-    private static PawnInfo ReadPawn(Pawn pawn, List<Pawn> colonists) => new()
+    public static PawnInfo ReadPawn(Pawn pawn, List<Pawn> colonists) => new()
     {
         Id = pawn.ThingID,
         Name = pawn.Name?.ToStringShort ?? pawn.LabelShort,

@@ -73,6 +73,7 @@ public sealed class RimChroniclesGameComponent : GameComponent
     {
         var needed = _grudges.Grudges.SelectMany(g => new[] { g.KillerId, g.VictimId })
             .Concat(_plots.Active.SelectMany(p => p.Facts.Select(f => f.Value)))
+            .Concat(_plots.Active.SelectMany(p => new[] { p.Protagonist.PawnId, p.Protagonist.CoLeadId }))
             .ToHashSet();
         _tracked.RemoveAll(p => p is null || !needed.Contains(p.ThingID));
     }
@@ -124,6 +125,7 @@ public sealed class RimChroniclesGameComponent : GameComponent
         Game.News.ReporterLife.Daily(this);
         Game.News.ReporterKeeper.EnsureReporter(this);
         Game.Plots.NemesisTracker.Daily(this);
+        Game.Plots.SuccessionDriver.Daily(this);
         Game.Plots.PlotDriver.Daily(this);
         Game.News.NewsDriver.Tick(this);
     }

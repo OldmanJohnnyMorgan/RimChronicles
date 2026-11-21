@@ -107,6 +107,11 @@ public static class NemesisTracker
             ? protagonist.GetMostImportantRelation(victim)?.GetGenderSpecificLabel(victim) ?? ""
             : "";
         var plot = NemesisPlot.Seed(component.Plots, template, grudge, heir, relation, today, Rand.RangeInclusive(2, 5));
+        if (protagonist is not null)
+        {
+            component.Track(protagonist);
+        }
+
         var nemesis = component.Tracked(grudge.KillerId);
         plot.SetFact(NemesisPlot.NemesisPronoun, Pronoun(nemesis));
         plot.SetFact(NemesisPlot.VictimPronoun, Pronoun(victim));
