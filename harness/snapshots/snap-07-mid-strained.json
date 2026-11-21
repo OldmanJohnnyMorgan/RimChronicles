@@ -129,6 +129,11 @@
   ],
   "publicEvents": [
     "The Iron Covenant lost a supply wagon to raiders near the gorge",
+    "Imperial envoys visited two outlander towns",
+    "The Shattered Empire demanded tolls on the gorge road"
+  ],
+  "reportedEvents": [
+    "The Iron Covenant lost a supply wagon to raiders near the gorge",
     "Imperial envoys visited two outlander towns"
   ],
   "allowedTransitions": [

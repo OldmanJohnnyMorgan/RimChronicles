@@ -221,8 +221,26 @@ public static partial class WorldSummarizer
             return line;
         }));
 
-        var stories = s.ActivePlots.Where(p => p.PublicHint is not null).Select(p => names.Replace(p.PublicHint!));
-        AppendList(sb, "News on the rim:", s.PublicEvents.TakeLast(limits.Events).Concat(stories).Distinct(StringComparer.Ordinal));
+        // Split the news into what the reporter may lead with and what earlier bulletins already covered,
+        // so a model is never told "don't repeat old news" while being handed only old news.
+        var reported = s.ReportedEvents.ToHashSet(StringComparer.Ordinal);
+        var items = s.PublicEvents.TakeLast(limits.Events)
+            .Concat(s.ActivePlots.Select(p => p.PublicHint).OfType<string>())
+            .Distinct(StringComparer.Ordinal)
+            .ToList();
+        var fresh = items.Where(e => !reported.Contains(e)).Select(names.Replace).ToList();
+        var old = items.Where(reported.Contains).Select(names.Replace).ToList();
+
+        if (fresh.Count == 0)
+        {
+            sb.Append("\nNews since your last bulletin: none. It has been a quiet stretch.\n");
+        }
+        else
+        {
+            AppendList(sb, "News since your last bulletin:", fresh);
+        }
+
+        AppendList(sb, "Already reported in your earlier bulletins (background only, not news):", old);
         return sb.ToString().TrimEnd();
     }
 

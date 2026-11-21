@@ -30,7 +30,7 @@ public static class RunPlan
 
         if (snapshots.Count == 0)
         {
-            throw new ArgumentException("No snapshots match.");
+            throw new ArgumentException($"No snapshots match {string.Join(", ", o.Snapshots ?? [])}. Use '*' as a wildcard, for example \"snap-0*\".");
         }
 
         var repeats = o.Repeats ?? o.Config.Repeats;

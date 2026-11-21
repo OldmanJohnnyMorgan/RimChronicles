@@ -54,6 +54,19 @@ public static class Runner
             var identity = model.Identity();
             using var gate = new SemaphoreSlim(model.Concurrency);
 
+            if (o.WarmUp && model.Provider == ProviderKind.OpenAi)
+            {
+                // Untimed, uncached: loads the model into memory so the first timed call doesn't include the load.
+                log.WriteLine($"{model.Id}: warming up...");
+                await provider.CompleteAsync(new ChatRequest
+                {
+                    System = "Reply with one word.",
+                    User = "Say ready.",
+                    MaxOutputTokens = 8,
+                    Thinking = model.Thinking,
+                }, ct).ConfigureAwait(false);
+            }
+
             var tasks = group.Select(async cell =>
             {
                 await gate.WaitAsync(ct).ConfigureAwait(false);

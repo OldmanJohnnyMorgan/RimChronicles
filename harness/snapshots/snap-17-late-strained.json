@@ -125,6 +125,12 @@
     "The Shattered Empire posted a bounty on the defector Severin",
     "Ashford Compact militias are gathering at Harlow Ford"
   ],
+  "reportedEvents": [
+    "The Shattered Empire took Dunwold from the Ashford Compact",
+    "The Shattered Empire posted a bounty on the defector Severin",
+    "Ashford Compact militias are gathering at Harlow Ford",
+    "The Shattered Empire took Dunwold from the Ashford Compact"
+  ],
   "allowedTransitions": [
     "Wait",
     "Empire:Expand:Harlow Ford",

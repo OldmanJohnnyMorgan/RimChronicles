@@ -102,7 +102,13 @@
   ],
   "publicEvents": [
     "The Fernhollow League signed a trade pact with the Blue Antler Tribe",
-    "A released Brackwater Corsair is talking about his captors' kindness"
+    "A released Brackwater Corsair is talking about his captors' kindness",
+    "Brackwater Corsairs raided a Fernhollow League barge on the river"
+  ],
+  "reportedEvents": [
+    "The Fernhollow League signed a trade pact with the Blue Antler Tribe",
+    "A released Brackwater Corsair is talking about his captors' kindness",
+    "A Brackwater Corsair released by Quillmarsh is talking about his captors' kindness"
   ],
   "allowedTransitions": [
     "Wait",

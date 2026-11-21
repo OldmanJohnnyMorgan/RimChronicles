@@ -14,6 +14,37 @@ public sealed record HarnessConfig
     public ModelConfig? Judge { get; init; }
     public int Repeats { get; init; } = 1;
 
+    /// <summary>Sets "temperature" in every local (OpenAI-compatible) model's extraBody, or removes it for "default",
+    /// leaving the server's own setting. The cache key includes extraBody, so each setting is cached separately.</summary>
+    public HarnessConfig WithLocalTemperature(string value)
+    {
+        double? t = value.Equals("default", StringComparison.OrdinalIgnoreCase)
+            ? null
+            : double.TryParse(value, System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture, out var parsed) && parsed is >= 0 and <= 2
+                ? parsed
+                : throw new ArgumentException($"--temperature must be a number from 0 to 2 or \"default\", not '{value}'.");
+
+        return this with
+        {
+            Models = Models.Select(m =>
+            {
+                if (m.Provider != ProviderKind.OpenAi)
+                {
+                    return m;
+                }
+
+                var extra = m.ExtraBody?.DeepClone().AsObject() ?? [];
+                extra.Remove("temperature");
+                if (t is { } temp)
+                {
+                    extra["temperature"] = temp;
+                }
+
+                return m with { ExtraBody = extra.Count == 0 ? null : extra };
+            }).ToList(),
+        };
+    }
+
     private static readonly JsonSerializerOptions Options = new()
     {
         TypeInfoResolver = new DefaultJsonTypeInfoResolver(),

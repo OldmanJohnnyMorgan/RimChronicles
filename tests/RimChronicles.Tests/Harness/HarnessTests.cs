@@ -69,6 +69,22 @@ public sealed class HarnessConfigTests : IDisposable
         Assert.Equal("claude-opus-5-5", config.Judge!.Model);
     }
 
+    [Fact]
+    public void LocalTemperature_SetsOrRemovesItOnLocalModelsOnly()
+    {
+        var config = HarnessConfig.Load(Repo.Path("harness", "models.json"));
+
+        var warm = config.WithLocalTemperature("0.8");
+        Assert.All(warm.Models.Where(m => m.Provider == ProviderKind.OpenAi), m => Assert.Equal(0.8, m.ExtraBody!["temperature"]!.GetValue<double>()));
+        Assert.Null(warm.Models.Single(m => m.Id == "claude-ref").ExtraBody);
+
+        var server = config.WithLocalTemperature("default");
+        Assert.All(server.Models, m => Assert.Null(m.ExtraBody?["temperature"]));
+        Assert.NotEqual(config.Models[0].Identity(), server.Models[0].Identity()); // cached separately
+
+        Assert.Throws<ArgumentException>(() => config.WithLocalTemperature("hot"));
+    }
+
     [Theory]
     [InlineData("""{ "models": [ { "id": "a", "tier": "Huge", "provider": "Stub" } ] }""", "unknown tier")]
     [InlineData("""{ "models": [ { "id": "a", "tier": "Minimum", "provider": "OpenAi" } ] }""", "need endpoint and model")]
@@ -283,6 +299,24 @@ public sealed class RunnerTests : IDisposable
     }
 
     [Fact]
+    public async Task LocalModels_GetOneUntimedWarmUpCall()
+    {
+        var local = new ModelConfig { Id = "local", Tier = "Minimum", Provider = ProviderKind.OpenAi, Endpoint = "http://x", Model = "m" };
+        var fake = new FakeChatProvider();
+        var result = await Runner.RunAsync(
+            Options(new HarnessConfig { Models = [local] }, _ => fake) with
+            {
+                Tasks = ["news-bulletin"], Snapshots = ["snap-01*"], UseCache = false,
+                Probe = (m, _) => Task.FromResult(new RimChronicles.Eval.Servers.ServerInfo { ModelId = m.Id }),
+            },
+            TextWriter.Null, CancellationToken.None);
+
+        Assert.Equal("Say ready.", fake.Requests[0].User);
+        Assert.Single(fake.Requests, r => r.User == "Say ready.");
+        Assert.Equal(2, Assert.Single(result.Cells).Attempts); // the warm-up isn't one of the cell's attempts
+    }
+
+    [Fact]
     public async Task DryRun_CallsNothing()
     {
         var calls = 0;
@@ -326,5 +360,17 @@ public sealed class ValidateCommandTests : IDisposable
         Assert.Equal(1, exit);
         Assert.Contains("snap-99-bad.json: $.season must be one of", log.ToString());
         Assert.Contains("does not match the file name", log.ToString());
+    }
+
+    [Fact]
+    public void ReportedEventThatIsNotPublicNews_IsReported()
+    {
+        var text = File.ReadAllText(Path.Combine(Repo.Snapshots, "snap-07-mid-strained.json"))
+            .Replace("\"reportedEvents\": [", "\"reportedEvents\": [\n    \"Something nobody heard about\",", StringComparison.Ordinal);
+        File.WriteAllText(Path.Combine(_dir, "snap-07-mid-strained.json"), text);
+        var log = new StringWriter();
+
+        Assert.Equal(1, ValidateCommand.Run(_dir, Repo.SnapshotSchema, Repo.Prompts, null, log));
+        Assert.Contains("reportedEvents entry is not a public event or plot hint: 'Something nobody heard about'", log.ToString());
     }
 }

@@ -32,6 +32,23 @@ dotnet run --project harness/RimChronicles.Eval -- run --repeats 1 --snapshots "
 
 Open the `summary.html` it prints at the end and check that every model produced real outputs (the *Fell back* column should be low) before spending hours on the full run.
 
+### Prompt rounds
+
+When a trial shows a prompt problem, change the prompt (a new version folder under `prompts/`), run the same trial again and compare it with the last one:
+
+```powershell
+dotnet run --project harness/RimChronicles.Eval -- run --repeats 1 --snapshots "snap-0*" --judge
+dotnet run --project harness/RimChronicles.Eval -- report latest --compare <previous runId>
+```
+
+`summary.html` then shows the change in every number next to the old one. Each round takes about 20–30 minutes and costs a few dollars for Claude and the judge.
+
+The local models sample at temperature 0.4 (set in `harness/models.json`). To see whether that setting helps, run the same trial with the servers' own defaults and compare the two runs:
+
+```powershell
+dotnet run --project harness/RimChronicles.Eval -- run --repeats 1 --snapshots "snap-0*" --judge --temperature default
+```
+
 ## 4. Full run (a few hours; overnight is easiest)
 
 ```powershell

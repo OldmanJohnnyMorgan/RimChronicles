@@ -118,6 +118,10 @@
     "The Free Coast Alliance holds only two towns",
     "The Shattered Empire offered Varrowgate a governorship"
   ],
+  "reportedEvents": [
+    "The Shattered Empire took Brightwater",
+    "The Free Coast Alliance holds only two towns"
+  ],
   "allowedTransitions": [
     "Wait",
     "Ending:ImperialGovernorship",

@@ -118,6 +118,11 @@
     "The Marrow League is down to three settlements",
     "The Starling Tribe offered shelter to Fenwick's survivors"
   ],
+  "reportedEvents": [
+    "The Sun Throne razed Fenwick",
+    "The Marrow League is down to three settlements",
+    "The Starling Tribe offered shelter to Fenwick's survivors"
+  ],
   "allowedTransitions": [
     "Wait",
     "Empire:Expand:Marrow Hold",

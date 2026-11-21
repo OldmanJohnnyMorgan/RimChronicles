@@ -104,7 +104,13 @@
   ],
   "publicEvents": [
     "Stonecutter Raiders took captives from an Ochre Hand camp",
-    "The Weir Federation raised a bounty on Stonecutter leaders"
+    "The Weir Federation raised a bounty on Stonecutter leaders",
+    "The Ochre Hand offered silver for the return of its captives"
+  ],
+  "reportedEvents": [
+    "Stonecutter Raiders took captives from an Ochre Hand camp",
+    "The Weir Federation raised a bounty on Stonecutter leaders",
+    "Stonecutter Raiders are holding captives from the Ochre Hand"
   ],
   "allowedTransitions": [
     "Wait",

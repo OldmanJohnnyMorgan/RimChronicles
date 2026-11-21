@@ -102,7 +102,13 @@
   ],
   "publicEvents": [
     "The Sun Throne demanded tribute from the Cobalt Free Towns",
-    "Rustback Raiders hit a caravan on the old highway"
+    "Rustback Raiders hit a caravan on the old highway",
+    "Two Cobalt Free Towns refused to pay the Sun Throne's tribute"
+  ],
+  "reportedEvents": [
+    "The Sun Throne demanded tribute from the Cobalt Free Towns",
+    "Rustback Raiders hit a caravan on the old highway",
+    "The Sun Throne is demanding tribute from the Cobalt Free Towns"
   ],
   "allowedTransitions": [
     "Wait",

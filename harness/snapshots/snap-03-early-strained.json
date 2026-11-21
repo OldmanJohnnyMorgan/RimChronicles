@@ -111,6 +111,10 @@
     "The Ashen Hand raided two homesteads near the Merrow road",
     "Merrow Freeholds caravans now travel only in pairs"
   ],
+  "reportedEvents": [
+    "The Ashen Hand raided two homesteads near the Merrow road",
+    "Merrow Freeholds caravans now travel only in pairs"
+  ],
   "allowedTransitions": [
     "Wait",
     "Seed:Rivalry:p1:p3"

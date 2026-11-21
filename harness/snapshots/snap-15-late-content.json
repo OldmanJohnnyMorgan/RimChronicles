@@ -128,6 +128,10 @@
     "The Fox-Lantern Tribe is holding its spring games",
     "The Pale Choir has been asking about a man called Leopold at the Greywater market"
   ],
+  "reportedEvents": [
+    "The Greywater Concord elected a new speaker",
+    "The Fox-Lantern Tribe is holding its spring games"
+  ],
   "allowedTransitions": [
     "Wait",
     "Choice:FaceTheChoir",

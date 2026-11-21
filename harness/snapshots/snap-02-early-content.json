@@ -102,6 +102,11 @@
   ],
   "publicEvents": [
     "The Tannerfolk and the Hollow Spire Pirates are fighting over the salt flats",
+    "A Glimmer Coast Company caravan reached the eastern ford",
+    "Hollow Spire Pirates abandoned a camp on the salt flats"
+  ],
+  "reportedEvents": [
+    "The Tannerfolk and the Hollow Spire Pirates are fighting over the salt flats",
     "A Glimmer Coast Company caravan reached the eastern ford"
   ],
   "allowedTransitions": [

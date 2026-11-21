@@ -89,6 +89,7 @@
     },
     "recentEvents": { "type": "array", "items": { "type": "string" } },
     "publicEvents": { "type": "array", "items": { "type": "string" } },
+    "reportedEvents": { "type": "array", "items": { "type": "string" } },
     "allowedTransitions": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
     "previousBulletins": { "type": "array", "items": { "type": "string" }, "maxItems": 2 },
     "reporter": {

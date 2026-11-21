@@ -26,6 +26,9 @@ public sealed record RunOptions
     public int? Repeats { get; init; }
     public bool UseCache { get; init; } = true;
 
+    /// <summary>Send one untimed call to each local model before its timed calls, so load time stays out of latency.</summary>
+    public bool WarmUp { get; init; } = true;
+
     /// <summary>List the cells without calling any model.</summary>
     public bool DryRun { get; init; }
 

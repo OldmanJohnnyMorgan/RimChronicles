@@ -6,6 +6,9 @@
 // it takes "reasoning_effort": "none". (llama.cpp takes {"chat_template_kwargs": {"enable_thinking": false}}.)
 // `check` warns when a model still thinks with thinking Off.
 //
+// Local models sample at temperature 0.4: the server defaults (about 0.6-1.0) encouraged invented detail in
+// bulletins. `run --temperature default` drops the setting to compare against the server default.
+//
 // Raon-1 nano is left out of the current evaluation (decided 2026-11-20). To test it later, set up its server
 // (docs/local-setup.md, "Later: Raon-1 nano") and add this entry back to "models":
 //   { "id": "raon-1-nano", "tier": "Minimum", "provider": "OpenAi",
@@ -16,32 +19,38 @@
     {
       "id": "qwen3.5-2b", "tier": "Minimum", "provider": "OpenAi",
       "endpoint": "http://localhost:11434", "model": "qwen3.5:2b",
-      "thinking": "Off", "thinkingOffBody": { "reasoning_effort": "none" }
+      "thinking": "Off", "thinkingOffBody": { "reasoning_effort": "none" },
+      "extraBody": { "temperature": 0.4 }
     },
     {
       "id": "gemma4-e2b", "tier": "Minimum", "provider": "OpenAi",
       "endpoint": "http://localhost:11434", "model": "gemma4:e2b",
-      "thinking": "Off", "thinkingOffBody": { "reasoning_effort": "none" }
+      "thinking": "Off", "thinkingOffBody": { "reasoning_effort": "none" },
+      "extraBody": { "temperature": 0.4 }
     },
     {
       "id": "qwen3.5-4b", "tier": "Recommended", "provider": "OpenAi",
       "endpoint": "http://localhost:11434", "model": "qwen3.5:4b",
-      "thinking": "Off", "thinkingOffBody": { "reasoning_effort": "none" }
+      "thinking": "Off", "thinkingOffBody": { "reasoning_effort": "none" },
+      "extraBody": { "temperature": 0.4 }
     },
     {
       "id": "gemma4-e4b", "tier": "Recommended", "provider": "OpenAi",
       "endpoint": "http://localhost:11434", "model": "gemma4:e4b",
-      "thinking": "Off", "thinkingOffBody": { "reasoning_effort": "none" }
+      "thinking": "Off", "thinkingOffBody": { "reasoning_effort": "none" },
+      "extraBody": { "temperature": 0.4 }
     },
     {
       "id": "gemma4-12b", "tier": "High", "provider": "OpenAi",
       "endpoint": "http://localhost:11434", "model": "gemma4:12b",
-      "thinking": "Off", "thinkingOffBody": { "reasoning_effort": "none" }
+      "thinking": "Off", "thinkingOffBody": { "reasoning_effort": "none" },
+      "extraBody": { "temperature": 0.4 }
     },
     {
       "id": "qwen3-14b", "tier": "High", "provider": "OpenAi",
       "endpoint": "http://localhost:11434", "model": "qwen3:14b",
-      "thinking": "Off", "thinkingOffBody": { "reasoning_effort": "none" }
+      "thinking": "Off", "thinkingOffBody": { "reasoning_effort": "none" },
+      "extraBody": { "temperature": 0.4 }
     },
     {
       "id": "claude-ref", "tier": "Reference", "provider": "Anthropic",
