@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It is accurate and clearly ordered, but the wit is nearly absent. The \u0027dry takes\u0027 are flat predictions rather than Odile\u0027s sardonic understatement. The third item is padding that restates the war already covered in the second.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.0327371,
+      "inputTokens": 2733,
+      "outputTokens": 376
+    }
+  ]
+}

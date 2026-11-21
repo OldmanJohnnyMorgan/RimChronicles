@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the cold snap remains the season\u0027s chief farmer\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022States the old cold snap is still ongoing; the briefing only says it killed crops.\u0022},{\u0022span\u0022:\u0022they are the largest faction on the rim\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Generalises from the three listed factions to the whole rim.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The lead item is clean, with a good dry closing line. The second paragraph feels padded and rehashes the earlier \u0027who is paying\u0027 joke, and it slightly embellishes the cold snap as still ongoing.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.552181,
+      "inputTokens": 2727,
+      "outputTokens": 563
+    }
+  ]
+}

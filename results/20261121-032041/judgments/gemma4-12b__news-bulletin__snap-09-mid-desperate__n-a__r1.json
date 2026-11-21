@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022provided they can find one willing to be shot\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies Malley was shot; the briefing gives no manner of death.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The bulletin is clear and leads correctly with Malley\u0027s death, but the second item rehashes the earlier bulletin\u0027s no-fish joke, which the task forbids. \u0027Willing to be shot\u0027 also adds a manner of death the briefing doesn\u0027t give.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.0886573,
+      "inputTokens": 2711,
+      "outputTokens": 499
+    }
+  ]
+}

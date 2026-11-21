@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A clean quiet-week bulletin that uses only briefing facts, and \u0027the Ashen Hand, presumably, see seven larders\u0027 is a sharp, in-voice line. It is held back from a 5 by the repeated \u0027presumably\u0027 and a flat third item that leans on old news.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.5499638,
+      "inputTokens": 2749,
+      "outputTokens": 383
+    }
+  ]
+}

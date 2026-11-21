@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-04-early-strained__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022even if it\u2019s just on a piece of rotting wood\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The ferry\u0027s condition is not given in the briefing.\u0022},{\u0022span\u0022:\u0022Another piece of local mischief\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027Another\u0027 implies earlier raids the briefing does not mention.\u0022},{\u0022span\u0022:\u0022is still seeking news\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027Still\u0027 implies an ongoing search reported before, but this is the first bulletin.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The facts are reported faithfully and the guesses are mostly framed as guesses, but the first paragraph crams two unrelated items together without linking them. The wit is fairly generic, and the \u0027rotting wood\u0027 detail is a small embellishment.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.0958779,
+      "inputTokens": 2589,
+      "outputTokens": 500
+    }
+  ]
+}

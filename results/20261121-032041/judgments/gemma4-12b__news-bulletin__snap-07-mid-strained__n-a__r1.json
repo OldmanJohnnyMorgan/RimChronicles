@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-07-mid-strained__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Iron Covenant still lacks its missing supply wagon.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Asserts the wagon\u0027s current status, which the briefing does not give.\u0022},{\u0022span\u0022:\u0022They are still mourning the loss of that cargo.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Invents an ongoing reaction to the old news.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The toll lead is plain and accurate, but the second item rehashes old news and pads it with unsupported claims about the Covenant\u0027s ongoing state. The wit is serviceable but generic next to the earlier bulletins.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.2728534,
+      "inputTokens": 2710,
+      "outputTokens": 499
+    }
+  ]
+}

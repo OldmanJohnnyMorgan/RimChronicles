@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The facts are accurate, and the understated \u0027minor ripple\u0027 line about Malley\u0027s death works. However, the bulletin is only about 55 words, well under the 70-word minimum, and the second item is a flat restatement of old news with only a weak dry remark.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.6963457,
+      "inputTokens": 2661,
+      "outputTokens": 369
+    }
+  ]
+}

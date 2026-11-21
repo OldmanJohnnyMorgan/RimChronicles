@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-08-mid-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They have managed to maintain their dominance\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies a history of holding dominance over time; the briefing gives only current settlement counts.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The bulletin is accurate, plainly structured and leads correctly with the sculpture news. The wit is thin: the \u0027speak for itself\u0027 and \u0027lonely at the top\u0027 remarks are generic, and \u0027lonely\u0027 sits oddly with a nine-settlement faction.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.5327565,
+      "inputTokens": 2679,
+      "outputTokens": 487
+    }
+  ]
+}

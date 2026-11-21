@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The bulletin is accurate and dry: it reports Malley\u0027s death plainly, frames every guess as a guess, and uses the faction counts and date well for the quiet second item. The closing fish line recycles the previous bulletin\u0027s joke, which the brief forbids, and that costs it some voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.0509313,
+      "inputTokens": 2756,
+      "outputTokens": 404
+    }
+  ]
+}

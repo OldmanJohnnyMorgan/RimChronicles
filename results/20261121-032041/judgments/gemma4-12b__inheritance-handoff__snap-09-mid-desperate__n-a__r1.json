@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__inheritance-handoff__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Tamsin knelt in the red-stained dirt of the Lancers\u0027 camp\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Places Tamsin at the camp beside the body. The briefing says the Lancers still hold the camp, so this is an unsupported and implausible event.\u0022},{\u0022span\u0022:\u0022her father\u2019s heavy, notched blade\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Introduces a weapon the briefing never mentions.\u0022},{\u0022span\u0022:\u0022his mangled arm, the jagged scar from Rook Malley\u2019s initial strike\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says Joska was maimed but does not say which body part.\u0022},{\u0022span\u0022:\u0022the pirate captain\u2019s banner fluttering nearby\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Adds a banner as invented scene detail.\u0022},{\u0022span\u0022:\u0022The metal was still warm from the struggle\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Embellishes the fight with an implied immediacy the briefing does not give.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The ending correctly turns Tamsin toward the new captain. But the scene invents her presence in the enemy-held camp and a signature blade, and leans on stock clich\u00E9s like white knuckles and lifeless eyes.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 9.5607439,
+      "inputTokens": 2192,
+      "outputTokens": 843
+    }
+  ]
+}

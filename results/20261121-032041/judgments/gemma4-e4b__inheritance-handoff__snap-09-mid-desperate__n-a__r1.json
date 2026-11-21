@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__inheritance-handoff__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Tamsin stood over the cooling form of her father, the grit of the Lancers\u0027 camp clinging to her scavenged gear.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The briefing never places Tamsin at the Lancers\u0027 camp or at the fight. This invents her presence at his death.\u0022},{\u0022span\u0022:\u0022She traced the shallow cut near his ribs, a souvenir from Malley.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022This is a specific wound the briefing does not give, and \u0027shallow cut\u0027 undercuts Malley having maimed him.\u0022},{\u0022span\u0022:\u0022The new captain\u2019s oath echoed in the sudden silence.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022It implies Tamsin heard the oath in person. The briefing only says the captain swore revenge.\u0022},{\u0022span\u0022:\u0022She turned toward the fortified entrance.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The camp having a fortified entrance is added detail.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The scene puts Tamsin at the Lancers\u0027 camp and invents a shallow wound that clashes with Joska being maimed. It also ends on an ambiguous turn toward an entrance instead of stating what she means to do.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.5550161,
+      "inputTokens": 2145,
+      "outputTokens": 785
+    }
+  ]
+}

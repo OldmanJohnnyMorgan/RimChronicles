@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-08-mid-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It sits there, presumably, gathering dust while the merchants argue over its worth.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Puts the sculpture at Lantern Hill and has merchants arguing over its worth. The briefing only says it is talked about.\u0022},{\u0022span\u0022:\u0022The Lantern Accord continues its trade fair preparations at Lantern Hill.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Claims a current status the briefing does not give. The earlier bulletin said the fair opened \u0027next week\u0027, so it may already be underway.\u0022},{\u0022span\u0022:\u0022The Ninefingers Gang remains quiet after their failed raid on Gladwater.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Asserts their continued quiet now, which nothing new in the briefing supports.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is on point, but two of the three items rehash old news as if current when two items were enough. The wit is thin and generic (\\\u0022Silence from pirates is rarely a good sign\\\u0022), and the sculpture item edges into invented scene detail.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 9.2694019,
+      "inputTokens": 2742,
+      "outputTokens": 821
+    }
+  ]
+}

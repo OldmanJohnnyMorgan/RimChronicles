@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate and suitably dry. However, the Scythe Tooth raids are already-covered news, and the bulletin presents them again as fresh rather than as background, which breaks the brief. The date item is thin filler, and its humour (\u0027quite alarming\u0027) feels generic rather than sharp.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.0388865,
+      "inputTokens": 2717,
+      "outputTokens": 431
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-02-early-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022has wisely stayed out of it\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing only omits the Company from the war; the narrator states it as a fact.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A clear, well-ordered bulletin that leads correctly with the abandoned camp and uses the faction counts well on a quiet week. \u0027Press releases\u0027 is a modern-office phrase that jars slightly with the frontier setting, and the Company\u0027s neutrality is presented as fact rather than inference.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.8917113,
+      "inputTokens": 2835,
+      "outputTokens": 506
+    }
+  ]
+}

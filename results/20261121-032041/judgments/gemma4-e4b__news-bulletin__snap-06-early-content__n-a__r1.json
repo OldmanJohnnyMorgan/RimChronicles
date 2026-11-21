@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-06-early-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Calder Combine maintains its five settlements are thriving.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022No new Combine statement is in the briefing, and \u0027thriving\u0027 is unsupported.\u0022},{\u0022span\u0022:\u0022They claim good harvests continue along the delta.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Presents old, already-covered news as a fresh, ongoing claim.\u0022},{\u0022span\u0022:\u0022the usual low-level thievery\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies recurring thefts that the briefing does not mention.\u0022},{\u0022span\u0022:\u0022the next shipment of manufactured goods\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Introduces a specific trade shipment; it is framed as a guess but is still invented colour.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The second item recycles old harvest news as a new Combine statement and adds an unsupported \u0027thriving\u0027 claim. The first item\u0027s joke about the Combine\u0027s \u0027bounty\u0027 deterring pirates is muddled and hard to follow.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 8.4674434,
+      "inputTokens": 2615,
+      "outputTokens": 789
+    }
+  ]
+}

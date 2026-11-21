@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-02-early-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022still engaged in their usual skirmishes with the pirates over that same stretch of flats\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing gives a war and earlier fighting. Calling it \u0027usual skirmishes\u0027 still going on adds manner and current status.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead is accurate and has one decent dry guess. The second item is a flat recitation of faction counts, and its closing remark is generic rather than wry, so it falls well short of the earlier bulletins\u0027 voice. It also calls the week \u0027remarkably dull\u0027 right after reporting real news, which is slightly incoherent.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.7341288,
+      "inputTokens": 2773,
+      "outputTokens": 486
+    }
+  ]
+}

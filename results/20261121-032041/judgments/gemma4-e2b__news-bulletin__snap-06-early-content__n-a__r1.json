@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-06-early-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022to cover the shortfall\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Presupposes a shortfall the briefing never mentions; it sits awkwardly beside the reported good harvest.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The second item repeats the already-covered harvest report as if it were new, which the task forbids. The wit is thin, and the joke \u0027just another Tuesday\u0027 is a modern idiom that fits RimWorld poorly.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.2485749,
+      "inputTokens": 2644,
+      "outputTokens": 597
+    }
+  ]
+}
