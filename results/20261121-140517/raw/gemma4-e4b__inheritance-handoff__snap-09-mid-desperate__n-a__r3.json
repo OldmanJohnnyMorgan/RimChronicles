@@ -1,0 +1,32 @@
+{
+  "cell": "gemma4-e4b__inheritance-handoff__snap-09-mid-desperate__n-a__r3",
+  "model": "gemma4-e4b",
+  "task": "inheritance-handoff",
+  "snapshot": "snap-09-mid-desperate",
+  "grammar": "n/a",
+  "repeat": 3,
+  "promptVersion": "inheritance-handoff/v3",
+  "outcome": "Model",
+  "value": "Tamsin stood by the hearth, the silence thick in the small home. A heavy coat hung on a peg near the door. She picked up a chipped cup, its warmth barely reaching her fingers. Joska, tough and driven, had chased that captain. Now, only the shadow of his bloodlust remained. Lene sat in the chair across the room, watching the embers fade. Tamsin set the cup down, her jaw tight. She looked toward the door, toward the Lancers\u0027 camp.",
+  "attempts": [
+    {
+      "request": {
+        "system": "You write short scenes for a story told through a RimWorld colony.\n\nThe main character of a story has died. Someone close to them now takes up that story as their own. Write the moment it passes to them.\n\nWhere and when:\n- The scene happens at home in the colony, after the death. The heir already knows. Do not say how the news arrived.\n- The heir was not there when it happened, unless the story so far says so. Never show the death, the fight or the last moments, and never put the heir where it happened.\n- The body did not come home, unless the story so far says it did.\n- The heir remembers only who the dead one was: their traits and their bond. Never a memory of an event, such as how they fought or how they faced the storm.\n\nWhat is in the scene:\n- Plain, ordinary things: a coat, a cup, a chair, a door, a bed, the hearth. Do not give them a history: no scars, souvenirs, marks or habits the dossiers do not give.\n- No rooms or buildings beyond home, the door, the hearth and the walls. Never name a place the story does not name.\n- The people and animals the story names, if they are at home.\n\nHow it ends:\n- End on what the heir now means to do about what is unfinished in the story so far.\n- Anyone the story says died is gone: the heir cannot find, fight or face them. Turn to whoever the story says is left.\n\nRules:\n- 60 to 120 words.\n- Use the relationship between the two exactly as given.\n- Use only names and facts from the dossiers and the story so far.\n- Show feeling through actions and small details, not by naming emotions.\n- Write only the scene: no title, no notes, no word count.\n",
+        "user": "## The one who died\nJoska (42), dead; traits: Tough, Bloodlust; backstory: Pit fighter; husband of Lene, father of Tamsin.\nHistory:\n- Day 243: Captain Rook Malley maimed Joska and escaped.\n- Day 286: Captain Rook Malley killed Joska.\n\n## The heir\nTamsin (17); traits: Nimble, Hot-tempered; backstory: Scavenger; daughter of Joska and Lene.\n\n## Their relationship\nTamsin was Joska\u0027s daughter.\n\n## The story so far\nJoska spent a year hunting the pirate captain Rook Malley, who maimed him. He finally caught Malley at the Lancers\u0027 camp, and both died in the fight. Malley\u0027s Lancers still hold the camp, and their new captain has sworn revenge on Cinder Rest.\n\nWrite the scene now.\n",
+        "maxOutputTokens": 400,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "Tamsin stood by the hearth, the silence thick in the small home. A heavy coat hung on a peg near the door. She picked up a chipped cup, its warmth barely reaching her fingers. Joska, tough and driven, had chased that captain. Now, only the shadow of his bloodlust remained. Lene sat in the chair across the room, watching the embers fade. Tamsin set the cup down, her jaw tight. She looked toward the door, toward the Lancers\u0027 camp.",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 0.9696816,
+      "inputTokens": 613,
+      "outputTokens": 105,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-264\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795269948,\u0022model\u0022:\u0022gemma4:e4b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022Tamsin stood by the hearth, the silence thick in the small home. A heavy coat hung on a peg near the door. She picked up a chipped cup, its warmth barely reaching her fingers. Joska, tough and driven, had chased that captain. Now, only the shadow of his bloodlust remained. Lene sat in the chair across the room, watching the embers fade. Tamsin set the cup down, her jaw tight. She looked toward the door, toward the Lancers\u0027 camp.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:613,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:612},\u0022completion_tokens\u0022:105,\u0022total_tokens\u0022:718}}\n"
+    }
+  ]
+}

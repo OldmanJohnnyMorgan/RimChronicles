@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__inheritance-handoff__snap-16-late-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the one Bertram always wore\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022gives the coat a habit/history the dossiers do not provide\u0022},{\u0022span\u0022:\u0022the cold stone a contrast to the warmth of the fire\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022stone cold beside a fire is implausible, but this is staging rather than a fact; minor detail only\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It uses Rook, the coat and the oath correctly and ends on Elske going after Dunmore, but the coat gets an invented habit and the \u0027cold stone beside the fire\u0027 image is muddled. It is also a little generic and thin on the bond between the two friends, and the ending is abrupt, lacking Elske\u0027s own resolve beyond \u0027She had to find him\u0027.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.9658501,
+      "inputTokens": 3128,
+      "outputTokens": 275
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__inheritance-handoff__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Lene sat near the fire, watching the embers.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Lene is named in the briefing as the heir\u0027s mother, so placing her at home is allowed staging, but no hint she is home; borderline staging\u0022},{\u0022span\u0022:\u0022the cooling iron radiating little warmth\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ordinary hearth detail, effectively staging; negligible\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The scene sets plain objects well but never reaches the required ending: Tamsin states no intent about the Lancers or the sworn revenge, so it just trails off on a fact. It also lacks any Tamsin-specific traits or a sense of the handoff.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.060276,
+      "inputTokens": 3135,
+      "outputTokens": 255
+    }
+  ]
+}

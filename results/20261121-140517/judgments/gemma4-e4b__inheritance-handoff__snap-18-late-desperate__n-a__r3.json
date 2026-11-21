@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__inheritance-handoff__snap-18-late-desperate__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the wool smelling faintly of woodsmoke and distance\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds a detail about the coat\u0027s history/associations, which the briefing does not give\u0022},{\u0022span\u0022:\u0022He needed to find the pass.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022the ending changes the story: the pass is where Constance died, and the heir should turn to Ada in the village, not to a place of death; \u0027the pass\u0027 is also not named as a single location\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The scene uses plain objects well, but it ends badly: Elias resolves to find the pass instead of reaching Ada, who is the one person left. The ending is vague, and the unlit grate and \u0027distance\u0027 give the objects a little invented history.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.1280058,
+      "inputTokens": 3143,
+      "outputTokens": 262
+    }
+  ]
+}

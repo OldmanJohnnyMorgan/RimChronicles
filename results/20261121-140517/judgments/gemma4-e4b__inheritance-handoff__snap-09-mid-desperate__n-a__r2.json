@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__inheritance-handoff__snap-09-mid-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Tamsin looked at the empty space where Joska\u2019s chair usually sat.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds a habit/detail (Joska\u0027s usual chair) not in the briefing\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Staging is plausible and restrained, but the scene fails the ending requirement: it never states what Tamsin now means to do about the Lancers and their sworn revenge, and it stops on a vague gesture. The relationship and the inheritance moment are barely used, and it runs under the 60-word minimum.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.4060344,
+      "inputTokens": 3142,
+      "outputTokens": 208
+    }
+  ]
+}

@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eval run 20261121-140517</title>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #898781;
+  --grid: #e1e0d9; --axis: #c3c2b7; --border: rgba(11,11,11,0.10);
+  --series: #2a78d6; --pass: #006300; --fail: #d03b3b;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --muted: #898781;
+    --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,0.10);
+    --series: #3987e5; --pass: #0ca30c; --fail: #e05555;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink); font: 14px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 1100px; margin: 0 auto; padding: 24px 16px 64px; }
+h1 { font-size: 22px; margin: 0 0 4px; }
+h2 { font-size: 18px; margin: 32px 0 8px; }
+h3 { font-size: 15px; margin: 20px 0 8px; }
+p { max-width: 75ch; }
+.meta { color: var(--ink-2); margin: 4px 0; }
+.note { color: var(--ink-2); border-left: 3px solid var(--axis); padding-left: 10px; }
+.muted { color: var(--muted); }
+code { font: 12px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.scroll { overflow-x: auto; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; }
+table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+th, td { padding: 6px 10px; text-align: left; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+thead th { color: var(--ink-2); font-weight: 600; font-size: 12px; }
+tbody th { font-weight: 600; }
+tbody tr:last-child > * { border-bottom: none; }
+.num { text-align: right; }
+.icon { font-weight: 700; }
+.icon.pass { color: var(--pass); }
+.icon.fail { color: var(--fail); }
+figure { margin: 12px 0 0; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px; overflow-x: auto; }
+.chart { width: 100%; min-width: 520px; height: auto; display: block; }
+.chart text { fill: var(--ink-2); font-size: 12px; }
+.chart .chart-title { fill: var(--ink); font-weight: 600; font-size: 13px; }
+.chart .tick { fill: var(--muted); font-size: 11px; }
+.chart .grid { stroke: var(--grid); stroke-width: 1; }
+.chart .threshold { stroke: var(--ink-2); stroke-width: 1.5; stroke-dasharray: 4 4; }
+.chart .whisker { stroke: var(--series); stroke-width: 2; stroke-linecap: round; }
+.chart .dot { fill: var(--series); stroke: var(--surface); stroke-width: 2; }
+.chart .hit { fill: transparent; }
+.chart .row:hover .hit { fill: var(--grid); fill-opacity: 0.5; }
+details { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; padding: 8px 12px; }
+summary { cursor: pointer; font-weight: 600; }
+article { border-top: 1px solid var(--grid); padding: 8px 0; }
+pre { white-space: pre-wrap; font: 13px/1.5 system-ui, sans-serif; margin: 4px 0; }
+.judge { color: var(--ink-2); font-size: 13px; margin: 4px 0; }
+a { color: var(--series); }
+</style>
+</head>
+<body>
+<main>
+<header>
+<h1>Rim Chronicles model evaluation</h1>
+<p class="meta">Run <strong>20261121-140517</strong> · 27 outputs · 3 models · commit <code>53d5814e</code> · prompts <code>director/v1</code>, <code>inheritance-handoff/v3</code>, <code>judge/v3</code>, <code>news-bulletin/v8</code></p>
+<p class="meta">Judged 27 prose outputs blind (judge/v3).</p>
+</header>
+<section>
+<h2>At a glance</h2>
+<p>Whether each model meets every pass bar that applies to it, per task. Failing bars are named; details follow below.</p>
+<div class="scroll"><table>
+<thead><tr><th>Model</th><th>Tier</th><th>Server</th><th>Quantization</th><th class="num">VRAM</th><th>Inheritance handoff</th></tr></thead>
+<tbody>
+<tr><th scope="row">gemma4-e2b</th><td>Minimum</td><td>ollama</td><td>Q4_K_M</td><td class="num">0.4 GB</td><td><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> Fails: length, invented facts</td></tr>
+<tr><th scope="row">gemma4-e4b</th><td>Recommended</td><td>ollama</td><td>Q4_K_M</td><td class="num">0.5 GB</td><td><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> Fails: invented facts, prose quality</td></tr>
+<tr><th scope="row">gemma4-12b</th><td>High</td><td>ollama</td><td>Q4_K_M</td><td class="num">1.5 GB</td><td><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> Meets all bars</td></tr>
+</tbody></table></div>
+</section>
+<section>
+<h2>Inheritance handoff</h2>
+<p>Pass bars: length in range at least 90%; at most 1 invented fact per 10 outputs (a new person, place, number, quote or event, or a contradiction); overall quality at least 3.5 (Recommended tier). Rates use first answers only.</p>
+<div class="scroll"><table>
+<thead><tr><th>Model</th><th>Tier</th><th class="num">Outputs</th><th class="num">Judged</th><th class="num">Length in range</th><th class="num">Invented facts / 10</th><th class="num">Embellishments / 10</th><th class="num">Voice</th><th class="num">Clarity</th><th class="num">Tone</th><th class="num">Overall</th><th class="num">Names grounded</th><th class="num">Passed first try</th><th class="num">Fell back</th><th class="num">Median s</th><th class="num">p90 s</th><th class="num">Output tokens</th><th class="num">Reasoning tokens</th></tr></thead>
+<tbody>
+<tr><th scope="row">gemma4-e2b</th><td>Minimum</td><td class="num">9</td><td class="num">9</td><td class="num"><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> 33%</td><td class="num"><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> 1.1</td><td class="num">6.7</td><td class="num">2.2</td><td class="num">3.2</td><td class="num">3.0</td><td class="num">2.0</td><td class="num">100%</td><td class="num">33%</td><td class="num">33%</td><td class="num">0.5</td><td class="num">0.6</td><td class="num">69</td><td class="num">–</td></tr>
+<tr><th scope="row">gemma4-e4b</th><td>Recommended</td><td class="num">9</td><td class="num">9</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num"><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> 2.2</td><td class="num">18.9</td><td class="num">3.0</td><td class="num">3.1</td><td class="num">3.0</td><td class="num"><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> 2.7</td><td class="num">67%</td><td class="num">67%</td><td class="num">0%</td><td class="num">0.9</td><td class="num">1.0</td><td class="num">100</td><td class="num">–</td></tr>
+<tr><th scope="row">gemma4-12b</th><td>High</td><td class="num">9</td><td class="num">9</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 0.0</td><td class="num">16.7</td><td class="num">2.9</td><td class="num">4.0</td><td class="num">3.0</td><td class="num">3.1</td><td class="num">100%</td><td class="num">100%</td><td class="num">0%</td><td class="num">1.8</td><td class="num">1.9</td><td class="num">121</td><td class="num">–</td></tr>
+</tbody></table></div>
+<figure>
+<svg class="chart" viewBox="0 0 710 160" role="img" aria-label="Inheritance handoff latency: median (dot) and 90th percentile (line end), seconds">
+<text class="chart-title" x="0" y="16">Inheritance handoff latency: median (dot) and 90th percentile (line end), seconds</text>
+<line class="grid" x1="230" x2="230" y1="34" y2="130"/><text class="tick" x="230" y="148" text-anchor="middle">0</text>
+<line class="grid" x1="340" x2="340" y1="34" y2="130"/><text class="tick" x="340" y="148" text-anchor="middle">0.5</text>
+<line class="grid" x1="450" x2="450" y1="34" y2="130"/><text class="tick" x="450" y="148" text-anchor="middle">1</text>
+<line class="grid" x1="560" x2="560" y1="34" y2="130"/><text class="tick" x="560" y="148" text-anchor="middle">1.5</text>
+<line class="grid" x1="670" x2="670" y1="34" y2="130"/><text class="tick" x="670" y="148" text-anchor="middle">2</text>
+<g class="row"><title>gemma4-e2b: median 0.5 s, p90 0.6 s (9 outputs)</title><rect class="hit" x="0" y="40" width="710" height="28"/><text class="label" x="218" y="58" text-anchor="end">gemma4-e2b</text><line class="whisker" x1="332.1" x2="353" y1="54" y2="54"/><circle class="dot" cx="332.1" cy="54" r="5"/></g>
+<g class="row"><title>gemma4-e4b: median 0.9 s, p90 1.0 s (9 outputs)</title><rect class="hit" x="0" y="68" width="710" height="28"/><text class="label" x="218" y="86" text-anchor="end">gemma4-e4b</text><line class="whisker" x1="424.3" x2="447.4" y1="82" y2="82"/><circle class="dot" cx="424.3" cy="82" r="5"/></g>
+<g class="row"><title>gemma4-12b: median 1.8 s, p90 1.9 s (9 outputs)</title><rect class="hit" x="0" y="96" width="710" height="28"/><text class="label" x="218" y="114" text-anchor="end">gemma4-12b</text><line class="whisker" x1="632.2" x2="656.8" y1="110" y2="110"/><circle class="dot" cx="632.2" cy="110" r="5"/></g>
+</svg>
+</figure>
+</section>
+<section>
+<h2>Outputs</h2>
+<p>Every first answer, grouped by task and model. Open the raw file for the full request, retries and timings.</p>
+<h3>Inheritance handoff</h3>
+<details>
+<summary>gemma4-e2b · 9 outputs</summary>
+<article><p class="meta"><a href="raw/gemma4-e2b__inheritance-handoff__snap-09-mid-desperate__n-a__r1.json">snap-09-mid-desperate</a> · repeat 1 · Template · 50 words · 0.5 s</p>
+<pre>Tamsin sat by the hearth. A coat lay folded near the chair. She picked up a cup, its surface cool against her palm. The door stood closed. She looked at the empty space where her father had been. She stood, moving toward the hearth. She needed to check the embers.</pre>
+<p class="judge">Judge: overall 2, voice 2, clarity 3, tone 3. Staging is safe and nothing is invented, but the scene never ends on what Tamsin means to do about the Lancers&#39; new captain and Cinder Rest, so it misses the required ending. Lene is not mentioned, and the flat, choppy sentences barely register the handoff or the father-daughter bond.</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__inheritance-handoff__snap-09-mid-desperate__n-a__r2.json">snap-09-mid-desperate</a> · repeat 2 · Model · 71 words · 0.6 s</p>
+<pre>Tamsin sat by the hearth. A cup of lukewarm water rested on the wooden table beside her. She traced the pattern on the worn fabric of a coat draped over a chair. The door stood closed. She looked toward the empty space where her father had been. She stood, her hands gripping the edge of the hearthstone. She turned toward Lene, who was near the bed. Tamsin walked toward the door.</pre>
+<p class="judge">Judge: overall 2, voice 2, clarity 3, tone 3. The scene is a flat list of actions and never reaches the required ending. Tamsin does not say or show that she will deal with the Lancers&#39; new captain or defend Cinder Rest, and the word count is under the 60-word minimum.<br>Invented: [minor] She traced the pattern on the worn fabric of a coat (gives the coat a worn look and a pattern, which the briefing does not give) | [minor] Lene, who was near the bed (places Lene at home, which the briefing does not state, though it is plausible staging)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__inheritance-handoff__snap-09-mid-desperate__n-a__r3.json">snap-09-mid-desperate</a> · repeat 3 · Template · 47 words · 0.4 s</p>
+<pre>Tamsin sat by the hearth. A coat lay folded on a chair nearby. She held a cup, its contents cold. The door stood closed. She looked at the empty space where her father had been. She stood, moving toward the hearth. Her hands moved to the ash.</pre>
+<p class="judge">Judge: overall 2, voice 2, clarity 3, tone 3. The staging is safe and invents nothing, but the scene is flat and fragmentary, with a contradictory beat (she sits by the hearth, then stands to move toward it). It also fails the required ending: Tamsin never turns to the unfinished business of the Lancers&#39; new captain and Cinder Rest, and it is under the 60-word minimum.</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__inheritance-handoff__snap-16-late-desperate__n-a__r1.json">snap-16-late-desperate</a> · repeat 1 · Model · 78 words · 0.6 s</p>
+<pre>Elske sat by the hearth. A cup of lukewarm water rested on the wooden table beside her. She looked toward the door, then at the empty chair across the room. The coat lay folded near the bed. She stood, her movements slow. She moved to the door, her hand resting on the latch. She turned, facing the empty space where Bertram had been. Elske picked up a tool from the floor, her gaze settling on the task ahead.</pre>
+<p class="judge">Judge: overall 2, voice 2, clarity 3, tone 3. The staging is plain and invents no facts, but the scene never lands the handoff. It ends on a vague &#39;task ahead&#39; instead of Elske&#39;s intent to hunt Dunmore, and it ignores Rook and the unfinished story, so it reads as flat and generic.</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__inheritance-handoff__snap-16-late-desperate__n-a__r2.json">snap-16-late-desperate</a> · repeat 2 · ModelRetry · 57 words · 0.5 s</p>
+<pre>Elske sat by the hearth. A cup rested on the stone beside her. She touched the rough wool of a coat draped over a chair. The door stood closed. Rook paced near the wall. Elske looked toward the empty space where Bertram usually sat. She stood, her hands resting on her hips. She turned toward the door.</pre>
+<p class="judge">Judge: overall 2, voice 3, clarity 3, tone 3. The staging is restrained and stays within the briefing, but the scene never states what Elske means to do about Dunmore, so it misses the required ending. It reads as a list of actions with no sense of handoff, and &#39;turned toward the door&#39; is too vague to land the moment.<br>Invented: [minor] the empty space where Bertram usually sat (adds a habit of the dead character (a usual seat) that the briefing does not give) | [minor] the rough wool of a coat (gives the coat a texture and implies it is Bertram&#39;s; mild detail not in the briefing)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__inheritance-handoff__snap-16-late-desperate__n-a__r3.json">snap-16-late-desperate</a> · repeat 3 · Model · 62 words · 0.5 s</p>
+<pre>Elske sat by the hearth. A cup of lukewarm water rested on the wooden surface beside her. She traced the grain of the wood with a finger. The door stood closed. She looked toward the empty space where Bertram usually sat. Rook shifted near her feet, a low sound escaping him. Elske stood, moving toward the door. She reached for the latch.</pre>
+<p class="judge">Judge: overall 2, voice 3, clarity 4, tone 3. The scene never ends on what Elske means to do about Dunmore, the unfinished business; it just has her reach for the latch, so the handoff is not landed. Rook is correctly at home, but the prose is flat and generic, and the &#39;usually sat&#39; detail adds a habit not in the briefing.<br>Invented: [minor] the empty space where Bertram usually sat (adds a habit of the dead (a usual seat) that the briefing does not give) | [minor] A cup of lukewarm water rested on the wooden surface beside her. (surface is unspecified, and the water detail is an extra; mostly ordinary staging so very low risk)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__inheritance-handoff__snap-18-late-desperate__n-a__r1.json">snap-18-late-desperate</a> · repeat 1 · ModelRetry · 54 words · 0.5 s</p>
+<pre>Elias sat by the hearth. A coat lay folded on a chair nearby. He held a cup, its warmth spreading through his hands. The door stood closed. He looked at the walls. He stood, moving toward the hearth. He picked up a tool from the floor. He began to work on the unfinished structure.</pre>
+<p class="judge">Judge: overall 2, voice 2, clarity 3, tone 3. The scene never reaches the ending the task requires: it does not turn to Ada in the Wailing Moth village, and instead invents an &#39;unfinished structure&#39;. It is a flat list of actions with no feeling, no mention of Constance, and little voice.<br>Invented: He picked up a tool from the floor. He began to work on the unfinished structure. (&#39;unfinished structure&#39; is a new object/project the briefing does not give; it also does not match the unfinished business (Ada))</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__inheritance-handoff__snap-18-late-desperate__n-a__r2.json">snap-18-late-desperate</a> · repeat 2 · ModelRetry · 46 words · 0.4 s</p>
+<pre>Elias sat by the hearth. He held a plain cup. The coat lay folded near the chair. He looked at the door. The walls were plain. He moved to the bed. He picked up the cup, his hand still. He stood, then walked toward the door.</pre>
+<p class="judge">Judge: overall 2, voice 2, clarity 3, tone 3. It stays within the briefing and invents nothing, but it is a flat list of objects and actions that never reaches the required ending: Elias&#39;s intent to go to Ada in the Wailing Moth village, or any hint of the unfinished story. It is also well under 60 words, and the Neurotic and Industrious traits and the mother-son bond go unused.</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__inheritance-handoff__snap-18-late-desperate__n-a__r3.json">snap-18-late-desperate</a> · repeat 3 · Template · 44 words · 0.3 s</p>
+<pre>Elias sat by the hearth. He held a cup, its warmth spreading through his hands. He looked at the door, then at the chair beside him. He touched the fabric of a coat draped over a nearby stump. He stood, moving toward the door.</pre>
+<p class="judge">Judge: overall 2, voice 2, clarity 4, tone 3. It is clean staging with no invented facts, but it never reaches the required ending: Elias is not shown resolving to go to Ada, so the unfinished story is left open. It is also under the 60-word minimum and reads as flat and generic, with the odd &#39;coat draped over a nearby stump&#39; detail.</p>
+</article>
+</details>
+<details>
+<summary>gemma4-e4b · 9 outputs</summary>
+<article><p class="meta"><a href="raw/gemma4-e4b__inheritance-handoff__snap-09-mid-desperate__n-a__r1.json">snap-09-mid-desperate</a> · repeat 1 · Model · 70 words · 0.9 s</p>
+<pre>Tamsin stood by the hearth, the cooling iron radiating little warmth. A heavy coat, Joska’s, hung on the hook near the door. She picked up a chipped cup, turning it over in her hands, then set it down beside the worn chair. Lene sat near the fire, watching the embers. The silence felt too large. Tamsin looked toward the door, then back at Lene. The Lancers still held the camp.</pre>
+<p class="judge">Judge: overall 2, voice 3, clarity 3, tone 3. The scene sets plain objects well but never reaches the required ending: Tamsin states no intent about the Lancers or the sworn revenge, so it just trails off on a fact. It also lacks any Tamsin-specific traits or a sense of the handoff.<br>Invented: [minor] Lene sat near the fire, watching the embers. (Lene is named in the briefing as the heir&#39;s mother, so placing her at home is allowed staging, but no hint she is home; borderline staging) | [minor] the cooling iron radiating little warmth (ordinary hearth detail, effectively staging; negligible)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__inheritance-handoff__snap-09-mid-desperate__n-a__r2.json">snap-09-mid-desperate</a> · repeat 2 · Model · 70 words · 0.9 s</p>
+<pre>Tamsin stood by the hearth, the warmth doing little to chase the chill in the small home. A heavy, dark coat hung on the door, untouched. She traced the rim of a cold cup, the ceramic smooth under her fingers. Lene sat in the chair, watching the embers fade. Tamsin looked at the empty space where Joska’s chair usually sat. The Lancers still held the camp. Tamsin turned to Lene.</pre>
+<p class="judge">Judge: overall 2, voice 3, clarity 3, tone 3. Staging is plausible and restrained, but the scene fails the ending requirement: it never states what Tamsin now means to do about the Lancers and their sworn revenge, and it stops on a vague gesture. The relationship and the inheritance moment are barely used, and it runs under the 60-word minimum.<br>Invented: [minor] Tamsin looked at the empty space where Joska’s chair usually sat. (adds a habit/detail (Joska&#39;s usual chair) not in the briefing)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__inheritance-handoff__snap-09-mid-desperate__n-a__r3.json">snap-09-mid-desperate</a> · repeat 3 · Model · 79 words · 1.0 s</p>
+<pre>Tamsin stood by the hearth, the silence thick in the small home. A heavy coat hung on a peg near the door. She picked up a chipped cup, its warmth barely reaching her fingers. Joska, tough and driven, had chased that captain. Now, only the shadow of his bloodlust remained. Lene sat in the chair across the room, watching the embers fade. Tamsin set the cup down, her jaw tight. She looked toward the door, toward the Lancers&#39; camp.</pre>
+<p class="judge">Judge: overall 3, voice 3, clarity 3, tone 3. It stays within the facts and the relationship, but the ending is vague: she looks toward the Lancers&#39; camp without stating what she means to do about the new captain&#39;s revenge vow against Cinder Rest. The prose is generic, and the line about Joska&#39;s &#39;shadow of his bloodlust&#39; names a trait rather than showing it.<br>Invented: [minor] a chipped cup, its warmth barely reaching her fingers (chipped detail gives an ordinary object a flaw/history not in the briefing) | [minor] Lene sat in the chair across the room, watching the embers fade (Lene is a named person, so her presence at home is plausible staging, but it is not stated in the briefing)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__inheritance-handoff__snap-16-late-desperate__n-a__r1.json">snap-16-late-desperate</a> · repeat 1 · ModelRetry · 78 words · 0.9 s</p>
+<pre>Elske stood by the hearth, the familiar weight of the Marshal’s coat draped over the chair. Rook nudged her hand, a low whine vibrating in his chest. The cup of cold water on the small table caught the dull light. Bertram, the tough, bloodthirsty friend, was gone. Elske looked toward the door, then back at the hearth. The hunt was unfinished. She picked up the rifle, the familiar stock solid beneath her grip, and turned toward the door.</pre>
+<p class="judge">Judge: overall 3, voice 3, clarity 3, tone 3. It stays within the briefing and ends on the unfinished hunt, but it is generic and tells rather than shows (it names Bertram&#39;s traits outright). The ending never names Dunmore, so what she means to do stays vague, and the coat and rifle details feel stock.<br>Invented: [minor] the familiar weight of the Marshal’s coat (gives the coat a history and ownership; the briefing only says she was a colonial marshal, and the coat is an ordinary object with an added link) | [minor] Bertram, the tough, bloodthirsty friend, was gone. (rephrases the traits and the briefing supports them, but is a flat narrator label rather than a fact; no real invention)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__inheritance-handoff__snap-16-late-desperate__n-a__r2.json">snap-16-late-desperate</a> · repeat 2 · Model · 75 words · 0.8 s</p>
+<pre>Elske stood by the hearth, the cold stone a contrast to the warmth of the fire. Rook nudged her hand, a low whine vibrating through the fur. She looked at the heavy coat draped over the chair, the one Bertram always wore. The cup on the small table beside it remained untouched. Kael Dunmore. Bertram’s oath. Elske gripped the handle of her rifle, the familiar weight settling in her hands. She had to find him.</pre>
+<p class="judge">Judge: overall 3, voice 3, clarity 4, tone 3. It uses Rook, the coat and the oath correctly and ends on Elske going after Dunmore, but the coat gets an invented habit and the &#39;cold stone beside the fire&#39; image is muddled. It is also a little generic and thin on the bond between the two friends, and the ending is abrupt, lacking Elske&#39;s own resolve beyond &#39;She had to find him&#39;.<br>Invented: [minor] the one Bertram always wore (gives the coat a habit/history the dossiers do not provide) | [minor] the cold stone a contrast to the warmth of the fire (stone cold beside a fire is implausible, but this is staging rather than a fact; minor detail only)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__inheritance-handoff__snap-16-late-desperate__n-a__r3.json">snap-16-late-desperate</a> · repeat 3 · ModelRetry · 87 words · 1.0 s</p>
+<pre>Elske stood by the hearth, the silence in the home thick. Rook nudged her hand, a low whine vibrating in his chest. She picked up Bertram’s coat, the wool heavy, and draped it over a chair. The empty space beside the hearth felt vast. She looked at the door, then at the worn cup resting on a small table. Bertram, with his Bloodlust and Toughness, had sworn to hunt Dunmore. Rook waited, his gaze fixed on the door. Elske reached for the rifle leaning against the wall.</pre>
+<p class="judge">Judge: overall 3, voice 3, clarity 3, tone 3. It is restrained and keeps to the names and facts given, and Rook at home is allowed. But the ending is weak: reaching for a rifle does not state what Elske means to do about Dunmore, and she is never tied to the unfinished hunt or to anyone the story says is left. The scene never uses the best-friend bond, and &#39;Bloodlust and Toughness&#39; reads like a stat sheet.<br>Invented: [minor] the worn cup resting on a small table (gives the cup a history (&#39;worn&#39;) and adds a small table; the briefing gives neither) | [minor] Rook nudged her hand, a low whine vibrating in his chest (Rook is named in the story and may be at home; the whine is staging, so at most trivial)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__inheritance-handoff__snap-18-late-desperate__n-a__r1.json">snap-18-late-desperate</a> · repeat 1 · Model · 78 words · 0.9 s</p>
+<pre>Elias stood by the hearth, the silence of the home too heavy. He picked up Constance’s coat, the wool smelling faintly of woodsmoke and distant snow. He set it down on the chair, his fingers tracing the empty space where she used to sit. The letter from Ada lay on the small table. He looked toward the door, then back at the hearth. Ada was still in the village. Elias picked up the coat, turning toward the door.</pre>
+<p class="judge">Judge: overall 3, voice 3, clarity 3, tone 3. Restrained and plain, and it does turn toward Ada at the end, but the ending is only implied (picking up the coat and turning to the door) and never states what Elias means to do. It also names &quot;silence ... too heavy,&quot; which tells the feeling rather than showing it, and the coat smelling of snow hints at the journey.<br>Invented: [minor] the wool smelling faintly of woodsmoke and distant snow (adds detail to the coat suggesting it went on the journey; the body and belongings did not come home per briefing, though it is ordinary sensory staging) | [minor] his fingers tracing the empty space where she used to sit (implies a habit of Constance sitting in a particular chair, not given in the dossiers) | [minor] The letter from Ada lay on the small table. (the letter is in the briefing but its location is staging; table is ordinary object, borderline and acceptable)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__inheritance-handoff__snap-18-late-desperate__n-a__r2.json">snap-18-late-desperate</a> · repeat 2 · ModelRetry · 86 words · 0.9 s</p>
+<pre>Elias stood by the hearth, the silence in the home heavy. A coat, draped over a chair, seemed too large now. He picked up a cold cup from the small table. His mother, Kind and Iron-willed, had been chasing Ada. He looked toward the door, then at the empty space where she had been. Ada was still in the village. Elias set the cup down, his fingers tracing the wood grain, and turned toward the workbench. He needed to build something that would reach the passes.</pre>
+<p class="judge">Judge: overall 3, voice 3, clarity 3, tone 3. The scene follows the rules on the body and the death and turns to Ada, but the workbench is an unnamed addition and the ending plan is vague. The prose is flat, and naming the traits &quot;Kind and Iron-willed&quot; reads awkwardly.<br>Invented: turned toward the workbench (names a workbench, a room/furniture beyond the allowed home, door, hearth and walls) | [minor] He needed to build something that would reach the passes. (adds an unspecified plan and device not in the briefing, though it fits his engineer background) | [minor] A coat, draped over a chair, seemed too large now. (implies the coat belonged to Constance, which the briefing does not say)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__inheritance-handoff__snap-18-late-desperate__n-a__r3.json">snap-18-late-desperate</a> · repeat 3 · Model · 80 words · 0.9 s</p>
+<pre>Elias stood by the hearth, the unlit grate cold beneath his fingertips. He picked up the heavy coat draped over the chair, the wool smelling faintly of woodsmoke and distance. The cup on the small table remained untouched. He looked toward the door, then back at the coat. Constance, kind and iron-willed, had been chasing a thread of hope toward Ada. Elias moved to the table, his fingers tracing the rim of the cup. He needed to find the pass.</pre>
+<p class="judge">Judge: overall 2, voice 3, clarity 3, tone 3. The scene uses plain objects well, but it ends badly: Elias resolves to find the pass instead of reaching Ada, who is the one person left. The ending is vague, and the unlit grate and &#39;distance&#39; give the objects a little invented history.<br>Invented: [minor] the wool smelling faintly of woodsmoke and distance (adds a detail about the coat&#39;s history/associations, which the briefing does not give) | He needed to find the pass. (the ending changes the story: the pass is where Constance died, and the heir should turn to Ada in the village, not to a place of death; &#39;the pass&#39; is also not named as a single location)</p>
+</article>
+</details>
+<details>
+<summary>gemma4-12b · 9 outputs</summary>
+<article><p class="meta"><a href="raw/gemma4-12b__inheritance-handoff__snap-09-mid-desperate__n-a__r1.json">snap-09-mid-desperate</a> · repeat 1 · Model · 97 words · 1.9 s</p>
+<pre>Tamsin sat by the hearth, the orange light flickering against the walls. She watched the flames, her hands gripped tight in her lap. She thought of her father, the pit fighter who had been tough and driven by a bloodlust that defined his life. He was her father, and he was gone. She looked at the door, then back at the fire. The Lancers still held the camp, and their new captain was seeking revenge on Cinder Rest. Tamsin stood up, her movements quick and sharp. She would find the Lancers and ensure the debt was paid.</pre>
+<p class="judge">Judge: overall 3, voice 2, clarity 4, tone 3. It stays within the briefing and ends on a clear intent to act against the Lancers, but it is generic and tells more than it shows (&quot;gripped tight&quot;, &quot;he was gone&quot;). It also leans on the briefing&#39;s wording about traits and backstory, and it never mentions Lene or uses the home details much.</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__inheritance-handoff__snap-09-mid-desperate__n-a__r2.json">snap-09-mid-desperate</a> · repeat 2 · Model · 107 words · 1.9 s</p>
+<pre>Tamsin sat by the hearth, the fire casting long shadows against the walls. She stared at the heavy coat draped over a chair. It was a thick, sturdy garment that smelled of dust and old sweat. She reached out, her fingers tracing the fabric, then pulled her hand back. The house was quiet, the air still. She stood up and walked to the door, her jaw tight. She thought of the man who had been her father, a man of grit and fierce determination. She looked at her own hands, then back at the dying embers. She would find the Lancers&#39; camp and finish what he started.</pre>
+<p class="judge">Judge: overall 3, voice 3, clarity 4, tone 3. Clear and restrained, and it ends on the heir turning to the Lancers&#39; camp, which fits the unfinished story. But it is generic, the coat is given a smell the briefing never supplies, and &#39;finish what he started&#39; is vague about the new captain&#39;s revenge threat on Cinder Rest.<br>Invented: [minor] smelled of dust and old sweat (gives the coat a history/detail the dossiers do not provide) | [minor] a man of grit and fierce determination (characterization beyond the given traits (Tough, Bloodlust); mild embellishment)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__inheritance-handoff__snap-09-mid-desperate__n-a__r3.json">snap-09-mid-desperate</a> · repeat 3 · Model · 102 words · 1.8 s</p>
+<pre>Tamsin sat by the hearth, the heat prickling her skin. She watched the flames dance against the walls, her hands resting on the floor. Joska was a tough man, a pit fighter who lived for the thrill of the hunt. He was her father. She looked at the empty chair across from her and felt the weight of his absence in the quiet room. The pirate captain was gone, and so was the man who had spent a year chasing him. Tamsin stood up, her jaw tightening. She would find the Lancers&#39; camp and take back what was owed to her father.</pre>
+<p class="judge">Judge: overall 3, voice 3, clarity 4, tone 3. Competent and within the rules, with no death shown, and it ends on the Lancers&#39; camp, but it misses the new captain&#39;s revenge threat on Cinder Rest and never names Lene. The prose is generic and tells more than it shows (&quot;felt the weight of his absence&quot;).)<br>Invented: [minor] who lived for the thrill of the hunt (added detail about Joska&#39;s character/past not in dossier beyond Bloodlust trait) | [minor] take back what was owed to her father (implies something owed/unfinished beyond the briefing; vague motive not given)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__inheritance-handoff__snap-16-late-desperate__n-a__r1.json">snap-16-late-desperate</a> · repeat 1 · Model · 98 words · 1.8 s</p>
+<pre>Elske sat by the hearth, the fire casting long shadows against the walls. She smoothed the fabric of a heavy coat draped over a chair. On the floor, Rook sat in silence, his head resting on his paws. Elske reached out, her hand trembling slightly as she touched the warg&#39;s fur. She thought of Bertram’s toughness and the way he lived for the hunt. He was gone, and the three hunts had ended in the dirt. She stood up, walked to the door, and gripped the handle. She would find Dunmore. She would finish the hunt he started.</pre>
+<p class="judge">Judge: overall 3, voice 3, clarity 4, tone 3. The scene stays within the facts, uses Rook and Dunmore correctly, and ends on Elske&#39;s resolve to finish the hunt. It is generic and a little stock (trembling hand, &#39;in the dirt&#39;), and it names no feeling beyond that, so the voice stays flat. &#39;Ended in the dirt&#39; hints at a past event, and the line about the hunt leans on Bertram&#39;s past rather than just his traits.<br>Invented: [minor] the three hunts had ended in the dirt (adds detail about how the hunts ended; the briefing only says Bertram was killed on the last hunt) | [minor] the way he lived for the hunt (a trait-based characterization, but it leans toward a habit and the hunt is an event; mostly supported by Bloodlust and the hunts)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__inheritance-handoff__snap-16-late-desperate__n-a__r2.json">snap-16-late-desperate</a> · repeat 2 · Model · 92 words · 1.7 s</p>
+<pre>Elske sat by the hearth, the fire casting long shadows against the walls. She watched Rook pace the floor, the warg’s fur brushing against a chair. She reached out, her hand steady despite the silence of the house. She thought of Bertram’s toughness and the way he lived for the hunt. He was gone, and the three hunts were over. She stood up and walked to the door, looking out at the horizon. She picked up her rifle and checked the chamber. Kael Dunmore was still out there. She would find him.</pre>
+<p class="judge">Judge: overall 3, voice 3, clarity 4, tone 3. It stays faithful to the briefing, keeps Rook at home and ends on Elske resolving to find Dunmore, but the prose is generic and the &#39;Careful shooter&#39; and &#39;Steadfast&#39; traits and best-friend bond are barely used. The ending is functional rather than moving.<br>Invented: [minor] the way he lived for the hunt (Added detail about Bertram&#39;s character beyond traits; loosely supported by the story (he led hunts) and Bloodlust.) | [minor] looking out at the horizon (Staging that implies an outdoor view; ordinary staging, hardly an invented fact.)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__inheritance-handoff__snap-16-late-desperate__n-a__r3.json">snap-16-late-desperate</a> · repeat 3 · Model · 96 words · 1.7 s</p>
+<pre>Elske sat by the hearth, the fire casting long shadows against the walls. Beside her, Rook sat in silence, his fur matted with dust. Elske reached out, her hand steady despite the weight in her chest, and placed a palm on the warg&#39;s head. She looked at the door, then back at the flames. Bertram was gone, his bloodlust and toughness silenced by Dunmore’s blade. She stood up, her movements deliberate and careful. She picked up her rifle from the chair and checked the chamber. She would find Dunmore. She would finish the hunt Bertram started.</pre>
+<p class="judge">Judge: overall 3, voice 3, clarity 4, tone 3. It stays within the briefing and ends on Elske resolving to finish the hunt against Dunmore, who is alive and escaped. The prose is generic, it names traits outright (&quot;bloodlust and toughness&quot;), and the weapon (&quot;blade&quot;) is invented.<br>Invented: [minor] silenced by Dunmore’s blade (briefing says Dunmore killed Bertram but not with a blade; weapon is invented) | [minor] his fur matted with dust (added detail about Rook&#39;s condition; staging at best, implies a journey, not given)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__inheritance-handoff__snap-18-late-desperate__n-a__r1.json">snap-18-late-desperate</a> · repeat 1 · Model · 103 words · 1.9 s</p>
+<pre>Elias sat by the hearth, his hands trembling as he smoothed the fabric of his mother’s heavy coat. He traced the wool with his thumb, his breath hitching in the quiet of the home. Constance had been kind, but her iron will had always been the foundation of his own. He stood and walked to the door, looking out at the frozen horizon. The caravan was gone, and his mother was gone, but the letter she had received remained a fact of the world. He sat back down and opened his notebook. He would begin the calculations to reach the Wailing Moth village.</pre>
+<p class="judge">Judge: overall 3, voice 3, clarity 4, tone 3. Accurate and ends correctly by turning toward Ada in the Wailing Moth village, with the engineer&#39;s calculations a nice trait touch. But it names emotions flatly, leans on generic phrasing like &#39;foundation of his own&#39;, and the ending is a bit abstract and bland.<br>Invented: [minor] He sat back down and opened his notebook. (notebook is an ordinary object but not given; plausible for engineer, staging) | [minor] the letter she had received remained a fact of the world (implies the letter still exists; briefing only says it was received)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__inheritance-handoff__snap-18-late-desperate__n-a__r2.json">snap-18-late-desperate</a> · repeat 2 · Model · 95 words · 1.7 s</p>
+<pre>Elias sat by the hearth, his hands trembling as he smoothed the fabric of his mother’s heavy coat. He adjusted the collar, his movements precise and frantic. The fire crackled against the walls, casting long shadows over the chair where she used to sit. He stood, his eyes fixed on the door. Constance was gone, but the letter she had received remained a weight in his mind. He took a deep breath, his jaw tightening. He would organize the supplies and prepare the transport. He would find the Wailing Moth village and bring Ada home.</pre>
+<p class="judge">Judge: overall 3, voice 3, clarity 4, tone 3. It ends correctly by turning to Ada, who is still alive in the village, and the staging stays at home. But the feeling is told rather than shown (&quot;trembling&quot;, &quot;frantic&quot;, &quot;jaw tightening&quot;), the phrase &quot;a weight in his mind&quot; is generic, and the scene is a little over-tidy. The trait nods to Neurotic and Industrious are mechanical.<br>Invented: [minor] the chair where she used to sit (adds a habit of the dead character that the dossiers do not give) | [minor] He would organize the supplies and prepare the transport. (adds a specific plan beyond the briefing, though it is the heir&#39;s intent)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__inheritance-handoff__snap-18-late-desperate__n-a__r3.json">snap-18-late-desperate</a> · repeat 3 · Model · 96 words · 1.5 s</p>
+<pre>Elias sat by the hearth, his hands trembling as he smoothed the fabric of his mother’s heavy coat. He adjusted the collar, his movements precise and repetitive. He thought of her kindness and the iron will that had driven her across the wastes. The fire crackled, casting shadows against the walls. He looked at the door, then back at the coat. He stood up, his face tight with focus. He would not let her effort end in the snow. He would gather the supplies and begin the trek to the Wailing Moth village to find Ada.</pre>
+<p class="judge">Judge: overall 4, voice 3, clarity 4, tone 3. It stays within the briefing, uses the mother-son relationship correctly, and ends on Elias going to find Ada, who is still alive. The prose is generic, with some telling (&quot;face tight with focus&quot;) and a slightly off &quot;wastes&quot; for the passes, and nothing in it is distinctive.&lt;/br&gt;<br>Invented: [minor] the iron will that had driven her across the wastes (the story says passes, not wastes; adds a detail about her journey that the briefing does not give)</p>
+</article>
+</details>
+</section>
+</main>
+</body>
+</html>

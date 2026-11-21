@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__inheritance-handoff__snap-18-late-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the wool smelling faintly of woodsmoke and distant snow\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds detail to the coat suggesting it went on the journey; the body and belongings did not come home per briefing, though it is ordinary sensory staging\u0022},{\u0022span\u0022:\u0022his fingers tracing the empty space where she used to sit\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a habit of Constance sitting in a particular chair, not given in the dossiers\u0022},{\u0022span\u0022:\u0022The letter from Ada lay on the small table.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022the letter is in the briefing but its location is staging; table is ordinary object, borderline and acceptable\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Restrained and plain, and it does turn toward Ada at the end, but the ending is only implied (picking up the coat and turning to the door) and never states what Elias means to do. It also names \\\u0022silence ... too heavy,\\\u0022 which tells the feeling rather than showing it, and the coat smelling of snow hints at the journey.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.7687964,
+      "inputTokens": 3126,
+      "outputTokens": 360
+    }
+  ]
+}

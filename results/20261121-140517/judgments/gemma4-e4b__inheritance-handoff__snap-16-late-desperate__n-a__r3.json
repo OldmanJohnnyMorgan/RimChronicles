@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__inheritance-handoff__snap-16-late-desperate__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the worn cup resting on a small table\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022gives the cup a history (\u0027worn\u0027) and adds a small table; the briefing gives neither\u0022},{\u0022span\u0022:\u0022Rook nudged her hand, a low whine vibrating in his chest\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Rook is named in the story and may be at home; the whine is staging, so at most trivial\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It is restrained and keeps to the names and facts given, and Rook at home is allowed. But the ending is weak: reaching for a rifle does not state what Elske means to do about Dunmore, and she is never tied to the unfinished hunt or to anyone the story says is left. The scene never uses the best-friend bond, and \u0027Bloodlust and Toughness\u0027 reads like a stat sheet.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.5636542,
+      "inputTokens": 3156,
+      "outputTokens": 295
+    }
+  ]
+}

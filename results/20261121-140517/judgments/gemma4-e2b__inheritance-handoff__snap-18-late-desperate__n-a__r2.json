@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__inheritance-handoff__snap-18-late-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It stays within the briefing and invents nothing, but it is a flat list of objects and actions that never reaches the required ending: Elias\u0027s intent to go to Ada in the Wailing Moth village, or any hint of the unfinished story. It is also well under 60 words, and the Neurotic and Industrious traits and the mother-son bond go unused.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.5393875,
+      "inputTokens": 3065,
+      "outputTokens": 153
+    }
+  ]
+}

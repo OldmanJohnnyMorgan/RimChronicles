@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__inheritance-handoff__snap-18-late-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the chair where she used to sit\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds a habit of the dead character that the dossiers do not give\u0022},{\u0022span\u0022:\u0022He would organize the supplies and prepare the transport.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds a specific plan beyond the briefing, though it is the heir\u0027s intent\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It ends correctly by turning to Ada, who is still alive in the village, and the staging stays at home. But the feeling is told rather than shown (\\\u0022trembling\\\u0022, \\\u0022frantic\\\u0022, \\\u0022jaw tightening\\\u0022), the phrase \\\u0022a weight in his mind\\\u0022 is generic, and the scene is a little over-tidy. The trait nods to Neurotic and Industrious are mechanical.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.6908517,
+      "inputTokens": 3164,
+      "outputTokens": 274
+    }
+  ]
+}

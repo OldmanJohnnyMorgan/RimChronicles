@@ -1,0 +1,53 @@
+{
+  "cell": "gemma4-e4b__inheritance-handoff__snap-16-late-desperate__n-a__r1",
+  "model": "gemma4-e4b",
+  "task": "inheritance-handoff",
+  "snapshot": "snap-16-late-desperate",
+  "grammar": "n/a",
+  "repeat": 1,
+  "promptVersion": "inheritance-handoff/v3",
+  "outcome": "ModelRetry",
+  "value": "Elske stood by the hearth, the cold metal of a kettle resting on the grate. Rook nudged her hand, a low whine in his chest. She picked up Bertram\u2019s coat, the heavy wool feeling suddenly too still. The chair across the room seemed too empty. She looked at the door, then at Rook, the steadfast warg waiting by the wall. The hunt was unfinished. Elske reached out, her hand settling on Rook\u2019s thick fur.",
+  "attempts": [
+    {
+      "request": {
+        "system": "You write short scenes for a story told through a RimWorld colony.\n\nThe main character of a story has died. Someone close to them now takes up that story as their own. Write the moment it passes to them.\n\nWhere and when:\n- The scene happens at home in the colony, after the death. The heir already knows. Do not say how the news arrived.\n- The heir was not there when it happened, unless the story so far says so. Never show the death, the fight or the last moments, and never put the heir where it happened.\n- The body did not come home, unless the story so far says it did.\n- The heir remembers only who the dead one was: their traits and their bond. Never a memory of an event, such as how they fought or how they faced the storm.\n\nWhat is in the scene:\n- Plain, ordinary things: a coat, a cup, a chair, a door, a bed, the hearth. Do not give them a history: no scars, souvenirs, marks or habits the dossiers do not give.\n- No rooms or buildings beyond home, the door, the hearth and the walls. Never name a place the story does not name.\n- The people and animals the story names, if they are at home.\n\nHow it ends:\n- End on what the heir now means to do about what is unfinished in the story so far.\n- Anyone the story says died is gone: the heir cannot find, fight or face them. Turn to whoever the story says is left.\n\nRules:\n- 60 to 120 words.\n- Use the relationship between the two exactly as given.\n- Use only names and facts from the dossiers and the story so far.\n- Show feeling through actions and small details, not by naming emotions.\n- Write only the scene: no title, no notes, no word count.\n",
+        "user": "## The one who died\nBertram (47), dead; traits: Bloodlust, Tough; backstory: Mercenary; best friend of Elske.\nHistory:\n- Day 638: Sergeant Kael Dunmore killed Bertram and escaped.\n\n## The heir\nElske (41); traits: Steadfast, Careful shooter; backstory: Colonial marshal; best friend of Bertram.\n\n## Their relationship\nElske was Bertram\u0027s closest friend.\n\n## The story so far\nKael Dunmore, a mercenary sergeant, killed Hester Brightwell and maimed Viggo. Bertram swore to hunt him down and led three hunts. On the last one Dunmore ambushed the hunters and killed Bertram. Bertram\u0027s bonded warg Rook came home alone.\n\nWrite the scene now.\n",
+        "maxOutputTokens": 400,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "Elske stood by the hearth, the familiar weight of the Marshal\u2019s coat draped over the chair. Rook nudged her hand, a low whine vibrating in his chest. The cup of cold water on the small table caught the dull light. Bertram, the tough, bloodthirsty friend, was gone. Elske looked toward the door, then back at the hearth. The hunt was unfinished. She picked up the rifle, the familiar stock solid beneath her grip, and turned toward the door.",
+      "error": null,
+      "failures": [
+        "Do not mention names that are not in the briefing: Marshal"
+      ],
+      "latencySeconds": 0.8630385,
+      "inputTokens": 578,
+      "outputTokens": 100,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-730\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795269949,\u0022model\u0022:\u0022gemma4:e4b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022Elske stood by the hearth, the familiar weight of the Marshal\u2019s coat draped over the chair. Rook nudged her hand, a low whine vibrating in his chest. The cup of cold water on the small table caught the dull light. Bertram, the tough, bloodthirsty friend, was gone. Elske looked toward the door, then back at the hearth. The hunt was unfinished. She picked up the rifle, the familiar stock solid beneath her grip, and turned toward the door.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:578,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:100,\u0022total_tokens\u0022:678}}\n"
+    },
+    {
+      "request": {
+        "system": "You write short scenes for a story told through a RimWorld colony.\n\nThe main character of a story has died. Someone close to them now takes up that story as their own. Write the moment it passes to them.\n\nWhere and when:\n- The scene happens at home in the colony, after the death. The heir already knows. Do not say how the news arrived.\n- The heir was not there when it happened, unless the story so far says so. Never show the death, the fight or the last moments, and never put the heir where it happened.\n- The body did not come home, unless the story so far says it did.\n- The heir remembers only who the dead one was: their traits and their bond. Never a memory of an event, such as how they fought or how they faced the storm.\n\nWhat is in the scene:\n- Plain, ordinary things: a coat, a cup, a chair, a door, a bed, the hearth. Do not give them a history: no scars, souvenirs, marks or habits the dossiers do not give.\n- No rooms or buildings beyond home, the door, the hearth and the walls. Never name a place the story does not name.\n- The people and animals the story names, if they are at home.\n\nHow it ends:\n- End on what the heir now means to do about what is unfinished in the story so far.\n- Anyone the story says died is gone: the heir cannot find, fight or face them. Turn to whoever the story says is left.\n\nRules:\n- 60 to 120 words.\n- Use the relationship between the two exactly as given.\n- Use only names and facts from the dossiers and the story so far.\n- Show feeling through actions and small details, not by naming emotions.\n- Write only the scene: no title, no notes, no word count.\n",
+        "user": "## The one who died\nBertram (47), dead; traits: Bloodlust, Tough; backstory: Mercenary; best friend of Elske.\nHistory:\n- Day 638: Sergeant Kael Dunmore killed Bertram and escaped.\n\n## The heir\nElske (41); traits: Steadfast, Careful shooter; backstory: Colonial marshal; best friend of Bertram.\n\n## Their relationship\nElske was Bertram\u0027s closest friend.\n\n## The story so far\nKael Dunmore, a mercenary sergeant, killed Hester Brightwell and maimed Viggo. Bertram swore to hunt him down and led three hunts. On the last one Dunmore ambushed the hunters and killed Bertram. Bertram\u0027s bonded warg Rook came home alone.\n\nWrite the scene now.\n\n\nYour previous answer was rejected:\n- Do not mention names that are not in the briefing: Marshal\nAnswer again, following every rule.",
+        "maxOutputTokens": 400,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "Elske stood by the hearth, the cold metal of a kettle resting on the grate. Rook nudged her hand, a low whine in his chest. She picked up Bertram\u2019s coat, the heavy wool feeling suddenly too still. The chair across the room seemed too empty. She looked at the door, then at Rook, the steadfast warg waiting by the wall. The hunt was unfinished. Elske reached out, her hand settling on Rook\u2019s thick fur.",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 0.8685075,
+      "inputTokens": 607,
+      "outputTokens": 96,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-621\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795269950,\u0022model\u0022:\u0022gemma4:e4b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022Elske stood by the hearth, the cold metal of a kettle resting on the grate. Rook nudged her hand, a low whine in his chest. She picked up Bertram\u2019s coat, the heavy wool feeling suddenly too still. The chair across the room seemed too empty. She looked at the door, then at Rook, the steadfast warg waiting by the wall. The hunt was unfinished. Elske reached out, her hand settling on Rook\u2019s thick fur.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:607,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:573},\u0022completion_tokens\u0022:96,\u0022total_tokens\u0022:703}}\n"
+    }
+  ]
+}

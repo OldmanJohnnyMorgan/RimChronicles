@@ -1,0 +1,65 @@
+{
+  "runId": "20261121-140517",
+  "startedUtc": "2026-11-21T14:05:17.6581160\u002B00:00",
+  "finishedUtc": "2026-11-21T14:06:20.7151198\u002B00:00",
+  "gitCommit": "53d5814ef6a7926208fd7c2632a85943b19e274f",
+  "gitDirty": false,
+  "promptVersions": {
+    "director": "v1",
+    "inheritance-handoff": "v3",
+    "judge": "v3",
+    "news-bulletin": "v8"
+  },
+  "config": "C:\\RimworldMods\\RimChronicles\\RimChronicles\\harness\\models.json",
+  "configSha256": "2d3da0838d7fd1b6cd33e0eef0b579e96ece21f7e7ee150098c272c2190ca54a",
+  "models": [
+    "gemma4-e2b",
+    "gemma4-e4b",
+    "gemma4-12b"
+  ],
+  "tasks": [
+    "inheritance-handoff"
+  ],
+  "snapshots": [
+    "*"
+  ],
+  "repeats": 3,
+  "cells": 27,
+  "cacheHits": 0,
+  "cacheMisses": 36,
+  "environment": {
+    "gemma4-e2b": {
+      "reachable": true,
+      "serverKind": "ollama",
+      "serverVersion": "0.40.16",
+      "modelListed": true,
+      "quantization": "Q4_K_M",
+      "parameterSize": "4.6B",
+      "vramBytes": 387438345,
+      "sizeBytes": 387438345,
+      "error": null
+    },
+    "gemma4-e4b": {
+      "reachable": true,
+      "serverKind": "ollama",
+      "serverVersion": "0.40.16",
+      "modelListed": true,
+      "quantization": "Q4_K_M",
+      "parameterSize": "7.5B",
+      "vramBytes": 498377685,
+      "sizeBytes": 498377685,
+      "error": null
+    },
+    "gemma4-12b": {
+      "reachable": true,
+      "serverKind": "ollama",
+      "serverVersion": "0.40.16",
+      "modelListed": true,
+      "quantization": "Q4_K_M",
+      "parameterSize": "11.9B",
+      "vramBytes": 1454553168,
+      "sizeBytes": 1454553168,
+      "error": null
+    }
+  }
+}

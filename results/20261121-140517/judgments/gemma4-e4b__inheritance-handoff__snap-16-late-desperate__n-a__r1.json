@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__inheritance-handoff__snap-16-late-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the familiar weight of the Marshal\u2019s coat\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022gives the coat a history and ownership; the briefing only says she was a colonial marshal, and the coat is an ordinary object with an added link\u0022},{\u0022span\u0022:\u0022Bertram, the tough, bloodthirsty friend, was gone.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022rephrases the traits and the briefing supports them, but is a flat narrator label rather than a fact; no real invention\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It stays within the briefing and ends on the unfinished hunt, but it is generic and tells rather than shows (it names Bertram\u0027s traits outright). The ending never names Dunmore, so what she means to do stays vague, and the coat and rifle details feel stock.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.9969483,
+      "inputTokens": 3138,
+      "outputTokens": 283
+    }
+  ]
+}

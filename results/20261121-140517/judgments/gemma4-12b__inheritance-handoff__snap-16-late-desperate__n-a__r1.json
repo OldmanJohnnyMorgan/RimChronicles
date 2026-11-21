@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__inheritance-handoff__snap-16-late-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the three hunts had ended in the dirt\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds detail about how the hunts ended; the briefing only says Bertram was killed on the last hunt\u0022},{\u0022span\u0022:\u0022the way he lived for the hunt\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022a trait-based characterization, but it leans toward a habit and the hunt is an event; mostly supported by Bloodlust and the hunts\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The scene stays within the facts, uses Rook and Dunmore correctly, and ends on Elske\u0027s resolve to finish the hunt. It is generic and a little stock (trembling hand, \u0027in the dirt\u0027), and it names no feeling beyond that, so the voice stays flat. \u0027Ended in the dirt\u0027 hints at a past event, and the line about the hunt leans on Bertram\u0027s past rather than just his traits.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.3668392,
+      "inputTokens": 3162,
+      "outputTokens": 314
+    }
+  ]
+}

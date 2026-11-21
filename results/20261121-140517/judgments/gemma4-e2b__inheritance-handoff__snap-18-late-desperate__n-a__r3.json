@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__inheritance-handoff__snap-18-late-desperate__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It is clean staging with no invented facts, but it never reaches the required ending: Elias is not shown resolving to go to Ada, so the unfinished story is left open. It is also under the 60-word minimum and reads as flat and generic, with the odd \u0027coat draped over a nearby stump\u0027 detail.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 1.9083515,
+      "inputTokens": 3064,
+      "outputTokens": 139
+    }
+  ]
+}

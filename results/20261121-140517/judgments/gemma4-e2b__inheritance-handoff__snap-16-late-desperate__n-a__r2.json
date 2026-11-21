@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__inheritance-handoff__snap-16-late-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the empty space where Bertram usually sat\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds a habit of the dead character (a usual seat) that the briefing does not give\u0022},{\u0022span\u0022:\u0022the rough wool of a coat\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022gives the coat a texture and implies it is Bertram\u0027s; mild detail not in the briefing\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The staging is restrained and stays within the briefing, but the scene never states what Elske means to do about Dunmore, so it misses the required ending. It reads as a list of actions with no sense of handoff, and \u0027turned toward the door\u0027 is too vague to land the moment.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.5526229,
+      "inputTokens": 3083,
+      "outputTokens": 241
+    }
+  ]
+}

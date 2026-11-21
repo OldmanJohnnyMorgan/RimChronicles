@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__inheritance-handoff__snap-09-mid-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022smelled of dust and old sweat\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022gives the coat a history/detail the dossiers do not provide\u0022},{\u0022span\u0022:\u0022a man of grit and fierce determination\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022characterization beyond the given traits (Tough, Bloodlust); mild embellishment\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Clear and restrained, and it ends on the heir turning to the Lancers\u0027 camp, which fits the unfinished story. But it is generic, the coat is given a smell the briefing never supplies, and \u0027finish what he started\u0027 is vague about the new captain\u0027s revenge threat on Cinder Rest.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.7661074,
+      "inputTokens": 3183,
+      "outputTokens": 244
+    }
+  ]
+}

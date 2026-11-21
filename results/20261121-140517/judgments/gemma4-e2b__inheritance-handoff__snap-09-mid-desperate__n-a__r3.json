@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__inheritance-handoff__snap-09-mid-desperate__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The staging is safe and invents nothing, but the scene is flat and fragmentary, with a contradictory beat (she sits by the hearth, then stands to move toward it). It also fails the required ending: Tamsin never turns to the unfinished business of the Lancers\u0027 new captain and Cinder Rest, and it is under the 60-word minimum.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.5658267,
+      "inputTokens": 3084,
+      "outputTokens": 154
+    }
+  ]
+}
