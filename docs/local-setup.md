@@ -152,6 +152,7 @@ Send me the full output of `check` the first time you run it. It's the quickest 
 | `No answer from http://localhost:11434` | Ollama isn't running: start it from the Start menu. |
 | `model '…' is not on the server` | Pull it (step 4), or set `"model"` in `harness/models.json` to the name `check` lists as similar. |
 | `ollama ps` shows CPU, or `check` warns *runs on the CPU* | Close other programs using the GPU (games, browsers with many tabs), make sure the driver is current, and restart Ollama. If one model still doesn't fit, pull a smaller quantization of it. |
+| `Output cut off by the token limit` with *spent the limit thinking* | The model reasoned until it ran out of tokens. Make sure you have the latest code (`git pull`): every local model has `"thinking": "Off"` with `"reasoning_effort": "none"` in `harness/models.json`. If it still happens, send me the `check` output. |
 | `check` says the key variable is not set | Redo step 5, then open a new terminal. |
 
 ## Later: Raon-1 nano

@@ -104,7 +104,7 @@ public static class CheckCommand
 
             if (!r.Ok)
             {
-                problems.Add($"{task}: {r.Error}");
+                problems.Add($"{task}: {r.Error}{CutOffHint(m, task, r, call.ThinkingSeen)}");
                 continue;
             }
 
@@ -133,6 +133,19 @@ public static class CheckCommand
         }
 
         return new ModelCheck(m, server, calls, problems, warnings);
+    }
+
+    /// <summary>Why an answer may be empty: the token limit went on thinking. Internal for tests.</summary>
+    internal static string CutOffHint(ModelConfig m, string task, ChatResult r, bool thinkingSeen)
+    {
+        if (m.Provider != ProviderKind.OpenAi || !thinkingSeen)
+        {
+            return "";
+        }
+
+        return m.ThinkingFor(task) == ThinkingMode.Off
+            ? ". The model spent the limit thinking although thinking is set Off: the server ignores thinkingOffBody; try another field for this server."
+            : ". The model spent the limit thinking: set \"thinking\": \"Off\" (with a thinkingOffBody) for this model.";
     }
 
     /// <summary>Whether the raw response shows reasoning: counted reasoning tokens, a reasoning field, or think tags.</summary>
