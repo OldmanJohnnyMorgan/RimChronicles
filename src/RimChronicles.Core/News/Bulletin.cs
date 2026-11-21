@@ -40,12 +40,16 @@ public sealed class Bulletin : IArchivable
     }
 }
 
-/// <summary>The reporter writing the bulletins. Stage 2 M4 ties it to a pawn in the world.</summary>
+/// <summary>The reporter writing the bulletins. The Game layer ties it to a pawn in the world; until then (or with
+/// no friendly faction to recruit from) the default reporter writes.</summary>
 public sealed class ReporterState : IArchivable
 {
     public string Name = WorldSummarizer.DefaultReporter.Name;
     public string Outlet = WorldSummarizer.DefaultReporter.Outlet;
     public string Persona = WorldSummarizer.DefaultReporter.Persona;
+
+    /// <summary>The faction the reporter comes from, or "" for the default reporter.</summary>
+    public string Faction = "";
 
     public ReporterInfo ToInfo() => new() { Name = Name, Outlet = Outlet, Persona = Persona };
 
@@ -55,6 +59,8 @@ public sealed class ReporterState : IArchivable
         archive.Value(ref Name, "name", d.Name);
         archive.Value(ref Outlet, "outlet", d.Outlet);
         archive.Value(ref Persona, "persona", d.Persona);
+        archive.Value(ref Faction, "faction", "");
+        Faction ??= "";
         Name = string.IsNullOrWhiteSpace(Name) ? d.Name : Name;
         Outlet = string.IsNullOrWhiteSpace(Outlet) ? d.Outlet : Outlet;
         Persona = string.IsNullOrWhiteSpace(Persona) ? d.Persona : Persona;

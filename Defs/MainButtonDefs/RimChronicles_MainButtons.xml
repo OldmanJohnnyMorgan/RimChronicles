@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <MainButtonDef>
+    <defName>RimChronicles_Dispatch</defName>
+    <label>dispatch</label>
+    <description>Every bulletin from the Rim Dispatch, newest first.</description>
+    <tabWindowClass>RimChronicles.Game.News.MainTabWindow_RimDispatch</tabWindowClass>
+    <order>95</order>
+  </MainButtonDef>
+</Defs>
