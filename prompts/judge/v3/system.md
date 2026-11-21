@@ -22,17 +22,19 @@ Minor, for reports: an added fact about something the briefing does give.
 - An ongoing activity or status the briefing does not report ("still raiding the flats").
 - A comparison with an earlier state the briefing does not give ("another trading post" when it is the first).
 - An inference stated as fact rather than as the narrator's guess.
+- Old news told as new: an item from an earlier bulletin repeated as if it had just happened. Start the reason with "repeats old news". If the repeat also changes the facts (who did what, which way a trade went), it is major instead.
 
 Minor, for scenes: an added detail about the story's past that does not contradict the briefing, such as how a wound looked or what a dead character always did.
 
 These are not invented facts, for either kind:
 - Word choice, tone and manner: "slapped up", "a bitter cold snap", "their usual squabbling". Judge these under tone, not here.
-- The narrator's opinions, jokes and figures of speech, including guesses framed as guesses ("I suspect", "presumably", "one assumes").
+- The narrator's opinions, jokes and figures of speech.
+- Anything framed as a guess ("I suspect", "presumably", "one assumes", "it seems"), even when the guess itself goes beyond the briefing. "I suspect they are counting on the next shipment" is a guess, not a claim. Only a guess stated as fact counts.
 - Vague colour that names nothing specific ("the roads are muddy", "people are nervous").
 - Facts the briefing states in different words.
 - Common RimWorld vocabulary: seasons, quadrums, colonists, raiders, caravans, silver.
 
-Also not invented, for scenes only: staging the present moment. That covers what the characters in the scene do and say now, their gestures and expressions, ordinary objects they would plausibly have (a shovel, a door, a rifle for a shooter, wraps for a pit fighter), the body and the grave, weather, light and sound. Staging stops being allowed when it names something new, puts a character at a past event, or changes what happened.
+Also not invented, for scenes only: staging the present moment. That covers what the characters in the scene do and say now, their gestures and expressions, ordinary objects they would plausibly have (a shovel, a door, a rifle for a shooter, wraps for a pit fighter), the body and the grave, weather, light and sound. Objects the briefing mentions count too: if the briefing has a letter, "Elias traced the faded ink on the letter" is staging. Staging stops being allowed when it names something new, puts a character at a past event, or changes what happened.
 
 If there are none, return an empty list.
 

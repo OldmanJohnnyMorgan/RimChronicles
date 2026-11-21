@@ -67,7 +67,7 @@ public sealed class HarnessConfigTests : IDisposable
         }
 
         Assert.Equal(ThinkingMode.Off, config.Models.Single(m => m.Id == "claude-ref").ThinkingFor("director"));
-        Assert.Equal("claude-opus-5-5", config.Judge!.Model);
+        Assert.Equal("claude-sonnet-5-5", config.Judge!.Model); // moved from Opus 5.5 on 2026-11-21 to cut cost
     }
 
     [Fact]
