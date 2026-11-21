@@ -39,9 +39,14 @@ internal static class NewsRecorder
         _ => RelationKind.Neutral,
     };
 
-    /// <summary>Null for a world-wide condition, else the name of the colony whose map it covers.</summary>
-    public static string? Place(GameCondition condition) =>
-        condition.gameConditionManager?.ownerMap is { } map ? (map.Parent?.LabelCap ?? Faction.OfPlayer.Name) : null;
+    /// <summary>Null for a world-wide condition. For the colony's own map, the colony's name: the home settlement's
+    /// label stays "Colony" until the player renames it. For any other map, that map's place name.</summary>
+    public static string? Place(GameCondition condition) => condition.gameConditionManager?.ownerMap switch
+    {
+        null => null,
+        { IsPlayerHome: true } => Faction.OfPlayer.Name,
+        var map => map.Parent?.LabelCap ?? Faction.OfPlayer.Name,
+    };
 }
 
 /// <summary>Weather and disasters starting: toxic fallout, volcanic winter, cold snaps, heat waves, eclipses…</summary>
