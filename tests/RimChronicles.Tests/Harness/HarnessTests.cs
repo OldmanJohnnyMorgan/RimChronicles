@@ -1,5 +1,6 @@
 using System.Text.Json.Nodes;
 using RimChronicles.Core.Snapshots;
+using RimChronicles.Core.Summaries;
 using RimChronicles.Eval.Commands;
 using RimChronicles.Eval.Config;
 using RimChronicles.Eval.Providers;
@@ -106,16 +107,32 @@ public sealed class HarnessConfigTests : IDisposable
 
 public class EvalTaskTests
 {
-    [Fact]
-    public void BulletinWordRange_Is60To150()
-    {
-        // The design spec says 80-150; the floor was lowered to 60 so thin news weeks aren't padded.
-        Assert.Equal((60, 150), EvalTasks.WordRange("news-bulletin"));
-    }
-
     private static readonly PromptLibrary Library = PromptLibrary.Load(Repo.Prompts);
     private static readonly ModelConfig Model = new() { Id = "m", Tier = "Minimum", Provider = ProviderKind.Stub };
     private static WorldSnapshot Snap(string id) => SnapshotJson.Load(Repo.Path("harness", "snapshots", id + ".json"));
+
+    [Theory]
+    [InlineData("snap-04-early-strained", 3, 60, 150)] // a busy week: 2 or 3 items
+    [InlineData("snap-01-early-content", 2, 60, 150)]
+    [InlineData("snap-08-mid-content", 1, 30, 100)]   // a quiet week: short, not padded
+    [InlineData("snap-17-late-strained", 0, 30, 100)]
+    public void BulletinWordRange_IsShortOnAQuietWeek(string snapshot, int newItems, int min, int max)
+    {
+        var s = Snap(snapshot);
+
+        Assert.Equal(newItems, WorldSummarizer.NewNewsCount(s));
+        Assert.Equal((min, max), EvalTasks.WordRange("news-bulletin", s));
+        Assert.Equal((min, max), EvalTasks.Build(Library, "news-bulletin", s, Model, grammar: false).Words);
+    }
+
+    [Fact]
+    public void BulletinWordRange_ScoresLengthAgainstTheSnapshotsRange()
+    {
+        var text = string.Join(' ', Enumerable.Repeat("word", 45));
+
+        Assert.True(EvalTasks.Score("news-bulletin", text, EvalTasks.Build(Library, "news-bulletin", Snap("snap-08-mid-content"), Model, false)).LengthOk);
+        Assert.False(EvalTasks.Score("news-bulletin", text, EvalTasks.Build(Library, "news-bulletin", Snap("snap-04-early-strained"), Model, false)).LengthOk);
+    }
 
     [Fact]
     public void Director_FillsTheChoiceEnum()

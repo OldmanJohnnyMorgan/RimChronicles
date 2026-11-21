@@ -78,6 +78,33 @@ public static partial class WorldSummarizer
         });
     }
 
+    /// <summary>A quiet week has at most this many new items; its bulletin is short instead of padded.</summary>
+    public const int QuietWeekMaxNewItems = 1;
+
+    /// <summary>
+    /// News the reporter hasn't covered yet: public events and plot hints not in <see cref="WorldSnapshot.ReportedEvents"/>.
+    /// Counted before the digest is fitted to a token budget; the fit drops the oldest events first, which are the
+    /// reported ones, so the digest's "heard since" list almost always has the same count.
+    /// </summary>
+    public static int NewNewsCount(WorldSnapshot s)
+    {
+        var reported = s.ReportedEvents.ToHashSet(StringComparer.Ordinal);
+        return NewsItems(s, s.PublicEvents.Count).Count(e => !reported.Contains(e));
+    }
+
+    /// <summary>
+    /// Allowed bulletin length in words. The prompt asks for 70 to 130 words, or 40 to 80 on a quiet week (one new
+    /// item or none); the range leaves some slack either side so a near miss isn't sent back.
+    /// </summary>
+    public static (int Min, int Max) BulletinWordRange(WorldSnapshot s) =>
+        NewNewsCount(s) <= QuietWeekMaxNewItems ? (30, 100) : (60, 150);
+
+    private static List<string> NewsItems(WorldSnapshot s, int events) =>
+        s.PublicEvents.TakeLast(events)
+            .Concat(s.ActivePlots.Select(p => p.PublicHint).OfType<string>())
+            .Distinct(StringComparer.Ordinal)
+            .ToList();
+
     /// <summary>Variables: reporterName, outlet, persona, digest, previousBulletins.</summary>
     public static TaskPromptInput ForNewsBulletin(WorldSnapshot s, ModelTier tier)
     {
@@ -224,10 +251,7 @@ public static partial class WorldSummarizer
         // Split the news into what the reporter may lead with and what earlier bulletins already covered,
         // so a model is never told "don't repeat old news" while being handed only old news.
         var reported = s.ReportedEvents.ToHashSet(StringComparer.Ordinal);
-        var items = s.PublicEvents.TakeLast(limits.Events)
-            .Concat(s.ActivePlots.Select(p => p.PublicHint).OfType<string>())
-            .Distinct(StringComparer.Ordinal)
-            .ToList();
+        var items = NewsItems(s, limits.Events);
         var fresh = items.Where(e => !reported.Contains(e)).Select(names.Replace).ToList();
         var old = items.Where(reported.Contains).Select(names.Replace).ToList();
 
