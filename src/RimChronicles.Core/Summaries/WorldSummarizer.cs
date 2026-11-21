@@ -93,11 +93,16 @@ public static partial class WorldSummarizer
     }
 
     /// <summary>
-    /// Allowed bulletin length in words. The prompt asks for 70 to 130 words, or 40 to 80 on a quiet week (one new
-    /// item or none); the range leaves some slack either side so a near miss isn't sent back.
+    /// Allowed bulletin length in words, scaled to the news so a thin week is short instead of padded. The prompt
+    /// asks for 40 to 80 words on a quiet week (one new item or none), 50 to 100 with two new items and 70 to 130
+    /// with three or more; the range leaves some slack either side so a near miss isn't sent back.
     /// </summary>
-    public static (int Min, int Max) BulletinWordRange(WorldSnapshot s) =>
-        NewNewsCount(s) <= QuietWeekMaxNewItems ? (30, 100) : (60, 150);
+    public static (int Min, int Max) BulletinWordRange(WorldSnapshot s) => NewNewsCount(s) switch
+    {
+        <= QuietWeekMaxNewItems => (30, 100),
+        2 => (40, 120),
+        _ => (60, 150),
+    };
 
     private static List<string> NewsItems(WorldSnapshot s, int events) =>
         s.PublicEvents.TakeLast(events)

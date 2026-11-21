@@ -104,6 +104,14 @@ public class CheckTests
     }
 
     [Fact]
+    public void GroundingCheck_AllowsTheReportersContractionsButNotWeekdays()
+    {
+        var unknown = Grounding.FindUnknownNames("Mara says I'm wrong, and I’ve heard I'd lose. I'll wait. Such flair for a Tuesday, or a Monday.");
+
+        Assert.Equal(["Tuesday", "Monday"], unknown); // the rim's calendar has no weekdays
+    }
+
+    [Fact]
     public void BannedPhraseCheck_CatchesMetaText()
     {
         var check = new BannedPhraseCheck();

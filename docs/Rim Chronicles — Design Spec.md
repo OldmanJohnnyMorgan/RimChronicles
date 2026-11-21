@@ -63,7 +63,7 @@ Each snapshot is a JSON file describing one moment in a colony's game, hand-writ
 | Task | Input | Output | What it tests |
 | --- | --- | --- | --- |
 | Director decision | Snapshot + allowed transitions | JSON: `{ "choice": "...", "reason": "..." }` | Instruction following, valid JSON, picking only allowed options |
-| News bulletin | Snapshot + last 2 bulletins | 70–130 words of in-world news; 40–80 on a quiet week (one new item or none) | English prose, grounding (no invented facts), voice consistency |
+| News bulletin | Snapshot + last 2 bulletins | 40–130 words of in-world news, scaled to the news: 40–80 on a quiet week (one new item or none), 50–100 with two new items, 70–130 with three or more | English prose, grounding (no invented facts), voice consistency |
 | Inheritance handoff | Dead protagonist's dossier + heir's dossier + plot summary | 60–120 word scene | Emotional writing, using the supplied relationship correctly |
 
 Each task runs twice per model: once with grammar-constrained JSON where supported, once without, to see how much the grammar is carrying.
@@ -181,7 +181,7 @@ It goes in the minor plot set (Stage 3), but its trigger is the reporter's death
 
 ### Bulletin content
 
-Each bulletin has 2–3 short items, drawn by priority from the list below. On a quiet week (one new item or none) it has 1–2 and runs 40–80 words: a short bulletin beats one padded with invented detail.
+Each bulletin has 1–3 short items, drawn by priority from the list below, and its length scales with the news: 1–2 items and 40–80 words on a quiet week (one new item or none), 2 items and 50–100 words with two new items, 3 items and 70–130 words with three or more. A short bulletin beats one padded with invented detail.
 
 1. Major plot developments (Empire actions, territory changes)
 2. Minor plot beats the reporter could plausibly know about (a bounty posted, a known raider sighted)

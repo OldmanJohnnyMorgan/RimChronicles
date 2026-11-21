@@ -112,8 +112,8 @@ public class EvalTaskTests
     private static WorldSnapshot Snap(string id) => SnapshotJson.Load(Repo.Path("harness", "snapshots", id + ".json"));
 
     [Theory]
-    [InlineData("snap-04-early-strained", 3, 60, 150)] // a busy week: 2 or 3 items
-    [InlineData("snap-01-early-content", 2, 60, 150)]
+    [InlineData("snap-04-early-strained", 3, 60, 150)] // a busy week: 3 items
+    [InlineData("snap-01-early-content", 2, 40, 120)]  // two new items: 2 items, no padding
     [InlineData("snap-08-mid-content", 1, 30, 100)]   // a quiet week: short, not padded
     [InlineData("snap-17-late-strained", 0, 30, 100)]
     public void BulletinWordRange_IsShortOnAQuietWeek(string snapshot, int newItems, int min, int max)
