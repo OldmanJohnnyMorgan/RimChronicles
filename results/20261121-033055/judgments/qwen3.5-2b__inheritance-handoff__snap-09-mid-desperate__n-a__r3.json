@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__inheritance-handoff__snap-09-mid-desperate__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the scattered bones of the dead pirate captain\u0022,\u0022reason\u0022:\u0022Malley\u0027s remains being bones in this room is not in the briefing.\u0022},{\u0022span\u0022:\u0022lingered in the room for days\u0022,\u0022reason\u0022:\u0022Unsupported timeline; the briefing gives no time since the fight.\u0022},{\u0022span\u0022:\u0022the scars along his neck where bullets had split him open\u0022,\u0022reason\u0022:\u0022Cause and nature of the wounds is not given.\u0022},{\u0022span\u0022:\u0022the silver locket Joska had kept safe for her\u0022,\u0022reason\u0022:\u0022Invented item.\u0022},{\u0022span\u0022:\u0022The heavy oak door groaned as it swung open\u0022,\u0022reason\u0022:\u0022Setting detail implies Tamsin is freely inside the camp, which the Lancers still hold.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The scene invents a locket, the wounds and the remains, and puts Tamsin inside a camp the Lancers still hold. It names her grief outright, runs well over 120 words, and ends on a confused line instead of saying what she means to do.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.7271823,
+      "inputTokens": 1973,
+      "outputTokens": 631
+    }
+  ]
+}

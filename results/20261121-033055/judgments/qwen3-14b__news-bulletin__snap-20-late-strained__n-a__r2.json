@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-20-late-strained__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the offer came with a warning\u2014accept, or face the same fate as Brightwater\u0022,\u0022reason\u0022:\u0022Briefing gives no warning or threat attached to the governorship offer.\u0022},{\u0022span\u0022:\u0022The terms were not made public\u0022,\u0022reason\u0022:\u0022Briefing says nothing about the offer\u0027s terms or whether they were disclosed.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It breaks format by copying the briefing headings into the bulletin, and it repeats the previous bulletin\u0027s joke word for word. It also invents a threat tied to Brightwater and falls short of the 80-word minimum.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.6756128,
+      "inputTokens": 2211,
+      "outputTokens": 478
+    }
+  ]
+}

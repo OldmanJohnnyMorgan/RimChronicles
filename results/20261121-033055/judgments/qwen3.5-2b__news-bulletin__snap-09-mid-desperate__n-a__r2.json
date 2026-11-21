@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-09-mid-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022after a skirmish with an Embertail warrior\u0022,\u0022reason\u0022:\u0022Briefing gives no killer or circumstances of Malley\u0027s death.\u0022},{\u0022span\u0022:\u0022despite the recent loss of their primary leader\u0022,\u0022reason\u0022:\u0022Malley led the Lancers, not the Gray Wharf Syndicate; no Syndicate leader loss is in the briefing.\u0022},{\u0022span\u0022:\u0022neither faction has caught any fish since the last quadrum\u0022,\u0022reason\u0022:\u0022Adds a timeframe the briefing does not give and recycles an old joke as fact.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The output breaks format with section headings and has no sardonic voice. It invents who killed Malley, wrongly ties him to the Syndicate, and re-presents old news while reusing the earlier fish joke.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.4986029,
+      "inputTokens": 2239,
+      "outputTokens": 277
+    }
+  ]
+}

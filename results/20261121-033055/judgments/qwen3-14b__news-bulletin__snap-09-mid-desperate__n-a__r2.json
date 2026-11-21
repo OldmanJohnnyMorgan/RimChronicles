@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-09-mid-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the Lancers have not yet named a successor\u0022,\u0022reason\u0022:\u0022Briefing says nothing about succession.\u0022},{\u0022span\u0022:\u0022with no sign of either side gaining ground\u0022,\u0022reason\u0022:\u0022Briefing gives no information on how the war is going.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It copies the briefing\u0027s section headings (\u0027News since your last bulletin:\u0027, \u0027Already reported:\u0027) into the bulletin, which breaks character, and it repeats old news as a labelled item. It also adds unsupported details about Malley\u0027s succession and the state of the war, falls short of the 80-word minimum, and has almost none of Odile\u0027s sardonic voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.8614041,
+      "inputTokens": 2253,
+      "outputTokens": 415
+    }
+  ]
+}

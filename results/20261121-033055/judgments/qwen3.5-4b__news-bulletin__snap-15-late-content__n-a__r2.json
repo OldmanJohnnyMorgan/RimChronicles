@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-15-late-content__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Fox-Lantern Tribe\u0027s spring games have dragged on into their third day\u0022,\u0022reason\u0022:\u0022The briefing gives no duration for the games. It recasts the earlier bulletin\u0027s three-day archery argument as current news.\u0022},{\u0022span\u0022:\u0022with the archery controversy proving more popular than the actual competition\u0022,\u0022reason\u0022:\u0022This adds a new development to old news that the briefing does not support.\u0022},{\u0022span\u0022:\u0022the inquiries are persistent enough to warrant a mention\u0022,\u0022reason\u0022:\u0022The briefing does not describe how persistent the inquiries are.\u0022},{\u0022span\u0022:\u0022she seems to have forgotten that the quadrum does not care for her pledges\u0022,\u0022reason\u0022:\u0022This implies the speaker has failed or neglected her promises, which the briefing does not say.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It opens with the briefing\u0027s own heading and repeats the lead item verbatim, which breaks character. It also re-presents old news (the games, the speaker) as ongoing developments with invented details, and reuses the earlier bulletin\u0027s archery-argument joke.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 8.1014869,
+      "inputTokens": 2328,
+      "outputTokens": 766
+    }
+  ]
+}

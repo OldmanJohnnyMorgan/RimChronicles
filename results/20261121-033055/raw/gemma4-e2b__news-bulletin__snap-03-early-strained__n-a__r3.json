@@ -1,0 +1,55 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-03-early-strained__n-a__r3",
+  "model": "gemma4-e2b",
+  "task": "news-bulletin",
+  "snapshot": "snap-03-early-strained",
+  "grammar": "n/a",
+  "repeat": 3,
+  "promptVersion": "news-bulletin/v2",
+  "outcome": "Template",
+  "value": "(template)",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.\n\nWrite your next news bulletin.\n\nWhat to write:\n- 2 or 3 short news items, most important first, separated by a blank line.\n- Each item is 2 to 4 sentences. The whole bulletin is 80 to 150 words.\n- Lead with the items under \u0022News since your last bulletin\u0022.\n- Items under \u0022Already reported\u0022 are old news. You may mention them briefly as background, but never present them as new or happening again.\n- If there is little new news, fill the remaining items with dry comment on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.\n\nWhat you know:\n- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events, and never add details to an event that the briefing does not give.\n- You do not know what happens inside the colony unless your briefing says it became public.\n\nStyle:\n- Keep your voice the same as in your earlier bulletins, but do not reuse their jokes or sentences.\n- Write only the bulletin itself: no title, no dateline, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 23 (Jugust 5500).\nThe colony you report near: Kettle Hollow. You do not know what happens inside it unless listed below.\n\nFactions:\n- The Ashen Hand (Pirates): 4 settlements\n- The Merrow Freeholds (Outlanders): 7 settlements\n- Kinn of the Long Grass (Tribe): 3 settlements\n\nNews since your last bulletin: none. It has been a quiet stretch.\n\nAlready reported in your earlier bulletins (background only, not news):\n- The Ashen Hand raided two homesteads near the Merrow road\n- Merrow Freeholds caravans now travel only in pairs\n\n## Your earlier bulletins\nEarlier bulletin:\nThe Ashen Hand are out in numbers. Two homesteads on the Merrow road lost their stores, and one lost its roof. Merrow traders are travelling in pairs now, which doubles the guards and, they assure me, the prices.\n\nLatest bulletin:\nGrass fires in the south have the Kinn on the move. They are not, by their account, looking for trouble. Neither, I suspect, is trouble looking for them, but it usually finds someone.\n\nWrite the bulletin now.\n",
+        "maxOutputTokens": 350,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "News since your last bulletin\n\nThe stretch has been predictably quiet. No significant movements from the Ashen Hand or the Kinn of the Long Grass have registered in Kettle Hollow this cycle.\n\nMerrow Freeholds caravans continue their cautious travel patterns, sticking to pairs as usual. It seems the usual rhythm of low-level commerce persists without any dramatic shifts in the landscape.",
+      "error": null,
+      "failures": [
+        "Use 80-150 words; this has 61"
+      ],
+      "latencySeconds": 0.4728737,
+      "inputTokens": 566,
+      "outputTokens": 74,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-119\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795232033,\u0022model\u0022:\u0022gemma4:e2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022News since your last bulletin\\n\\nThe stretch has been predictably quiet. No significant movements from the Ashen Hand or the Kinn of the Long Grass have registered in Kettle Hollow this cycle.\\n\\nMerrow Freeholds caravans continue their cautious travel patterns, sticking to pairs as usual. It seems the usual rhythm of low-level commerce persists without any dramatic shifts in the landscape.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:566,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:565},\u0022completion_tokens\u0022:74,\u0022total_tokens\u0022:640}}\n"
+    },
+    {
+      "request": {
+        "system": "You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.\n\nWrite your next news bulletin.\n\nWhat to write:\n- 2 or 3 short news items, most important first, separated by a blank line.\n- Each item is 2 to 4 sentences. The whole bulletin is 80 to 150 words.\n- Lead with the items under \u0022News since your last bulletin\u0022.\n- Items under \u0022Already reported\u0022 are old news. You may mention them briefly as background, but never present them as new or happening again.\n- If there is little new news, fill the remaining items with dry comment on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.\n\nWhat you know:\n- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events, and never add details to an event that the briefing does not give.\n- You do not know what happens inside the colony unless your briefing says it became public.\n\nStyle:\n- Keep your voice the same as in your earlier bulletins, but do not reuse their jokes or sentences.\n- Write only the bulletin itself: no title, no dateline, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 23 (Jugust 5500).\nThe colony you report near: Kettle Hollow. You do not know what happens inside it unless listed below.\n\nFactions:\n- The Ashen Hand (Pirates): 4 settlements\n- The Merrow Freeholds (Outlanders): 7 settlements\n- Kinn of the Long Grass (Tribe): 3 settlements\n\nNews since your last bulletin: none. It has been a quiet stretch.\n\nAlready reported in your earlier bulletins (background only, not news):\n- The Ashen Hand raided two homesteads near the Merrow road\n- Merrow Freeholds caravans now travel only in pairs\n\n## Your earlier bulletins\nEarlier bulletin:\nThe Ashen Hand are out in numbers. Two homesteads on the Merrow road lost their stores, and one lost its roof. Merrow traders are travelling in pairs now, which doubles the guards and, they assure me, the prices.\n\nLatest bulletin:\nGrass fires in the south have the Kinn on the move. They are not, by their account, looking for trouble. Neither, I suspect, is trouble looking for them, but it usually finds someone.\n\nWrite the bulletin now.\n\n\nYour previous answer was rejected:\n- Use 80-150 words; this has 61\nAnswer again, following every rule.",
+        "maxOutputTokens": 350,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "News since your last bulletin\nNothing new has stirred the dust around Kettle Hollow this cycle. The usual quiet persists, which, as you can imagine, is rarely a good thing for anyone expecting excitement.\n\nThe Ashen Hand remain spread across four settlements, and the Merrow Freeholds continue their cautious travel patterns. The Kinn of the Long Grass maintain their three holdings, apparently content to observe the slow march of time.",
+      "error": null,
+      "failures": [
+        "Use 80-150 words; this has 70"
+      ],
+      "latencySeconds": 0.5917566,
+      "inputTokens": 598,
+      "outputTokens": 85,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-636\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795232033,\u0022model\u0022:\u0022gemma4:e2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022News since your last bulletin\\nNothing new has stirred the dust around Kettle Hollow this cycle. The usual quiet persists, which, as you can imagine, is rarely a good thing for anyone expecting excitement.\\n\\nThe Ashen Hand remain spread across four settlements, and the Merrow Freeholds continue their cautious travel patterns. The Kinn of the Long Grass maintain their three holdings, apparently content to observe the slow march of time.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:598,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:561},\u0022completion_tokens\u0022:85,\u0022total_tokens\u0022:683}}\n"
+    }
+  ]
+}

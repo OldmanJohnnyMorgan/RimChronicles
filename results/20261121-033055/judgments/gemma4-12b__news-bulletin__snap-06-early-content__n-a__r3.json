@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-06-early-content__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022it certainly ruins the Calder Combine\u0027s mood regarding their recent harvest\u0022,\u0022reason\u0022:\u0022Implies the robbed grain belonged to the Combine; the briefing does not say whose barge it was.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It breaks character by copying the briefing\u0027s section headings (\u0027News since your last bulletin:\u0027, \u0027Already reported:\u0027) into the bulletin. It also falls short of 80 words, and the narration is flat rather than wry.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.3338894,
+      "inputTokens": 2158,
+      "outputTokens": 405
+    }
+  ]
+}

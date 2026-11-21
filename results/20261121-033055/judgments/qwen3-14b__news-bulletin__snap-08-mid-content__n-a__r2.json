@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-08-mid-content__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Some say it\u2019s a relic from the old world, others claim it was carved by the colony\u2019s first settlers.\u0022,\u0022reason\u0022:\u0022The briefing gives no origin for the sculpture and no rumours about it.\u0022},{\u0022span\u0022:\u0022it\u2019s drawing more visitors than the trade fair\u0022,\u0022reason\u0022:\u0022Unsupported comparison of visitor numbers.\u0022},{\u0022span\u0022:\u0022The Lantern Accord\u2019s trade fair continues as planned\u0022,\u0022reason\u0022:\u0022The fair\u0027s current status is not given.\u0022},{\u0022span\u0022:\u0022Prices remain steady, though the quality of goods has been questioned by more than one merchant.\u0022,\u0022reason\u0022:\u0022Invented market details.\u0022},{\u0022span\u0022:\u0022their last failed raid left a few damaged buildings in Gladwater\u0022,\u0022reason\u0022:\u0022No damage is in the briefing, and it describes the inside of the colony.\u0022},{\u0022span\u0022:\u0022with no signs of the promised chaos\u0022,\u0022reason\u0022:\u0022Nothing was promised. This misremembers the earlier bulletin.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The bulletin opens with a copied \u0027News since your last bulletin:\u0027 heading, which breaks character. It then fills every item with invented details: rumours about the sculpture, the fair\u0027s prices and goods, and raid damage inside Gladwater.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.8263349,
+      "inputTokens": 2293,
+      "outputTokens": 412
+    }
+  ]
+}

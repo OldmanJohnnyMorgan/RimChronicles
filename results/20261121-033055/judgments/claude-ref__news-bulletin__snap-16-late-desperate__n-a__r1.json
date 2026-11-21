@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-16-late-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:5,\u0022comment\u0022:\u0022Accurate and well ordered: it leads with the bounty, then gives dry commentary drawn only from the faction counts and the walled-off Glass Throne. The callback to the earlier \u0027be somewhere else\u0027 advice builds on that bulletin rather than repeating it, and the voice stays sardonic and understated throughout.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.3035798,
+      "inputTokens": 2305,
+      "outputTokens": 364
+    }
+  ]
+}

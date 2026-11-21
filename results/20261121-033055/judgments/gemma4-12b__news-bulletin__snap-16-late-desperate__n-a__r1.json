@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-16-late-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022left the mercenary and his Free Company in a rather precarious position\u0022,\u0022reason\u0022:\u0022The briefing gives no outcome of the ambush or its effect on Dunmore\u0027s company.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It opens with a copied \u0027News since your last bulletin:\u0027 heading, which breaks the no-headings rule. It also invents an outcome for the ambush, and the heatwave item recycles old news without adding anything. The voice is mild and generic rather than sardonic, and lines like \u0027news delivered in whispers and stone\u0027 fall flat.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.3873104,
+      "inputTokens": 2227,
+      "outputTokens": 497
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-10-mid-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The amount is said to be enough to buy a small herd of beasts\u0022,\u0022reason\u0022:\u0022The briefing gives no amount or value for the silver offer.\u0022},{\u0022span\u0022:\u0022the offer is open to anyone, friend or foe\u0022,\u0022reason\u0022:\u0022The briefing does not say who may claim the offer.\u0022},{\u0022span\u0022:\u0022No claim has been made\u0022,\u0022reason\u0022:\u0022The briefing does not say whether the bounty has been claimed.\u0022},{\u0022span\u0022:\u0022With both sides holding captives\u0022,\u0022reason\u0022:\u0022The briefing says only the Stonecutter Raiders hold captives.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin opens by copying the briefing heading \u0027News since your last bulletin:\u0027, which breaks character, and the dry voice only shows in the \u0027no heads have rolled\u2014yet\u0027 line. It also adds unsupported details: the size of the silver offer, who may claim it, and the claim that the Ochre Hand holds captives too.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.9657999,
+      "inputTokens": 2284,
+      "outputTokens": 528
+    }
+  ]
+}

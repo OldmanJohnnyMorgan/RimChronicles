@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-20-late-strained__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It opens with a leaked heading (\u0027News since your last bulletin:\u0027) and copies the earlier bulletins\u0027 Tuesday and two-towns jokes almost word for word, which the task forbids. It also recasts the old Brightwater news in the present tense, so the one genuinely new item, the governorship offer, gets no development.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.1324049,
+      "inputTokens": 2239,
+      "outputTokens": 446
+    }
+  ]
+}

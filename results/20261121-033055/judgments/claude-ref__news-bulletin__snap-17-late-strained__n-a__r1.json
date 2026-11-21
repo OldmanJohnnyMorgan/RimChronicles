@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-17-late-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:5,\u0022comment\u0022:\u0022This turns a quiet week into a sharp, dry bulletin built only on briefing facts: faction counts, the war and background items correctly framed as old news. It closes on a neat Severin line, and the voice matches the earlier bulletins without reusing their jokes.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 8.6679653,
+      "inputTokens": 2393,
+      "outputTokens": 968
+    }
+  ]
+}

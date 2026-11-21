@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-16-late-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Free Company, meanwhile, has not been seen since the ambush\u0022,\u0022reason\u0022:\u0022The briefing gives no sighting information about the Free Company after the ambush.\u0022},{\u0022span\u0022:\u0022their usual haunts remain unoccupied\u0022,\u0022reason\u0022:\u0022This is an invented detail about the Free Company\u0027s locations.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It copies the briefing\u0027s section headings into the bulletin, which breaks character and format, and it invents details about the Free Company\u0027s whereabouts. The bounty-as-peace-gesture line is also muddled, and the bulletin falls short of the 80-word minimum.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.1582413,
+      "inputTokens": 2217,
+      "outputTokens": 531
+    }
+  ]
+}

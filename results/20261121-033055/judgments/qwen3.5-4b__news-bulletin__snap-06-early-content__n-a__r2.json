@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-06-early-content__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022maintained its three settlements without incident\u0022,\u0022reason\u0022:\u0022The briefing gives only the settlement count and \u0027quiet\u0027; \u0027without incident\u0027 is an added claim.\u0022},{\u0022span\u0022:\u0022their fields are yielding record crops\u0022,\u0022reason\u0022:\u0022The briefing says the harvest is good, and the earlier bulletin said \u0027best in years\u0027; \u0027record\u0027 overstates both.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The output copies the briefing\u0027s section labels (\u0027News since your last bulletin:\u0027, \u0027Already reported...\u0027) into the text, which breaks character and could not ship. It also gives old shuttle news its own item and recycles the task\u0027s \u0027quiet week\u0027 phrasing into a muddled closing line.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.2198618,
+      "inputTokens": 2245,
+      "outputTokens": 541
+    }
+  ]
+}

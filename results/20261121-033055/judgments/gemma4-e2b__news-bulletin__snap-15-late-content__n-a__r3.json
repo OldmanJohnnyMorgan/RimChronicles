@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-15-late-content__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022remain a persistent nuisance in the outer sectors\u0022,\u0022reason\u0022:\u0022The briefing reports no Grinning Jack\u0027s Men activity and no \u0027outer sectors\u0027.\u0022},{\u0022span\u0022:\u0022the specifics of their current haul remain unconfirmed\u0022,\u0022reason\u0022:\u0022This implies recent raiding or a haul that the briefing never mentions.\u0022},{\u0022span\u0022:\u0022The calendar ticks on toward day 563\u0022,\u0022reason\u0022:\u0022The briefing says it is already day 563, not approaching it.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It opens with a copied heading, which breaks character, and invents ongoing pirate activity in unnamed \u0027outer sectors\u0027. The prose is flat and bureaucratic rather than dry and wry, and at about 75 words it falls short of the minimum length.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.1426263,
+      "inputTokens": 2217,
+      "outputTokens": 601
+    }
+  ]
+}

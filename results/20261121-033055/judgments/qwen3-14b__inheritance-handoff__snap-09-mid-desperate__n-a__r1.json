@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__inheritance-handoff__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the jagged scar across his cheek\u0022,\u0022reason\u0022:\u0022No facial scar is mentioned; the briefing only says Joska was maimed.\u0022},{\u0022span\u0022:\u0022She had seen that scar before\u2014on Malley\u2019s face, mirrored like a cruel joke\u0022,\u0022reason\u0022:\u0022Nothing in the briefing says Malley had a scar.\u0022},{\u0022span\u0022:\u0022his old combat knife, the one he\u2019d used to carve his name into the wall\u0022,\u0022reason\u0022:\u0022The knife and the name carved into a wall are not in the briefing.\u0022},{\u0022span\u0022:\u0022She would find Malley. She would carve her name into his flesh.\u0022,\u0022reason\u0022:\u0022Contradicts the briefing: Malley died in the fight. The living threat is the Lancers and their new captain.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The ending has Tamsin vow to hunt Malley, who the briefing says is already dead. It ignores the real threat, the Lancers\u0027 new captain, and the scar and knife details are invented. The sudden self-cutting is confusing and melodramatic rather than restrained.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.553118,
+      "inputTokens": 1878,
+      "outputTokens": 595
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-16-late-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022citing an ambush near Gallowmere as justification\u0022,\u0022reason\u0022:\u0022The briefing does not say the Accord gave the ambush as its reason.\u0022},{\u0022span\u0022:\u0022though no new intelligence suggests they are returning to their operations\u0022,\u0022reason\u0022:\u0022Unsupported claim about intelligence and the Free Company\u0027s activity.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It copies the briefing\u0027s section headings and labels old news as such, which breaks character. It also recycles jokes from earlier bulletins (\u0027merchant issuing refunds\u0027, \u0027advised to be somewhere else\u0027) and adds unsupported claims about the Accord\u0027s reasoning and Dunmore\u0027s operations.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.7163834,
+      "inputTokens": 2317,
+      "outputTokens": 624
+    }
+  ]
+}

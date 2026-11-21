@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-07-mid-strained__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A clear, well-ordered bulletin that leads with the toll news, treats the wagon loss properly as background, and fills out with dry faction arithmetic. One small stretch: it places the wagon loss on the gorge road itself, where the briefing only says near the gorge. The callback to the envoys\u0027 scrolls also leans close to reusing the previous bulletin\u0027s image.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.3151862,
+      "inputTokens": 2301,
+      "outputTokens": 452
+    }
+  ]
+}

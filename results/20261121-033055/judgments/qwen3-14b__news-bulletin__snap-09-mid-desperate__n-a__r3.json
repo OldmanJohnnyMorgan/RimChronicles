@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-09-mid-desperate__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022local rumors suggest a mutiny or a visit from the Embertail Tribe\u0022,\u0022reason\u0022:\u0022Briefing gives no rumours or cause of death\u0022},{\u0022span\u0022:\u0022The Gray Wharf Syndicate has increased patrols near the coast\u0022,\u0022reason\u0022:\u0022Event not in briefing\u0022},{\u0022span\u0022:\u0022a conflict that has yet to produce any notable results\u0022,\u0022reason\u0022:\u0022Briefing gives no outcome of the war\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It breaks character by copying the briefing\u0027s section headings (\\\u0022News since your last bulletin:\\\u0022, \\\u0022Already reported:\\\u0022) into the bulletin, and it reads as flat summary rather than Odile\u0027s sardonic voice. It also invents rumours of a mutiny, new Syndicate patrols and the state of the war.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.0654824,
+      "inputTokens": 2273,
+      "outputTokens": 278
+    }
+  ]
+}

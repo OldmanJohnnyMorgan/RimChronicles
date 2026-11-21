@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-02-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022continues to expand its influence\u0022,\u0022reason\u0022:\u0022Briefing gives a settlement count, not any expansion.\u0022},{\u0022span\u0022:\u0022moved safely through the eastern ford\u0022,\u0022reason\u0022:\u0022Briefing says only that the caravan reached the ford; \u0027safely through\u0027 adds detail.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It opens with a copied \u0027News since your last bulletin:\u0027 heading, which breaks format, and the voice is generic wire-copy that loses Ilse\u0027s dry wit. It also embellishes the old caravan item and presents Glimmer Coast expansion that the briefing never states.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.5245502,
+      "inputTokens": 2392,
+      "outputTokens": 552
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "cell": "claude-ref__director__snap-14-mid-content__on__r2",
+  "model": "claude-ref",
+  "task": "director",
+  "snapshot": "snap-14-mid-content",
+  "grammar": "on",
+  "repeat": 2,
+  "promptVersion": "director/v1",
+  "outcome": "Model",
+  "value": "{\u0022choice\u0022:\u0022Complication:CorsairMessenger\u0022,\u0022reason\u0022:\u0022The colony is content with full stores, and Teague Holt\u0027s release six days ago sets up a Corsair response. A messenger is the natural next beat after the Hook, raising the question of Dagny\u0027s betrayal before any direct collection.\u0022}",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are the plot director for a story told through a RimWorld colony. You decide what happens next in the colony\u0027s plots.\n\nRules:\n- Choose exactly one option from the allowed list. Copy it exactly, character for character.\n- Choose \u0022Wait\u0022 if the colony is in crisis or the story needs a pause.\n- Prefer the option that follows most naturally from what has already happened.\n- Give a reason in one or two short sentences. Use only facts from the briefing.\n\nAnswer with JSON only, in this form:\n{\u0022choice\u0022: \u0022\u003Cone allowed option\u003E\u0022, \u0022reason\u0022: \u0022\u003Cone or two sentences\u003E\u0022}\n",
+        "user": "## The world\nDate: day 376 (Jugust 5506).\nColony: Quillmarsh, 11 people, wealth 167,000 silver, mood content.\n\nPeople:\n- Dagny (44); traits: Tough; backstory: Former pirate; recruited from the Brackwater Corsairs, whom she betrayed.\n- Ansel (38); traits: Kind, Hard worker; backstory: Farmer.\n- Pim (21); traits: Nimble; backstory: Thief.\n- Marguerite (59); traits: Ascetic; backstory: Priest; role: Moral guide.\n\nHistory:\n- Day 301: Ansel recruited Dagny.\n- Day 370: Quillmarsh released the prisoner Teague Holt.\n\nFactions:\n- Brackwater Corsairs (Pirates): goodwill -60, 3 settlements.\n- The Fernhollow League (Outlanders): goodwill \u002B50, 8 settlements.\n- Blue Antler Tribe (Tribe): goodwill \u002B40, 5 settlements.\n\nRecent events:\n- Released the prisoner Teague Holt day 370\n- Wedding feast for two colonists day 373\n- Stores full for the winter\n\n## Active plots\n- debt-01 (Old Debt): beat Hook, protagonist Dagny. Dagny betrayed the Brackwater Corsairs when she joined. The colony freed a Corsair prisoner, Teague Holt, on day 370; he left saying the Corsairs would remember the kindness, or the betrayal.\n\n## Allowed options\n- Wait\n- Complication:CorsairMessenger\n- Complication:CorsairsCollect\n\nChoose one allowed option.\n",
+        "maxOutputTokens": 300,
+        "useGrammar": true,
+        "thinking": "Off",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "choice": {
+              "type": "string",
+              "enum": [
+                "Wait",
+                "Complication:CorsairMessenger",
+                "Complication:CorsairsCollect"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "choice",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "ok": true,
+      "text": "{\u0022choice\u0022:\u0022Complication:CorsairMessenger\u0022,\u0022reason\u0022:\u0022The colony is content with full stores, and Teague Holt\u0027s release six days ago sets up a Corsair response. A messenger is the natural next beat after the Hook, raising the question of Dagny\u0027s betrayal before any direct collection.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.267156,
+      "inputTokens": 1015,
+      "outputTokens": 97,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022model\u0022:\u0022claude-opus-5-5\u0022,\u0022id\u0022:\u0022msg_011ChFPuRcDiFetDADe5FedN\u0022,\u0022type\u0022:\u0022message\u0022,\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:[{\u0022type\u0022:\u0022text\u0022,\u0022text\u0022:\u0022{\\u0022choice\\u0022:\\u0022Complication:CorsairMessenger\\u0022,\\u0022reason\\u0022:\\u0022The colony is content with full stores, and Teague Holt\\u0027s release six days ago sets up a Corsair response. A messenger is the natural next beat after the Hook, raising the question of Dagny\\u0027s betrayal before any direct collection.\\u0022}\u0022}],\u0022container\u0022:null,\u0022stop_reason\u0022:\u0022end_turn\u0022,\u0022stop_sequence\u0022:null,\u0022stop_details\u0022:null,\u0022usage\u0022:{\u0022input_tokens\u0022:1015,\u0022cache_creation_input_tokens\u0022:0,\u0022cache_read_input_tokens\u0022:0,\u0022cache_creation\u0022:{\u0022ephemeral_5m_input_tokens\u0022:0,\u0022ephemeral_1h_input_tokens\u0022:0},\u0022iterations\u0022:[{\u0022input_tokens\u0022:1015,\u0022output_tokens\u0022:97,\u0022cache_read_input_tokens\u0022:0,\u0022cache_creation_input_tokens\u0022:0,\u0022cache_creation\u0022:{\u0022ephemeral_5m_input_tokens\u0022:0,\u0022ephemeral_1h_input_tokens\u0022:0},\u0022type\u0022:\u0022message\u0022,\u0022model\u0022:null}],\u0022output_tokens\u0022:97,\u0022output_tokens_details\u0022:{\u0022thinking_tokens\u0022:0},\u0022service_tier\u0022:\u0022standard\u0022,\u0022inference_geo\u0022:\u0022global\u0022,\u0022speed\u0022:\u0022standard\u0022},\u0022diagnostics\u0022:null}"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-07-mid-strained__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022it is the same road where the Iron Covenant recently lost a supply wagon\u0022,\u0022reason\u0022:\u0022Briefing only says the wagon was lost near the gorge, not on the gorge road.\u0022}],\u0022voice\u0022:5,\u0022clarity\u0022:4,\u0022tone\u0022:5,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The voice is sharp and consistent, the old news is handled correctly as background, and the quiet-week filler is witty and grounded in the briefing. However, it places the wagon loss on the gorge road itself, a detail the briefing does not give, and the bulletin sits near the upper word limit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.6163735,
+      "inputTokens": 2347,
+      "outputTokens": 623
+    }
+  ]
+}

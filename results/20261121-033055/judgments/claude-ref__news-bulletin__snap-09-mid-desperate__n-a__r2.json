@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-09-mid-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:4,\u0022tone\u0022:5,\u0022overall\u0022:5,\u0022comment\u0022:\u0022Accurate and sardonic throughout. It leads with Malley\u0027s death without padding it with details the briefing lacks, and it treats the war correctly as background. The only weakness is the slightly clumsy phrasing of \u0027arithmetic the Tribe chose to declare war against anyway\u0027.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.5572826,
+      "inputTokens": 2305,
+      "outputTokens": 385
+    }
+  ]
+}

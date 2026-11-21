@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-11-mid-content__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It\u2019s the first time the two factions have shared a meal since the Compact\u2019s arrival.\u0022,\u0022reason\u0022:\u0022The briefing gives no history of shared meals and no \u0027arrival\u0027 of the Compact.\u0022},{\u0022span\u0022:\u0022with the Compact\u2019s prize money still unclaimed\u0022,\u0022reason\u0022:\u0022The briefing does not say whether any prizes have been claimed.\u0022},{\u0022span\u0022:\u0022No blood was spilled\u0022,\u0022reason\u0022:\u0022Adds a detail about how the feast went that the briefing does not give.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It copies the briefing\u0027s section headings into the bulletin and restates old news as its own section, which breaks character and the format. It also invents a first-ever-meal history and unclaimed prize money.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.5736502,
+      "inputTokens": 2235,
+      "outputTokens": 593
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-19-late-desperate__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022in the middle of Aprimay\u0022,\u0022reason\u0022:\u0022The briefing gives only day 911 and Aprimay 5515, not where in the quadrum the date falls.\u0022}],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:3,\u0022comment\u0022:\u0022A sharp, sardonic bulletin that leads correctly with the siege and treats Fenwick as background; lines like \u0027not a contest so much as an inventory\u0027 are excellent. The unsupported \u0027middle of Aprimay\u0027 detail caps the overall score.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 8.0859669,
+      "inputTokens": 2342,
+      "outputTokens": 735
+    }
+  ]
+}

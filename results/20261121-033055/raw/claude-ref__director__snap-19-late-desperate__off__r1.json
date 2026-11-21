@@ -1,0 +1,53 @@
+{
+  "cell": "claude-ref__director__snap-19-late-desperate__off__r1",
+  "model": "claude-ref",
+  "task": "director",
+  "snapshot": "snap-19-late-desperate",
+  "grammar": "off",
+  "repeat": 1,
+  "promptVersion": "director/v1",
+  "outcome": "Model",
+  "value": "{\u0022choice\u0022: \u0022Wait\u0022, \u0022reason\u0022: \u0022Last Lantern is in crisis after the day 906 raid: two colonists are dead, steel is nearly gone, and mood is desperate. Ysolde has not slept in two days, so the story needs a pause before the Sun Throne strikes again.\u0022}",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are the plot director for a story told through a RimWorld colony. You decide what happens next in the colony\u0027s plots.\n\nRules:\n- Choose exactly one option from the allowed list. Copy it exactly, character for character.\n- Choose \u0022Wait\u0022 if the colony is in crisis or the story needs a pause.\n- Prefer the option that follows most naturally from what has already happened.\n- Give a reason in one or two short sentences. Use only facts from the briefing.\n\nAnswer with JSON only, in this form:\n{\u0022choice\u0022: \u0022\u003Cone allowed option\u003E\u0022, \u0022reason\u0022: \u0022\u003Cone or two sentences\u003E\u0022}\n",
+        "user": "## The world\nDate: day 911 (Aprimay 5515).\nColony: Last Lantern, 15 people, wealth 520,000 silver, mood desperate.\n\nPeople:\n- Ysolde (46); traits: Steadfast, Careful shooter; backstory: Rebel commander; role: Leader.\n- Bram (38); traits: Tough; backstory: Mercenary.\n- Hesper (31); traits: Too smart; backstory: Engineer.\n- Jory (27); traits: Kind; backstory: Doctor.\n\nHistory:\n- Day 840: The Sun Throne conquered Calder Mill.\n- Day 872: The Sun Throne razed Fenwick.\n- Day 906: Last Lantern repelled a raid by Imperial legionaries.\n\nFactions:\n- The Sun Throne (Empire): goodwill -100, 14 settlements, at war with The Marrow League and Last Lantern, Empire state: Awakened.\n- The Marrow League (Outlanders): goodwill \u002B65, 3 settlements, at war with The Sun Throne.\n- Starling Tribe (Tribe): goodwill \u002B45, 4 settlements.\n\nRecent events:\n- Imperial legionaries repelled day 906, two colonists dead\n- Steel nearly gone\n- Ysolde has not slept in two days\n\n## Active plots\n- empire-03 (Awakened Empire): beat Act2, protagonist Last Lantern. The Sun Throne has taken Calder Mill and razed Fenwick. Last Lantern leads a coalition with the Marrow League. Legionaries attacked on day 906 and were driven off with heavy losses on both sides.\n\n## Allowed options\n- Wait\n- Empire:Expand:Marrow Hold\n- Empire:SiegeColony\n- Quest:DefendAlly:Marrow Hold\n\nChoose one allowed option.\n",
+        "maxOutputTokens": 300,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "choice": {
+              "type": "string",
+              "enum": [
+                "Wait",
+                "Empire:Expand:Marrow Hold",
+                "Empire:SiegeColony",
+                "Quest:DefendAlly:Marrow Hold"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "choice",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "ok": true,
+      "text": "{\u0022choice\u0022: \u0022Wait\u0022, \u0022reason\u0022: \u0022Last Lantern is in crisis after the day 906 raid: two colonists are dead, steel is nearly gone, and mood is desperate. Ysolde has not slept in two days, so the story needs a pause before the Sun Throne strikes again.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 1.6698795,
+      "inputTokens": 819,
+      "outputTokens": 146,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022model\u0022:\u0022claude-opus-5-5\u0022,\u0022id\u0022:\u0022msg_011ChFPvgdPjepfUAvrNPj3S\u0022,\u0022type\u0022:\u0022message\u0022,\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:[{\u0022type\u0022:\u0022thinking\u0022,\u0022thinking\u0022:\u0022\u0022,\u0022signature\u0022:\u0022CAQS4gUKEAgUGAI4AUIIdGhpbmtpbmcSDCKaOgzdD1kpX3eIBhoM8na1pzde4B3qBBDJIjCEYpat35C3ExTdkJNkcmDSrlDsBsNQycRlIw/gmXAPIkCLYekntSMMuHFNxOHYeLgq/wTPUIP\\u002Bvz9tvi5XZvj0anSP4HUG3j\\u002BRy35tYmYcvRu1idDrfZXswYP6XTiRoMjaoha6OXn\\u002B/0ZK65WcEIXdGdBwAFAcXLy\\u002BMx7TMzc4hiIrzF5p8jE4YqtXRqWWWrAysSuQG1z5OYXThxgriYRI7ichw7GRFv6n88/ST79BhJxyjNhcCwQktRjFv8C\\u002BwpdSXJFdl\\u002BscyeMzf5cFkNh2m01QH8/4zSvI5ZHl/C10G7MRXaadtiFf67/u32\\u002BjmepemzHQxaoHb6xZBz7F609TwiREAajWw8qqsOYZSAFmSnRjPvIyTzfIJDk9mFFTMAg7MWuUvYZ/4UsL9AnQPTvmLfmdzwOp1mLPNOtqieyCBQRvtruKcWGAra5b13QKJYrNkjIWtU6NZYL6AI73HzrqkdI9wMjKTLRuB2uXQXJmMnlKsx7nudP\\u002Beo\\u002BBMn4VbDt6Scf82rN33mSzF7mTso/EOImxwV8HFUZ\\u002BHrbZpV\\u002Bx5HI\\u002Bpg3jCGldFV20YcLLlLCEj\\u002BeBX9T916MGQ3N8itMNrAHKX7qlFPxKcRNpIvhSU5S1NeV7Ta9T7bbuKmraBMhp5w6RxHnl/UcT2TfB3VuXKI8KMPqeTWx/si61C/Mwa8Dq3ALg2\\u002BAMr9dmiYbQT\\u002BPyg56C2uKhDXFK\\u002BrcbgBd\\u002Bbv5cmkR4rf5xqOJjqUdlQxxoCBjq8hC6XyLIlV\\u002BKpEXJMJ1auHNhWNm/5stq\\u002B9R8\\u002BZ1kDnURmpl6m\\u002Bha41joIusM3X9Wjh2t7Zw4Ub3rE85bd7zKPdZuxN3h9/78vDDBXwNb55B8HGRiTpu9Wz0C9PvfoUMTzzDLBBhNhDiDJ/56R4srq5DE\\u002BSah4VbT3DsXV0QYAQ==\u0022},{\u0022type\u0022:\u0022text\u0022,\u0022text\u0022:\u0022{\\u0022choice\\u0022: \\u0022Wait\\u0022, \\u0022reason\\u0022: \\u0022Last Lantern is in crisis after the day 906 raid: two colonists are dead, steel is nearly gone, and mood is desperate. Ysolde has not slept in two days, so the story needs a pause before the Sun Throne strikes again.\\u0022}\u0022}],\u0022container\u0022:null,\u0022stop_reason\u0022:\u0022end_turn\u0022,\u0022stop_sequence\u0022:null,\u0022stop_details\u0022:null,\u0022usage\u0022:{\u0022input_tokens\u0022:819,\u0022cache_creation_input_tokens\u0022:0,\u0022cache_read_input_tokens\u0022:0,\u0022cache_creation\u0022:{\u0022ephemeral_5m_input_tokens\u0022:0,\u0022ephemeral_1h_input_tokens\u0022:0},\u0022iterations\u0022:[{\u0022input_tokens\u0022:819,\u0022output_tokens\u0022:146,\u0022cache_read_input_tokens\u0022:0,\u0022cache_creation_input_tokens\u0022:0,\u0022cache_creation\u0022:{\u0022ephemeral_5m_input_tokens\u0022:0,\u0022ephemeral_1h_input_tokens\u0022:0},\u0022type\u0022:\u0022message\u0022,\u0022model\u0022:null}],\u0022output_tokens\u0022:146,\u0022output_tokens_details\u0022:{\u0022thinking_tokens\u0022:49},\u0022service_tier\u0022:\u0022standard\u0022,\u0022inference_geo\u0022:\u0022global\u0022,\u0022speed\u0022:\u0022standard\u0022},\u0022diagnostics\u0022:null}"
+    }
+  ]
+}

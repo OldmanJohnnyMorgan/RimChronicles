@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__inheritance-handoff__snap-16-late-desperate__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the empty spot where Bertram stood moments ago\u0022,\u0022reason\u0022:\u0022Bertram died in an ambush on a hunt; the briefing doesn\u0027t place him at camp moments before.\u0022},{\u0022span\u0022:\u0022places a cold hand over his own\u0022,\u0022reason\u0022:\u0022Implies Bertram\u0027s body is present, which the briefing never says (only Rook came home).\u0022},{\u0022span\u0022:\u0022a habit born from years of holding onto his shoulder\u0022,\u0022reason\u0022:\u0022Invented personal history between them.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The scene contradicts the briefing by putting Bertram at camp, then confuses whether Kael or Bertram is being addressed. It names emotion (\u0027unshed tears\u0027), runs over the word limit, and ends on a vague threat instead of a clear vow to hunt Dunmore.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.3473035,
+      "inputTokens": 1936,
+      "outputTokens": 623
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-13-mid-strained__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022their latest robbery has now sparked a frantic search for an explanation from the caravan owners\u0022,\u0022reason\u0022:\u0022The briefing has no owners\u0027 search or reaction; this extends the writer\u0027s own earlier joke into a new event.\u0022},{\u0022span\u0022:\u0022The Rustback Raiders continue to cause trouble on the old highway\u0022,\u0022reason\u0022:\u0022The briefing gives one past caravan raid, not ongoing trouble; this presents old news as continuing.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It breaks character by copying the briefing\u0027s section labels (\u0027News since your last bulletin:\u0027, \u0027Already reported...\u0027) into the bulletin and by citing the date like a briefing. It also reuses earlier jokes (boots, the caravan owners\u0027 explanation) and gives the old raid a whole item as if it were current.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.1339357,
+      "inputTokens": 2361,
+      "outputTokens": 569
+    }
+  ]
+}

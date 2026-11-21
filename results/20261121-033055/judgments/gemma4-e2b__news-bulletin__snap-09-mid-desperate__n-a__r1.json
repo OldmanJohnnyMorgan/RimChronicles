@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The current tally of settlements remains unchanged.\u0022,\u0022reason\u0022:\u0022Briefing gives current counts but no information about whether they changed.\u0022},{\u0022span\u0022:\u0022This settles the matter of the Lancers\u0027 immediate activity around Cinder Rest.\u0022,\u0022reason\u0022:\u0022Briefing says nothing about what the Lancers are doing after Malley\u0027s death.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It opens with a heading copied from the briefing, which breaks the no-title rule. It also runs under 80 words, the prose is flat and bureaucratic rather than sardonic, and calling a week with a pirate captain\u0027s death \u0027quiet\u0027 contradicts its own lead.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.7613635,
+      "inputTokens": 2251,
+      "outputTokens": 601
+    }
+  ]
+}

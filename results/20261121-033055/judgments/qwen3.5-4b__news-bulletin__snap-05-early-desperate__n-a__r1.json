@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022a disaster the clans are now ignoring in favor of internal barter\u0022,\u0022reason\u0022:\u0022Briefing gives no motive or detail about internal barter; it only says the markets closed.\u0022},{\u0022span\u0022:\u0022the Ferrow Mutual has finally stopped asking who is paying for patrols\u0022,\u0022reason\u0022:\u0022Invented development; the briefing reports no change in the Ferrow Mutual\u0027s position.\u0022},{\u0022span\u0022:\u0022While Scythe Tooth continues its raids\u0022,\u0022reason\u0022:\u0022The raids are old news; the briefing does not say they are continuing.\u0022},{\u0022span\u0022:\u0022leaving traders with no place to sell their grain or buy furs\u0022,\u0022reason\u0022:\u0022Adds consequences to the market closure that the briefing does not give.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It copies the briefing\u0027s section headings into the bulletin, which breaks character, and it presents old news as ongoing. It also invents a Ferrow Mutual development and reuses the earlier \u0027who is paying\u0027 joke.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.9028039,
+      "inputTokens": 2229,
+      "outputTokens": 681
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022This is a dry, consistent quiet-week bulletin that keeps to the briefing and treats the raid and the paired caravans properly as background. The faction-count joke is muddled, though: seven of fourteen settlements is half, not a majority. Opening on the date also comes close to the dateline the task forbids.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.6909549,
+      "inputTokens": 2350,
+      "outputTokens": 389
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-07-mid-strained__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022has imposed tolls on the gorge road\u0022,\u0022reason\u0022:\u0022Briefing says tolls were demanded, not imposed.\u0022},{\u0022span\u0022:\u0022threatens to choke the trade routes leading to the Iron Covenant outposts\u0022,\u0022reason\u0022:\u0022Adds unsupported consequence for Covenant trade routes.\u0022},{\u0022span\u0022:\u0022Vex\u0027s Crew remains idle in their two settlements, merely waiting for an opportunity to strike\u0022,\u0022reason\u0022:\u0022Briefing gives no information on Vex\u0027s Crew activity or intent.\u0022},{\u0022span\u0022:\u0022last week\u0022,\u0022reason\u0022:\u0022Invented timing for the wagon loss.\u0022},{\u0022span\u0022:\u0022their complaints about the tolls have grown louder since then\u0022,\u0022reason\u0022:\u0022No Covenant reaction to the tolls is in the briefing.\u0022},{\u0022span\u0022:\u0022carrying scrolls that contained no specific demands other than general respect for the Empire\u0027s authority\u0022,\u0022reason\u0022:\u0022Invents scroll contents, which earlier bulletin said were unknown.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It breaks format by copying the briefing\u0027s section headings into the bulletin, and it invents several details, including the scroll contents and the Covenant\u0027s toll complaints. It has none of Ilse\u0027s dry, wry voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.4692603,
+      "inputTokens": 2294,
+      "outputTokens": 409
+    }
+  ]
+}

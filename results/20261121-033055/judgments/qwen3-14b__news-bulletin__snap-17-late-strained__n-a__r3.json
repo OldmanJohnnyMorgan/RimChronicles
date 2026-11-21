@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-17-late-strained__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Shattered Empire has quietly absorbed another settlement\u0022,\u0022reason\u0022:\u0022Briefing says no new news; no new settlement taken.\u0022},{\u0022span\u0022:\u0022Rumors suggest it\u2019s one of the Kestrel Tribe\u2019s outposts\u0022,\u0022reason\u0022:\u0022No event involving Kestrel Tribe in briefing.\u0022},{\u0022span\u0022:\u0022The Ashford Compact has begun reinforcing their borders, with supply wagons seen heading toward Harlow Ford\u0022,\u0022reason\u0022:\u0022New event and detail added to old Harlow Ford news.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The briefing says nothing new happened, yet the output invents a new settlement capture and supply wagons at Harlow Ford. It also leaves the section headings in and has little of Ilse\u0027s wry voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.7111624,
+      "inputTokens": 2329,
+      "outputTokens": 279
+    }
+  ]
+}

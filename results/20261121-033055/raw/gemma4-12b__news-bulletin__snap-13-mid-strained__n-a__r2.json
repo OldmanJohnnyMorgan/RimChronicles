@@ -1,0 +1,55 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-13-mid-strained__n-a__r2",
+  "model": "gemma4-12b",
+  "task": "news-bulletin",
+  "snapshot": "snap-13-mid-strained",
+  "grammar": "n/a",
+  "repeat": 2,
+  "promptVersion": "news-bulletin/v2",
+  "outcome": "Template",
+  "value": "(template)",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.\n\nWrite your next news bulletin.\n\nWhat to write:\n- 2 or 3 short news items, most important first, separated by a blank line.\n- Each item is 2 to 4 sentences. The whole bulletin is 80 to 150 words.\n- Lead with the items under \u0022News since your last bulletin\u0022.\n- Items under \u0022Already reported\u0022 are old news. You may mention them briefly as background, but never present them as new or happening again.\n- If there is little new news, fill the remaining items with dry comment on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.\n\nWhat you know:\n- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events, and never add details to an event that the briefing does not give.\n- You do not know what happens inside the colony unless your briefing says it became public.\n\nStyle:\n- Keep your voice the same as in your earlier bulletins, but do not reuse their jokes or sentences.\n- Write only the bulletin itself: no title, no dateline, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 254 (Aprimay 5504).\nThe colony you report near: Stonewake. You do not know what happens inside it unless listed below.\n\nFactions:\n- The Sun Throne (Empire): 6 settlements, sending envoys and making demands of its neighbours\n- The Cobalt Free Towns (Outlanders): 7 settlements\n- Rustback Raiders (Pirates): 3 settlements\n\nNews since your last bulletin:\n- Two Cobalt Free Towns refused to pay the Sun Throne\u0027s tribute\n\nAlready reported in your earlier bulletins (background only, not news):\n- The Sun Throne demanded tribute from the Cobalt Free Towns\n- Rustback Raiders hit a caravan on the old highway\n- The Sun Throne is demanding tribute from the Cobalt Free Towns\n\n## Your earlier bulletins\nEarlier bulletin:\nThe Sun Throne has remembered that it exists. Its envoys are touring the Cobalt Free Towns with demands for tribute and very good boots.\n\nLatest bulletin:\nRustback Raiders robbed a caravan on the old highway. The caravan\u0027s owners are offering a reward for its return and a larger reward for an explanation of what their guards were doing.\n\nWrite the bulletin now.\n",
+        "maxOutputTokens": 500,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "News since your last bulletin:\nTwo Cobalt Free Towns have officially refused to pay the Sun Throne\u0027s tribute. It seems the Empire\u0027s demands are meeting a wall of stubbornness rather than a full purse.\n\nAlready reported:\nThe Sun Throne continues its campaign of demanding tribute from the Cobalt Free Towns. Meanwhile, the Rustback Raiders remain a nuisance on the old highway.\n\nIt is day 254 of Aprimay 5504. The Sun Throne still commands six settlements, while the Cobalt Free Towns hold seven. The Rustback Raiders maintain their three settlements, watching the tension between the others.",
+      "error": null,
+      "failures": [
+        "Write only the in-world text, without phrases like: \u0022bulletin:\u0022"
+      ],
+      "latencySeconds": 1.7938084,
+      "inputTokens": 568,
+      "outputTokens": 128,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-990\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795232633,\u0022model\u0022:\u0022gemma4:12b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022News since your last bulletin:\\nTwo Cobalt Free Towns have officially refused to pay the Sun Throne\u0027s tribute. It seems the Empire\u0027s demands are meeting a wall of stubbornness rather than a full purse.\\n\\nAlready reported:\\nThe Sun Throne continues its campaign of demanding tribute from the Cobalt Free Towns. Meanwhile, the Rustback Raiders remain a nuisance on the old highway.\\n\\nIt is day 254 of Aprimay 5504. The Sun Throne still commands six settlements, while the Cobalt Free Towns hold seven. The Rustback Raiders maintain their three settlements, watching the tension between the others.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:568,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:128,\u0022total_tokens\u0022:696}}\n"
+    },
+    {
+      "request": {
+        "system": "You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.\n\nWrite your next news bulletin.\n\nWhat to write:\n- 2 or 3 short news items, most important first, separated by a blank line.\n- Each item is 2 to 4 sentences. The whole bulletin is 80 to 150 words.\n- Lead with the items under \u0022News since your last bulletin\u0022.\n- Items under \u0022Already reported\u0022 are old news. You may mention them briefly as background, but never present them as new or happening again.\n- If there is little new news, fill the remaining items with dry comment on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.\n\nWhat you know:\n- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events, and never add details to an event that the briefing does not give.\n- You do not know what happens inside the colony unless your briefing says it became public.\n\nStyle:\n- Keep your voice the same as in your earlier bulletins, but do not reuse their jokes or sentences.\n- Write only the bulletin itself: no title, no dateline, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 254 (Aprimay 5504).\nThe colony you report near: Stonewake. You do not know what happens inside it unless listed below.\n\nFactions:\n- The Sun Throne (Empire): 6 settlements, sending envoys and making demands of its neighbours\n- The Cobalt Free Towns (Outlanders): 7 settlements\n- Rustback Raiders (Pirates): 3 settlements\n\nNews since your last bulletin:\n- Two Cobalt Free Towns refused to pay the Sun Throne\u0027s tribute\n\nAlready reported in your earlier bulletins (background only, not news):\n- The Sun Throne demanded tribute from the Cobalt Free Towns\n- Rustback Raiders hit a caravan on the old highway\n- The Sun Throne is demanding tribute from the Cobalt Free Towns\n\n## Your earlier bulletins\nEarlier bulletin:\nThe Sun Throne has remembered that it exists. Its envoys are touring the Cobalt Free Towns with demands for tribute and very good boots.\n\nLatest bulletin:\nRustback Raiders robbed a caravan on the old highway. The caravan\u0027s owners are offering a reward for its return and a larger reward for an explanation of what their guards were doing.\n\nWrite the bulletin now.\n\n\nYour previous answer was rejected:\n- Write only the in-world text, without phrases like: \u0022bulletin:\u0022\nAnswer again, following every rule.",
+        "maxOutputTokens": 500,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "News since your last bulletin:\n\nTwo Cobalt Free Towns have decided that the Sun Throne\u2019s tribute demands are not worth the effort of paying. It is a bold move, though I suspect the Empire won\u0027t appreciate the lack of cooperation.\n\nThe Sun Throne continues its campaign of making demands across the rim. They are currently exerting pressure on the Cobalt Free Towns to provide tribute.\n\nThe Rustback Raiders remain a nuisance, having already hit a caravan on the old highway. It is a quiet week for the rim, save for the growing friction between the Empire and the Outlanders.",
+      "error": null,
+      "failures": [
+        "Write only the in-world text, without phrases like: \u0022bulletin:\u0022"
+      ],
+      "latencySeconds": 1.7148884,
+      "inputTokens": 601,
+      "outputTokens": 119,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-574\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795232635,\u0022model\u0022:\u0022gemma4:12b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022News since your last bulletin:\\n\\nTwo Cobalt Free Towns have decided that the Sun Throne\u2019s tribute demands are not worth the effort of paying. It is a bold move, though I suspect the Empire won\u0027t appreciate the lack of cooperation.\\n\\nThe Sun Throne continues its campaign of making demands across the rim. They are currently exerting pressure on the Cobalt Free Towns to provide tribute.\\n\\nThe Rustback Raiders remain a nuisance, having already hit a caravan on the old highway. It is a quiet week for the rim, save for the growing friction between the Empire and the Outlanders.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:601,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:119,\u0022total_tokens\u0022:720}}\n"
+    }
+  ]
+}

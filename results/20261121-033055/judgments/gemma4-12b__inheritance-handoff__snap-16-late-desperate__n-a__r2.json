@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__inheritance-handoff__snap-16-late-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022her hand closing around the notched hilt of his blade\u0022,\u0022reason\u0022:\u0022The briefing mentions no blade or pack.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The scene is clear, within length, and ends correctly on Elske\u0027s resolve to finish the hunt, but it leans on stock phrasing (\\\u0022suffocating\\\u0022 silence, \\\u0022jaw set in a hard line\\\u0022). It also invents a keepsake blade and stages Elske at the body with Rook, when the briefing says Rook came home alone.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.1837426,
+      "inputTokens": 1903,
+      "outputTokens": 495
+    }
+  ]
+}

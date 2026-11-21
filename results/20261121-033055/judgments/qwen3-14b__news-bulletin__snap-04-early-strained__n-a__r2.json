@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-04-early-strained__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Last seen near Lowmere\u0022,\u0022reason\u0022:\u0022The briefing never says where Tomas Quell was last seen.\u0022},{\u0022span\u0022:\u0022citing security risks and a lack of reliable sources in the area\u0022,\u0022reason\u0022:\u0022The briefing gives no reason for the Dispatch\u0027s decision.\u0022},{\u0022span\u0022:\u0022disrupting trade\u0022,\u0022reason\u0022:\u0022Adds a consequence of the ferry burning that the briefing does not give.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It opens with a copied heading, which breaks character, and it is flat wire-service prose with none of the dry, wry persona. It invents where Quell was last seen and why the Dispatch withdrew, and it reports the Lowmere withdrawal twice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.9857296,
+      "inputTokens": 2103,
+      "outputTokens": 489
+    }
+  ]
+}

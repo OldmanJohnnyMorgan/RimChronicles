@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-18-late-desperate__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The bulletin is accurate and well ordered, with a fitting earnest, worried voice that leads with the lost caravan and treats the old news properly as background. The faction-count filler is a bit flat, and \\\u0022people who cannot leave\\\u0022 echoes a phrase from the earlier bulletin.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.695453,
+      "inputTokens": 2328,
+      "outputTokens": 700
+    }
+  ]
+}

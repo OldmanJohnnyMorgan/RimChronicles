@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-01-early-content__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Six of the seven settlements under Tarn Union control\u0022,\u0022reason\u0022:\u0022Briefing gives the Tarn Union 6 settlements, not seven.\u0022},{\u0022span\u0022:\u0022are located along the river road, leaving only one isolated from trade\u0022,\u0022reason\u0022:\u0022Settlement locations are not in the briefing.\u0022},{\u0022span\u0022:\u0022three scattered locations deep within the mountain passes\u0022,\u0022reason\u0022:\u0022Raider locations and mountain passes are invented.\u0022},{\u0022span\u0022:\u0022maintain a defensive perimeter around their four main villages in the central highlands\u0022,\u0022reason\u0022:\u0022The perimeter and the central highlands location are invented.\u0022},{\u0022span\u0022:\u0022will likely cause delays in transport routes for both the Tribe and the Raiders\u0022,\u0022reason\u0022:\u0022Adds consequences to the forecast that the briefing does not give.\u0022},{\u0022span\u0022:\u0022marking another attempt to integrate the Outlanders into the Rim economy\u0022,\u0022reason\u0022:\u0022Implies earlier attempts that the briefing does not mention.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It copies the briefing\u0027s section headings into the bulletin, presents faction background as \u0027Already reported\u0027 when this is the first bulletin, and invents locations and a wrong settlement count. The prose is flat and report-like, with none of the dry, wry voice the persona calls for.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.6503721,
+      "inputTokens": 2101,
+      "outputTokens": 691
+    }
+  ]
+}

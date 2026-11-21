@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-03-early-strained__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022It handles a quiet week well, using only briefing facts and treating old news as background, with a dry closing line about the arithmetic. The opening leans heavily on repeated \u0027nobody\u0027 and reads close to a dateline, and the barred-doors advice is a little generic.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.0338461,
+      "inputTokens": 2331,
+      "outputTokens": 385
+    }
+  ]
+}

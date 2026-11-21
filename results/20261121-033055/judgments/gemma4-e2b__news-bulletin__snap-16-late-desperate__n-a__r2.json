@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-16-late-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Dunmore\u0027s Free Company continues its movements between its two settlements.\u0022,\u0022reason\u0022:\u0022No movements of the Free Company are given in the briefing.\u0022},{\u0022span\u0022:\u0022a predictable pattern for this time of year\u0022,\u0022reason\u0022:\u0022The briefing does not say the heatwave is seasonal or recurring.\u0022},{\u0022span\u0022:\u0022The heatwave continues to affect the southern plain\u0022,\u0022reason\u0022:\u0022Says the old heatwave is still going; the briefing gives only the past report.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It opens with a heading copied from the briefing, which breaks character. The lead item just restates the two briefing lines one after the other, with no sardonic voice at all, and the filler items invent Free Company movements and a seasonal pattern for the heatwave.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.5144954,
+      "inputTokens": 2211,
+      "outputTokens": 460
+    }
+  ]
+}

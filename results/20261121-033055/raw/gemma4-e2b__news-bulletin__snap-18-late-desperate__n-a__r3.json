@@ -1,0 +1,55 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-18-late-desperate__n-a__r3",
+  "model": "gemma4-e2b",
+  "task": "news-bulletin",
+  "snapshot": "snap-18-late-desperate",
+  "grammar": "n/a",
+  "repeat": 3,
+  "promptVersion": "news-bulletin/v2",
+  "outcome": "Template",
+  "value": "(template)",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are Tomas Quell, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is earnest, plain-spoken and quick to worry.\n\nWrite your next news bulletin.\n\nWhat to write:\n- 2 or 3 short news items, most important first, separated by a blank line.\n- Each item is 2 to 4 sentences. The whole bulletin is 80 to 150 words.\n- Lead with the items under \u0022News since your last bulletin\u0022.\n- Items under \u0022Already reported\u0022 are old news. You may mention them briefly as background, but never present them as new or happening again.\n- If there is little new news, fill the remaining items with dry comment on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.\n\nWhat you know:\n- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events, and never add details to an event that the briefing does not give.\n- You do not know what happens inside the colony unless your briefing says it became public.\n\nStyle:\n- Keep your voice the same as in your earlier bulletins, but do not reuse their jokes or sentences.\n- Write only the bulletin itself: no title, no dateline, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 805 (Jugust 5513).\nThe colony you report near: Wren\u0027s Hollow. You do not know what happens inside it unless listed below.\n\nFactions:\n- The Thistle Commonwealth (Outlanders): 6 settlements\n- The Wailing Moth Tribe (Tribe): 5 settlements\n- Harrow Teeth (Pirates): 4 settlements\n\nNews since your last bulletin:\n- A Wren\u0027s Hollow caravan was lost in a blizzard near the Wailing Moth villages\n\nAlready reported in your earlier bulletins (background only, not news):\n- A blizzard has closed the passes to the Wailing Moth villages\n- Harrow Teeth raiders are robbing stranded travellers\n\n## Your earlier bulletins\nEarlier bulletin:\nThe passes are closed. The blizzard that hit the Wailing Moth country last week shows no sign of leaving, and Harrow Teeth raiders are making the most of travellers who cannot leave either.\n\nLatest bulletin:\nThe Thistle Commonwealth has opened its granaries to anyone who can reach them. The catch, as always on the rim, is reaching them.\n\nWrite the bulletin now.\n",
+        "maxOutputTokens": 350,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "News since your last bulletin\n\nA caravan traveling through Wren\u0027s Hollow was lost in a blizzard near the Wailing Moth villages. This loss adds to the difficulties faced by travelers in the region.\n\nThe Thistle Commonwealth continues to offer access to their granaries. Getting to these supplies remains a major challenge for those in the area.\n\nThe Harrow Teeth pirates are still active, taking advantage of stranded travellers. This is a constant worry for anyone moving through the territories.",
+      "error": null,
+      "failures": [
+        "Use 80-150 words; this has 79"
+      ],
+      "latencySeconds": 0.6066985,
+      "inputTokens": 552,
+      "outputTokens": 95,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-342\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795232068,\u0022model\u0022:\u0022gemma4:e2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022News since your last bulletin\\n\\nA caravan traveling through Wren\u0027s Hollow was lost in a blizzard near the Wailing Moth villages. This loss adds to the difficulties faced by travelers in the region.\\n\\nThe Thistle Commonwealth continues to offer access to their granaries. Getting to these supplies remains a major challenge for those in the area.\\n\\nThe Harrow Teeth pirates are still active, taking advantage of stranded travellers. This is a constant worry for anyone moving through the territories.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:552,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:547},\u0022completion_tokens\u0022:95,\u0022total_tokens\u0022:647}}\n"
+    },
+    {
+      "request": {
+        "system": "You are Tomas Quell, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is earnest, plain-spoken and quick to worry.\n\nWrite your next news bulletin.\n\nWhat to write:\n- 2 or 3 short news items, most important first, separated by a blank line.\n- Each item is 2 to 4 sentences. The whole bulletin is 80 to 150 words.\n- Lead with the items under \u0022News since your last bulletin\u0022.\n- Items under \u0022Already reported\u0022 are old news. You may mention them briefly as background, but never present them as new or happening again.\n- If there is little new news, fill the remaining items with dry comment on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.\n\nWhat you know:\n- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events, and never add details to an event that the briefing does not give.\n- You do not know what happens inside the colony unless your briefing says it became public.\n\nStyle:\n- Keep your voice the same as in your earlier bulletins, but do not reuse their jokes or sentences.\n- Write only the bulletin itself: no title, no dateline, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 805 (Jugust 5513).\nThe colony you report near: Wren\u0027s Hollow. You do not know what happens inside it unless listed below.\n\nFactions:\n- The Thistle Commonwealth (Outlanders): 6 settlements\n- The Wailing Moth Tribe (Tribe): 5 settlements\n- Harrow Teeth (Pirates): 4 settlements\n\nNews since your last bulletin:\n- A Wren\u0027s Hollow caravan was lost in a blizzard near the Wailing Moth villages\n\nAlready reported in your earlier bulletins (background only, not news):\n- A blizzard has closed the passes to the Wailing Moth villages\n- Harrow Teeth raiders are robbing stranded travellers\n\n## Your earlier bulletins\nEarlier bulletin:\nThe passes are closed. The blizzard that hit the Wailing Moth country last week shows no sign of leaving, and Harrow Teeth raiders are making the most of travellers who cannot leave either.\n\nLatest bulletin:\nThe Thistle Commonwealth has opened its granaries to anyone who can reach them. The catch, as always on the rim, is reaching them.\n\nWrite the bulletin now.\n\n\nYour previous answer was rejected:\n- Use 80-150 words; this has 79\nAnswer again, following every rule.",
+        "maxOutputTokens": 350,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "News since your last bulletin\n\nA caravan traveling through Wren\u0027s Hollow was lost in a blizzard near the Wailing Moth villages. This loss adds to the difficulties facing travelers in the region.\n\nHarrow Teeth raiders continue their activities, taking advantage of stranded travellers. This is a recurring problem as the harsh weather limits movement.\n\nThe Thistle Commonwealth remains open with its granaries, though reaching them remains a challenge for many.",
+      "error": null,
+      "failures": [
+        "Use 80-150 words; this has 70"
+      ],
+      "latencySeconds": 0.5426455,
+      "inputTokens": 584,
+      "outputTokens": 88,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-376\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795232068,\u0022model\u0022:\u0022gemma4:e2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022News since your last bulletin\\n\\nA caravan traveling through Wren\u0027s Hollow was lost in a blizzard near the Wailing Moth villages. This loss adds to the difficulties facing travelers in the region.\\n\\nHarrow Teeth raiders continue their activities, taking advantage of stranded travellers. This is a recurring problem as the harsh weather limits movement.\\n\\nThe Thistle Commonwealth remains open with its granaries, though reaching them remains a challenge for many.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:584,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:547},\u0022completion_tokens\u0022:88,\u0022total_tokens\u0022:672}}\n"
+    }
+  ]
+}

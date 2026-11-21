@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-01-early-content__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The output copies the briefing\u0027s section labels (\\\u0022News since your last bulletin:\\\u0022, \\\u0022Already reported:\\\u0022) as headings, which breaks character and the no-headings rule, and it wrongly files the faction tally as already reported in a first bulletin. The dry asides are serviceable, but the two news items are crammed into one paragraph.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.8689965,
+      "inputTokens": 2063,
+      "outputTokens": 330
+    }
+  ]
+}

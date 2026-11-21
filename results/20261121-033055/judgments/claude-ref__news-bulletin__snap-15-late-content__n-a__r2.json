@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-15-late-content__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The bulletin is accurate and well judged. It leads with the Leopold news, uses the faction counts correctly (the five-to-one is right), and treats the new speaker only as background. The closing item on the quiet week is a little generic next to the sharp Leopold joke.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.4318827,
+      "inputTokens": 2319,
+      "outputTokens": 683
+    }
+  ]
+}

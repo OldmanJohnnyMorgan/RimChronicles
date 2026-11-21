@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-16-late-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:5,\u0022comment\u0022:\u0022A sharp, accurate bulletin that leads with the bounty and fills the rest with dry, well-judged comment on faction sizes and old news, without inventing a sum or other detail. The voice is sardonic and consistent, and it reuses none of the earlier jokes.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.8438922,
+      "inputTokens": 2312,
+      "outputTokens": 436
+    }
+  ]
+}

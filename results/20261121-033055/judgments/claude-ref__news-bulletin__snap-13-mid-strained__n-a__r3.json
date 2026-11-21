@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-13-mid-strained__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Throne has not said what it plans to do next\u0022,\u0022reason\u0022:\u0022Briefing gives no information on the Throne\u0027s response or silence.\u0022}],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:3,\u0022comment\u0022:\u0022A sharp, dry bulletin with fresh jokes, the new refusal correctly in the lead, and the raid kept as background. It asserts the Throne has made no statement about its next move, which the briefing does not support, and that caps the overall score.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.9630527,
+      "inputTokens": 2338,
+      "outputTokens": 537
+    }
+  ]
+}

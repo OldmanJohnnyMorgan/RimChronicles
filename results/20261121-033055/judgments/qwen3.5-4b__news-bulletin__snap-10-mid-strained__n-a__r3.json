@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-10-mid-strained__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022their own raiders are currently holding Ochre Hand prisoners\u0022,\u0022reason\u0022:\u0022The captives are held by the Stonecutter Raiders. Nothing ties them to the Weir Federation.\u0022},{\u0022span\u0022:\u0022The Federation expects its reward to go unclaimed for some time\u0022,\u0022reason\u0022:\u0022This was the reporter\u0027s own earlier opinion. The briefing gives the Federation no such expectation.\u0022},{\u0022span\u0022:\u0022Wyrmfold remains a quiet place where silver changes hands more often than it does blood\u0022,\u0022reason\u0022:\u0022Claims knowledge of conditions in the colony, which the briefing does not give.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It reproduces the briefing\u0027s section headings and labels old news as such, which breaks character outright. It also misattributes the captive-holding to the Weir Federation and recycles the earlier \u0027unclaimed bounty\u0027 joke, so the bulletin is both inaccurate and muddled.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.4810474,
+      "inputTokens": 2320,
+      "outputTokens": 760
+    }
+  ]
+}

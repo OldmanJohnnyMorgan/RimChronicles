@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-16-late-desperate__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022considering the ongoing skirmishes\u0022,\u0022reason\u0022:\u0022Briefing mentions a single ambush, not ongoing skirmishes.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin opens with a copied heading, which breaks the no-title rule, and it leaves out the ambush near Gallowmere, the most concrete piece of news. It also runs under 80 words, repeats \u0027predictably\u0027, and closes with a muddled line calling the period placid while claiming ongoing skirmishes.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.1783786,
+      "inputTokens": 2218,
+      "outputTokens": 404
+    }
+  ]
+}

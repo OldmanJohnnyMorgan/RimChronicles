@@ -1,0 +1,51 @@
+{
+  "cell": "claude-ref__director__snap-08-mid-content__on__r3",
+  "model": "claude-ref",
+  "task": "director",
+  "snapshot": "snap-08-mid-content",
+  "grammar": "on",
+  "repeat": 3,
+  "promptVersion": "director/v1",
+  "outcome": "Model",
+  "value": "{\u0022choice\u0022: \u0022Seed:Rivalry:p4:p2\u0022, \u0022reason\u0022: \u0022Gladwater is stable and content after repelling the raid, and there are no active plots. A quiet rivalry would add some tension without endangering the colony.\u0022}",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are the plot director for a story told through a RimWorld colony. You decide what happens next in the colony\u0027s plots.\n\nRules:\n- Choose exactly one option from the allowed list. Copy it exactly, character for character.\n- Choose \u0022Wait\u0022 if the colony is in crisis or the story needs a pause.\n- Prefer the option that follows most naturally from what has already happened.\n- Give a reason in one or two short sentences. Use only facts from the briefing.\n\nAnswer with JSON only, in this form:\n{\u0022choice\u0022: \u0022\u003Cone allowed option\u003E\u0022, \u0022reason\u0022: \u0022\u003Cone or two sentences\u003E\u0022}\n",
+        "user": "## The world\nDate: day 130 (Aprimay 5502).\nColony: Gladwater, 7 people, wealth 96,500 silver, mood content.\n\nPeople:\n- Halvard (50); traits: Industrious, Steadfast; backstory: Midworld mayor; role: Leader.\n- Esme (31); traits: Kind, Green thumb; backstory: Botanist; wife of Cato.\n- Cato (33); traits: Careful shooter; backstory: Colonial marshal; husband of Esme.\n- Yara (24); traits: Sanguine, Beautiful; backstory: Singer.\n- Brannock (46); traits: Tough; backstory: Miner.\n\nHistory:\n- Day 88: Esme married Cato.\n- Day 112: Gladwater repelled a raid by Ninefingers Gang.\n- Day 126: Brannock made a masterwork: a jade sculpture called \u0027The Patient Hill\u0027.\n\nFactions:\n- The Lantern Accord (Outlanders): goodwill \u002B60, 9 settlements.\n- Ninefingers Gang (Pirates): goodwill -70, 3 settlements.\n- The Reedmother\u0027s Children (Tribe): goodwill \u002B35, 5 settlements.\n\nRecent events:\n- Raid repelled day 112 with no losses\n- Brannock carved a masterwork jade sculpture day 126\n- Yara\u0027s concert raised the colony\u0027s mood day 128\n\n## Active plots\nNo active plots.\n\n## Allowed options\n- Wait\n- Seed:Rivalry:p4:p2\n\nChoose one allowed option.\n",
+        "maxOutputTokens": 300,
+        "useGrammar": true,
+        "thinking": "Off",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "choice": {
+              "type": "string",
+              "enum": [
+                "Wait",
+                "Seed:Rivalry:p4:p2"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "choice",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "ok": true,
+      "text": "{\u0022choice\u0022: \u0022Seed:Rivalry:p4:p2\u0022, \u0022reason\u0022: \u0022Gladwater is stable and content after repelling the raid, and there are no active plots. A quiet rivalry would add some tension without endangering the colony.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.2174954,
+      "inputTokens": 967,
+      "outputTokens": 242,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022model\u0022:\u0022claude-opus-5-5\u0022,\u0022id\u0022:\u0022msg_011ChFPt5J53CHLEE3CcRVCs\u0022,\u0022type\u0022:\u0022message\u0022,\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:[{\u0022type\u0022:\u0022thinking\u0022,\u0022thinking\u0022:\u0022\u0022,\u0022signature\u0022:\u0022CAQSzwcKEAgUGAI4AUIIdGhpbmtpbmcSDGmpNmOsSUh91lxpbRoMPbTdOwsSRIZNe0TIIjDpQ6fEXdjeLt\\u002BvGyzcqSxmzzhQtFgg2FFYbLaP9lggCjMTIZ7wA7VMrSoy8DbG9J8q7AYKAnvFgh5TgumYWXLaiJP13B7xCfbGxp3EjnjhKOipUoi/OjoHnlUeXB6GYMM3fFaUP11ipYEtaMDqr0ynEP\\u002BV1GPts\\u002BsKFsJ\\u002Bxi3qvdAqfsnGtebR5JS99jGhRRD0xA4zfnyyu3ppNFrg\\u002B1hK1OsdFe/Ta66uTm1igUWZe3LUvV0Mp9zqdJLaXj9/SY4849nViyTccDWDrLTeXNbIIn91oXpHC6WSg5UDl2DQAkgNdw0f9gDU6XajuTOoK0NXij2yEctYnEJsCa3YMGYvngKOAcmG6qyupR6FCBeUeK9iK5P5AGf\\u002BmoN0WZm85SMGfYsgeKFrCcw7n9CZiDK7aJ2xQ6fKglZ1Ixuy2oheoSRXY3vRB7xtWbYKnF\\u002BjhkzHUlGhN230gvjYk0tk7cmlXAlQ64PbwwuQafUVP2SuRWDoL6cM/RE1TQ\\u002BqxsmucVkmOxmttVFp90RhCVER1EgArce2RwZB6kszME9yW2QWKREDtdZGAnF9Zp21ZEOTFIuJGnDhWbV/SSnLOX6k7CdDjuU3s2\\u002BZ2yw69blTVsOnq42bPY97rJBlDweoiGuVXe2tb6OfTmweqBYh97WAxC2\\u002BdI90C0zeF7\\u002Bk4r5K1l8c3bGVlXvdfqPHZpFHhvwXdwu5t5f706\\u002BKmlucYM1vDJOwsb79mlaEpVzwyuNobfOGH3HGyZC4TvpPQOs2l0SuqamMjO1POrzo\\u002B2jNmiYoJ4/kyomhHNsEu6G9d32VqYSJvBuBM/1lJ4prFwPkhOMhWVDL/MgVlla0xl3GfltZPKlUf5nMuP0b57LF2xhItqKbdAevcr9\\u002BRwRhqN7JUVR2wD4IEvqBeSbv2wYtpibkgaNkv2gnbAshrPYve6qpVt5wyaQq06qxGZd6qjs0SmSbQBFuAdXJcmwC8mzQ3WuqwdCkwrTNaqSFcAH524yEa0xlHQFB85J425FqPO2Y07eS3yigp0ETzKVPtP5SSJHoqGHxWJ71lKN3a3ZyZplsaaRprE0kjRjPZdtxCNS2Lt70JxEOaejFEq/O8eflmeKecP0jMIxXdvjLJ5O4cmcqYMtdbxfANb3jXE0HHl2mrmMyu9/\\u002BD6PxC3DBRng2Tarq9K\\u002Bxb4Mpv69E4TkPJ67EdOdAS9FYDt00/8IAS1MDmmjFIwwMZzletRvQM3L2QyzrjMQYAQ==\u0022},{\u0022type\u0022:\u0022text\u0022,\u0022text\u0022:\u0022{\\u0022choice\\u0022: \\u0022Seed:Rivalry:p4:p2\\u0022, \\u0022reason\\u0022: \\u0022Gladwater is stable and content after repelling the raid, and there are no active plots. A quiet rivalry would add some tension without endangering the colony.\\u0022}\u0022}],\u0022container\u0022:null,\u0022stop_reason\u0022:\u0022end_turn\u0022,\u0022stop_sequence\u0022:null,\u0022stop_details\u0022:null,\u0022usage\u0022:{\u0022input_tokens\u0022:967,\u0022cache_creation_input_tokens\u0022:0,\u0022cache_read_input_tokens\u0022:0,\u0022cache_creation\u0022:{\u0022ephemeral_5m_input_tokens\u0022:0,\u0022ephemeral_1h_input_tokens\u0022:0},\u0022iterations\u0022:[{\u0022input_tokens\u0022:967,\u0022output_tokens\u0022:242,\u0022cache_read_input_tokens\u0022:0,\u0022cache_creation_input_tokens\u0022:0,\u0022cache_creation\u0022:{\u0022ephemeral_5m_input_tokens\u0022:0,\u0022ephemeral_1h_input_tokens\u0022:0},\u0022type\u0022:\u0022message\u0022,\u0022model\u0022:null}],\u0022output_tokens\u0022:242,\u0022output_tokens_details\u0022:{\u0022thinking_tokens\u0022:165},\u0022service_tier\u0022:\u0022standard\u0022,\u0022inference_geo\u0022:\u0022global\u0022,\u0022speed\u0022:\u0022standard\u0022},\u0022diagnostics\u0022:null}"
+    }
+  ]
+}

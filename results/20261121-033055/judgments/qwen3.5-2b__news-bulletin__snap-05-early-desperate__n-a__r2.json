@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-05-early-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022strangling trade between the colony and the outside world for the first time in months\u0022,\u0022reason\u0022:\u0022Effect on the colony and \u0027first time in months\u0027 not in the briefing\u0022},{\u0022span\u0022:\u0022left the Ferrow Mutual scrambling to find new buyers\u0022,\u0022reason\u0022:\u0022Consequence for the Ferrow Mutual not in the briefing\u0022},{\u0022span\u0022:\u0022Scythe Tooth pirates continue to strike without interference\u0022,\u0022reason\u0022:\u0022Ongoing raids presented as current news; not in the briefing\u0022},{\u0022span\u0022:\u0022a disaster that had been brewing since day 40\u0022,\u0022reason\u0022:\u0022Invented date\u0022},{\u0022span\u0022:\u0022prompting local leaders to demand increased defensive patrols from their allies\u0022,\u0022reason\u0022:\u0022Distorts the earlier report: the Ferrow Mutual asked its members to share patrols\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The output breaks format with bold headings copied from the briefing and gives old news a full section. It invents several details, including a date and consequences for the Ferrow Mutual, all in flat, generic prose with none of Brask\u0027s sardonic understatement.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.0852206,
+      "inputTokens": 2242,
+      "outputTokens": 370
+    }
+  ]
+}

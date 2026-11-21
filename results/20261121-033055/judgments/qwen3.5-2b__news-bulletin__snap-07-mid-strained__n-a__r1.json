@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-07-mid-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022This latest demand follows their previous insistence that outlanders pay for passage through the narrow pass.\u0022,\u0022reason\u0022:\u0022No earlier toll demand in briefing\u0022},{\u0022span\u0022:\u0022the very route that once allowed them to raid with impunity\u0022,\u0022reason\u0022:\u0022Briefing never says the Empire raided via the gorge\u0022},{\u0022span\u0022:\u0022turning a skirmish into a bureaucratic levy\u0022,\u0022reason\u0022:\u0022Links wagon raid to Empire; unsupported\u0022},{\u0022span\u0022:\u0022Vex\u0027s Crew remains untouched by the imperial gaze, leaving them to negotiate with their own allies\u0022,\u0022reason\u0022:\u0022Invented status and allies for Vex\u0027s Crew\u0022},{\u0022span\u0022:\u0022continues to complain about supply logistics while waiting for their next shipment\u0022,\u0022reason\u0022:\u0022Invented ongoing events\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The bulletin copies the briefing\u0027s section headings into the text and presents old news under a label, which breaks character entirely. It also invents several connections and events, including a prior toll demand, imperial raids and Vex\u0027s Crew\u0027s allies.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.9513078,
+      "inputTokens": 2375,
+      "outputTokens": 365
+    }
+  ]
+}

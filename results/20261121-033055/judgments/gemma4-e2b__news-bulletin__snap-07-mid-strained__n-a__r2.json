@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-07-mid-strained__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Vex\u0027s Crew continues its usual pattern of maritime disruption\u0022,\u0022reason\u0022:\u0022The briefing gives no activity for Vex\u0027s Crew and nothing about the sea.\u0022},{\u0022span\u0022:\u0022Their movements remain predictable\u0022,\u0022reason\u0022:\u0022This claim about pirate movements has no support in the briefing.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It opens with a forbidden heading, invents pirate \u0027maritime disruption\u0027, and recycles the earlier \u0027short on... long on...\u0027 joke. The one real news item is told flatly, with little of Ilse\u0027s wry voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.8932256,
+      "inputTokens": 2238,
+      "outputTokens": 520
+    }
+  ]
+}

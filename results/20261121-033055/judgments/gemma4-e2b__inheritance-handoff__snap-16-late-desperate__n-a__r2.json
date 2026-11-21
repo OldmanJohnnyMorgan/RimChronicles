@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__inheritance-handoff__snap-16-late-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Elske found the body near the northern ridge\u0022,\u0022reason\u0022:\u0022The briefing never says Elske found the body or names a northern ridge. It only says Rook came home alone.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It is clear and ends on Elske\u0027s intent, but the scene stages an unsupported discovery of the body at an invented location and ignores the warg Rook. The prose leans on stock phrases like \u0027the silence was heavy\u0027 and \u0027a cold comfort\u0027.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.5902975,
+      "inputTokens": 1852,
+      "outputTokens": 398
+    }
+  ]
+}

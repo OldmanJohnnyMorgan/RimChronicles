@@ -1,0 +1,32 @@
+{
+  "cell": "gemma4-e4b__inheritance-handoff__snap-18-late-desperate__n-a__r3",
+  "model": "gemma4-e4b",
+  "task": "inheritance-handoff",
+  "snapshot": "snap-18-late-desperate",
+  "grammar": "n/a",
+  "repeat": 3,
+  "promptVersion": "inheritance-handoff/v1",
+  "outcome": "Model",
+  "value": "Elias stood by the makeshift memorial, the wind whistling through the broken timbers. He traced the outline of his mother\u2019s worn coat, the fabric stiff with frost. The letter from Ada, now brittle, lay in his palm. Constance, with her iron will, had chased a ghost across the passes. He felt the familiar tremor in his hands, the engineer\u2019s meticulous focus suddenly frayed. He looked toward the direction of the Wailing Moth village. Elias picked up his tools. He would find Ada.",
+  "attempts": [
+    {
+      "request": {
+        "system": "You write short scenes for a story told through a RimWorld colony.\n\nThe main character of a story has died. Someone close to them now takes up that story as their own. Write the moment it passes to them.\n\nRules:\n- 60 to 120 words.\n- Use the relationship between the two exactly as given.\n- Use only names and facts from the dossiers and the story so far.\n- Show feeling through actions and small details, not by naming emotions.\n- End on what the heir now means to do.\n- Write only the scene: no title, no notes, no word count.\n",
+        "user": "## The one who died\nConstance (58), dead; traits: Kind, Iron-willed; backstory: Midworld teacher; mother of Elias.\nHistory:\n- Day 744: Constance received a letter from Ada.\n- Day 790: Wren\u0027s Hollow lost a caravan led by Constance.\n- Day 803: Constance died.\n\n## The heir\nElias (34); traits: Neurotic, Industrious; backstory: Engineer; son of Constance.\n\n## Their relationship\nElias was Constance\u0027s son.\n\n## The story so far\nConstance learned from a letter that her sister Ada, lost for thirty years, was alive in a Wailing Moth village. She led a caravan through the passes to bring Ada home. A blizzard caught them; the caravan was lost, and Constance died of cold. Ada is still in the village.\n\nWrite the scene now.\n",
+        "maxOutputTokens": 400,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "Elias stood by the makeshift memorial, the wind whistling through the broken timbers. He traced the outline of his mother\u2019s worn coat, the fabric stiff with frost. The letter from Ada, now brittle, lay in his palm. Constance, with her iron will, had chased a ghost across the passes. He felt the familiar tremor in his hands, the engineer\u2019s meticulous focus suddenly frayed. He looked toward the direction of the Wailing Moth village. Elias picked up his tools. He would find Ada.",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 0.8826889,
+      "inputTokens": 340,
+      "outputTokens": 104,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-22\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795232453,\u0022model\u0022:\u0022gemma4:e4b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022Elias stood by the makeshift memorial, the wind whistling through the broken timbers. He traced the outline of his mother\u2019s worn coat, the fabric stiff with frost. The letter from Ada, now brittle, lay in his palm. Constance, with her iron will, had chased a ghost across the passes. He felt the familiar tremor in his hands, the engineer\u2019s meticulous focus suddenly frayed. He looked toward the direction of the Wailing Moth village. Elias picked up his tools. He would find Ada.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:340,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:335},\u0022completion_tokens\u0022:104,\u0022total_tokens\u0022:444}}\n"
+    }
+  ]
+}

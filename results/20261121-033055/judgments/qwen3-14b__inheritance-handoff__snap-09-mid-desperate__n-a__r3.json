@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__inheritance-handoff__snap-09-mid-desperate__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022her plasma pistol\u0022,\u0022reason\u0022:\u0022No weapon is given in the briefing, and a plasma pistol is not standard RimWorld gear.\u0022},{\u0022span\u0022:\u0022Tamsin stood at the edge of the camp\u0022,\u0022reason\u0022:\u0022Nothing says Tamsin went to the Lancers\u0027 camp.\u0022},{\u0022span\u0022:\u0022The captain\u2019s voice echoed from the command tent\u0022,\u0022reason\u0022:\u0022This invents a scene with the new captain at a command tent, which the briefing does not include.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It ends correctly on the heir\u0027s intent, but it invents a weapon and a scene at the enemy camp. \u0027Scar on her father\u0027s belt\u0027 is muddled, and \u0027eyes blazing\u0027 and \u0027blood on snow\u0027 lean melodramatic.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.389702,
+      "inputTokens": 1874,
+      "outputTokens": 555
+    }
+  ]
+}

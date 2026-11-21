@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-17-late-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Rumors suggest he may be hiding among the Kestrel Tribe\u0022,\u0022reason\u0022:\u0022The briefing gives no rumour about Severin\u0027s whereabouts or any link to the Kestrel Tribe.\u0022},{\u0022span\u0022:\u0022The Empire is not known for rewarding informants\u0022,\u0022reason\u0022:\u0022This is an unsupported claim about Empire conduct, and it sits oddly against the posted bounty.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It opens with a copied heading, which the task forbids, and it invents a rumour placing Severin among the Kestrel Tribe. The prose is also flat, with little of Ilse\u0027s dry wit beyond the final line.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.3845118,
+      "inputTokens": 2336,
+      "outputTokens": 469
+    }
+  ]
+}

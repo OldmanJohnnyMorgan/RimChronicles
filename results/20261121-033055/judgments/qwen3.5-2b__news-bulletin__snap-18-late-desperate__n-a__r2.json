@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-18-late-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The output opens with a copied briefing heading and dumps the facts as a list, which breaks character. It presents the old blizzard and raider news as if it were new, rehashes the earlier granary line, and has none of Tomas\u0027s earnest, worried voice. The one real story, the lost Wren\u0027s Hollow caravan, gets a single flat sentence.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.8958,
+      "inputTokens": 2313,
+      "outputTokens": 344
+    }
+  ]
+}

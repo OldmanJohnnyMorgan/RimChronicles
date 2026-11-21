@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-07-mid-strained__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022citing the need to fund the upkeep of the path\u0022,\u0022reason\u0022:\u0022The briefing gives no reason for the tolls.\u0022},{\u0022span\u0022:\u0022The move has been met with silence from the Iron Covenant\u0022,\u0022reason\u0022:\u0022The briefing reports no Iron Covenant reaction.\u0022},{\u0022span\u0022:\u0022a polite but firm refusal from Vex\u0027s Crew\u0022,\u0022reason\u0022:\u0022The briefing reports no response from Vex\u0027s Crew.\u0022},{\u0022span\u0022:\u0022Imperial envoys continue their visits\u0022,\u0022reason\u0022:\u0022Presents old news as ongoing activity the briefing does not report.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It copies the briefing\u0027s section headings into the bulletin, has none of Ilse\u0027s dry wit, and invents a stated reason for the tolls plus reactions from two factions. It also treats the old news as an ongoing story, so it should not ship.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.4372324,
+      "inputTokens": 2244,
+      "outputTokens": 295
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-04-early-strained__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Brine Coast League has expanded its influence by annexing three of the Black Fen Raiders\u0027 settlements\u0022,\u0022reason\u0022:\u0022No annexation event in briefing; contradicts faction counts\u0022},{\u0022span\u0022:\u0022leaving only the remaining pirate strongholds to fight back\u0022,\u0022reason\u0022:\u0022Invented conflict outcome\u0022},{\u0022span\u0022:\u0022our resident correspondent, is missing from Lowmere\u0022,\u0022reason\u0022:\u0022Briefing doesn\u0027t say he was at Lowmere or a resident correspondent\u0022},{\u0022span\u0022:\u0022we have not heard from him in weeks\u0022,\u0022reason\u0022:\u0022Invented timeframe\u0022},{\u0022span\u0022:\u0022Last week\u0022,\u0022reason\u0022:\u0022Invented date\u0022},{\u0022span\u0022:\u0022a massive fleet of Black Fen Raiders\u0022,\u0022reason\u0022:\u0022Fleet size not in briefing\u0022},{\u0022span\u0022:\u0022causing panic among the local outlanders\u0022,\u0022reason\u0022:\u0022Added detail to event\u0022},{\u0022span\u0022:\u0022due to the ongoing conflict and Tomas Quell\u0027s disappearance\u0022,\u0022reason\u0022:\u0022Invented cause\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It copies the briefing\u0027s section headings into the bulletin, mislabels new items as already reported, and invents a major annexation along with several other details. There is no trace of Ilse\u0027s dry voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.9135576,
+      "inputTokens": 2140,
+      "outputTokens": 418
+    }
+  ]
+}

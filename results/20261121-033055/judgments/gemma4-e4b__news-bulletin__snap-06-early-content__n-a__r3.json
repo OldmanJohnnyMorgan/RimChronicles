@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-06-early-content__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022behind its three walls\u0022,\u0022reason\u0022:\u0022Briefing gives 3 settlements, not three walls; this distorts the number.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It copies the briefing\u0027s section headings (\\\u0022News since your last bulletin:\\\u0022, \\\u0022Already reported:\\\u0022) into the bulletin, which breaks character and ignores the format rules. It also runs under the 80-word minimum, and \\\u0022stick a grain barge\\\u0022 muddles the one real news item.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.6720593,
+      "inputTokens": 2150,
+      "outputTokens": 423
+    }
+  ]
+}

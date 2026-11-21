@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-01-early-content__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin opens by copying the briefing heading \\\u0022News since your last bulletin:\\\u0022, which breaks the no-headings rule and the reporter\u0027s character. The items stick to the briefing, but the wit is thin: the trading-post item is flat explanation and only the blankets line has any of Ilse\u0027s dry bite.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.809462,
+      "inputTokens": 2054,
+      "outputTokens": 517
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-11-mid-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Dry, consistent voice that leads with the one real news item and fills the rest with wry comment on briefing facts, with no invented details. The third item is a slightly loose grab-bag of date, prizes and Dovecote, but it is still shippable.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.2393804,
+      "inputTokens": 2293,
+      "outputTokens": 393
+    }
+  ]
+}

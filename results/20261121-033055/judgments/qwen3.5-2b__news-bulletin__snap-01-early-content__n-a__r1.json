@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-01-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the Seven Ash Clans have quietly expanded their borders into the northern marshes without incident\u0022,\u0022reason\u0022:\u0022No expansion event or northern marshes in briefing\u0022},{\u0022span\u0022:\u0022keep the population below 50% of normal levels for the next two weeks\u0022,\u0022reason\u0022:\u0022Invented number, duration and effect of the cold snap\u0022},{\u0022span\u0022:\u0022continue to operate with no reported incidents\u0022,\u0022reason\u0022:\u0022Briefing gives no information on raider activity\u0022},{\u0022span\u0022:\u0022signaling another attempt to control local commerce\u0022,\u0022reason\u0022:\u0022Implies prior attempts and a motive the briefing does not give\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022Several fabricated details: a Clans border expansion, a population figure and duration for the cold snap, and raider activity. It also includes a heading, which the task forbade. The voice is flat and newswire-like rather than dry and wry, and the 50% population line reads as nonsensical.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.2822103,
+      "inputTokens": 2044,
+      "outputTokens": 319
+    }
+  ]
+}

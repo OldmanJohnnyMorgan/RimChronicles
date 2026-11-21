@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-12-mid-desperate__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It opens with a copied heading (\u0027News since your last bulletin:\u0027), which breaks the no-headings rule, and the third item is a single sentence. The prose is stiff and generic (\u0027ongoing drama\u0027, \u0027political landscape\u0027) rather than Odile\u0027s sharp understatement, and the second item restates old news at length when it should be brief background.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.1514147,
+      "inputTokens": 2278,
+      "outputTokens": 511
+    }
+  ]
+}

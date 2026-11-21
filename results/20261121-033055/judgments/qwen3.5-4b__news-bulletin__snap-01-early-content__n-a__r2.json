@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-01-early-content__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022remain exactly where they were last seen, neither expanding nor retreating in any significant way\u0022,\u0022reason\u0022:\u0022Briefing gives only current settlement counts. Nothing on past movement, and this is the first bulletin.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It copies the briefing headings \u0027News since your last bulletin:\u0027 and \u0027Already reported:\u0027 into the bulletin, which breaks format and mislabels unreported material in a first bulletin. Phrasing like \u0027reconsider their life choices\u0027 also leans modern rather than frontier-dry.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.7442604,
+      "inputTokens": 2149,
+      "outputTokens": 583
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-01-early-content__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The bulletin is accurate and sticks closely to the briefing. It meets the length and structure rules, and its dry asides (\u0027one more place to be overcharged\u0027, \u0027pack another coat\u0027) fit the persona well. The humour is pleasant rather than sharp, so the voice is good but not especially distinctive.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.9629828,
+      "inputTokens": 2131,
+      "outputTokens": 536
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-12-mid-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the Assembly has not made a public statement since\u0022,\u0022reason\u0022:\u0022The briefing says nothing about the Assembly\u0027s statements or silence.\u0022},{\u0022span\u0022:\u0022Their latest message, carved into a driftwood post, reads: *\u201CWe are not monsters. We are not monsters.\u201D*\u0022,\u0022reason\u0022:\u0022Invented message, quote and medium; the briefing reports no such communication.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It copies the briefing heading \u0027News since your last bulletin:\u0027 into the output and invents a quoted Gallows Crew message plus the Assembly\u0027s silence. The prose is flat, with little of Odile\u0027s sardonic understatement, and at about 70 words it falls short of the 80-word minimum.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.6788988,
+      "inputTokens": 2268,
+      "outputTokens": 518
+    }
+  ]
+}

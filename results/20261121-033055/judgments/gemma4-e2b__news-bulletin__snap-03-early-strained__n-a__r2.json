@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-03-early-strained__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin opens with a copied heading (\u0027News since your last bulletin\u0027), which breaks the no-title rule. The rest is flat and generic, with almost none of Ilse\u0027s dry wit and no use of the faction sizes or date. It avoids inventing anything, but phrases like \u0027usual pattern of petty theft\u0027 and \u0027the usual skirmishes\u0027 drift toward unsupported characterisation.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.1299363,
+      "inputTokens": 2263,
+      "outputTokens": 448
+    }
+  ]
+}

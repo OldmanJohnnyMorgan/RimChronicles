@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-12-mid-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:5,\u0022comment\u0022:\u0022The envoy story leads cleanly and stays within the briefing, explicitly declining to guess what the masks hid. The filler items use faction counts and the date for dry, distinct commentary without repeating earlier jokes.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.4284341,
+      "inputTokens": 2338,
+      "outputTokens": 467
+    }
+  ]
+}

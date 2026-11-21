@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-13-mid-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The bulletin is accurate and well ordered. It leads correctly with the refusal and builds dry filler from the faction counts and the date without presenting old news as new. The voice is consistently wry; \\\u0022quietly pricing in\\\u0022 leans slightly modern-finance, but it reads as close to shippable.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.7515419,
+      "inputTokens": 2352,
+      "outputTokens": 406
+    }
+  ]
+}

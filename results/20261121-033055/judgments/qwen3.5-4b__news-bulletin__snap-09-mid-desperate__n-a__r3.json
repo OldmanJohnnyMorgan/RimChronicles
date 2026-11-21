@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-09-mid-desperate__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022who have shrunk from one settlement to nothingness\u0022,\u0022reason\u0022:\u0022Briefing still lists Malley\u0027s Lancers with 1 settlement; no loss of settlement is reported.\u0022},{\u0022span\u0022:\u0022while the date turns to day 289\u0022,\u0022reason\u0022:\u0022Briefing date is day 288; day 289 is not given.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The bulletin copies the briefing\u0027s section headings, which breaks the required bulletin-only format. It invents the pirates losing their settlement and a new date, and it garbles and reuses the earlier fishing joke.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.0548329,
+      "inputTokens": 2276,
+      "outputTokens": 494
+    }
+  ]
+}

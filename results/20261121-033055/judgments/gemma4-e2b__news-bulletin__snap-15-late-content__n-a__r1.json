@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-15-late-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Grinning Jack\u0027s Men remain a persistent nuisance\u0022,\u0022reason\u0022:\u0022The briefing gives only their settlement count, not any history of trouble.\u0022},{\u0022span\u0022:\u0022The Pale Choir continues its inquiries\u0022,\u0022reason\u0022:\u0022Implies earlier inquiries; the briefing presents this as new news.\u0022},{\u0022span\u0022:\u0022the usual pattern of religious curiosity persists\u0022,\u0022reason\u0022:\u0022Asserts a prior pattern of Choir behaviour that the briefing does not support.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It opens with a heading, which breaks the no-title rule, and runs well under the 80-word minimum. The prose is flat and bureaucratic, with no trace of Ilse\u0027s wry voice. It also invents a history of Choir inquiries and pirate trouble, and buries the only real news under \u0027continues\u0027.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.4894934,
+      "inputTokens": 2184,
+      "outputTokens": 598
+    }
+  ]
+}

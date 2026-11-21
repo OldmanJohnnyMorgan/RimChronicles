@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__inheritance-handoff__snap-16-late-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022turns to face Kael Dunmore who has just returned from his third hunt\u0022,\u0022reason\u0022:\u0022Bertram led the hunts against Dunmore. Dunmore escaped and never returned to the colony.\u0022},{\u0022span\u0022:\u0022the empty spot where Bertram stood moments ago\u0022,\u0022reason\u0022:\u0022Bertram died on the hunt, away from home. He was not present moments ago.\u0022},{\u0022span\u0022:\u0022there is a flicker of recognition in them that hasn\u0027t vanished since the ambush\u0022,\u0022reason\u0022:\u0022Invents a meeting with Dunmore and a reaction from him that the briefing does not support.\u0022},{\u0022span\u0022:\u0022reaches out to touch his shoulder. \\\u0022We have work to do, Sergeant.\\\u0022\u0022,\u0022reason\u0022:\u0022Recasts Bertram\u0027s killer as Elske\u0027s ally. The briefing does not support this and contradicts it.\u0022},{\u0022span\u0022:\u0022the wood splintering slightly under her grip\u0022,\u0022reason\u0022:\u0022Invented physical event with no basis in the briefing.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The scene gets the story backwards. Dunmore, Bertram\u0027s killer, returns as Elske\u0027s comrade from a hunt, and Bertram is placed at home moments before. It never shows the story passing to Elske or what she means to do about Dunmore.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.2075898,
+      "inputTokens": 1926,
+      "outputTokens": 683
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-08-mid-content__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022overshadowing the usual clamor over trade fair prices\u0022,\u0022reason\u0022:\u0022Briefing reports no clamour over fair prices; this adds detail to the event.\u0022},{\u0022span\u0022:\u0022The Lantern Accord insists its trade fair is proceeding smoothly\u0022,\u0022reason\u0022:\u0022The briefing gives no statement from the Accord about how the fair is going.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The output copies the briefing\u0027s section headings (\u0027News since your last bulletin:\u0027, \u0027Already reported:\u0027) into the bulletin, which breaks character, and it reuses the earlier \u0027full river and foolish fish\u0027 joke. It also adds unsupported details about fair-price clamour and an Accord statement that the fair is going smoothly.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.2227272,
+      "inputTokens": 2316,
+      "outputTokens": 727
+    }
+  ]
+}

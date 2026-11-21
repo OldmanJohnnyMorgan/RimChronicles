@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-11-mid-content__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The bulletin leads correctly with the peace feast and keeps a dry voice throughout. Its settlement arithmetic (twelve, six to one) checks out, and old news stays as background. The last item, on the date and the prizes, is a little thin filler but stays within the briefing.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.5309304,
+      "inputTokens": 2272,
+      "outputTokens": 382
+    }
+  ]
+}

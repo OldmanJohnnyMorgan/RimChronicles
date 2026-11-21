@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-18-late-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The output copies the briefing\u0027s section headings into the bulletin, which breaks character, and it presents the old news as a full item instead of background. It is also far under the 80-word minimum, with flat, characterless prose and no worried reporter voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.7711562,
+      "inputTokens": 2217,
+      "outputTokens": 118
+    }
+  ]
+}

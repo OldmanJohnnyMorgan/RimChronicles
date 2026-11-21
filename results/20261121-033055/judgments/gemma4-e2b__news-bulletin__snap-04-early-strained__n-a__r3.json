@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-04-early-strained__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The size of the factions remains consistent with previous assessments.\u0022,\u0022reason\u0022:\u0022This is the first bulletin, so there are no previous assessments to compare against.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It copies the briefing\u0027s section headings into the output and restates the three news items in flat, bureaucratic prose, with none of Ilse\u0027s dry voice. It also refers to non-existent earlier assessments, calls a week with a burned ferry and a missing reporter quiet, and falls short of the 80-word minimum.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.8987779,
+      "inputTokens": 2078,
+      "outputTokens": 433
+    }
+  ]
+}

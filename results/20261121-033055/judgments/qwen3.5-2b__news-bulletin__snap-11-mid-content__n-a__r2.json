@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-11-mid-content__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Both factions agreed that their respective settlements are currently safe from hostile raids.\u0022,\u0022reason\u0022:\u0022Briefing gives no agreement or terms of the feast\u0022},{\u0022span\u0022:\u0022given the recent truce\u0022,\u0022reason\u0022:\u0022Briefing mentions a peace feast, not a truce\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It breaks character by copying the briefing heading and noting that \u0027no specific attendees were listed\u0027, then reuses the earlier Mire Rats item word for word as if it were news. It also invents the terms of the peace feast.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.032008,
+      "inputTokens": 2201,
+      "outputTokens": 202
+    }
+  ]
+}

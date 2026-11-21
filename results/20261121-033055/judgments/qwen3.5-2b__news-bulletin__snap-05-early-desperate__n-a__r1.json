@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022shut down all market stalls across Thornreach\u0022,\u0022reason\u0022:\u0022Briefing says Gorse Clans closed markets to outsiders, not stalls across Thornreach.\u0022},{\u0022span\u0022:\u0022leaving traders with no way to buy grain or sell furs\u0022,\u0022reason\u0022:\u0022Added consequence not in briefing.\u0022},{\u0022span\u0022:\u0022the Ferrow Mutual\u0027s supply lines are severed, forcing them to ration rations themselves\u0022,\u0022reason\u0022:\u0022Invented event affecting the Ferrow Mutual.\u0022},{\u0022span\u0022:\u0022last week\u0022,\u0022reason\u0022:\u0022Unsupported timing.\u0022},{\u0022span\u0022:\u0022causing widespread hunger among the tribes\u0022,\u0022reason\u0022:\u0022Invented consequence of the cold snap.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The bulletin breaks character by copying the briefing\u0027s section headings, and it invents several consequences, including Thornreach stalls, severed Ferrow supply lines and tribal hunger. The sardonic voice is gone and the prose stumbles (\u0027ration rations\u0027).\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.8646225,
+      "inputTokens": 2246,
+      "outputTokens": 345
+    }
+  ]
+}

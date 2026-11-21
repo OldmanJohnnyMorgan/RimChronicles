@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-09-mid-desperate__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022has settled the immediate local disturbances\u0022,\u0022reason\u0022:\u0022The briefing gives no effect of Malley\u0027s death on local trouble.\u0022},{\u0022span\u0022:\u0022The Lancers have, for the moment, quieted down following the captain\u0027s passing\u0022,\u0022reason\u0022:\u0022The briefing says nothing about how the Lancers behaved afterwards.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It opens with a copied heading, which breaks the no-title rule, and it invents consequences of Malley\u0027s death. The prose is flat and bureaucratic, not sardonic, and at about 60 words it falls short of the 80-word minimum.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.6796499,
+      "inputTokens": 2247,
+      "outputTokens": 352
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "cell": "qwen3.5-2b__inheritance-handoff__snap-16-late-desperate__n-a__r1",
+  "model": "qwen3.5-2b",
+  "task": "inheritance-handoff",
+  "snapshot": "snap-16-late-desperate",
+  "grammar": "n/a",
+  "repeat": 1,
+  "promptVersion": "inheritance-handoff/v1",
+  "outcome": "ModelRetry",
+  "value": "The silence is heavy in the command room as Elske places a hand on Bertram\u0027s cold shoulder. He knows the weight of it better than anyone; he remembers the smell of gunpowder and the sharp ache in his own chest when Kael took that final shot. Now, the dust settles around them, and the mercenary\u0027s bloodlust is gone, replaced by a steady resolve. Elske looks at the empty chair where the Sergeant once sat, then turns to face her with a quiet determination. She will find him before he finds anyone else, ensuring his story ends on a note of duty rather than vengeance.",
+  "attempts": [
+    {
+      "request": {
+        "system": "You write short scenes for a story told through a RimWorld colony.\n\nThe main character of a story has died. Someone close to them now takes up that story as their own. Write the moment it passes to them.\n\nRules:\n- 60 to 120 words.\n- Use the relationship between the two exactly as given.\n- Use only names and facts from the dossiers and the story so far.\n- Show feeling through actions and small details, not by naming emotions.\n- End on what the heir now means to do.\n- Write only the scene: no title, no notes, no word count.\n",
+        "user": "## The one who died\nBertram (47), dead; traits: Bloodlust, Tough; backstory: Mercenary; best friend of Elske.\nHistory:\n- Day 638: Sergeant Kael Dunmore killed Bertram and escaped.\n\n## The heir\nElske (41); traits: Steadfast, Careful shooter; backstory: Colonial marshal; best friend of Bertram.\n\n## Their relationship\nElske was Bertram\u0027s closest friend.\n\n## The story so far\nKael Dunmore, a mercenary sergeant, killed Hester Brightwell and maimed Viggo. Bertram swore to hunt him down and led three hunts. On the last one Dunmore ambushed the hunters and killed Bertram. Bertram\u0027s bonded warg Rook came home alone.\n\nWrite the scene now.\n",
+        "maxOutputTokens": 300,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "The silence in the barracks felt heavier than before, a vacuum where Kael\u0027s boots used to tread. Elske stood by the door, her fingers tracing the cold wood of the lock as if it held the memory of his grip on the hilt. She didn\u0027t speak, only moved closer until she was blocking the light from the window, casting long shadows that seemed to stretch toward him like a warning. \u0022You\u0027re not coming back,\u0022 she said, her voice steady despite the tremor in her own hands. \u0022The hunt is over.\u0022 She reached out and touched his forehead, feeling the warmth of life fading beneath the skin. \u0022Just remember what you did for me. Don\u0027t let them take it from you again.\u0022 Her hand lingered there, a silent promise that he would never be alone in the dark.",
+      "error": null,
+      "failures": [
+        "Use 60-120 words; this has 137",
+        "Do not mention names that are not in the briefing: You\u0027re, The, Just"
+      ],
+      "latencySeconds": 1.2185213,
+      "inputTokens": 325,
+      "outputTokens": 167,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-310\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795231979,\u0022model\u0022:\u0022qwen3.5:2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022The silence in the barracks felt heavier than before, a vacuum where Kael\u0027s boots used to tread. Elske stood by the door, her fingers tracing the cold wood of the lock as if it held the memory of his grip on the hilt. She didn\u0027t speak, only moved closer until she was blocking the light from the window, casting long shadows that seemed to stretch toward him like a warning. \\\u0022You\u0027re not coming back,\\\u0022 she said, her voice steady despite the tremor in her own hands. \\\u0022The hunt is over.\\\u0022 She reached out and touched his forehead, feeling the warmth of life fading beneath the skin. \\\u0022Just remember what you did for me. Don\u0027t let them take it from you again.\\\u0022 Her hand lingered there, a silent promise that he would never be alone in the dark.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:325,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:167,\u0022total_tokens\u0022:492}}\n"
+    },
+    {
+      "request": {
+        "system": "You write short scenes for a story told through a RimWorld colony.\n\nThe main character of a story has died. Someone close to them now takes up that story as their own. Write the moment it passes to them.\n\nRules:\n- 60 to 120 words.\n- Use the relationship between the two exactly as given.\n- Use only names and facts from the dossiers and the story so far.\n- Show feeling through actions and small details, not by naming emotions.\n- End on what the heir now means to do.\n- Write only the scene: no title, no notes, no word count.\n",
+        "user": "## The one who died\nBertram (47), dead; traits: Bloodlust, Tough; backstory: Mercenary; best friend of Elske.\nHistory:\n- Day 638: Sergeant Kael Dunmore killed Bertram and escaped.\n\n## The heir\nElske (41); traits: Steadfast, Careful shooter; backstory: Colonial marshal; best friend of Bertram.\n\n## Their relationship\nElske was Bertram\u0027s closest friend.\n\n## The story so far\nKael Dunmore, a mercenary sergeant, killed Hester Brightwell and maimed Viggo. Bertram swore to hunt him down and led three hunts. On the last one Dunmore ambushed the hunters and killed Bertram. Bertram\u0027s bonded warg Rook came home alone.\n\nWrite the scene now.\n\n\nYour previous answer was rejected:\n- Use 60-120 words; this has 137\n- Do not mention names that are not in the briefing: You\u0027re, The, Just\nAnswer again, following every rule.",
+        "maxOutputTokens": 300,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "The silence is heavy in the command room as Elske places a hand on Bertram\u0027s cold shoulder. He knows the weight of it better than anyone; he remembers the smell of gunpowder and the sharp ache in his own chest when Kael took that final shot. Now, the dust settles around them, and the mercenary\u0027s bloodlust is gone, replaced by a steady resolve. Elske looks at the empty chair where the Sergeant once sat, then turns to face her with a quiet determination. She will find him before he finds anyone else, ensuring his story ends on a note of duty rather than vengeance.",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 0.9268217,
+      "inputTokens": 377,
+      "outputTokens": 126,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-764\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795231980,\u0022model\u0022:\u0022qwen3.5:2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022The silence is heavy in the command room as Elske places a hand on Bertram\u0027s cold shoulder. He knows the weight of it better than anyone; he remembers the smell of gunpowder and the sharp ache in his own chest when Kael took that final shot. Now, the dust settles around them, and the mercenary\u0027s bloodlust is gone, replaced by a steady resolve. Elske looks at the empty chair where the Sergeant once sat, then turns to face her with a quiet determination. She will find him before he finds anyone else, ensuring his story ends on a note of duty rather than vengeance.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:377,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:126,\u0022total_tokens\u0022:503}}\n"
+    }
+  ]
+}

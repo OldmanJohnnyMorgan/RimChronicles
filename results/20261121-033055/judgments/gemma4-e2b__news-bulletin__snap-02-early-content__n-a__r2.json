@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-02-early-content__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They report another profitable week\u0022,\u0022reason\u0022:\u0022The briefing has no report of profits this week; it recycles an old bulletin line as new news.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It opens with a heading copied from the briefing, which breaks the no-title rule. It also recycles the earlier \u0027profitable week\u0027 joke as if it were fresh news, while the rest reads flat and generic rather than dry and wry.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.0018778,
+      "inputTokens": 2345,
+      "outputTokens": 379
+    }
+  ]
+}

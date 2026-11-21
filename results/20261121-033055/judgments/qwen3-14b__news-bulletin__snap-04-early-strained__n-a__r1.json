@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-04-early-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Last seen near the southern edge of Lowmere\u0022,\u0022reason\u0022:\u0022Briefing gives no last-seen location for Quell.\u0022},{\u0022span\u0022:\u0022Quell has not returned to any known settlement\u0022,\u0022reason\u0022:\u0022Adds detail beyond \u0027looking for news of\u0027 him.\u0022},{\u0022span\u0022:\u0022His last transmission was a cryptic mention of \\\u0022something moving in the fog.\\\u0022\u0022,\u0022reason\u0022:\u0022Invented quote and event.\u0022},{\u0022span\u0022:\u0022cutting off trade between two Brine Coast League settlements\u0022,\u0022reason\u0022:\u0022Briefing doesn\u0027t link the ferry to the League or to trade.\u0022},{\u0022span\u0022:\u0022No casualties were reported\u0022,\u0022reason\u0022:\u0022Casualty information not in briefing.\u0022},{\u0022span\u0022:\u0022the fire has left the ferry\u2019s remains a smoldering skeleton in the water\u0022,\u0022reason\u0022:\u0022Adds detail about the aftermath.\u0022},{\u0022span\u0022:\u0022With Quell missing and the Black Fen Raiders growing bolder\u0022,\u0022reason\u0022:\u0022Invents the cause of the Dispatch\u0027s decision.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It opens with the briefing\u0027s own heading, which breaks character, and it pads every item with invented details, including a fabricated quote. The writing is also flat rather than dry or wry.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.0308184,
+      "inputTokens": 2169,
+      "outputTokens": 407
+    }
+  ]
+}

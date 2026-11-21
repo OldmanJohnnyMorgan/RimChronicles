@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-20-late-strained__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022This comes after the colony\u0027s council accepted the offer\u0022,\u0022reason\u0022:\u0022The briefing does not say the offer was accepted, and it gives Varrowgate no council.\u0022},{\u0022span\u0022:\u0022signaling a shift in diplomatic posture toward the outlanders\u0022,\u0022reason\u0022:\u0022This event and interpretation do not appear in the briefing.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The output breaks format by copying briefing headings and re-listing old news as a section. It invents an acceptance of the governorship by a council, and it is too short and has no wry voice. It also reuses the earlier beach joke in a muddled form.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.4824646,
+      "inputTokens": 2242,
+      "outputTokens": 222
+    }
+  ]
+}

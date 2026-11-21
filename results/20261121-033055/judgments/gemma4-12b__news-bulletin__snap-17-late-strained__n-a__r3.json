@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-17-late-strained__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It copies the briefing\u0027s section labels (\u0027News since your last bulletin:\u0027, \u0027Already reported:\u0027) as headings, which breaks the bulletin format and the reporter\u0027s character. At about 60 words it is also under length, and the settlement-count item is flat recitation with little of Ilse\u0027s dry wit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.679588,
+      "inputTokens": 2244,
+      "outputTokens": 312
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-08-mid-content__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Some claim it\u2019s a relic from the old world, others insist it\u2019s a hoax\u0022,\u0022reason\u0022:\u0022The briefing gives no claims about the sculpture\u0027s origin or authenticity.\u0022},{\u0022span\u0022:\u0022though no one disputes its value\u0022,\u0022reason\u0022:\u0022Adds a detail about the sculpture that the briefing does not give.\u0022},{\u0022span\u0022:\u0022is drawing more visitors than expected\u0022,\u0022reason\u0022:\u0022The fair\u0027s attendance is not in the briefing, and the fair is old news presented as new.\u0022},{\u0022span\u0022:\u0022merchants from as far as the Iron Dunes\u0022,\u0022reason\u0022:\u0022Invented place name.\u0022},{\u0022span\u0022:\u0022their last failed raid left a few more settlements wary of their usual tactics\u0022,\u0022reason\u0022:\u0022Invented consequence of the raid; no other settlements\u0027 reactions are given.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It copies the briefing heading into the bulletin and invents a place (the Iron Dunes) and several details. It also presents the old trade fair as fresh news, two items are single sentences, and the dry, wry voice of the earlier bulletins is mostly missing.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.2945125,
+      "inputTokens": 2238,
+      "outputTokens": 594
+    }
+  ]
+}

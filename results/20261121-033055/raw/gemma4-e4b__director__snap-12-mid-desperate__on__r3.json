@@ -1,0 +1,52 @@
+{
+  "cell": "gemma4-e4b__director__snap-12-mid-desperate__on__r3",
+  "model": "gemma4-e4b",
+  "task": "director",
+  "snapshot": "snap-12-mid-desperate",
+  "grammar": "on",
+  "repeat": 3,
+  "promptVersion": "director/v1",
+  "outcome": "Model",
+  "value": "{\u0022choice\u0022: \u0022Choice:RescueNow\u0022, \u0022reason\u0022: \u0022Sabine is actively involved in the nemesis plot, and the colony is desperate, suggesting immediate action to save Gideon is warranted.\u0022}",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are the plot director for a story told through a RimWorld colony. You decide what happens next in the colony\u0027s plots.\n\nRules:\n- Choose exactly one option from the allowed list. Copy it exactly, character for character.\n- Choose \u0022Wait\u0022 if the colony is in crisis or the story needs a pause.\n- Prefer the option that follows most naturally from what has already happened.\n- Give a reason in one or two short sentences. Use only facts from the briefing.\n\nAnswer with JSON only, in this form:\n{\u0022choice\u0022: \u0022\u003Cone allowed option\u003E\u0022, \u0022reason\u0022: \u0022\u003Cone or two sentences\u003E\u0022}\n",
+        "user": "## The world\nDate: day 341 (Septober 5505).\nColony: Red Furrow, 10 people, wealth 158,000 silver, mood desperate.\n\nPeople:\n- Sabine (31); traits: Tough, Careful shooter; backstory: Imperial deserter.\n- Gideon (45), captured; traits: Kind, Iron-willed; backstory: Doctor; brother of Sabine.\n- Ora (26); traits: Sanguine; backstory: Cook.\n- Lutz (37); traits: Industrious; backstory: Miner.\n\nHistory:\n- Day 290: \u0027Hatchet\u0027 Imre killed Marta Venn and escaped.\n- Day 322: \u0027Hatchet\u0027 Imre kidnapped Gideon.\n- Day 339: Red Furrow repelled a raid by the Gallows Crew.\n\nFactions:\n- The Gallows Crew (Pirates): goodwill -100, 3 settlements.\n- The Saltmarch Assembly (Outlanders): goodwill \u002B15, 6 settlements.\n- The Glass Throne (Empire): goodwill -10, 5 settlements, Empire state: Dormant.\n\nRecent events:\n- Gideon kidnapped day 322\n- Second Gallows Crew raid repelled day 339, four wounded\n- Toxic fallout has lasted six days\n\n## Active plots\n- nemesis-03 (Nemesis): beat Choice, protagonist Sabine. \u0027Hatchet\u0027 Imre of the Gallows Crew killed Marta Venn and kidnapped Sabine\u0027s brother Gideon. Sabine has found the Gallows camp but the colony is weak after another raid.\n\n## Allowed options\n- Wait\n- Choice:RescueNow\n- Choice:TradeForBrother\n\nChoose one allowed option.\n",
+        "maxOutputTokens": 300,
+        "useGrammar": true,
+        "thinking": "Off",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "choice": {
+              "type": "string",
+              "enum": [
+                "Wait",
+                "Choice:RescueNow",
+                "Choice:TradeForBrother"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "choice",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "ok": true,
+      "text": "{\u0022choice\u0022: \u0022Choice:RescueNow\u0022, \u0022reason\u0022: \u0022Sabine is actively involved in the nemesis plot, and the colony is desperate, suggesting immediate action to save Gideon is warranted.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 0.3536054,
+      "inputTokens": 518,
+      "outputTokens": 40,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-677\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795232330,\u0022model\u0022:\u0022gemma4:e4b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022{\\\u0022choice\\\u0022: \\\u0022Choice:RescueNow\\\u0022, \\\u0022reason\\\u0022: \\\u0022Sabine is actively involved in the nemesis plot, and the colony is desperate, suggesting immediate action to save Gideon is warranted.\\\u0022}\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:518,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:517},\u0022completion_tokens\u0022:40,\u0022total_tokens\u0022:558}}\n"
+    }
+  ]
+}

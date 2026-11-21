@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-05-early-desperate__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They have offered no explanation\u0022,\u0022reason\u0022:\u0022The briefing gives no detail on whether any explanation was offered; this adds detail to the event.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022A sardonic, understated bulletin that leads correctly with the market closure and uses the old news only as background. However, it asserts that the Gorse Clans gave no explanation, which the briefing does not say. The Mutual counting joke in the second item is also slightly muddled.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.2605966,
+      "inputTokens": 2290,
+      "outputTokens": 543
+    }
+  ]
+}

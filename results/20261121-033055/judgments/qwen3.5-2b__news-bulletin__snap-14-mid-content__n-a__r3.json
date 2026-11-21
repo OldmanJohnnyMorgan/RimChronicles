@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-14-mid-content__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022A Brackwater Corsair returned from a raid on a Fernhollow barge, reporting that his captors treated him well\u0022,\u0022reason\u0022:\u0022Merges two separate events; the briefing never says the released corsair was captured on or returned from the barge raid.\u0022},{\u0022span\u0022:\u0022despite recent friction over pricing\u0022,\u0022reason\u0022:\u0022The briefing reports no friction over the trade pact.\u0022},{\u0022span\u0022:\u0022a story that has circulated among the pirate crews without causing major unrest\u0022,\u0022reason\u0022:\u0022The briefing says nothing about how the story spread or what effect it had.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The output breaks character by copying the briefing\u0027s section headings, presents old news as new, and reuses earlier jokes. It also never reports the one new event, the barge raid, as a raid, and instead confuses it with the corsair release story while inventing details.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.2343109,
+      "inputTokens": 2342,
+      "outputTokens": 520
+    }
+  ]
+}

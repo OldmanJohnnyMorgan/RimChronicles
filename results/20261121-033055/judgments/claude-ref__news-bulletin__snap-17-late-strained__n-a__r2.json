@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-17-late-strained__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A well-handled quiet-week bulletin that is dry, accurate and treats old news strictly as background, with sharp faction arithmetic. \u0027I checked twice\u0027 echoes the previous bulletin\u0027s \u0027asked twice\u0027 a little too closely, and the opening item spends its sentences saying nothing happened.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.5528187,
+      "inputTokens": 2383,
+      "outputTokens": 676
+    }
+  ]
+}

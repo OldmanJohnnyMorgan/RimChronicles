@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__inheritance-handoff__snap-18-late-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022his mother\u2019s last letter\u0022,\u0022reason\u0022:\u0022The only letter in the briefing was written by Ada to Constance; nothing says Constance wrote a letter.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Physical details like the brittle letter, trembling hands and map table carry the feeling. But the closing plan to build a bridge does not fit a caravan lost to a blizzard, and \\\u0022the story she left behind\\\u0022 reads as meta. The attribution of the letter to Constance is also unsupported.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.8295725,
+      "inputTokens": 1849,
+      "outputTokens": 566
+    }
+  ]
+}

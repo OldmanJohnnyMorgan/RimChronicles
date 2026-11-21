@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-18-late-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The bulletin is accurate and well ordered: it leads with the lost caravan, uses the closed passes and the raiders correctly as background, and stays within the briefing. Quell\u0027s earnest, worried voice comes through. The second item is a little flat, and the closing line edges towards a sign-off.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.1937862,
+      "inputTokens": 2344,
+      "outputTokens": 328
+    }
+  ]
+}

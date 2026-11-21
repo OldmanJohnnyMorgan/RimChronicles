@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-08-mid-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Ninefingers Gang has been quiet since a failed raid on Gladwater.\u0022,\u0022reason\u0022:\u0022The failed raid is not in the briefing; it is copied from an earlier bulletin.\u0022},{\u0022span\u0022:\u0022The Lantern Accord\u0027s trade fair opens next week at Lantern Hill.\u0022,\u0022reason\u0022:\u0022The briefing says the fair is already being hosted; \u0027next week\u0027 is stale timing copied from an earlier bulletin.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022This breaks the format with markdown headings copied from the briefing and repeats an earlier bulletin word for word. It presents old trade-fair news as upcoming and restates background items as news, so it is unusable.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.0457807,
+      "inputTokens": 2251,
+      "outputTokens": 472
+    }
+  ]
+}

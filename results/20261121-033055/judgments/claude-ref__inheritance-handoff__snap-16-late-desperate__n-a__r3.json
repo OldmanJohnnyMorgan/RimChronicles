@@ -1,0 +1,27 @@
+{
+  "cell": "claude-ref__inheritance-handoff__snap-16-late-desperate__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "ModelRetry",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Bertram\u0027s rifle across her knees\u0022,\u0022reason\u0022:\u0022Briefing never gives Bertram a rifle. Rook came home alone, so how the weapon got back is unexplained.\u0022},{\u0022span\u0022:\u0022each time Bertram had charged straight in\u0022,\u0022reason\u0022:\u0022Briefing does not describe how Bertram fought on the hunts.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:5,\u0022overall\u0022:3,\u0022comment\u0022:\u0022A restrained scene that shows grief through the warg and the rifle cleaning, with a resolve that fits her Careful shooter trait. However, Bertram\u0027s rifle appears at home with no explanation, since only Rook returned, and the detail about how he fought on the hunts is invented.\u0022}",
+      "error": null,
+      "failures": [
+        "With 2 invented fact(s) the rubric caps overall at 2, but overall is 3"
+      ],
+      "latencySeconds": 8.8703425,
+      "inputTokens": 1936,
+      "outputTokens": 810
+    },
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Bertram\u0027s rifle\u0022,\u0022reason\u0022:\u0022No weapon of Bertram\u0027s is mentioned in the briefing.\u0022},{\u0022span\u0022:\u0022one flank torn\u0022,\u0022reason\u0022:\u0022The briefing says Rook came home alone but gives no injuries.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:2,\u0022comment\u0022:\u0022A restrained, well-built scene that shows grief through action and ends on a clear, trait-driven resolve. However, it invents Bertram\u0027s rifle and Rook\u0027s injuries, which caps overall at 2.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.0891655,
+      "inputTokens": 1990,
+      "outputTokens": 675
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-17-late-strained__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022a precarious two-settlement hold on the coast\u0022,\u0022reason\u0022:\u0022The briefing gives no location for the Bonecutter Gang and does not call their position precarious.\u0022},{\u0022span\u0022:\u0022my sources suggest he has likely moved beyond the reach of those paying it\u0022,\u0022reason\u0022:\u0022This invents news about Severin\u0027s whereabouts that the briefing does not give.\u0022},{\u0022span\u0022:\u0022nothing of note has happened here in Ironbloom\u0022,\u0022reason\u0022:\u0022The reporter cannot know what happens inside the colony, and does not report from inside it.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It copies the briefing\u0027s internal headings (\u0027News since your last bulletin:\u0027, \u0027Already reported:\u0027) into the bulletin, which breaks character, and it reads as a flat list of facts with almost none of Ilse\u0027s wry voice. It also invents a coastal location for the Bonecutter Gang and a rumour about where Severin has gone.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.2889449,
+      "inputTokens": 2352,
+      "outputTokens": 544
+    }
+  ]
+}

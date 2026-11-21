@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-15-late-content__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022has continued its inquiries\u0022,\u0022reason\u0022:\u0022Briefing gives the questioning as new; nothing says it had already been going on.\u0022},{\u0022span\u0022:\u0022This sort of persistent questioning is hardly new\u0022,\u0022reason\u0022:\u0022Adds a history of earlier questioning that the briefing does not support.\u0022},{\u0022span\u0022:\u0022remain a stable, if irritating, presence near the outer rim\u0022,\u0022reason\u0022:\u0022Briefing gives no location or activity for Grinning Jack\u0027s Men, only their settlement count.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It opens with a heading, which the task forbids, and it treats the only new item as ongoing, inventing a history for it. It also reruns the old spring-games news and the archery-squabble joke, and the dry voice comes across as flat and bureaucratic.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.0727737,
+      "inputTokens": 2266,
+      "outputTokens": 553
+    }
+  ]
+}

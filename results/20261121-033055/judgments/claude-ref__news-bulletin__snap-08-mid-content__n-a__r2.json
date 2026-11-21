@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-08-mid-content__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022It stays within the briefing, leads with the single new item and treats the trade fair only as background. The Ninefingers finger-count joke fits Ilse\u0027s dry voice without reusing earlier lines. The closing item is slightly thin, mostly restating the date and the sculpture.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.5566757,
+      "inputTokens": 2317,
+      "outputTokens": 449
+    }
+  ]
+}

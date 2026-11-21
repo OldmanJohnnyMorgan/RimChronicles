@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-04-early-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022despite our repeated inquiries\u0022,\u0022reason\u0022:\u0022The briefing mentions no inquiries, repeated or otherwise.\u0022},{\u0022span\u0022:\u0022The Brine Coast League continues its expansion at six settlements\u0022,\u0022reason\u0022:\u0022The briefing gives only a settlement count. It reports no expansion.\u0022},{\u0022span\u0022:\u0022than our last bulletin anticipated\u0022,\u0022reason\u0022:\u0022This is the first bulletin, so there is no earlier bulletin to refer to.\u0022},{\u0022span\u0022:\u0022the silence from Lowmere suggests that whatever game they are playing\u0022,\u0022reason\u0022:\u0022The briefing reports no silence from Lowmere and no activity by its people.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It breaks format by copying the briefing\u0027s section headings (\u0027News since your last bulletin:\u0027, \u0027Already reported:\u0027) into the text, mislabels faction counts as already reported, and refers to a previous bulletin that doesn\u0027t exist. The prose is stiff and reads like a report rather than Ilse\u0027s dry voice, and it adds unsupported details such as \u0027repeated inquiries\u0027 and \u0027expansion\u0027.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.3824855,
+      "inputTokens": 2194,
+      "outputTokens": 687
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-07-mid-strained__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022a move that has prompted local merchants to quietly refuse payment at their own expense\u0022,\u0022reason\u0022:\u0022Merchant reaction not in briefing\u0022},{\u0022span\u0022:\u0022Vex\u0027s Crew remains inactive along the route\u0022,\u0022reason\u0022:\u0022Pirate activity status not given\u0022},{\u0022span\u0022:\u0022leaving the path clear for Imperial forces and Iron Covenant scouts alike\u0022,\u0022reason\u0022:\u0022Imperial forces and Covenant scouts on the road not in briefing\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It breaks the format by copying the briefing headings, presents old news as its own item, and invents merchant reactions, pirate inactivity and troop movements. The voice is flat and lacks Ilse\u0027s dry wit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.0097119,
+      "inputTokens": 2258,
+      "outputTokens": 258
+    }
+  ]
+}

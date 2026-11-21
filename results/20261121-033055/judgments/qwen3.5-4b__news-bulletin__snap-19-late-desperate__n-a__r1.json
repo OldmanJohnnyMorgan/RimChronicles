@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-19-late-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The bulletin copies the briefing\u0027s section labels (\u0027News since your last bulletin:\u0027, \u0027Already reported:\u0027) as headings, which breaks character. It recycles the earlier bulletins\u0027 jokes almost verbatim (\u0027asking politely that no one follow them\u0027, the arithmetic line, \u0027Last Lantern apparently is\u0027), and it presents Fenwick\u0027s razing as fresh news again. It also falls under the 80-word minimum.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.4978686,
+      "inputTokens": 2238,
+      "outputTokens": 506
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-14-mid-content__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022No casualties reported\u0022,\u0022reason\u0022:\u0022Briefing gives no detail on casualties.\u0022},{\u0022span\u0022:\u0022the League claims a cargo of grain was lost\u0022,\u0022reason\u0022:\u0022Cargo type, its loss, and a League claim are not in the briefing.\u0022},{\u0022span\u0022:\u0022again\u0022,\u0022reason\u0022:\u0022Implies an earlier raid, which the briefing does not mention.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It adds details the briefing does not give: no casualties, a lost grain cargo, and an implied earlier raid. It also opens with a copied briefing heading and falls short of the 80-word minimum.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.72674,
+      "inputTokens": 2258,
+      "outputTokens": 347
+    }
+  ]
+}

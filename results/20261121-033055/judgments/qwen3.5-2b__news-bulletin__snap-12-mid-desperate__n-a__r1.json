@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-12-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022signaling a diplomatic thaw amidst the ongoing hostilities\u0022,\u0022reason\u0022:\u0022Briefing mentions no hostilities between these factions and no thaw.\u0022},{\u0022span\u0022:\u0022the empire-backed pirates\u0022,\u0022reason\u0022:\u0022Briefing never says the Empire backs the Gallows Crew.\u0022},{\u0022span\u0022:\u0022the tension between the outlanders and the empire-backed pirates\u0022,\u0022reason\u0022:\u0022No such tension is in the briefing.\u0022},{\u0022span\u0022:\u0022no new casualties have been reported from the recent diplomatic exchange\u0022,\u0022reason\u0022:\u0022Casualty detail is not in the briefing, and it implies a violent event.\u0022},{\u0022span\u0022:\u0022which remains active across the area for its sixth day\u0022,\u0022reason\u0022:\u0022The sixth day was in an earlier bulletin, so the current day count is unsupported and wrong.\u0022},{\u0022span\u0022:\u0022both factions are advised to shelter indoors\u0022,\u0022reason\u0022:\u0022An invented advisory directed at \u0027both factions\u0027.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It breaks character by opening with the briefing heading and noting that an item was \u0027previously covered\u0027. It also invents hostilities, an Empire\u2013pirate alliance and casualty reports, and it has none of Odile\u0027s sardonic voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.4028532,
+      "inputTokens": 2333,
+      "outputTokens": 406
+    }
+  ]
+}

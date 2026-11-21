@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-18-late-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The bulletin is accurate and well ordered. It leads with the lost caravan, keeps the blizzard and raiders as clear background, and fills the quiet week with dry comment on faction counts and the date. \u0027I will not dress it up as more\u0027 edges toward meta, though it stays in Tomas\u0027s earnest, worried voice, and the closing lamp line lands well.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.0822949,
+      "inputTokens": 2338,
+      "outputTokens": 694
+    }
+  ]
+}

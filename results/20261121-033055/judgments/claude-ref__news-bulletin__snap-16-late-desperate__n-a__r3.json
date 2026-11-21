@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-16-late-desperate__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate and nicely sardonic. The line about avoidance versus paying for \u0027the opposite\u0027 callbacks the earlier bulletin without reusing it. \u0027This paper declines to invent them\u0027 reads slightly like a nod to the writer\u0027s instructions, and the bounty arithmetic joke is a touch strained.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.1722661,
+      "inputTokens": 2304,
+      "outputTokens": 759
+    }
+  ]
+}

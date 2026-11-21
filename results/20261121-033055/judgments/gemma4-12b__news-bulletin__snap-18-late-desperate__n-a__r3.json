@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-18-late-desperate__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It breaks the format by copying the briefing\u0027s section labels as headings, which destroys Tomas Quell\u0027s voice. It is also well under the 80-word minimum, and the flat line \u0027It is a terrible thing\u0027 falls short of his earnest, worried persona.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.1792462,
+      "inputTokens": 2211,
+      "outputTokens": 258
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-08-mid-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It copies the briefing\u0027s section headings (\u0027News since your last bulletin:\u0027, \u0027Already reported:\u0027) into the bulletin, which breaks the format and the reporter persona. It also falls short of the 80-word minimum, and the old news reads as a flat recap rather than dry comment.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.6296274,
+      "inputTokens": 2227,
+      "outputTokens": 327
+    }
+  ]
+}

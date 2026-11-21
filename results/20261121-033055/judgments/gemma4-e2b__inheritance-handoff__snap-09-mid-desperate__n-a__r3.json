@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__inheritance-handoff__snap-09-mid-desperate__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Malley\u2019s crew had fled\u0022,\u0022reason\u0022:\u0022Contradicts the briefing: Malley\u0027s Lancers still hold the camp.\u0022},{\u0022span\u0022:\u0022The Lancers\u2019 camp was silent now\u0022,\u0022reason\u0022:\u0022Implies the camp is abandoned, but the Lancers still hold it.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The scene has the Lancers fleeing and the camp empty, when the briefing says they still hold it and have sworn revenge on Cinder Rest. The ending is also weak: Tamsin scavenging wreckage does not show what she means to do, and \u0027the memory of his toughness\u0027 reads like a trait label rather than a detail.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.6283706,
+      "inputTokens": 1883,
+      "outputTokens": 555
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-11-mid-content__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022signaling a tentative truce between outlanders and tribe\u0022,\u0022reason\u0022:\u0022The briefing mentions a peace feast, not a truce.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The output breaks format by copying the briefing\u0027s section labels (\u0027News since your last bulletin:\u0027, \u0027Already reported:\u0027) into the bulletin. It also reuses the earlier plough-and-cannon joke and pads the old news into a full item, leaving a flat, generic voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.1078457,
+      "inputTokens": 2230,
+      "outputTokens": 513
+    }
+  ]
+}

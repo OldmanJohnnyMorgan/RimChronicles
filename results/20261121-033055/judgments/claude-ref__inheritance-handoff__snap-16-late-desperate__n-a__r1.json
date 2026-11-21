@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__inheritance-handoff__snap-16-late-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:4,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A restrained, well-observed scene that turns Elske\u0027s careful-shooter trait into a resolve that mirrors Dunmore\u0027s ambush. The \u0027Not his blood, then. Bertram\u0027s.\u0027 beat is briefly confusing, since no blood was mentioned beforehand.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.8843895,
+      "inputTokens": 1929,
+      "outputTokens": 453
+    }
+  ]
+}

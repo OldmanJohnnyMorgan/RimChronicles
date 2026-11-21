@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-01-early-content__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It\u2019s a modest structure, but it\u2019s got a good view of the road and a bad view of the Red Gully Raiders\u2019 patrols\u0022,\u0022reason\u0022:\u0022The briefing does not describe the post or mention any Raider patrols near it.\u0022},{\u0022span\u0022:\u0022The Ash Clans have already begun moving their herds south\u0022,\u0022reason\u0022:\u0022The briefing does not mention herds or any migration.\u0022},{\u0022span\u0022:\u0022the Tarn Union is stockpiling firewood\u0022,\u0022reason\u0022:\u0022The briefing mentions no stockpiling.\u0022},{\u0022span\u0022:\u0022The Raiders, as always, seem unbothered by the weather.\u0022,\u0022reason\u0022:\u0022The briefing gives no Raider reaction to the weather.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The bulletin breaks format by copying the briefing\u0027s section headings and adding an empty \u0027Already reported\u0027 section. It also invents several events, including the Raider patrols, the herd migration and the firewood stockpiling.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.8896625,
+      "inputTokens": 2081,
+      "outputTokens": 319
+    }
+  ]
+}

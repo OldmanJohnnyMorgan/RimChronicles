@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-04-early-strained__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Brine Coast League\u0027s holdouts burned a ferry on the south channel\u0022,\u0022reason\u0022:\u0022The briefing says the Black Fen Raiders burned the ferry, not the Brine Coast League.\u0022},{\u0022span\u0022:\u0022leaving the southern route impassable for any incoming trade\u0022,\u0022reason\u0022:\u0022The briefing gives no consequence for trade or route access.\u0022},{\u0022span\u0022:\u0022formally ceased all operations toward Lowmere\u0022,\u0022reason\u0022:\u0022The briefing says only that it stopped sending reporters, not all operations.\u0022},{\u0022span\u0022:\u0022citing an inability to verify security protocols within the colony\u0022,\u0022reason\u0022:\u0022The briefing gives no reason for the decision.\u0022},{\u0022span\u0022:\u0022our resident correspondent\u0022,\u0022reason\u0022:\u0022Quell\u0027s role or posting is not stated.\u0022},{\u0022span\u0022:\u0022no word from him has been received over the past week\u0022,\u0022reason\u0022:\u0022The time span is invented.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It wrongly blames the ferry burning on the Brine Coast League instead of the Black Fen Raiders, and it invents several further details. It also opens by copying the briefing heading, has no dry or wry voice, uses office jargon like \u0027security protocols\u0027, and falls short of 80 words.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.3805757,
+      "inputTokens": 2057,
+      "outputTokens": 607
+    }
+  ]
+}

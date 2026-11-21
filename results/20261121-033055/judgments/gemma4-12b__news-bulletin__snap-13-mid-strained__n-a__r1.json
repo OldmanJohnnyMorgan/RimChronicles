@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-13-mid-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Rustback Raiders continue to haunt the old highway\u0022,\u0022reason\u0022:\u0022Briefing reports one past caravan raid, not ongoing raiding.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin copies the briefing\u0027s section headings (\u0027News since your last bulletin:\u0027, \u0027Already reported:\u0027), which breaks format and character. It also runs under 80 words and recasts the old caravan raid as ongoing activity. The one new item is serviceable and lightly wry, but the rest is flat filler.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.3740848,
+      "inputTokens": 2261,
+      "outputTokens": 480
+    }
+  ]
+}

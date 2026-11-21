@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-04-early-strained__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It opens with a copied heading, which breaks the no-title rule. It also lumps the missing reporter and the ferry burning into one item. Calling it \u0027another quiet week, as usual\u0027 in a first bulletin full of alarming news misreads the briefing, and the bland, officious phrasing (\u0027currently seeking information regarding\u0027) lacks Ilse\u0027s wry bite.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.8776051,
+      "inputTokens": 2117,
+      "outputTokens": 511
+    }
+  ]
+}

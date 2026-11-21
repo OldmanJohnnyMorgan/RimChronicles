@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-19-late-desperate__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022without demanding they adopt their ways\u0022,\u0022reason\u0022:\u0022The briefing gives no terms for the Starling Tribe\u0027s shelter.\u0022},{\u0022span\u0022:\u0022Last Lantern apparently holds the upper hand over the League\u0027s numbers\u0022,\u0022reason\u0022:\u0022Unsupported claim that misreads the briefing; Last Lantern is at war with the Sun Throne, not the League.\u0022},{\u0022span\u0022:\u0022The Starling Tribe remains neutral\u0022,\u0022reason\u0022:\u0022The briefing never states the tribe\u0027s stance.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It breaks character by copying the task\u0027s section headings as titles, and it re-presents the razing of Fenwick as new. It also recycles the \u0027Arithmetic is not on its side\u0027 line verbatim, then garbles it into an unsupported claim about Last Lantern.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.2092452,
+      "inputTokens": 2302,
+      "outputTokens": 613
+    }
+  ]
+}

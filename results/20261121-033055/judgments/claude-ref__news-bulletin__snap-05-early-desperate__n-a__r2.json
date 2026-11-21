@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-05-early-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:4,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A sharp, sardonic bulletin that leads with the new market closure and handles the old news correctly as background, with good closing understatement. One small flaw: \u0027the forty-seventh day of Decembary\u0027 misreads the briefing\u0027s \u0027day 47\u0027, since a quadrum has only fifteen days.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.9380819,
+      "inputTokens": 2267,
+      "outputTokens": 553
+    }
+  ]
+}

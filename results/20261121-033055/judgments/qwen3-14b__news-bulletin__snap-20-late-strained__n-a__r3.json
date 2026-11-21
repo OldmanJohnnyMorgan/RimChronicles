@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-20-late-strained__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the offer came with a warning: accept, or face the same fate as Brightwater\u0022,\u0022reason\u0022:\u0022Briefing gives no warning or threat attached to the offer.\u0022},{\u0022span\u0022:\u0022The terms were not made public\u0022,\u0022reason\u0022:\u0022Briefing says nothing about the terms or their disclosure.\u0022},{\u0022span\u0022:\u0022the only thing growing faster than the number of dead\u0022,\u0022reason\u0022:\u0022No casualties are mentioned in the briefing.\u0022},{\u0022span\u0022:\u0022the list of settlements willing to trade independence for survival\u0022,\u0022reason\u0022:\u0022Implies multiple settlements submitting. Only Brightwater is given.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The output breaks format by copying the briefing\u0027s section headings and reusing the previous bulletin\u0027s sentence word for word. It also invents a threat attached to the governorship offer, plus casualties.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.1222933,
+      "inputTokens": 2236,
+      "outputTokens": 284
+    }
+  ]
+}

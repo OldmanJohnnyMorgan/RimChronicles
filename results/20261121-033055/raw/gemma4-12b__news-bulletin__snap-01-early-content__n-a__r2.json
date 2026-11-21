@@ -1,0 +1,56 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-01-early-content__n-a__r2",
+  "model": "gemma4-12b",
+  "task": "news-bulletin",
+  "snapshot": "snap-01-early-content",
+  "grammar": "n/a",
+  "repeat": 2,
+  "promptVersion": "news-bulletin/v2",
+  "outcome": "Template",
+  "value": "(template)",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.\n\nWrite your next news bulletin.\n\nWhat to write:\n- 2 or 3 short news items, most important first, separated by a blank line.\n- Each item is 2 to 4 sentences. The whole bulletin is 80 to 150 words.\n- Lead with the items under \u0022News since your last bulletin\u0022.\n- Items under \u0022Already reported\u0022 are old news. You may mention them briefly as background, but never present them as new or happening again.\n- If there is little new news, fill the remaining items with dry comment on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.\n\nWhat you know:\n- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events, and never add details to an event that the briefing does not give.\n- You do not know what happens inside the colony unless your briefing says it became public.\n\nStyle:\n- Keep your voice the same as in your earlier bulletins, but do not reuse their jokes or sentences.\n- Write only the bulletin itself: no title, no dateline, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 2 (Aprimay 5500).\nThe colony you report near: Ashfall Crossing. You do not know what happens inside it unless listed below.\n\nFactions:\n- The Tarn Union (Outlanders): 6 settlements\n- Red Gully Raiders (Pirates): 3 settlements\n- The Seven Ash Clans (Tribe): 4 settlements\n\nNews since your last bulletin:\n- The Tarn Union opened a new trading post on the river road\n- A cold snap is forecast for the northern hills\n\n## Your earlier bulletins\nNone yet. This is your first bulletin.\n\nWrite the bulletin now.\n",
+        "maxOutputTokens": 500,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "News since your last bulletin:\n\nThe Tarn Union has opened a new trading post on the river road. It\u2019s another expansion for the Outlanders, who now oversee six settlements.\n\nA cold snap is forecast for the northern hills. Residents should prepare for the drop in temperature before it hits.\n\nThe Rim remains relatively stagnant. We currently have the Tarn Union, the Red Gully Raiders, and the Seven Ash Clans maintaining their respective territories.",
+      "error": null,
+      "failures": [
+        "Use 80-150 words; this has 73",
+        "Write only the in-world text, without phrases like: \u0022bulletin:\u0022"
+      ],
+      "latencySeconds": 1.5174888,
+      "inputTokens": 453,
+      "outputTokens": 91,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-947\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795232539,\u0022model\u0022:\u0022gemma4:12b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022News since your last bulletin:\\n\\nThe Tarn Union has opened a new trading post on the river road. It\u2019s another expansion for the Outlanders, who now oversee six settlements.\\n\\nA cold snap is forecast for the northern hills. Residents should prepare for the drop in temperature before it hits.\\n\\nThe Rim remains relatively stagnant. We currently have the Tarn Union, the Red Gully Raiders, and the Seven Ash Clans maintaining their respective territories.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:453,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:91,\u0022total_tokens\u0022:544}}\n"
+    },
+    {
+      "request": {
+        "system": "You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.\n\nWrite your next news bulletin.\n\nWhat to write:\n- 2 or 3 short news items, most important first, separated by a blank line.\n- Each item is 2 to 4 sentences. The whole bulletin is 80 to 150 words.\n- Lead with the items under \u0022News since your last bulletin\u0022.\n- Items under \u0022Already reported\u0022 are old news. You may mention them briefly as background, but never present them as new or happening again.\n- If there is little new news, fill the remaining items with dry comment on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.\n\nWhat you know:\n- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events, and never add details to an event that the briefing does not give.\n- You do not know what happens inside the colony unless your briefing says it became public.\n\nStyle:\n- Keep your voice the same as in your earlier bulletins, but do not reuse their jokes or sentences.\n- Write only the bulletin itself: no title, no dateline, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 2 (Aprimay 5500).\nThe colony you report near: Ashfall Crossing. You do not know what happens inside it unless listed below.\n\nFactions:\n- The Tarn Union (Outlanders): 6 settlements\n- Red Gully Raiders (Pirates): 3 settlements\n- The Seven Ash Clans (Tribe): 4 settlements\n\nNews since your last bulletin:\n- The Tarn Union opened a new trading post on the river road\n- A cold snap is forecast for the northern hills\n\n## Your earlier bulletins\nNone yet. This is your first bulletin.\n\nWrite the bulletin now.\n\n\nYour previous answer was rejected:\n- Use 80-150 words; this has 73\n- Write only the in-world text, without phrases like: \u0022bulletin:\u0022\nAnswer again, following every rule.",
+        "maxOutputTokens": 500,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "News since your last bulletin:\n\nThe Tarn Union has opened a new trading post along the river road. It is another expansion for the Outlanders, who currently manage six settlements. One can only hope the logistics hold up against the local competition.\n\nA cold snap is forecast to hit the northern hills soon. Residents should prepare for a drop in temperature, as the rim rarely offers any warmth for free.\n\nThe current landscape remains dominated by the Tarn Union, the Red Gully Raiders, and the Seven Ash Clans. With a total of thirteen settlements divided among these three factions, the balance of power remains as stagnant as the river silt. It is a quiet day for the rim, which is almost as exhausting as a busy one.",
+      "error": null,
+      "failures": [
+        "Write only the in-world text, without phrases like: \u0022bulletin:\u0022"
+      ],
+      "latencySeconds": 2.1203093,
+      "inputTokens": 503,
+      "outputTokens": 148,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-575\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795232541,\u0022model\u0022:\u0022gemma4:12b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022News since your last bulletin:\\n\\nThe Tarn Union has opened a new trading post along the river road. It is another expansion for the Outlanders, who currently manage six settlements. One can only hope the logistics hold up against the local competition.\\n\\nA cold snap is forecast to hit the northern hills soon. Residents should prepare for a drop in temperature, as the rim rarely offers any warmth for free.\\n\\nThe current landscape remains dominated by the Tarn Union, the Red Gully Raiders, and the Seven Ash Clans. With a total of thirteen settlements divided among these three factions, the balance of power remains as stagnant as the river silt. It is a quiet day for the rim, which is almost as exhausting as a busy one.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:503,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:148,\u0022total_tokens\u0022:651}}\n"
+    }
+  ]
+}

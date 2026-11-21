@@ -1,0 +1,51 @@
+{
+  "cell": "claude-ref__director__snap-08-mid-content__off__r3",
+  "model": "claude-ref",
+  "task": "director",
+  "snapshot": "snap-08-mid-content",
+  "grammar": "off",
+  "repeat": 3,
+  "promptVersion": "director/v1",
+  "outcome": "Model",
+  "value": "{\u0022choice\u0022: \u0022Seed:Rivalry:p4:p2\u0022, \u0022reason\u0022: \u0022Gladwater is stable and content after repelling the day 112 raid, and there are no active plots. Recent standout moments, Brannock\u0027s masterwork sculpture and Yara\u0027s concert, make this a good time to introduce some interpersonal tension.\u0022}",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are the plot director for a story told through a RimWorld colony. You decide what happens next in the colony\u0027s plots.\n\nRules:\n- Choose exactly one option from the allowed list. Copy it exactly, character for character.\n- Choose \u0022Wait\u0022 if the colony is in crisis or the story needs a pause.\n- Prefer the option that follows most naturally from what has already happened.\n- Give a reason in one or two short sentences. Use only facts from the briefing.\n\nAnswer with JSON only, in this form:\n{\u0022choice\u0022: \u0022\u003Cone allowed option\u003E\u0022, \u0022reason\u0022: \u0022\u003Cone or two sentences\u003E\u0022}\n",
+        "user": "## The world\nDate: day 130 (Aprimay 5502).\nColony: Gladwater, 7 people, wealth 96,500 silver, mood content.\n\nPeople:\n- Halvard (50); traits: Industrious, Steadfast; backstory: Midworld mayor; role: Leader.\n- Esme (31); traits: Kind, Green thumb; backstory: Botanist; wife of Cato.\n- Cato (33); traits: Careful shooter; backstory: Colonial marshal; husband of Esme.\n- Yara (24); traits: Sanguine, Beautiful; backstory: Singer.\n- Brannock (46); traits: Tough; backstory: Miner.\n\nHistory:\n- Day 88: Esme married Cato.\n- Day 112: Gladwater repelled a raid by Ninefingers Gang.\n- Day 126: Brannock made a masterwork: a jade sculpture called \u0027The Patient Hill\u0027.\n\nFactions:\n- The Lantern Accord (Outlanders): goodwill \u002B60, 9 settlements.\n- Ninefingers Gang (Pirates): goodwill -70, 3 settlements.\n- The Reedmother\u0027s Children (Tribe): goodwill \u002B35, 5 settlements.\n\nRecent events:\n- Raid repelled day 112 with no losses\n- Brannock carved a masterwork jade sculpture day 126\n- Yara\u0027s concert raised the colony\u0027s mood day 128\n\n## Active plots\nNo active plots.\n\n## Allowed options\n- Wait\n- Seed:Rivalry:p4:p2\n\nChoose one allowed option.\n",
+        "maxOutputTokens": 300,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "choice": {
+              "type": "string",
+              "enum": [
+                "Wait",
+                "Seed:Rivalry:p4:p2"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "choice",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "ok": true,
+      "text": "{\u0022choice\u0022: \u0022Seed:Rivalry:p4:p2\u0022, \u0022reason\u0022: \u0022Gladwater is stable and content after repelling the day 112 raid, and there are no active plots. Recent standout moments, Brannock\u0027s masterwork sculpture and Yara\u0027s concert, make this a good time to introduce some interpersonal tension.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.2117414,
+      "inputTokens": 720,
+      "outputTokens": 279,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022model\u0022:\u0022claude-opus-5-5\u0022,\u0022id\u0022:\u0022msg_011ChFPt6Ddrh1ZsWuhNRrM5\u0022,\u0022type\u0022:\u0022message\u0022,\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:[{\u0022type\u0022:\u0022thinking\u0022,\u0022thinking\u0022:\u0022\u0022,\u0022signature\u0022:\u0022CAQS/gcKEAgUGAI4AUIIdGhpbmtpbmcSDMfVdmHdoyBUjJzFmhoMvs7IS/VoKJVVk4jBIjDNbmwaPF1gwMw5l3Pr3vew\\u002BXLfVOvx3rqPIpatjhNZhT6hLnrAq3HbNsf5MxZUCIMqmwfRMReQRC2aRl\\u002BxxNnThl/mpvR6/dGMHinpfw/8AdVHmYle2TEuZQxqVUgJO3yzB7AoKg2Ocm/Al8rz4qMLgApicvLx8vzrn39irzmGAZ421DeX8G/trghMW8S9s8o0OquIDCtxN1106K8jiQFUsnGTkYQ1C/l2Bc7JfQdNGLsXvFjm2/9lWCZsywRLGN5/O8pZPVs2Y4jlA1nZBzdQ\\u002BNS4WrZEb8/GC3sa5gG5hEKzZNuYJqHewGaNHW5uIdtDY3JAVBhjjAA9JDs9XYiNwxsncz4gxLy/0VDz/IeGVvUPBkJbMrHwjDJjYhiR9H4z59ZBnLH2IyWtpqtYuFI8MrW3SazW5AEtWotDRmJw\\u002BNAWnn67QeQgznal\\u002BQTkgKUvq6HwycGBGW1WOKa0fN7CkDwwS4s2PaRDmAJBnCV4LlzAFOJtuetF9NM8Q/rLhvXbunlVruL\\u002BjZEmDFb\\u002B29jovdEoHyZMMw33nNV6z9ff9iI/EGFp1iHaaYtQtpokU1RFjo4hIaWigvKd09fRYXdd8/Vr\\u002BhZGaAVisGT7JU7/n7D1HsFmmpI2JNbWmeoGgOqqhQSFzclxUlHXXn2Ip\\u002BHCqdpTKcmeKJH6jElcc2cJFtlTt9gO5l871AekZZINZSX5mL\\u002BU1PhZvE\\u002BnyiQqsy8lOeEoQGp96h\\u002BAF0yhbtWmk8S44nUJQH4STXh4vs6cNqT0qMLEaLayfR2RCVZJpSC5LOmk\\u002BF89r5\\u002BBA2yKVSzTvw9AeCHHbngdbA3G6GJZh9CcJ8vrzChLPLjMmpP\\u002Bab1MKUPPo\\u002BSOpj4n1iq0J9W8029sncGR6cmrHtCAI4wr6CBNxMWrm5n1WbrDGvKWTtX8DQrk\\u002BCPYtO3g5Hgoj8wspspT3wrl7NfQK4GhF9IX4chZzJCEQPkm4nbjn2L\\u002BecBx\\u002BUXdT3KO8eGwdpCeouz1qvFhE\\u002BN1Yh7GERJub02FdUC1W6fGukU8eFKkJGWJK0X1RqJekVzhqr0TtqLKnMYQpegnNNai9k43S\\u002BcnOg5IAb/nVRwtWq9eFNz92j42aoM\\u002B4xSai2afS8vSHc1aNHyQ2sb6iAZCgnp3oZLy65THpZdGKwcKk5EjQqdrPFKgAJZu59jkW4d33kKwTEaKdMzQzvtQPoKa2GnCG\\u002BAk5XmZ53/1wtc/n1kKaURggklDqGrSRjpigeA6TgGAwT4koa4vKMRUNQ5Kk7JaEMfolHgU0Qx3/tLYc7zHm5smy3dqthgB\u0022},{\u0022type\u0022:\u0022text\u0022,\u0022text\u0022:\u0022{\\u0022choice\\u0022: \\u0022Seed:Rivalry:p4:p2\\u0022, \\u0022reason\\u0022: \\u0022Gladwater is stable and content after repelling the day 112 raid, and there are no active plots. Recent standout moments, Brannock\\u0027s masterwork sculpture and Yara\\u0027s concert, make this a good time to introduce some interpersonal tension.\\u0022}\u0022}],\u0022container\u0022:null,\u0022stop_reason\u0022:\u0022end_turn\u0022,\u0022stop_sequence\u0022:null,\u0022stop_details\u0022:null,\u0022usage\u0022:{\u0022input_tokens\u0022:720,\u0022cache_creation_input_tokens\u0022:0,\u0022cache_read_input_tokens\u0022:0,\u0022cache_creation\u0022:{\u0022ephemeral_5m_input_tokens\u0022:0,\u0022ephemeral_1h_input_tokens\u0022:0},\u0022iterations\u0022:[{\u0022input_tokens\u0022:720,\u0022output_tokens\u0022:279,\u0022cache_read_input_tokens\u0022:0,\u0022cache_creation_input_tokens\u0022:0,\u0022cache_creation\u0022:{\u0022ephemeral_5m_input_tokens\u0022:0,\u0022ephemeral_1h_input_tokens\u0022:0},\u0022type\u0022:\u0022message\u0022,\u0022model\u0022:null}],\u0022output_tokens\u0022:279,\u0022output_tokens_details\u0022:{\u0022thinking_tokens\u0022:172},\u0022service_tier\u0022:\u0022standard\u0022,\u0022inference_geo\u0022:\u0022global\u0022,\u0022speed\u0022:\u0022standard\u0022},\u0022diagnostics\u0022:null}"
+    }
+  ]
+}

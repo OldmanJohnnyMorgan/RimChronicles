@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-05-early-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022hitting only settlements that have not recently traded with them\u0022,\u0022reason\u0022:\u0022The briefing gives no pattern or targeting criteria for the Scythe Tooth raids.\u0022},{\u0022span\u0022:\u0022The Scythe Tooth continue their pattern of selective violence\u0022,\u0022reason\u0022:\u0022Presents already-reported raids as ongoing, new activity.\u0022},{\u0022span\u0022:\u0022The cold snap has not abated\u0022,\u0022reason\u0022:\u0022The briefing says nothing about the cold snap continuing.\u0022},{\u0022span\u0022:\u0022no one seems to have the funds to pay for them\u0022,\u0022reason\u0022:\u0022Adds a funding shortfall the briefing never states; the earlier bulletin only said members asked who is paying.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It copies the briefing\u0027s section headings (\u0027News since your last bulletin:\u0027, \u0027Already reported:\u0027) into the text, which breaks character. It also invents a raid-targeting pattern and other details, and recycles old news as current. The sardonic, understated voice of the earlier bulletins is largely missing.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.4291007,
+      "inputTokens": 2240,
+      "outputTokens": 565
+    }
+  ]
+}

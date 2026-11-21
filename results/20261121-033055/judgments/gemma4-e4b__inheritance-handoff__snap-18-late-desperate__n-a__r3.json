@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__inheritance-handoff__snap-18-late-desperate__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate, within length, and it ends on Elias\u0027s intent, but traits are stated rather than shown (\u0027with her iron will\u0027, \u0027the engineer\u0027s meticulous focus\u0027). Phrasing like \u0027looked toward the direction of\u0027 makes it read as a competent draft, not shippable prose.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.9442479,
+      "inputTokens": 1879,
+      "outputTokens": 510
+    }
+  ]
+}

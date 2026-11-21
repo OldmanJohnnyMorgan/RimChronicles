@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-14-mid-content__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The bulletin leads correctly with the barge raid and treats the released-corsair story as background only, not as new news. The settlement-count joke is dry and grounded in the briefing. The closing filler item is a little flat, and \u0027getting shot at\u0027 and \u0027deep in Jugust\u0027 push slightly past the briefing, though both read as narrator colour rather than claims.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.205986,
+      "inputTokens": 2371,
+      "outputTokens": 547
+    }
+  ]
+}

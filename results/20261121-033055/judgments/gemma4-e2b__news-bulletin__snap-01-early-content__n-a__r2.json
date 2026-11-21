@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-01-early-content__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022continue their usual pattern of territorial disputes across their four holdings\u0022,\u0022reason\u0022:\u0022The briefing mentions no territorial disputes involving the Seven Ash Clans.\u0022},{\u0022span\u0022:\u0022little movement in the usual conflicts\u0022,\u0022reason\u0022:\u0022The briefing lists no wars or ongoing conflicts.\u0022},{\u0022span\u0022:\u0022The current tally of settlements remains unchanged\u0022,\u0022reason\u0022:\u0022This is the first bulletin, so there is no earlier tally to compare against.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It opens with a heading, which the task forbids, and invents conflicts and territorial disputes the briefing never mentions. It also merges the two real news items into one paragraph, and its voice is mostly flat rather than wry.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.8010022,
+      "inputTokens": 2097,
+      "outputTokens": 589
+    }
+  ]
+}

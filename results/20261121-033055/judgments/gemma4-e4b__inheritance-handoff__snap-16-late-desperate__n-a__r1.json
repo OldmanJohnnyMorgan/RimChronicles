@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__inheritance-handoff__snap-16-late-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Elske knelt beside Bertram, the blood dark against the dirt. Rook nudged her hand\u0022,\u0022reason\u0022:\u0022Puts Elske at Bertram\u0027s body with Rook; the briefing says Rook came home alone, and Elske was never at the ambush site.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It is restrained and shows grief through gesture, ending firmly on the heir\u0027s intent. But staging Elske at the body beside Rook contradicts \u0027Rook came home alone\u0027, and the closing line is a stock phrase.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.7224066,
+      "inputTokens": 1854,
+      "outputTokens": 492
+    }
+  ]
+}

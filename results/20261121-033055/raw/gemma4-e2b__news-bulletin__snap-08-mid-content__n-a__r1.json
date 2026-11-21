@@ -1,0 +1,55 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-08-mid-content__n-a__r1",
+  "model": "gemma4-e2b",
+  "task": "news-bulletin",
+  "snapshot": "snap-08-mid-content",
+  "grammar": "n/a",
+  "repeat": 1,
+  "promptVersion": "news-bulletin/v2",
+  "outcome": "Template",
+  "value": "(template)",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.\n\nWrite your next news bulletin.\n\nWhat to write:\n- 2 or 3 short news items, most important first, separated by a blank line.\n- Each item is 2 to 4 sentences. The whole bulletin is 80 to 150 words.\n- Lead with the items under \u0022News since your last bulletin\u0022.\n- Items under \u0022Already reported\u0022 are old news. You may mention them briefly as background, but never present them as new or happening again.\n- If there is little new news, fill the remaining items with dry comment on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.\n\nWhat you know:\n- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events, and never add details to an event that the briefing does not give.\n- You do not know what happens inside the colony unless your briefing says it became public.\n\nStyle:\n- Keep your voice the same as in your earlier bulletins, but do not reuse their jokes or sentences.\n- Write only the bulletin itself: no title, no dateline, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 130 (Aprimay 5502).\nThe colony you report near: Gladwater. You do not know what happens inside it unless listed below.\n\nFactions:\n- The Lantern Accord (Outlanders): 9 settlements\n- Ninefingers Gang (Pirates): 3 settlements\n- The Reedmother\u0027s Children (Tribe): 5 settlements\n\nNews since your last bulletin:\n- Gladwater\u0027s jade sculpture is the talk of Lantern Hill traders\n\nAlready reported in your earlier bulletins (background only, not news):\n- The Lantern Accord is hosting a trade fair at Lantern Hill\n- The Reedmother\u0027s Children report a good fishing season\n\n## Your earlier bulletins\nEarlier bulletin:\nThe Lantern Accord\u0027s trade fair opens next week at Lantern Hill. The Accord promises fair prices; I promise to report on whether that promise survives contact with merchants.\n\nLatest bulletin:\nThe Reedmother\u0027s Children say the river is full and the fish are foolish, a combination they describe as the best of both worlds. The Ninefingers Gang has been quiet since a failed raid on Gladwater.\n\nWrite the bulletin now.\n",
+        "maxOutputTokens": 350,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "News since your last bulletin\n\nGladwater\u0027s jade sculpture is currently the subject of discussion among the Lantern Hill traders. It seems the local trinket has managed to draw some attention this cycle.\n\nThe Reedmother\u0027s Children continue to report on their fishing yields, noting the river\u0027s fullness as they described it.\n\nAlready reported\n\nThe Lantern Accord continues its scheduled trade fair at Lantern Hill. The Reedmother\u0027s Children have previously reported on a good fishing season.",
+      "error": null,
+      "failures": [
+        "Use 80-150 words; this has 74"
+      ],
+      "latencySeconds": 0.5186953,
+      "inputTokens": 559,
+      "outputTokens": 97,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-324\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795223575,\u0022model\u0022:\u0022gemma4:e2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022News since your last bulletin\\n\\nGladwater\u0027s jade sculpture is currently the subject of discussion among the Lantern Hill traders. It seems the local trinket has managed to draw some attention this cycle.\\n\\nThe Reedmother\u0027s Children continue to report on their fishing yields, noting the river\u0027s fullness as they described it.\\n\\nAlready reported\\n\\nThe Lantern Accord continues its scheduled trade fair at Lantern Hill. The Reedmother\u0027s Children have previously reported on a good fishing season.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:559,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:97,\u0022total_tokens\u0022:656}}\n"
+    },
+    {
+      "request": {
+        "system": "You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.\n\nWrite your next news bulletin.\n\nWhat to write:\n- 2 or 3 short news items, most important first, separated by a blank line.\n- Each item is 2 to 4 sentences. The whole bulletin is 80 to 150 words.\n- Lead with the items under \u0022News since your last bulletin\u0022.\n- Items under \u0022Already reported\u0022 are old news. You may mention them briefly as background, but never present them as new or happening again.\n- If there is little new news, fill the remaining items with dry comment on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.\n\nWhat you know:\n- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events, and never add details to an event that the briefing does not give.\n- You do not know what happens inside the colony unless your briefing says it became public.\n\nStyle:\n- Keep your voice the same as in your earlier bulletins, but do not reuse their jokes or sentences.\n- Write only the bulletin itself: no title, no dateline, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 130 (Aprimay 5502).\nThe colony you report near: Gladwater. You do not know what happens inside it unless listed below.\n\nFactions:\n- The Lantern Accord (Outlanders): 9 settlements\n- Ninefingers Gang (Pirates): 3 settlements\n- The Reedmother\u0027s Children (Tribe): 5 settlements\n\nNews since your last bulletin:\n- Gladwater\u0027s jade sculpture is the talk of Lantern Hill traders\n\nAlready reported in your earlier bulletins (background only, not news):\n- The Lantern Accord is hosting a trade fair at Lantern Hill\n- The Reedmother\u0027s Children report a good fishing season\n\n## Your earlier bulletins\nEarlier bulletin:\nThe Lantern Accord\u0027s trade fair opens next week at Lantern Hill. The Accord promises fair prices; I promise to report on whether that promise survives contact with merchants.\n\nLatest bulletin:\nThe Reedmother\u0027s Children say the river is full and the fish are foolish, a combination they describe as the best of both worlds. The Ninefingers Gang has been quiet since a failed raid on Gladwater.\n\nWrite the bulletin now.\n\n\nYour previous answer was rejected:\n- Use 80-150 words; this has 74\nAnswer again, following every rule.",
+        "maxOutputTokens": 350,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "News since your last bulletin\n\nGladwater\u0027s jade sculpture is currently the subject of discussion among the Lantern Hill traders. It seems the local trinkets are proving more interesting than usual this cycle.\n\nThe Ninefingers Gang remains quiet following their unsuccessful attempt on Gladwater. A quiet week, indeed, for those who prefer the shadows.\n\nThe Lantern Accord continues its usual pattern of commerce, though the details of their latest dealings remain unconfirmed. Another day, another predictable pattern in the Rim.",
+      "error": null,
+      "failures": [
+        "Use 80-150 words; this has 79"
+      ],
+      "latencySeconds": 0.5948955,
+      "inputTokens": 591,
+      "outputTokens": 101,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-321\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795223576,\u0022model\u0022:\u0022gemma4:e2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022News since your last bulletin\\n\\nGladwater\u0027s jade sculpture is currently the subject of discussion among the Lantern Hill traders. It seems the local trinkets are proving more interesting than usual this cycle.\\n\\nThe Ninefingers Gang remains quiet following their unsuccessful attempt on Gladwater. A quiet week, indeed, for those who prefer the shadows.\\n\\nThe Lantern Accord continues its usual pattern of commerce, though the details of their latest dealings remain unconfirmed. Another day, another predictable pattern in the Rim.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:591,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:554},\u0022completion_tokens\u0022:101,\u0022total_tokens\u0022:692}}\n"
+    }
+  ]
+}

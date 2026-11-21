@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__inheritance-handoff__snap-18-late-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The scene stays within the briefing, and the wrench and wall seals suit an industrious, neurotic engineer. But it never has Elias take up his mother\u0027s unfinished aim of bringing Ada home, so the ending misses the core of the task, and \u0027mirroring the chill\u0027 is a stock, telling phrase.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.3707047,
+      "inputTokens": 1844,
+      "outputTokens": 314
+    }
+  ]
+}

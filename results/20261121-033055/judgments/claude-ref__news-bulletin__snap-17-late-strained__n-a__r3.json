@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-17-late-strained__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Handles a quiet week well, framing the old news as background and using only briefing facts in a dry, consistent voice. Minor faults: the third item runs to five sentences, over the four-sentence limit, and the closing \u0027everyone reloading\u0027 line is a familiar beat.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.3919609,
+      "inputTokens": 2399,
+      "outputTokens": 649
+    }
+  ]
+}

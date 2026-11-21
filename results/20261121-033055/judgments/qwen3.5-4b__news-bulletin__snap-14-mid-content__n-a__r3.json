@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-14-mid-content__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022men who usually prefer looting entire villages\u0022,\u0022reason\u0022:\u0022The briefing says nothing about the Corsairs\u0027 usual targets.\u0022},{\u0022span\u0022:\u0022make the patrols look like they are doing something\u0022,\u0022reason\u0022:\u0022The briefing mentions no river patrols.\u0022},{\u0022span\u0022:\u0022two released Corsairs\u0022,\u0022reason\u0022:\u0022The briefing\u0027s two entries likely describe the same single released Corsair, which the earlier bulletin also treated as one man.\u0022},{\u0022span\u0022:\u0022are back at Quillmarsh\u0022,\u0022reason\u0022:\u0022The Corsair was released by Quillmarsh and went home, not back to Quillmarsh.\u0022},{\u0022span\u0022:\u0022one is still too proud to admit it while the other is trying to sell stories about it\u0022,\u0022reason\u0022:\u0022Invented details about the released prisoners.\u0022},{\u0022span\u0022:\u0022The date has slipped past day 376\u0022,\u0022reason\u0022:\u0022The briefing date is day 376, not past it.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It breaks character by copying the briefing\u0027s section headings into the bulletin, and it re-presents old news at length. It also invents several details (patrols, two prisoners back at Quillmarsh, their differing behaviour) and recycles the earlier furs-for-steel and complaining joke.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.2836059,
+      "inputTokens": 2400,
+      "outputTokens": 701
+    }
+  ]
+}

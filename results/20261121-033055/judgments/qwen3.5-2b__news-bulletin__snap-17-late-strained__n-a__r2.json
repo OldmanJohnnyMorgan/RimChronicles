@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-17-late-strained__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Bonecutter Gang pirates are reported to be raiding the outskirts of Ironbloom.\u0022,\u0022reason\u0022:\u0022No raid is in the briefing; the briefing says there is no new news.\u0022},{\u0022span\u0022:\u0022the man who allegedly defected from the Compact\u0027s ranks\u0022,\u0022reason\u0022:\u0022The briefing does not say which side Severin defected from. Given the Empire\u0027s bounty, he would more plausibly be an Empire defector.\u0022},{\u0022span\u0022:\u0022their lack of neighbors\u0022,\u0022reason\u0022:\u0022The briefing says nothing about the gang\u0027s neighbours.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It copies the briefing\u0027s headings into the text, which breaks character. It presents the old Severin bounty as new and reuses the earlier bulletin\u0027s sentences almost word for word. It also invents a pirate raid on Ironbloom when the briefing says nothing new has happened.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.5043966,
+      "inputTokens": 2378,
+      "outputTokens": 303
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-16-late-desperate__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Free Company, meanwhile, has not been seen near Gallowmere\u0022,\u0022reason\u0022:\u0022The briefing says nothing about the Free Company\u0027s recent movements.\u0022},{\u0022span\u0022:\u0022their usual haunts are still littered with the detritus of last week\u2019s ambush\u0022,\u0022reason\u0022:\u0022This invents the ambush\u0027s location and aftermath and dates it to \u0027last week\u0027. The briefing places the ambush near Gallowmere and gives no timing.\u0022},{\u0022span\u0022:\u0022the Lantern Accord\u2019s water rations continue\u0022,\u0022reason\u0022:\u0022The briefing gives only dried wells as background. It does not say rationing is still going on.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It copies the briefing\u0027s section headings into the bulletin, which breaks format. It also invents the Free Company\u0027s whereabouts and the ambush aftermath, contradicting the stated ambush near Gallowmere. The \u0027enthusiasm\u0027 joke is recycled from an earlier bulletin.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.7904462,
+      "inputTokens": 2227,
+      "outputTokens": 626
+    }
+  ]
+}

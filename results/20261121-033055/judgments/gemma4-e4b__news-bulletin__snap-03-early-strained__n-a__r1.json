@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Kinn of the Long Grass remain settled in their three designated locations.\u0022,\u0022reason\u0022:\u0022Contradicts the earlier bulletin saying the Kinn are on the move; \u0027designated locations\u0027 is unsupported.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The output copies the briefing\u0027s section headings (\u0027News since your last bulletin\u0027, \u0027Already reported\u0027) into the bulletin, which breaks character, and it falls short of 80 words. After the dry opening line it turns into a flat restatement of faction facts, and it wrongly says the Kinn remain settled when the last bulletin had them on the move.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.1226508,
+      "inputTokens": 2236,
+      "outputTokens": 641
+    }
+  ]
+}

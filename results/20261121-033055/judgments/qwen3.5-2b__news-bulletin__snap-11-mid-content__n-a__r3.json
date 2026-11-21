@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-11-mid-content__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022are no longer a threat there\u0022,\u0022reason\u0022:\u0022Adds a judgement the briefing does not give; it only says they were driven out.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:1,\u0022overall\u0022:1,\u0022comment\u0022:\u0022This is not a bulletin: it copies the briefing\u0027s section headings verbatim, breaks character, and has no reporter voice. It also files the old Mire Rats item under new news and falls well short of the 80-word minimum.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.5025302,
+      "inputTokens": 2150,
+      "outputTokens": 321
+    }
+  ]
+}

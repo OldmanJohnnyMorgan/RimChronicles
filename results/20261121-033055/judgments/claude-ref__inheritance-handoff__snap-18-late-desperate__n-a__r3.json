@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__inheritance-handoff__snap-18-late-desperate__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022still expecting her sister\u0022,\u0022reason\u0022:\u0022The briefing never says Ada knew Constance was coming.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022A restrained scene that shows Elias\u0027s neurotic, industrious grief through small actions: the wrench on the letter, the creases, the torn-up lists. It ends cleanly on his intent, but the claim that Ada was expecting her sister goes beyond the briefing and caps the score.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.7657126,
+      "inputTokens": 1905,
+      "outputTokens": 508
+    }
+  ]
+}

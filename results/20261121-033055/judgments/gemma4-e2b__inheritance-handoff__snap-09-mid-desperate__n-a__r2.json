@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__inheritance-handoff__snap-09-mid-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022remembering the fight, the final clash\u0022,\u0022reason\u0022:\u0022Implies Tamsin witnessed Joska\u0027s last fight; the briefing doesn\u0027t place her there.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The prose is flat and choppy, and \u0027the camp entrance\u0027 leaves unclear whether she is heading into the Lancers\u0027 camp or leaving her own. The ending is also weak: she means to \u0027find out\u0027 the captain\u0027s plans rather than taking up the story with a clear intent, and it echoes the briefing\u0027s \u0027sworn vengeance\u0027 line almost verbatim.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.1467171,
+      "inputTokens": 1874,
+      "outputTokens": 625
+    }
+  ]
+}

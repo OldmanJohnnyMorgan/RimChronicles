@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-17-late-strained__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the Bonecutter Gang continues their usual low-level scavenging near the fringes\u0022,\u0022reason\u0022:\u0022The briefing gives no Bonecutter Gang activity, only their settlement count.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin opens with a copied heading, which breaks the no-title rule. It also invents Bonecutter scavenging activity, and its \u0027slow expansion\u0027 line clashes with the briefing\u0027s \u0027expanding by force\u0027. The voice is mildly wry but generic, and it lacks the bite of the earlier bulletins.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.2606395,
+      "inputTokens": 2320,
+      "outputTokens": 577
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-16-late-desperate__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022a rather clumsy ambush near Gallowmere that left the mercenary still at large\u0022,\u0022reason\u0022:\u0022The briefing does not say the ambush was clumsy, who ambushed whom, or that it failed to catch Dunmore.\u0022},{\u0022span\u0022:\u0022The heatwave remains a persistent fact of our existence\u0022,\u0022reason\u0022:\u0022The briefing does not say the heatwave is still going on.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It opens with a copied heading, which breaks character and the \u0027bulletin only\u0027 rule, and at about 60 words it falls short of the 80-word minimum. It also embellishes the ambush and asserts the heatwave continues, neither of which the briefing supports.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.196715,
+      "inputTokens": 2187,
+      "outputTokens": 674
+    }
+  ]
+}

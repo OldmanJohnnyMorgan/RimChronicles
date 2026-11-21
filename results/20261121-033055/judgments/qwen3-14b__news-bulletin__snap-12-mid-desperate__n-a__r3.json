@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-12-mid-desperate__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the Assembly has not made a public statement since\u0022,\u0022reason\u0022:\u0022Briefing gives no Assembly response or silence after the envoys.\u0022},{\u0022span\u0022:\u0022Their latest message claims the doctor is \u201Cunwell\u201D and \u201Cuncooperative,\u201D\u0022,\u0022reason\u0022:\u0022Invented message and quotes about the doctor\u0027s condition.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It opens with a copied heading, which breaks the \u0027bulletin only\u0027 rule, and it invents a quoted message from the Gallows Crew and a silence from the Assembly. The prose is flat and lacks Odile\u0027s sardonic voice, and the bulletin also falls just short of 80 words.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.7814949,
+      "inputTokens": 2268,
+      "outputTokens": 687
+    }
+  ]
+}

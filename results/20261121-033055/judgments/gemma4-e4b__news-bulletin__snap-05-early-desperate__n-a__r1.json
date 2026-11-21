@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Scythe Tooth continue their pattern of opportunistic visitation\u0022,\u0022reason\u0022:\u0022Presents already-reported raids as ongoing; no new raids in briefing\u0022},{\u0022span\u0022:\u0022the general population of Thornreach is likely preoccupied with the dwindling stores\u0022,\u0022reason\u0022:\u0022Claims knowledge of conditions inside the colony; dwindling stores not in briefing\u0022},{\u0022span\u0022:\u0022With the cold still biting\u0022,\u0022reason\u0022:\u0022Briefing reports a past cold snap, not that it is continuing\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It opens with a copied heading, which breaks character. It recasts old raid news as ongoing and speculates about life inside Thornreach, which the reporter cannot know. The hospitality joke about the closed markets does not land.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.6612649,
+      "inputTokens": 2232,
+      "outputTokens": 673
+    }
+  ]
+}

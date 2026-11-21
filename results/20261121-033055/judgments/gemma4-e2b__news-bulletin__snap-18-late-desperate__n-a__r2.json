@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-18-late-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022A caravan traveling through Wren\u0027s Hollow\u0022,\u0022reason\u0022:\u0022Briefing says it was a Wren\u0027s Hollow caravan, not one passing through.\u0022},{\u0022span\u0022:\u0022The Thistle Commonwealth continues to offer access to their granaries.\u0022,\u0022reason\u0022:\u0022The granary offer is only in an earlier bulletin; nothing supports it still being open.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It opens with a copied heading, which breaks character, and it misstates the caravan as one travelling through Wren\u0027s Hollow. The rest is flat filler: it reuses the granary punchline from the last bulletin, rehashes the raiders as if they were current news, and falls under the word count with none of Tomas\u0027s worried voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.9284467,
+      "inputTokens": 2246,
+      "outputTokens": 692
+    }
+  ]
+}

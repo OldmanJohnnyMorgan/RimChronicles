@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-04-early-strained__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The output copies the briefing headings (\u0027News since your last bulletin:\u0027, \u0027Already reported:\u0027) into the bulletin, which breaks character and the no-headings rule, and it wrongly labels the League\u0027s size as already reported in a first bulletin. The prose is flat and mostly restates the briefing with little of the dry, cynical voice, and at about 75 words it falls short of the 80-word minimum.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.8185652,
+      "inputTokens": 2077,
+      "outputTokens": 441
+    }
+  ]
+}

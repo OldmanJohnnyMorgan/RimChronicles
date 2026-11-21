@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-13-mid-strained__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:4,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A sharp, dry bulletin that leads correctly with the refusal and fills the rest with apt comment on faction sizes. All facts trace to the briefing. The one flaw is \u0027day 254 of Aprimay 5504\u0027, which awkwardly suggests day 254 falls within the quadrum rather than the year.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.0752969,
+      "inputTokens": 2364,
+      "outputTokens": 462
+    }
+  ]
+}

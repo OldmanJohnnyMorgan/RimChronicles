@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-15-late-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The output breaks format badly: it copies the briefing\u0027s section headings, including the \u0027Already reported\u0027 label and a bullet. It also reuses earlier jokes nearly word for word and re-presents old news, against instructions. It falls short of 80 words, and \u0027one of those promises\u0027 makes no sense once the second promise is cut.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.3041906,
+      "inputTokens": 2208,
+      "outputTokens": 330
+    }
+  ]
+}

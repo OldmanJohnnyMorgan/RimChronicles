@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-13-mid-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The envoys are returning with empty hands\u0022,\u0022reason\u0022:\u0022The briefing says nothing about the envoys\u0027 movements or their return.\u0022},{\u0022span\u0022:\u0022Their latest victims seem to be paying a heavy price for carrying goods that don\u0027t exist\u0022,\u0022reason\u0022:\u0022Invents new raid victims and details the briefing never gives.\u0022},{\u0022span\u0022:\u0022The Rustback Raiders still hunt caravans on the old highway\u0022,\u0022reason\u0022:\u0022Turns the single reported caravan raid into ongoing activity, treating old news as current.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It breaks the format by copying the briefing\u0027s section labels into the bulletin, and it embellishes both the tribute story and the raider story with unsupported details. The closing line is vague filler, and \u0027goods that don\u0027t exist\u0027 is confusing.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.2128516,
+      "inputTokens": 2281,
+      "outputTokens": 656
+    }
+  ]
+}

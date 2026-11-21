@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__inheritance-handoff__snap-18-late-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022watching the snow swallow the distant Wailing Moth village\u0022,\u0022reason\u0022:\u0022Places the village in view of Elias\u0027s window; the briefing puts it beyond the passes.\u0022},{\u0022span\u0022:\u0022It had been three decades since Ada last saw this place, yet she still lived there\u0022,\u0022reason\u0022:\u0022Contradictory and unsupported claim about Ada and \u0027this place\u0027.\u0022},{\u0022span\u0022:\u0022how she would have hated him for leaving\u0022,\u0022reason\u0022:\u0022Invents a leaving and Constance\u0027s reaction to it; nothing in the briefing supports either.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The pronouns garble the relationship: \u0027her mother\u0027s iron will\u0027 makes Constance sound like Ada\u0027s mother, not Elias\u0027s. The geography and backstory around Ada are confused, and clich\u00E9s like \u0027weight of her absence\u0027 and \u0027like a shroud\u0027 tell the feeling instead of showing it.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 8.6440025,
+      "inputTokens": 1913,
+      "outputTokens": 891
+    }
+  ]
+}

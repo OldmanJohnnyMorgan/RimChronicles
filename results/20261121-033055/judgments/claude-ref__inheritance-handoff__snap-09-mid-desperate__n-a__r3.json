@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__inheritance-handoff__snap-09-mid-desperate__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A restrained, well-made scene: the inherited fist wraps carry the grief and the pit-fighter legacy without naming any emotion, and every fact matches the briefing. The ending\u0027s intent to strike first is clear but slightly understated, and the repeated \u0027wrapped hands\u0027 beat could be tighter.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 8.5475339,
+      "inputTokens": 1941,
+      "outputTokens": 825
+    }
+  ]
+}

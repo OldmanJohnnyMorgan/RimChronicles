@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__inheritance-handoff__snap-16-late-desperate__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the scar on his flank, the one Bertram had gotten defending her\u0022,\u0022reason\u0022:\u0022No past event of Bertram defending Elske or a scar from it appears in the briefing.\u0022},{\u0022span\u0022:\u0022Elske knelt beside Bertram\u2019s body\u0022,\u0022reason\u0022:\u0022The briefing says only that Rook came home alone. Nothing says Bertram\u0027s body was recovered or that Elske was with it.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The scene invents a past rescue and scar, and it puts Elske at a body the briefing never says was recovered. \u0027His flank\u0027 is ambiguous between Rook and Bertram, and \u0027held the same grief she felt\u0027 names an emotion the rules say to show instead.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.9244148,
+      "inputTokens": 1856,
+      "outputTokens": 551
+    }
+  ]
+}

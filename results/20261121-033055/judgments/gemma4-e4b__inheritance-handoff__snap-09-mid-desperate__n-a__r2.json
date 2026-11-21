@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__inheritance-handoff__snap-09-mid-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the same one Malley had left\u0022,\u0022reason\u0022:\u0022The briefing never says Malley\u0027s attack marked Joska\u0027s gloves.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The opening phrase \u0027cooling husk of Joska\u0027s worn leather gloves\u0027 is muddled, and the scene invents a gouge on the gloves that it ties to Malley. The ending \u0027She would find them\u0027 is vague and doesn\u0027t say clearly what Tamsin intends.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.5617563,
+      "inputTokens": 1865,
+      "outputTokens": 570
+    }
+  ]
+}

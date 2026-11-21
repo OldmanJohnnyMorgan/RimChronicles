@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__inheritance-handoff__snap-16-late-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Elske knelt beside Bertram\u2019s body\u0022,\u0022reason\u0022:\u0022The briefing says only Rook came home; it never says Bertram\u0027s body was recovered.\u0022},{\u0022span\u0022:\u0022the old scar on his wrist, the one he\u2019d gotten hunting Dunmore\u0022,\u0022reason\u0022:\u0022No such scar or injury appears in the briefing.\u0022},{\u0022span\u0022:\u0022turned to the empty saddle\u0022,\u0022reason\u0022:\u0022No saddle is mentioned, and it is odd for a warg.\u0022},{\u0022span\u0022:\u0022gripping her pistol\u0022,\u0022reason\u0022:\u0022No specific weapon is given in the dossier.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The scene is restrained and lands on a clear intent, but it invents the body\u0027s return, a scar, a saddle and a pistol, and the first undercuts the image of Rook coming home alone. The closing \u0027make him pay\u0027 is a stock line.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.9239117,
+      "inputTokens": 1846,
+      "outputTokens": 557
+    }
+  ]
+}

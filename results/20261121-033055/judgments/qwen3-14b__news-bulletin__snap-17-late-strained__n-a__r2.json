@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-17-late-strained__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022seizing two minor outposts without resistance\u0022,\u0022reason\u0022:\u0022Briefing reports no new news; event and number invented.\u0022},{\u0022span\u0022:\u0022expanded its hold along the northern trade routes\u0022,\u0022reason\u0022:\u0022No northern trade routes or new expansion event in the briefing.\u0022},{\u0022span\u0022:\u0022The Kestrel Tribe has been seen moving supplies toward the Bonecutter Gang\u2019s settlements\u0022,\u0022reason\u0022:\u0022Invented event; the briefing gives no such activity.\u0022},{\u0022span\u0022:\u0022which has grown increasingly quiet in its responses\u0022,\u0022reason\u0022:\u0022Invented detail about Ashford Compact behaviour.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The briefing says nothing new happened, yet the output invents two news events. It also copies the briefing\u0027s section headings into the text, breaking the bulletin format, and the wry persona barely comes through.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.4117524,
+      "inputTokens": 2319,
+      "outputTokens": 295
+    }
+  ]
+}

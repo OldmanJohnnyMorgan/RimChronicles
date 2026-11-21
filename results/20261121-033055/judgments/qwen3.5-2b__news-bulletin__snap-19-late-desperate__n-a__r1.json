@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-19-late-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022besieging the Marrow League\u0027s remaining three settlements\u0022,\u0022reason\u0022:\u0022Briefing says only that the Marrow League is besieged, not all three settlements.\u0022},{\u0022span\u0022:\u0022The Starling Tribe remains silent\u0022,\u0022reason\u0022:\u0022Nothing in the briefing describes the Tribe\u0027s stance or silence.\u0022},{\u0022span\u0022:\u0022hold their own four towns nearby\u0022,\u0022reason\u0022:\u0022The briefing gives no location for the Tribe\u0027s settlements, so \u0027nearby\u0027 is unsupported.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The output copies the briefing\u0027s section headings and labels old news as such, so it breaks character and is not a bulletin. It also re-presents Fenwick\u0027s razing as new, has none of Odile\u0027s sardonic voice, falls short of the word count, and adds unsupported details about the siege and the Starling Tribe.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.6681533,
+      "inputTokens": 2251,
+      "outputTokens": 498
+    }
+  ]
+}

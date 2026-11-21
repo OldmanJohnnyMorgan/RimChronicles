@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-14-mid-content__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022have once again made a move\u0022,\u0022reason\u0022:\u0022Implies earlier Corsair raids; the briefing reports only this one raid.\u0022},{\u0022span\u0022:\u0022the usual pattern of petty maritime aggression continues\u0022,\u0022reason\u0022:\u0022Asserts an ongoing pattern of river raids that the briefing does not give.\u0022},{\u0022span\u0022:\u0022The faction sizes remain static\u0022,\u0022reason\u0022:\u0022The briefing gives current sizes only, with no information on whether they changed.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It opens with a copied heading (\u0027News since your last bulletin\u0027), which breaks the no-title rule. It also invents a history of repeated Corsair raids. The voice is flat and hedging (\u0027This suggests\u0027, \u0027One can only assume\u0027) rather than Ilse\u0027s dry wit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.9910266,
+      "inputTokens": 2280,
+      "outputTokens": 605
+    }
+  ]
+}

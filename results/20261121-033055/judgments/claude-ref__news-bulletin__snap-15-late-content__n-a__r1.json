@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-15-late-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The bulletin is accurate and well ordered. It leads with the only new item, and the faction-count filler is dry and on persona. The faction tally and the quiet-week closer are serviceable rather than sharp. \u0027The market has not volunteered an answer\u0027 edges toward adding detail but stays within the briefing\u0027s silence.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.9415949,
+      "inputTokens": 2307,
+      "outputTokens": 460
+    }
+  ]
+}

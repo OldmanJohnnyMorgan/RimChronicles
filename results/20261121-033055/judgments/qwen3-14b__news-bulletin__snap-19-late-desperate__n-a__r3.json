@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-19-late-desperate__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The last remaining Marrow League settlement is now under siege\u0022,\u0022reason\u0022:\u0022Briefing says the League has 3 settlements, not one.\u0022},{\u0022span\u0022:\u0022with no reinforcements in sight\u0022,\u0022reason\u0022:\u0022Detail about reinforcements is not in the briefing.\u0022},{\u0022span\u0022:\u0022though they have not offered any public statement on their intentions\u0022,\u0022reason\u0022:\u0022Briefing says nothing about Starling Tribe statements.\u0022},{\u0022span\u0022:\u0022the Marrow League\u2019s last stronghold\u0022,\u0022reason\u0022:\u0022Contradicts the 3 settlements given in the briefing.\u0022},{\u0022span\u0022:\u0022Last Lantern remains silent, as it has for some time\u0022,\u0022reason\u0022:\u0022Unsupported claim about Last Lantern\u0027s behaviour.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It opens with a copied briefing heading, which breaks character. It re-presents the old Fenwick razing as news and repeatedly calls the League\u0027s position its \u0027last\u0027 settlement, contradicting the three settlements in the briefing. The prose is flat, with none of Odile\u0027s sardonic voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.1198331,
+      "inputTokens": 2269,
+      "outputTokens": 591
+    }
+  ]
+}

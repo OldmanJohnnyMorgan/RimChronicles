@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-20-late-strained__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry wit fits the persona, and the governorship leads correctly with Brightwater kept as background. However, \\\u0022per this briefing\\\u0022 breaks character by mentioning the writer\u0027s source material, which would need fixing before it ships.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.4257362,
+      "inputTokens": 2313,
+      "outputTokens": 310
+    }
+  ]
+}

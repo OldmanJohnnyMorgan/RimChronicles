@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-16-late-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It opens with a copied heading (\u0027News since your last bulletin:\u0027), which breaks character, and it falls short of the 80-word minimum. It also garbles the bounty story by treating one price on Kael Dunmore\u0027s head as two separate markings; the second item is bland filler with little of Odile\u0027s sardonic edge.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.5651713,
+      "inputTokens": 2221,
+      "outputTokens": 357
+    }
+  ]
+}

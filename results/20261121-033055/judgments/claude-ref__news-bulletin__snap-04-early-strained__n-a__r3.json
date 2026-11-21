@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-04-early-strained__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The bulletin is accurate, well ordered and dry, and it holds back from inventing a link between Quell\u0027s disappearance and Lowmere. The opening sentences of the first two items copy the briefing almost word for word, which makes the leads flat, and \u0027Management calls this prudence\u0027 edges close to attributing a stance the briefing never gives.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.9984287,
+      "inputTokens": 2156,
+      "outputTokens": 446
+    }
+  ]
+}

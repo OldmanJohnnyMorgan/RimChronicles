@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-09-mid-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The current tally of settlements remains unchanged.\u0022,\u0022reason\u0022:\u0022The briefing gives current counts only, with nothing to compare them against.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It opens with a heading copied from the briefing, which breaks the no-title rule, and runs under 80 words. The prose is flat and bureaucratic (\u0027remains engaged in conflict\u0027, \u0027as previously noted\u0027), with almost none of Odile\u0027s sardonic voice, and calling it \u0027a quiet week\u0027 undercuts the lead story of a pirate captain\u0027s death.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.884622,
+      "inputTokens": 2219,
+      "outputTokens": 438
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-05-early-desperate__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the Ferrow Mutual remains preoccupied with the logistics of their shared patrols\u0022,\u0022reason\u0022:\u0022The briefing never mentions shared patrols. The detail comes from an earlier bulletin and presents them as an ongoing current situation.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It copies the briefing\u0027s section headings (\u0027News since your last bulletin:\u0027, \u0027Already reported:\u0027) into the bulletin, which breaks format and character. The prose is flat and only lightly sardonic, falls under the 80-word minimum, and restates old raid and patrol news as current.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.5165306,
+      "inputTokens": 2216,
+      "outputTokens": 751
+    }
+  ]
+}

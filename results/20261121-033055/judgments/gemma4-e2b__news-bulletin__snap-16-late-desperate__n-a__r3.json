@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-16-late-desperate__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It opens with a copied heading, which breaks the no-title rule. It treats the two lines about Kael Dunmore\u0027s bounty as separate events (\u0027also marked\u0027), which muddles them. The voice is flat and lacks Odile\u0027s sardonic edge, and at about 60 words it falls short of the 80-word minimum.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.8699189,
+      "inputTokens": 2201,
+      "outputTokens": 292
+    }
+  ]
+}

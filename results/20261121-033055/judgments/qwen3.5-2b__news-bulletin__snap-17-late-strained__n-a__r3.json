@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-17-late-strained__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022a former Ashford Compact defector\u0022,\u0022reason\u0022:\u0022Briefing does not say who Severin defected from.\u0022},{\u0022span\u0022:\u0022reportedly fled the city of Dunwold after the recent takeover\u0022,\u0022reason\u0022:\u0022No link between Severin and Dunwold is given.\u0022},{\u0022span\u0022:\u0022The Shattered Empire continues to expand its territory at Harlow Ford\u0022,\u0022reason\u0022:\u0022Harlow Ford is where the Compact militias gather, not an Empire expansion.\u0022},{\u0022span\u0022:\u0022the Kestrel Tribe remains isolated in their own sector\u0022,\u0022reason\u0022:\u0022Isolation and a sector are not in the briefing.\u0022},{\u0022span\u0022:\u0022Bonecutter Gang activity is reported in the southern reaches\u0022,\u0022reason\u0022:\u0022No such activity or location is in the briefing.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The output breaks format with section headings. It presents old news (the Severin bounty) as new, though the briefing says nothing new happened. It also invents several details, and the flat report-style prose has none of Ilse\u0027s dry wit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.783965,
+      "inputTokens": 2391,
+      "outputTokens": 352
+    }
+  ]
+}

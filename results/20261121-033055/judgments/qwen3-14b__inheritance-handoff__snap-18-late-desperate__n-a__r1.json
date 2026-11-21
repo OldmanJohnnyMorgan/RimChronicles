@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__inheritance-handoff__snap-18-late-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Elias traced the faded ink of his mother\u2019s last letter\u0022,\u0022reason\u0022:\u0022No letter written by Constance is in the briefing; the only letter is from Ada.\u0022},{\u0022span\u0022:\u0022The letter from Ada lay beside him, unopened.\u0022,\u0022reason\u0022:\u0022Contradicts the briefing: Constance read Ada\u0027s letter and learned from it that Ada was alive.\u0022},{\u0022span\u0022:\u0022the cold stone of her tomb\u0022,\u0022reason\u0022:\u0022The briefing gives no tomb or burial; Constance died in a blizzard on a lost caravan.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The two letters are muddled, and calling Ada\u0027s letter unopened contradicts the briefing; the tomb is also invented. \u0027Remembering her iron will, her kindness\u0027 just lists her traits, and \u0027carry her story forward\u0027 is meta language that breaks the scene.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.2938092,
+      "inputTokens": 1843,
+      "outputTokens": 613
+    }
+  ]
+}

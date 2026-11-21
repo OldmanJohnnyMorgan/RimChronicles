@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-07-mid-strained__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the Empire continues to expand its reach\u0022,\u0022reason\u0022:\u0022The briefing gives the Empire\u0027s settlement count but says nothing about it expanding.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It copies the briefing\u0027s section labels (\\\u0022News since your last bulletin:\\\u0022, \\\u0022Already reported:\\\u0022) into the bulletin as headings, which breaks the no-headings rule and the reporter\u0027s persona. It also claims the Empire is expanding, which the briefing does not support. The toll joke is serviceable, but the rest reads as a flat restatement of faction counts.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.5464006,
+      "inputTokens": 2252,
+      "outputTokens": 407
+    }
+  ]
+}

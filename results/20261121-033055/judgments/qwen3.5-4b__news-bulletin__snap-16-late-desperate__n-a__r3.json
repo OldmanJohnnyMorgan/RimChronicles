@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-16-late-desperate__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022for nine days straight\u0022,\u0022reason\u0022:\u0022The briefing gives no duration for the heatwave. The nine-day figure is from an older bulletin, and the claim now presents it as current.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It breaks format by copying briefing headings (\u0027News since your last bulletin:\u0027, \u0027Already reported:\u0027) into the text and closes with a meta line about the Dispatch. It also uses modern-office phrasing (\u0027inconvenient variable in their calculations\u0027) and says the Free Company offers \u0027no new threats\u0027 just after an ambush.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.5410305,
+      "inputTokens": 2278,
+      "outputTokens": 566
+    }
+  ]
+}

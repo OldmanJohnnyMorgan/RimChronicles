@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-01-early-content__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The output copies the briefing\u0027s section headings (\\\u0022News since your last bulletin:\\\u0022, \\\u0022Already reported:\\\u0022) into the bulletin, which breaks character and the no-headings rule, and it wrongly labels the faction tally as already reported. The content is accurate and has some dry wit, but the filtration-unit simile is weak.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.181695,
+      "inputTokens": 2066,
+      "outputTokens": 344
+    }
+  ]
+}

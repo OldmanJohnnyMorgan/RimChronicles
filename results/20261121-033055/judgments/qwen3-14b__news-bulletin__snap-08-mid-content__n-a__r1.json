@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-08-mid-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022who claim it\u2019s worth more than the entire trade fair\u0022,\u0022reason\u0022:\u0022Briefing only says the sculpture is talked about; no claim about its value is given.\u0022},{\u0022span\u0022:\u0022with no signs of the promised \u201Cfair prices\u201D yet\u0022,\u0022reason\u0022:\u0022Adds an unsupported detail about how the fair is going.\u0022},{\u0022span\u0022:\u0022Traders are already haggling over the jade sculpture\u2019s value\u0022,\u0022reason\u0022:\u0022Invented event; the briefing does not say anyone is haggling over or selling the sculpture.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It opens with the copied heading \u0027News since your last bulletin:\u0027, which breaks the no-headings rule. It also embellishes the one news item with invented value claims and haggling, and pads the rest with mild, generic rewording of old news.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.1348442,
+      "inputTokens": 2303,
+      "outputTokens": 557
+    }
+  ]
+}

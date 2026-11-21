@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-15-late-content__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the Greywater Concord is watching closely\u0022,\u0022reason\u0022:\u0022The briefing gives no Concord reaction to the Choir\u0027s questions.\u0022},{\u0022span\u0022:\u0022though the tolls remain unchanged\u0022,\u0022reason\u0022:\u0022The briefing says nothing about the current state of tolls.\u0022},{\u0022span\u0022:\u0022with the archery dispute showing no signs of resolution\u0022,\u0022reason\u0022:\u0022This is a new development on old news that the briefing does not support.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The output copies the briefing\u0027s section headings into the bulletin, which breaks character, and it repeats the lead item almost word for word. It also invents updates to the already-reported items (unchanged tolls, an ongoing dispute) and a Concord reaction, presenting old news as new developments.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.626263,
+      "inputTokens": 2240,
+      "outputTokens": 546
+    }
+  ]
+}

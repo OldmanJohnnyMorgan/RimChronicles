@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-13-mid-strained__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They continue their usual pattern of hitting transport lines.\u0022,\u0022reason\u0022:\u0022Briefing reports one caravan hit, not an ongoing pattern\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It opens with a heading copied from the briefing, which the task forbids, and the voice is flat and generic rather than dry or wry. It also stretches a single caravan robbery into a \u0027usual pattern\u0027 and runs slightly under the 80-word minimum.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.2768546,
+      "inputTokens": 2263,
+      "outputTokens": 398
+    }
+  ]
+}

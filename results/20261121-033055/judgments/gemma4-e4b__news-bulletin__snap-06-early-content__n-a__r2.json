@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-06-early-content__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It copies the briefing\u0027s section headings (\u0027News since your last bulletin:\u0027, \u0027Already reported:\u0027) into the bulletin, which breaks character and the no-headings rule. It also runs under 80 words, and the first item\u0027s second sentence is grammatically muddled.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 1.921677,
+      "inputTokens": 2168,
+      "outputTokens": 124
+    }
+  ]
+}

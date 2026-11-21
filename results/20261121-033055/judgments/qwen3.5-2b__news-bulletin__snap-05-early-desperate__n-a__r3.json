@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-05-early-desperate__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022forcing farmers to wait until next week for grain supplies\u0022,\u0022reason\u0022:\u0022Briefing gives no timeline or grain-supply consequence for the market closure.\u0022},{\u0022span\u0022:\u0022Scythe Tooth pirates have been spotted patrolling the southern border of the colony again\u0022,\u0022reason\u0022:\u0022No such sighting, southern border or patrol is in the briefing; it also re-presents old raid news as new.\u0022},{\u0022span\u0022:\u0022leaving many settlements hungry\u0022,\u0022reason\u0022:\u0022Hunger is not stated in the briefing.\u0022},{\u0022span\u0022:\u0022despite the Gorse Clans\u0027 usual trade deals\u0022,\u0022reason\u0022:\u0022Adds an unsupported detail about the Clans\u0027 usual trade arrangements.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It copies the briefing\u0027s section headings into the bulletin, which breaks character. It has no sardonic Odile Brask voice and invents several details, including a new pirate sighting that recasts old news as current.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.542564,
+      "inputTokens": 2195,
+      "outputTokens": 322
+    }
+  ]
+}

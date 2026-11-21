@@ -1,0 +1,55 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-11-mid-content__n-a__r3",
+  "model": "qwen3.5-2b",
+  "task": "news-bulletin",
+  "snapshot": "snap-11-mid-content",
+  "grammar": "n/a",
+  "repeat": 3,
+  "promptVersion": "news-bulletin/v2",
+  "outcome": "Template",
+  "value": "(template)",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.\n\nWrite your next news bulletin.\n\nWhat to write:\n- 2 or 3 short news items, most important first, separated by a blank line.\n- Each item is 2 to 4 sentences. The whole bulletin is 80 to 150 words.\n- Lead with the items under \u0022News since your last bulletin\u0022.\n- Items under \u0022Already reported\u0022 are old news. You may mention them briefly as background, but never present them as new or happening again.\n- If there is little new news, fill the remaining items with dry comment on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.\n\nWhat you know:\n- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events, and never add details to an event that the briefing does not give.\n- You do not know what happens inside the colony unless your briefing says it became public.\n\nStyle:\n- Keep your voice the same as in your earlier bulletins, but do not reuse their jokes or sentences.\n- Write only the bulletin itself: no title, no dateline, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 167 (Decembary 5502).\nThe colony you report near: Dovecote. You do not know what happens inside it unless listed below.\n\nFactions:\n- The Hearthguard Compact (Outlanders): 8 settlements\n- Mire Rats (Pirates): 2 settlements\n- Children of the Green Bell (Tribe): 4 settlements\n\nNews since your last bulletin:\n- Children of the Green Bell held a peace feast with the Hearthguard Compact\n\nAlready reported in your earlier bulletins (background only, not news):\n- The Hearthguard Compact is offering prizes for new inventions\n- Mire Rats were driven out of the eastern marsh\n\n## Your earlier bulletins\nEarlier bulletin:\nThe Hearthguard Compact wants inventions and is offering prizes. Past winners include a better plough and a worse cannon, so the field is open.\n\nLatest bulletin:\nThe Mire Rats have been chased out of the eastern marsh. Where they went is unclear, but the western marsh is advised to lock its doors.\n\nWrite the bulletin now.\n",
+        "maxOutputTokens": 350,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "News since your last bulletin\nThe Children of the Green Bell held a peace feast with the Hearthguard Compact. The Mire Rats were driven out of the eastern marsh and are no longer a threat there.\n\nAlready reported in your earlier bulletins (background only, not news):\nThe Hearthguard Compact is offering prizes for new inventions.",
+      "error": null,
+      "failures": [
+        "Use 80-150 words; this has 55"
+      ],
+      "latencySeconds": 0.5472204,
+      "inputTokens": 549,
+      "outputTokens": 70,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-422\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795231939,\u0022model\u0022:\u0022qwen3.5:2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022News since your last bulletin\\nThe Children of the Green Bell held a peace feast with the Hearthguard Compact. The Mire Rats were driven out of the eastern marsh and are no longer a threat there.\\n\\nAlready reported in your earlier bulletins (background only, not news):\\nThe Hearthguard Compact is offering prizes for new inventions.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:549,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:70,\u0022total_tokens\u0022:619}}\n"
+    },
+    {
+      "request": {
+        "system": "You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.\n\nWrite your next news bulletin.\n\nWhat to write:\n- 2 or 3 short news items, most important first, separated by a blank line.\n- Each item is 2 to 4 sentences. The whole bulletin is 80 to 150 words.\n- Lead with the items under \u0022News since your last bulletin\u0022.\n- Items under \u0022Already reported\u0022 are old news. You may mention them briefly as background, but never present them as new or happening again.\n- If there is little new news, fill the remaining items with dry comment on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.\n\nWhat you know:\n- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events, and never add details to an event that the briefing does not give.\n- You do not know what happens inside the colony unless your briefing says it became public.\n\nStyle:\n- Keep your voice the same as in your earlier bulletins, but do not reuse their jokes or sentences.\n- Write only the bulletin itself: no title, no dateline, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 167 (Decembary 5502).\nThe colony you report near: Dovecote. You do not know what happens inside it unless listed below.\n\nFactions:\n- The Hearthguard Compact (Outlanders): 8 settlements\n- Mire Rats (Pirates): 2 settlements\n- Children of the Green Bell (Tribe): 4 settlements\n\nNews since your last bulletin:\n- Children of the Green Bell held a peace feast with the Hearthguard Compact\n\nAlready reported in your earlier bulletins (background only, not news):\n- The Hearthguard Compact is offering prizes for new inventions\n- Mire Rats were driven out of the eastern marsh\n\n## Your earlier bulletins\nEarlier bulletin:\nThe Hearthguard Compact wants inventions and is offering prizes. Past winners include a better plough and a worse cannon, so the field is open.\n\nLatest bulletin:\nThe Mire Rats have been chased out of the eastern marsh. Where they went is unclear, but the western marsh is advised to lock its doors.\n\nWrite the bulletin now.\n\n\nYour previous answer was rejected:\n- Use 80-150 words; this has 55\nAnswer again, following every rule.",
+        "maxOutputTokens": 350,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "**News since your last bulletin**\nThe Children of the Green Bell held a peace feast with the Hearthguard Compact, signaling a brief truce in the borderlands. The Mire Rats remain elusive to the west, leaving their former territory shrouded in mystery and guarding the western marsh.\n\n**Already reported**\nThe Hearthguard Compact offers prizes for new inventions, though no winner has been crowned yet.",
+      "error": null,
+      "failures": [
+        "Use 80-150 words; this has 63"
+      ],
+      "latencySeconds": 0.6537368,
+      "inputTokens": 581,
+      "outputTokens": 85,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-773\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795231939,\u0022model\u0022:\u0022qwen3.5:2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022**News since your last bulletin**\\nThe Children of the Green Bell held a peace feast with the Hearthguard Compact, signaling a brief truce in the borderlands. The Mire Rats remain elusive to the west, leaving their former territory shrouded in mystery and guarding the western marsh.\\n\\n**Already reported**\\nThe Hearthguard Compact offers prizes for new inventions, though no winner has been crowned yet.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:581,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:85,\u0022total_tokens\u0022:666}}\n"
+    }
+  ]
+}

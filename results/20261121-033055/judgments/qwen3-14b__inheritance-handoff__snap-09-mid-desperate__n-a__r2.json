@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__inheritance-handoff__snap-09-mid-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the rusted knife at her hip, the same one Joska had wielded\u0022,\u0022reason\u0022:\u0022The briefing mentions no knife or weapon of Joska\u0027s.\u0022},{\u0022span\u0022:\u0022her fingers tracing the jagged scar on her father\u0027s belt\u0022,\u0022reason\u0022:\u0022The briefing mentions no belt of Joska\u0027s or any marks on it.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The scene leans on stock phrases (\u0027taunting\u0027, \u0027echoed in her mind\u0027, \u0027not let his death be in vain\u0027) that name feeling instead of showing it. It also invents a knife and a belt, and \u0027a scar on a belt\u0027 is a muddled image. The setting is unclear: Tamsin stands at the edge of \u0027the camp\u0027, then turns toward the enemy stronghold.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.6386222,
+      "inputTokens": 1870,
+      "outputTokens": 708
+    }
+  ]
+}

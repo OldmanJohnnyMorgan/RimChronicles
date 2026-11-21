@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__inheritance-handoff__snap-09-mid-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022gripped the rifle he\u0027d left behind\u0022,\u0022reason\u0022:\u0022No rifle is mentioned in the briefing.\u0022},{\u0022span\u0022:\u0022She remembered his last words, how he\u0027d told her to hunt Malley down if she ever saw him again\u0022,\u0022reason\u0022:\u0022This invents a conversation that the briefing never mentions.\u0022},{\u0022span\u0022:\u0022standing over the pirate captain\u0027s corpse in the Lancers\u0027 camp\u0022,\u0022reason\u0022:\u0022The Lancers still hold the camp, and nothing places Tamsin there.\u0022},{\u0022span\u0022:\u0022that had driven Joska for years\u0022,\u0022reason\u0022:\u0022The briefing says Joska hunted Malley for a year, not years.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The scene invents several facts: a rifle, last words, and Tamsin inside an enemy-held camp. It also contradicts the one-year hunt. It names emotions outright (\u0027rage\u0027, \u0027grief\u0027, \u0027cold resolve\u0027) and ends on a vague \u0027war had just begun\u0027 instead of a concrete aim, such as going after the new Lancer captain.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.6547413,
+      "inputTokens": 1928,
+      "outputTokens": 628
+    }
+  ]
+}

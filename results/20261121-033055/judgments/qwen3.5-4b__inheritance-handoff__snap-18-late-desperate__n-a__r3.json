@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__inheritance-handoff__snap-18-late-desperate__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022checked the temperature gauge on the corpse\u0022,\u0022reason\u0022:\u0022Invented device and action not in the briefing.\u0022},{\u0022span\u0022:\u0022The numbers had been climbing for days\u0022,\u0022reason\u0022:\u0022Unsupported, and illogical for a body frozen to death.\u0022},{\u0022span\u0022:\u0022the wind howling through the ruins\u0022,\u0022reason\u0022:\u0022No ruins appear in the briefing.\u0022},{\u0022span\u0022:\u0022Elias stood over the frozen body\u0022,\u0022reason\u0022:\u0022Elias finding the body is not in the briefing; the caravan was lost.\u0022},{\u0022span\u0022:\u0022He picked up the heavy pack Constance had left behind\u0022,\u0022reason\u0022:\u0022Invented item and event.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The scene invents several details: Elias at the body, a temperature gauge on a corpse, ruins and a pack. Muddled lines like the weight shifting \u0027under her death\u0027 blur what happens, and the ending never says plainly that Elias means to bring Ada home. It also runs slightly over the 120-word limit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 9.2528502,
+      "inputTokens": 1937,
+      "outputTokens": 984
+    }
+  ]
+}

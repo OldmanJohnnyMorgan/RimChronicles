@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-12-mid-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022signaling an escalation in diplomatic tension\u0022,\u0022reason\u0022:\u0022Briefing gives no tension or escalation, only that envoys were sent\u0022},{\u0022span\u0022:\u0022a shift from mere trade disputes to something more volatile\u0022,\u0022reason\u0022:\u0022No trade disputes are mentioned in the briefing\u0022},{\u0022span\u0022:\u0022continues its six-day march\u0022,\u0022reason\u0022:\u0022Six days was the count in an earlier bulletin; time has passed and the current duration is unknown\u0022},{\u0022span\u0022:\u0022forcing widespread evacuation orders from both factions\u0022,\u0022reason\u0022:\u0022No evacuation orders appear in the briefing\u0022},{\u0022span\u0022:\u0022across Red Furrow\u0022,\u0022reason\u0022:\u0022Fallout covers the region; nothing says Red Furrow specifically\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It breaks the format by copying the briefing\u0027s section headings into the bulletin, and it has no sardonic voice. It also invents tension, trade disputes and evacuation orders, and presents old fallout news as ongoing.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.8351533,
+      "inputTokens": 2303,
+      "outputTokens": 338
+    }
+  ]
+}

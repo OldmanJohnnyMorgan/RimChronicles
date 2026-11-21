@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-16-late-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The price is set at five hundred credits per point of damage\u0022,\u0022reason\u0022:\u0022No bounty amount or terms given in briefing\u0022},{\u0022span\u0022:\u0022citing an ambush near Gallowmere as the reason for his capture\u0022,\u0022reason\u0022:\u0022Briefing doesn\u0027t say the Accord cited the ambush, and no capture occurred\u0022},{\u0022span\u0022:\u0022the Lantern Accord continues to ration water\u0022,\u0022reason\u0022:\u0022Presents old rationing as ongoing; briefing gives no current status\u0022},{\u0022span\u0022:\u0022The Dunmore Company is still loose across the southern plain\u0022,\u0022reason\u0022:\u0022Briefing doesn\u0027t place the Company on the southern plain\u0022},{\u0022span\u0022:\u0022no new intelligence has emerged regarding their movements\u0022,\u0022reason\u0022:\u0022Unsupported claim about intelligence status\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022Breaks format with headings copied from the prompt and invents a nonsensical bounty rate in \u0027credits\u0027. It also recycles the earlier merchant joke and garbles the facts with \u0027reason for his capture\u0027 and \u0027raiders\u0027 paying.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.6426953,
+      "inputTokens": 2278,
+      "outputTokens": 359
+    }
+  ]
+}

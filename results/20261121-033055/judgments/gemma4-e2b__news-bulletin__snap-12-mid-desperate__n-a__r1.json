@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-12-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022continues its established pattern of securing personnel\u0022,\u0022reason\u0022:\u0022Briefing mentions one captive doctor, not a pattern of taking people\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It opens with a copied heading, which breaks the no-title rule, and falls short of 80 words. The voice is flat, leaning on \u0027established\u0027 three times instead of Odile\u0027s sardonic precision, and it embellishes the doctor story into a \u0027pattern\u0027.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.2127875,
+      "inputTokens": 2243,
+      "outputTokens": 591
+    }
+  ]
+}

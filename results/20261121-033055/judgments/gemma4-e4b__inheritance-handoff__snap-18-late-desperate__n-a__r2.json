@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__inheritance-handoff__snap-18-late-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Elias stood by the cot, the thin blanket draped over Constance.\u0022,\u0022reason\u0022:\u0022The caravan was lost in the blizzard; nothing says her body was recovered and brought home.\u0022},{\u0022span\u0022:\u0022He remembered her iron will, the way she faced the blizzard.\u0022,\u0022reason\u0022:\u0022Nothing says Elias was with the caravan or witnessed the blizzard.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The scene puts Constance\u0027s body on a cot at home, though the briefing says she was lost with the caravan in the blizzard, and it has Elias remembering a blizzard he apparently didn\u0027t witness. The letter is \u0027tucked into her bedside drawer\u0027 yet \u0027heavy in his palm\u0027, which muddles the image, but the plain closing resolve works.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.6126278,
+      "inputTokens": 1857,
+      "outputTokens": 668
+    }
+  ]
+}

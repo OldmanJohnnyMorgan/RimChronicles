@@ -1,0 +1,53 @@
+{
+  "cell": "qwen3.5-2b__director__snap-19-late-desperate__off__r3",
+  "model": "qwen3.5-2b",
+  "task": "director",
+  "snapshot": "snap-19-late-desperate",
+  "grammar": "off",
+  "repeat": 3,
+  "promptVersion": "director/v1",
+  "outcome": "Model",
+  "value": "{\u0022choice\u0022: \u0022Wait\u0022, \u0022reason\u0022: \u0022The colony is currently in a desperate mood with 15 people and low wealth, compounded by Ysolde\u0027s exhaustion after two days without sleep. The recent Imperial defeat has not yet stabilized the colony\u0027s morale or resources before another potential threat materializes.\u0022}",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are the plot director for a story told through a RimWorld colony. You decide what happens next in the colony\u0027s plots.\n\nRules:\n- Choose exactly one option from the allowed list. Copy it exactly, character for character.\n- Choose \u0022Wait\u0022 if the colony is in crisis or the story needs a pause.\n- Prefer the option that follows most naturally from what has already happened.\n- Give a reason in one or two short sentences. Use only facts from the briefing.\n\nAnswer with JSON only, in this form:\n{\u0022choice\u0022: \u0022\u003Cone allowed option\u003E\u0022, \u0022reason\u0022: \u0022\u003Cone or two sentences\u003E\u0022}\n",
+        "user": "## The world\nDate: day 911 (Aprimay 5515).\nColony: Last Lantern, 15 people, wealth 520,000 silver, mood desperate.\n\nPeople:\n- Ysolde (46); traits: Steadfast, Careful shooter; backstory: Rebel commander; role: Leader.\n- Bram (38); traits: Tough; backstory: Mercenary.\n- Hesper (31); traits: Too smart; backstory: Engineer.\n- Jory (27); traits: Kind; backstory: Doctor.\n\nHistory:\n- Day 840: The Sun Throne conquered Calder Mill.\n- Day 872: The Sun Throne razed Fenwick.\n- Day 906: Last Lantern repelled a raid by Imperial legionaries.\n\nFactions:\n- The Sun Throne (Empire): goodwill -100, 14 settlements, at war with The Marrow League and Last Lantern, Empire state: Awakened.\n- The Marrow League (Outlanders): goodwill \u002B65, 3 settlements, at war with The Sun Throne.\n- Starling Tribe (Tribe): goodwill \u002B45, 4 settlements.\n\nRecent events:\n- Imperial legionaries repelled day 906, two colonists dead\n- Steel nearly gone\n- Ysolde has not slept in two days\n\n## Active plots\n- empire-03 (Awakened Empire): beat Act2, protagonist Last Lantern. The Sun Throne has taken Calder Mill and razed Fenwick. Last Lantern leads a coalition with the Marrow League. Legionaries attacked on day 906 and were driven off with heavy losses on both sides.\n\n## Allowed options\n- Wait\n- Empire:Expand:Marrow Hold\n- Empire:SiegeColony\n- Quest:DefendAlly:Marrow Hold\n\nChoose one allowed option.\n",
+        "maxOutputTokens": 200,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "choice": {
+              "type": "string",
+              "enum": [
+                "Wait",
+                "Empire:Expand:Marrow Hold",
+                "Empire:SiegeColony",
+                "Quest:DefendAlly:Marrow Hold"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "choice",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "ok": true,
+      "text": "{\u0022choice\u0022: \u0022Wait\u0022, \u0022reason\u0022: \u0022The colony is currently in a desperate mood with 15 people and low wealth, compounded by Ysolde\u0027s exhaustion after two days without sleep. The recent Imperial defeat has not yet stabilized the colony\u0027s morale or resources before another potential threat materializes.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 0.4706201,
+      "inputTokens": 558,
+      "outputTokens": 63,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-642\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795231904,\u0022model\u0022:\u0022qwen3.5:2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022{\\\u0022choice\\\u0022: \\\u0022Wait\\\u0022, \\\u0022reason\\\u0022: \\\u0022The colony is currently in a desperate mood with 15 people and low wealth, compounded by Ysolde\u0027s exhaustion after two days without sleep. The recent Imperial defeat has not yet stabilized the colony\u0027s morale or resources before another potential threat materializes.\\\u0022}\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:558,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:554},\u0022completion_tokens\u0022:63,\u0022total_tokens\u0022:621}}\n"
+    }
+  ]
+}

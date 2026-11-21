@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-18-late-desperate__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022leaving supplies stranded in the snow\u0022,\u0022reason\u0022:\u0022Briefing gives no detail about the supplies\u0027 fate.\u0022},{\u0022span\u0022:\u0022Reports from the nearby Wailing Moth villages indicate that supplies are dwindling fast\u0022,\u0022reason\u0022:\u0022There is no such report in the briefing.\u0022},{\u0022span\u0022:\u0022The Wren\u0027s Hollow colony has been quiet as the caravan vanished into the blizzard\u0022,\u0022reason\u0022:\u0022The colony\u0027s internal state is not public in the briefing.\u0022},{\u0022span\u0022:\u0022The Thistle Commonwealth is still trying to open its granaries\u0022,\u0022reason\u0022:\u0022Not in the briefing, and it contradicts the earlier report that the granaries were already opened.\u0022},{\u0022span\u0022:\u0022who have managed to escape the closed passes\u0022,\u0022reason\u0022:\u0022Adds an unsupported detail to the old raider report.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It breaks the format badly, with headings like \u0027News since your last bulletin\u0027 and \u0027Wren\u0027s Hollow Colony Update\u0027. It also repeats old news as current, copies earlier bulletin sentences nearly verbatim, and invents several details (dwindling supplies, a quiet colony, stranded supplies). The Tomas Quell voice never comes through, and at roughly 170 words it overruns the 150-word limit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.5195568,
+      "inputTokens": 2458,
+      "outputTokens": 774
+    }
+  ]
+}

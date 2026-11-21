@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-19-late-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022besieging the Marrow League\u0027s remaining three settlements\u0022,\u0022reason\u0022:\u0022The briefing says only that the League is besieged, not that all three settlements are.\u0022},{\u0022span\u0022:\u0022the League\u0027s desperate hold on their last town\u0022,\u0022reason\u0022:\u0022The League has three settlements, not one last town; this also contradicts the previous sentence.\u0022},{\u0022span\u0022:\u0022after losing seven during the current year\u0022,\u0022reason\u0022:\u0022The League held seven and now holds three, so it lost four, not seven.\u0022},{\u0022span\u0022:\u0022a casualty of the ongoing conflict between the two factions\u0022,\u0022reason\u0022:\u0022The briefing does not tie Fenwick to the Sun Throne\u2013Marrow League war.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It breaks the format with section headings, presents the already-reported razing of Fenwick as new, and has no trace of Odile\u0027s sardonic voice. Several details are invented or wrong, including the League \u0027losing seven\u0027 settlements and having a single \u0027last town\u0027.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.3986498,
+      "inputTokens": 2270,
+      "outputTokens": 601
+    }
+  ]
+}

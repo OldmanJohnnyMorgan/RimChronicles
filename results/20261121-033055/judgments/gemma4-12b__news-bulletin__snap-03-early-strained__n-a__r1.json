@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin copies the briefing\u0027s section headings (\u0027News since your last bulletin:\u0027, \u0027Already reported:\u0027) into the text, which breaks the no-headings rule. It falls just short of the 80-word minimum, and apart from the nap line the writing is flat and lacks Ilse\u0027s dry voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.8496244,
+      "inputTokens": 2236,
+      "outputTokens": 397
+    }
+  ]
+}

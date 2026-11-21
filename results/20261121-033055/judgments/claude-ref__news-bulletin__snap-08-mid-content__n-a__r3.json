@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-08-mid-content__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate and dry: it leads correctly with the jade sculpture, treats the fair as background, and fills out the bulletin with wry faction and calendar comment. The \u0027day 130 of Aprimay\u0027 phrasing slightly misstates the date format, and the closing quiet-week joke is a little soft.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.7171742,
+      "inputTokens": 2311,
+      "outputTokens": 483
+    }
+  ]
+}

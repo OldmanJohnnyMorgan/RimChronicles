@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__inheritance-handoff__snap-18-late-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Elias knelt in the snow, his fingers trembling as he brushed the frost from his mother\u2019s stiffened hand.\u0022,\u0022reason\u0022:\u0022The briefing never places Elias in the caravan or at the site of her death.\u0022},{\u0022span\u0022:\u0022gripped the reins of the remaining pack mule\u0022,\u0022reason\u0022:\u0022The caravan was lost; no surviving mule or animal is mentioned.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The scene is clear and ends on a fitting resolve, but it invents Elias\u0027s presence at the death site and a surviving pack mule. Lines like \u0027the wind howled... mocking the silence\u0027 tip into melodrama.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.258077,
+      "inputTokens": 1906,
+      "outputTokens": 449
+    }
+  ]
+}

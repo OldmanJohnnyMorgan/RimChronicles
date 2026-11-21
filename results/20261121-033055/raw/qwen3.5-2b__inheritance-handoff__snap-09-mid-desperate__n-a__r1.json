@@ -1,0 +1,54 @@
+{
+  "cell": "qwen3.5-2b__inheritance-handoff__snap-09-mid-desperate__n-a__r1",
+  "model": "qwen3.5-2b",
+  "task": "inheritance-handoff",
+  "snapshot": "snap-09-mid-desperate",
+  "grammar": "n/a",
+  "repeat": 1,
+  "promptVersion": "inheritance-handoff/v1",
+  "outcome": "ModelRetry",
+  "value": "The heavy iron door creaked open, letting in the cool night air. Tamsin stepped inside, her boots crunching on the gravel. She looked up at the empty spot where Joska had stood moments before, watching the stars through his eyes. He hadn\u0027t moved since the fight ended. Now it was just her alone with the silence of the camp. She touched the cold metal of the rifle resting beside him, feeling the weight of what he carried.",
+  "attempts": [
+    {
+      "request": {
+        "system": "You write short scenes for a story told through a RimWorld colony.\n\nThe main character of a story has died. Someone close to them now takes up that story as their own. Write the moment it passes to them.\n\nRules:\n- 60 to 120 words.\n- Use the relationship between the two exactly as given.\n- Use only names and facts from the dossiers and the story so far.\n- Show feeling through actions and small details, not by naming emotions.\n- End on what the heir now means to do.\n- Write only the scene: no title, no notes, no word count.\n",
+        "user": "## The one who died\nJoska (42), dead; traits: Tough, Bloodlust; backstory: Pit fighter; husband of Lene, father of Tamsin.\nHistory:\n- Day 243: Captain Rook Malley maimed Joska and escaped.\n- Day 286: Captain Rook Malley killed Joska.\n\n## The heir\nTamsin (17); traits: Nimble, Hot-tempered; backstory: Scavenger; daughter of Joska and Lene.\n\n## Their relationship\nTamsin was Joska\u0027s daughter.\n\n## The story so far\nJoska spent a year hunting the pirate captain Rook Malley, who maimed him. He finally caught Malley at the Lancers\u0027 camp, and both died in the fight. Malley\u0027s Lancers still hold the camp, and their new captain has sworn revenge on Cinder Rest.\n\nWrite the scene now.\n",
+        "maxOutputTokens": 300,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "Tamsin gripped the rifle tight, her knuckles white as she looked down at the body of her father. The smell of iron and blood clung to the air, heavy with the weight of what had just happened. She remembered Joska\u0027s laugh when he told stories about how pirates were nothing but rats, a man who would rather fight for glory than live in fear. Now, she was the only one left to carry that memory.\n\nShe didn\u0027t look away from the corpse; instead, she reached out and touched the small scar on his neck where Malley had tried to stab him. A sharp pain flared through her hand, but it wasn\u0027t anger this time. It was grief mixed with a fierce determination. The Lancers\u0027 camp was still held by their new captain, who swore revenge on Cinder Rest. Tamsin knew the ground was unstable there, and the enemy was dangerous.\n\nShe pulled the rifle from her shoulder holster and aimed it at the distant smoke of the camp. \u0022I\u0027m going to find out who is really behind that,\u0022 she said, her voice steady despite the tremor in her hands. \u0022And I\u0027ll make sure they pay for what Malley did.\u0022",
+      "error": null,
+      "failures": [
+        "Use 60-120 words; this has 199",
+        "Do not mention names that are not in the briefing: I\u0027m, And, I\u0027ll"
+      ],
+      "latencySeconds": 1.8122796,
+      "inputTokens": 350,
+      "outputTokens": 246,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-587\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795223552,\u0022model\u0022:\u0022qwen3.5:2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022Tamsin gripped the rifle tight, her knuckles white as she looked down at the body of her father. The smell of iron and blood clung to the air, heavy with the weight of what had just happened. She remembered Joska\u0027s laugh when he told stories about how pirates were nothing but rats, a man who would rather fight for glory than live in fear. Now, she was the only one left to carry that memory.\\n\\nShe didn\u0027t look away from the corpse; instead, she reached out and touched the small scar on his neck where Malley had tried to stab him. A sharp pain flared through her hand, but it wasn\u0027t anger this time. It was grief mixed with a fierce determination. The Lancers\u0027 camp was still held by their new captain, who swore revenge on Cinder Rest. Tamsin knew the ground was unstable there, and the enemy was dangerous.\\n\\nShe pulled the rifle from her shoulder holster and aimed it at the distant smoke of the camp. \\\u0022I\u0027m going to find out who is really behind that,\\\u0022 she said, her voice steady despite the tremor in her hands. \\\u0022And I\u0027ll make sure they pay for what Malley did.\\\u0022\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:350,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:246,\u0022total_tokens\u0022:596}}\n"
+    },
+    {
+      "request": {
+        "system": "You write short scenes for a story told through a RimWorld colony.\n\nThe main character of a story has died. Someone close to them now takes up that story as their own. Write the moment it passes to them.\n\nRules:\n- 60 to 120 words.\n- Use the relationship between the two exactly as given.\n- Use only names and facts from the dossiers and the story so far.\n- Show feeling through actions and small details, not by naming emotions.\n- End on what the heir now means to do.\n- Write only the scene: no title, no notes, no word count.\n",
+        "user": "## The one who died\nJoska (42), dead; traits: Tough, Bloodlust; backstory: Pit fighter; husband of Lene, father of Tamsin.\nHistory:\n- Day 243: Captain Rook Malley maimed Joska and escaped.\n- Day 286: Captain Rook Malley killed Joska.\n\n## The heir\nTamsin (17); traits: Nimble, Hot-tempered; backstory: Scavenger; daughter of Joska and Lene.\n\n## Their relationship\nTamsin was Joska\u0027s daughter.\n\n## The story so far\nJoska spent a year hunting the pirate captain Rook Malley, who maimed him. He finally caught Malley at the Lancers\u0027 camp, and both died in the fight. Malley\u0027s Lancers still hold the camp, and their new captain has sworn revenge on Cinder Rest.\n\nWrite the scene now.\n\n\nYour previous answer was rejected:\n- Use 60-120 words; this has 199\n- Do not mention names that are not in the briefing: I\u0027m, And, I\u0027ll\nAnswer again, following every rule.",
+        "maxOutputTokens": 300,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "The heavy iron door creaked open, letting in the cool night air. Tamsin stepped inside, her boots crunching on the gravel. She looked up at the empty spot where Joska had stood moments before, watching the stars through his eyes. He hadn\u0027t moved since the fight ended. Now it was just her alone with the silence of the camp. She touched the cold metal of the rifle resting beside him, feeling the weight of what he carried.",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 0.7301482,
+      "inputTokens": 403,
+      "outputTokens": 95,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-711\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795223552,\u0022model\u0022:\u0022qwen3.5:2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022The heavy iron door creaked open, letting in the cool night air. Tamsin stepped inside, her boots crunching on the gravel. She looked up at the empty spot where Joska had stood moments before, watching the stars through his eyes. He hadn\u0027t moved since the fight ended. Now it was just her alone with the silence of the camp. She touched the cold metal of the rifle resting beside him, feeling the weight of what he carried.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:403,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:95,\u0022total_tokens\u0022:498}}\n"
+    }
+  ]
+}

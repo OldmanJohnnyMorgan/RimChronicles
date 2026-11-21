@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__inheritance-handoff__snap-18-late-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the warm letter Ada had left beside her\u0022,\u0022reason\u0022:\u0022Ada sent the letter on Day 744 from the village; she never left it beside Constance\u0027s body.\u0022},{\u0022span\u0022:\u0022reading about the sister he\u0027d lost for thirty years\u0022,\u0022reason\u0022:\u0022Ada is Constance\u0027s lost sister, not Elias\u0027s, so this misstates the relationship.\u0022},{\u0022span\u0022:\u0022carrying her mother\u0027s will\u0022,\u0022reason\u0022:\u0022Constance is Elias\u0027s mother; \u0027her mother\u0027 misattributes the relationship.\u0022},{\u0022span\u0022:\u0022Elias stood over the frost-bitten body... The wind howled through Wren\u0027s Hollow\u0022,\u0022reason\u0022:\u0022The caravan was lost in the passes; nothing says Constance\u0027s body is at Wren\u0027s Hollow with Elias.\u0022},{\u0022span\u0022:\u0022Elias packed Constance\u0027s tools\u0022,\u0022reason\u0022:\u0022The briefing mentions no tools belonging to Constance.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The scene garbles the core facts: it calls Ada Elias\u0027s sister, has Ada leave the letter by the body, and says \u0027her mother\u0027. It also names emotions outright (\u0027panic\u0027, \u0027desperate hope\u0027) and leans on stock melodrama like \u0027the wind howled\u0027.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.2559839,
+      "inputTokens": 1921,
+      "outputTokens": 703
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-17-late-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the man who fled Dunwold with the Ashford Compact\u0027s secrets\u0022,\u0022reason\u0022:\u0022Briefing never says Severin fled Dunwold or took any secrets.\u0022},{\u0022span\u0022:\u0022rumors suggest he may have slipped away to join the Kestrel Tribe\u0022,\u0022reason\u0022:\u0022No briefing link between Severin and the Kestrel Tribe.\u0022},{\u0022span\u0022:\u0022the local population suffered little more than confusion\u0022,\u0022reason\u0022:\u0022Briefing gives no detail on Dunwold\u0027s population.\u0022},{\u0022span\u0022:\u0022for information regarding his whereabouts and motivations\u0022,\u0022reason\u0022:\u0022Bounty\u0027s terms are not given in the briefing.\u0022},{\u0022span\u0022:\u0022no major action is visible yet\u0022,\u0022reason\u0022:\u0022Adds a detail about the militias\u0027 activity not in the briefing.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It breaks format with briefing-style headings and presents old news (the Severin bounty, the Harlow Ford militias) as new when the briefing says nothing new happened. It also invents several details and loses the dry Ilse Varrow voice entirely.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.8963234,
+      "inputTokens": 2318,
+      "outputTokens": 359
+    }
+  ]
+}

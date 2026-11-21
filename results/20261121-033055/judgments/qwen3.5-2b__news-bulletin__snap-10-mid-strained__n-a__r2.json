@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-10-mid-strained__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022three Stonecutter Raiders took people from a camp\u0022,\u0022reason\u0022:\u0022The earlier bulletin says the camp lost three people; nothing says three raiders did it.\u0022},{\u0022span\u0022:\u0022citing their well-armed status and generous sum as reasons to wait for payment without claiming it\u0022,\u0022reason\u0022:\u0022Garbles the narrator\u0027s earlier joke into reasons the Federation supposedly gave; the briefing records no such statement.\u0022},{\u0022span\u0022:\u0022the tribe demands silver compensation\u0022,\u0022reason\u0022:\u0022Contradicts the briefing: the Ochre Hand offered silver, it did not demand it.\u0022},{\u0022span\u0022:\u0022a move that has already been mentioned as a standard practice before\u0022,\u0022reason\u0022:\u0022Nothing in the briefing calls the bounty a standard practice.\u0022},{\u0022span\u0022:\u0022The colony remains quiet\u0022,\u0022reason\u0022:\u0022The reporter has no knowledge of events inside Wyrmfold.\u0022},{\u0022span\u0022:\u0022With no new developments in Wyrmfold\u0022,\u0022reason\u0022:\u0022Claims knowledge of the colony\u0027s internal affairs, which the briefing withholds.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It breaks character by copying the briefing\u0027s section headings into the bulletin, presents the old bounty as new news, and invents or distorts several details, such as the tribe \u0027demanding\u0027 silver. The prose is flat summary with none of Ilse\u0027s dry voice, and it runs over the word limit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.5265745,
+      "inputTokens": 2476,
+      "outputTokens": 774
+    }
+  ]
+}

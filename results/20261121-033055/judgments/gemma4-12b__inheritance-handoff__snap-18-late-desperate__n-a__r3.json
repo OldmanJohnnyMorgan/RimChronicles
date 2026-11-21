@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__inheritance-handoff__snap-18-late-desperate__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Elias knelt in the snow, his hands trembling as he smoothed the frozen fabric of his mother\u2019s coat. The wind howled through the pass\u0022,\u0022reason\u0022:\u0022Briefing never says Elias reached the pass or found her body\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Good details like the letter in her pocket and checking his gear\u0027s seals, but having Elias find her body in the pass is unsupported staging. Clich\u00E9s such as \u0027wind howled\u0027 and \u0027would not let her sacrifice be for nothing\u0027 flatten the restraint, and \u0027tracing the path\u0027 on the letter\u0027s ink is muddled.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.186609,
+      "inputTokens": 1913,
+      "outputTokens": 575
+    }
+  ]
+}

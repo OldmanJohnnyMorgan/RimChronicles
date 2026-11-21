@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-11-mid-content__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin opens with the briefing\u0027s heading \u0027News since your last bulletin:\u0027, which breaks character and violates the no-headings instruction. The content is accurate but the wit is thin and generic, especially the closing \u0027predictably, precarious\u0027 line.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.4127015,
+      "inputTokens": 2213,
+      "outputTokens": 365
+    }
+  ]
+}

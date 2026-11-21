@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-06-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Combine claims this loss is negligible compared to their own surplus\u0022,\u0022reason\u0022:\u0022The briefing gives no Combine response to the robbery.\u0022},{\u0022span\u0022:\u0022Imperial shuttles still hover over the eastern mountains\u0022,\u0022reason\u0022:\u0022Old news recast as ongoing; the briefing does not say the shuttles are still there.\u0022},{\u0022span\u0022:\u0022a faction that usually burns things down\u0022,\u0022reason\u0022:\u0022Unsupported characterisation of the Empire\u0027s past behaviour.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It copies the briefing\u0027s section headings into the bulletin, which breaks the no-headings rule. It also invents a Combine reaction to the robbery and recasts the old shuttle sighting as still happening.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.9768607,
+      "inputTokens": 2199,
+      "outputTokens": 513
+    }
+  ]
+}

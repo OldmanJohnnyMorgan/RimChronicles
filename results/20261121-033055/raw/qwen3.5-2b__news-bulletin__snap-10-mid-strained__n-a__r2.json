@@ -1,0 +1,57 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-10-mid-strained__n-a__r2",
+  "model": "qwen3.5-2b",
+  "task": "news-bulletin",
+  "snapshot": "snap-10-mid-strained",
+  "grammar": "n/a",
+  "repeat": 2,
+  "promptVersion": "news-bulletin/v2",
+  "outcome": "Template",
+  "value": "(template)",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.\n\nWrite your next news bulletin.\n\nWhat to write:\n- 2 or 3 short news items, most important first, separated by a blank line.\n- Each item is 2 to 4 sentences. The whole bulletin is 80 to 150 words.\n- Lead with the items under \u0022News since your last bulletin\u0022.\n- Items under \u0022Already reported\u0022 are old news. You may mention them briefly as background, but never present them as new or happening again.\n- If there is little new news, fill the remaining items with dry comment on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.\n\nWhat you know:\n- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events, and never add details to an event that the briefing does not give.\n- You do not know what happens inside the colony unless your briefing says it became public.\n\nStyle:\n- Keep your voice the same as in your earlier bulletins, but do not reuse their jokes or sentences.\n- Write only the bulletin itself: no title, no dateline, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 205 (Jugust 5503).\nThe colony you report near: Wyrmfold. You do not know what happens inside it unless listed below.\n\nFactions:\n- The Ochre Hand (Tribe): 3 settlements, at war with Stonecutter Raiders\n- Stonecutter Raiders (Pirates): 4 settlements\n- The Weir Federation (Outlanders): 7 settlements\n\nNews since your last bulletin:\n- The Ochre Hand offered silver for the return of its captives\n\nAlready reported in your earlier bulletins (background only, not news):\n- Stonecutter Raiders took captives from an Ochre Hand camp\n- The Weir Federation raised a bounty on Stonecutter leaders\n- Stonecutter Raiders are holding captives from the Ochre Hand\n\n## Your earlier bulletins\nEarlier bulletin:\nThe Ochre Hand and the Stonecutter Raiders are at war again, if they ever stopped. Word is that an Ochre Hand camp lost three of its people to a night raid.\n\nLatest bulletin:\nThe Weir Federation has put a bounty on Stonecutter leaders. The sum is generous, the leaders are well armed, and I expect the bounty will go unclaimed for some time.\n\nWrite the bulletin now.\n",
+        "maxOutputTokens": 350,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "**News since your last bulletin**\nThe Ochre Hand offers silver for the return of its captives; this follows the recent raid where three Stonecutter Raiders took people from a camp, prompting a desperate plea from the tribe. Meanwhile, the Weir Federation has raised a bounty on Stonecutter leaders, citing their well-armed status and generous sum as reasons to wait for payment without claiming it.\n\n**Already reported in your earlier bulletins (background only)**\nStonecutter Raiders took captives from an Ochre Hand camp; this incident is now part of the ongoing conflict where the tribe demands silver compensation. The Weir Federation has put a bounty on Stonecutter leaders, a move that has already been mentioned as a standard practice before.\n\n**Dry comment on facts**\nThe colony remains quiet as the factions continue their respective games of war and trade. The Ochre Hand\u0027s recent offer suggests they are willing to pay for freedom, while the Federation\u0027s high bounty reflects their suspicion of the pirates\u0027 capabilities. With no new developments in Wyrmfold, the situation appears stable for now.",
+      "error": null,
+      "failures": [
+        "Use 80-150 words; this has 174",
+        "Do not mention names that are not in the briefing: Dry"
+      ],
+      "latencySeconds": 1.6389047,
+      "inputTokens": 590,
+      "outputTokens": 225,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-801\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795231933,\u0022model\u0022:\u0022qwen3.5:2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022**News since your last bulletin**\\nThe Ochre Hand offers silver for the return of its captives; this follows the recent raid where three Stonecutter Raiders took people from a camp, prompting a desperate plea from the tribe. Meanwhile, the Weir Federation has raised a bounty on Stonecutter leaders, citing their well-armed status and generous sum as reasons to wait for payment without claiming it.\\n\\n**Already reported in your earlier bulletins (background only)**\\nStonecutter Raiders took captives from an Ochre Hand camp; this incident is now part of the ongoing conflict where the tribe demands silver compensation. The Weir Federation has put a bounty on Stonecutter leaders, a move that has already been mentioned as a standard practice before.\\n\\n**Dry comment on facts**\\nThe colony remains quiet as the factions continue their respective games of war and trade. The Ochre Hand\u0027s recent offer suggests they are willing to pay for freedom, while the Federation\u0027s high bounty reflects their suspicion of the pirates\u0027 capabilities. With no new developments in Wyrmfold, the situation appears stable for now.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:590,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:225,\u0022total_tokens\u0022:815}}\n"
+    },
+    {
+      "request": {
+        "system": "You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.\n\nWrite your next news bulletin.\n\nWhat to write:\n- 2 or 3 short news items, most important first, separated by a blank line.\n- Each item is 2 to 4 sentences. The whole bulletin is 80 to 150 words.\n- Lead with the items under \u0022News since your last bulletin\u0022.\n- Items under \u0022Already reported\u0022 are old news. You may mention them briefly as background, but never present them as new or happening again.\n- If there is little new news, fill the remaining items with dry comment on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.\n\nWhat you know:\n- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events, and never add details to an event that the briefing does not give.\n- You do not know what happens inside the colony unless your briefing says it became public.\n\nStyle:\n- Keep your voice the same as in your earlier bulletins, but do not reuse their jokes or sentences.\n- Write only the bulletin itself: no title, no dateline, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 205 (Jugust 5503).\nThe colony you report near: Wyrmfold. You do not know what happens inside it unless listed below.\n\nFactions:\n- The Ochre Hand (Tribe): 3 settlements, at war with Stonecutter Raiders\n- Stonecutter Raiders (Pirates): 4 settlements\n- The Weir Federation (Outlanders): 7 settlements\n\nNews since your last bulletin:\n- The Ochre Hand offered silver for the return of its captives\n\nAlready reported in your earlier bulletins (background only, not news):\n- Stonecutter Raiders took captives from an Ochre Hand camp\n- The Weir Federation raised a bounty on Stonecutter leaders\n- Stonecutter Raiders are holding captives from the Ochre Hand\n\n## Your earlier bulletins\nEarlier bulletin:\nThe Ochre Hand and the Stonecutter Raiders are at war again, if they ever stopped. Word is that an Ochre Hand camp lost three of its people to a night raid.\n\nLatest bulletin:\nThe Weir Federation has put a bounty on Stonecutter leaders. The sum is generous, the leaders are well armed, and I expect the bounty will go unclaimed for some time.\n\nWrite the bulletin now.\n\n\nYour previous answer was rejected:\n- Use 80-150 words; this has 174\n- Do not mention names that are not in the briefing: Dry\nAnswer again, following every rule.",
+        "maxOutputTokens": 350,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "News since your last bulletin: The Ochre Hand offered silver for the return of its captives. Stonecutter Raiders took captives from an Ochre Hand camp.\n\nThe Weir Federation raised a bounty on Stonecutter leaders. The sum is generous, the leaders are well armed, and I expect the bounty will go unclaimed for some time.\n\nDry comment: The colony remains quiet as factions continue their territorial disputes without significant escalation or new public events.",
+      "error": null,
+      "failures": [
+        "Use 80-150 words; this has 73",
+        "Write only the in-world text, without phrases like: \u0022bulletin:\u0022"
+      ],
+      "latencySeconds": 0.7245664,
+      "inputTokens": 637,
+      "outputTokens": 95,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-849\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795231934,\u0022model\u0022:\u0022qwen3.5:2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022News since your last bulletin: The Ochre Hand offered silver for the return of its captives. Stonecutter Raiders took captives from an Ochre Hand camp.\\n\\nThe Weir Federation raised a bounty on Stonecutter leaders. The sum is generous, the leaders are well armed, and I expect the bounty will go unclaimed for some time.\\n\\nDry comment: The colony remains quiet as factions continue their territorial disputes without significant escalation or new public events.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:637,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:95,\u0022total_tokens\u0022:732}}\n"
+    }
+  ]
+}

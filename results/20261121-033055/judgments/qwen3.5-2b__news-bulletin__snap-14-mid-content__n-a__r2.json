@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-14-mid-content__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022but no one was hurt\u0022,\u0022reason\u0022:\u0022Briefing gives no casualty information.\u0022},{\u0022span\u0022:\u0022The pirates took three small boats\u0022,\u0022reason\u0022:\u0022Number and boats not in briefing; the raid was on a single barge.\u0022},{\u0022span\u0022:\u0022left with their loot intact\u0022,\u0022reason\u0022:\u0022Outcome of the raid not given in briefing.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It breaks the format with a heading and repeats two old items word-for-word as if they were new. It also invents details of the raid (no injuries, three boats taken), and the bulletin has almost none of Ilse\u0027s dry voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.7980126,
+      "inputTokens": 2282,
+      "outputTokens": 218
+    }
+  ]
+}

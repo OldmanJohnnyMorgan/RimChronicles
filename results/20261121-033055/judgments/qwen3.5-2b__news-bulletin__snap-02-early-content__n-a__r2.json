@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-02-early-content__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022leaving behind scattered debris and no sign of retreat\u0022,\u0022reason\u0022:\u0022Adds details to the abandonment that the briefing does not give.\u0022},{\u0022span\u0022:\u0022The Tannerfolk claim this move is an act of desperation\u0022,\u0022reason\u0022:\u0022Invented Tannerfolk claim.\u0022},{\u0022span\u0022:\u0022after their drying racks were burned by the pirates earlier in the week\u0022,\u0022reason\u0022:\u0022Racks burning was earlier bulletin colour, not a briefing fact, and the timing is invented.\u0022},{\u0022span\u0022:\u0022though they admit to having more guards than goods in their caravan\u0022,\u0022reason\u0022:\u0022Invented admission by the Company, and it reuses an earlier joke as fact.\u0022},{\u0022span\u0022:\u0022for several months now\u0022,\u0022reason\u0022:\u0022Invented duration.\u0022},{\u0022span\u0022:\u0022last week with a large escort\u0022,\u0022reason\u0022:\u0022Invented timing and escort detail.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022Breaks the format with section headings, recycles earlier bulletins\u0027 jokes and sentences almost verbatim, and pads them with many invented details. It also presents old news as its own item.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.9261257,
+      "inputTokens": 2400,
+      "outputTokens": 358
+    }
+  ]
+}

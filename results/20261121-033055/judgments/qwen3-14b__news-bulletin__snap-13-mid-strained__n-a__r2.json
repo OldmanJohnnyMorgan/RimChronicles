@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-13-mid-strained__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Empire has responded by sending additional envoys\u0022,\u0022reason\u0022:\u0022Briefing gives no response to the refusal\u0022},{\u0022span\u0022:\u0022continue to make a nuisance of themselves along the old highway\u0022,\u0022reason\u0022:\u0022Presents the single old caravan raid as ongoing activity\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It copies the briefing\u0027s section headings into the bulletin, which breaks character and the format rules, and it invents an imperial response to the refusal. It is also under the word count and reuses the earlier boots joke.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.4892114,
+      "inputTokens": 2268,
+      "outputTokens": 196
+    }
+  ]
+}

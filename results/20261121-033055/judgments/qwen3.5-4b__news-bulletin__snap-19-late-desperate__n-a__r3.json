@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-19-late-desperate__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The output breaks character by printing the briefing headings (\\\u0022News since your last bulletin:\\\u0022, \\\u0022Already reported:\\\u0022) and parrots the instruction \\\u0022A quiet week is a fine story\\\u0022 in a week that isn\u0027t quiet. It also recycles the earlier bulletins\u0027 arithmetic and \\\u0022politely\\\u0022 jokes almost verbatim, and it re-presents the old Fenwick razing alongside the genuinely new siege.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.6469181,
+      "inputTokens": 2298,
+      "outputTokens": 588
+    }
+  ]
+}

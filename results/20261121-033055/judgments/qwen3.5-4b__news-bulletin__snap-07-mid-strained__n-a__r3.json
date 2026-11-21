@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-07-mid-strained__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The output copies the briefing\u0027s section headings into the text, which breaks character. It also reuses earlier bulletins word for word, including the wagon and envoy jokes and the \u0027broad daylight\u0027 line, and repeats the wagon story twice. The one new item, the gorge-road tolls, gets a single thin sentence before old news takes over, and the bulletin runs over the 150-word limit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.2945095,
+      "inputTokens": 2409,
+      "outputTokens": 344
+    }
+  ]
+}

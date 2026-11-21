@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-13-mid-strained__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The output copies the briefing\u0027s section headings (\u0027News since your last bulletin:\u0027, \u0027Already reported:\u0027) into the bulletin and recycles the earlier \u0027very good boots\u0027 and guards jokes, both of which the task forbids. The boots line also muddles into nonsense, and the closing remark about day 254 is flat and contradicts the genuine news of the refusal.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.4155984,
+      "inputTokens": 2285,
+      "outputTokens": 392
+    }
+  ]
+}

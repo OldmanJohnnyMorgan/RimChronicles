@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__inheritance-handoff__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The silence of the Lancers\u0027 camp pressed in.\u0022,\u0022reason\u0022:\u0022Places Tamsin at the Lancers\u0027 camp, which the briefing says the Lancers still hold; later lines contradict this.\u0022},{\u0022span\u0022:\u0022the charred remains of their shared gear\u0022,\u0022reason\u0022:\u0022The briefing mentions no fire, burned gear or shared equipment.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The scene muddles its setting: Tamsin is at the Lancers\u0027 camp and also gazing at it on a distant horizon. It never names Joska or makes clear that his story has passed to her. The ending is a generic \u0027preparing for the hunt\u0027 rather than a specific intent such as facing the new captain or defending Cinder Rest.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.8934769,
+      "inputTokens": 1888,
+      "outputTokens": 593
+    }
+  ]
+}

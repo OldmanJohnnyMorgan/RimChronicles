@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-14-mid-content__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022his crewmates are still debating whether to feel grateful or furious about it\u0022,\u0022reason\u0022:\u0022Presents a current, ongoing reaction that the briefing does not report\u0022},{\u0022span\u0022:\u0022the usual river skirmishes\u0022,\u0022reason\u0022:\u0022Implies repeated river fighting; the briefing lists only one barge raid\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It opens with a copied briefing heading and calls the Corsair story \u0027old news\u0027, which breaks character and is not allowed. It also invents ongoing crewmate debate and \u0027usual river skirmishes\u0027, and the line linking the trade pact to the raid makes no sense.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.5645484,
+      "inputTokens": 2344,
+      "outputTokens": 595
+    }
+  ]
+}

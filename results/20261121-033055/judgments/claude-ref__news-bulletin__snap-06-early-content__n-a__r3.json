@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-06-early-content__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate and properly dry: it leads with the barge robbery and ties it neatly to the earlier harvest report as background. However, the Empire\u0027s three settlements are stated twice, and the jab about the Empire not explaining itself closely echoes the previous bulletin\u0027s joke.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.60534,
+      "inputTokens": 2281,
+      "outputTokens": 377
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-15-late-content__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022given their usual penchant for dramatic exits\u0022,\u0022reason\u0022:\u0022Briefing gives no history of Pale Choir behaviour.\u0022},{\u0022span\u0022:\u0022Grinning Jack\u0027s Men still patrol three settlements without much success\u0022,\u0022reason\u0022:\u0022Briefing lists only their settlement count; patrolling and failure are invented.\u0022},{\u0022span\u0022:\u0022The Fox-Lantern Tribe\u0027s spring games continue with an argument about archery now in its third day\u0022,\u0022reason\u0022:\u0022Old news presented as current; no source says the games or argument are still going.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin opens by copying the briefing\u0027s heading, which breaks character. It also reuses the earlier archery-argument joke as if it were current, and invents details about the Pale Choir and the pirates.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.8521377,
+      "inputTokens": 2298,
+      "outputTokens": 653
+    }
+  ]
+}

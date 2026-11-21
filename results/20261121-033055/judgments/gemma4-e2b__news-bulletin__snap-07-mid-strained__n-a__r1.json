@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-07-mid-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Imperial envoys have continued their routine visits to outlander towns\u0022,\u0022reason\u0022:\u0022Briefing says envoys visited two towns; nothing says the visits are continuing or routine\u0022},{\u0022span\u0022:\u0022is a familiar occurrence\u0022,\u0022reason\u0022:\u0022Implies repeated wagon losses; briefing records only one\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It copies the briefing\u0027s section headings into the bulletin, which breaks character, and it presents old news as ongoing. The prose is flat and repetitive (\u0027remains... remain... remains\u0027), falls under the 80-word minimum, and has none of Ilse\u0027s wry voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.0734015,
+      "inputTokens": 2241,
+      "outputTokens": 494
+    }
+  ]
+}

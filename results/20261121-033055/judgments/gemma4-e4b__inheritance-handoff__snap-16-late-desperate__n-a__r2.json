@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__inheritance-handoff__snap-16-late-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022her fingers brushing the cold metal of his sidearm, the one he always kept close\u0022,\u0022reason\u0022:\u0022The briefing mentions no sidearm or any habit of keeping one close.\u0022},{\u0022span\u0022:\u0022the final, ragged breath leaving him\u0022,\u0022reason\u0022:\u0022Elske witnessing Bertram\u0027s death is unsupported; he died in an ambush and Rook came home alone.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The scene contradicts itself: Bertram is a \u0027cooling form\u0027 and also drawing his final breath. It also puts Elske at a death the briefing implies she did not witness, and invents a signature sidearm. The ending resolve fits the task, but the scene does not use Rook\u0027s lone return, and its sentence fragments muddy the moment.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.7719316,
+      "inputTokens": 1862,
+      "outputTokens": 543
+    }
+  ]
+}

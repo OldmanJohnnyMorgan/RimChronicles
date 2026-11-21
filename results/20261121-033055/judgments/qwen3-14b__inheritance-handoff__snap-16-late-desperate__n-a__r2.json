@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__inheritance-handoff__snap-16-late-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The pack had scattered after the ambush\u0022,\u0022reason\u0022:\u0022Briefing mentions hunters being ambushed, not a pack scattering.\u0022},{\u0022span\u0022:\u0022the scar on his flank\u0022,\u0022reason\u0022:\u0022No scar on Rook is mentioned in the briefing.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The scene is clear and ends properly on Elske\u0027s resolve, but it invents a scattered \u0027pack\u0027 and a scar. \u0027Walk the map\u0027 breaks immersion with game language, and the ending leans on stock revenge lines.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.794544,
+      "inputTokens": 1861,
+      "outputTokens": 482
+    }
+  ]
+}

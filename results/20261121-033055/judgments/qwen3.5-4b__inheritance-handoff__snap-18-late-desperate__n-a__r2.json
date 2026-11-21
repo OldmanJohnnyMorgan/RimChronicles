@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__inheritance-handoff__snap-18-late-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Elias stood before the caravan ruins, the snow swirling around the broken sleds where Constance had perished\u0022,\u0022reason\u0022:\u0022Briefing never puts Elias at the site of the lost caravan or mentions sleds.\u0022},{\u0022span\u0022:\u0022even when the blizzard threatened to bury them all\u0022,\u0022reason\u0022:\u0022Implies Elias was caught in the blizzard; the briefing does not say he was.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The setting is muddled: it starts in the silence of Wren\u0027s Hollow, moves to the caravan ruins and then to a village gate, and it invents Elias being at the death site. At about 131 words it is over the limit, names feelings outright (\u0027heart felt heavy\u0027), and ends on a sentimental line.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.7985992,
+      "inputTokens": 1946,
+      "outputTokens": 898
+    }
+  ]
+}

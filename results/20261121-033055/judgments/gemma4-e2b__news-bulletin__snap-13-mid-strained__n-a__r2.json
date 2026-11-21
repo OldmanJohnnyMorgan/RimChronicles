@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-13-mid-strained__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022continue their usual pattern of hitting caravans on the old highway\u0022,\u0022reason\u0022:\u0022The briefing has one already-reported raid. This invents a repeated pattern and presents old news as ongoing.\u0022},{\u0022span\u0022:\u0022Rewards are being offered, as usual, for any explanation regarding their recent activities\u0022,\u0022reason\u0022:\u0022The briefing mentions no rewards. This garbles a joke from the earlier bulletin into a present-tense event.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It opens with a heading copied from the briefing and recasts the old caravan raid as a continuing pattern with ongoing rewards, both unsupported. The wit is thin, it reuses the earlier reward gag, and at about 75 words it is under length.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.6074788,
+      "inputTokens": 2269,
+      "outputTokens": 640
+    }
+  ]
+}

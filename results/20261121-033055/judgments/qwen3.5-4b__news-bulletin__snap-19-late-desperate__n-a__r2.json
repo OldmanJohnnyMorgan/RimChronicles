@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-19-late-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The bulletin copies the briefing\u0027s section labels as headings and parrots the instruction \\\u0022A quiet week is a fine story\\\u0022, which breaks character. It also recycles the earlier bulletins\u0027 jokes (\\\u0022politely\\\u0022, arithmetic, seven towns) and presents the old Fenwick razing as fresh news.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.2634481,
+      "inputTokens": 2304,
+      "outputTokens": 513
+    }
+  ]
+}

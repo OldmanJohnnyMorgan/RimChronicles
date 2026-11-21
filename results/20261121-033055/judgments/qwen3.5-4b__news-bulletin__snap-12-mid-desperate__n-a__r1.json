@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-12-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The bulletin copies the briefing\u0027s section headings into the text, which breaks character. It treats old news as a full item and reuses the earlier \u0027bruise\u0027 image. The last paragraph is muddled speculation, and at about 170 words it runs over the 150-word limit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.1425062,
+      "inputTokens": 2426,
+      "outputTokens": 515
+    }
+  ]
+}

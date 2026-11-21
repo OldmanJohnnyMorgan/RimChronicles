@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-03-early-strained__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Kinn of the Long Grass have moved their largest settlement, leaving behind a smoldering campsite.\u0022,\u0022reason\u0022:\u0022Invented event; briefing says no news\u0022},{\u0022span\u0022:\u0022the ash is fresh and the fires are still burning\u0022,\u0022reason\u0022:\u0022Invented details; grass fires are not in this briefing\u0022},{\u0022span\u0022:\u0022The Ashen Hand have not made a move in weeks.\u0022,\u0022reason\u0022:\u0022Unsupported time claim\u0022},{\u0022span\u0022:\u0022their usual patrols still sweep the roads\u0022,\u0022reason\u0022:\u0022Invented ongoing activity\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It invents a Kinn relocation and fires despite a briefing with no news, and it breaks format by copying the briefing\u0027s section headings and repeating the already-reported list verbatim. There is almost none of Ilse\u0027s dry wit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.3915101,
+      "inputTokens": 2308,
+      "outputTokens": 291
+    }
+  ]
+}

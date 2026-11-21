@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__inheritance-handoff__snap-16-late-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the scorched remains of the last hunting ground\u0022,\u0022reason\u0022:\u0022The briefing mentions an ambush but no fire or burned site.\u0022},{\u0022span\u0022:\u0022Bertram\u2019s empty saddle\u0022,\u0022reason\u0022:\u0022No mount or saddle is mentioned. Only the warg Rook came home.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The scene is readable and ends on the heir\u0027s intent as required, but it invents a scorched site and a saddle while ignoring Rook. It also pastes the trait label in awkwardly (\u0027the careful shooter in her steady hands\u0027) and leans on stock phrasing like \u0027cold stone\u0027 and \u0027distant horizon\u0027.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.1816367,
+      "inputTokens": 1885,
+      "outputTokens": 516
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-19-late-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate, well-ordered and in a dry voice, with Fenwick correctly treated as background and the siege leading. The second and third items lean on stock understatement and are a little flat, but nothing is invented.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.9667221,
+      "inputTokens": 2314,
+      "outputTokens": 337
+    }
+  ]
+}

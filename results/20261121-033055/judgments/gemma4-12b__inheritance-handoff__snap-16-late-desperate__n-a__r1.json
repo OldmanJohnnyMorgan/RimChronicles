@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__inheritance-handoff__snap-16-late-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Beside them, Rook let out a low, mourning whine\u0022,\u0022reason\u0022:\u0022Puts Rook at Bertram\u0027s body with Elske; the briefing says Rook came home alone.\u0022},{\u0022span\u0022:\u0022its barrel still warm\u0022,\u0022reason\u0022:\u0022Implies Elske reached the body moments after the ambush, an event the briefing does not support.\u0022},{\u0022span\u0022:\u0022the jagged scar on Bertram\u0027s chest\u0022,\u0022reason\u0022:\u0022A specific physical detail not in the dossier.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The scene is set at the body with Rook beside it, which contradicts the warg coming home alone. The ending only implies Elske\u0027s intent through checking the rifle rather than stating what she means to do, and clich\u00E9s like \u0027mask of stone\u0027 and \u0027knuckles turning white\u0027 weaken it.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.5374567,
+      "inputTokens": 1914,
+      "outputTokens": 709
+    }
+  ]
+}

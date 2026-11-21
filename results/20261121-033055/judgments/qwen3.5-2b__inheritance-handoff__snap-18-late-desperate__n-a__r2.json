@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__inheritance-handoff__snap-18-late-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the biting wind that had been gone for three days\u0022,\u0022reason\u0022:\u0022The three-day figure is not in the briefing.\u0022},{\u0022span\u0022:\u0022She was still breathing, her chest rising and falling with a rhythm that felt too much like hers.\u0022,\u0022reason\u0022:\u0022Contradicts the briefing: Constance is dead.\u0022},{\u0022span\u0022:\u0022He knew she would be fine\u0022,\u0022reason\u0022:\u0022Contradicts her death from cold.\u0022},{\u0022span\u0022:\u0022the letter Constance had left on the table before she passed, her hand still steady as she wrote it\u0022,\u0022reason\u0022:\u0022The letter was from Ada; nothing says Constance wrote a letter or died at home.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:1,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The scene contradicts itself and the briefing, with Constance both sitting in an empty chair and still breathing after her death. It also misattributes Ada\u0027s letter to Constance and never clearly states what Elias means to do.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.6677889,
+      "inputTokens": 1918,
+      "outputTokens": 657
+    }
+  ]
+}

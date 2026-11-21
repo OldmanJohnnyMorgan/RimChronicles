@@ -1,0 +1,56 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-09-mid-desperate__n-a__r3",
+  "model": "gemma4-12b",
+  "task": "news-bulletin",
+  "snapshot": "snap-09-mid-desperate",
+  "grammar": "n/a",
+  "repeat": 3,
+  "promptVersion": "news-bulletin/v2",
+  "outcome": "Template",
+  "value": "(template)",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are Odile Brask, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is sardonic, precise and fond of understatement.\n\nWrite your next news bulletin.\n\nWhat to write:\n- 2 or 3 short news items, most important first, separated by a blank line.\n- Each item is 2 to 4 sentences. The whole bulletin is 80 to 150 words.\n- Lead with the items under \u0022News since your last bulletin\u0022.\n- Items under \u0022Already reported\u0022 are old news. You may mention them briefly as background, but never present them as new or happening again.\n- If there is little new news, fill the remaining items with dry comment on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.\n\nWhat you know:\n- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events, and never add details to an event that the briefing does not give.\n- You do not know what happens inside the colony unless your briefing says it became public.\n\nStyle:\n- Keep your voice the same as in your earlier bulletins, but do not reuse their jokes or sentences.\n- Write only the bulletin itself: no title, no dateline, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 288 (Decembary 5504).\nThe colony you report near: Cinder Rest. You do not know what happens inside it unless listed below.\n\nFactions:\n- Malley\u0027s Lancers (Pirates): 1 settlement\n- The Gray Wharf Syndicate (Outlanders): 6 settlements\n- Embertail Tribe (Tribe): 4 settlements, at war with The Gray Wharf Syndicate\n\nNews since your last bulletin:\n- Pirate captain Rook Malley was killed at his camp\n- Pirate captain Rook Malley is dead, killed at his own camp\n\nAlready reported in your earlier bulletins (background only, not news):\n- The Embertail Tribe declared war on the Gray Wharf Syndicate\n\n## Your earlier bulletins\nEarlier bulletin:\nCaptain Rook Malley\u0027s Lancers are getting bolder. A trader was killed on the coast road last quadrum, and a pit fighter from Cinder Rest is said to be walking with a cane because of them.\n\nLatest bulletin:\nThe Embertail Tribe has declared war on the Gray Wharf Syndicate over fishing rights. Neither side, so far as I can tell, has caught any fish.\n\nWrite the bulletin now.\n",
+        "maxOutputTokens": 500,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "News since your last bulletin:\n\nCaptain Rook Malley has met his end, having been killed at his own camp. It appears the pirates were less successful at defending their perimeter than they were at harassing our local merchants.\n\nAlready reported:\n\nThe Embertail Tribe continues its war against the Gray Wharf Syndicate. It remains a remarkably unproductive conflict, as neither side has managed to secure any fish.",
+      "error": null,
+      "failures": [
+        "Use 80-150 words; this has 66",
+        "Write only the in-world text, without phrases like: \u0022bulletin:\u0022"
+      ],
+      "latencySeconds": 1.3657586,
+      "inputTokens": 574,
+      "outputTokens": 81,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-883\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795232595,\u0022model\u0022:\u0022gemma4:12b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022News since your last bulletin:\\n\\nCaptain Rook Malley has met his end, having been killed at his own camp. It appears the pirates were less successful at defending their perimeter than they were at harassing our local merchants.\\n\\nAlready reported:\\n\\nThe Embertail Tribe continues its war against the Gray Wharf Syndicate. It remains a remarkably unproductive conflict, as neither side has managed to secure any fish.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:574,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:81,\u0022total_tokens\u0022:655}}\n"
+    },
+    {
+      "request": {
+        "system": "You are Odile Brask, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is sardonic, precise and fond of understatement.\n\nWrite your next news bulletin.\n\nWhat to write:\n- 2 or 3 short news items, most important first, separated by a blank line.\n- Each item is 2 to 4 sentences. The whole bulletin is 80 to 150 words.\n- Lead with the items under \u0022News since your last bulletin\u0022.\n- Items under \u0022Already reported\u0022 are old news. You may mention them briefly as background, but never present them as new or happening again.\n- If there is little new news, fill the remaining items with dry comment on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.\n\nWhat you know:\n- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events, and never add details to an event that the briefing does not give.\n- You do not know what happens inside the colony unless your briefing says it became public.\n\nStyle:\n- Keep your voice the same as in your earlier bulletins, but do not reuse their jokes or sentences.\n- Write only the bulletin itself: no title, no dateline, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 288 (Decembary 5504).\nThe colony you report near: Cinder Rest. You do not know what happens inside it unless listed below.\n\nFactions:\n- Malley\u0027s Lancers (Pirates): 1 settlement\n- The Gray Wharf Syndicate (Outlanders): 6 settlements\n- Embertail Tribe (Tribe): 4 settlements, at war with The Gray Wharf Syndicate\n\nNews since your last bulletin:\n- Pirate captain Rook Malley was killed at his camp\n- Pirate captain Rook Malley is dead, killed at his own camp\n\nAlready reported in your earlier bulletins (background only, not news):\n- The Embertail Tribe declared war on the Gray Wharf Syndicate\n\n## Your earlier bulletins\nEarlier bulletin:\nCaptain Rook Malley\u0027s Lancers are getting bolder. A trader was killed on the coast road last quadrum, and a pit fighter from Cinder Rest is said to be walking with a cane because of them.\n\nLatest bulletin:\nThe Embertail Tribe has declared war on the Gray Wharf Syndicate over fishing rights. Neither side, so far as I can tell, has caught any fish.\n\nWrite the bulletin now.\n\n\nYour previous answer was rejected:\n- Use 80-150 words; this has 66\n- Write only the in-world text, without phrases like: \u0022bulletin:\u0022\nAnswer again, following every rule.",
+        "maxOutputTokens": 500,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "News since your last bulletin:\n\nCaptain Rook Malley has met his end, reportedly killed at his own camp. It is a rather convenient way for a pirate leader to exit the stage, leaving his Lancers without a clear direction.\n\nThe Embertail Tribe remains engaged in their tiresome war against the Gray Wharf Syndicate. It is a remarkably productive conflict, provided one considers a complete lack of fish to be a strategic victory.\n\nAlready reported:\n\nThe Gray Wharf Syndicate currently maintains six settlements while the Embertail Tribe holds four. The date is day 288 of Decembary 5504, a period of time that seems to be passing with agonizing slowness.",
+      "error": null,
+      "failures": [
+        "Write only the in-world text, without phrases like: \u0022bulletin:\u0022"
+      ],
+      "latencySeconds": 2.0860761,
+      "inputTokens": 624,
+      "outputTokens": 141,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-176\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795232597,\u0022model\u0022:\u0022gemma4:12b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022News since your last bulletin:\\n\\nCaptain Rook Malley has met his end, reportedly killed at his own camp. It is a rather convenient way for a pirate leader to exit the stage, leaving his Lancers without a clear direction.\\n\\nThe Embertail Tribe remains engaged in their tiresome war against the Gray Wharf Syndicate. It is a remarkably productive conflict, provided one considers a complete lack of fish to be a strategic victory.\\n\\nAlready reported:\\n\\nThe Gray Wharf Syndicate currently maintains six settlements while the Embertail Tribe holds four. The date is day 288 of Decembary 5504, a period of time that seems to be passing with agonizing slowness.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:624,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:141,\u0022total_tokens\u0022:765}}\n"
+    }
+  ]
+}

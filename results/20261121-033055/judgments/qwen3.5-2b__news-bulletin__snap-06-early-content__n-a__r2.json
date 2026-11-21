@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-06-early-content__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022claiming it was smuggling weapons for their own use\u0022,\u0022reason\u0022:\u0022Briefing gives no claim or motive for the robbery\u0022},{\u0022span\u0022:\u0022remains unverified by independent observers\u0022,\u0022reason\u0022:\u0022No briefing support for any verification status or observers\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022Copies the briefing\u0027s section headings into the bulletin and restates old news as a labelled section, breaking character entirely. It also invents a smuggling claim for the barge robbery, and the persona\u0027s dry voice is absent.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.6307414,
+      "inputTokens": 2150,
+      "outputTokens": 193
+    }
+  ]
+}

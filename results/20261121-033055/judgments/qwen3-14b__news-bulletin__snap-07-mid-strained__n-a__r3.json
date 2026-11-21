@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-07-mid-strained__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the Empire\u2019s envoys are growing more impatient with each passing day\u0022,\u0022reason\u0022:\u0022Briefing gives no detail about envoys\u0027 mood or any escalation.\u0022},{\u0022span\u0022:\u0022though no new incidents have been reported near the gorge\u0022,\u0022reason\u0022:\u0022Briefing does not say whether further incidents occurred.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It copies the briefing\u0027s section headings into the bulletin, breaking the no-headings rule and the reporter persona. It also adds unsupported details about the envoys\u0027 growing impatience and the absence of new incidents, while the prose stays flat and lacks Ilse\u0027s wry voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.0221027,
+      "inputTokens": 2258,
+      "outputTokens": 428
+    }
+  ]
+}

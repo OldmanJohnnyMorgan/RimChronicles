@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-01-early-content__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022locals suspect it\u0027s more of a front for smuggling than commerce\u0022,\u0022reason\u0022:\u0022Briefing gives no suspicion of smuggling\u0022},{\u0022span\u0022:\u0022spotted patrolling three settlements near the coast\u0022,\u0022reason\u0022:\u0022Briefing says only the Raiders have 3 settlements; no patrols or coast\u0022},{\u0022span\u0022:\u0022no new raids have occurred in the past week\u0022,\u0022reason\u0022:\u0022Raid history not in briefing\u0022},{\u0022span\u0022:\u0022their presence on the border\u0022,\u0022reason\u0022:\u0022No border presence given for the Seven Ash Clans\u0022},{\u0022span\u0022:\u0022Already reported\u0022,\u0022reason\u0022:\u0022There are no already-reported items; it presents invented events as old news\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It breaks format with markdown headings copied from the briefing and contains a typo (\u0027expectered\u0027). It invents smuggling suspicions, coastal patrols and border activity, and the cynical Ilse Varrow voice barely shows.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.0137112,
+      "inputTokens": 2074,
+      "outputTokens": 320
+    }
+  ]
+}

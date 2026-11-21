@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-16-late-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022pirates who prefer the open water to settled ground\u0022,\u0022reason\u0022:\u0022Briefing says nothing about the Free Company and water; they hold 2 settlements.\u0022},{\u0022span\u0022:\u0022the Free Company operates with increasing audacity\u0022,\u0022reason\u0022:\u0022No escalation of Free Company activity is in the briefing.\u0022},{\u0022span\u0022:\u0022forcing rationing across the Lantern Accord settlements\u0022,\u0022reason\u0022:\u0022Rationing is not in the briefing, and \u0027across the settlements\u0027 widens an earlier bulletin\u0027s claim.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It copies the briefing\u0027s section headings (\u0027News since your last bulletin:\u0027, \u0027Already reported:\u0027) into the bulletin, which breaks character and the format rules, and the reporter\u0027s sardonic voice is mostly missing. It also invents details, such as pirates preferring open water and the Free Company\u0027s \u0027increasing audacity\u0027, and repeats the heatwave in the present tense.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.8453929,
+      "inputTokens": 2238,
+      "outputTokens": 714
+    }
+  ]
+}

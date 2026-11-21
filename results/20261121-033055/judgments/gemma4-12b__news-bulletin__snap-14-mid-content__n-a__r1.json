@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-14-mid-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022successfully raided\u0022,\u0022reason\u0022:\u0022Briefing says only that a raid happened, not that it succeeded.\u0022},{\u0022span\u0022:\u0022the Tribe continues to demand their steel\u0022,\u0022reason\u0022:\u0022Presents an ongoing dispute or demand that the briefing does not report.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It breaks character by copying the briefing\u0027s section headings into the bulletin, and it falls well short of the 80-word minimum. It also treats the old trade pact as a current development and adds a claim that the raid succeeded, which the briefing does not give.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.7511376,
+      "inputTokens": 2240,
+      "outputTokens": 461
+    }
+  ]
+}

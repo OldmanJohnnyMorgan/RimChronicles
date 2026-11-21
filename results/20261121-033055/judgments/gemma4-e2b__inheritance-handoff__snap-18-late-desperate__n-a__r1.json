@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__inheritance-handoff__snap-18-late-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The scene is accurate and ends on Elias\u0027s intent, but the prose is flat. It names emotion outright (\u0027the anxiety tightening his jaw\u0027) against the brief, and \u0027the memory of the blizzard\u0027 wrongly implies Elias was on the caravan.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.6937751,
+      "inputTokens": 1847,
+      "outputTokens": 291
+    }
+  ]
+}

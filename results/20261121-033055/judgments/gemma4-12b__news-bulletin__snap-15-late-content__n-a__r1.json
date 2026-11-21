@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-15-late-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022though they haven\u0027t found him yet\u0022,\u0022reason\u0022:\u0022The briefing does not say whether Leopold has been found.\u0022},{\u0022span\u0022:\u0022The argument regarding the archery results remains a staple of the local atmosphere.\u0022,\u0022reason\u0022:\u0022Claims the archery argument is still going on. The briefing does not support that, and it presents old news as current.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It copies the briefing\u0027s section headings into the bulletin, which breaks character, and it reads like a flat summary with none of Ilse\u0027s dry wit. It also adds unsupported details, revives old news as ongoing, and falls short of the 80-word minimum.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.7775093,
+      "inputTokens": 2214,
+      "outputTokens": 458
+    }
+  ]
+}

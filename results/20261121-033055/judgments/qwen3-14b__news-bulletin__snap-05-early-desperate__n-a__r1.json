@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The cold snap continues to haunt the northern basin\u0022,\u0022reason\u0022:\u0022Briefing only says it killed crops; it does not say it is ongoing.\u0022},{\u0022span\u0022:\u0022Scythe Tooth raiders show no sign of slowing down\u0022,\u0022reason\u0022:\u0022Implies continued raiding beyond the three reported; not supported.\u0022},{\u0022span\u0022:\u0022The Ferrow Mutual\u2019s patrols are a patchwork of goodwill and suspicion\u0022,\u0022reason\u0022:\u0022Briefing only says patrols were requested, not that they exist or how they run.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It copies the briefing\u0027s section headings into the bulletin, which breaks character and ignores the format, and it runs short of 80 words. It also restates old news as ongoing developments, adding unsupported claims about the cold snap, the raids and the Ferrow patrols.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.1634919,
+      "inputTokens": 2209,
+      "outputTokens": 640
+    }
+  ]
+}

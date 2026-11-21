@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-18-late-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022No survivors have been found\u0022,\u0022reason\u0022:\u0022Briefing says only that the caravan was lost; it mentions no search or survivors.\u0022},{\u0022span\u0022:\u0022the wreckage is still buried under snow\u0022,\u0022reason\u0022:\u0022This adds a detail about wreckage that the briefing does not give.\u0022},{\u0022span\u0022:\u0022though no new attacks have been reported this week\u0022,\u0022reason\u0022:\u0022The briefing does not say whether there have been new raider attacks.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It embellishes the caravan loss with unsupported details about survivors and wreckage. The granary item is copied word for word from the last bulletin and presented again as news, breaking the no-reuse rule, and the voice is flat, never reaching Tomas\u0027s earnest, worried tone.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.8337113,
+      "inputTokens": 2264,
+      "outputTokens": 602
+    }
+  ]
+}

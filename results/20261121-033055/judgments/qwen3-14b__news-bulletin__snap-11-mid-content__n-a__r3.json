@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-11-mid-content__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022No one was poisoned, no one was shot\u0022,\u0022reason\u0022:\u0022Adds details about the feast that the briefing does not give.\u0022},{\u0022span\u0022:\u0022no one seems to have left early\u0022,\u0022reason\u0022:\u0022Adds an unsupported detail about how the feast went.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It copies the briefing\u0027s section headings into the bulletin, which breaks character and format. It also falls short of 80 words and treats the old news as a bare list instead of background. The feast item has a wry touch, but it invents details about how the event went.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.4046964,
+      "inputTokens": 2177,
+      "outputTokens": 404
+    }
+  ]
+}

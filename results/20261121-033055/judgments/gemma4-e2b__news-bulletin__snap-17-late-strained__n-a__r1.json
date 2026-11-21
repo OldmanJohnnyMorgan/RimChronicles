@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-17-late-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022No significant shifts in the border skirmishes have been noted this cycle.\u0022,\u0022reason\u0022:\u0022The briefing mentions a war but no border skirmishes.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It opens with a copied heading, which the task forbids. The prose is flat and bureaucratic (\u0027expansionist maneuvers\u0027, \u0027as is typical for the current period\u0027), with none of Ilse\u0027s dry wit, and it ignores easy material such as faction sizes, the date and the already-reported Dunwold background.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.0144148,
+      "inputTokens": 2313,
+      "outputTokens": 506
+    }
+  ]
+}

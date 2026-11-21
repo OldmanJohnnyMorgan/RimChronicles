@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-05-early-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Ferrow Mutual continues to request shared patrols.\u0022,\u0022reason\u0022:\u0022The briefing has no patrol request; it appears only in an earlier bulletin, and nothing says it is ongoing.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin opens with a copied heading, re-presents the old Scythe Tooth raids as news, and recycles the earlier patrol joke as a flat statement. It is also well under 80 words and has none of Odile\u0027s sardonic voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.9648061,
+      "inputTokens": 2172,
+      "outputTokens": 497
+    }
+  ]
+}

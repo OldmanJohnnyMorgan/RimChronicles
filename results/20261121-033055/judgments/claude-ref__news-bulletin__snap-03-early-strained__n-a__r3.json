@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-03-early-strained__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate and dry, it handles a quiet week well by drawing on faction sizes, the date, and old news it correctly labels as background. It loses a little because \u0027it never stays away long\u0027 and \u0027enjoy it while it lasts\u0027 repeat the same joke, and \u0027is old news\u0027 says the background out loud rather than letting it sit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.512724,
+      "inputTokens": 2338,
+      "outputTokens": 761
+    }
+  ]
+}

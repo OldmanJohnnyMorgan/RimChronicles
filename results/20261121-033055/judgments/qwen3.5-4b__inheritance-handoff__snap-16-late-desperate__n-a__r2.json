@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__inheritance-handoff__snap-16-late-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022stood over the cold body of her best friend\u0022,\u0022reason\u0022:\u0022The briefing says Bertram died in an ambush and only Rook came home; nothing says his body was recovered.\u0022},{\u0022span\u0022:\u0022Kael Dunmore\u0027s betrayal\u0022,\u0022reason\u0022:\u0022Dunmore was an enemy mercenary. Nothing suggests he was ever an ally who betrayed anyone.\u0022},{\u0022span\u0022:\u0022the rifle case at her hip\u0022,\u0022reason\u0022:\u0022This specific item is not in the briefing.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022\u0027The bloodlust trait still burning\u0027 names a game mechanic and breaks character. The scene also invents a recovered body and a \u0027betrayal\u0027, and leans on melodrama like \u0027phantom warmth that only he could provide\u0027 and \u0027grieving\u0027 instead of restrained detail.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.1822894,
+      "inputTokens": 1928,
+      "outputTokens": 690
+    }
+  ]
+}

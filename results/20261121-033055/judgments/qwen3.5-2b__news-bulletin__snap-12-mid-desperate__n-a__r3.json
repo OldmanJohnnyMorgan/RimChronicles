@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-12-mid-desperate__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022to negotiate with the Saltmarch Assembly regarding the toxic fallout crisis\u0022,\u0022reason\u0022:\u0022Briefing gives no purpose for the envoys\u0027 visit.\u0022},{\u0022span\u0022:\u0022leaving the Saltmarch Assembly to debate whether to surrender or fight a losing battle\u0022,\u0022reason\u0022:\u0022No debate, surrender or battle in the briefing.\u0022},{\u0022span\u0022:\u0022The Empire\u0027s representatives remain silent\u0022,\u0022reason\u0022:\u0022Briefing does not say the envoys were silent.\u0022},{\u0022span\u0022:\u0022Toxic fallout is now covering the region for its sixth day\u0022,\u0022reason\u0022:\u0022The sixth day was stated in an earlier bulletin; it is stale now and presented as current.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It breaks the format with section headings copied from the briefing and a meta note (\u0027this incident was not new or developing again\u0027). It also invents the envoys\u0027 purpose and a surrender-or-fight debate, and reuses an earlier joke word for word.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.4879749,
+      "inputTokens": 2318,
+      "outputTokens": 334
+    }
+  ]
+}

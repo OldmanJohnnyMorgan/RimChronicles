@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__inheritance-handoff__snap-16-late-desperate__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022pulling out the notched hunting knife he had carried for years\u0022,\u0022reason\u0022:\u0022No knife or any keepsake appears in the briefing.\u0022},{\u0022span\u0022:\u0022Elske knelt in the mud, her hands trembling as she brushed a smear of dried blood from Bertram\u2019s cooling cheek.\u0022,\u0022reason\u0022:\u0022Sets Elske at a freshly dead body; the briefing says only that Rook came home alone. Nothing places her at the ambush site.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The scene reads clearly, uses the right names and ends on Elske\u0027s intent to hunt Dunmore. But it invents a keepsake knife and puts Elske beside a still-cooling body, which sits awkwardly with Rook coming home alone. Stock phrasing like \u0027knuckles turned white\u0027 and \u0027gaze hardening\u0027 also flattens the restraint the task asks for.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.8295268,
+      "inputTokens": 1919,
+      "outputTokens": 607
+    }
+  ]
+}

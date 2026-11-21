@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__inheritance-handoff__snap-18-late-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The quiet, restrained imagery suits RimWorld, but the ending is vague: sketching a shelter design only hints at going after Ada, so his intent never lands. The scene also never makes the mother-son bond explicit and names her trait (\u0027iron will\u0027) instead of showing it.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.2113556,
+      "inputTokens": 1849,
+      "outputTokens": 508
+    }
+  ]
+}

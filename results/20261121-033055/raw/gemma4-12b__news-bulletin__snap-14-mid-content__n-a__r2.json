@@ -1,0 +1,56 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-14-mid-content__n-a__r2",
+  "model": "gemma4-12b",
+  "task": "news-bulletin",
+  "snapshot": "snap-14-mid-content",
+  "grammar": "n/a",
+  "repeat": 2,
+  "promptVersion": "news-bulletin/v2",
+  "outcome": "Template",
+  "value": "(template)",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.\n\nWrite your next news bulletin.\n\nWhat to write:\n- 2 or 3 short news items, most important first, separated by a blank line.\n- Each item is 2 to 4 sentences. The whole bulletin is 80 to 150 words.\n- Lead with the items under \u0022News since your last bulletin\u0022.\n- Items under \u0022Already reported\u0022 are old news. You may mention them briefly as background, but never present them as new or happening again.\n- If there is little new news, fill the remaining items with dry comment on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.\n\nWhat you know:\n- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events, and never add details to an event that the briefing does not give.\n- You do not know what happens inside the colony unless your briefing says it became public.\n\nStyle:\n- Keep your voice the same as in your earlier bulletins, but do not reuse their jokes or sentences.\n- Write only the bulletin itself: no title, no dateline, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 376 (Jugust 5506).\nThe colony you report near: Quillmarsh. You do not know what happens inside it unless listed below.\n\nFactions:\n- Brackwater Corsairs (Pirates): 3 settlements\n- The Fernhollow League (Outlanders): 8 settlements\n- Blue Antler Tribe (Tribe): 5 settlements\n\nNews since your last bulletin:\n- Brackwater Corsairs raided a Fernhollow League barge on the river\n\nAlready reported in your earlier bulletins (background only, not news):\n- The Fernhollow League signed a trade pact with the Blue Antler Tribe\n- A released Brackwater Corsair is talking about his captors\u0027 kindness\n- A Brackwater Corsair released by Quillmarsh is talking about his captors\u0027 kindness\n\n## Your earlier bulletins\nEarlier bulletin:\nThe Fernhollow League and the Blue Antler Tribe have signed a trade pact. The League gets furs, the Tribe gets steel, and both get to complain about the other\u0027s bargaining.\n\nLatest bulletin:\nA Brackwater Corsair has come home with tales of being well fed by his captors. His crewmates are reportedly unsure whether to be relieved or insulted.\n\nWrite the bulletin now.\n",
+        "maxOutputTokens": 500,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "News since your last bulletin:\n\nThe Brackwater Corsairs have launched a raid on a Fernhollow League barge along the river. It seems the pirates are less interested in trade and more interested in taking what isn\u0027t theirs.\n\nAlready reported:\n\nThe Fernhollow League and the Blue Antler Tribe continue their trade pact, exchanging furs for steel. Meanwhile, the pirates keep telling stories about the kindness of their captors, a fact that remains as baffling as it was last week.",
+      "error": null,
+      "failures": [
+        "Use 80-150 words; this has 78",
+        "Write only the in-world text, without phrases like: \u0022bulletin:\u0022"
+      ],
+      "latencySeconds": 1.5176952,
+      "inputTokens": 580,
+      "outputTokens": 101,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-944\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795232643,\u0022model\u0022:\u0022gemma4:12b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022News since your last bulletin:\\n\\nThe Brackwater Corsairs have launched a raid on a Fernhollow League barge along the river. It seems the pirates are less interested in trade and more interested in taking what isn\u0027t theirs.\\n\\nAlready reported:\\n\\nThe Fernhollow League and the Blue Antler Tribe continue their trade pact, exchanging furs for steel. Meanwhile, the pirates keep telling stories about the kindness of their captors, a fact that remains as baffling as it was last week.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:580,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:101,\u0022total_tokens\u0022:681}}\n"
+    },
+    {
+      "request": {
+        "system": "You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.\n\nWrite your next news bulletin.\n\nWhat to write:\n- 2 or 3 short news items, most important first, separated by a blank line.\n- Each item is 2 to 4 sentences. The whole bulletin is 80 to 150 words.\n- Lead with the items under \u0022News since your last bulletin\u0022.\n- Items under \u0022Already reported\u0022 are old news. You may mention them briefly as background, but never present them as new or happening again.\n- If there is little new news, fill the remaining items with dry comment on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.\n\nWhat you know:\n- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events, and never add details to an event that the briefing does not give.\n- You do not know what happens inside the colony unless your briefing says it became public.\n\nStyle:\n- Keep your voice the same as in your earlier bulletins, but do not reuse their jokes or sentences.\n- Write only the bulletin itself: no title, no dateline, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 376 (Jugust 5506).\nThe colony you report near: Quillmarsh. You do not know what happens inside it unless listed below.\n\nFactions:\n- Brackwater Corsairs (Pirates): 3 settlements\n- The Fernhollow League (Outlanders): 8 settlements\n- Blue Antler Tribe (Tribe): 5 settlements\n\nNews since your last bulletin:\n- Brackwater Corsairs raided a Fernhollow League barge on the river\n\nAlready reported in your earlier bulletins (background only, not news):\n- The Fernhollow League signed a trade pact with the Blue Antler Tribe\n- A released Brackwater Corsair is talking about his captors\u0027 kindness\n- A Brackwater Corsair released by Quillmarsh is talking about his captors\u0027 kindness\n\n## Your earlier bulletins\nEarlier bulletin:\nThe Fernhollow League and the Blue Antler Tribe have signed a trade pact. The League gets furs, the Tribe gets steel, and both get to complain about the other\u0027s bargaining.\n\nLatest bulletin:\nA Brackwater Corsair has come home with tales of being well fed by his captors. His crewmates are reportedly unsure whether to be relieved or insulted.\n\nWrite the bulletin now.\n\n\nYour previous answer was rejected:\n- Use 80-150 words; this has 78\n- Write only the in-world text, without phrases like: \u0022bulletin:\u0022\nAnswer again, following every rule.",
+        "maxOutputTokens": 500,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "News since your last bulletin:\n\nThe Brackwater Corsairs have successfully raided a Fernhollow League barge on the river. It seems the pirates are getting bolder, or perhaps the League is simply getting lazier at guarding their cargo.\n\nThe Fernhollow League continues to maintain its trade pact with the Blue Antler Tribe. While the exchange of furs for steel remains steady, the diplomatic tension between the two groups is as thick as the river mud.\n\nIt is currently day 376 of the year 5506. In a world this desolate, the passage of time is the only thing we can truly count on, even if it doesn\u0027t bring much change to the rim.",
+      "error": null,
+      "failures": [
+        "Write only the in-world text, without phrases like: \u0022bulletin:\u0022"
+      ],
+      "latencySeconds": 2.0671304,
+      "inputTokens": 630,
+      "outputTokens": 143,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-841\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795232645,\u0022model\u0022:\u0022gemma4:12b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022News since your last bulletin:\\n\\nThe Brackwater Corsairs have successfully raided a Fernhollow League barge on the river. It seems the pirates are getting bolder, or perhaps the League is simply getting lazier at guarding their cargo.\\n\\nThe Fernhollow League continues to maintain its trade pact with the Blue Antler Tribe. While the exchange of furs for steel remains steady, the diplomatic tension between the two groups is as thick as the river mud.\\n\\nIt is currently day 376 of the year 5506. In a world this desolate, the passage of time is the only thing we can truly count on, even if it doesn\u0027t bring much change to the rim.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:630,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:143,\u0022total_tokens\u0022:773}}\n"
+    }
+  ]
+}

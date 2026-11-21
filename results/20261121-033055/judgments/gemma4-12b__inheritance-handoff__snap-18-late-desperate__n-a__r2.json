@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__inheritance-handoff__snap-18-late-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the letter she had clutched until her final breath\u0022,\u0022reason\u0022:\u0022The briefing says only that she received the letter; that she carried and clutched it at her death is invented.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The scene is clear, inside the word limit, and ends on a concrete resolve to go to the Wailing Moth village, though it never names Ada as the goal. It invents the letter clutched at her death and puts Elias beside her body in the passes, which the briefing never establishes. Clich\u00E9s like \u0027skin like marble\u0027 and \u0027howling like a ghost\u0027 push it toward melodrama.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.2608637,
+      "inputTokens": 1905,
+      "outputTokens": 650
+    }
+  ]
+}

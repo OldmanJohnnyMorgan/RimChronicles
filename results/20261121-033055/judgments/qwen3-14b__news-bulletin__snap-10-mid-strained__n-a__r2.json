@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-10-mid-strained__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The amount is said to be enough to buy a small settlement\u0022,\u0022reason\u0022:\u0022Briefing gives no amount for the silver offer.\u0022},{\u0022span\u0022:\u0022the Stonecutter Raiders have not responded yet\u0022,\u0022reason\u0022:\u0022Briefing says nothing about any response.\u0022},{\u0022span\u0022:\u0022their patrols have grown bolder near Stonecutter territory\u0022,\u0022reason\u0022:\u0022No Weir Federation patrols in briefing.\u0022},{\u0022span\u0022:\u0022both sides holding captives\u0022,\u0022reason\u0022:\u0022Briefing only says Stonecutters hold Ochre Hand captives.\u0022},{\u0022span\u0022:\u0022trading threats\u0022,\u0022reason\u0022:\u0022No threats mentioned in briefing.\u0022},{\u0022span\u0022:\u0022offering rewards but not direct aid\u0022,\u0022reason\u0022:\u0022Briefing does not say whether the Federation gives aid.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It opens with a copied heading, which breaks character, and the voice is flat rather than dry. It also invents several details: the size of the ransom, Weir patrols, both sides holding captives, and threats.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.9171357,
+      "inputTokens": 2301,
+      "outputTokens": 345
+    }
+  ]
+}

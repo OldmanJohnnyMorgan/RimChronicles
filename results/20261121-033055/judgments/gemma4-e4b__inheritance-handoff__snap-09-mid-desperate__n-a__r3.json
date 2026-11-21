@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__inheritance-handoff__snap-09-mid-desperate__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the heavy, chipped knife he always kept tethered to his belt\u0022,\u0022reason\u0022:\u0022Specific heirloom item and habit not in the briefing\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The scene never names the father\u2013daughter relationship and never mentions the death or Malley. It ends on a vague walk to the armory instead of a clear intent, and lines like \u0027scar tissue on the worn leather\u0027 and \u0027silence felt too loud\u0027 are muddled or clich\u00E9d.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.8776444,
+      "inputTokens": 1879,
+      "outputTokens": 619
+    }
+  ]
+}

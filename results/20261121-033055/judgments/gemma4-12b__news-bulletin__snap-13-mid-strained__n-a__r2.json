@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-13-mid-strained__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the Rustback Raiders remain a nuisance on the old highway\u0022,\u0022reason\u0022:\u0022Briefing reports one past caravan raid; ongoing activity is unsupported.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It copies the briefing\u0027s section labels (\u0027News since your last bulletin:\u0027, \u0027Already reported:\u0027) into the bulletin, breaking character, and reads as a flat recitation of facts with almost none of Ilse\u0027s wry voice. It also restates old news as ongoing and garbles the date as \u0027day 254 of Aprimay\u0027.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.1987873,
+      "inputTokens": 2323,
+      "outputTokens": 537
+    }
+  ]
+}

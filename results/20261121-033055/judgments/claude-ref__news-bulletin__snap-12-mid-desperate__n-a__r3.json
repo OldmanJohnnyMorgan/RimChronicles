@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-12-mid-desperate__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022though she is likely the most valuable thing in their camp\u0022,\u0022reason\u0022:\u0022The briefing never gives the doctor\u0027s gender.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The bulletin is sharp, sardonic and well ordered, and the \u0027courtesy or arithmetic\u0027 line is a strong lead that keeps old news as background. However, it gives the captive doctor a gender the briefing does not state, and the closing \u0027indoors\u0027 line leans on the earlier stay-indoors joke.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.0159879,
+      "inputTokens": 2335,
+      "outputTokens": 479
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-04-early-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Brine Coast League\u0027s patrol fleet has been spotted circling the south channel\u0022,\u0022reason\u0022:\u0022No patrol fleet or League activity in briefing\u0022},{\u0022span\u0022:\u0022no ships have entered the waters recently\u0022,\u0022reason\u0022:\u0022Unsupported event detail\u0022},{\u0022span\u0022:\u0022who disappeared last week while reporting from Lowmere\u0022,\u0022reason\u0022:\u0022Briefing gives no timing or location of disappearance\u0022},{\u0022span\u0022:\u0022Tomas Quell vanished during his previous report to Lowmere, leaving the community in uncertainty\u0022,\u0022reason\u0022:\u0022Adds unsupported details; not in Already reported\u0022},{\u0022span\u0022:\u0022Faction sizes have remained static throughout the month of September\u0022,\u0022reason\u0022:\u0022No info on size changes; \u0027September\u0027 is wrong, briefing says Septober\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022Breaks format by copying the briefing\u0027s section headings, has no dry reporter voice, and invents several details: a League patrol fleet, the timing and place of Quell\u0027s disappearance, and a \u0027September\u0027 date. It also leaves out the news that the Dispatch has stopped sending reporters toward Lowmere.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.7518572,
+      "inputTokens": 2121,
+      "outputTokens": 382
+    }
+  ]
+}

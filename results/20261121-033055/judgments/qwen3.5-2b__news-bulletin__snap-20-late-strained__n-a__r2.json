@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-20-late-strained__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022in exchange for surrendering its northern border defenses\u0022,\u0022reason\u0022:\u0022Terms of the offer are not in the briefing.\u0022},{\u0022span\u0022:\u0022The town\u0027s council called it a negotiated settlement, though the legion outside its walls labeled it Tuesday\u0022,\u0022reason\u0022:\u0022Quotes and events not in the briefing about Varrowgate. This is recycled from the Brightwater bulletin.\u0022},{\u0022span\u0022:\u0022early last month\u0022,\u0022reason\u0022:\u0022Timing of Brightwater\u0027s fall is not given.\u0022},{\u0022span\u0022:\u0022leaving the Outlanders with little choice but to accept terms or face total annihilation\u0022,\u0022reason\u0022:\u0022Consequence is not in the briefing.\u0022},{\u0022span\u0022:\u0022a handful of loyalist outposts\u0022,\u0022reason\u0022:\u0022Outposts are not in the briefing, and the briefing says it has only two settlements.\u0022},{\u0022span\u0022:\u0022a small strip of coastline\u0022,\u0022reason\u0022:\u0022Territory detail is not in the briefing.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The bulletin breaks format with section headings and reuses earlier jokes almost word for word. It invents offer terms, dates and outposts, and presents old news under its own heading.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.3519595,
+      "inputTokens": 2292,
+      "outputTokens": 381
+    }
+  ]
+}

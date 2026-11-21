@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-14-mid-content__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022have successfully raided\u0022,\u0022reason\u0022:\u0022Briefing says only that a raid happened, not that it succeeded.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin copies the briefing\u0027s section headings, which breaks the no-headings rule, and it reuses the earlier bargaining-complaints joke. It is also under the 80-word minimum and assumes the raid succeeded, which the briefing does not say.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.1224263,
+      "inputTokens": 2238,
+      "outputTokens": 449
+    }
+  ]
+}

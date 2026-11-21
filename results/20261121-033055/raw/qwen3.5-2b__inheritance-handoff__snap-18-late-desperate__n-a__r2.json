@@ -1,0 +1,56 @@
+{
+  "cell": "qwen3.5-2b__inheritance-handoff__snap-18-late-desperate__n-a__r2",
+  "model": "qwen3.5-2b",
+  "task": "inheritance-handoff",
+  "snapshot": "snap-18-late-desperate",
+  "grammar": "n/a",
+  "repeat": 2,
+  "promptVersion": "inheritance-handoff/v1",
+  "outcome": "Template",
+  "value": "(template)",
+  "attempts": [
+    {
+      "request": {
+        "system": "You write short scenes for a story told through a RimWorld colony.\n\nThe main character of a story has died. Someone close to them now takes up that story as their own. Write the moment it passes to them.\n\nRules:\n- 60 to 120 words.\n- Use the relationship between the two exactly as given.\n- Use only names and facts from the dossiers and the story so far.\n- Show feeling through actions and small details, not by naming emotions.\n- End on what the heir now means to do.\n- Write only the scene: no title, no notes, no word count.\n",
+        "user": "## The one who died\nConstance (58), dead; traits: Kind, Iron-willed; backstory: Midworld teacher; mother of Elias.\nHistory:\n- Day 744: Constance received a letter from Ada.\n- Day 790: Wren\u0027s Hollow lost a caravan led by Constance.\n- Day 803: Constance died.\n\n## The heir\nElias (34); traits: Neurotic, Industrious; backstory: Engineer; son of Constance.\n\n## Their relationship\nElias was Constance\u0027s son.\n\n## The story so far\nConstance learned from a letter that her sister Ada, lost for thirty years, was alive in a Wailing Moth village. She led a caravan through the passes to bring Ada home. A blizzard caught them; the caravan was lost, and Constance died of cold. Ada is still in the village.\n\nWrite the scene now.\n",
+        "maxOutputTokens": 300,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "The heavy oak door creaked open, letting in the biting wind that had been gone for three days. Elias stepped inside, his boots crunching on the frozen floorboards as he looked at the empty chair where Constance sat. She was still breathing, her chest rising and falling with a rhythm that felt too much like hers. The cold seeped into his hands, but he didn\u0027t flinch. He knew she would be fine; she had always been the one to keep things warm when others froze. Elias picked up the letter Constance had left on the table before she passed, her hand still steady as she wrote it. \u0022Ada,\u0022 he whispered, tracing the words with his thumb, \u0022I\u0027m here now.\u0022",
+      "error": null,
+      "failures": [
+        "Do not mention names that are not in the briefing: I\u0027m"
+      ],
+      "latencySeconds": 1.0629737,
+      "inputTokens": 349,
+      "outputTokens": 149,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-936\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795231986,\u0022model\u0022:\u0022qwen3.5:2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022The heavy oak door creaked open, letting in the biting wind that had been gone for three days. Elias stepped inside, his boots crunching on the frozen floorboards as he looked at the empty chair where Constance sat. She was still breathing, her chest rising and falling with a rhythm that felt too much like hers. The cold seeped into his hands, but he didn\u0027t flinch. He knew she would be fine; she had always been the one to keep things warm when others froze. Elias picked up the letter Constance had left on the table before she passed, her hand still steady as she wrote it. \\\u0022Ada,\\\u0022 he whispered, tracing the words with his thumb, \\\u0022I\u0027m here now.\\\u0022\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:349,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:345},\u0022completion_tokens\u0022:149,\u0022total_tokens\u0022:498}}\n"
+    },
+    {
+      "request": {
+        "system": "You write short scenes for a story told through a RimWorld colony.\n\nThe main character of a story has died. Someone close to them now takes up that story as their own. Write the moment it passes to them.\n\nRules:\n- 60 to 120 words.\n- Use the relationship between the two exactly as given.\n- Use only names and facts from the dossiers and the story so far.\n- Show feeling through actions and small details, not by naming emotions.\n- End on what the heir now means to do.\n- Write only the scene: no title, no notes, no word count.\n",
+        "user": "## The one who died\nConstance (58), dead; traits: Kind, Iron-willed; backstory: Midworld teacher; mother of Elias.\nHistory:\n- Day 744: Constance received a letter from Ada.\n- Day 790: Wren\u0027s Hollow lost a caravan led by Constance.\n- Day 803: Constance died.\n\n## The heir\nElias (34); traits: Neurotic, Industrious; backstory: Engineer; son of Constance.\n\n## Their relationship\nElias was Constance\u0027s son.\n\n## The story so far\nConstance learned from a letter that her sister Ada, lost for thirty years, was alive in a Wailing Moth village. She led a caravan through the passes to bring Ada home. A blizzard caught them; the caravan was lost, and Constance died of cold. Ada is still in the village.\n\nWrite the scene now.\n\n\nYour previous answer was rejected:\n- Do not mention names that are not in the briefing: I\u0027m\nAnswer again, following every rule.",
+        "maxOutputTokens": 300,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "The heavy oak door groaned as Elias pushed it open, the wood splintering under his calloused hands. He stepped into the dimly lit room where Constance\u0027s lifeless body lay on the cot, her face pale and still. The silence of the house was too loud, a hollow echo that made his chest ache with a mixture of grief and fierce determination. He grabbed a heavy iron wrench from the workbench and began to hammer at the doorframe, trying to force it open without breaking the glass. His fingers were red with sweat as he worked faster than before, ignoring the sharp pain in his wrists. \u0022I\u0027m coming home,\u0022 he whispered to himself, the words tumbling out before he could stop them. The cold metal of the tool clattered against the wood, a rhythmic sound that matched the pounding of his own heart. He would not let her die alone, and neither would he.",
+      "error": null,
+      "failures": [
+        "Use 60-120 words; this has 153",
+        "Do not mention names that are not in the briefing: I\u0027m"
+      ],
+      "latencySeconds": 1.3520744,
+      "inputTokens": 379,
+      "outputTokens": 186,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-996\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795231988,\u0022model\u0022:\u0022qwen3.5:2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022The heavy oak door groaned as Elias pushed it open, the wood splintering under his calloused hands. He stepped into the dimly lit room where Constance\u0027s lifeless body lay on the cot, her face pale and still. The silence of the house was too loud, a hollow echo that made his chest ache with a mixture of grief and fierce determination. He grabbed a heavy iron wrench from the workbench and began to hammer at the doorframe, trying to force it open without breaking the glass. His fingers were red with sweat as he worked faster than before, ignoring the sharp pain in his wrists. \\\u0022I\u0027m coming home,\\\u0022 he whispered to himself, the words tumbling out before he could stop them. The cold metal of the tool clattered against the wood, a rhythmic sound that matched the pounding of his own heart. He would not let her die alone, and neither would he.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:379,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:186,\u0022total_tokens\u0022:565}}\n"
+    }
+  ]
+}

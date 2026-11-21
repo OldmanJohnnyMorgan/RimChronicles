@@ -1,0 +1,56 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-14-mid-content__n-a__r3",
+  "model": "qwen3.5-4b",
+  "task": "news-bulletin",
+  "snapshot": "snap-14-mid-content",
+  "grammar": "n/a",
+  "repeat": 3,
+  "promptVersion": "news-bulletin/v2",
+  "outcome": "Template",
+  "value": "(template)",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.\n\nWrite your next news bulletin.\n\nWhat to write:\n- 2 or 3 short news items, most important first, separated by a blank line.\n- Each item is 2 to 4 sentences. The whole bulletin is 80 to 150 words.\n- Lead with the items under \u0022News since your last bulletin\u0022.\n- Items under \u0022Already reported\u0022 are old news. You may mention them briefly as background, but never present them as new or happening again.\n- If there is little new news, fill the remaining items with dry comment on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.\n\nWhat you know:\n- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events, and never add details to an event that the briefing does not give.\n- You do not know what happens inside the colony unless your briefing says it became public.\n\nStyle:\n- Keep your voice the same as in your earlier bulletins, but do not reuse their jokes or sentences.\n- Write only the bulletin itself: no title, no dateline, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 376 (Jugust 5506).\nThe colony you report near: Quillmarsh. You do not know what happens inside it unless listed below.\n\nFactions:\n- Brackwater Corsairs (Pirates): 3 settlements\n- The Fernhollow League (Outlanders): 8 settlements\n- Blue Antler Tribe (Tribe): 5 settlements\n\nNews since your last bulletin:\n- Brackwater Corsairs raided a Fernhollow League barge on the river\n\nAlready reported in your earlier bulletins (background only, not news):\n- The Fernhollow League signed a trade pact with the Blue Antler Tribe\n- A released Brackwater Corsair is talking about his captors\u0027 kindness\n- A Brackwater Corsair released by Quillmarsh is talking about his captors\u0027 kindness\n\n## Your earlier bulletins\nEarlier bulletin:\nThe Fernhollow League and the Blue Antler Tribe have signed a trade pact. The League gets furs, the Tribe gets steel, and both get to complain about the other\u0027s bargaining.\n\nLatest bulletin:\nA Brackwater Corsair has come home with tales of being well fed by his captors. His crewmates are reportedly unsure whether to be relieved or insulted.\n\nWrite the bulletin now.\n",
+        "maxOutputTokens": 500,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "News since your last bulletin:\nThe Brackwater Corsairs raided a Fernhollow League barge on the river. It is a petty crime for men who usually prefer looting entire villages, but it keeps the river busy enough to make the patrols look like they are doing something.\n\nAlready reported in your earlier bulletins (background only, not news):\nThe Fernhollow League has signed a trade pact with the Blue Antler Tribe, swapping furs for steel and trading complaints for currency. Meanwhile, two released Corsairs\u2014both claiming their captors were kind\u2014are back at Quillmarsh, though one is still too proud to admit it while the other is trying to sell stories about it.\n\nThe date has slipped past day 376 without much happening, which is rare in these parts. The Corsairs seem to think a barge raid counts as a war effort, and the League seems happy enough with their new steel suppliers despite the pirate activity on the water.",
+      "error": null,
+      "failures": [
+        "Use 80-150 words; this has 156",
+        "Write only the in-world text, without phrases like: \u0022bulletin:\u0022"
+      ],
+      "latencySeconds": 2.1201916,
+      "inputTokens": 595,
+      "outputTokens": 201,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-226\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795232232,\u0022model\u0022:\u0022qwen3.5:4b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022News since your last bulletin:\\nThe Brackwater Corsairs raided a Fernhollow League barge on the river. It is a petty crime for men who usually prefer looting entire villages, but it keeps the river busy enough to make the patrols look like they are doing something.\\n\\nAlready reported in your earlier bulletins (background only, not news):\\nThe Fernhollow League has signed a trade pact with the Blue Antler Tribe, swapping furs for steel and trading complaints for currency. Meanwhile, two released Corsairs\u2014both claiming their captors were kind\u2014are back at Quillmarsh, though one is still too proud to admit it while the other is trying to sell stories about it.\\n\\nThe date has slipped past day 376 without much happening, which is rare in these parts. The Corsairs seem to think a barge raid counts as a war effort, and the League seems happy enough with their new steel suppliers despite the pirate activity on the water.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:595,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:201,\u0022total_tokens\u0022:796}}\n"
+    },
+    {
+      "request": {
+        "system": "You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.\n\nWrite your next news bulletin.\n\nWhat to write:\n- 2 or 3 short news items, most important first, separated by a blank line.\n- Each item is 2 to 4 sentences. The whole bulletin is 80 to 150 words.\n- Lead with the items under \u0022News since your last bulletin\u0022.\n- Items under \u0022Already reported\u0022 are old news. You may mention them briefly as background, but never present them as new or happening again.\n- If there is little new news, fill the remaining items with dry comment on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.\n\nWhat you know:\n- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events, and never add details to an event that the briefing does not give.\n- You do not know what happens inside the colony unless your briefing says it became public.\n\nStyle:\n- Keep your voice the same as in your earlier bulletins, but do not reuse their jokes or sentences.\n- Write only the bulletin itself: no title, no dateline, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 376 (Jugust 5506).\nThe colony you report near: Quillmarsh. You do not know what happens inside it unless listed below.\n\nFactions:\n- Brackwater Corsairs (Pirates): 3 settlements\n- The Fernhollow League (Outlanders): 8 settlements\n- Blue Antler Tribe (Tribe): 5 settlements\n\nNews since your last bulletin:\n- Brackwater Corsairs raided a Fernhollow League barge on the river\n\nAlready reported in your earlier bulletins (background only, not news):\n- The Fernhollow League signed a trade pact with the Blue Antler Tribe\n- A released Brackwater Corsair is talking about his captors\u0027 kindness\n- A Brackwater Corsair released by Quillmarsh is talking about his captors\u0027 kindness\n\n## Your earlier bulletins\nEarlier bulletin:\nThe Fernhollow League and the Blue Antler Tribe have signed a trade pact. The League gets furs, the Tribe gets steel, and both get to complain about the other\u0027s bargaining.\n\nLatest bulletin:\nA Brackwater Corsair has come home with tales of being well fed by his captors. His crewmates are reportedly unsure whether to be relieved or insulted.\n\nWrite the bulletin now.\n\n\nYour previous answer was rejected:\n- Use 80-150 words; this has 156\n- Write only the in-world text, without phrases like: \u0022bulletin:\u0022\nAnswer again, following every rule.",
+        "maxOutputTokens": 500,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "News since your last bulletin:\nThe Brackwater Corsairs raided a Fernhollow League barge on the river. The League will likely complain about their steel shipments to the Blue Antler Tribe, though they have already signed a trade pact and seem content with furs in return.\n\nAlready reported:\nA released Corsair is still talking about his captors\u0027 kindness, while another one returned home boasting of being well fed by them. His crewmates remain unsure whether to be relieved or insulted. The Fernhollow League continues to complain about the other\u0027s bargaining while trading furs for steel.\n\nIt is day 376 (Jugust 5506) here in Quillmarsh, and the river runs with both greed and bad decisions. The Brackwater Corsairs raid a Fernhollow League barge on the river.",
+      "error": null,
+      "failures": [
+        "Write only the in-world text, without phrases like: \u0022bulletin:\u0022"
+      ],
+      "latencySeconds": 1.9185672,
+      "inputTokens": 645,
+      "outputTokens": 177,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-282\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795232234,\u0022model\u0022:\u0022qwen3.5:4b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022News since your last bulletin:\\nThe Brackwater Corsairs raided a Fernhollow League barge on the river. The League will likely complain about their steel shipments to the Blue Antler Tribe, though they have already signed a trade pact and seem content with furs in return.\\n\\nAlready reported:\\nA released Corsair is still talking about his captors\u0027 kindness, while another one returned home boasting of being well fed by them. His crewmates remain unsure whether to be relieved or insulted. The Fernhollow League continues to complain about the other\u0027s bargaining while trading furs for steel.\\n\\nIt is day 376 (Jugust 5506) here in Quillmarsh, and the river runs with both greed and bad decisions. The Brackwater Corsairs raid a Fernhollow League barge on the river.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:645,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:177,\u0022total_tokens\u0022:822}}\n"
+    }
+  ]
+}

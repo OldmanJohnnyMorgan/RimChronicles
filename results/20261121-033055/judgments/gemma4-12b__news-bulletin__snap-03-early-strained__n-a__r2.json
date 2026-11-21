@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-03-early-strained__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022at least it means the local fires aren\u0027t spreading any faster\u0022,\u0022reason\u0022:\u0022The briefing says nothing about fires near Kettle Hollow or their spread.\u0022},{\u0022span\u0022:\u0022The Kinn of the Long Grass remain on the move due to the southern grass fires\u0022,\u0022reason\u0022:\u0022Presents an old bulletin\u0027s event as still ongoing. The briefing gives no current status for the Kinn.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The output copies the briefing\u0027s section headings (\u0027News since your last bulletin:\u0027, \u0027Already reported:\u0027) into the bulletin, which breaks character and ignores the no-headings rule. It also claims the southern fires and the Kinn\u0027s movement are still ongoing, which the briefing does not support, and the dry voice only comes through in flashes.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.3695554,
+      "inputTokens": 2237,
+      "outputTokens": 665
+    }
+  ]
+}

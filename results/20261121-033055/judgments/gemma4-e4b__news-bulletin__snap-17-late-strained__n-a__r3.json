@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-17-late-strained__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin copies the briefing\u0027s section labels (\u0027News since your last bulletin:\u0027, \u0027Already reported:\u0027) into the text, which breaks character and the no-headings rule. It also slightly misses the 80-word minimum. The facts are accurate, but the dry voice is thin and generic (\u0027nothing of note has transpired\u0027), so it would need rewriting before it could ship.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.582271,
+      "inputTokens": 2281,
+      "outputTokens": 364
+    }
+  ]
+}

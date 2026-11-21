@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__inheritance-handoff__snap-09-mid-desperate__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022she was now the only reason to keep chasing Malley\u0027s head\u0022,\u0022reason\u0022:\u0022Contradicts the briefing: Malley died in the fight with Joska.\u0022},{\u0022span\u0022:\u0022the same hunger that had driven her father for years\u0022,\u0022reason\u0022:\u0022The story says Joska hunted for a year, not years.\u0022},{\u0022span\u0022:\u0022the scar that ran from his jaw to his neck\u0022,\u0022reason\u0022:\u0022The briefing never says where Joska\u0027s wound was or what it looked like.\u0022},{\u0022span\u0022:\u0022Looking at the Lancers\u0027 camp beyond the fence\u0022,\u0022reason\u0022:\u0022Places the Lancers\u0027 camp right outside the colony, which the briefing does not say.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The heir\u0027s resolve targets Malley, who the briefing says is already dead; it should be the Lancers or their new captain. The scene also names emotions outright (\u0027hot anger\u0027, \u0027didn\u0027t feel grief\u0027) despite the show-don\u0027t-tell rule.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.6760062,
+      "inputTokens": 1934,
+      "outputTokens": 709
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__inheritance-handoff__snap-16-late-desperate__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and on-brief, with a clear ending intent and a nice use of Rook. The prose is flat and clich\u00E9d (\u0027silence was heavy\u0027, \u0027gaze hardening\u0027), and the setting is muddled: she seems to be at the distant ambush site yet can hear the colony.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.6298508,
+      "inputTokens": 1869,
+      "outputTokens": 468
+    }
+  ]
+}

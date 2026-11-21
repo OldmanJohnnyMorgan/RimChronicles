@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-20-late-strained__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022One can only hope the local council finds the terms palatable\u0022,\u0022reason\u0022:\u0022No Varrowgate council or its view of the terms is in the briefing.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It opens with a copied heading (\u0027News since your last bulletin:\u0027), which breaks the no-headings rule, and it invents a Varrowgate council. The wit is generic (\u0027predictably tiresome\u0027) and lacks the sharper dryness of the earlier bulletins.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.499214,
+      "inputTokens": 2249,
+      "outputTokens": 434
+    }
+  ]
+}

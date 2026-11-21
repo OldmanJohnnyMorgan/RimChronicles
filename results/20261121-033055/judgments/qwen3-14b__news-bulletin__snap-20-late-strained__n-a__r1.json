@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-20-late-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The terms were vague, the offer polite\u0022,\u0022reason\u0022:\u0022The briefing gives no details of the offer\u0027s terms or manner.\u0022},{\u0022span\u0022:\u0022the colony\u2019s response\u2026 politely unreturned\u0022,\u0022reason\u0022:\u0022The colony\u0027s response is not in the briefing, and the reporter cannot know it.\u0022},{\u0022span\u0022:\u0022the Empire\u2019s legions have been seen patrolling the roads leading to them\u0022,\u0022reason\u0022:\u0022There are no patrol sightings in the briefing.\u0022},{\u0022span\u0022:\u0022their scouts are frequently seen near both warring factions\u0022,\u0022reason\u0022:\u0022The briefing reports no Driftwood Tribe activity.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It opens by copying the briefing heading, which breaks character. It also invents several details: the offer\u0027s terms, the colony\u0027s reply, Empire patrols and tribal scouts, instead of using dry comment on known facts.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.471686,
+      "inputTokens": 2238,
+      "outputTokens": 409
+    }
+  ]
+}

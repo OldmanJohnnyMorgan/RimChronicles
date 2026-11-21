@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-14-mid-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The output breaks format by including the section headings \\\u0022News since your last bulletin\\\u0022 and \\\u0022Already reported\\\u0022, and it presents old news as ongoing. It also waters the raid down to the vague \\\u0022made an appearance\\\u0022, which leaves the only real story unclear and the voice limp rather than wry.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.1940257,
+      "inputTokens": 2301,
+      "outputTokens": 370
+    }
+  ]
+}

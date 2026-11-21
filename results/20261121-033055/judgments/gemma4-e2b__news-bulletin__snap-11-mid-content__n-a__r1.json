@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-11-mid-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It opens with a copied heading, which the task forbids. The second item reuses the earlier western-marsh joke and treats the Mire Rats as current news. The closing line misstates the date as approaching and invents \u0027usual squabbles\u0027 among factions that just held a peace feast, all in a flat, generic voice that falls short of 80 words.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.7811999,
+      "inputTokens": 2216,
+      "outputTokens": 496
+    }
+  ]
+}

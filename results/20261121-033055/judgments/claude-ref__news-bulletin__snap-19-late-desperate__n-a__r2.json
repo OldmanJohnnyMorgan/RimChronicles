@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-19-late-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It is the fifth of Aprimay\u0022,\u0022reason\u0022:\u0022Briefing gives day 911, Aprimay 5515; 5515 is the year, so \u0027fifth\u0027 is an unsupported date.\u0022}],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Sharp, consistent sardonic voice. It handles Fenwick correctly as background and leads with the siege. The \u0027fifth of Aprimay\u0027 misreads the year 5515 as a day and invents a date, which caps the score.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 9.5911667,
+      "inputTokens": 2360,
+      "outputTokens": 960
+    }
+  ]
+}

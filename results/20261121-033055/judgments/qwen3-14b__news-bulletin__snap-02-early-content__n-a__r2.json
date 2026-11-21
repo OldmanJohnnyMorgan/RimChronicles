@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-02-early-content__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Glimmer Coast Company continues to expand its influence\u0022,\u0022reason\u0022:\u0022Briefing gives only a settlement count, not any expansion\u0022},{\u0022span\u0022:\u0022with no signs of the conflict between the Tannerfolk and pirates affecting their operations\u0022,\u0022reason\u0022:\u0022Unsupported claim about the Company\u0027s operations\u0022},{\u0022span\u0022:\u0022Their latest report, as always, is optimistic.\u0022,\u0022reason\u0022:\u0022No new Company report appears in the briefing\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It breaks format by copying the briefing headings (\u0027News since your last bulletin:\u0027, \u0027Already reported:\u0027) into the bulletin. It also invents Glimmer Coast expansion and a new report, and the voice is bland compared with Ilse\u0027s earlier dry wit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.5403049,
+      "inputTokens": 2346,
+      "outputTokens": 468
+    }
+  ]
+}

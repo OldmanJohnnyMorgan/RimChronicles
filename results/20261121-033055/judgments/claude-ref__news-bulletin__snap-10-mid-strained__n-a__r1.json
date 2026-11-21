@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-10-mid-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:5,\u0022comment\u0022:\u0022The bulletin leads correctly with the ransom offer and uses the old captive news only as background. It fills the rest with dry, accurate comment on faction sizes and the quiet colony, adding no invented detail. The voice is consistent and wry without reusing earlier jokes.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.370783,
+      "inputTokens": 2365,
+      "outputTokens": 420
+    }
+  ]
+}

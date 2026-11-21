@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-18-late-desperate__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022No survivors have been found\u0022,\u0022reason\u0022:\u0022The briefing says only that the caravan was lost. It gives no search or survivor details.\u0022},{\u0022span\u0022:\u0022the wreckage is still buried under snow\u0022,\u0022reason\u0022:\u0022The briefing does not mention any wreckage or its state.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The second item copies the previous bulletin\u0027s sentences word for word, and the lead item embellishes the caravan loss with survivor and wreckage details the briefing never gives. The bulletin also falls short of 80 words and lacks Tomas\u0027s worried, earnest voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.1827587,
+      "inputTokens": 2230,
+      "outputTokens": 403
+    }
+  ]
+}

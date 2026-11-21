@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-03-early-strained__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Kinn of the Long Grass are moving their settlements south\u0022,\u0022reason\u0022:\u0022Briefing never says the Kinn are moving their settlements; the earlier bulletin put the fires in the south.\u0022},{\u0022span\u0022:\u0022The Ashen Hand remain active in the northern trade routes\u0022,\u0022reason\u0022:\u0022No northern trade routes or current activity appear in the briefing.\u0022},{\u0022span\u0022:\u0022for weeks now\u0022,\u0022reason\u0022:\u0022Unsupported duration.\u0022},{\u0022span\u0022:\u0022that has plagued the southern settlements\u0022,\u0022reason\u0022:\u0022No southern settlements affected by fire are in the briefing.\u0022},{\u0022span\u0022:\u0022The Merrow Freeholds have doubled caravan guards and prices following the recent Ashen Hand raid\u0022,\u0022reason\u0022:\u0022Turns an earlier joke into a stated fact and presents already-reported news as new.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It opens with a copied heading and recycles already-reported news as new when the briefing says nothing new happened. It invents details about the Kinn moving south and northern trade routes, all in a flat, wire-service voice with none of Ilse\u0027s wryness.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.5049885,
+      "inputTokens": 2276,
+      "outputTokens": 619
+    }
+  ]
+}

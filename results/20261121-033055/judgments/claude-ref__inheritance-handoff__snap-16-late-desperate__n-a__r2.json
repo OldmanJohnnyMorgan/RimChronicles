@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__inheritance-handoff__snap-16-late-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Elske loaded five rounds\u0022,\u0022reason\u0022:\u0022A specific number of rounds that the briefing does not give.\u0022}],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:3,\u0022comment\u0022:\u0022This is a restrained, well-built scene. Feeling comes through action: checking Rook for wounds, cleaning the rifle twice, crossing out the routes. It ends cleanly on Elske\u0027s intent and draws on her Careful shooter trait. The one invented specific, \u0027five rounds\u0027, caps the overall score at 3.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.1702913,
+      "inputTokens": 1919,
+      "outputTokens": 503
+    }
+  ]
+}

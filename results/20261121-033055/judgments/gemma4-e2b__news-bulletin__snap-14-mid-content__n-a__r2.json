@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-14-mid-content__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022have once again made an appearance\u0022,\u0022reason\u0022:\u0022Implies earlier Corsair raids; the briefing reports only this one.\u0022},{\u0022span\u0022:\u0022the usual pattern of petty maritime conflict continues unabated\u0022,\u0022reason\u0022:\u0022Asserts an ongoing pattern of conflict that the briefing does not support.\u0022},{\u0022span\u0022:\u0022three Brackwater Corsairs, eight Fernhollow League outlanders, and five Blue Antler Tribe members\u0022,\u0022reason\u0022:\u0022The briefing counts settlements, not individual people.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It opens with a heading, which breaks the no-headings rule, and it misreads the settlement counts as headcounts. It also invents a history of repeated raids and calls the week quiet despite reporting a raid, so the wit is flat and the facts are shaky.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.6320517,
+      "inputTokens": 2310,
+      "outputTokens": 583
+    }
+  ]
+}

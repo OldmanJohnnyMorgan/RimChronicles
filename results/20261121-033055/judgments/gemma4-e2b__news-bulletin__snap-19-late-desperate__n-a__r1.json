@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-19-late-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022a faction that once held seven locations\u0022,\u0022reason\u0022:\u0022The briefing gives only the current three settlements, not a former count of seven.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It copies the briefing\u0027s section headings (\u0027News since your last bulletin\u0027, \u0027Already reported\u0027) into the bulletin, which breaks character and shows the instructions to the player. The prose is flat and bureaucratic (\u0027a known quantity\u0027, \u0027a matter of record\u0027), and it repeats a settlement count the briefing does not support.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.2589287,
+      "inputTokens": 2275,
+      "outputTokens": 453
+    }
+  ]
+}

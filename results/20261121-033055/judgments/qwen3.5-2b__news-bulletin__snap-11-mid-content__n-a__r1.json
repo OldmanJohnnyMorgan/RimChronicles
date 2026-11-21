@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-11-mid-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022though no specific terms were signed or read aloud\u0022,\u0022reason\u0022:\u0022Adds details about the feast that the briefing does not give.\u0022},{\u0022span\u0022:\u0022since the plough incident\u0022,\u0022reason\u0022:\u0022Invents a \u0027plough incident\u0027 event; the briefing only notes a better plough as a past winner.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It copies the briefing\u0027s section headings, breaking character. It also reuses the previous bulletin\u0027s Mire Rats sentence almost word for word and presents that old item as news.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.0442721,
+      "inputTokens": 2188,
+      "outputTokens": 354
+    }
+  ]
+}

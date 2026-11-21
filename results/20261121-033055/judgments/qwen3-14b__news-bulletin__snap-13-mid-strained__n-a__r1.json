@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-13-mid-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022prompting a sharp response from the Empire\u2019s envoys, who have now threatened to withdraw trade agreements and support\u0022,\u0022reason\u0022:\u0022Briefing gives no response or threats from the envoys\u0022},{\u0022span\u0022:\u0022with the Cobalt Free Towns growing increasingly defiant\u0022,\u0022reason\u0022:\u0022Only two towns refused; a broader trend of defiance is not stated\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:4,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It copies the heading \\\u0022News since your last bulletin:\\\u0022 into the output and has none of Ilse\u0027s dry wit, reading like a flat summary. It also invents an Empire response with threats to withdraw trade and support, which the briefing never mentions.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.1641106,
+      "inputTokens": 2263,
+      "outputTokens": 240
+    }
+  ]
+}

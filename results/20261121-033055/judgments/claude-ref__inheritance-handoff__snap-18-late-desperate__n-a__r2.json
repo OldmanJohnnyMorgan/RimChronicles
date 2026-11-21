@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__inheritance-handoff__snap-18-late-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The caravan had gone out with too little.\u0022,\u0022reason\u0022:\u0022The briefing blames the blizzard; nothing says the caravan was undersupplied.\u0022}],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:3,\u0022comment\u0022:\u0022A restrained, well-observed scene: the crossed-out dates and two-page list show Elias\u0027s neurotic, industrious grief without naming it, and it ends on his intent. However, it states without support that the caravan was undersupplied, and at about 122 words it runs slightly over the limit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.7487616,
+      "inputTokens": 1947,
+      "outputTokens": 787
+    }
+  ]
+}

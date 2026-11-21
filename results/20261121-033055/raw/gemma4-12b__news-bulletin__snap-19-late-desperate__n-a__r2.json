@@ -1,0 +1,56 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-19-late-desperate__n-a__r2",
+  "model": "gemma4-12b",
+  "task": "news-bulletin",
+  "snapshot": "snap-19-late-desperate",
+  "grammar": "n/a",
+  "repeat": 2,
+  "promptVersion": "news-bulletin/v2",
+  "outcome": "Template",
+  "value": "(template)",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are Odile Brask, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is sardonic, precise and fond of understatement.\n\nWrite your next news bulletin.\n\nWhat to write:\n- 2 or 3 short news items, most important first, separated by a blank line.\n- Each item is 2 to 4 sentences. The whole bulletin is 80 to 150 words.\n- Lead with the items under \u0022News since your last bulletin\u0022.\n- Items under \u0022Already reported\u0022 are old news. You may mention them briefly as background, but never present them as new or happening again.\n- If there is little new news, fill the remaining items with dry comment on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.\n\nWhat you know:\n- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events, and never add details to an event that the briefing does not give.\n- You do not know what happens inside the colony unless your briefing says it became public.\n\nStyle:\n- Keep your voice the same as in your earlier bulletins, but do not reuse their jokes or sentences.\n- Write only the bulletin itself: no title, no dateline, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 911 (Aprimay 5515).\nThe colony you report near: Last Lantern. You do not know what happens inside it unless listed below.\n\nFactions:\n- The Sun Throne (Empire): 14 settlements, at war with The Marrow League and Last Lantern, expanding by force\n- The Marrow League (Outlanders): 3 settlements, at war with The Sun Throne\n- Starling Tribe (Tribe): 4 settlements\n\nNews since your last bulletin:\n- The Sun Throne razed Fenwick and is besieging the Marrow League\n\nAlready reported in your earlier bulletins (background only, not news):\n- The Sun Throne razed Fenwick\n- The Marrow League is down to three settlements\n- The Starling Tribe offered shelter to Fenwick\u0027s survivors\n\n## Your earlier bulletins\nEarlier bulletin:\nFenwick is gone. The Sun Throne\u0027s legions burned it to the ground; the Starling Tribe has taken in the survivors and asked, politely, that nobody follow them.\n\nLatest bulletin:\nThe Marrow League now holds three towns. It held seven at the start of the year. Arithmetic is not on its side, but Last Lantern apparently is.\n\nWrite the bulletin now.\n",
+        "maxOutputTokens": 500,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "News since your last bulletin:\n\nThe Sun Throne has successfully razed Fenwick. They are currently moving to besiege the Marrow League, who are now down to their final three settlements.\n\nAlready reported:\n\nThe Starling Tribe continues to house the survivors of Fenwick. It remains a quiet affair for those not currently being crushed by imperial expansion.",
+      "error": null,
+      "failures": [
+        "Use 80-150 words; this has 56",
+        "Write only the in-world text, without phrases like: \u0022bulletin:\u0022"
+      ],
+      "latencySeconds": 1.3078817,
+      "inputTokens": 585,
+      "outputTokens": 73,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-854\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795232693,\u0022model\u0022:\u0022gemma4:12b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022News since your last bulletin:\\n\\nThe Sun Throne has successfully razed Fenwick. They are currently moving to besiege the Marrow League, who are now down to their final three settlements.\\n\\nAlready reported:\\n\\nThe Starling Tribe continues to house the survivors of Fenwick. It remains a quiet affair for those not currently being crushed by imperial expansion.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:585,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:73,\u0022total_tokens\u0022:658}}\n"
+    },
+    {
+      "request": {
+        "system": "You are Odile Brask, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is sardonic, precise and fond of understatement.\n\nWrite your next news bulletin.\n\nWhat to write:\n- 2 or 3 short news items, most important first, separated by a blank line.\n- Each item is 2 to 4 sentences. The whole bulletin is 80 to 150 words.\n- Lead with the items under \u0022News since your last bulletin\u0022.\n- Items under \u0022Already reported\u0022 are old news. You may mention them briefly as background, but never present them as new or happening again.\n- If there is little new news, fill the remaining items with dry comment on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.\n\nWhat you know:\n- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events, and never add details to an event that the briefing does not give.\n- You do not know what happens inside the colony unless your briefing says it became public.\n\nStyle:\n- Keep your voice the same as in your earlier bulletins, but do not reuse their jokes or sentences.\n- Write only the bulletin itself: no title, no dateline, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 911 (Aprimay 5515).\nThe colony you report near: Last Lantern. You do not know what happens inside it unless listed below.\n\nFactions:\n- The Sun Throne (Empire): 14 settlements, at war with The Marrow League and Last Lantern, expanding by force\n- The Marrow League (Outlanders): 3 settlements, at war with The Sun Throne\n- Starling Tribe (Tribe): 4 settlements\n\nNews since your last bulletin:\n- The Sun Throne razed Fenwick and is besieging the Marrow League\n\nAlready reported in your earlier bulletins (background only, not news):\n- The Sun Throne razed Fenwick\n- The Marrow League is down to three settlements\n- The Starling Tribe offered shelter to Fenwick\u0027s survivors\n\n## Your earlier bulletins\nEarlier bulletin:\nFenwick is gone. The Sun Throne\u0027s legions burned it to the ground; the Starling Tribe has taken in the survivors and asked, politely, that nobody follow them.\n\nLatest bulletin:\nThe Marrow League now holds three towns. It held seven at the start of the year. Arithmetic is not on its side, but Last Lantern apparently is.\n\nWrite the bulletin now.\n\n\nYour previous answer was rejected:\n- Use 80-150 words; this has 56\n- Write only the in-world text, without phrases like: \u0022bulletin:\u0022\nAnswer again, following every rule.",
+        "maxOutputTokens": 500,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "News since your last bulletin:\n\nThe Sun Throne has successfully razed Fenwick, effectively erasing it from the map. They are now turning their attention toward the Marrow League, initiating a siege that suggests the Empire is feeling particularly ambitious this week.\n\nThe Marrow League continues to struggle with its dwindling holdings. It currently possesses only three settlements, a significant reduction from the seven it held at the start of the year.\n\nThe Sun Throne remains a formidable presence with fourteen settlements. Their expansion by force is a predictable, if rather tiresome, constant in our current geopolitical climate.",
+      "error": null,
+      "failures": [
+        "Write only the in-world text, without phrases like: \u0022bulletin:\u0022"
+      ],
+      "latencySeconds": 1.8273608,
+      "inputTokens": 635,
+      "outputTokens": 117,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-419\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795232695,\u0022model\u0022:\u0022gemma4:12b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022News since your last bulletin:\\n\\nThe Sun Throne has successfully razed Fenwick, effectively erasing it from the map. They are now turning their attention toward the Marrow League, initiating a siege that suggests the Empire is feeling particularly ambitious this week.\\n\\nThe Marrow League continues to struggle with its dwindling holdings. It currently possesses only three settlements, a significant reduction from the seven it held at the start of the year.\\n\\nThe Sun Throne remains a formidable presence with fourteen settlements. Their expansion by force is a predictable, if rather tiresome, constant in our current geopolitical climate.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:635,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:117,\u0022total_tokens\u0022:752}}\n"
+    }
+  ]
+}

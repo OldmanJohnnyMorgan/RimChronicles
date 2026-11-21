@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-17-late-strained__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022neither side has moved a muscle in the interim\u0022,\u0022reason\u0022:\u0022The briefing does not say the armies have been static; it lists the Empire as expanding by force.\u0022},{\u0022span\u0022:\u0022Kestrel Tribe and Bonecutter Gang numbers have not changed\u0022,\u0022reason\u0022:\u0022The briefing gives no earlier figures to compare against, so it cannot support a claim of no change.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin copies the briefing\u0027s section labels as headings, which breaks format and character, and it is padded with flat meta-commentary about having nothing to write. It also asserts that the factions are static, which the briefing does not support.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.8741525,
+      "inputTokens": 2351,
+      "outputTokens": 522
+    }
+  ]
+}

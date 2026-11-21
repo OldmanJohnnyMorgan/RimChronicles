@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-10-mid-strained__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022three Stonecutter Raiders took prisoners\u0022,\u0022reason\u0022:\u0022Briefing gives no number of raiders; earlier bulletin said three people were lost, not three raiders.\u0022},{\u0022span\u0022:\u0022from a nearby camp\u0022,\u0022reason\u0022:\u0022Briefing does not say the camp was nearby.\u0022},{\u0022span\u0022:\u0022the Weir Federation has not yet issued a formal bounty on the leaders involved\u0022,\u0022reason\u0022:\u0022Contradicts the briefing, which says the Federation raised a bounty on Stonecutter leaders.\u0022},{\u0022span\u0022:\u0022due to the high value of the stolen goods\u0022,\u0022reason\u0022:\u0022No stolen goods appear in the briefing.\u0022},{\u0022span\u0022:\u0022it remains unclaimed\u0022,\u0022reason\u0022:\u0022The earlier bulletin only predicted this; the briefing does not state it as fact.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The bulletin breaks format by copying the briefing\u0027s section headings. It contradicts itself on the Weir bounty and invents details such as \u0027three Stonecutter Raiders\u0027 and \u0027stolen goods\u0027, with none of Ilse\u0027s dry voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.9147674,
+      "inputTokens": 2325,
+      "outputTokens": 600
+    }
+  ]
+}

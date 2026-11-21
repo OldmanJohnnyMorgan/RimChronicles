@@ -1,0 +1,51 @@
+{
+  "cell": "gemma4-e4b__director__snap-03-early-strained__on__r2",
+  "model": "gemma4-e4b",
+  "task": "director",
+  "snapshot": "snap-03-early-strained",
+  "grammar": "on",
+  "repeat": 2,
+  "promptVersion": "director/v1",
+  "outcome": "Model",
+  "value": "{\u0022choice\u0022: \u0022Seed:Rivalry:p1:p3\u0022, \u0022reason\u0022: \u0022Marek and Dov have a history of fighting over resources, making a rivalry plot between them a natural progression.\u0022}",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are the plot director for a story told through a RimWorld colony. You decide what happens next in the colony\u0027s plots.\n\nRules:\n- Choose exactly one option from the allowed list. Copy it exactly, character for character.\n- Choose \u0022Wait\u0022 if the colony is in crisis or the story needs a pause.\n- Prefer the option that follows most naturally from what has already happened.\n- Give a reason in one or two short sentences. Use only facts from the briefing.\n\nAnswer with JSON only, in this form:\n{\u0022choice\u0022: \u0022\u003Cone allowed option\u003E\u0022, \u0022reason\u0022: \u0022\u003Cone or two sentences\u003E\u0022}\n",
+        "user": "## The world\nDate: day 23 (Jugust 5500).\nColony: Kettle Hollow, 5 people, wealth 26,800 silver, mood strained.\n\nPeople:\n- Marek (38); traits: Abrasive, Shooting accuracy; backstory: Imperial deserter.\n- Saoirse (27); traits: Nervous, Fast learner; backstory: Medical student.\n- Dov (45); traits: Greedy; backstory: Smuggler.\n- Kit (16); traits: Nimble; backstory: Vatgrown slave; adopted by Saoirse.\n- Agnes (61); traits: Bloodlust; backstory: Caravan guard.\n\nHistory:\n- Day 15: Marek fought Dov.\n- Day 18: Marek fought Dov.\n- Day 21: Kettle Hollow repelled a raid by Ashen Hand raiders.\n\nFactions:\n- The Ashen Hand (Pirates): goodwill -90, 4 settlements.\n- The Merrow Freeholds (Outlanders): goodwill \u002B5, 7 settlements.\n- Kinn of the Long Grass (Tribe): goodwill -15, 3 settlements.\n\nRecent events:\n- Marek and Dov fought twice over stolen rations\n- Ashen Hand raid repelled day 21, Agnes wounded\n- Food stores down to six days\n\n## Active plots\nNo active plots.\n\n## Allowed options\n- Wait\n- Seed:Rivalry:p1:p3\n\nChoose one allowed option.\n",
+        "maxOutputTokens": 300,
+        "useGrammar": true,
+        "thinking": "Off",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "choice": {
+              "type": "string",
+              "enum": [
+                "Wait",
+                "Seed:Rivalry:p1:p3"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "choice",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "ok": true,
+      "text": "{\u0022choice\u0022: \u0022Seed:Rivalry:p1:p3\u0022, \u0022reason\u0022: \u0022Marek and Dov have a history of fighting over resources, making a rivalry plot between them a natural progression.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 0.4149336,
+      "inputTokens": 469,
+      "outputTokens": 44,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-567\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795232315,\u0022model\u0022:\u0022gemma4:e4b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022{\\\u0022choice\\\u0022: \\\u0022Seed:Rivalry:p1:p3\\\u0022, \\\u0022reason\\\u0022: \\\u0022Marek and Dov have a history of fighting over resources, making a rivalry plot between them a natural progression.\\\u0022}\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:469,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:44,\u0022total_tokens\u0022:513}}\n"
+    }
+  ]
+}

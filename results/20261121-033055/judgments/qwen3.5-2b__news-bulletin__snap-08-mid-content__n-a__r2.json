@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-08-mid-content__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It was sold to a high-ranking Lantern merchant\u0022,\u0022reason\u0022:\u0022Briefing does not say the sculpture was sold or name a buyer.\u0022},{\u0022span\u0022:\u0022fetched only half its value\u0022,\u0022reason\u0022:\u0022Invented price detail.\u0022},{\u0022span\u0022:\u0022private negotiations behind closed doors at the riverbank\u0022,\u0022reason\u0022:\u0022Invented event and location.\u0022},{\u0022span\u0022:\u0022attempt to seize the settlement\u0027s jade cache\u0022,\u0022reason\u0022:\u0022Invented motive for the raid.\u0022},{\u0022span\u0022:\u0022three dead pirates and a total loss of their equipment\u0022,\u0022reason\u0022:\u0022Invented number and outcome.\u0022},{\u0022span\u0022:\u0022They are reportedly planning a new strike against the Lantern Accord\u0027s supply lines\u0022,\u0022reason\u0022:\u0022Invented future event.\u0022},{\u0022span\u0022:\u0022attacking the city itself\u0022,\u0022reason\u0022:\u0022Gladwater is a colony, not a city; unsupported detail.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The output breaks character by copying the briefing headings into the bulletin and repeats old news word for word. It also invents a sale, a price, casualties and a planned raid, none of which the briefing supports.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.0140659,
+      "inputTokens": 2363,
+      "outputTokens": 371
+    }
+  ]
+}

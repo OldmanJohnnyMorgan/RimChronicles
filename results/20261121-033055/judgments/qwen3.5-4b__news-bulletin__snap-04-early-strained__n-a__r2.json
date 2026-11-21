@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-04-early-strained__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022due to rising tensions\u0022,\u0022reason\u0022:\u0022The briefing gives no reason for the Dispatch no longer sending reporters toward Lowmere.\u0022},{\u0022span\u0022:\u0022the only Outlander outpost\u0022,\u0022reason\u0022:\u0022This is false. The Brine Coast League is also an Outlander faction.\u0022},{\u0022span\u0022:\u0022standing against the Brine Coast League\u0027s six settlements\u0022,\u0022reason\u0022:\u0022This implies a conflict between the factions that the briefing does not mention.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It breaks the format by copying the briefing\u0027s headings (\u0027News since your last bulletin:\u0027, \u0027Already reported:\u0027) into the text. It also invents a cause (\u0027rising tensions\u0027) and falsely calls the Dispatch the only Outlander outpost. The ending is melodramatic rather than dry, and it labels the week quiet while reporting three new items.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.7148792,
+      "inputTokens": 2174,
+      "outputTokens": 658
+    }
+  ]
+}

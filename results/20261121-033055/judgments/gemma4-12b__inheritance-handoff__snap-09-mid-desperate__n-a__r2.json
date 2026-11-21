@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__inheritance-handoff__snap-09-mid-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022She would find the man who took her father\u2019s life and end him.\u0022,\u0022reason\u0022:\u0022Contradicts the briefing: Malley, who killed Joska, died in the same fight.\u0022},{\u0022span\u0022:\u0022staining the soil of the Lancers\u0027 camp\u0022,\u0022reason\u0022:\u0022Unsupported: nothing places Tamsin at the enemy-held camp, which the Lancers still occupy.\u0022},{\u0022span\u0022:\u0022where the new captain sat\u0022,\u0022reason\u0022:\u0022Invented event: the new captain\u0027s presence within sight of Tamsin is not in the briefing.\u0022},{\u0022span\u0022:\u0022his heavy, notched blade\u0022,\u0022reason\u0022:\u0022Specific weapon not mentioned in the briefing.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The ending vows revenge on a man the briefing says is already dead. The staging is also incoherent: she traces the scar on the body, yet the body lies a few feet away, and she kneels openly in an enemy-held camp.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 8.4509655,
+      "inputTokens": 1908,
+      "outputTokens": 776
+    }
+  ]
+}

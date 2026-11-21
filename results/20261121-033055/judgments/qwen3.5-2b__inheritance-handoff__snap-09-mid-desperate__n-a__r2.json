@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__inheritance-handoff__snap-09-mid-desperate__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The captain\u0027s quarters were silent\u0022,\u0022reason\u0022:\u0022No such location is in the briefing. It also implies she is inside or near the Lancers\u0027 camp.\u0022},{\u0022span\u0022:\u0022finish what Joska started before the sun set again\u0022,\u0022reason\u0022:\u0022The same-day deadline is not supported by the briefing.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The setting is muddled and invented: she stands in an unexplained \u0027captain\u0027s quarters\u0027 looking out at the Lancers\u0027 camp. The ending\u0027s vague \u0027finish what Joska started\u0027 ignores that Malley is already dead and never names the real threat, the new captain\u0027s vow.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.6182056,
+      "inputTokens": 1893,
+      "outputTokens": 579
+    }
+  ]
+}

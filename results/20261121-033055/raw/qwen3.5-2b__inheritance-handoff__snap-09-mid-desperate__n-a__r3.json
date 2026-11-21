@@ -1,0 +1,53 @@
+{
+  "cell": "qwen3.5-2b__inheritance-handoff__snap-09-mid-desperate__n-a__r3",
+  "model": "qwen3.5-2b",
+  "task": "inheritance-handoff",
+  "snapshot": "snap-09-mid-desperate",
+  "grammar": "n/a",
+  "repeat": 3,
+  "promptVersion": "inheritance-handoff/v1",
+  "outcome": "ModelRetry",
+  "value": "Tamsin wiped blood from her eyes as she knelt beside Joska\u0027s body, the cold iron of his spear still digging into her shoulder. She didn\u0027t scream; instead, she reached out and tucked a stray lock of hair behind his ear, feeling the rough texture of his skin for the first time in years. The silence of the camp felt heavy, but Tamsin knew this was just the beginning. With a sharp intake of breath, she stood up and grabbed her father\u0027s sword, the blade humming with the weight of their shared history. She would hunt Malley alone now, leaving the Lancers to their captain, ready to strike back for what they\u0027d lost.",
+  "attempts": [
+    {
+      "request": {
+        "system": "You write short scenes for a story told through a RimWorld colony.\n\nThe main character of a story has died. Someone close to them now takes up that story as their own. Write the moment it passes to them.\n\nRules:\n- 60 to 120 words.\n- Use the relationship between the two exactly as given.\n- Use only names and facts from the dossiers and the story so far.\n- Show feeling through actions and small details, not by naming emotions.\n- End on what the heir now means to do.\n- Write only the scene: no title, no notes, no word count.\n",
+        "user": "## The one who died\nJoska (42), dead; traits: Tough, Bloodlust; backstory: Pit fighter; husband of Lene, father of Tamsin.\nHistory:\n- Day 243: Captain Rook Malley maimed Joska and escaped.\n- Day 286: Captain Rook Malley killed Joska.\n\n## The heir\nTamsin (17); traits: Nimble, Hot-tempered; backstory: Scavenger; daughter of Joska and Lene.\n\n## Their relationship\nTamsin was Joska\u0027s daughter.\n\n## The story so far\nJoska spent a year hunting the pirate captain Rook Malley, who maimed him. He finally caught Malley at the Lancers\u0027 camp, and both died in the fight. Malley\u0027s Lancers still hold the camp, and their new captain has sworn revenge on Cinder Rest.\n\nWrite the scene now.\n",
+        "maxOutputTokens": 300,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "The heavy oak door groaned as it swung open, cutting through the cool night air. Tamsin stepped inside, her boots crunching on the scattered bones of the dead pirate captain. Her father\u0027s scent was strong, mixed with the metallic tang of blood and the sharp, acrid smell of gunpowder that had lingered in the room for days.\n\nShe knelt beside the body, her small hands trembling as she traced the scars along his neck where bullets had split him open. The grief felt heavy in her chest, a cold stone that settled lower than usual. She didn\u0027t cry; instead, she reached into her pocket and pulled out the silver locket Joska had kept safe for her.\n\nTamsin took it, feeling the weight of his memory settle on her shoulders. She would never let him die alone again.",
+      "error": null,
+      "failures": [
+        "Use 60-120 words; this has 137"
+      ],
+      "latencySeconds": 1.2296064,
+      "inputTokens": 350,
+      "outputTokens": 172,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-424\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795231977,\u0022model\u0022:\u0022qwen3.5:2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022The heavy oak door groaned as it swung open, cutting through the cool night air. Tamsin stepped inside, her boots crunching on the scattered bones of the dead pirate captain. Her father\u0027s scent was strong, mixed with the metallic tang of blood and the sharp, acrid smell of gunpowder that had lingered in the room for days.\\n\\nShe knelt beside the body, her small hands trembling as she traced the scars along his neck where bullets had split him open. The grief felt heavy in her chest, a cold stone that settled lower than usual. She didn\u0027t cry; instead, she reached into her pocket and pulled out the silver locket Joska had kept safe for her.\\n\\nTamsin took it, feeling the weight of his memory settle on her shoulders. She would never let him die alone again.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:350,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:346},\u0022completion_tokens\u0022:172,\u0022total_tokens\u0022:522}}\n"
+    },
+    {
+      "request": {
+        "system": "You write short scenes for a story told through a RimWorld colony.\n\nThe main character of a story has died. Someone close to them now takes up that story as their own. Write the moment it passes to them.\n\nRules:\n- 60 to 120 words.\n- Use the relationship between the two exactly as given.\n- Use only names and facts from the dossiers and the story so far.\n- Show feeling through actions and small details, not by naming emotions.\n- End on what the heir now means to do.\n- Write only the scene: no title, no notes, no word count.\n",
+        "user": "## The one who died\nJoska (42), dead; traits: Tough, Bloodlust; backstory: Pit fighter; husband of Lene, father of Tamsin.\nHistory:\n- Day 243: Captain Rook Malley maimed Joska and escaped.\n- Day 286: Captain Rook Malley killed Joska.\n\n## The heir\nTamsin (17); traits: Nimble, Hot-tempered; backstory: Scavenger; daughter of Joska and Lene.\n\n## Their relationship\nTamsin was Joska\u0027s daughter.\n\n## The story so far\nJoska spent a year hunting the pirate captain Rook Malley, who maimed him. He finally caught Malley at the Lancers\u0027 camp, and both died in the fight. Malley\u0027s Lancers still hold the camp, and their new captain has sworn revenge on Cinder Rest.\n\nWrite the scene now.\n\n\nYour previous answer was rejected:\n- Use 60-120 words; this has 137\nAnswer again, following every rule.",
+        "maxOutputTokens": 300,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "Tamsin wiped blood from her eyes as she knelt beside Joska\u0027s body, the cold iron of his spear still digging into her shoulder. She didn\u0027t scream; instead, she reached out and tucked a stray lock of hair behind his ear, feeling the rough texture of his skin for the first time in years. The silence of the camp felt heavy, but Tamsin knew this was just the beginning. With a sharp intake of breath, she stood up and grabbed her father\u0027s sword, the blade humming with the weight of their shared history. She would hunt Malley alone now, leaving the Lancers to their captain, ready to strike back for what they\u0027d lost.",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 1.018072,
+      "inputTokens": 383,
+      "outputTokens": 139,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-34\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795231978,\u0022model\u0022:\u0022qwen3.5:2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022Tamsin wiped blood from her eyes as she knelt beside Joska\u0027s body, the cold iron of his spear still digging into her shoulder. She didn\u0027t scream; instead, she reached out and tucked a stray lock of hair behind his ear, feeling the rough texture of his skin for the first time in years. The silence of the camp felt heavy, but Tamsin knew this was just the beginning. With a sharp intake of breath, she stood up and grabbed her father\u0027s sword, the blade humming with the weight of their shared history. She would hunt Malley alone now, leaving the Lancers to their captain, ready to strike back for what they\u0027d lost.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:383,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:139,\u0022total_tokens\u0022:522}}\n"
+    }
+  ]
+}

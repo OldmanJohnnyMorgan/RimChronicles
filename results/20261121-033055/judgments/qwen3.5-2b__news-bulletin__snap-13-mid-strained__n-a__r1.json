@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-13-mid-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022despite earlier promises to ignore them\u0022,\u0022reason\u0022:\u0022No such promises appear in the briefing.\u0022},{\u0022span\u0022:\u0022a dispute that has been ongoing since day 250\u0022,\u0022reason\u0022:\u0022Invented date; the briefing gives no start date.\u0022},{\u0022span\u0022:\u0022the owners are currently offering rewards for its return\u0022,\u0022reason\u0022:\u0022Taken from an earlier bulletin\u0027s joke, not from the briefing, and reused.\u0022},{\u0022span\u0022:\u0022though no major skirmishes have broken out yet\u0022,\u0022reason\u0022:\u0022Adds unsupported detail about the region\u0027s state.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It breaks format with markdown headings that copy the briefing\u0027s section labels, presents old news as its own item, reuses the earlier \u0027remembered that it exists\u0027 joke, and invents a date and \u0027earlier promises\u0027. The new item itself is accurate but buried in a muddled, unshippable bulletin.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.7860188,
+      "inputTokens": 2301,
+      "outputTokens": 306
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-06-early-content__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin opens with a copied heading (\u0027News since your last bulletin\u0027), which breaks character and the no-title rule. The second item repeats the old harvest story as though it were current, and the prose is stiff (\u0027favorable\u0027, \u0027One must assume\u0027) rather than wry.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.022063,
+      "inputTokens": 2187,
+      "outputTokens": 325
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__inheritance-handoff__snap-09-mid-desperate__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022her father\u2019s heavy, notched blade\u0022,\u0022reason\u0022:\u0022No weapon is named in the briefing.\u0022},{\u0022span\u0022:\u0022the jagged scar on her father\u0027s arm\u0022,\u0022reason\u0022:\u0022The briefing does not say where Joska was maimed or that it left a scar on his arm.\u0022},{\u0022span\u0022:\u0022Beside her, the body of Rook Malley lay cooling\u0022,\u0022reason\u0022:\u0022The briefing does not place Tamsin at the fight. Both men died in the Lancers\u0027 camp, which the Lancers still hold.\u0022},{\u0022span\u0022:\u0022She didn\u0027t look at her mother.\u0022,\u0022reason\u0022:\u0022Implies Lene is present at the scene, which the briefing does not support.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The scene invents a weapon, a scar and Lene\u0027s presence, and puts Tamsin beside Malley\u0027s body even though the Lancers hold the camp where he died. That staging also clashes with her then \u0027turning toward the camp\u0027. Phrases like \u0027silent testament\u0027 and \u0027knuckles whitened\u0027 are stock melodrama rather than RimWorld\u0027s plain voice, though the ending does correctly aim at the new captain.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.0729291,
+      "inputTokens": 1911,
+      "outputTokens": 695
+    }
+  ]
+}

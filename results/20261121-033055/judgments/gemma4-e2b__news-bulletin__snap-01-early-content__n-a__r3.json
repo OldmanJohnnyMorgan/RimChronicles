@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-01-early-content__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Red Gully Raiders continue their usual pattern of opportunistic scavenging\u0022,\u0022reason\u0022:\u0022The briefing reports no raider activity; this is an invented ongoing event.\u0022},{\u0022span\u0022:\u0022no major incursions have been reported this cycle\u0022,\u0022reason\u0022:\u0022The briefing says nothing about incursions or their absence.\u0022},{\u0022span\u0022:\u0022The Seven Ash Clans remain settled within their established territories, as is customary\u0022,\u0022reason\u0022:\u0022The briefing gives only the clans\u0027 settlement count, not their behaviour or territory.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It opens with a copied heading, which breaks the no-title rule, and it invents activity for the raiders and the clans instead of using the faction counts it was given. The cynicism is mild and generic, and the cold-snap line does not follow logically.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.9760533,
+      "inputTokens": 2105,
+      "outputTokens": 590
+    }
+  ]
+}

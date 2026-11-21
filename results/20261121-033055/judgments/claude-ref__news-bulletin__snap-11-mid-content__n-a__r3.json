@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-11-mid-content__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A dry, accurate bulletin that leads with the feast, handles the old marsh news as background, and turns faction sizes into a sharp joke. The only quibble is that \u0027a modest two since losing the eastern marsh\u0027 faintly suggests the loss cut their settlement count, which the briefing does not say.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.3178119,
+      "inputTokens": 2272,
+      "outputTokens": 411
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__inheritance-handoff__snap-18-late-desperate__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022her voice telling him that even the smallest things matter if you hold them right\u0022,\u0022reason\u0022:\u0022Invented remembered saying; not in briefing\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The scene never names Constance or Ada and never makes the mother-son tie explicit. It also ends on a vague walk into \u0027dark woods\u0027 instead of a clear intent to bring Ada home, so the story\u0027s thread is lost. The prose is generic, and \u0027the wind howled\u0027 and \u0027kind eyes\u0027 lean on clich\u00E9.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.7236856,
+      "inputTokens": 1883,
+      "outputTokens": 438
+    }
+  ]
+}

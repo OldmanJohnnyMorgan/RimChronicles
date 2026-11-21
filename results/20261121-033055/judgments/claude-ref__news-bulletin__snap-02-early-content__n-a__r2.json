@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-02-early-content__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The bulletin leads correctly with the abandoned camp, mentions the salt-flats war only as background, and fills the rest with dry comment built from briefing facts (faction sizes, the Company not being at war, the date), all in a consistent wry voice. The joke about pirates not explaining themselves is close to the earlier \u0027how pirates say yes\u0027 line without reusing it, which keeps this just short of a 5.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.4430171,
+      "inputTokens": 2411,
+      "outputTokens": 613
+    }
+  ]
+}

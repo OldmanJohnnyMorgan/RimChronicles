@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-03-early-strained__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022doubled their caravan patrols along the road\u0022,\u0022reason\u0022:\u0022Briefing says caravans travel in pairs, not that patrols were doubled; presented as new news.\u0022},{\u0022span\u0022:\u0022reduced thefts by roughly 40 percent\u0022,\u0022reason\u0022:\u0022Invented statistic not in briefing.\u0022},{\u0022span\u0022:\u0022destroyed most of its grain supply\u0022,\u0022reason\u0022:\u0022Added detail; briefing gives no such specifics.\u0022},{\u0022span\u0022:\u0022no injuries were reported\u0022,\u0022reason\u0022:\u0022Added detail not in briefing.\u0022},{\u0022span\u0022:\u0022a change noted by local merchants as effective but unremarkable\u0022,\u0022reason\u0022:\u0022Invented attribution and assessment.\u0022},{\u0022span\u0022:\u0022has not been resolved since day 18\u0022,\u0022reason\u0022:\u0022Invented date; the Kinn grass fires appear only in earlier bulletins and no date is given.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The output copies the briefing\u0027s section headings into the bulletin and presents old news as new. It also invents statistics, dates and details throughout. There is no trace of Ilse\u0027s dry voice, and the prompt\u0027s guidance to cover a quiet week was ignored.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.0673511,
+      "inputTokens": 2297,
+      "outputTokens": 375
+    }
+  ]
+}

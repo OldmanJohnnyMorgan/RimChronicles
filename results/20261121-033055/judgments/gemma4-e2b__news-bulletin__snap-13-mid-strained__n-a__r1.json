@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-13-mid-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Rustback Raiders continue their usual pattern of hitting caravans on the old highway.\u0022,\u0022reason\u0022:\u0022The briefing records one caravan raid, already reported. This presents it as an ongoing, repeated pattern.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It opens with a heading (\u0027News since your last bulletin\u0027), which breaks the no-headings rule. It also recycles the old raider story as if it were ongoing and ends with a \u0027quiet week\u0027 line that contradicts its own lead. The wit is generic (\u0027minor hiccup\u0027, \u0027make a scene\u0027) and lacks the dry bite of the earlier bulletins.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.2079538,
+      "inputTokens": 2276,
+      "outputTokens": 568
+    }
+  ]
+}

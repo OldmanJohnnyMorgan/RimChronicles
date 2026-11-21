@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-01-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022This move is expected to shift some minor trade routes in the immediate vicinity.\u0022,\u0022reason\u0022:\u0022Adds a consequence the briefing does not give.\u0022},{\u0022span\u0022:\u0022The Seven Ash Clans continue their usual pattern of territorial disputes\u0022,\u0022reason\u0022:\u0022The briefing mentions no disputes involving the clans.\u0022},{\u0022span\u0022:\u0022Red Gully Raiders remain a persistent nuisance\u0022,\u0022reason\u0022:\u0022Implies ongoing raiding activity the briefing does not report.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It opens with a copied heading, which breaks the no-title rule, and it invents clan territorial disputes and trade-route effects. The voice is mostly generic rather than dry and wry, and both new items are crammed into one paragraph.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.2312914,
+      "inputTokens": 2117,
+      "outputTokens": 502
+    }
+  ]
+}

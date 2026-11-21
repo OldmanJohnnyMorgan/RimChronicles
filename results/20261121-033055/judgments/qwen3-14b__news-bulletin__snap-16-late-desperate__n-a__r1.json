@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-16-late-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022a desperate attempt to distract from their own internal disputes\u0022,\u0022reason\u0022:\u0022Briefing mentions no internal disputes in the Lantern Accord.\u0022},{\u0022span\u0022:\u0022has survived an ambush near Gallowmere\u0022,\u0022reason\u0022:\u0022Briefing does not say Dunmore survived or was the target; it only says he has a price after an ambush.\u0022},{\u0022span\u0022:\u0022leaving behind a trail of scorched earth\u0022,\u0022reason\u0022:\u0022Invented detail of the ambush.\u0022},{\u0022span\u0022:\u0022the Lantern Accord\u2019s water rationing continuing\u0022,\u0022reason\u0022:\u0022Rationing appears only in an earlier bulletin, not in the briefing, and its continuation is unsupported.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It copies the briefing\u0027s section headings into the bulletin, which breaks format, and it splits one event into two items. It also adds invented details: internal disputes, scorched earth, and Dunmore surviving the ambush.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.879854,
+      "inputTokens": 2245,
+      "outputTokens": 320
+    }
+  ]
+}

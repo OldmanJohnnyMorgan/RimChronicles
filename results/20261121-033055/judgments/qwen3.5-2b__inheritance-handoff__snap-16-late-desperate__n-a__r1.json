@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__inheritance-handoff__snap-16-late-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022a vacuum where Kael\u0027s boots used to tread\u0022,\u0022reason\u0022:\u0022Places the killer Kael in the colony barracks; the briefing never supports this and it seems to confuse him with Bertram.\u0022},{\u0022span\u0022:\u0022She reached out and touched his forehead, feeling the warmth of life fading beneath the skin\u0022,\u0022reason\u0022:\u0022Has Bertram\u0027s body present and still dying. The briefing says only the warg Rook came home and gives no recovered or dying body.\u0022},{\u0022span\u0022:\u0022\\\u0022The hunt is over.\\\u0022\u0022,\u0022reason\u0022:\u0022Contradicts the story, where Dunmore escaped and the hunt passes to Elske.\u0022},{\u0022span\u0022:\u0022his grip on the hilt\u0022,\u0022reason\u0022:\u0022Invents a bladed weapon that appears nowhere in the briefing.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:1,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The scene muddles who is who (Kael\u0027s boots, a dying body that was never brought home), runs about 140 words against a 120 limit, and ends by declaring the hunt over instead of on Elske\u0027s intent to take it up. It also leans on generic melodrama (\u0027vacuum\u0027, \u0027shadows like a warning\u0027) rather than plain frontier detail.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.8598079,
+      "inputTokens": 1937,
+      "outputTokens": 712
+    }
+  ]
+}

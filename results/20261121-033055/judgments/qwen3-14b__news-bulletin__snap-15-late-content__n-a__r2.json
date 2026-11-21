@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-15-late-content__n-a__r2",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the Greywater Concord seems unimpressed\u0022,\u0022reason\u0022:\u0022The briefing gives no Concord reaction to the Choir\u0027s inquiries.\u0022},{\u0022span\u0022:\u0022the argument over archery rules shows no sign of ending\u0022,\u0022reason\u0022:\u0022Old news is presented as an ongoing development with a new status the briefing does not give.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It opens with a copied heading (\u0027News since your last bulletin:\u0027), which breaks the no-headings rule, and the lead item repeats the briefing almost word for word. It also recycles old news as ongoing and invents a Concord reaction and an update on the archery argument; the wit is thin compared with the earlier bulletins.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.8707408,
+      "inputTokens": 2238,
+      "outputTokens": 537
+    }
+  ]
+}

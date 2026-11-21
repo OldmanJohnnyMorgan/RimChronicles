@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-14-mid-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022compared to the ongoing friction between these three factions\u0022,\u0022reason\u0022:\u0022The briefing records no ongoing friction among all three factions.\u0022},{\u0022span\u0022:\u0022One released Corsair has also returned with similar tales of hospitality, suggesting a pattern rather than an isolated incident\u0022,\u0022reason\u0022:\u0022Treats one released Corsair as two and invents a pattern; it also re-presents old news as new.\u0022},{\u0022span\u0022:\u0022Quillmarsh remains quiet\u0022,\u0022reason\u0022:\u0022The reporter has no knowledge of what happens inside the colony.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It copies the briefing\u0027s section headings into the bulletin, which breaks character. It also inflates old news into a second released Corsair and a \u0027pattern\u0027, and invents three-way friction between the factions.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.6941785,
+      "inputTokens": 2360,
+      "outputTokens": 583
+    }
+  ]
+}

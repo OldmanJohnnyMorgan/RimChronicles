@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-20-late-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The governorship lead is accurate and drily handled, and nothing is invented. However, \\\u0022by the briefing\u0027s account\\\u0022 breaks the reporter\u0027s persona by naming the briefing, and the arithmetic line is a little muddled.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.1070514,
+      "inputTokens": 2304,
+      "outputTokens": 339
+    }
+  ]
+}

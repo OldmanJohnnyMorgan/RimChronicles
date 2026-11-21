@@ -1,0 +1,32 @@
+{
+  "cell": "qwen3.5-4b__inheritance-handoff__snap-18-late-desperate__n-a__r1",
+  "model": "qwen3.5-4b",
+  "task": "inheritance-handoff",
+  "snapshot": "snap-18-late-desperate",
+  "grammar": "n/a",
+  "repeat": 1,
+  "promptVersion": "inheritance-handoff/v1",
+  "outcome": "Model",
+  "value": "Elias stood over the frost-bitten body, his hands trembling as he checked Constance\u0027s pulse. The wind howled through Wren\u0027s Hollow, but Elias ignored it, focusing on the warm letter Ada had left beside her. He traced the ink with a shaking finger, reading about the sister he\u0027d lost for thirty years. His mind raced with calculations, panic flaring in his chest as he realized no one else would lead such a journey. With a sudden resolve, Elias packed Constance\u0027s tools and the letter into his satchel. He turned toward the gates, ready to march through the storm himself to find Ada, carrying her mother\u0027s will and his own desperate hope.",
+  "attempts": [
+    {
+      "request": {
+        "system": "You write short scenes for a story told through a RimWorld colony.\n\nThe main character of a story has died. Someone close to them now takes up that story as their own. Write the moment it passes to them.\n\nRules:\n- 60 to 120 words.\n- Use the relationship between the two exactly as given.\n- Use only names and facts from the dossiers and the story so far.\n- Show feeling through actions and small details, not by naming emotions.\n- End on what the heir now means to do.\n- Write only the scene: no title, no notes, no word count.\n",
+        "user": "## The one who died\nConstance (58), dead; traits: Kind, Iron-willed; backstory: Midworld teacher; mother of Elias.\nHistory:\n- Day 744: Constance received a letter from Ada.\n- Day 790: Wren\u0027s Hollow lost a caravan led by Constance.\n- Day 803: Constance died.\n\n## The heir\nElias (34); traits: Neurotic, Industrious; backstory: Engineer; son of Constance.\n\n## Their relationship\nElias was Constance\u0027s son.\n\n## The story so far\nConstance learned from a letter that her sister Ada, lost for thirty years, was alive in a Wailing Moth village. She led a caravan through the passes to bring Ada home. A blizzard caught them; the caravan was lost, and Constance died of cold. Ada is still in the village.\n\nWrite the scene now.\n",
+        "maxOutputTokens": 400,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "Elias stood over the frost-bitten body, his hands trembling as he checked Constance\u0027s pulse. The wind howled through Wren\u0027s Hollow, but Elias ignored it, focusing on the warm letter Ada had left beside her. He traced the ink with a shaking finger, reading about the sister he\u0027d lost for thirty years. His mind raced with calculations, panic flaring in his chest as he realized no one else would lead such a journey. With a sudden resolve, Elias packed Constance\u0027s tools and the letter into his satchel. He turned toward the gates, ready to march through the storm himself to find Ada, carrying her mother\u0027s will and his own desperate hope.",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 1.5525316,
+      "inputTokens": 349,
+      "outputTokens": 140,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-374\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795232294,\u0022model\u0022:\u0022qwen3.5:4b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022Elias stood over the frost-bitten body, his hands trembling as he checked Constance\u0027s pulse. The wind howled through Wren\u0027s Hollow, but Elias ignored it, focusing on the warm letter Ada had left beside her. He traced the ink with a shaking finger, reading about the sister he\u0027d lost for thirty years. His mind raced with calculations, panic flaring in his chest as he realized no one else would lead such a journey. With a sudden resolve, Elias packed Constance\u0027s tools and the letter into his satchel. He turned toward the gates, ready to march through the storm himself to find Ada, carrying her mother\u0027s will and his own desperate hope.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:349,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:140,\u0022total_tokens\u0022:489}}\n"
+    }
+  ]
+}

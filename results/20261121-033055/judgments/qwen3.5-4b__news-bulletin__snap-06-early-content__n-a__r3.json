@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-06-early-content__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the Ditch Kings now have two instead of their usual roaming status\u0022,\u0022reason\u0022:\u0022The briefing gives no prior roaming status or change in settlement count.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The bulletin breaks character by copying the briefing\u0027s section headings into the text and by echoing the instruction \u0027A quiet week is a fine story\u0027 as a closing line. It also invents a change in the Ditch Kings\u0027 status, and it has little of Ilse\u0027s dry voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.6656393,
+      "inputTokens": 2223,
+      "outputTokens": 413
+    }
+  ]
+}

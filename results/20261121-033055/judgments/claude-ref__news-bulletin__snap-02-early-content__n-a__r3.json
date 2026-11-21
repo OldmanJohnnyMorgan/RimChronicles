@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-02-early-content__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Sticks to the briefing, and it pads a thin news week with dry, fact-based comment on faction sizes in a consistent wry voice. It loses a little polish to the repeated \u0027nobody\u0027 in the first item and a slightly flat closing line.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.4873495,
+      "inputTokens": 2405,
+      "outputTokens": 354
+    }
+  ]
+}

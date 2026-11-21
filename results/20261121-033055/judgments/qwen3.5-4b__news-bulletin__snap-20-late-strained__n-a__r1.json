@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-20-late-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022a town that has seen better days\u0022,\u0022reason\u0022:\u0022The briefing says nothing about Varrowgate\u0027s condition.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It copies the briefing\u0027s section labels into the bulletin as headings and reuses the earlier bulletins\u0027 Tuesday and beach jokes nearly word for word. It also blurs the old Brightwater surrender into the new governorship offer, so a reader cannot tell what is news.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.3476952,
+      "inputTokens": 2250,
+      "outputTokens": 516
+    }
+  ]
+}

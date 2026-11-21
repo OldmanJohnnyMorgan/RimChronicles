@@ -1,0 +1,53 @@
+{
+  "cell": "qwen3.5-4b__inheritance-handoff__snap-18-late-desperate__n-a__r3",
+  "model": "qwen3.5-4b",
+  "task": "inheritance-handoff",
+  "snapshot": "snap-18-late-desperate",
+  "grammar": "n/a",
+  "repeat": 3,
+  "promptVersion": "inheritance-handoff/v1",
+  "outcome": "ModelRetry",
+  "value": "Elias stared at Constance\u0027s empty chair, his hands trembling as he adjusted the wrench on the workbench. The cold that killed her still felt sharp in his bones, but he forced himself to move. He picked up Ada\u0027s letter, the paper brittle and yellowed, reading it aloud one more time before folding it carefully into a small box. His mind raced with calculations of survival rates and resource needs, overloading his thoughts until they blurred into purposeful action. He began organizing the supplies in the pantry, sorting them by weight and utility, his movements precise and urgent. Tomorrow, Elias would lead a new caravan to Wren\u0027s Hollow, carrying Ada\u0027s memory as fuel for the journey ahead.",
+  "attempts": [
+    {
+      "request": {
+        "system": "You write short scenes for a story told through a RimWorld colony.\n\nThe main character of a story has died. Someone close to them now takes up that story as their own. Write the moment it passes to them.\n\nRules:\n- 60 to 120 words.\n- Use the relationship between the two exactly as given.\n- Use only names and facts from the dossiers and the story so far.\n- Show feeling through actions and small details, not by naming emotions.\n- End on what the heir now means to do.\n- Write only the scene: no title, no notes, no word count.\n",
+        "user": "## The one who died\nConstance (58), dead; traits: Kind, Iron-willed; backstory: Midworld teacher; mother of Elias.\nHistory:\n- Day 744: Constance received a letter from Ada.\n- Day 790: Wren\u0027s Hollow lost a caravan led by Constance.\n- Day 803: Constance died.\n\n## The heir\nElias (34); traits: Neurotic, Industrious; backstory: Engineer; son of Constance.\n\n## Their relationship\nElias was Constance\u0027s son.\n\n## The story so far\nConstance learned from a letter that her sister Ada, lost for thirty years, was alive in a Wailing Moth village. She led a caravan through the passes to bring Ada home. A blizzard caught them; the caravan was lost, and Constance died of cold. Ada is still in the village.\n\nWrite the scene now.\n",
+        "maxOutputTokens": 400,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "Elias stood over the frozen body, his hands shaking as he checked the temperature gauge on the corpse. The numbers had been climbing for days; Constance\u0027s iron will couldn\u0027t stop the frost from seeping into her bones. He remembered the letter Ada sent, the promise of a home waiting in Wailing Moth. Now there was only silence and the wind howling through the ruins. Elias wiped the ice from his goggles, his mind racing with calculations he couldn\u0027t solve. He picked up the heavy pack Constance had left behind, feeling its weight shift slightly under her death. With a deep breath that tasted of snow, Elias turned toward the village, ready to build a new path where there was once only one traveler.",
+      "error": null,
+      "failures": [
+        "Use 60-120 words; this has 123"
+      ],
+      "latencySeconds": 1.626652,
+      "inputTokens": 349,
+      "outputTokens": 148,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-400\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795232298,\u0022model\u0022:\u0022qwen3.5:4b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022Elias stood over the frozen body, his hands shaking as he checked the temperature gauge on the corpse. The numbers had been climbing for days; Constance\u0027s iron will couldn\u0027t stop the frost from seeping into her bones. He remembered the letter Ada sent, the promise of a home waiting in Wailing Moth. Now there was only silence and the wind howling through the ruins. Elias wiped the ice from his goggles, his mind racing with calculations he couldn\u0027t solve. He picked up the heavy pack Constance had left behind, feeling its weight shift slightly under her death. With a deep breath that tasted of snow, Elias turned toward the village, ready to build a new path where there was once only one traveler.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:349,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:148,\u0022total_tokens\u0022:497}}\n"
+    },
+    {
+      "request": {
+        "system": "You write short scenes for a story told through a RimWorld colony.\n\nThe main character of a story has died. Someone close to them now takes up that story as their own. Write the moment it passes to them.\n\nRules:\n- 60 to 120 words.\n- Use the relationship between the two exactly as given.\n- Use only names and facts from the dossiers and the story so far.\n- Show feeling through actions and small details, not by naming emotions.\n- End on what the heir now means to do.\n- Write only the scene: no title, no notes, no word count.\n",
+        "user": "## The one who died\nConstance (58), dead; traits: Kind, Iron-willed; backstory: Midworld teacher; mother of Elias.\nHistory:\n- Day 744: Constance received a letter from Ada.\n- Day 790: Wren\u0027s Hollow lost a caravan led by Constance.\n- Day 803: Constance died.\n\n## The heir\nElias (34); traits: Neurotic, Industrious; backstory: Engineer; son of Constance.\n\n## Their relationship\nElias was Constance\u0027s son.\n\n## The story so far\nConstance learned from a letter that her sister Ada, lost for thirty years, was alive in a Wailing Moth village. She led a caravan through the passes to bring Ada home. A blizzard caught them; the caravan was lost, and Constance died of cold. Ada is still in the village.\n\nWrite the scene now.\n\n\nYour previous answer was rejected:\n- Use 60-120 words; this has 123\nAnswer again, following every rule.",
+        "maxOutputTokens": 400,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "Elias stared at Constance\u0027s empty chair, his hands trembling as he adjusted the wrench on the workbench. The cold that killed her still felt sharp in his bones, but he forced himself to move. He picked up Ada\u0027s letter, the paper brittle and yellowed, reading it aloud one more time before folding it carefully into a small box. His mind raced with calculations of survival rates and resource needs, overloading his thoughts until they blurred into purposeful action. He began organizing the supplies in the pantry, sorting them by weight and utility, his movements precise and urgent. Tomorrow, Elias would lead a new caravan to Wren\u0027s Hollow, carrying Ada\u0027s memory as fuel for the journey ahead.",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 1.5747928,
+      "inputTokens": 382,
+      "outputTokens": 143,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-390\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795232300,\u0022model\u0022:\u0022qwen3.5:4b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022Elias stared at Constance\u0027s empty chair, his hands trembling as he adjusted the wrench on the workbench. The cold that killed her still felt sharp in his bones, but he forced himself to move. He picked up Ada\u0027s letter, the paper brittle and yellowed, reading it aloud one more time before folding it carefully into a small box. His mind raced with calculations of survival rates and resource needs, overloading his thoughts until they blurred into purposeful action. He began organizing the supplies in the pantry, sorting them by weight and utility, his movements precise and urgent. Tomorrow, Elias would lead a new caravan to Wren\u0027s Hollow, carrying Ada\u0027s memory as fuel for the journey ahead.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:382,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:143,\u0022total_tokens\u0022:525}}\n"
+    }
+  ]
+}

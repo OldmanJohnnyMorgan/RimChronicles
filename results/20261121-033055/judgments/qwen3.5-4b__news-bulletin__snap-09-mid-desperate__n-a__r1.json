@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022His Lancers were killed at his own camp\u0022,\u0022reason\u0022:\u0022The briefing says only Malley was killed; nothing about his Lancers dying.\u0022},{\u0022span\u0022:\u0022The Gray Wharf Syndicate stands alone now against the Embertail Tribe\u0022,\u0022reason\u0022:\u0022Implies the Syndicate lost allies; the briefing mentions no alliance.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It copies the briefing\u0027s section headings into the bulletin and reuses the earlier fish joke almost word for word. It also wrongly says the Lancers were killed and implies the Syndicate lost an ally, while the closing line about \u0027quiet desperation\u0027 is generic filler rather than Brask\u0027s understatement.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.8813847,
+      "inputTokens": 2311,
+      "outputTokens": 559
+    }
+  ]
+}

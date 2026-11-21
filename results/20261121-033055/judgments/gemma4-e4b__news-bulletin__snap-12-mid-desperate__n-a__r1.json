@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-12-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The output opens with a copied heading (\\\u0022News since your last bulletin:\\\u0022), which breaks the bulletin format, and at about 73 words it falls short of the 80-word minimum. The prose is clear and factually safe but bland (\\\u0022these two entities\\\u0022), with little of Odile\u0027s sardonic bite, and two of its three items lean on recycled old news.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.0180993,
+      "inputTokens": 2273,
+      "outputTokens": 592
+    }
+  ]
+}

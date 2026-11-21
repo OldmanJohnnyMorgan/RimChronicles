@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-13-mid-strained__n-a__r3",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The townsmen are reportedly gathering at the local market square to discuss how much tax they can afford to ignore this week.\u0022,\u0022reason\u0022:\u0022Invented event; the briefing mentions no gathering or market square.\u0022},{\u0022span\u0022:\u0022The Sun Throne has demanded tribute from the Cobalt Free Towns again\u0022,\u0022reason\u0022:\u0022Presents an already-reported demand as a new, repeated event.\u0022},{\u0022span\u0022:\u0022citing \\\u0022imperial debts\\\u0022 that were never repaid in coin or grain\u0022,\u0022reason\u0022:\u0022Invented quote and justification not in the briefing.\u0022},{\u0022span\u0022:\u0022demanded ransom for its return\u0022,\u0022reason\u0022:\u0022Adds a ransom demand; the briefing only says the caravan was hit.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The bold section headings break the bulletin format. The output recycles old news as a renewed tribute demand and invents a market gathering, an \u0027imperial debts\u0027 quote and a ransom. Only the opening line about the map and the grudge has the wry voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.8851301,
+      "inputTokens": 2328,
+      "outputTokens": 563
+    }
+  ]
+}

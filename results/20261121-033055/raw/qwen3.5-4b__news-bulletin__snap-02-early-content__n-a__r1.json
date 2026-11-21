@@ -1,0 +1,55 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-02-early-content__n-a__r1",
+  "model": "qwen3.5-4b",
+  "task": "news-bulletin",
+  "snapshot": "snap-02-early-content",
+  "grammar": "n/a",
+  "repeat": 1,
+  "promptVersion": "news-bulletin/v2",
+  "outcome": "Template",
+  "value": "(template)",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.\n\nWrite your next news bulletin.\n\nWhat to write:\n- 2 or 3 short news items, most important first, separated by a blank line.\n- Each item is 2 to 4 sentences. The whole bulletin is 80 to 150 words.\n- Lead with the items under \u0022News since your last bulletin\u0022.\n- Items under \u0022Already reported\u0022 are old news. You may mention them briefly as background, but never present them as new or happening again.\n- If there is little new news, fill the remaining items with dry comment on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.\n\nWhat you know:\n- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events, and never add details to an event that the briefing does not give.\n- You do not know what happens inside the colony unless your briefing says it became public.\n\nStyle:\n- Keep your voice the same as in your earlier bulletins, but do not reuse their jokes or sentences.\n- Write only the bulletin itself: no title, no dateline, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 11 (Aprimay 5500).\nThe colony you report near: Bramblewick. You do not know what happens inside it unless listed below.\n\nFactions:\n- The Glimmer Coast Company (Outlanders): 5 settlements\n- Hollow Spire Pirates (Pirates): 2 settlements\n- The Tannerfolk (Tribe): 5 settlements, at war with Hollow Spire Pirates\n\nNews since your last bulletin:\n- Hollow Spire Pirates abandoned a camp on the salt flats\n\nAlready reported in your earlier bulletins (background only, not news):\n- The Tannerfolk and the Hollow Spire Pirates are fighting over the salt flats\n- A Glimmer Coast Company caravan reached the eastern ford\n\n## Your earlier bulletins\nEarlier bulletin:\nSalt is dear again. The Tannerfolk say the Hollow Spire lot burned two of their drying racks, and the pirates say nothing, which is how pirates say yes. Elsewhere, a Glimmer Coast caravan is on the move with more guards than goods, which tells you all you need to know about the roads.\n\nLatest bulletin:\nThe salt flats remain contested and the salt remains expensive. Readers wishing to avoid both are advised to stay inland. The Glimmer Coast Company reports a profitable week; the Company always reports a profitable week.\n\nWrite the bulletin now.\n",
+        "maxOutputTokens": 500,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "News since your last bulletin: The Hollow Spire Pirates abandoned a camp on the salt flats, leaving the Tannerfolk to wonder if they finally won or just got a bigger target for next week. With five settlements each, the Glimmer Coast Company and the Tannerfolk remain the two biggest powers in this corner of the rim, while the pirates cling to their two remaining outposts.\n\nAlready reported: The caravan from the eastern ford is likely still stuck somewhere between profitable reports and empty wagons, a fact that has not changed since we last checked on the roads. It seems the only thing moving faster than the salt prices is the rumor mill, which keeps spinning tales about battles that haven\u0027t happened yet. Day eleven, the date ticking by with the same bored indifference as the rest of us watching the sun set over the dunes.",
+      "error": null,
+      "failures": [
+        "Write only the in-world text, without phrases like: \u0022bulletin:\u0022"
+      ],
+      "latencySeconds": 1.7838493,
+      "inputTokens": 604,
+      "outputTokens": 169,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-340\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795223597,\u0022model\u0022:\u0022qwen3.5:4b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022News since your last bulletin: The Hollow Spire Pirates abandoned a camp on the salt flats, leaving the Tannerfolk to wonder if they finally won or just got a bigger target for next week. With five settlements each, the Glimmer Coast Company and the Tannerfolk remain the two biggest powers in this corner of the rim, while the pirates cling to their two remaining outposts.\\n\\nAlready reported: The caravan from the eastern ford is likely still stuck somewhere between profitable reports and empty wagons, a fact that has not changed since we last checked on the roads. It seems the only thing moving faster than the salt prices is the rumor mill, which keeps spinning tales about battles that haven\u0027t happened yet. Day eleven, the date ticking by with the same bored indifference as the rest of us watching the sun set over the dunes.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:604,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:169,\u0022total_tokens\u0022:773}}\n"
+    },
+    {
+      "request": {
+        "system": "You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.\n\nWrite your next news bulletin.\n\nWhat to write:\n- 2 or 3 short news items, most important first, separated by a blank line.\n- Each item is 2 to 4 sentences. The whole bulletin is 80 to 150 words.\n- Lead with the items under \u0022News since your last bulletin\u0022.\n- Items under \u0022Already reported\u0022 are old news. You may mention them briefly as background, but never present them as new or happening again.\n- If there is little new news, fill the remaining items with dry comment on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.\n\nWhat you know:\n- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events, and never add details to an event that the briefing does not give.\n- You do not know what happens inside the colony unless your briefing says it became public.\n\nStyle:\n- Keep your voice the same as in your earlier bulletins, but do not reuse their jokes or sentences.\n- Write only the bulletin itself: no title, no dateline, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 11 (Aprimay 5500).\nThe colony you report near: Bramblewick. You do not know what happens inside it unless listed below.\n\nFactions:\n- The Glimmer Coast Company (Outlanders): 5 settlements\n- Hollow Spire Pirates (Pirates): 2 settlements\n- The Tannerfolk (Tribe): 5 settlements, at war with Hollow Spire Pirates\n\nNews since your last bulletin:\n- Hollow Spire Pirates abandoned a camp on the salt flats\n\nAlready reported in your earlier bulletins (background only, not news):\n- The Tannerfolk and the Hollow Spire Pirates are fighting over the salt flats\n- A Glimmer Coast Company caravan reached the eastern ford\n\n## Your earlier bulletins\nEarlier bulletin:\nSalt is dear again. The Tannerfolk say the Hollow Spire lot burned two of their drying racks, and the pirates say nothing, which is how pirates say yes. Elsewhere, a Glimmer Coast caravan is on the move with more guards than goods, which tells you all you need to know about the roads.\n\nLatest bulletin:\nThe salt flats remain contested and the salt remains expensive. Readers wishing to avoid both are advised to stay inland. The Glimmer Coast Company reports a profitable week; the Company always reports a profitable week.\n\nWrite the bulletin now.\n\n\nYour previous answer was rejected:\n- Write only the in-world text, without phrases like: \u0022bulletin:\u0022\nAnswer again, following every rule.",
+        "maxOutputTokens": 500,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "News since your last bulletin: The Hollow Spire Pirates abandoned a camp on the salt flats, leaving the terrain even more contested between their tribe and the pirates. It is a quiet week in Bramblewick, where the only movement comes from Glimmer Coast Company caravans that always report profit regardless of the road conditions.\n\nAlready reported: The Tannerfolk claim the pirates burned drying racks, though the pirates have never commented on such matters. Salt remains dear and readers wishing to avoid both war and high prices are advised to stay inland.",
+      "error": null,
+      "failures": [
+        "Write only the in-world text, without phrases like: \u0022bulletin:\u0022"
+      ],
+      "latencySeconds": 1.2119753,
+      "inputTokens": 636,
+      "outputTokens": 110,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-903\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795223599,\u0022model\u0022:\u0022qwen3.5:4b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022News since your last bulletin: The Hollow Spire Pirates abandoned a camp on the salt flats, leaving the terrain even more contested between their tribe and the pirates. It is a quiet week in Bramblewick, where the only movement comes from Glimmer Coast Company caravans that always report profit regardless of the road conditions.\\n\\nAlready reported: The Tannerfolk claim the pirates burned drying racks, though the pirates have never commented on such matters. Salt remains dear and readers wishing to avoid both war and high prices are advised to stay inland.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:636,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:110,\u0022total_tokens\u0022:746}}\n"
+    }
+  ]
+}
