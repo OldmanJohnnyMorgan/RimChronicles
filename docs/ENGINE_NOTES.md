@@ -40,7 +40,7 @@ dlls/<name>.dll` for `Assembly-CSharp`, `RimWorld`, `Waylith`, `UnityStubs`, `Wa
 | --- | --- |
 | `Verse.Mod(ModContentPack)`, `GetSettings<T>()`, `ModSettings.ExposeData` | Entry point and settings |
 | `GameComponent(Game)` via `Activator.CreateInstance(type, game)`, `GameComponentUpdate`, `ExposeData` | Per-game state. Update runs every frame, even when paused. |
-| `TickManager.DoSingleTick`, `TicksGame`, `GenDate.TicksPerDay` (60,000), `GenDate.DaysPassed` | Daily patch |
+| `TickManager.DoSingleTick`, `TicksGame`, `GenDate.TicksPerDay` (60,000), `GenDate.DaysPassed` | Daily patch. It compares day numbers instead of waiting for `TicksGame % 60000 == 0`, because `TickManager.DebugSetTicksGame` (dev time tools) sets the counter directly and can skip that tick. That's how the first M3 bulletin got stuck undelivered. |
 | `Scribe.mode`, `Scribe.EnterNode` / `ExitNode`, `Scribe_Values.Look`, `Scribe_Collections.Look(..., LookMode.Value)` | `ScribeArchive`. `EnterNode` returns false on load when the node is missing, which is how old saves load. |
 | `Find.LetterStack.ReceiveLetter(string, string, LetterDef)`, `LetterDefOf.NeutralEvent` / `PositiveEvent` / `NegativeEvent` | Letters |
 | `[DebugAction(category, name, allowedGameStates = ...)]` on a static method in any loaded assembly | Dev Mode actions (found through `GenTypes.AllTypes`) |

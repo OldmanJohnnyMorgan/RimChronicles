@@ -4,17 +4,12 @@ using Verse;
 
 namespace RimChronicles.Game.Patches;
 
-/// <summary>Spike test 2: a Harmony postfix on the game tick that fires once per in-game day. Later stages hang
-/// the plot director's daily loop here.</summary>
+/// <summary>A Harmony postfix on the game tick that runs the daily work once per in-game day. It compares day numbers
+/// rather than waiting for the exact tick a day starts on, so a jump in the clock (a dev time-skip, anything that sets
+/// the tick counter) still counts as a new day. The plot director's daily loop hangs here in later stages.</summary>
 [HarmonyPatch(typeof(TickManager), nameof(TickManager.DoSingleTick))]
 public static class DailyTickPatch
 {
-    public static void Postfix(TickManager __instance)
-    {
-        var ticks = __instance.TicksGame;
-        if (ticks > 0 && ticks % GenDate.TicksPerDay == 0)
-        {
-            RimChroniclesGameComponent.Current?.OnNewDay(ticks / GenDate.TicksPerDay);
-        }
-    }
+    public static void Postfix(TickManager __instance) =>
+        RimChroniclesGameComponent.Current?.CheckDay(__instance.TicksGame / GenDate.TicksPerDay);
 }
