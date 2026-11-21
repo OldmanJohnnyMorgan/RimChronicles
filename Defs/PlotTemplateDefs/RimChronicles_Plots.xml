@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <RimChronicles.Game.Plots.PlotTemplateDef>
+    <defName>Nemesis</defName>
+    <label>nemesis</label>
+    <description>A raider who killed or maimed a colonist and escaped comes back into the colony's story.</description>
+    <minGapDays>5</minGapDays>
+    <maxGapDays>15</maxGapDays>
+    <inheritanceMutation>the hunt becomes revenge, carried by the heir</inheritanceMutation>
+  </RimChronicles.Game.Plots.PlotTemplateDef>
+</Defs>
