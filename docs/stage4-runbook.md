@@ -93,3 +93,28 @@ parent in a friendly faction if no one has kin away. **Plot: advance beat** fire
 | 4 | **Plot: advance beat**. Accept the Rescue quest, go to the camp, clear the guards, and have a colonist offer help. | The kin joins the colony. Then **<kin> is home**, and the protagonist gains **family reunited** (+12). The plot ends `reunited`. |
 | 5 | Reload, and ignore the Rescue quest instead. | After it expires: **no word of <kin>**, and **family lost** (−8). The plot ends `lost`. |
 | 6 | Reload. Kill the protagonist (**Plot: kill protagonist (other)** works on the oldest plot, so seed Lost Family first) before the rescue. | A handoff to the heir: `<kin>, <heir>'s <relation>, is still held by <captor>`. **Show plots** shows the relation retold from the heir's side. |
+
+## M6: the Stage 4 proof run
+
+One session for the whole stage. Part A checks each milestone, using the tables above. Part B is the spec's exit test:
+three arc types over 200 days. Use a new colony with at least four colonists, tier **Recommended**, and Ollama running.
+
+### A. The milestone checks
+
+Work through the M1–M5 tables above. These use the Dev Mode "advance" and "test" actions, so **save before A and
+reload that save for B**: those actions skip the beat spacing on purpose, and B checks it.
+
+### B. Three arcs over 200 days
+
+The spec's exit test: three arc types running together with no overlapping beats, and a director log that reads like a
+story outline.
+
+| # | Do | Pass when |
+| --- | --- | --- |
+| B1 | From part A's save: **Nemesis: force seed**, **Lost Family: force seed**, and **Reporter: kill (by colony)** (which starts Silent Press the next day). Don't use **advance beat** from here on. | **Show plots** lists three plots: `nemesis-N`, `lostfamily-N` and `silentpress-N`. |
+| B2 | Play to day 200: speed 3, or **Increment time** a day at a time, unpausing briefly after each. Answer letters and quests as they come, or leave some to expire. | Beats arrive over time, never in a pile. Quests appear and resolve, and plots end and new ones start. No red `[Rim Chronicles]` errors. |
+| B3 | **Plot: check beat spacing**. | "No overlapping beats", with the count of beats and plots. |
+| B4 | **Plot: director log**. | Read the last 25 decisions: they should read like a story outline, with reasons that fit what happened. Send me the text. |
+| B5 | Save, quit and load near the end. | Plots, quest links and the decision log survive. |
+
+Send me pass or fail per row (A and B), the director-log text from B4, and any red errors.

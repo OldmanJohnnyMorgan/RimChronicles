@@ -165,4 +165,16 @@ public class DirectorTests
         Assert.Contains("go after Vex in person, to the camp near Kelso", text);
         Assert.Contains("the colony can wait", text);
     }
+
+    [Fact]
+    public void SpacingViolations_FindBeatsTooCloseTogetherButIgnoreWaits()
+    {
+        DirectorDecision D(int day, string choice) => new() { Day = day, PlotId = "p", Choice = choice };
+
+        var ok = Director.SpacingViolations([D(1, "A"), D(2, "Wait"), D(3, "B"), D(9, "C")], PlotBook.BeatSpacingDays);
+        var bad = Director.SpacingViolations([D(1, "A"), D(2, "B"), D(10, "C"), D(10, "D")], PlotBook.BeatSpacingDays);
+
+        Assert.Empty(ok);
+        Assert.Equal([(1, 2), (10, 10)], bad.Select(p => (p.First.Day, p.Second.Day)));
+    }
 }
