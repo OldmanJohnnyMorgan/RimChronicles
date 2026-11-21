@@ -105,6 +105,13 @@ public sealed class HarnessConfigTests : IDisposable
 
 public class EvalTaskTests
 {
+    [Fact]
+    public void BulletinWordRange_Is60To150()
+    {
+        // The design spec says 80-150; the floor was lowered to 60 so thin news weeks aren't padded.
+        Assert.Equal((60, 150), EvalTasks.WordRange("news-bulletin"));
+    }
+
     private static readonly PromptLibrary Library = PromptLibrary.Load(Repo.Prompts);
     private static readonly ModelConfig Model = new() { Id = "m", Tier = "Minimum", Provider = ProviderKind.Stub };
     private static WorldSnapshot Snap(string id) => SnapshotJson.Load(Repo.Path("harness", "snapshots", id + ".json"));
