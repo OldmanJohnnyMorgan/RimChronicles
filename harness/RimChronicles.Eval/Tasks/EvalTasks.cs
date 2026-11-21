@@ -10,7 +10,11 @@ using RimChronicles.Llm.Validation;
 namespace RimChronicles.Eval.Tasks;
 
 /// <summary>A task call ready to run, with what it needs for scoring.</summary>
-public sealed record EvalTask(TaskDefinition<string> Definition, TaskPromptInput Input, JsonSchemaSpec? BaseSchema, IReadOnlyList<string> Choices);
+public sealed record EvalTask(TaskDefinition<string> Definition, TaskPromptInput Input, JsonSchemaSpec? BaseSchema, IReadOnlyList<string> Choices)
+{
+    /// <summary>Allowed length in words for prose tasks; it can depend on the snapshot (a quiet week's bulletin is short).</summary>
+    public (int Min, int Max)? Words { get; init; }
+}
 
 /// <summary>Deterministic measurements of one model output.</summary>
 public sealed record OutputMetrics
@@ -31,9 +35,9 @@ public static class EvalTasks
 
     /// <summary>Word ranges from the design spec, except the bulletin minimum: lowered from 80 to 60 (2026-11-21)
     /// because an 80-word floor made models pad thin news weeks with embellishments.</summary>
-    public static (int Min, int Max) WordRange(string task) => task switch
+    public static (int Min, int Max) WordRange(string task, WorldSnapshot s) => task switch
     {
-        WorldSummarizer.NewsBulletinTask => (60, 150),
+        WorldSummarizer.NewsBulletinTask => WorldSummarizer.BulletinWordRange(s),
         WorldSummarizer.HandoffTask => (60, 120),
         _ => throw new ArgumentException($"{task} has no word range."),
     };
@@ -58,6 +62,7 @@ public static class EvalTasks
         IReadOnlyList<IOutputCheck> checks;
         JsonSchemaSpec? schemaOverride = null;
         IReadOnlyList<string> choices = [];
+        (int Min, int Max)? words = null;
 
         if (UsesSchema(task))
         {
@@ -67,7 +72,8 @@ public static class EvalTasks
         }
         else
         {
-            var (min, max) = WordRange(task);
+            words = WordRange(task, s);
+            var (min, max) = words.Value;
             checks = [new WordCountCheck(min, max), new GroundingCheck(input.AllowedNames), new BannedPhraseCheck()];
         }
 
@@ -84,7 +90,7 @@ public static class EvalTasks
             SchemaOverride = schemaOverride,
         };
 
-        return new EvalTask(definition, input, prompt.Schema, choices);
+        return new EvalTask(definition, input, prompt.Schema, choices) { Words = words };
     }
 
     /// <summary>A copy of the schema whose "choice" property may only take the allowed options.</summary>
@@ -116,7 +122,7 @@ public static class EvalTasks
             };
         }
 
-        var (min, max) = WordRange(task);
+        var (min, max) = evalTask.Words ?? throw new ArgumentException($"{task} has no word range.");
         var words = WordCountCheck.Count(text);
         return new OutputMetrics
         {
