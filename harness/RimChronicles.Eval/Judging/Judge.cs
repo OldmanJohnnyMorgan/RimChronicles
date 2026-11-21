@@ -90,7 +90,7 @@ public static class Judge
     private static async Task<JudgeRow> JudgeOneAsync(string runFolder, string judgmentsDir, CellResult cell,
         PromptTemplate prompt, IChatProvider provider, CancellationToken ct)
     {
-        var raw = RawOutput.Load(Path.Combine(runFolder, cell.RawFile));
+        var raw = RawOutput.Load(RunPaths.Raw(runFolder, cell.RawFile));
         var row = new JudgeRow
         {
             Cell = raw.Cell, Model = cell.Model, Tier = cell.Tier, Task = cell.Task, Snapshot = cell.Snapshot,
@@ -132,7 +132,9 @@ public static class Judge
         {
             JudgeOutcome = outcome.Source.ToString(),
             InventedCount = v.InventedFacts.Count,
-            Invented = string.Join(" | ", v.InventedFacts.Select(f => $"{f.Span} ({f.Reason})")),
+            MajorCount = v.InventedFacts.Count(f => !f.IsMinor),
+            MinorCount = v.InventedFacts.Count(f => f.IsMinor),
+            Invented = string.Join(" | ", v.InventedFacts.Select(f => $"{(f.IsMinor ? "[minor] " : "")}{f.Span} ({f.Reason})")),
             Voice = v.Voice, Clarity = v.Clarity, Tone = v.Tone, Overall = v.Overall, Comment = v.Comment,
         };
     }

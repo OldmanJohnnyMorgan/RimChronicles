@@ -43,6 +43,7 @@ public class JudgeVerdictTests
         var v = JudgeVerdict.Parse(Good);
 
         Assert.Equal("Captain Orlov", Assert.Single(v.InventedFacts).Span);
+        Assert.False(v.InventedFacts[0].IsMinor); // no severity (judge v1) counts as major
         Assert.Equal((4, 5, 3, 3), (v.Voice, v.Clarity, v.Tone, v.Overall));
         Assert.Equal("Clear, one invented name.", v.Comment);
     }
@@ -65,6 +66,40 @@ public class JudgeVerdictTests
         var json = $$"""{"inventedFacts":[{{facts}}],"voice":3,"clarity":3,"tone":3,"overall":{{overall}},"comment":""}""";
 
         Assert.Equal(passes, new JudgeCapCheck().Check(json).Passed);
+    }
+
+    [Theory]
+    [InlineData(0, 2, 4, true)]  // minor ones alone cap at 4
+    [InlineData(0, 2, 5, false)]
+    [InlineData(1, 3, 3, true)]  // one major caps at 3, whatever the minors
+    [InlineData(1, 3, 4, false)]
+    public void CapCheck_CountsSeverity(int major, int minor, int overall, bool passes)
+    {
+        var facts = string.Join(",",
+            Enumerable.Repeat("""{"span":"x","severity":"major","reason":"y"}""", major)
+                .Concat(Enumerable.Repeat("""{"span":"x","severity":"minor","reason":"y"}""", minor)));
+        var json = $$"""{"inventedFacts":[{{facts}}],"voice":3,"clarity":3,"tone":3,"overall":{{overall}},"comment":""}""";
+
+        Assert.Equal(passes, new JudgeCapCheck().Check(json).Passed);
+    }
+
+    [Theory]
+    [InlineData("raw\\a.json")]
+    [InlineData("raw/a.json")]
+    public void RawPaths_FromWindowsOrLinuxRuns_Resolve(string rawFile) =>
+        Assert.Equal(Path.Combine("run", "raw", "a.json"), RunPaths.Raw("run", rawFile));
+
+    [Fact]
+    public void JudgeCsv_FromJudgeV1_CountsEveryFactAsMajor()
+    {
+        var path = Path.Combine(Directory.CreateTempSubdirectory("rc-judgecsv-").FullName, "judge.csv");
+        File.WriteAllText(path,
+            "cell,model,tier,task,snapshot,repeat,raw_file,judge_prompt_version,judge_outcome,invented_count,invented,voice,clarity,tone,overall,comment,error\n" +
+            "c,m,High,news-bulletin,s,1,raw\\c.json,judge/v1,Model,2,a | b,3,3,3,2,ok,\n");
+
+        var row = Assert.Single(JudgeFiles.Read(path));
+
+        Assert.Equal((2, 0), (row.MajorCount, row.MinorCount));
     }
 }
 
@@ -99,12 +134,25 @@ public class PassBarsTests
     public void ReportRow_AppliesTierLimitedBars()
     {
         var bars = PassBars.Load(Repo.Path("harness", "passbars.json")).For("news-bulletin");
-        var judge = new JudgeStats(10, 0, 0, 3, 3, 3, Overall: 3.0);
+        var judge = new JudgeStats(10, 0, 0, 0, 3, 3, 3, Overall: 3.0);
 
         Assert.Equal(BarVerdict.Fail, new ReportRow(Row("Recommended"), judge, bars).Overall);
         Assert.Equal(BarVerdict.None, new ReportRow(Row("Minimum"), judge, bars).Overall);
         Assert.Equal(BarVerdict.None, new ReportRow(Row("Reference", median: 60), judge, bars).Latency);
         Assert.Equal(BarVerdict.Fail, new ReportRow(Row("High", median: 60), judge, bars).Latency);
+    }
+
+    [Fact]
+    public void ReportRow_HoldsMajorAndMinorInventedFactsToSeparateBars()
+    {
+        var bars = PassBars.Load(Repo.Path("harness", "passbars.json")).For("news-bulletin");
+        var embellished = new ReportRow(Row("High"), new JudgeStats(10, 0, MajorPer10: 1, MinorPer10: 4, 3, 3, 3, 3), bars);
+        var invented = new ReportRow(Row("High"), new JudgeStats(10, 0, MajorPer10: 2, MinorPer10: 0, 3, 3, 3, 3), bars);
+        var overdone = new ReportRow(Row("High"), new JudgeStats(10, 0, MajorPer10: 0, MinorPer10: 6, 3, 3, 3, 3), bars);
+
+        Assert.Equal((BarVerdict.Pass, BarVerdict.Pass), (embellished.MajorInvented, embellished.MinorInvented));
+        Assert.Equal(BarVerdict.Fail, invented.MajorInvented);
+        Assert.Equal(BarVerdict.Fail, overdone.MinorInvented);
     }
 
     [Fact]
@@ -205,7 +253,7 @@ public sealed class JudgePipelineTests : IDisposable
         Assert.True(data.HasJudge);
         var bulletin = data.Rows.Single(r => r.Metrics.Model == "stub-min" && r.Metrics.Task == "news-bulletin");
         Assert.Equal(4.0, bulletin.Judge!.Overall);
-        Assert.Equal(0.0, bulletin.Judge.InventedPer10);
+        Assert.Equal((0.0, 0.0), (bulletin.Judge.MajorPer10, bulletin.Judge.MinorPer10));
         Assert.Contains("<h2>At a glance</h2>", html);
         Assert.Contains("Meets all bars", html);
         Assert.Contains("The stub judge approves of everything.", html);

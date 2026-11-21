@@ -132,7 +132,7 @@ public static class Runner
             var outcome = await new LlmTaskRunner(provider).RunAsync(evalTask.Definition, ct).ConfigureAwait(false);
             var first = outcome.Attempts.FirstOrDefault();
             var metrics = EvalTasks.Score(cell.Task, first?.Result.Ok == true ? first.Result.Text : null, evalTask);
-            var rawFile = Path.Combine("raw", cell.Id + ".json");
+            var rawFile = "raw/" + cell.Id + ".json"; // forward slash on every OS, so a run made on Windows reads on Linux
 
             await File.WriteAllTextAsync(Path.Combine(folder, rawFile), RawJson(cell, outcome).ToJsonString(Indented), ct).ConfigureAwait(false);
 

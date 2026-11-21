@@ -1,0 +1,6 @@
+{
+  "task": "judge",
+  "version": "v2",
+  "maxOutputTokens": 2000,
+  "schema": "schema.json"
+}

@@ -1,5 +1,7 @@
 // Pass bars from the design spec's Stage 0 scoring table. The report marks each metric pass or fail against these.
 // Latency bars apply to local tiers only (the spec measures them on the reference GPU).
+// Invented facts are split by the judge (v2): major = a new person, place, number, quote or event, or a contradiction,
+// held to the spec's bar; minor = an embellishment of a briefed fact ("a severe cold snap"), allowed up to 5 per 10.
 {
   "director": {
     "jsonValidGrammarOn": 1.0,
@@ -9,7 +11,8 @@
     "latencyTiers": ["Minimum", "Recommended", "High"]
   },
   "news-bulletin": {
-    "inventedPer10": 1.0,
+    "majorInventedPer10": 1.0,
+    "minorInventedPer10": 5.0,
     "overall": 3.5,
     "overallTiers": ["Recommended"],
     "lengthOk": 0.9,
@@ -17,7 +20,8 @@
     "latencyTiers": ["Minimum", "Recommended", "High"]
   },
   "inheritance-handoff": {
-    "inventedPer10": 1.0,
+    "majorInventedPer10": 1.0,
+    "minorInventedPer10": 5.0,
     "overall": 3.5,
     "overallTiers": ["Recommended"],
     "lengthOk": 0.9

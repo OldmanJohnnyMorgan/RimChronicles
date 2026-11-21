@@ -19,7 +19,13 @@ public sealed record TaskBars
     public double? JsonValidGrammarOff { get; init; }
     public double? ChoiceAllowed { get; init; }
     public double? LengthOk { get; init; }
-    public double? InventedPer10 { get; init; }
+
+    /// <summary>Major invented facts (new facts about the world, contradictions) per 10 judged outputs.</summary>
+    public double? MajorInventedPer10 { get; init; }
+
+    /// <summary>Minor invented facts (embellishments of briefed facts) per 10 judged outputs.</summary>
+    public double? MinorInventedPer10 { get; init; }
+
     public double? Overall { get; init; }
 
     /// <summary>Tiers the overall bar applies to (the spec sets it for the default tier). Null: every tier.</summary>

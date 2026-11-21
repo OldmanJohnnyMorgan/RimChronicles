@@ -4,8 +4,12 @@ using RimChronicles.Llm.Validation;
 
 namespace RimChronicles.Eval.Judging;
 
-/// <summary>One claim the judge found unsupported by the briefing.</summary>
-public sealed record InventedFact(string Span, string Reason);
+/// <summary>One claim the judge found unsupported by the briefing. Severity is "major" (a new fact about the world,
+/// or a contradiction) or "minor" (an embellishment of a briefed fact). Judge v1 had no severity: all major.</summary>
+public sealed record InventedFact(string Span, string Reason, string Severity = "major")
+{
+    public bool IsMinor => Severity == "minor";
+}
 
 /// <summary>The judge's structured verdict on one output (prompts/judge schema).</summary>
 public sealed record JudgeVerdict(
@@ -15,7 +19,10 @@ public sealed record JudgeVerdict(
     {
         var node = JsonText.TryParse(text, out var error) ?? throw new FormatException(error ?? "empty verdict");
         var facts = node["inventedFacts"] is JsonArray arr
-            ? arr.Select(f => new InventedFact(f?["span"]?.GetValue<string>() ?? "", f?["reason"]?.GetValue<string>() ?? "")).ToList()
+            ? arr.Select(f => new InventedFact(
+                f?["span"]?.GetValue<string>() ?? "",
+                f?["reason"]?.GetValue<string>() ?? "",
+                f?["severity"]?.GetValue<string>() == "minor" ? "minor" : "major")).ToList()
             : throw new FormatException("inventedFacts is missing");
 
         return new JudgeVerdict(facts, Score(node, "voice"), Score(node, "clarity"), Score(node, "tone"), Score(node, "overall"),
@@ -30,8 +37,9 @@ public sealed record JudgeVerdict(
 }
 
 /// <summary>
-/// Enforces the rubric's cap: any invented fact caps overall at 3, two or more at 2. A verdict that breaks
-/// it is sent back once, so the judge stays consistent with its own rubric.
+/// Enforces the rubric's cap: any major invented fact caps overall at 3, two or more at 2, and minor ones alone at 4.
+/// Facts without a severity (judge v1) count as major. A verdict that breaks the cap is sent back once, so the judge
+/// stays consistent with its own rubric.
 /// </summary>
 public sealed class JudgeCapCheck : IOutputCheck
 {
@@ -45,10 +53,12 @@ public sealed class JudgeCapCheck : IOutputCheck
             return CheckResult.Pass; // the schema check reports shape problems
         }
 
-        var cap = facts.Count switch { 0 => 5, 1 => 3, _ => 2 };
+        var minor = facts.Count(f => f?["severity"]?.GetValue<string>() == "minor");
+        var major = facts.Count - minor;
+        var cap = major switch { 0 => minor > 0 ? 4 : 5, 1 => 3, _ => 2 };
         return overall <= cap
             ? CheckResult.Pass
-            : CheckResult.Fail($"With {facts.Count} invented fact(s) the rubric caps overall at {cap}, but overall is {overall}");
+            : CheckResult.Fail($"With {major} major and {minor} minor invented fact(s) the rubric caps overall at {cap}, but overall is {overall}");
     }
 }
 
@@ -67,7 +77,13 @@ public sealed record JudgeRow
     /// <summary>Model, ModelRetry, or Failed when the judge never returned a valid verdict.</summary>
     public string JudgeOutcome { get; init; } = "";
 
+    /// <summary>All invented facts, major and minor.</summary>
     public int? InventedCount { get; init; }
+
+    public int? MajorCount { get; init; }
+    public int? MinorCount { get; init; }
+
+    /// <summary>Each fact as "span (reason)", minor ones prefixed "[minor] ", joined with " | ".</summary>
     public string Invented { get; init; } = "";
     public int? Voice { get; init; }
     public int? Clarity { get; init; }

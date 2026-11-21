@@ -70,6 +70,14 @@ public static class ResultFiles
 }
 
 /// <summary>RFC 4180 CSV helpers with invariant number formatting.</summary>
+/// <summary>Paths inside a run folder.</summary>
+public static class RunPaths
+{
+    /// <summary>A results.csv raw_file under the run folder. Older Windows runs wrote '\' separators; both work everywhere.</summary>
+    public static string Raw(string runFolder, string rawFile) =>
+        Path.Combine(runFolder, rawFile.Replace('\\', '/').Replace('/', Path.DirectorySeparatorChar));
+}
+
 public static class Csv
 {
     public static void AppendRow(StringBuilder sb, IEnumerable<string?> fields)

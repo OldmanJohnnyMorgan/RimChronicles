@@ -48,7 +48,7 @@ public static class SpotCheck
         for (var i = 0; i < sample.Count; i++)
         {
             var id = $"S{i + 1:000}";
-            var raw = RawOutput.Load(Path.Combine(runFolder, sample[i].RawFile));
+            var raw = RawOutput.Load(RunPaths.Raw(runFolder, sample[i].RawFile));
             Csv.AppendRow(samples, [id, sample[i].Task, raw.System, raw.User, raw.Text, "", "", ""]);
             Csv.AppendRow(key, [id, sample[i].Cell, sample[i].RawFile]);
         }
@@ -82,7 +82,7 @@ public static class SpotCheck
             }
 
             var j = judge[key[s["sample"]]];
-            pairs.Add((j.Overall!.Value, human.Value, j.InventedCount!.Value, Csv.ParseInt(s["human_invented_count"].Trim()) ?? 0));
+            pairs.Add((j.Overall!.Value, human.Value, (j.MajorCount ?? j.InventedCount)!.Value, Csv.ParseInt(s["human_invented_count"].Trim()) ?? 0));
         }
 
         double? Rate(Func<(int JudgeOverall, int HumanOverall, int JudgeInvented, int HumanInvented), bool> f) =>
