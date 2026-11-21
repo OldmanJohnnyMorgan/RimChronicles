@@ -102,7 +102,7 @@ public static class NewsDriver
                     {
                         Text = outcome.Value,
                         Source = outcome.Source.ToString(),
-                        PromptVersion = outcome.Source == OutcomeSource.Template ? "" : $"news-bulletin/{outcome.PromptVersion}",
+                        PromptVersion = outcome.Source == OutcomeSource.Template ? "" : outcome.PromptVersion, // already "news-bulletin/v8"
                     };
                     if (outcome.Source == OutcomeSource.Template)
                     {
