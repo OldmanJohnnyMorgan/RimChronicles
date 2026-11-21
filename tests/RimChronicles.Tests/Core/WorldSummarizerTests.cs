@@ -82,8 +82,8 @@ public class WorldSummarizerTests
     {
         var digest = WorldSummarizer.ForNewsBulletin(Snap("snap-08-mid-content"), ModelTier.Recommended).Variables["digest"];
 
-        var fresh = digest.IndexOf("News since your last bulletin:", StringComparison.Ordinal);
-        var old = digest.IndexOf("Already reported", StringComparison.Ordinal);
+        var fresh = digest.IndexOf("Heard since your last bulletin", StringComparison.Ordinal);
+        var old = digest.IndexOf("already covered", StringComparison.Ordinal);
         var jade = digest.IndexOf("jade sculpture", StringComparison.Ordinal);
         var fair = digest.IndexOf("trade fair", StringComparison.Ordinal);
         Assert.True(fresh >= 0 && fresh < jade && jade < old && old < fair, digest);
@@ -93,7 +93,7 @@ public class WorldSummarizerTests
     [InlineData("snap-03-early-strained")]
     [InlineData("snap-17-late-strained")]
     public void NewsDigest_QuietStretch_SaysThereIsNoNewNews(string id) =>
-        Assert.Contains("News since your last bulletin: none.",
+        Assert.Contains("You have heard nothing new since your last bulletin.",
             WorldSummarizer.ForNewsBulletin(Snap(id), ModelTier.Recommended).Variables["digest"]);
 
     [Fact]

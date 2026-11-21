@@ -108,4 +108,11 @@ public class CheckTests
         Assert.False(check.Check("Here is the bulletin you asked for: rain again.").Passed);
         Assert.True(check.Check("Rain again over Hearthstead.").Passed);
     }
+
+    [Theory]
+    [InlineData("Heard since your last bulletin (lead with these): the pirates left.")]
+    [InlineData("**News since your last bulletin:** the pirates left.")]
+    [InlineData("The pirates left.\n\nAlready reported: the war goes on.")]
+    public void BannedPhraseCheck_CatchesCopiedBriefingHeadings(string output) =>
+        Assert.False(new BannedPhraseCheck().Check(output).Passed);
 }

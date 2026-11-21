@@ -128,6 +128,8 @@ public sealed class BannedPhraseCheck(IEnumerable<string>? phrases = null) : IOu
     [
         "as an ai", "language model", "here is the", "here's the", "i hope this", "certainly!", "sure!",
         "word count", "bulletin:", "as requested",
+        // Briefing headings a model may copy into its bulletin.
+        "heard since your last bulletin", "already covered (old news", "news since your last bulletin", "already reported:",
     ];
 
     private readonly IReadOnlyList<string> _phrases = (phrases ?? DefaultPhrases).ToList();

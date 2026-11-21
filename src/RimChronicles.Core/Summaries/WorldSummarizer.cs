@@ -233,14 +233,14 @@ public static partial class WorldSummarizer
 
         if (fresh.Count == 0)
         {
-            sb.Append("\nNews since your last bulletin: none. It has been a quiet stretch.\n");
+            sb.Append("\nYou have heard nothing new since your last bulletin. It has been a quiet stretch.\n");
         }
         else
         {
-            AppendList(sb, "News since your last bulletin:", fresh);
+            AppendList(sb, "Heard since your last bulletin (lead with these):", fresh);
         }
 
-        AppendList(sb, "Already reported in your earlier bulletins (background only, not news):", old);
+        AppendList(sb, "Your earlier bulletins already covered (old news, background only):", old);
         return sb.ToString().TrimEnd();
     }
 
