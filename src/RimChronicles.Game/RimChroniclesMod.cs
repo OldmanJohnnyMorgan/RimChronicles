@@ -22,6 +22,7 @@ public sealed class RimChroniclesMod : Mod
         PatchEach(new Harmony(HarmonyId));
         Plots.NemesisBeats.Register();
         Plots.SilentPressBeats.Register();
+        Plots.LostFamilyBeats.Register();
         Log.Message($"[Rim Chronicles] Loaded on {System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription}; "
             + $"Harmony patches applied; tier {Settings.Tier}, model {Settings.Model} at {Settings.Endpoint}.");
     }

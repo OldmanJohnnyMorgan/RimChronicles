@@ -22,13 +22,12 @@ public static class PlotLetterTask
     /// <summary>The template letter for a case: the fallback, and the plain version given to the model.</summary>
     public static (string Label, string Text) Template(PlotLetterCase c, string colony)
     {
-        if (c.Template != NemesisPlot.TemplateId)
+        return c.Template switch
         {
-            throw new ArgumentException($"No plot letters for arc '{c.Template}'.");
-        }
-
-        var facts = NemesisLetters.Facts.From(c.Facts, c.Protagonist, colony);
-        return NemesisLetters.ForStep(c.Step, facts, BountyCost(c));
+            NemesisPlot.TemplateId => NemesisLetters.ForStep(c.Step, NemesisLetters.Facts.From(c.Facts, c.Protagonist, colony), BountyCost(c)),
+            LostFamily.LostFamilyArc.TemplateId => LostFamily.LostFamilyLetters.ForStep(c.Step, LostFamily.LostFamilyLetters.Facts.From(c.Facts, c.Protagonist, colony)),
+            _ => throw new ArgumentException($"No plot letters for arc '{c.Template}'."),
+        };
     }
 
     public static int BountyCost(PlotLetterCase c) =>

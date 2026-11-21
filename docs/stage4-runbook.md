@@ -74,3 +74,22 @@ dotnet run --project harness/RimChronicles.Eval -- run --tasks plot-letter --mod
 | 2 | **Hunt them down**, then play a day. | A Hunt quest named after the nemesis. **Show plots** has `quest.Hunt=pending`, and **Plot: advance beat** says the beat can't fire (the quest decides). |
 | 3 | Accept, go to the camp, and kill the nemesis. | The Nemesis plot ends `KilledByColony` (avenged), the Hunt quest succeeds, and silver arrives. |
 | 4 | Reload. Hunt again, but let the quest fail or expire, then play a day or two. | `quest.Hunt=Fail` (or `Ignored`), then the second raid: **<name> returns**. |
+
+## M5: Lost Family
+
+A colonist with a living blood relative in another faction (vanilla gives many colonists one) gets letters from them.
+Then the relative is taken captive, a Rescue quest offers to free them, and they come home or are lost. The plot starts
+on its own from day 10, within the plot limits. **Lost Family: force seed** starts one now: it gives a colonist a
+parent in a friendly faction if no one has kin away. **Plot: advance beat** fires the oldest plot's next beat.
+
+**Harness, before the session (free, no judge):** two Lost Family plot-letter cases joined the harness (Wyrmfold's
+`Taken`, Wren's Hollow's `Letter`). The plot-letter run in M4 covers them too.
+
+| # | Do | Pass when |
+| --- | --- | --- |
+| 1 | **Lost Family: force seed**, then **Show plots**. | A `lostfamily-N` plot with the colonist as protagonist, and facts: `kinName`, `relation` (e.g. "mother"), `kinFaction`. |
+| 2 | **Plot: advance beat**. | **a letter from <kin>**, warm, naming the kin's faction. With the model on: `(Model, plot-letter/v3)`. |
+| 3 | **Plot: advance beat** until **<kin> taken**. | A hostile faction is named as captor, and the news log has `<captor> took captives from <kin's faction>`. |
+| 4 | **Plot: advance beat**. Accept the Rescue quest, go to the camp, clear the guards, and have a colonist offer help. | The kin joins the colony. Then **<kin> is home**, and the protagonist gains **family reunited** (+12). The plot ends `reunited`. |
+| 5 | Reload, and ignore the Rescue quest instead. | After it expires: **no word of <kin>**, and **family lost** (−8). The plot ends `lost`. |
+| 6 | Reload. Kill the protagonist (**Plot: kill protagonist (other)** works on the oldest plot, so seed Lost Family first) before the rescue. | A handoff to the heir: `<kin>, <heir>'s <relation>, is still held by <captor>`. **Show plots** shows the relation retold from the heir's side. |

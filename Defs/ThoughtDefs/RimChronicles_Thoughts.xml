@@ -39,4 +39,30 @@
       </li>
     </stages>
   </ThoughtDef>
+  <ThoughtDef>
+    <defName>RimChronicles_FamilyReunited</defName>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <durationDays>30</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>family reunited</label>
+        <description>Family I thought I might never see again is here, safe, under the same roof.</description>
+        <baseMoodEffect>12</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>RimChronicles_FamilyLost</defName>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <durationDays>20</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>family lost</label>
+        <description>They were taken, and we didn't bring them back. I keep their letters.</description>
+        <baseMoodEffect>-8</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
 </Defs>

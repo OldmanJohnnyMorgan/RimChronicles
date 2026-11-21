@@ -79,6 +79,7 @@ public class PlotLetterTaskTests
     {
         Assert.Throws<ArgumentException>(() => PlotLetterTask.Template(Case("Dance"), "C"));
         Assert.Throws<ArgumentException>(() => PlotLetterTask.Template(Case("Sighting") with { Template = "Grief" }, "C"));
+        Assert.Throws<ArgumentException>(() => PlotLetterTask.Template(Case("Sighting") with { Template = "LostFamily" }, "C"));
     }
 
     [Fact]
@@ -100,8 +101,8 @@ public class PlotLetterTaskTests
     {
         var cases = Directory.GetFiles(Repo.Snapshots, "*.json").Select(SnapshotJson.Load).Where(s => s.PlotLetter is not null).ToList();
 
-        Assert.Equal(4, cases.Count);
-        Assert.Equal(["Choice", "Ending:KilledByColony", "Raid", "Sighting"], cases.Select(s => s.PlotLetter!.Step).Order());
+        Assert.Equal(6, cases.Count);
+        Assert.Equal(["Choice", "Ending:KilledByColony", "Letter", "Raid", "Sighting", "Taken"], cases.Select(s => s.PlotLetter!.Step).Order());
         Assert.All(cases, s => Assert.NotEmpty(WorldSummarizer.ForPlotLetter(s.PlotLetter!, s.Colony.Name).Variables["plainLetter"]));
     }
 }

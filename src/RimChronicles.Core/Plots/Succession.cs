@@ -27,7 +27,7 @@ public static class Succession
     /// <param name="OldName">The lost protagonist's name.</param>
     /// <param name="OldPronoun">"he", "she" or "they".</param>
     /// <param name="OldToHeir">What the lost protagonist was to the heir ("husband"), or "".</param>
-    /// <param name="VictimToHeir">What the arc's original victim was to the heir, or "".</param>
+    /// <param name="VictimToHeir">What the arc's original victim (Nemesis) or relative (Lost Family) is to the heir, or "".</param>
     /// <param name="HeirPronoun">"he", "she" or "they".</param>
     public sealed record Context(string OldName, string OldPronoun, string OldToHeir, string VictimToHeir, string HeirPronoun);
 
@@ -61,6 +61,10 @@ public static class Succession
             {
                 plot.SetFact(NemesisPlot.Relation, c.VictimToHeir);
             }
+        }
+        else if (plot.Template == LostFamily.LostFamilyArc.TemplateId)
+        {
+            plot.SetFact(LostFamily.LostFamilyArc.Relation, c.VictimToHeir); // the relative, now as the heir's kin
         }
 
         var turn = template.InheritanceMutation.Length > 0 ? $"; {template.InheritanceMutation}" : "";

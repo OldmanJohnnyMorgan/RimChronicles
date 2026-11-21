@@ -16,4 +16,12 @@
     <minGapDays>4</minGapDays>
     <maxGapDays>8</maxGapDays>
   </RimChronicles.Game.Plots.PlotTemplateDef>
+  <RimChronicles.Game.Plots.PlotTemplateDef>
+    <defName>LostFamily</defName>
+    <label>lost family</label>
+    <description>A colonist has living kin in another faction. Letters come; then the kin is taken captive, and a rescue is possible.</description>
+    <minGapDays>4</minGapDays>
+    <maxGapDays>10</maxGapDays>
+    <inheritanceMutation>the search for the relative passes to the heir</inheritanceMutation>
+  </RimChronicles.Game.Plots.PlotTemplateDef>
 </Defs>

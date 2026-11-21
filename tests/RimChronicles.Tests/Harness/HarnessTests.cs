@@ -261,11 +261,11 @@ public sealed class RunnerTests : IDisposable
         var (cells, snapshots) = RunPlan.Build(Options());
 
         // 20 hand-written snapshots plus 3 real exports.
-        // stub-min: director x2 grammar modes (46) + news (23) + handoff (3) + plot letter (4);
-        // stub-nogrammar: 23 + 23 + 3 + 4.
+        // stub-min: director x2 grammar modes (46) + news (23) + handoff (3) + plot letter (6);
+        // stub-nogrammar: 23 + 23 + 3 + 6.
         Assert.Equal(23, snapshots.Count);
-        Assert.Equal(76, cells.Count(c => c.Model.Id == "stub-min"));
-        Assert.Equal(53, cells.Count(c => c.Model.Id == "stub-nogrammar"));
+        Assert.Equal(78, cells.Count(c => c.Model.Id == "stub-min"));
+        Assert.Equal(55, cells.Count(c => c.Model.Id == "stub-nogrammar"));
         Assert.DoesNotContain(cells, c => c.Model.Id == "stub-nogrammar" && c.Grammar == "on");
     }
 

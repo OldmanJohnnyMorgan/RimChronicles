@@ -74,7 +74,7 @@ public static class SuccessionDriver
         var colonists = PawnsFinder.AllMaps_FreeColonists.Where(p => p != lost && !p.Dead).ToList();
         var heir = Inheritance.PickHeir(lost is null ? [] : NemesisTracker.HeirCandidates(lost, colonists), Colony);
         var heirPawn = heir.Kind == ProtagonistKind.Colony ? null : component.TrackedOrFind(heir.Id) ?? colonists.FirstOrDefault(p => p.ThingID == heir.Id);
-        var victim = component.TrackedOrFind(plot.Fact(NemesisPlot.VictimId) ?? "");
+        var victim = component.TrackedOrFind(plot.Fact(NemesisPlot.VictimId) ?? plot.Fact(Core.Plots.LostFamily.LostFamilyArc.KinId) ?? "");
 
         string Label(Pawn? from, Pawn? of) => from is not null && of is not null && from != of
             ? from.GetMostImportantRelation(of)?.GetGenderSpecificLabel(of) ?? ""
@@ -105,8 +105,21 @@ public static class SuccessionDriver
     private static void Narrate(RimChroniclesGameComponent component, Plot plot, Pawn? lost, Pawn? heirPawn, HeirChoice heir,
         ProtagonistLoss loss, Succession.Context context)
     {
-        var facts = NemesisLetters.Facts.From(plot, Colony);
-        var unfinished = $"{facts.Raider}, who {facts.Deed}, is still out there";
+        string unfinished;
+        string summary;
+        if (plot.Template == Core.Plots.LostFamily.LostFamilyArc.TemplateId)
+        {
+            var family = Core.Plots.LostFamily.LostFamilyLetters.Facts.From(plot, Colony);
+            unfinished = Core.Plots.LostFamily.LostFamilyLetters.Unfinished(family);
+            summary = $"{unfinished}.";
+        }
+        else
+        {
+            var facts = NemesisLetters.Facts.From(plot, Colony);
+            unfinished = $"{facts.Raider}, who {facts.Deed}, is still out there";
+            summary = $"{facts.Raider} {facts.Deed}.";
+        }
+
         var heirToLost = lost is not null && heirPawn is not null ? lost.GetMostImportantRelation(heirPawn)?.GetGenderSpecificLabel(heirPawn) ?? "" : "";
         if (heir.Kind == ProtagonistKind.Animal)
         {
@@ -140,7 +153,7 @@ public static class SuccessionDriver
                 DeadPawn = lost.ThingID,
                 Heir = heirPawn.ThingID,
                 Relation = heirToLost.Length > 0 ? heirToLost : "friend",
-                PlotSummary = $"{unfinished.Replace(", is still out there", "", StringComparison.Ordinal)}. {context.OldName} {Succession.HowLost(loss)}.",
+                PlotSummary = $"{summary} {context.OldName} {Succession.HowLost(loss)}.",
             },
         };
         PlotNarrator.Run(component, "the handoff scene", template, text => Deliver(text),
