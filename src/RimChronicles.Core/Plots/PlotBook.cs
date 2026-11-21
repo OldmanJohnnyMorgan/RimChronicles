@@ -34,6 +34,38 @@ public sealed class PlotBook : IArchivable
 
     public const int MaxDecisionsKept = 200;
 
+    /// <summary>Quests started for plots, oldest first. Finished links are kept a while for the log, then dropped.</summary>
+    public List<QuestLink> Quests = [];
+
+    /// <summary>Links a quest to a plot; its outcome will come back as the plot fact <see cref="QuestLink.FactKey"/>.</summary>
+    public QuestLink LinkQuest(Plot plot, int questId, string template, int today)
+    {
+        var link = new QuestLink { QuestId = questId, PlotId = plot.Id, Template = template, StartDay = today };
+        Quests.Add(link);
+        plot.SetFact(link.FactKey, "pending");
+        plot.Note(today, $"quest offered: {template}");
+        return link;
+    }
+
+    /// <summary>Records a quest's outcome on its plot (if the plot is still running) and makes the plot due, so the
+    /// director acts on it at the next daily check. Returns the plot, or null.</summary>
+    public Plot? QuestEnded(QuestLink link, string outcome, int today)
+    {
+        link.Outcome = outcome;
+        if (Active.FirstOrDefault(p => p.Id == link.PlotId) is not { } plot)
+        {
+            return null;
+        }
+
+        plot.SetFact(link.FactKey, outcome);
+        plot.NextBeatDay = Math.Min(plot.NextBeatDay, today);
+        plot.Note(today, $"quest {link.Template}: {outcome}");
+        return plot;
+    }
+
+    /// <summary>Drops finished links older than <paramref name="keepDays"/>.</summary>
+    public void PruneQuests(int today, int keepDays = 60) => Quests.RemoveAll(q => !q.Pending && today - q.StartDay > keepDays);
+
     public void Record(DirectorDecision decision)
     {
         Decisions.Add(decision);
@@ -162,6 +194,7 @@ public sealed class PlotBook : IArchivable
         archive.Value(ref LastBeatDay, "lastBeatDay", -1);
         archive.Value(ref NextId, "nextId", 1);
         archive.DeepList(ref Decisions, "decisions");
+        archive.DeepList(ref Quests, "quests");
         Active.RemoveAll(p => string.IsNullOrEmpty(p.Id));
         NextId = Math.Max(NextId, 1);
     }

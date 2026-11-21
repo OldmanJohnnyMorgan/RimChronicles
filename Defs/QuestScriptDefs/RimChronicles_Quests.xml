@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- Rim Chronicles quests are started by plots only: randomlySelectable is false and rootSelectionWeight stays 0, so
+       the storyteller never picks them on its own. -->
+  <QuestScriptDef>
+    <defName>RimChronicles_Test</defName>
+    <randomlySelectable>false</randomlySelectable>
+    <autoAccept>false</autoAccept>
+    <expireDaysRange>1~1</expireDaysRange>
+    <defaultChallengeRating>1</defaultChallengeRating>
+    <root Class="RimChronicles.Game.Quests.QuestNode_Root_ChroniclesTest" />
+  </QuestScriptDef>
+</Defs>
