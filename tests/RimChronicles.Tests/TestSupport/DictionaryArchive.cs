@@ -55,4 +55,32 @@ public sealed class DictionaryArchive(ArchiveMode mode, Dictionary<string, objec
                 break;
         }
     }
+
+    public void DeepList<T>(ref List<T> list, string label) where T : class, IArchivable, new()
+    {
+        switch (Mode)
+        {
+            case ArchiveMode.Saving:
+                Data[label] = (list ?? []).Where(x => x is not null).Select(item =>
+                {
+                    var child = new DictionaryArchive(ArchiveMode.Saving);
+                    item.Expose(child);
+                    return child.Data;
+                }).ToList();
+                break;
+            case ArchiveMode.Loading:
+                list = [];
+                if (Data.TryGetValue(label, out var stored) && stored is List<Dictionary<string, object?>> items)
+                {
+                    foreach (var d in items)
+                    {
+                        var item = new T();
+                        item.Expose(new DictionaryArchive(ArchiveMode.Loading, d));
+                        list.Add(item);
+                    }
+                }
+
+                break;
+        }
+    }
 }

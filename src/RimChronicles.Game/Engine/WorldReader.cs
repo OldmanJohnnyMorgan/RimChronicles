@@ -15,6 +15,7 @@ public sealed class WorldReader : IWorldReader
     private const int MaxTales = 15;
     private const int TaleWindowDays = 60;
     private const int MaxRecentEvents = 10;
+    private const int MaxNewsDays = 15;
 
     public WorldSnapshot Read()
     {
@@ -41,6 +42,7 @@ public sealed class WorldReader : IWorldReader
             Tales = ReadTales(day),
             Factions = ReadFactions(),
             RecentEvents = ReadRecentEvents(),
+            PublicEvents = RimChroniclesGameComponent.Current?.News.Since(day - MaxNewsDays).Select(e => e.Text).ToList() ?? [],
         };
     }
 

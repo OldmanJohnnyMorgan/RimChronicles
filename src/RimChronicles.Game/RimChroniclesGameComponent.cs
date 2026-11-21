@@ -1,4 +1,5 @@
 using RimChronicles.Core.Engine;
+using RimChronicles.Core.News;
 using RimChronicles.Core.Spike;
 using RimChronicles.Game.Engine;
 using Verse;
@@ -16,6 +17,7 @@ public sealed class RimChroniclesGameComponent : GameComponent
     private readonly CancellationTokenSource _cancel = new();
 
     private SpikeState _spike = new();
+    private NewsLog _news = new();
 
     public RimChroniclesGameComponent(Verse.Game game)
     {
@@ -31,6 +33,9 @@ public sealed class RimChroniclesGameComponent : GameComponent
 
     public SpikeState Spike => _spike;
 
+    /// <summary>Public world news collected during play (Stage 2 M2).</summary>
+    public NewsLog News => _news;
+
     // Update runs every frame, paused or not, so replies arrive while the game is paused too.
     public override void GameComponentUpdate() =>
         _queue.Drain(ex => Log.Error($"[Rim Chronicles] Main-thread work failed: {ex}"));
@@ -38,7 +43,9 @@ public sealed class RimChroniclesGameComponent : GameComponent
     public override void ExposeData()
     {
         ScribeArchive.Instance.Deep(ref _spike, "spike");
+        ScribeArchive.Instance.Deep(ref _news, "news");
         _spike ??= new SpikeState();
+        _news ??= new NewsLog();
     }
 
     /// <summary>Called by the daily patch once per in-game day (spike test 2).</summary>
