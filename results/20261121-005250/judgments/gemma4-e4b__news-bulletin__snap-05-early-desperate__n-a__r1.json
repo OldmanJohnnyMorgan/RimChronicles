@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Gorse Clans remain predictably entrenched in their territories\u0022,\u0022reason\u0022:\u0022The briefing reports no Gorse Clans activity or posture.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It mostly restates news from the earlier bulletins (cold snap, three raids, shared patrols) and falls under 80 words. Its understatement is stiff and bureaucratic (\\\u0022quite detrimental\\\u0022) rather than sharp.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.75033,
+      "inputTokens": 1961,
+      "outputTokens": 461
+    }
+  ]
+}

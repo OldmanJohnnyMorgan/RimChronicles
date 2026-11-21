@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the Ferrow Mutual continues to debate the logistics of shared patrols\u0022,\u0022reason\u0022:\u0022Not in the briefing; it extends an earlier bulletin\u0027s joke into a new, ongoing event.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It copies the briefing\u0027s section labels (\\\u0022News since your last bulletin:\\\u0022, \\\u0022Already reported:\\\u0022) into the text and gives old news nearly as much space as the one new item, so it reads like notes rather than a bulletin. The voice is flat, the bulletin falls short of 80 words, and the patrol debate is an unsupported detail.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.9237679,
+      "inputTokens": 2202,
+      "outputTokens": 435
+    }
+  ]
+}

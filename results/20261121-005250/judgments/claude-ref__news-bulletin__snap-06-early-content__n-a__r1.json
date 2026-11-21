@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-06-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The voice is dry and consistent and builds a bulletin from a briefing with no new news, without inventing anything. The items are thin, though, and lean on follow-ups to the shuttles and harvest stories the previous bulletin already covered.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.5825045,
+      "inputTokens": 2027,
+      "outputTokens": 446
+    }
+  ]
+}

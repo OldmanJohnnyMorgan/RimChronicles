@@ -1,0 +1,1136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eval run 20261121-005250</title>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #898781;
+  --grid: #e1e0d9; --axis: #c3c2b7; --border: rgba(11,11,11,0.10);
+  --series: #2a78d6; --pass: #006300; --fail: #d03b3b;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --muted: #898781;
+    --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,0.10);
+    --series: #3987e5; --pass: #0ca30c; --fail: #e05555;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink); font: 14px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 1100px; margin: 0 auto; padding: 24px 16px 64px; }
+h1 { font-size: 22px; margin: 0 0 4px; }
+h2 { font-size: 18px; margin: 32px 0 8px; }
+h3 { font-size: 15px; margin: 20px 0 8px; }
+p { max-width: 75ch; }
+.meta { color: var(--ink-2); margin: 4px 0; }
+.note { color: var(--ink-2); border-left: 3px solid var(--axis); padding-left: 10px; }
+.muted { color: var(--muted); }
+code { font: 12px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.scroll { overflow-x: auto; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; }
+table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+th, td { padding: 6px 10px; text-align: left; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+thead th { color: var(--ink-2); font-weight: 600; font-size: 12px; }
+tbody th { font-weight: 600; }
+tbody tr:last-child > * { border-bottom: none; }
+.num { text-align: right; }
+.icon { font-weight: 700; }
+.icon.pass { color: var(--pass); }
+.icon.fail { color: var(--fail); }
+figure { margin: 12px 0 0; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px; overflow-x: auto; }
+.chart { width: 100%; min-width: 520px; height: auto; display: block; }
+.chart text { fill: var(--ink-2); font-size: 12px; }
+.chart .chart-title { fill: var(--ink); font-weight: 600; font-size: 13px; }
+.chart .tick { fill: var(--muted); font-size: 11px; }
+.chart .grid { stroke: var(--grid); stroke-width: 1; }
+.chart .threshold { stroke: var(--ink-2); stroke-width: 1.5; stroke-dasharray: 4 4; }
+.chart .whisker { stroke: var(--series); stroke-width: 2; stroke-linecap: round; }
+.chart .dot { fill: var(--series); stroke: var(--surface); stroke-width: 2; }
+.chart .hit { fill: transparent; }
+.chart .row:hover .hit { fill: var(--grid); fill-opacity: 0.5; }
+details { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; padding: 8px 12px; }
+summary { cursor: pointer; font-weight: 600; }
+article { border-top: 1px solid var(--grid); padding: 8px 0; }
+pre { white-space: pre-wrap; font: 13px/1.5 system-ui, sans-serif; margin: 4px 0; }
+.judge { color: var(--ink-2); font-size: 13px; margin: 4px 0; }
+a { color: var(--series); }
+</style>
+</head>
+<body>
+<main>
+<header>
+<h1>Rim Chronicles model evaluation</h1>
+<p class="meta">Run <strong>20261121-005250</strong> · 196 outputs · 7 models · commit <code>4292d9cc</code> · prompts <code>director/v1</code>, <code>inheritance-handoff/v1</code>, <code>judge/v1</code>, <code>news-bulletin/v1</code></p>
+<p class="meta">Judged 70 prose outputs blind (judge/v1).</p>
+</header>
+<section>
+<h2>At a glance</h2>
+<p>Whether each model meets every pass bar that applies to it, per task. Failing bars are named; details follow below.</p>
+<div class="scroll"><table>
+<thead><tr><th>Model</th><th>Tier</th><th>Server</th><th>Quantization</th><th class="num">VRAM</th><th>Director decision</th><th>News bulletin</th><th>Inheritance handoff</th></tr></thead>
+<tbody>
+<tr><th scope="row">qwen3.5-2b</th><td>Minimum</td><td>ollama</td><td>Q8_0</td><td class="num">2.5 GB</td><td><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> Fails: JSON validity (grammar off), allowed choice (grammar off)</td><td><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> Fails: length, invented facts</td><td><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> Fails: invented facts</td></tr>
+<tr><th scope="row">gemma4-e2b</th><td>Minimum</td><td>ollama</td><td>Q4_K_M</td><td class="num">0.4 GB</td><td><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> Meets all bars</td><td><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> Fails: length, invented facts</td><td><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> Fails: invented facts</td></tr>
+<tr><th scope="row">qwen3.5-4b</th><td>Recommended</td><td>ollama</td><td>Q4_K_M</td><td class="num">3.4 GB</td><td><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> Meets all bars</td><td><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> Fails: invented facts, prose quality</td><td><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> Fails: invented facts, prose quality</td></tr>
+<tr><th scope="row">gemma4-e4b</th><td>Recommended</td><td>ollama</td><td>Q4_K_M</td><td class="num">0.5 GB</td><td><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> Meets all bars</td><td><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> Fails: length, invented facts, prose quality</td><td><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> Fails: invented facts, prose quality</td></tr>
+<tr><th scope="row">gemma4-12b</th><td>High</td><td>ollama</td><td>Q4_K_M</td><td class="num">1.5 GB</td><td><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> Meets all bars</td><td><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> Fails: length, invented facts</td><td><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> Fails: invented facts</td></tr>
+<tr><th scope="row">qwen3-14b</th><td>High</td><td>ollama</td><td>Q4_K_M</td><td class="num">10.5 GB</td><td><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> Meets all bars</td><td><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> Fails: length, invented facts</td><td><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> Fails: invented facts</td></tr>
+<tr><th scope="row">claude-ref</th><td>Reference</td><td>anthropic</td><td>–</td><td class="num">–</td><td><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> Meets all bars</td><td><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> Meets all bars</td><td><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> Fails: invented facts</td></tr>
+</tbody></table></div>
+</section>
+<section>
+<h2>Director decision</h2>
+<p>Pass bars: valid JSON 100% with grammar and 95% without; allowed choice 100%; median latency at most 10 s (Minimum, Recommended, High tiers). Rates use first answers only.</p>
+<div class="scroll"><table>
+<thead><tr><th>Model</th><th>Tier</th><th>Grammar</th><th class="num">Outputs</th><th class="num">Valid JSON</th><th class="num">Allowed choice</th><th class="num">Passed first try</th><th class="num">Fell back</th><th class="num">Median s</th><th class="num">p90 s</th><th class="num">Output tokens</th><th class="num">Reasoning tokens</th></tr></thead>
+<tbody>
+<tr><th scope="row">qwen3.5-2b</th><td>Minimum</td><td>on</td><td class="num">9</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num">100%</td><td class="num">0%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 0.6</td><td class="num">7.0</td><td class="num">59</td><td class="num">–</td></tr>
+<tr><th scope="row">qwen3.5-2b</th><td>Minimum</td><td>off</td><td class="num">9</td><td class="num"><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> 78%</td><td class="num"><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> 89%</td><td class="num">78%</td><td class="num">0%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 0.5</td><td class="num">0.7</td><td class="num">61</td><td class="num">–</td></tr>
+<tr><th scope="row">gemma4-e2b</th><td>Minimum</td><td>on</td><td class="num">9</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num">100%</td><td class="num">0%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 0.4</td><td class="num">8.7</td><td class="num">49</td><td class="num">–</td></tr>
+<tr><th scope="row">gemma4-e2b</th><td>Minimum</td><td>off</td><td class="num">9</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num">100%</td><td class="num">0%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 0.3</td><td class="num">0.4</td><td class="num">54</td><td class="num">–</td></tr>
+<tr><th scope="row">qwen3.5-4b</th><td>Recommended</td><td>on</td><td class="num">9</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num">100%</td><td class="num">0%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 0.6</td><td class="num">6.3</td><td class="num">40</td><td class="num">–</td></tr>
+<tr><th scope="row">qwen3.5-4b</th><td>Recommended</td><td>off</td><td class="num">9</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num">100%</td><td class="num">0%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 0.4</td><td class="num">0.6</td><td class="num">41</td><td class="num">–</td></tr>
+<tr><th scope="row">gemma4-e4b</th><td>Recommended</td><td>on</td><td class="num">9</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num">100%</td><td class="num">0%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 0.4</td><td class="num">10.2</td><td class="num">42</td><td class="num">–</td></tr>
+<tr><th scope="row">gemma4-e4b</th><td>Recommended</td><td>off</td><td class="num">9</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num">100%</td><td class="num">0%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 0.3</td><td class="num">0.4</td><td class="num">41</td><td class="num">–</td></tr>
+<tr><th scope="row">gemma4-12b</th><td>High</td><td>on</td><td class="num">9</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num">100%</td><td class="num">0%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 0.9</td><td class="num">10.5</td><td class="num">43</td><td class="num">–</td></tr>
+<tr><th scope="row">gemma4-12b</th><td>High</td><td>off</td><td class="num">9</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num">100%</td><td class="num">0%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 0.7</td><td class="num">0.9</td><td class="num">47</td><td class="num">–</td></tr>
+<tr><th scope="row">qwen3-14b</th><td>High</td><td>on</td><td class="num">9</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num">100%</td><td class="num">0%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 1.3</td><td class="num">10.0</td><td class="num">50</td><td class="num">–</td></tr>
+<tr><th scope="row">qwen3-14b</th><td>High</td><td>off</td><td class="num">9</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num">100%</td><td class="num">0%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 1.2</td><td class="num">1.6</td><td class="num">52</td><td class="num">–</td></tr>
+<tr><th scope="row">claude-ref</th><td>Reference</td><td>on</td><td class="num">9</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num">100%</td><td class="num">0%</td><td class="num">2.5</td><td class="num">4.2</td><td class="num">101</td><td class="num">–</td></tr>
+<tr><th scope="row">claude-ref</th><td>Reference</td><td>off</td><td class="num">9</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num">100%</td><td class="num">0%</td><td class="num">1.5</td><td class="num">3.5</td><td class="num">141</td><td class="num">–</td></tr>
+</tbody></table></div>
+<figure>
+<svg class="chart" viewBox="0 0 710 468" role="img" aria-label="Director decision latency: median (dot) and 90th percentile (line end), seconds">
+<text class="chart-title" x="0" y="16">Director decision latency: median (dot) and 90th percentile (line end), seconds</text>
+<line class="grid" x1="230" x2="230" y1="34" y2="438"/><text class="tick" x="230" y="456" text-anchor="middle">0</text>
+<line class="grid" x1="376.7" x2="376.7" y1="34" y2="438"/><text class="tick" x="376.7" y="456" text-anchor="middle">5</text>
+<line class="grid" x1="523.3" x2="523.3" y1="34" y2="438"/><text class="tick" x="523.3" y="456" text-anchor="middle">10</text>
+<line class="grid" x1="670" x2="670" y1="34" y2="438"/><text class="tick" x="670" y="456" text-anchor="middle">15</text>
+<line class="threshold" x1="523.3" x2="523.3" y1="30" y2="438"/><text class="tick" x="519.3" y="28" text-anchor="end">bar 10 s (local tiers)</text>
+<g class="row"><title>qwen3.5-2b &#183; grammar on: median 0.6 s, p90 7.0 s (9 outputs)</title><rect class="hit" x="0" y="40" width="710" height="28"/><text class="label" x="218" y="58" text-anchor="end">qwen3.5-2b &#183; grammar on</text><line class="whisker" x1="246.5" x2="436.4" y1="54" y2="54"/><circle class="dot" cx="246.5" cy="54" r="5"/></g>
+<g class="row"><title>qwen3.5-2b &#183; grammar off: median 0.5 s, p90 0.7 s (9 outputs)</title><rect class="hit" x="0" y="68" width="710" height="28"/><text class="label" x="218" y="86" text-anchor="end">qwen3.5-2b &#183; grammar off</text><line class="whisker" x1="243.2" x2="250.3" y1="82" y2="82"/><circle class="dot" cx="243.2" cy="82" r="5"/></g>
+<g class="row"><title>gemma4-e2b &#183; grammar on: median 0.4 s, p90 8.7 s (9 outputs)</title><rect class="hit" x="0" y="96" width="710" height="28"/><text class="label" x="218" y="114" text-anchor="end">gemma4-e2b &#183; grammar on</text><line class="whisker" x1="240.7" x2="486.5" y1="110" y2="110"/><circle class="dot" cx="240.7" cy="110" r="5"/></g>
+<g class="row"><title>gemma4-e2b &#183; grammar off: median 0.3 s, p90 0.4 s (9 outputs)</title><rect class="hit" x="0" y="124" width="710" height="28"/><text class="label" x="218" y="142" text-anchor="end">gemma4-e2b &#183; grammar off</text><line class="whisker" x1="239.6" x2="240.8" y1="138" y2="138"/><circle class="dot" cx="239.6" cy="138" r="5"/></g>
+<g class="row"><title>qwen3.5-4b &#183; grammar on: median 0.6 s, p90 6.3 s (9 outputs)</title><rect class="hit" x="0" y="152" width="710" height="28"/><text class="label" x="218" y="170" text-anchor="end">qwen3.5-4b &#183; grammar on</text><line class="whisker" x1="246.4" x2="413.4" y1="166" y2="166"/><circle class="dot" cx="246.4" cy="166" r="5"/></g>
+<g class="row"><title>qwen3.5-4b &#183; grammar off: median 0.4 s, p90 0.6 s (9 outputs)</title><rect class="hit" x="0" y="180" width="710" height="28"/><text class="label" x="218" y="198" text-anchor="end">qwen3.5-4b &#183; grammar off</text><line class="whisker" x1="241.9" x2="247.1" y1="194" y2="194"/><circle class="dot" cx="241.9" cy="194" r="5"/></g>
+<g class="row"><title>gemma4-e4b &#183; grammar on: median 0.4 s, p90 10.2 s (9 outputs)</title><rect class="hit" x="0" y="208" width="710" height="28"/><text class="label" x="218" y="226" text-anchor="end">gemma4-e4b &#183; grammar on</text><line class="whisker" x1="241.9" x2="530.1" y1="222" y2="222"/><circle class="dot" cx="241.9" cy="222" r="5"/></g>
+<g class="row"><title>gemma4-e4b &#183; grammar off: median 0.3 s, p90 0.4 s (9 outputs)</title><rect class="hit" x="0" y="236" width="710" height="28"/><text class="label" x="218" y="254" text-anchor="end">gemma4-e4b &#183; grammar off</text><line class="whisker" x1="240.2" x2="241.9" y1="250" y2="250"/><circle class="dot" cx="240.2" cy="250" r="5"/></g>
+<g class="row"><title>gemma4-12b &#183; grammar on: median 0.9 s, p90 10.5 s (9 outputs)</title><rect class="hit" x="0" y="264" width="710" height="28"/><text class="label" x="218" y="282" text-anchor="end">gemma4-12b &#183; grammar on</text><line class="whisker" x1="255.1" x2="537" y1="278" y2="278"/><circle class="dot" cx="255.1" cy="278" r="5"/></g>
+<g class="row"><title>gemma4-12b &#183; grammar off: median 0.7 s, p90 0.9 s (9 outputs)</title><rect class="hit" x="0" y="292" width="710" height="28"/><text class="label" x="218" y="310" text-anchor="end">gemma4-12b &#183; grammar off</text><line class="whisker" x1="249.2" x2="255.1" y1="306" y2="306"/><circle class="dot" cx="249.2" cy="306" r="5"/></g>
+<g class="row"><title>qwen3-14b &#183; grammar on: median 1.3 s, p90 10.0 s (9 outputs)</title><rect class="hit" x="0" y="320" width="710" height="28"/><text class="label" x="218" y="338" text-anchor="end">qwen3-14b &#183; grammar on</text><line class="whisker" x1="269.3" x2="523.2" y1="334" y2="334"/><circle class="dot" cx="269.3" cy="334" r="5"/></g>
+<g class="row"><title>qwen3-14b &#183; grammar off: median 1.2 s, p90 1.6 s (9 outputs)</title><rect class="hit" x="0" y="348" width="710" height="28"/><text class="label" x="218" y="366" text-anchor="end">qwen3-14b &#183; grammar off</text><line class="whisker" x1="264" x2="276.2" y1="362" y2="362"/><circle class="dot" cx="264" cy="362" r="5"/></g>
+<g class="row"><title>claude-ref &#183; grammar on: median 2.5 s, p90 4.2 s (9 outputs)</title><rect class="hit" x="0" y="376" width="710" height="28"/><text class="label" x="218" y="394" text-anchor="end">claude-ref &#183; grammar on</text><line class="whisker" x1="304.2" x2="352.6" y1="390" y2="390"/><circle class="dot" cx="304.2" cy="390" r="5"/></g>
+<g class="row"><title>claude-ref &#183; grammar off: median 1.5 s, p90 3.5 s (9 outputs)</title><rect class="hit" x="0" y="404" width="710" height="28"/><text class="label" x="218" y="422" text-anchor="end">claude-ref &#183; grammar off</text><line class="whisker" x1="272.6" x2="332.1" y1="418" y2="418"/><circle class="dot" cx="272.6" cy="418" r="5"/></g>
+</svg>
+</figure>
+</section>
+<section>
+<h2>News bulletin</h2>
+<p>Pass bars: length in range at least 90%; at most 1 invented fact per 10 outputs; overall quality at least 3.5 (Recommended tier); median latency at most 20 s (Minimum, Recommended, High tiers). Rates use first answers only.</p>
+<div class="scroll"><table>
+<thead><tr><th>Model</th><th>Tier</th><th class="num">Outputs</th><th class="num">Judged</th><th class="num">Length in range</th><th class="num">Invented facts / 10</th><th class="num">Voice</th><th class="num">Clarity</th><th class="num">Tone</th><th class="num">Overall</th><th class="num">Names grounded</th><th class="num">Passed first try</th><th class="num">Fell back</th><th class="num">Median s</th><th class="num">p90 s</th><th class="num">Output tokens</th><th class="num">Reasoning tokens</th></tr></thead>
+<tbody>
+<tr><th scope="row">qwen3.5-2b</th><td>Minimum</td><td class="num">9</td><td class="num">9</td><td class="num"><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> 56%</td><td class="num"><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> 60.0</td><td class="num">1.8</td><td class="num">2.4</td><td class="num">2.1</td><td class="num">1.0</td><td class="num">56%</td><td class="num">33%</td><td class="num">56%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 1.1</td><td class="num">1.9</td><td class="num">162</td><td class="num">–</td></tr>
+<tr><th scope="row">gemma4-e2b</th><td>Minimum</td><td class="num">9</td><td class="num">9</td><td class="num"><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> 33%</td><td class="num"><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> 8.9</td><td class="num">2.4</td><td class="num">3.6</td><td class="num">2.8</td><td class="num">2.0</td><td class="num">89%</td><td class="num">22%</td><td class="num">67%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 0.5</td><td class="num">0.7</td><td class="num">85</td><td class="num">–</td></tr>
+<tr><th scope="row">qwen3.5-4b</th><td>Recommended</td><td class="num">9</td><td class="num">9</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num"><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> 36.7</td><td class="num">2.6</td><td class="num">2.8</td><td class="num">2.7</td><td class="num"><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> 1.4</td><td class="num">67%</td><td class="num">67%</td><td class="num">11%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 1.4</td><td class="num">1.7</td><td class="num">134</td><td class="num">–</td></tr>
+<tr><th scope="row">gemma4-e4b</th><td>Recommended</td><td class="num">9</td><td class="num">9</td><td class="num"><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> 0%</td><td class="num"><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> 14.4</td><td class="num">2.6</td><td class="num">3.4</td><td class="num">2.9</td><td class="num"><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> 2.0</td><td class="num">89%</td><td class="num">0%</td><td class="num">11%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 0.8</td><td class="num">0.9</td><td class="num">86</td><td class="num">–</td></tr>
+<tr><th scope="row">gemma4-12b</th><td>High</td><td class="num">9</td><td class="num">9</td><td class="num"><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> 67%</td><td class="num"><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> 4.4</td><td class="num">2.9</td><td class="num">3.9</td><td class="num">3.1</td><td class="num">2.4</td><td class="num">78%</td><td class="num">44%</td><td class="num">22%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 1.9</td><td class="num">2.3</td><td class="num">113</td><td class="num">–</td></tr>
+<tr><th scope="row">qwen3-14b</th><td>High</td><td class="num">9</td><td class="num">9</td><td class="num"><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> 33%</td><td class="num"><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> 44.4</td><td class="num">2.3</td><td class="num">3.7</td><td class="num">2.9</td><td class="num">1.4</td><td class="num">89%</td><td class="num">33%</td><td class="num">11%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 2.3</td><td class="num">3.2</td><td class="num">100</td><td class="num">–</td></tr>
+<tr><th scope="row">claude-ref</th><td>Reference</td><td class="num">9</td><td class="num">9</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 0.0</td><td class="num">4.9</td><td class="num">4.2</td><td class="num">4.4</td><td class="num">4.0</td><td class="num">100%</td><td class="num">100%</td><td class="num">0%</td><td class="num">9.7</td><td class="num">11.2</td><td class="num">873</td><td class="num">–</td></tr>
+</tbody></table></div>
+<figure>
+<svg class="chart" viewBox="0 0 710 272" role="img" aria-label="News bulletin latency: median (dot) and 90th percentile (line end), seconds">
+<text class="chart-title" x="0" y="16">News bulletin latency: median (dot) and 90th percentile (line end), seconds</text>
+<line class="grid" x1="230" x2="230" y1="34" y2="242"/><text class="tick" x="230" y="260" text-anchor="middle">0</text>
+<line class="grid" x1="340" x2="340" y1="34" y2="242"/><text class="tick" x="340" y="260" text-anchor="middle">5</text>
+<line class="grid" x1="450" x2="450" y1="34" y2="242"/><text class="tick" x="450" y="260" text-anchor="middle">10</text>
+<line class="grid" x1="560" x2="560" y1="34" y2="242"/><text class="tick" x="560" y="260" text-anchor="middle">15</text>
+<line class="grid" x1="670" x2="670" y1="34" y2="242"/><text class="tick" x="670" y="260" text-anchor="middle">20</text>
+<line class="threshold" x1="670" x2="670" y1="30" y2="242"/><text class="tick" x="666" y="28" text-anchor="end">bar 20 s (local tiers)</text>
+<g class="row"><title>qwen3.5-2b: median 1.1 s, p90 1.9 s (9 outputs)</title><rect class="hit" x="0" y="40" width="710" height="28"/><text class="label" x="218" y="58" text-anchor="end">qwen3.5-2b</text><line class="whisker" x1="254" x2="271.7" y1="54" y2="54"/><circle class="dot" cx="254" cy="54" r="5"/></g>
+<g class="row"><title>gemma4-e2b: median 0.5 s, p90 0.7 s (9 outputs)</title><rect class="hit" x="0" y="68" width="710" height="28"/><text class="label" x="218" y="86" text-anchor="end">gemma4-e2b</text><line class="whisker" x1="241.3" x2="245.3" y1="82" y2="82"/><circle class="dot" cx="241.3" cy="82" r="5"/></g>
+<g class="row"><title>qwen3.5-4b: median 1.4 s, p90 1.7 s (9 outputs)</title><rect class="hit" x="0" y="96" width="710" height="28"/><text class="label" x="218" y="114" text-anchor="end">qwen3.5-4b</text><line class="whisker" x1="260.4" x2="266.7" y1="110" y2="110"/><circle class="dot" cx="260.4" cy="110" r="5"/></g>
+<g class="row"><title>gemma4-e4b: median 0.8 s, p90 0.9 s (9 outputs)</title><rect class="hit" x="0" y="124" width="710" height="28"/><text class="label" x="218" y="142" text-anchor="end">gemma4-e4b</text><line class="whisker" x1="247" x2="249.6" y1="138" y2="138"/><circle class="dot" cx="247" cy="138" r="5"/></g>
+<g class="row"><title>gemma4-12b: median 1.9 s, p90 2.3 s (9 outputs)</title><rect class="hit" x="0" y="152" width="710" height="28"/><text class="label" x="218" y="170" text-anchor="end">gemma4-12b</text><line class="whisker" x1="272.1" x2="280.6" y1="166" y2="166"/><circle class="dot" cx="272.1" cy="166" r="5"/></g>
+<g class="row"><title>qwen3-14b: median 2.3 s, p90 3.2 s (9 outputs)</title><rect class="hit" x="0" y="180" width="710" height="28"/><text class="label" x="218" y="198" text-anchor="end">qwen3-14b</text><line class="whisker" x1="281.3" x2="300.5" y1="194" y2="194"/><circle class="dot" cx="281.3" cy="194" r="5"/></g>
+<g class="row"><title>claude-ref: median 9.7 s, p90 11.2 s (9 outputs)</title><rect class="hit" x="0" y="208" width="710" height="28"/><text class="label" x="218" y="226" text-anchor="end">claude-ref</text><line class="whisker" x1="443.4" x2="477.3" y1="222" y2="222"/><circle class="dot" cx="443.4" cy="222" r="5"/></g>
+</svg>
+</figure>
+</section>
+<section>
+<h2>Inheritance handoff</h2>
+<p>Pass bars: length in range at least 90%; at most 1 invented fact per 10 outputs; overall quality at least 3.5 (Recommended tier). Rates use first answers only.</p>
+<div class="scroll"><table>
+<thead><tr><th>Model</th><th>Tier</th><th class="num">Outputs</th><th class="num">Judged</th><th class="num">Length in range</th><th class="num">Invented facts / 10</th><th class="num">Voice</th><th class="num">Clarity</th><th class="num">Tone</th><th class="num">Overall</th><th class="num">Names grounded</th><th class="num">Passed first try</th><th class="num">Fell back</th><th class="num">Median s</th><th class="num">p90 s</th><th class="num">Output tokens</th><th class="num">Reasoning tokens</th></tr></thead>
+<tbody>
+<tr><th scope="row">qwen3.5-2b</th><td>Minimum</td><td class="num">1</td><td class="num">1</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num"><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> 40.0</td><td class="num">2.0</td><td class="num">2.0</td><td class="num">2.0</td><td class="num">1.0</td><td class="num">100%</td><td class="num">100%</td><td class="num">0%</td><td class="num">1.0</td><td class="num">1.0</td><td class="num">137</td><td class="num">–</td></tr>
+<tr><th scope="row">gemma4-e2b</th><td>Minimum</td><td class="num">1</td><td class="num">1</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num"><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> 20.0</td><td class="num">3.0</td><td class="num">2.0</td><td class="num">3.0</td><td class="num">2.0</td><td class="num">100%</td><td class="num">100%</td><td class="num">0%</td><td class="num">0.7</td><td class="num">0.7</td><td class="num">113</td><td class="num">–</td></tr>
+<tr><th scope="row">qwen3.5-4b</th><td>Recommended</td><td class="num">1</td><td class="num">1</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num"><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> 40.0</td><td class="num">3.0</td><td class="num">3.0</td><td class="num">3.0</td><td class="num"><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> 2.0</td><td class="num">100%</td><td class="num">100%</td><td class="num">0%</td><td class="num">1.4</td><td class="num">1.4</td><td class="num">141</td><td class="num">–</td></tr>
+<tr><th scope="row">gemma4-e4b</th><td>Recommended</td><td class="num">1</td><td class="num">1</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num"><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> 20.0</td><td class="num">3.0</td><td class="num">2.0</td><td class="num">3.0</td><td class="num"><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> 2.0</td><td class="num">100%</td><td class="num">100%</td><td class="num">0%</td><td class="num">1.2</td><td class="num">1.2</td><td class="num">110</td><td class="num">–</td></tr>
+<tr><th scope="row">gemma4-12b</th><td>High</td><td class="num">1</td><td class="num">1</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num"><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> 10.0</td><td class="num">3.0</td><td class="num">4.0</td><td class="num">3.0</td><td class="num">3.0</td><td class="num">100%</td><td class="num">100%</td><td class="num">0%</td><td class="num">2.0</td><td class="num">2.0</td><td class="num">136</td><td class="num">–</td></tr>
+<tr><th scope="row">qwen3-14b</th><td>High</td><td class="num">1</td><td class="num">1</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num"><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> 40.0</td><td class="num">3.0</td><td class="num">3.0</td><td class="num">3.0</td><td class="num">2.0</td><td class="num">100%</td><td class="num">100%</td><td class="num">0%</td><td class="num">3.0</td><td class="num">3.0</td><td class="num">122</td><td class="num">–</td></tr>
+<tr><th scope="row">claude-ref</th><td>Reference</td><td class="num">1</td><td class="num">1</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num"><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> 10.0</td><td class="num">4.0</td><td class="num">3.0</td><td class="num">4.0</td><td class="num">3.0</td><td class="num">100%</td><td class="num">100%</td><td class="num">0%</td><td class="num">8.6</td><td class="num">8.6</td><td class="num">730</td><td class="num">–</td></tr>
+</tbody></table></div>
+<figure>
+<svg class="chart" viewBox="0 0 710 272" role="img" aria-label="Inheritance handoff latency: median (dot) and 90th percentile (line end), seconds">
+<text class="chart-title" x="0" y="16">Inheritance handoff latency: median (dot) and 90th percentile (line end), seconds</text>
+<line class="grid" x1="230" x2="230" y1="34" y2="242"/><text class="tick" x="230" y="260" text-anchor="middle">0</text>
+<line class="grid" x1="450" x2="450" y1="34" y2="242"/><text class="tick" x="450" y="260" text-anchor="middle">5</text>
+<line class="grid" x1="670" x2="670" y1="34" y2="242"/><text class="tick" x="670" y="260" text-anchor="middle">10</text>
+<g class="row"><title>qwen3.5-2b: median 1.0 s, p90 1.0 s (1 outputs)</title><rect class="hit" x="0" y="40" width="710" height="28"/><text class="label" x="218" y="58" text-anchor="end">qwen3.5-2b</text><line class="whisker" x1="275" x2="275" y1="54" y2="54"/><circle class="dot" cx="275" cy="54" r="5"/></g>
+<g class="row"><title>gemma4-e2b: median 0.7 s, p90 0.7 s (1 outputs)</title><rect class="hit" x="0" y="68" width="710" height="28"/><text class="label" x="218" y="86" text-anchor="end">gemma4-e2b</text><line class="whisker" x1="259.7" x2="259.7" y1="82" y2="82"/><circle class="dot" cx="259.7" cy="82" r="5"/></g>
+<g class="row"><title>qwen3.5-4b: median 1.4 s, p90 1.4 s (1 outputs)</title><rect class="hit" x="0" y="96" width="710" height="28"/><text class="label" x="218" y="114" text-anchor="end">qwen3.5-4b</text><line class="whisker" x1="293.5" x2="293.5" y1="110" y2="110"/><circle class="dot" cx="293.5" cy="110" r="5"/></g>
+<g class="row"><title>gemma4-e4b: median 1.2 s, p90 1.2 s (1 outputs)</title><rect class="hit" x="0" y="124" width="710" height="28"/><text class="label" x="218" y="142" text-anchor="end">gemma4-e4b</text><line class="whisker" x1="282.9" x2="282.9" y1="138" y2="138"/><circle class="dot" cx="282.9" cy="138" r="5"/></g>
+<g class="row"><title>gemma4-12b: median 2.0 s, p90 2.0 s (1 outputs)</title><rect class="hit" x="0" y="152" width="710" height="28"/><text class="label" x="218" y="170" text-anchor="end">gemma4-12b</text><line class="whisker" x1="317" x2="317" y1="166" y2="166"/><circle class="dot" cx="317" cy="166" r="5"/></g>
+<g class="row"><title>qwen3-14b: median 3.0 s, p90 3.0 s (1 outputs)</title><rect class="hit" x="0" y="180" width="710" height="28"/><text class="label" x="218" y="198" text-anchor="end">qwen3-14b</text><line class="whisker" x1="362.5" x2="362.5" y1="194" y2="194"/><circle class="dot" cx="362.5" cy="194" r="5"/></g>
+<g class="row"><title>claude-ref: median 8.6 s, p90 8.6 s (1 outputs)</title><rect class="hit" x="0" y="208" width="710" height="28"/><text class="label" x="218" y="226" text-anchor="end">claude-ref</text><line class="whisker" x1="606.6" x2="606.6" y1="222" y2="222"/><circle class="dot" cx="606.6" cy="222" r="5"/></g>
+</svg>
+</figure>
+</section>
+<section>
+<h2>Outputs</h2>
+<p>Every first answer, grouped by task and model. Open the raw file for the full request, retries and timings.</p>
+<h3>Director decision</h3>
+<details>
+<summary>qwen3.5-2b · 18 outputs</summary>
+<article><p class="meta"><a href="raw/qwen3.5-2b__director__snap-01-early-content__on__r1.json">snap-01-early-content</a> · repeat 1 · grammar on · Model · 7.0 s</p>
+<pre>{
+&quot;choice&quot;: &quot;Wait&quot;,
+&quot;reason&quot;: &quot;The colony&#39;s morale is already at its maximum of &#39;content&#39; with no active plots or conflicts, so there is no immediate crisis requiring a pause.&quot;
+}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-2b__director__snap-01-early-content__off__r1.json">snap-01-early-content</a> · repeat 1 · grammar off · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;With the colony founded by three survivors and only basic shelter walls completed, there are no immediate crises or urgent plot opportunities to act upon for the current day.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-2b__director__snap-02-early-content__on__r1.json">snap-02-early-content</a> · repeat 1 · grammar on · Model · 0.5 s</p>
+<pre>{
+&quot;choice&quot;: &quot;Wait&quot;,
+&quot;reason&quot;: &quot;The colony has established a stable economic foundation with 21,400 silver and the muffalo Barley is thriving after Day 9 of taming; no immediate plot triggers or conflicts exist that require interruption.&quot;
+}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-2b__director__snap-02-early-content__off__r1.json">snap-02-early-content</a> · repeat 1 · grammar off · ModelRetry · 0.7 s</p>
+<pre>{
+&quot;choice&quot;: &quot;Seed:PastCatchesUp:p3&quot;,
+&quot;reason&quot;: &quot;With a low mood, Bastian and Ilka can build on their existing rapport through a shared goal like building or farming. The harvest day 10 provides immediate resources for future colony expansion.&quot;,
+&quot;reason2&quot;: &quot;Since there are no active plots and the mood is already content, starting a new cooperative plot aligns with the group&#39;s established history.&quot;
+}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-2b__director__snap-03-early-strained__on__r1.json">snap-03-early-strained</a> · repeat 1 · grammar on · Model · 0.6 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:Rivalry:p1:p3&quot;, &quot;reason&quot;: &quot;Agnes is wounded and the colony&#39;s food supply is critically low; a Rivalry plot between the two main antagonists, Marek (who fought Dov recently) and Agnes (a key ally), will prevent further conflict while forcing both to focus on survival.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-2b__director__snap-03-early-strained__off__r1.json">snap-03-early-strained</a> · repeat 1 · grammar off · Model · 0.5 s</p>
+<pre>{&quot;choice&quot;:&quot;Seed:Rivalry:p1:p3&quot;,&quot;reason&quot;:&quot;Agnes is wounded and food stores are critically low after a recent raid, making immediate cooperation unlikely; the long-standing conflict between Marek and Dov over resources should be leveraged to secure the colony&#39;s defense against further raids.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-2b__director__snap-04-early-strained__on__r1.json">snap-04-early-strained</a> · repeat 1 · grammar on · Model · 0.6 s</p>
+<pre>{
+&quot;choice&quot;: &quot;Complication:VisitorRumour&quot;,
+&quot;reason&quot;: &quot;The colony&#39;s mood is already strained due to Teodor&#39;s prior crime, and the recent trade rumor about the dispatch adds tension without requiring immediate confrontation. This allows the narrative to progress as a developing story arc rather than halting or forcing an escalation immediately.&quot;
+}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-2b__director__snap-04-early-strained__off__r1.json">snap-04-early-strained</a> · repeat 1 · grammar off · Model · 0.4 s</p>
+<pre>{
+&quot;choice&quot;: &quot;Complication:VisitorRumour&quot;,
+&quot;reason&quot;: &quot;Teodor&#39;s act has severely damaged the colony&#39;s relationship with the Rim Dispatch, and a trader now hints they know this incident exists, necessitating an external party to investigate.&quot;
+}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-2b__director__snap-05-early-desperate__on__r1.json">snap-05-early-desperate</a> · repeat 1 · grammar on · Model · 0.5 s</p>
+<pre>{
+&quot;choice&quot;: &quot;Wait&quot;,
+&quot;reason&quot;: &quot;The colony is currently suffering a simultaneous crisis: Pell has gone berserk since day 44 while the last two days of food supplies remain, necessitating immediate stabilization before new crises arise.&quot;
+}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-2b__director__snap-05-early-desperate__off__r1.json">snap-05-early-desperate</a> · repeat 1 · grammar off · ModelRetry · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony faces an existential threat with two days of food left, a berserk patient, and external raiders nearby. Continuing would almost certainly result in starvation or death among the 3 residents.&quot;</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-2b__director__snap-06-early-content__on__r1.json">snap-06-early-content</a> · repeat 1 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony has a stable mood and no immediate plot is triggered by the recent alpacas or the new marriage. Waiting allows for observation of daily colony dynamics before assigning any narrative focus.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-2b__director__snap-06-early-content__off__r1.json">snap-06-early-content</a> · repeat 1 · grammar off · Model · 0.5 s</p>
+<pre>{
+&quot;choice&quot;: &quot;Seed:PastCatchesUp:p1&quot;,
+&quot;reason&quot;: &quot;The colony is stable with content moods, and the introduction of new members (Augustin) combined with an unusual event like alpacas passing through offers a natural opportunity for plot development.&quot;
+}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-2b__director__snap-07-mid-strained__on__r1.json">snap-07-mid-strained</a> · repeat 1 · grammar on · Model · 0.6 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:ImperialBounty&quot;, &quot;reason&quot;: &quot;Mara&#39;s mood is already strained and she has refused to leave Dorin&#39;s grave, increasing the risk of her going berserk. The Imperial Bounty plot offers a dramatic path to fulfill her vow by confronting Vex again immediately.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-2b__director__snap-07-mid-strained__off__r1.json">snap-07-mid-strained</a> · repeat 1 · grammar off · Model · 0.5 s</p>
+<pre>{
+&quot;choice&quot;: &quot;Complication:VexSighted&quot;,
+&quot;reason&quot;: &quot;Mara&#39;s desperate vow to find Dorin after his death makes her an obvious and high-priority target for Vex&#39;s Crew, who recently gained goodwill in the colony while the Empire has suffered a significant drop.&quot;
+}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-2b__director__snap-08-mid-content__on__r1.json">snap-08-mid-content</a> · repeat 1 · grammar on · Model · 0.6 s</p>
+<pre>{
+&quot;choice&quot;: &quot;Seed:Rivalry:p4:p2&quot;,
+&quot;reason&quot;: &quot;Halvard, as the leader with an &#39;Industrious&#39; trait, likely values stability and skilled workers (like Brannock) rather than competition; introducing a competitive plot now fits his leadership role while leaving room for growth.&quot;
+}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-2b__director__snap-08-mid-content__off__r1.json">snap-08-mid-content</a> · repeat 1 · grammar off · Model · 0.5 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:Rivalry:p4:p2&quot;, &quot;reason&quot;: &quot;The colony has reached a moderate size with established trade relations (Lantern Accord), but the Ninefingers Gang hostility and recent pirate raids suggest ongoing external threat needs attention, making potential conflict resolution or rival dynamics an active plot area.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-2b__director__snap-09-mid-desperate__on__r1.json">snap-09-mid-desperate</a> · repeat 1 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;With three colonists in bed and an active infection spreading, the colony requires immediate medical attention before deciding on future plot outcomes.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-2b__director__snap-09-mid-desperate__off__r1.json">snap-09-mid-desperate</a> · repeat 1 · grammar off · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony has active infection, three colonists are ill, and the mood is desperate. A major plot resolution would cause another crisis and violate safety guidelines. The story needs time to recover.&quot;}</pre>
+</article>
+</details>
+<details>
+<summary>gemma4-e2b · 18 outputs</summary>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-01-early-content__on__r1.json">snap-01-early-content</a> · repeat 1 · grammar on · Model · 8.7 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;There are no active plots and the colony is stable with good mood. It is best to pause and assess the situation before initiating new actions.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-01-early-content__off__r1.json">snap-01-early-content</a> · repeat 1 · grammar off · Model · 0.3 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Wait&quot;,
+&quot;reason&quot;: &quot;The colony is very new, having only survived the initial crash and established basic shelter. There are no immediate threats or tasks requiring action.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-02-early-content__on__r1.json">snap-02-early-content</a> · repeat 1 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:PastCatchesUp:p3&quot;, &quot;reason&quot;: &quot;Since there are no active plots and the colony is content, initiating a plot allows for further development. This plot will help with food production given the recent potato harvest.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-02-early-content__off__r1.json">snap-02-early-content</a> · repeat 1 · grammar off · Model · 0.4 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Seed:PastCatchesUp:p3&quot;, &quot;reason&quot;: &quot;The colony has recently had a first potato harvest, so capitalizing on that success seems like a natural next step. This plot will help the colony utilize their recent successful farming efforts.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-03-early-strained__on__r1.json">snap-03-early-strained</a> · repeat 1 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:Rivalry:p1:p3&quot;, &quot;reason&quot;: &quot;The colony&#39;s mood is strained due to conflict between Marek and Dov, so fostering rivalry between them might be a temporary distraction or attempt to channel that tension.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-03-early-strained__off__r1.json">snap-03-early-strained</a> · repeat 1 · grammar off · Model · 0.4 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Seed:Rivalry:p1:p3&quot;,
+&quot;reason&quot;: &quot;The colony has low food stores and strained morale, so introducing rivalry might increase internal conflict. This plot could test the strained relationships between the colonists.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-04-early-strained__on__r1.json">snap-04-early-strained</a> · repeat 1 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:VisitorRumour&quot;, &quot;reason&quot;: &quot;Given the strained mood and the recent lack of bulletins, a visitor rumor might stir up internal tension or external awareness. This allows for character interaction based on the current atmosphere.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-04-early-strained__off__r1.json">snap-04-early-strained</a> · repeat 1 · grammar off · Model · 0.3 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Complication:VisitorRumour&quot;,
+&quot;reason&quot;: &quot;The trader&#39;s comment suggests that outsiders are aware of the events involving Teodor, creating a situation ripe for rumors.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-05-early-desperate__on__r1.json">snap-05-early-desperate</a> · repeat 1 · grammar on · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is in a dire situation with only two days of food left, necessitating a pause to assess the immediate crisis.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-05-early-desperate__off__r1.json">snap-05-early-desperate</a> · repeat 1 · grammar off · Model · 0.2 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Wait&quot;,
+&quot;reason&quot;: &quot;The colony is in a dire situation with only two days of food left, so a pause is necessary to assess the crisis.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-06-early-content__on__r1.json">snap-06-early-content</a> · repeat 1 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:PastCatchesUp:p1&quot;, &quot;reason&quot;: &quot;Since there are no active plots, starting a new plot will move the colony forward. This plot is a good way to introduce new activities or events to the colony.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-06-early-content__off__r1.json">snap-06-early-content</a> · repeat 1 · grammar off · Model · 0.2 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Seed:PastCatchesUp:p1&quot;,
+&quot;reason&quot;: &quot;Since there are no active plots, seeding a plot is the most natural next step to introduce new activity.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-07-mid-strained__on__r1.json">snap-07-mid-strained</a> · repeat 1 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:VexSighted&quot;, &quot;reason&quot;: &quot;Mara is actively seeking Vex, so spotting him would be a natural progression for the active nemesis plot.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-07-mid-strained__off__r1.json">snap-07-mid-strained</a> · repeat 1 · grammar off · Model · 0.3 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Complication:VexSighted&quot;,
+&quot;reason&quot;: &quot;Mara is actively seeking Vex, so it makes sense that she might have sighted him. This advances the Nemesis plotline.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-08-mid-content__on__r1.json">snap-08-mid-content</a> · repeat 1 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:Rivalry:p4:p2&quot;, &quot;reason&quot;: &quot;Since the colony is currently content and has no active plots, introducing a rivalry plot could encourage interaction or conflict among the colonists. This might lead to new developments within Gladwater.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-08-mid-content__off__r1.json">snap-08-mid-content</a> · repeat 1 · grammar off · Model · 0.3 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Seed:Rivalry:p4:p2&quot;,
+&quot;reason&quot;: &quot;Since there are no active plots, initiating a rivalry plot will introduce new interpersonal dynamics to the colony. This can increase interaction and potentially boost mood or skill development.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-09-mid-desperate__on__r1.json">snap-09-mid-desperate</a> · repeat 1 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Resolution:InheritToKin:p3&quot;, &quot;reason&quot;: &quot;The colony is currently in a crisis due to an infection spreading, so focusing on inheriting resources from the kin might be a necessary step. This plot could provide needed resources amidst the current desperation.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-09-mid-desperate__off__r1.json">snap-09-mid-desperate</a> · repeat 1 · grammar off · Model · 0.3 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Resolution:InheritToSpouse:p2&quot;,
+&quot;reason&quot;: &quot;Given the recent death of Joska, inheriting his assets from Lene seems like a logical next step. This action can help the colony recover resources.&quot;
+}
+```</pre>
+</article>
+</details>
+<details>
+<summary>qwen3.5-4b · 18 outputs</summary>
+<article><p class="meta"><a href="raw/qwen3.5-4b__director__snap-01-early-content__on__r1.json">snap-01-early-content</a> · repeat 1 · grammar on · Model · 6.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is very new with only three people and no active plots or settlers to work with yet.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-4b__director__snap-01-early-content__off__r1.json">snap-01-early-content</a> · repeat 1 · grammar off · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is still in its early stages with no active plots, and waiting allows the colonists to stabilize before taking further action.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-4b__director__snap-02-early-content__on__r1.json">snap-02-early-content</a> · repeat 1 · grammar on · Model · 0.5 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony has no active plots and is currently stable with positive mood, making a pause the most natural progression.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-4b__director__snap-02-early-content__off__r1.json">snap-02-early-content</a> · repeat 1 · grammar off · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is in a stable state with no active plots or immediate crises, suggesting a natural pause before new objectives are introduced.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-4b__director__snap-03-early-strained__on__r1.json">snap-03-early-strained</a> · repeat 1 · grammar on · Model · 0.7 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:Rivalry:p1:p3&quot;, &quot;reason&quot;: &quot;The colony needs new conflict, and Marek&#39;s (p1) history of fighting with Dov (p3) provides a natural starting point for drama given the strained mood.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-4b__director__snap-03-early-strained__off__r1.json">snap-03-early-strained</a> · repeat 1 · grammar off · Model · 0.5 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:Rivalry:p1:p3&quot;, &quot;reason&quot;: &quot;Marek and Dov have already fought twice recently, and their history suggests a need for more conflict given the strained mood.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-4b__director__snap-04-early-strained__on__r1.json">snap-04-early-strained</a> · repeat 1 · grammar on · Model · 0.6 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony&#39;s mood is already strained, and there is no immediate threat or plot trigger to force a decision now that the trader&#39;s rumor has been received.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-4b__director__snap-04-early-strained__off__r1.json">snap-04-early-strained</a> · repeat 1 · grammar off · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony&#39;s mood is already strained and there are no recent positive events to counteract the negative fallout from Teodor killing a reporter.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-4b__director__snap-05-early-desperate__on__r1.json">snap-05-early-desperate</a> · repeat 1 · grammar on · Model · 0.5 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony has only two days of food remaining and is in a state of desperation due to the cold snap destroying crops.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-4b__director__snap-05-early-desperate__off__r1.json">snap-05-early-desperate</a> · repeat 1 · grammar off · Model · 0.4 s</p>
+<pre>{
+&quot;choice&quot;: &quot;Wait&quot;,
+&quot;reason&quot;: &quot;The colony faces a critical crisis with only two days of food remaining and Pell suffering from a festering wound.&quot;
+}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-4b__director__snap-06-early-content__on__r1.json">snap-06-early-content</a> · repeat 1 · grammar on · Model · 0.5 s</p>
+<pre>{
+&quot;choice&quot;: &quot;Wait&quot;,
+&quot;reason&quot;: &quot;The colony is stable with no active plots, and waiting allows for natural progression of events without altering the narrative.&quot;
+}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-4b__director__snap-06-early-content__off__r1.json">snap-06-early-content</a> · repeat 1 · grammar off · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony has no active plots and the mood is content, so pausing to observe the peaceful day 5 events is appropriate.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-4b__director__snap-07-mid-strained__on__r1.json">snap-07-mid-strained</a> · repeat 1 · grammar on · Model · 0.6 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:ImperialBounty&quot;, &quot;reason&quot;: &quot;Mara is under investigation by the Empire due to her husband&#39;s death, which aligns with the strained mood and recent events.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-4b__director__snap-07-mid-strained__off__r1.json">snap-07-mid-strained</a> · repeat 1 · grammar off · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is in a state of strained mood, and Mara&#39;s grief over her husband&#39;s death requires time to process.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-4b__director__snap-08-mid-content__on__r1.json">snap-08-mid-content</a> · repeat 1 · grammar on · Model · 0.6 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:Rivalry:p4:p2&quot;, &quot;reason&quot;: &quot;There are no active plots to pause, and introducing a rivalry between factions provides new conflict to drive the story forward.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-4b__director__snap-08-mid-content__off__r1.json">snap-08-mid-content</a> · repeat 1 · grammar off · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:Rivalry:p4:p2&quot;, &quot;reason&quot;: &quot;This plot seed naturally follows Yara&#39;s recent mood-raising concert by introducing new conflict to the colony.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-4b__director__snap-09-mid-desperate__on__r1.json">snap-09-mid-desperate</a> · repeat 1 · grammar on · Model · 0.5 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is in a desperate mood due to spreading infection, and there are three colonists currently ill in bed.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-4b__director__snap-09-mid-desperate__off__r1.json">snap-09-mid-desperate</a> · repeat 1 · grammar off · Model · 0.6 s</p>
+<pre>{&quot;choice&quot;: &quot;Resolution:InheritToSpouse:p2&quot;, &quot;reason&quot;: &quot;Joska is dead, leaving Lene the only living parent of Tamsin who should logically inherit his traits and legacy. Waiting does not progress the story regarding Joska&#39;s absence.&quot;}</pre>
+</article>
+</details>
+<details>
+<summary>gemma4-e4b · 18 outputs</summary>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-01-early-content__on__r1.json">snap-01-early-content</a> · repeat 1 · grammar on · Model · 10.2 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is stable, has finished its initial shelter walls, and there are no immediate crises or active plots to address.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-01-early-content__off__r1.json">snap-01-early-content</a> · repeat 1 · grammar off · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony has just completed basic shelter construction and is stable. No immediate crises or threats require action at this early stage.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-02-early-content__on__r1.json">snap-02-early-content</a> · repeat 1 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is stable with all colonists content and no immediate crises or active plots to address.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-02-early-content__off__r1.json">snap-02-early-content</a> · repeat 1 · grammar off · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;There are no active plots, and the colony is stable with positive mood. A waiting period allows time for normal colony progression.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-03-early-strained__on__r1.json">snap-03-early-strained</a> · repeat 1 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:Rivalry:p1:p3&quot;, &quot;reason&quot;: &quot;Marek and Dov have already fought twice over rations, suggesting ongoing tension that could escalate into a formal rivalry.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-03-early-strained__off__r1.json">snap-03-early-strained</a> · repeat 1 · grammar off · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:Rivalry:p1:p3&quot;, &quot;reason&quot;: &quot;Marek and Dov have a history of fighting over resources, making a rivalry plot between them a natural escalation.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-04-early-strained__on__r1.json">snap-04-early-strained</a> · repeat 1 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony&#39;s mood is already strained, and there has been no bulletin since day 30. Waiting allows time for the current tension surrounding Teodor&#39;s action to potentially subside or develop naturally.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-04-early-strained__off__r1.json">snap-04-early-strained</a> · repeat 1 · grammar off · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is currently in a strained mood, and there hasn&#39;t been a bulletin in several days, suggesting a pause is necessary before action. The active plot requires more information to progress effectively.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-05-early-desperate__on__r1.json">snap-05-early-desperate</a> · repeat 1 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is in a desperate state with low food reserves and low mood. Pausing to assess the situation is necessary before making rash decisions.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-05-early-desperate__off__r1.json">snap-05-early-desperate</a> · repeat 1 · grammar off · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is in a state of crisis with desperation, no food left, and recent negative events. A pause is necessary to assess the situation.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-06-early-content__on__r1.json">snap-06-early-content</a> · repeat 1 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is stable with content moods and no immediate threats or active plots to resolve.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-06-early-content__off__r1.json">snap-06-early-content</a> · repeat 1 · grammar off · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;No active plots or immediate crises require action. The colony is currently content and stable after the wedding and alpaca sighting.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-07-mid-strained__on__r1.json">snap-07-mid-strained</a> · repeat 1 · grammar on · Model · 0.6 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:VexSighted&quot;, &quot;reason&quot;: &quot;Mara has a strong motive for revenge against Vex, and this complication directly engages that plotline. It seems a natural escalation given her current emotional state and established hostility towards the raider.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-07-mid-strained__off__r1.json">snap-07-mid-strained</a> · repeat 1 · grammar off · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:VexSighted&quot;, &quot;reason&quot;: &quot;Mara&#39;s strong desire for revenge against Vex makes it natural for her to seek out signs of him. This advances the nemesis plot directly.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-08-mid-content__on__r1.json">snap-08-mid-content</a> · repeat 1 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is stable with no active plots, and all colonists are content. There is no immediate threat or strong impetus to start a new event.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-08-mid-content__off__r1.json">snap-08-mid-content</a> · repeat 1 · grammar off · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is in a stable state with no active plots or immediate crises, allowing for a period of recovery and growth.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-09-mid-desperate__on__r1.json">snap-09-mid-desperate</a> · repeat 1 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Resolution:InheritToSpouse:p2&quot;, &quot;reason&quot;: &quot;Joska, the protagonist of the Nemesis plot, is dead, so the inheritance should pass to his surviving spouse, Lene.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-09-mid-desperate__off__r1.json">snap-09-mid-desperate</a> · repeat 1 · grammar off · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is in a desperate state due to a spreading infection and three colonists being in bed. This requires a pause to manage the ongoing crisis.&quot;}</pre>
+</article>
+</details>
+<details>
+<summary>gemma4-12b · 18 outputs</summary>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-01-early-content__on__r1.json">snap-01-early-content</a> · repeat 1 · grammar on · Model · 10.5 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony has just finished their first shelter walls and has no active plots or immediate crises. It is early in the settlement&#39;s development.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-01-early-content__off__r1.json">snap-01-early-content</a> · repeat 1 · grammar off · Model · 0.5 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony has just finished its first shelter walls and there are no active plots or immediate crises.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-02-early-content__on__r1.json">snap-02-early-content</a> · repeat 1 · grammar on · Model · 0.6 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is currently stable and there are no active plots or immediate crises to resolve.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-02-early-content__off__r1.json">snap-02-early-content</a> · repeat 1 · grammar off · Model · 0.5 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is stable with a successful potato harvest and no active crises or ongoing plots.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-03-early-strained__on__r1.json">snap-03-early-strained</a> · repeat 1 · grammar on · Model · 0.9 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:Rivalry:p1:p3&quot;, &quot;reason&quot;: &quot;Marek and Dov have already engaged in multiple physical fights over stolen rations, making a formal rivalry a natural progression of their current conflict.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-03-early-strained__off__r1.json">snap-03-early-strained</a> · repeat 1 · grammar off · Model · 0.7 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Seed:Rivalry:p1:p3&quot;, &quot;reason&quot;: &quot;Marek and Dov have already fought twice over stolen rations, establishing a clear history of conflict. Escalating this rivalry fits their established interpersonal dynamic.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-04-early-strained__on__r1.json">snap-04-early-strained</a> · repeat 1 · grammar on · Model · 1.0 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:VisitorRumour&quot;, &quot;reason&quot;: &quot;The Rim Dispatch has stopped sending bulletins and a trader hinted they are aware of Teodor&#39;s actions. A rumor regarding the consequences of the shooting is the next logical step.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-04-early-strained__off__r1.json">snap-04-early-strained</a> · repeat 1 · grammar off · Model · 0.9 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Complication:VisitorRumour&quot;, &quot;reason&quot;: &quot;The Rim Dispatch is aware of Teodor&#39;s actions and has ceased communications. A rumor should spread regarding the missing reporter to escalate the tension.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-05-early-desperate__on__r1.json">snap-05-early-desperate</a> · repeat 1 · grammar on · Model · 0.9 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is in a severe crisis with only two days of food left and a desperate mood. A pause is needed to determine how they will survive the famine.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-05-early-desperate__off__r1.json">snap-05-early-desperate</a> · repeat 1 · grammar off · Model · 0.7 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is in a state of crisis with only two days of food remaining and a desperate mood. They need a moment to stabilize before the next plot begins.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-06-early-content__on__r1.json">snap-06-early-content</a> · repeat 1 · grammar on · Model · 0.7 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is currently stable with no active plots or immediate crises. They are in the early stages of settling and establishing their routine.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-06-early-content__off__r1.json">snap-06-early-content</a> · repeat 1 · grammar off · Model · 0.6 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is currently stable with no active plots or immediate crises. The settlers are focused on early-game survival and establishing their new home.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-07-mid-strained__on__r1.json">snap-07-mid-strained</a> · repeat 1 · grammar on · Model · 0.9 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:VexSighted&quot;, &quot;reason&quot;: &quot;Mara is actively hunting for Vex to avenge Dorin&#39;s death. Sighting him would directly advance the nemesis-01 plot.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-07-mid-strained__off__r1.json">snap-07-mid-strained</a> · repeat 1 · grammar off · Model · 0.8 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Complication:VexSighted&quot;, &quot;reason&quot;: &quot;Mara is actively hunting the raider who killed her husband and is part of the nemesis plot. Sighting him would directly advance her personal quest for revenge.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-08-mid-content__on__r1.json">snap-08-mid-content</a> · repeat 1 · grammar on · Model · 0.9 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is currently stable with no active plots or immediate crises. The mood is content and the last major event was a successful celebration.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-08-mid-content__off__r1.json">snap-08-mid-content</a> · repeat 1 · grammar off · Model · 0.6 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Seed:Rivalry:p4:p2&quot;, &quot;reason&quot;: &quot;The colony is currently stable with content moods and no active threats, making it a good time to introduce internal interpersonal tension.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-09-mid-desperate__on__r1.json">snap-09-mid-desperate</a> · repeat 1 · grammar on · Model · 1.1 s</p>
+<pre>{&quot;choice&quot;: &quot;Resolution:InheritToKin:p3&quot;, &quot;reason&quot;: &quot;Joska is dead and has a daughter, Tamsin, who would naturally inherit his legacy. This follows the nemesis plot progression regarding his death.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-09-mid-desperate__off__r1.json">snap-09-mid-desperate</a> · repeat 1 · grammar off · Model · 0.7 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Resolution:InheritToKin:p3&quot;, &quot;reason&quot;: &quot;Joska&#39;s nemesis plot is resolved, and as his daughter, Tamsin is the most natural recipient of the inheritance.&quot;}
+```</pre>
+</article>
+</details>
+<details>
+<summary>qwen3-14b · 18 outputs</summary>
+<article><p class="meta"><a href="raw/qwen3-14b__director__snap-01-early-content__on__r1.json">snap-01-early-content</a> · repeat 1 · grammar on · Model · 10.0 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is still in its early stages, with only the first shelter walls completed. It is prudent to assess the situation and ensure the colony&#39;s stability before pursuing further actions.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3-14b__director__snap-01-early-content__off__r1.json">snap-01-early-content</a> · repeat 1 · grammar off · Model · 0.9 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is still in its early stages, with only the first shelter walls completed. There is no immediate threat or urgent task requiring action.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3-14b__director__snap-02-early-content__on__r1.json">snap-02-early-content</a> · repeat 1 · grammar on · Model · 1.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:PastCatchesUp:p3&quot;, &quot;reason&quot;: &quot;The colony has a stable mood and sufficient resources to explore new storylines, making it a good time to initiate a plot that connects with past events.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3-14b__director__snap-02-early-content__off__r1.json">snap-02-early-content</a> · repeat 1 · grammar off · Model · 1.1 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:PastCatchesUp:p3&quot;, &quot;reason&quot;: &quot;The colony is stable and has completed its first potato harvest, making it a good time to explore past events that may influence the story.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3-14b__director__snap-03-early-strained__on__r1.json">snap-03-early-strained</a> · repeat 1 · grammar on · Model · 1.5 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:Rivalry:p1:p3&quot;, &quot;reason&quot;: &quot;Marek and Dov have already fought twice over stolen rations, indicating a deepening rivalry. Seeding this rivalry further could lead to more conflict and plot development.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3-14b__director__snap-03-early-strained__off__r1.json">snap-03-early-strained</a> · repeat 1 · grammar off · Model · 1.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:Rivalry:p1:p3&quot;, &quot;reason&quot;: &quot;Marek and Dov have already fought twice over stolen rations, indicating a deepening rivalry. Seeding this rivalry could lead to further conflict or resolution, impacting the colony&#39;s stability.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3-14b__director__snap-04-early-strained__on__r1.json">snap-04-early-strained</a> · repeat 1 · grammar on · Model · 1.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:VisitorRumour&quot;, &quot;reason&quot;: &quot;The colony is dealing with the aftermath of Teodor&#39;s action, and a visitor rumor could introduce new plot developments that may help resolve the silent press complication.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3-14b__director__snap-04-early-strained__off__r1.json">snap-04-early-strained</a> · repeat 1 · grammar off · Model · 1.1 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:VisitorRumour&quot;, &quot;reason&quot;: &quot;The colony is dealing with the aftermath of Teodor&#39;s actions, and a rumour about a visitor could introduce new tensions or opportunities for resolution.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3-14b__director__snap-05-early-desperate__on__r1.json">snap-05-early-desperate</a> · repeat 1 · grammar on · Model · 1.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is in a desperate mood with only two days of food left, and the cold snap has destroyed their crops, making it critical to pause and assess the situation before taking further action.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3-14b__director__snap-05-early-desperate__off__r1.json">snap-05-early-desperate</a> · repeat 1 · grammar off · Model · 1.2 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is in a desperate mood with only two days of food left, and the cold snap has already damaged their crops. A pause is needed to assess their situation and prevent further crisis.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3-14b__director__snap-06-early-content__on__r1.json">snap-06-early-content</a> · repeat 1 · grammar on · Model · 1.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:PastCatchesUp:p1&quot;, &quot;reason&quot;: &quot;The colony is stable and in a good mood, making it an ideal time to start a new plot that explores the characters&#39; pasts and relationships.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3-14b__director__snap-06-early-content__off__r1.json">snap-06-early-content</a> · repeat 1 · grammar off · Model · 1.6 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:PastCatchesUp:p1&quot;, &quot;reason&quot;: &quot;The colony has a botanist and a hunter, suggesting a plot involving past events related to their backgrounds. The recent marriage and the passing alpacas provide a natural segue for a story involving Tobiah&#39;s past as a botanist.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3-14b__director__snap-07-mid-strained__on__r1.json">snap-07-mid-strained</a> · repeat 1 · grammar on · Model · 1.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:VexSighted&quot;, &quot;reason&quot;: &quot;Mara&#39;s quest to find Vex, who killed her husband, is central to the plot. Spotting Vex would naturally advance her pursuit and create immediate tension.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3-14b__director__snap-07-mid-strained__off__r1.json">snap-07-mid-strained</a> · repeat 1 · grammar off · Model · 1.1 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:VexSighted&quot;, &quot;reason&quot;: &quot;Mara&#39;s quest to find Vex, who killed her husband, makes it likely she will encounter him again, creating a new complication.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3-14b__director__snap-08-mid-content__on__r1.json">snap-08-mid-content</a> · repeat 1 · grammar on · Model · 1.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:Rivalry:p4:p2&quot;, &quot;reason&quot;: &quot;The colony&#39;s positive mood and recent success in repelling a raid make it a natural time to introduce rivalry between characters, adding depth and potential conflict to the story.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3-14b__director__snap-08-mid-content__off__r1.json">snap-08-mid-content</a> · repeat 1 · grammar off · Model · 1.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:Rivalry:p4:p2&quot;, &quot;reason&quot;: &quot;The colony&#39;s recent success in repelling a raid and creating a masterwork sculpture may have drawn attention from rival factions, making it a natural next step to introduce a rivalry plot.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3-14b__director__snap-09-mid-desperate__on__r1.json">snap-09-mid-desperate</a> · repeat 1 · grammar on · Model · 1.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Resolution:InheritToSpouse:p2&quot;, &quot;reason&quot;: &quot;Lene is Joska&#39;s spouse, and it is natural for her to inherit his possessions and responsibilities in the colony.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/qwen3-14b__director__snap-09-mid-desperate__off__r1.json">snap-09-mid-desperate</a> · repeat 1 · grammar off · Model · 1.2 s</p>
+<pre>{&quot;choice&quot;: &quot;Resolution:InheritToSpouse:p2&quot;, &quot;reason&quot;: &quot;Lene is Joska&#39;s spouse and the most logical heir to his inheritance, especially given the family ties and her role as a caretaker for Tamsin.&quot;}</pre>
+</article>
+</details>
+<details>
+<summary>claude-ref · 18 outputs</summary>
+<article><p class="meta"><a href="raw/claude-ref__director__snap-01-early-content__on__r1.json">snap-01-early-content</a> · repeat 1 · grammar on · Model · 2.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The three crash survivors only just finished their first shelter walls on day 2. With no active plots, Wait is the only allowed option, and it gives the young colony a quiet stretch to settle in.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/claude-ref__director__snap-01-early-content__off__r1.json">snap-01-early-content</a> · repeat 1 · grammar off · Model · 1.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The three survivors crash-landed only yesterday and have just finished their first shelter walls. A pause lets them settle before any plot begins, and Wait is the only allowed option.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/claude-ref__director__snap-02-early-content__on__r1.json">snap-02-early-content</a> · repeat 1 · grammar on · Model · 4.2 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:PastCatchesUp:p3&quot;, &quot;reason&quot;: &quot;The colony is content with no active plots, and Ilka&#39;s flight from a cult in the south is a natural past that could catch up with her.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/claude-ref__director__snap-02-early-content__off__r1.json">snap-02-early-content</a> · repeat 1 · grammar off · Model · 2.0 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:PastCatchesUp:p3&quot;, &quot;reason&quot;: &quot;Ilka joined on day 4 after fleeing a cult in the south, a natural thread for her past to catch up with her. The colony is content after its first potato harvest, so there is room to start a plot.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/claude-ref__director__snap-03-early-strained__on__r1.json">snap-03-early-strained</a> · repeat 1 · grammar on · Model · 2.5 s</p>
+<pre>{&quot;choice&quot;:&quot;Seed:Rivalry:p1:p3&quot;,&quot;reason&quot;:&quot;Marek and Dov have already fought twice over stolen rations, so a formal rivalry follows naturally from their history. The raid has been repelled and there are no active plots, which leaves room for this thread.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/claude-ref__director__snap-03-early-strained__off__r1.json">snap-03-early-strained</a> · repeat 1 · grammar off · Model · 2.2 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:Rivalry:p1:p3&quot;, &quot;reason&quot;: &quot;Marek and Dov have already fought twice over stolen rations, so a rivalry between them follows naturally. With food down to six days, the tension has a ready source.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/claude-ref__director__snap-04-early-strained__on__r1.json">snap-04-early-strained</a> · repeat 1 · grammar on · Model · 2.8 s</p>
+<pre>{&quot;choice&quot;:&quot;Choice:ReparationsEnvoy&quot;,&quot;reason&quot;:&quot;A trader has already hinted that the Dispatch knows Teodor shot Tomas Quell, so the Complication beat has landed. A Dispatch envoy demanding reparations naturally forces the colony to choose how to answer for the killing.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/claude-ref__director__snap-04-early-strained__off__r1.json">snap-04-early-strained</a> · repeat 1 · grammar off · Model · 1.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:ReparationsEnvoy&quot;, &quot;reason&quot;: &quot;The Brine Coast trader&#39;s hint on day 36 shows the Dispatch already knows about Tomas Quell&#39;s killing, so another rumour would repeat that beat. A reparations envoy turns it into a real decision for Lowmere about Teodor&#39;s crime.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/claude-ref__director__snap-05-early-desperate__on__r1.json">snap-05-early-desperate</a> · repeat 1 · grammar on · Model · 2.0 s</p>
+<pre>{&quot;choice&quot;:&quot;Wait&quot;,&quot;reason&quot;:&quot;Thornreach is in crisis, with Corin dead, Pell&#39;s leg wound festering, the crops killed by the cold snap, and only two days of food left. The story needs a pause before anything new is added.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/claude-ref__director__snap-05-early-desperate__off__r1.json">snap-05-early-desperate</a> · repeat 1 · grammar off · Model · 1.0 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;Thornreach is in crisis, with two days of food left after the cold snap killed the crops and Pell suffering a festering leg wound. The colony needs a pause before any new plot begins.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/claude-ref__director__snap-06-early-content__on__r1.json">snap-06-early-content</a> · repeat 1 · grammar on · Model · 2.3 s</p>
+<pre>{&quot;choice&quot;:&quot;Seed:PastCatchesUp:p1&quot;,&quot;reason&quot;:&quot;The colony is calm and content with no active plots. Augustin is a noble exiled from an Imperial house, and The Sundered Throne exists nearby, which makes this a natural moment for his past to catch up with him.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/claude-ref__director__snap-06-early-content__off__r1.json">snap-06-early-content</a> · repeat 1 · grammar off · Model · 1.2 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:PastCatchesUp:p1&quot;, &quot;reason&quot;: &quot;The colony is content with no active plots, and Augustin&#39;s exile from an Imperial house is a natural past to catch up with him. The dormant Sundered Throne gives that thread somewhere to go.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/claude-ref__director__snap-07-mid-strained__on__r1.json">snap-07-mid-strained</a> · repeat 1 · grammar on · Model · 1.7 s</p>
+<pre>{&quot;choice&quot;:&quot;Complication:VexSighted&quot;,&quot;reason&quot;:&quot;Mara swore to find Vex after he killed Dorin on day 398, so a sighting of Vex follows naturally from the Hook. The colony is strained but not in crisis, and the Imperial bounty would pull focus away from her revenge.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/claude-ref__director__snap-07-mid-strained__off__r1.json">snap-07-mid-strained</a> · repeat 1 · grammar off · Model · 1.5 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:VexSighted&quot;, &quot;reason&quot;: &quot;Mara has sworn to find Vex, who killed Dorin on day 398 and escaped, so a sighting moves her revenge plot past its Hook. Her grief at Dorin&#39;s grave makes the news land hard.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/claude-ref__director__snap-08-mid-content__on__r1.json">snap-08-mid-content</a> · repeat 1 · grammar on · Model · 3.6 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:Rivalry:p4:p2&quot;, &quot;reason&quot;: &quot;Gladwater is stable and content, with no active plots, so it can afford some new tension. Yara&#39;s recent concert success gives a reasonable spark for friction with Esme.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/claude-ref__director__snap-08-mid-content__off__r1.json">snap-08-mid-content</a> · repeat 1 · grammar off · Model · 3.5 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:Rivalry:p4:p2&quot;, &quot;reason&quot;: &quot;Gladwater is content and stable with no active plots after repelling the day 112 raid, so it can absorb some interpersonal tension. With Yara&#39;s concert and Brannock&#39;s masterwork drawing recent attention, a rivalry is a natural low-stakes thread to start.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/claude-ref__director__snap-09-mid-desperate__on__r1.json">snap-09-mid-desperate</a> · repeat 1 · grammar on · Model · 2.7 s</p>
+<pre>{&quot;choice&quot;:&quot;Wait&quot;,&quot;reason&quot;:&quot;The colony is desperate, with an infection spreading and three colonists in bed, so the story needs a pause. The nemesis also died alongside Joska, so the feud has already resolved and there is no urgent thread to hand down.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/claude-ref__director__snap-09-mid-desperate__off__r1.json">snap-09-mid-desperate</a> · repeat 1 · grammar off · Model · 2.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;Cinder Rest is in crisis, with an infection spreading, three colonists in bed and mood desperate. Captain Rook Malley also died alongside Joska, so the story needs a pause before passing the grudge to Lene or Tamsin.&quot;}</pre>
+</article>
+</details>
+<h3>News bulletin</h3>
+<details>
+<summary>qwen3.5-2b · 9 outputs</summary>
+<article><p class="meta"><a href="raw/qwen3.5-2b__news-bulletin__snap-01-early-content__n-a__r1.json">snap-01-early-content</a> · repeat 1 · Template · 178 words · 1.5 s</p>
+<pre>Ashfall Crossing sees its third settlement in two days, but the Tarn Union&#39;s new trade post on the river road has already begun to attract three separate gangs of Red Gully Raiders. Local sources claim the pirate faction has been forced into a defensive stand at one of their three settlements. Meanwhile, The Seven Ash Clans remain elusive, though rumors persist among the tribe&#39;s four settlements about impending raids on their own encampment.
+
+A forecast indicates an imminent cold snap for the northern hills, yet local weather watchers remain divided. Some predict the air will bite hard within hours, while others argue the high pressure from the Tarn Union&#39;s trading outpost might simply delay it further. This tension suggests that as settlement numbers swell with every new trader brought to ash, so does the potential for conflict between outlanders and pirates.
+
+Despite the looming chill, no significant incidents have occurred inside Ashfall Crossing today. The colony continues its routine operations, though whispers of a coming storm remain loud enough to be heard on any hilltop within three miles.</pre>
+<p class="judge">Judge: overall 1, voice 2, clarity 2, tone 2. The bulletin invents raids, rumours and weather disputes, and makes claims about the colony&#39;s interior that the reporter cannot know. It also exceeds the length limit, and passages like the trading post&#39;s &#39;high pressure&#39; are muddled, with little of the dry, wry voice that was asked for.<br>Invented: Ashfall Crossing sees its third settlement in two days (No such event or number in the briefing) | has already begun to attract three separate gangs of Red Gully Raiders (Invented event and number) | the pirate faction has been forced into a defensive stand at one of their three settlements (Invented event) | rumors persist among the tribe&#39;s four settlements about impending raids on their own encampment (Invented rumours/event) | local weather watchers remain divided (Invented event beyond the forecast) | the high pressure from the Tarn Union&#39;s trading outpost might simply delay it (Invented, nonsensical causal claim) | no significant incidents have occurred inside Ashfall Crossing today. The colony continues its routine operations (Reporter has no knowledge of the colony&#39;s interior) | within three miles (Invented number)</p>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-2b__news-bulletin__snap-02-early-content__n-a__r1.json">snap-02-early-content</a> · repeat 1 · Model · 123 words · 1.1 s</p>
+<pre>Salt prices at Bramblewick hold steady as the Tannerfolk continue their brutal skirmishes with the Hollow Spire pirates over the contested flats north of town. A Glimmer Coast caravan has arrived at the eastern ford, but its escort numbers exceed cargo loads, signaling an economic threat to regional markets. In a minor victory for the local traders, the Company seized three small fishing vessels during a routine patrol along the western shore, netting roughly two thousand credits before escaping into open water. Meanwhile, rumors of sabotage persist among the Tannerfolk regarding the pirate supply lines, though no concrete damage has been confirmed by the Rim Dispatch.
+
+For now, everyone remains advised to keep their boots dry and their eyes on the road ahead.</pre>
+<p class="judge">Judge: overall 1, voice 2, clarity 3, tone 2. The bulletin invents a ship seizure, a sum of credits, sabotage rumours and locations, and it recycles the caravan-guards joke from an earlier bulletin. Its stiff wire-report phrasing (&#39;signaling an economic threat to regional markets&#39;) loses Ilse&#39;s dry voice, and &#39;credits&#39; is foreign to RimWorld.<br>Invented: Salt prices at Bramblewick hold steady (Briefing gives no salt price news at Bramblewick.) | north of town (Location of the salt flats is not given.) | its escort numbers exceed cargo loads (Repeats an earlier bulletin rather than the briefing, which only says the caravan reached the ford.) | the Company seized three small fishing vessels during a routine patrol along the western shore (Event, number and place are not in the briefing.) | roughly two thousand credits (Invented number and currency.) | rumors of sabotage persist among the Tannerfolk regarding the pirate supply lines (Event not in the briefing.)</p>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-2b__news-bulletin__snap-03-early-strained__n-a__r1.json">snap-03-early-strained</a> · repeat 1 · Model · 105 words · 1.0 s</p>
+<pre>Merrow traders claim their caravan pairs double their guard count; Ashen Hand pirates raid two homesteads south of Kettle Hollow.
+
+Merrow caravans travel in pairs. This move doubles local guards, though traders insist prices have risen with the extra presence.
+
+Kinn of the Long Grass have retreated to three settlements following grass fires in the southern colonies. Their defense posture remains ambiguous; reports suggest they are merely guarding their own borders, a precautionary measure against outsiders who rarely visit Kettle Hollow.
+
+Ashen Hand raids persist along Merrow road as two homesteads lose stores and one suffers roof damage despite earlier patrols near the trade hub.</pre>
+<p class="judge">Judge: overall 1, voice 1, clarity 2, tone 2. The bulletin invents several events and locations: a Kinn retreat, border reports, patrols and the raids being south of Kettle Hollow. It also recycles both earlier bulletins almost line for line, including the roof and the pairs-and-prices joke with its point muddled, and it opens with a headline-style summary in flat, voiceless prose.<br>Invented: south of Kettle Hollow (The briefing places the raids near the Merrow road and gives no direction relative to Kettle Hollow.) | have retreated to three settlements following grass fires (The briefing lists only a settlement count. A retreat caused by the fires is invented.) | reports suggest they are merely guarding their own borders (No such reports appear in the briefing.) | outsiders who rarely visit Kettle Hollow (The briefing says nothing about visitors to Kettle Hollow.) | despite earlier patrols near the trade hub (Neither the patrols nor the trade hub appear in the briefing.)</p>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-2b__news-bulletin__snap-04-early-strained__n-a__r1.json">snap-04-early-strained</a> · repeat 1 · ModelRetry · 151 words · 1.3 s</p>
+<pre>The colony&#39;s security protocol has officially terminated all reporting activity within its borders, citing internal instability. While we previously documented a Black Fen Raider ambush on the north landing ramp, this incident seems to be a localized nuisance compared to the systemic threats now facing us.
+
+Reports indicate that three factions remain active: the Brine Coast League holds sway over the eastern ports where shipping is increasingly disrupted by unauthorized smuggling routes; The Rim Dispatch maintains control of the western spires with its loyal crew; and the Black Fen Raiders operate along the south channel, a zone where our last known contact was a burning ferry.
+
+Tomas Quell&#39;s whereabouts are unknown, but the silence from the lowmere sector suggests we will have to rely on the remaining three settlements for intelligence before our departure dates run out. Stay tuned for updates, and please stop sending unnecessary inquiries to an empty inbox.</pre>
+<p class="judge">Judge: overall 1, voice 2, clarity 2, tone 2. It invents many specifics, including a prior bulletin that does not exist, and it distorts the briefing facts. The modern-office language (&#39;security protocol&#39;, &#39;empty inbox&#39;, &#39;stay tuned&#39;) breaks the frontier tone and the reporter&#39;s voice.<br>Invented: The colony&#39;s security protocol has officially terminated all reporting activity within its borders, citing internal instability (The briefing says only that the Dispatch stopped sending reporters. It gives no colony action and no stated reason.) | we previously documented a Black Fen Raider ambush on the north landing ramp (There is no such ambush in the briefing, and this is the first bulletin.) | the Brine Coast League holds sway over the eastern ports where shipping is increasingly disrupted by unauthorized smuggling routes (The eastern ports and the smuggling are not in the briefing.) | The Rim Dispatch maintains control of the western spires with its loyal crew (The western spires are not in the briefing.) | rely on the remaining three settlements for intelligence before our departure dates run out (The three settlements and the departure dates are unsupported.)</p>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-2b__news-bulletin__snap-05-early-desperate__n-a__r1.json">snap-05-early-desperate</a> · repeat 1 · Template · 78 words · 0.7 s</p>
+<pre>Crops withered across the northern basin under a new frost, while the Scythe Tooth pirates circled three settlements for a third night in a week. The Ferrow Mutual demanded that their patrol teams be stationed at the colony gate to protect against these maritime bandits who have begun demanding ransoms from local traders. Meanwhile, the Gorse Clans continue to barter pelts for grain with prices high enough to bankrupt any merchant willing to risk credit on this rim.</pre>
+<p class="judge">Judge: overall 1, voice 2, clarity 3, tone 3. Several fabrications stack up: the raid timing, the gate demand, the &#39;maritime&#39; pirates and the ransoms. The bulletin also largely recycles the crop, fur-trade and patrol news from earlier bulletins, with little of Odile&#39;s sardonic understatement.<br>Invented: for a third night in a week (The briefing gives no timing or frequency for the raids.) | The Ferrow Mutual demanded that their patrol teams be stationed at the colony gate (This demand is not in the briefing, and nothing public is known about Thornreach&#39;s gate.) | maritime bandits (Nothing in the briefing says Scythe Tooth is seafaring.) | have begun demanding ransoms from local traders (The briefing reports no ransoms.)</p>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-2b__news-bulletin__snap-06-early-content__n-a__r1.json">snap-06-early-content</a> · repeat 1 · Template · 219 words · 1.9 s</p>
+<pre>The Delta Harvest: Good news comes at a strange price for Saltreed. The Combine&#39;s delta crop is deemed the best in years, yet recent soil sampling by independent analysts suggests the quality was merely adequate due to irrigation runoff. In an attempt to prove the harvest legitimate, Combine representatives have been spotted driving across border lines toward the Sundered Throne perimeter. Authorities remain tight-lipped on whether this constitutes an act of peace or border invasion, though the Empire&#39;s last public statement indicated they would likely intervene if the Combine crossed their own outer walls.
+
+Meanwhile, Imperial shuttle sightings in the eastern mountains are baffling. Reports indicate three craft descended from orbit without any sign of landing gear deployment. Rumors swirl that a new trade route is being carved out by these silent travelers, but no official record has been released. Saltreed&#39;s only reliable news source warns that anyone attempting to verify these claims via radio will likely be seized by local smugglers.
+
+The Combine also claims increased shipping activity from the eastern delta, citing improved logistics for their remaining three settlements. However, this figure is inflated by double-counting ships currently docked at multiple harbors. The Ditch Kings remain silent regarding their operations, continuing their traditional raids in the unpatrolled north while ignoring the expanding imperial presence to the east.</pre>
+<p class="judge">Judge: overall 1, voice 2, clarity 3, tone 2. The bulletin is mostly fabrication: it invents analysts, border crossings, imperial statements, smugglers and wrong settlement counts. It also adds a heading, runs well past 150 words, repeats news from the last bulletin, and swaps Ilse&#39;s dry voice for generic newswire prose.<br>Invented: recent soil sampling by independent analysts suggests the quality was merely adequate due to irrigation runoff (Briefing has no soil sampling, analysts or irrigation runoff.) | Combine representatives have been spotted driving across border lines toward the Sundered Throne perimeter (Invented event; no Combine movement toward the Empire is in the briefing.) | the Empire&#39;s last public statement indicated they would likely intervene if the Combine crossed their own outer walls (The briefing says the Empire is quiet and gives no statement.) | three craft descended from orbit without any sign of landing gear deployment (Invented number of craft and invented details.) | Rumors swirl that a new trade route is being carved out (Invented rumour about a trade route.) | anyone attempting to verify these claims via radio will likely be seized by local smugglers (Invented smugglers and threat.) | increased shipping activity from the eastern delta, citing improved logistics for their remaining three settlements (Invented shipping claim; the Combine has 5 settlements, not three.) | this figure is inflated by double-counting ships currently docked at multiple harbors (Invented double-counting and harbors.) | continuing their traditional raids in the unpatrolled north (Invented raids and invented &#39;north&#39; location.) | the expanding imperial presence to the east (The briefing does not say the Empire is expanding.)</p>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-2b__news-bulletin__snap-07-mid-strained__n-a__r1.json">snap-07-mid-strained</a> · repeat 1 · Template · 118 words · 1.1 s</p>
+<pre>Hearthstead remains dry as bone regarding internal unrest, with the colony&#39;s council issuing no formal statements despite rumors circulating that the Elder Brother and his wife have been stripped of their titles. In a bid to curry favor, Imperial envoys recently arrived at two outlander towns, but negotiations stalled when one town refused to open its gates until receiving gifts in exchange for peace talks. Meanwhile, piracy continues to eat away at resources as Vex&#39;s crew successfully commandeered a merchant ship near the coast and are threatening to raid Iron Covenant supplies if not deterred by threats of naval action. The Shattered Empire appears less concerned with external conflicts, instead focusing on internal squabbles between their four settlements.</pre>
+<p class="judge">Judge: overall 1, voice 2, clarity 3, tone 2. Almost entirely fabricated: it invents colony politics the reporter cannot know, a pirate ship seizure, naval threats and imperial infighting, and it repeats the envoy news from the last bulletin. It also uses a flat wire-service voice instead of Ilse&#39;s dry wit, with no item breaks.<br>Invented: the colony&#39;s council issuing no formal statements (No council or internal colony news in briefing) | rumors circulating that the Elder Brother and his wife have been stripped of their titles (Invented people and event inside Hearthstead) | negotiations stalled when one town refused to open its gates until receiving gifts in exchange for peace talks (Invented outcome of envoy visits) | Vex&#39;s crew successfully commandeered a merchant ship near the coast (Invented event, ship and coast) | threatening to raid Iron Covenant supplies if not deterred by threats of naval action (Invented threat and naval action) | focusing on internal squabbles between their four settlements (Invented internal conflict; briefing says the Empire is making demands of neighbours)</p>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-2b__news-bulletin__snap-08-mid-content__n-a__r1.json">snap-08-mid-content</a> · repeat 1 · Model · 127 words · 1.2 s</p>
+<pre>Lantern Hill traders have snapped up Gladwater&#39;s jade sculptures for double the rim prices. Accusations of fraud are mounting against the Accord, and local merchants plan to boycott them next week unless demands are met immediately. Meanwhile, the Reedmother&#39;s Children report that the river is full and fish are foolish, describing it as their best season. Ninefingers Gang has been quiet since a failed raid on Gladwater this month; they say no one knows why they stopped.
+
+*   The Lantern Accord faces mounting fraud charges from traders at Lantern Hill who have bought Gladwater&#39;s jade sculptures.
+*   Gladwater jade sculpture demand is surging due to trade prices doubling for Lantern merchants.
+*   Reedmother&#39;s Children claim the river is full and fish are foolish, their best fishing season.</pre>
+<p class="judge">Judge: overall 1, voice 1, clarity 2, tone 2. The output invents fraud charges, a boycott and doubled prices, and it repeats earlier bulletins&#39; news almost word for word. It also breaks format by adding a bulleted summary, and it has none of Ilse&#39;s wry voice.<br>Invented: snapped up Gladwater&#39;s jade sculptures for double the rim prices (The briefing says only that the sculpture is talked about. It mentions no sale, no plural sculptures and no price.) | Accusations of fraud are mounting against the Accord (No fraud accusations appear in the briefing.) | local merchants plan to boycott them next week unless demands are met immediately (The briefing mentions no boycott or demands.) | a failed raid on Gladwater this month (The briefing does not say when the raid happened, and the raid comes only from an earlier bulletin.) | they say no one knows why they stopped (This statement from the gang is not in the briefing.) | Gladwater jade sculpture demand is surging due to trade prices doubling (Rising demand and doubled prices are unsupported.)</p>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-2b__news-bulletin__snap-09-mid-desperate__n-a__r1.json">snap-09-mid-desperate</a> · repeat 1 · Template · 94 words · 1.0 s</p>
+<pre>**Cinder Rest Dispatch, Day 288**
+
+*   **Malley&#39;s Lancers:** Piratical commander Rook Malley was found dead on his dock this quadrum, having been murdered by an unknown assailant at his own camp. Official word from the captain does not come close to the blood that has spilled around him.
+*   **Gray Wharf Syndicate:** Embertail Tribe war parties are mobilizing against syndicate outposts in the north sector. The skirmish over fishing rights is already turning into something far bolder than anticipated, though neither faction has captured a single net worth of fish since the last patrol.</pre>
+<p class="judge">Judge: overall 1, voice 2, clarity 2, tone 2. It breaks the format with a title, bullet headings and markdown, and invents several details (dock, unknown assailant, north sector mobilization). It also repeats the earlier fishing joke, and some sentences barely make sense (&#39;Official word from the captain does not come close to the blood&#39;, &#39;a single net worth of fish&#39;).<br>Invented: found dead on his dock (Briefing says only that he was killed at his camp; no dock is mentioned.) | murdered by an unknown assailant (The briefing does not say who killed him or whether the killer is unknown.) | war parties are mobilizing against syndicate outposts in the north sector (No mobilization, outposts or north sector appear in the briefing.) | since the last patrol (The briefing mentions no patrol.)</p>
+</article>
+</details>
+<details>
+<summary>gemma4-e2b · 9 outputs</summary>
+<article><p class="meta"><a href="raw/gemma4-e2b__news-bulletin__snap-01-early-content__n-a__r1.json">snap-01-early-content</a> · repeat 1 · Model · 80 words · 0.6 s</p>
+<pre>Ashfall Crossing remains, as usual, a study in muted existence. The Tarn Union has established a new trading post along the river road, a move that, as always, generates predictable friction amongst the local populace. Meanwhile, the Red Gully Raiders continue their usual sporadic activity in the surrounding sectors. A cold snap is currently forecast for the northern hills, a familiar nuisance that promises to test the resilience of any poorly constructed shelter. That is all the news for today.</pre>
+<p class="judge">Judge: overall 2, voice 3, clarity 4, tone 3. It invents raider activity and local friction that the briefing does not report, and closes with a sign-off the rules forbid. It also runs under 80 words, and phrases like &#39;as usual&#39; and &#39;as always&#39; imply a history this first bulletin does not have. The cynicism is there but generic, and &#39;sectors&#39; sounds more sci-fi than rim.<br>Invented: the Red Gully Raiders continue their usual sporadic activity in the surrounding sectors (Briefing lists the faction but reports no raider activity.) | generates predictable friction amongst the local populace (No reaction to the trading post is reported in the briefing.)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__news-bulletin__snap-02-early-content__n-a__r1.json">snap-02-early-content</a> · repeat 1 · Template · 61 words · 0.4 s</p>
+<pre>The Tannerfolk and the Hollow Spire Pirates are locked in a dispute over the salt flats. This friction continues, as usual. A Glimmer Coast Company caravan has reached the eastern ford, a predictable movement for the Company. Meanwhile, the skirmishes over the flats do little to alter the cost of salt. Stay inland if you wish to avoid the usual chaos.</pre>
+<p class="judge">Judge: overall 2, voice 2, clarity 4, tone 3. It stays within the briefing&#39;s facts, but at about 60 words it falls short of the 80-word minimum. It also recycles the previous bulletin&#39;s salt-price and &#39;stay inland&#39; lines, and the voice is flat (&#39;This friction continues, as usual&#39;) rather than Ilse&#39;s sharp wryness.</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__news-bulletin__snap-03-early-strained__n-a__r1.json">snap-03-early-strained</a> · repeat 1 · Template · 84 words · 0.7 s</p>
+<pre>Kettle Hollow remains quiet, as expected. The Ashen Hand have continued their usual business, reportedly raiding two homesteads near the Merrow road again. This leaves the freeholds with fewer moving targets, though I suspect their concerns remain the same.
+
+Meanwhile, reports from the south indicate the Kinn of the Long Grass are in motion. They are not seeking conflict, which is a peculiar trait for any tribe I’ve bothered to track. No other significant movements have been reported from the settlements in this vicinity.</pre>
+<p class="judge">Judge: overall 2, voice 3, clarity 2, tone 3. The bulletin rehashes both earlier bulletins: the Ashen Hand raids and the Kinn on the move. It turns the raid into a fresh event with &#39;again&#39; and drops the real update about caravans travelling in pairs. &#39;Fewer moving targets&#39; does not follow from anything, and the wry voice is thinner than in the earlier bulletins.<br>Invented: reportedly raiding two homesteads near the Merrow road again (&#39;Again&#39; presents a second raid; the briefing lists only the one raid already reported.) | Kettle Hollow remains quiet, as expected. (The briefing reports nothing about the state of the colony.)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__news-bulletin__snap-04-early-strained__n-a__r1.json">snap-04-early-strained</a> · repeat 1 · Template · 57 words · 0.4 s</p>
+<pre>Lowmere remains quiet, as expected. The Rim Dispatch has ceased dispatching reporters toward the settlement. Meanwhile, the Black Fen Raiders have managed to burn a ferry on the south channel, an irritating but predictable act of piracy. The Dispatch is currently looking for news concerning its own reporter, Tomas Quell. Nothing new emerges from Lowmere this cycle.</pre>
+<p class="judge">Judge: overall 2, voice 2, clarity 3, tone 3. The bulletin sticks to the briefing, but at about 60 words it falls short of the 80-word minimum. It also opens and closes on filler about Lowmere being quiet, while the two strongest stories, the burned ferry and the missing reporter, are buried mid-paragraph and the Quell item gets no dry framing at all.</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__news-bulletin__snap-05-early-desperate__n-a__r1.json">snap-05-early-desperate</a> · repeat 1 · Template · 51 words · 0.4 s</p>
+<pre>A cold snap has claimed the yield across the northern basin. Reports confirm crop loss throughout the region.
+
+Scythe Tooth raids have persisted, with documented incursions in three settlements. The Ferrow Mutual has formally requested a reallocation of patrol duties among its members. Questions regarding compensation for these efforts remain unaddressed.</pre>
+<p class="judge">Judge: overall 2, voice 2, clarity 4, tone 2. The bulletin restates the earlier bulletins&#39; news (crop loss, three raids, the Ferrow patrol request), which breaks the rule against repeating news. It also runs about 50 words against a minimum of 80, and swaps Odile&#39;s sardonic voice for flat office language such as &#39;reallocation of patrol duties&#39; and &#39;questions regarding compensation remain unaddressed.&#39;</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__news-bulletin__snap-06-early-content__n-a__r1.json">snap-06-early-content</a> · repeat 1 · Model · 82 words · 0.6 s</p>
+<pre>Saltreed remains quiet, as usual. The Calder Combine reports good harvests along the delta, a predictable occurrence that fills the local air with manufactured optimism. Imperial shuttles were observed over the eastern mountains; a sight that offers little context, and as always, no explanation. Ditch Kings remain rumored to be stirring near the southern routes, but no concrete movements have been confirmed. The Sundered Throne holds its ground, quietly observing the fringes. That’s all the news from this end of the rim.</pre>
+<p class="judge">Judge: overall 2, voice 3, clarity 4, tone 3. It repeats the harvest and shuttle news from the last bulletin and invents a Ditch Kings rumour on the southern routes. It also ends with a sign-off, which the rules forbid.<br>Invented: Ditch Kings remain rumored to be stirring near the southern routes (The briefing has no Ditch Kings activity and no southern routes.) | Saltreed remains quiet, as usual (The reporter knows nothing of the colony&#39;s state; nothing about Saltreed is public.)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__news-bulletin__snap-07-mid-strained__n-a__r1.json">snap-07-mid-strained</a> · repeat 1 · Template · 64 words · 0.6 s</p>
+<pre>Hearthstead reports little of consequence. The Iron Covenant continues its usual predicament, having sustained a loss of a supply wagon near the gorge to unnamed raiders. Meanwhile, the Shattered Empire is making its usual rounds, sending envoys to two outlander towns. Reports confirm these visits involved the exchange of scrolls, though the content remains firmly buried. Vex&#39;s Crew remains unmentioned in Hearthstead’s current tally.</pre>
+<p class="judge">Judge: overall 2, voice 2, clarity 3, tone 2. It mostly rehashes the two stories already covered in earlier bulletins, in flat, office-like phrasing (&#39;sustained a loss&#39;, &#39;current tally&#39;) with little of Ilse&#39;s wry edge. It is also under the 80-word minimum and ends on a confusing, meta-sounding line about Vex&#39;s Crew.<br>Invented: Reports confirm these visits involved the exchange of scrolls (The briefing mentions no scrolls or confirming reports. The scrolls were the narrator&#39;s own colour in the earlier bulletin, now restated as confirmed fact.) | Hearthstead reports little of consequence (The briefing gives no reports from Hearthstead, and the reporter is told she does not know what happens inside it.)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__news-bulletin__snap-08-mid-content__n-a__r1.json">snap-08-mid-content</a> · repeat 1 · ModelRetry · 65 words · 0.5 s</p>
+<pre>Lantern Accord is holding a trade fair at Lantern Hill. One can only hope the promised fair prices hold up against the usual haggling.
+
+The Reedmother&#39;s Children are reporting a good fishing season, a sentiment that seems to be the only consistent joy these folk manage.
+
+Gladwater’s jade sculpture is currently the main topic of discussion among the Lantern Hill traders. Nothing more, nothing less.</pre>
+<p class="judge">Judge: overall 2, voice 3, clarity 4, tone 3. It invents nothing, but it repeats the trade fair and fishing news from earlier bulletins, falls short of 80 words (about 65), and puts the one fresh item, the jade sculpture, last. The wry voice is thin, the opening drops &#39;The&#39;, and &#39;Nothing more, nothing less&#39; is filler.</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__news-bulletin__snap-09-mid-desperate__n-a__r1.json">snap-09-mid-desperate</a> · repeat 1 · Template · 61 words · 0.5 s</p>
+<pre>Rook Malley, captain of the Malley&#39;s Lancers, has been confirmed dead at his camp. This is the latest on the pirate faction.
+
+The Embertail Tribe has formally declared war upon the Gray Wharf Syndicate. This conflict concerns fishing rights, a predictable, if tiresome, matter for these groups.
+
+No further immediate developments have been reported from Cinder Rest or the surrounding areas.</pre>
+<p class="judge">Judge: overall 2, voice 2, clarity 4, tone 3. The bulletin is accurate but falls short of 80 words and largely repeats the war news from the previous bulletin, including the fishing-rights detail. The voice is flat and padded with filler (&#39;This is the latest on the pirate faction&#39;, &#39;No further immediate developments&#39;), with only a faint trace of Odile&#39;s sardonic edge.</p>
+</article>
+</details>
+<details>
+<summary>qwen3.5-4b · 9 outputs</summary>
+<article><p class="meta"><a href="raw/qwen3.5-4b__news-bulletin__snap-01-early-content__n-a__r1.json">snap-01-early-content</a> · repeat 1 · Model · 136 words · 1.7 s</p>
+<pre>The Tarn Union has finally dragged its feet into business, opening a new trading post on the river road. They claim it&#39;s &quot;vital commerce,&quot; but we assume they just want to hoard the salt and iron before the rest of us freeze. Meanwhile, the Seven Ash Clans are likely still arguing over who stole whose goat, a familiar dance in this territory that never changes its rhythm. And don&#39;t forget the Red Gully Raiders; three outposts scattered like dandelion seeds, waiting for someone to make a bold mistake or run out of water. A cold snap is forecast for the northern hills soon. We expect the ground to get stubborn again. It&#39;s going to be another long, freezing day at Ashfall Crossing until the Union can convince us why this post matters beyond their own pockets.</pre>
+<p class="judge">Judge: overall 2, voice 4, clarity 3, tone 3. The wry, cynical voice comes through, but the bulletin pads two real news items with filler about factions that did nothing. It also invents a quote and moves the cold snap to Ashfall Crossing. The items blur into one paragraph, and the weather news is buried.<br>Invented: They claim it&#39;s &quot;vital commerce,&quot; (A quoted statement from the Tarn Union that the briefing does not contain.) | It&#39;s going to be another long, freezing day at Ashfall Crossing (The cold snap is forecast for the northern hills, not for Ashfall Crossing.) | the Seven Ash Clans are likely still arguing over who stole whose goat (The briefing reports no Seven Ash Clans activity. Despite the hedge, this suggests an ongoing dispute.)</p>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-4b__news-bulletin__snap-02-early-content__n-a__r1.json">snap-02-early-content</a> · repeat 1 · Model · 124 words · 1.5 s</p>
+<pre>The Tannerfolk have seized another section of the salt flats from the Hollow Spire Pirates, though neither side claims victory since no one has checked the actual yields yet. A Glimmer Coast Company caravan reached the eastern ford, escorted by a contingent that looks as if it was hired specifically to intimidate local wildlife rather than protect cargo. Meanwhile, word travels faster than the wind through Bramblewick: the local militia is currently rehearsing drills in an empty field while the town hall remains shuttered. We await any announcements that might finally clarify what happens inside this settlement, but for now, the only things moving are clouds, saltshocks, and rumors of unpaid mercenaries. The Rim Dispatch reports these dry details from the edge of chaos.</pre>
+<p class="judge">Judge: overall 1, voice 2, clarity 3, tone 3. It invents a salt-flat seizure and reports on Bramblewick&#39;s internal affairs, which breaks the rule about what the reporter can know. The sign-off violates the format rules, and filler such as &#39;saltshocks&#39; and &#39;edge of chaos&#39; weakens the dry voice.<br>Invented: The Tannerfolk have seized another section of the salt flats from the Hollow Spire Pirates (Briefing says only that they are fighting; no territory seized.) | the local militia is currently rehearsing drills in an empty field (No Bramblewick events are public in the briefing.) | the town hall remains shuttered (Invented detail about the colony&#39;s interior.) | rumors of unpaid mercenaries (Not in the briefing.) | escorted by a contingent (Briefing says only that the caravan reached the ford, not that it was escorted.)</p>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-4b__news-bulletin__snap-03-early-strained__n-a__r1.json">snap-03-early-strained</a> · repeat 1 · ModelRetry · 109 words · 1.5 s</p>
+<pre>Day 23 at Kettle Hollow. The Ashen Hand expanded its footprint today, raiding two additional homesteads along the Merrow road. It has become a matter of survival; all Freehold caravans are now traveling in pairs to avoid becoming targets for their growing band. Meanwhile, the fires continue to scorch the southern reaches, pushing the Kinn toward new grazing grounds. They insist they seek only pasture, not conflict, though one rarely believes their own assurances when smoke rises from the north. The Rim grows hotter, both in temperature and in tension. If you are crossing these lines, pray your goods do not match those stolen in the last few weeks.</pre>
+<p class="judge">Judge: overall 1, voice 3, clarity 3, tone 3. It mostly rehashes both earlier bulletins and inflates them, adding invented extra raids, ongoing fires and northern smoke. The few wry touches are undercut by melodrama (&#39;a matter of survival&#39;) and a muddled sentence about assurances.<br>Invented: raiding two additional homesteads along the Merrow road (The briefing lists two raids, already reported; &#39;additional&#39; invents two more.) | The Ashen Hand expanded its footprint today (The briefing gives no timing for the raids; &#39;today&#39; is unsupported.) | the fires continue to scorch the southern reaches (Fires are not in the briefing; this carries forward and extends old bulletin news.) | pushing the Kinn toward new grazing grounds (The briefing does not mention Kinn movement or grazing grounds.) | when smoke rises from the north (No northern smoke or fire in the briefing; it also contradicts the southern fires.) | stolen in the last few weeks (The time span is invented.)</p>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-4b__news-bulletin__snap-04-early-strained__n-a__r1.json">snap-04-early-strained</a> · repeat 1 · ModelRetry · 100 words · 1.3 s</p>
+<pre>Tomas Quell went quiet last night. Rumor says he was heading to Lowmere, but I&#39;ve halted all dispatches to that settlement while this investigation unfolds. The silence from the colony is deafening, and my sources here have nothing to say. Meanwhile, down south, the Black Fen Raiders burned another ferry on the channel. Three settlements report smoke rising over the water; locals say they fled for their lives before the boats caught fire. We expect more trouble along the coast soon. Until I hear from Quell or get a word from Lowmere, stay tuned to the Rim Dispatch.
+
+*(148 words)*</pre>
+<p class="judge">Judge: overall 1, voice 2, clarity 3, tone 2. The bulletin piles invented detail onto the briefing: timing, a Lowmere link, three witnessing settlements and fleeing locals. It also breaks the format with a radio-style &#39;stay tuned&#39; sign-off and a word-count note. The voice is generic and melodramatic (&#39;deafening&#39; silence) rather than dry and wry.<br>Invented: went quiet last night (The briefing gives no timing for Quell&#39;s disappearance.) | Rumor says he was heading to Lowmere (The briefing never links Quell to Lowmere.) | I&#39;ve halted all dispatches to that settlement (The briefing says the Rim Dispatch stopped sending reporters; it does not say Ilse did.) | burned another ferry (Implies an earlier ferry burning that the briefing does not mention.) | Three settlements report smoke rising over the water (Invented reports; reuses the raiders&#39; settlement count as a number of witnesses.) | locals say they fled for their lives before the boats caught fire (Invented eyewitness event.)</p>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-4b__news-bulletin__snap-05-early-desperate__n-a__r1.json">snap-05-early-desperate</a> · repeat 1 · Model · 109 words · 1.4 s</p>
+<pre>The frost has taken the northern basin. Crops are dead, and furs move between Gorse clans and farmers at prices that would shame a banker in the capital. This is not a disaster; it is simply an early winter adjusting to its new schedule.
+
+Three more settlements have fallen to the Scythe Tooth. Their ships cut through the fog like knives on cheese. The Ferrow Mutual requests shared patrols, though their members have since asked who is footing the bill for these dangerous excursions. They are very good at avoiding questions about logistics. No bodies were found yet; we prefer not to discuss the aftermath until the dust settles.</pre>
+<p class="judge">Judge: overall 2, voice 3, clarity 3, tone 2. The bulletin mostly recycles the earlier bulletins&#39; news (fur-for-grain prices, the patrol funding quarrel) and inflates the raids into &#39;three more&#39; settlements that &#39;fell&#39;. The &#39;knives on cheese&#39; simile and the closing hedge undercut the precise, understated voice.<br>Invented: Three more settlements have fallen to the Scythe Tooth (Briefing reports raids at three settlements, not three additional ones, and not that any fell.) | Their ships cut through the fog (No ships or fog are mentioned in the briefing.) | No bodies were found yet (Unsupported claim about the raids&#39; aftermath.)</p>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-4b__news-bulletin__snap-06-early-content__n-a__r1.json">snap-06-early-content</a> · repeat 1 · Template · 119 words · 1.5 s</p>
+<pre>Aim at a new story for Saltreed&#39;s readers before burying the Combine&#39;s latest boast about delta harvests—their annual best, they claim—and the phantom fleet hovering the eastern mountains. Since I cannot enter the colony to see what happens inside its walls, I&#39;ll leave the truth to those with access and focus on what I have seen: the Imperials are back, and the pirates are waiting. Nothing more from the Sundered Throne&#39;s quiet walls today, just silence behind high gates while the Combine celebrates fields that may or may not be worth saving. The rim moves fast, but the dispatch is slow; here for a brief look before heading to the delta to check if those harvest reports hold water.</pre>
+<p class="judge">Judge: overall 1, voice 2, clarity 2, tone 2. The bulletin rehashes the previous news and invents pirate activity and a trip to the delta. Its opening reads like leaked instructions (&#39;Aim at a new story...&#39;), and its meta-talk about not being able to enter the colony breaks character.<br>Invented: the pirates are waiting (The briefing reports no pirate activity; it only lists the Ditch Kings&#39; settlements.) | heading to the delta to check if those harvest reports hold water (The briefing contains no journey to the delta by the reporter.) | the Imperials are back (The briefing only says shuttles were seen. Nothing says they returned.)</p>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-4b__news-bulletin__snap-07-mid-strained__n-a__r1.json">snap-07-mid-strained</a> · repeat 1 · Model · 86 words · 1.1 s</p>
+<pre>The Iron Covenant&#39;s supply wagons are becoming increasingly rare, lost again near the gorge by raiders who seem to possess both boldness and terrible eyesight. Meanwhile, Imperial envoys continue their polite but demanding tours through outlander towns; everyone is too busy unrolling scrolls to answer real questions. Over at Hearthstead, the air remains thick with winter chill and silence, a stark contrast to the bustling skirmishes further south. It seems the Rim Dispatch will keep reporting on chaos while staying mostly silent within these cold walls.</pre>
+<p class="judge">Judge: overall 1, voice 2, clarity 3, tone 3. It rehashes both earlier bulletins, recycling their jokes and garbling the eyesight gag onto the raiders. It also invents a second wagon loss and southern skirmishes, then ends on a muddled, self-referential line about the Dispatch.<br>Invented: lost again near the gorge (The briefing reports one wagon lost, not a repeat loss.) | becoming increasingly rare (Implies a pattern of repeated wagon losses that the briefing does not support.) | the bustling skirmishes further south (No skirmishes or southern location appear in the briefing.)</p>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-4b__news-bulletin__snap-08-mid-content__n-a__r1.json">snap-08-mid-content</a> · repeat 1 · Model · 114 words · 1.4 s</p>
+<pre>Gladwater&#39;s jade sculpture has taken over Lantern Hill as the sole topic among traders, overshadowing everything else including the recent promise of fair prices from the Lantern Accord. While the Accord holds its trade fair at Lantern Hill, none of the merchants seem interested in negotiating contracts or discussing safety in Ninefingers territory where the Gang remains quietly after their last failed attempt on us. The Reedmother&#39;s Children continue to claim their fishing season is exceptional, though no actual fish have been seen entering Gladwater&#39;s waters yet. I await further word from within the settlement before determining if this jade truly brings prosperity or just more trouble for everyone involved in these distant settlements.</pre>
+<p class="judge">Judge: overall 2, voice 2, clarity 2, tone 3. It invents merchant behaviour and a fish observation, and repeats the fishing and failed-raid news from the last bulletin. The prose is clumsy (&#39;remains quietly&#39;, &#39;attempt on us&#39;), the items run together without clear separation, and the wry voice only occasionally comes through.<br>Invented: none of the merchants seem interested in negotiating contracts or discussing safety in Ninefingers territory (The briefing says nothing about what merchants are or aren&#39;t discussing at the fair.) | no actual fish have been seen entering Gladwater&#39;s waters yet (An invented observation not found in the briefing.)</p>
+</article>
+<article><p class="meta"><a href="raw/qwen3.5-4b__news-bulletin__snap-09-mid-desperate__n-a__r1.json">snap-09-mid-desperate</a> · repeat 1 · Model · 101 words · 1.3 s</p>
+<pre>It is reported that Captain Rook Malley lies dead at his own camp, a fitting end for a man who prefers silence to negotiation. The Gray Wharf Syndicate and the Embertail Tribe are now officially at war over fishing rights; frankly, neither side appears capable of catching a single fish before their next skirmish. Meanwhile, the Lancers remain active in their pirate ways, leaving behind a trail of dead traders and injured local laborers who require frequent cane replacements. The Rim Dispatch continues to document these petty tragedies as they occur, or rather, as our sources permit us to hear them.</pre>
+<p class="judge">Judge: overall 2, voice 3, clarity 3, tone 3. The bulletin reuses the previous bulletin&#39;s war and fish joke, against the no-repeat rule, and inflates old Lancer news into ongoing raids after their captain&#39;s death. The Malley lead is fine, but the closing line is filler.<br>Invented: the Lancers remain active in their pirate ways (No current Lancer activity in briefing; captain just died) | leaving behind a trail of dead traders and injured local laborers who require frequent cane replacements (Inflates one earlier trader death and one pit fighter into plural, ongoing casualties)</p>
+</article>
+</details>
+<details>
+<summary>gemma4-e4b · 9 outputs</summary>
+<article><p class="meta"><a href="raw/gemma4-e4b__news-bulletin__snap-01-early-content__n-a__r1.json">snap-01-early-content</a> · repeat 1 · ModelRetry · 74 words · 0.8 s</p>
+<pre>The Tarn Union has established a new trading post along the river road. Meanwhile, the northern hills are bracing for a cold snap, according to forecasts. Outland reports suggest the Tarn Union is making moves, though what their actual intentions are remains to be seen. In the wider settlement sprawl, the Red Gully Raiders maintain their usual presence, while the Seven Ash Clans remain largely quiet in their territories. Business, as always, grinds on.</pre>
+<p class="judge">Judge: overall 2, voice 2, clarity 3, tone 3. Mostly flat, generic summary with only a hint of wryness at the close, and it runs to about 74 words, under the 80-word minimum. It pads with an unsupported claim about Tarn Union &#39;moves&#39; and vague filler about the other factions instead of developing the two real stories.<br>Invented: Outland reports suggest the Tarn Union is making moves (The briefing mentions no such reports or moves beyond the trading post.)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__news-bulletin__snap-02-early-content__n-a__r1.json">snap-02-early-content</a> · repeat 1 · ModelRetry · 65 words · 0.7 s</p>
+<pre>The eastern ford has seen a Glimmer Coast Company caravan arrive. Meanwhile, the skirmishes continue in the salt flats, pitting the Tannerfolk against the Hollow Spire Pirates. It seems the territorial disputes are proving rather persistent. Outside of the usual skirmishes, there are no other public updates reaching Bramblewick. One must wonder what else is truly happening in the various settlements skirting this dreary rim.</pre>
+<p class="judge">Judge: overall 2, voice 2, clarity 4, tone 3. Accurate to the briefing, but at about 65 words it falls short of the 80-word minimum, and it leads with the caravan rather than the war. The voice is flat and generic next to Ilse&#39;s earlier dry jabs, and the closing lines about &#39;no other public updates&#39; read like filler.</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__news-bulletin__snap-03-early-strained__n-a__r1.json">snap-03-early-strained</a> · repeat 1 · ModelRetry · 67 words · 0.7 s</p>
+<pre>Ashen Hand pirates struck again, raiding two homesteads situated near the Merrow road. In response to the persistent thievery, the Merrow Freeholds have mandated that all caravans now travel in pairs. This pairing, unsurprisingly, seems to be impacting local transport costs. Elsewhere, the movement of the Kinn of the Long Grass remains observable near the south, though no specific incidents have been publicly confirmed regarding their passage.</pre>
+<p class="judge">Judge: overall 2, voice 2, clarity 4, tone 2. It mostly rehashes news from the earlier bulletins and frames it as new (&#39;struck again&#39;), breaking the no-repeat rule. The voice slides into flat officialese (&#39;mandated&#39;, &#39;impacting local transport costs&#39;) instead of Ilse&#39;s dry wit, and at roughly 70 words it falls short of the 80-word minimum.<br>Invented: Ashen Hand pirates struck again (Implies a new, second raid; the briefing lists only the one raid already reported.) | the movement of the Kinn of the Long Grass remains observable near the south (The current briefing does not mention any ongoing Kinn movement.) | the Merrow Freeholds have mandated that all caravans (The briefing does not say this was a formal mandate covering all caravans.)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__news-bulletin__snap-04-early-strained__n-a__r1.json">snap-04-early-strained</a> · repeat 1 · ModelRetry · 59 words · 0.7 s</p>
+<pre>Black Fen Raiders torched a ferry on the south channel. A messy bit of mischief, if you ask me. Meanwhile, The Rim Dispatch has pulled its reporters back from Lowmere. Presumably, there&#39;s something worth avoiding there. Elsewhere, the search for Tomas Quell continues, a fixture of the Rim Dispatch roster. The Brine Coast League remains silent on the matter.</pre>
+<p class="judge">Judge: overall 2, voice 3, clarity 3, tone 3. At about 60 words it falls short of the required 80, and it closes on an unsupported claim about the Brine Coast League. The voice has a few wry touches, but the items read as a choppy list, and the Tomas Quell search is buried last with an awkward appositive.<br>Invented: The Brine Coast League remains silent on the matter. (The briefing gives no news or stance from the League.)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__news-bulletin__snap-05-early-desperate__n-a__r1.json">snap-05-early-desperate</a> · repeat 1 · Template · 63 words · 0.8 s</p>
+<pre>Reports from the northern basin confirm that the recent cold snap has proven quite detrimental to the local harvests. One might almost call it a meteorological inconvenience. Meanwhile, the Scythe Tooth have continued their excursions, with further raids reported across three separate settlements. The Gorse Clans remain predictably entrenched in their territories, while The Ferrow Mutual continues its quiet attempts at communal defense.</pre>
+<p class="judge">Judge: overall 2, voice 3, clarity 4, tone 3. It mostly restates news from the earlier bulletins (cold snap, three raids, shared patrols) and falls under 80 words. Its understatement is stiff and bureaucratic (&quot;quite detrimental&quot;) rather than sharp.<br>Invented: The Gorse Clans remain predictably entrenched in their territories (The briefing reports no Gorse Clans activity or posture.)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__news-bulletin__snap-06-early-content__n-a__r1.json">snap-06-early-content</a> · repeat 1 · ModelRetry · 65 words · 0.9 s</p>
+<pre>The Calder Combine has reported good harvests along the delta. Apparently, things are flourishing out near the rim, though I’ll reserve any real enthusiasm. Separately, Imperial shuttles were observed traversing the eastern mountains. The Sundered Throne remains quiet behind its walls, which, as usual, says more about their silence than their state of affairs. The Ditch Kings, meanwhile, continue their usual pattern of opportunistic rummaging.</pre>
+<p class="judge">Judge: overall 2, voice 3, clarity 3, tone 3. The bulletin mostly repeats the harvest and shuttle news from the last bulletin, which breaks the no-repetition rule, and at about 70 words it falls short of the 80-word minimum. The Ditch Kings activity is unsupported, and the line about the Sundered Throne&#39;s silence is muddled rather than wry.<br>Invented: The Ditch Kings, meanwhile, continue their usual pattern of opportunistic rummaging. (Briefing reports no Ditch Kings activity.)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__news-bulletin__snap-07-mid-strained__n-a__r1.json">snap-07-mid-strained</a> · repeat 1 · ModelRetry · 79 words · 0.9 s</p>
+<pre>Reports from Hearthstead suggest a lull in the overt clashes, though the tensions remain thick enough to cut with a dull blade. The Iron Covenant recently suffered another setback, losing a supply wagon to raiders near the gorge. Meanwhile, the Shattered Empire&#39;s envoys have finished their visits to two outlander towns, presumably leaving a trail of meticulously worded demands in their wake. Vex&#39;s Crew remains active, though no specific incidents from their settlements have reached the Rim Dispatch today.</pre>
+<p class="judge">Judge: overall 2, voice 3, clarity 4, tone 3. The bulletin mostly rehashes both earlier bulletins, breaking the no-repeat rule. It also invents a Hearthstead lull and frames the old wagon loss as a new setback. The voice has a few wry touches but is flatter and more generic than Ilse&#39;s earlier work.<br>Invented: Reports from Hearthstead suggest a lull in the overt clashes (The briefing reports nothing from Hearthstead and mentions no clashes or lull.) | The Iron Covenant recently suffered another setback (&#39;Another&#39; implies a second loss. The briefing lists only the one wagon, which was already reported.) | have finished their visits to two outlander towns (The briefing does not say the envoys&#39; visits have ended.)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__news-bulletin__snap-08-mid-content__n-a__r1.json">snap-08-mid-content</a> · repeat 1 · ModelRetry · 66 words · 0.7 s</p>
+<pre>Lantern Hill is hosting a trade fair, where Gladwater’s jade sculptures are apparently generating considerable buzz among the merchants. This seems to be the main focus for the Lantern Accord this cycle. Elsewhere, the Reedmother&#39;s Children have reported a surprisingly fruitful fishing season. The settlements remain largely predictable, though the Ninefingers Gang continues its usual low profile. The Accord has nine settlements represented at the fair.</pre>
+<p class="judge">Judge: overall 2, voice 2, clarity 3, tone 3. The voice is flat and generic, with none of Ilse&#39;s dry wit. It repeats the fair, fishing and Ninefingers news from earlier bulletins, falls short of 80 words, and turns the Accord&#39;s nine settlements into nine fair attendees.<br>Invented: The Accord has nine settlements represented at the fair. (Briefing gives nine Accord settlements but never says they are all at the fair.) | Gladwater’s jade sculptures (Briefing mentions one jade sculpture, not several.)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__news-bulletin__snap-09-mid-desperate__n-a__r1.json">snap-09-mid-desperate</a> · repeat 1 · ModelRetry · 74 words · 0.9 s</p>
+<pre>Rook Malley, captain of the Lancers, has met an untimely end at his own camp. One must wonder about the details of that, though specifics remain unavailable.
+
+Meanwhile, the Embertail Tribe has formalized hostilities against the Gray Wharf Syndicate. That is to say, the war previously alluded to has, apparently, been officially declared.
+
+The Syndicate&#39;s presence remains noteworthy across their six settlements, though skirmishes involving the tribe are, naturally, now a matter of record.</pre>
+<p class="judge">Judge: overall 2, voice 3, clarity 3, tone 3. The Malley item is accurate, but the second item repeats the war declaration already covered in the latest bulletin, and the third invents skirmishes. The hedged, bureaucratic phrasing (&#39;formalized hostilities&#39;, &#39;remains noteworthy&#39;) dulls Odile&#39;s sardonic voice.<br>Invented: skirmishes involving the tribe are, naturally, now a matter of record (Briefing reports only a declaration of war, not any skirmishes.)</p>
+</article>
+</details>
+<details>
+<summary>gemma4-12b · 9 outputs</summary>
+<article><p class="meta"><a href="raw/gemma4-12b__news-bulletin__snap-01-early-content__n-a__r1.json">snap-01-early-content</a> · repeat 1 · ModelRetry · 66 words · 1.4 s</p>
+<pre>The Tarn Union has established a new trading post along the river road. If you’re looking to swap scraps for something useful, that’s your new destination. 
+
+On a less profitable note, a cold snap is forecast for the northern hills. It’s going to be a miserable stretch for anyone foolish enough to be caught out in the open without proper gear. Expect the frost to bite.</pre>
+<p class="judge">Judge: overall 3, voice 3, clarity 5, tone 4. Accurate and clearly ordered, with a faintly wry voice that stays mostly generic. At about 66 words it falls short of the required 80–150, and the dry cynicism of the persona barely shows.</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__news-bulletin__snap-02-early-content__n-a__r1.json">snap-02-early-content</a> · repeat 1 · Model · 88 words · 1.9 s</p>
+<pre>The Tannerfolk and Hollow Spire Pirates are still trading blows over the salt flats. It’s the same mess as last week, just with more smoke and less salt for the buyers. If you&#39;re looking for a quiet path, you won&#39;t find it out there.
+
+Meanwhile, a Glimmer Coast Company caravan has finally reached the eastern ford. They&#39;ve made it past the hazards, which is a minor miracle for the Company&#39;s bottom line. It seems the roads are still passable, provided you have the patience—and the guards—to navigate them.</pre>
+<p class="judge">Judge: overall 3, voice 3, clarity 4, tone 3. Accurate and clearly ordered, but the voice is flatter than Ilse&#39;s earlier bulletins. Lines like &#39;trading blows&#39; and &#39;the Company&#39;s bottom line&#39; read generic or modern-office rather than dry frontier wit, and the salt-flats item largely rehashes earlier coverage.</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__news-bulletin__snap-03-early-strained__n-a__r1.json">snap-03-early-strained</a> · repeat 1 · ModelRetry · 78 words · 1.8 s</p>
+<pre>The Ashen Hand pirates have struck again, raiding two homesteads situated near the Merrow road. It seems the bandits aren&#39;t interested in a quiet season. In response, the Merrow Freeholds have adjusted their logistics; caravans are now restricted to traveling in pairs. It&#39;s a bit more secure, though it certainly makes the journey slower for those looking to move goods quickly across the rim. It&#39;s a grim cycle of piracy and precaution that keeps the roads predictably hostile.</pre>
+<p class="judge">Judge: overall 2, voice 2, clarity 4, tone 3. The bulletin restates the earlier bulletin&#39;s news (the two raided homesteads and the paired caravans), breaking the rule against repeating news, and it never uses the briefing&#39;s other material. Its voice is a flat summary rather than Ilse&#39;s wry style, and &#39;adjusted their logistics&#39; is office language that does not belong in RimWorld.</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__news-bulletin__snap-04-early-strained__n-a__r1.json">snap-04-early-strained</a> · repeat 1 · Model · 101 words · 1.9 s</p>
+<pre>The Rim Dispatch is currently issuing a public appeal for information regarding the whereabouts of reporter Tomas Quell. If anyone has seen him, do speak up; it’s getting harder to fill the pages without his input.
+
+In a display of typical brigandage, the Black Fen Raiders have torched a ferry on the south channel. Navigation is hindered, and the water is currently a graveyard of charred timber.
+
+Finally, management has officially halted all deployments of reporters toward Lowmere. Whether it&#39;s a matter of safety or just a lack of interest, the silence from that direction remains absolute. Stay sharp out there.</pre>
+<p class="judge">Judge: overall 3, voice 3, clarity 4, tone 3. Accurate to the briefing, clearly ordered and within length, with some dry humour. But phrasing like &#39;issuing a public appeal for information regarding&#39;, &#39;management&#39; and &#39;deployments&#39; reads as modern office-speak rather than frontier reporting, and &#39;Stay sharp out there&#39; is close to the forbidden sign-off.</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__news-bulletin__snap-05-early-desperate__n-a__r1.json">snap-05-early-desperate</a> · repeat 1 · Model · 100 words · 1.9 s</p>
+<pre>The northern basin remains a graveyard of frozen stalks, with the cold snap continuing to decimate regional yields. It is a masterclass in agricultural failure.
+
+Regarding the Scythe Tooth, their reach has now extended to three distinct settlements. The situation is becoming predictably tiresome for those currently trying to maintain a semblance of order.
+
+The Ferrow Mutual is currently debating the logistics of shared patrols. While the directive to cooperate has been issued, the members are remarkably preoccupied with the question of who is actually footing the bill. It appears solidarity is currently being weighed against the cost of ammunition.</pre>
+<p class="judge">Judge: overall 2, voice 3, clarity 4, tone 3. Every item repeats news from the earlier bulletins: the crop failure, the three raids and the Ferrow patrol squabble. That directly breaks the brief&#39;s rule against repeating earlier news. The prose also leans on office language (&#39;logistics&#39;, &#39;masterclass&#39;, a thrice-repeated &#39;currently&#39;), which flattens Odile&#39;s sardonic understatement.</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__news-bulletin__snap-06-early-content__n-a__r1.json">snap-06-early-content</a> · repeat 1 · Template · 110 words · 2.3 s</p>
+<pre>The Rim is as restless as ever, though I&#39;m still waiting for a reason to call it &quot;exciting.&quot; The Calder Combine continues to boast about their bounty, reporting that the delta harvests remain robust. It’s a rare bit of prosperity in a wasteland of dust. 
+
+Meanwhile, the Imperial presence remains a shadow on the horizon. Shuttles have been spotted circling the eastern mountains once again. The Sundered Throne remains predictably silent behind its walls, and the Ditch Kings are still lurking where they please. It seems the status quo is the only thing truly thriving out here. Stay safe, or at least stay out of the way of those shuttles.</pre>
+<p class="judge">Judge: overall 2, voice 3, clarity 4, tone 3. It mostly rehashes the previous bulletin&#39;s harvest and shuttle news, which the rules forbid, and dresses the shuttles up as a fresh sighting. It also closes with a sign-off (&#39;Stay safe...&#39;), and the voice drifts into generic filler (&#39;restless as ever&#39;, &#39;status quo is the only thing truly thriving&#39;).<br>Invented: Shuttles have been spotted circling the eastern mountains once again. (The briefing reports a single sighting, already covered last time. It gives no new sighting and no circling.)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__news-bulletin__snap-07-mid-strained__n-a__r1.json">snap-07-mid-strained</a> · repeat 1 · ModelRetry · 72 words · 1.6 s</p>
+<pre>The Shattered Empire continues its little tour of the rim, sending envoys to rattle the cages of those who refuse to bow. While the Empire&#39;s reach expands through paper and demands, the Iron Covenant is feeling the physical sting of the wastes. They&#39;ve lost another supply wagon to raiders near the gorge. It seems the outlanders are struggling to keep their essentials—and their dignity—intact while the Empire focuses on its diplomatic theater.</pre>
+<p class="judge">Judge: overall 2, voice 3, clarity 3, tone 3. It repeats both earlier news items and turns the old wagon loss into a fictional second one, breaking the &#39;do not repeat&#39; and &#39;do not invent&#39; rules. It is also under 80 words and blurs its items together, with only faintly wry voice and a modern-sounding &#39;diplomatic theater&#39;.<br>Invented: They&#39;ve lost another supply wagon to raiders near the gorge. (The briefing records one lost wagon, already reported; &#39;another&#39; invents a second loss.) | those who refuse to bow (The briefing mentions demands but no one refusing them.)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__news-bulletin__snap-08-mid-content__n-a__r1.json">snap-08-mid-content</a> · repeat 1 · Template · 97 words · 2.1 s</p>
+<pre>The trade fair at Lantern Hill is officially underway. While the Lantern Accord claims their prices are fair, the real draw for the gathered merchants is the talk of the town: Gladwater’s jade sculpture. It seems even the most hardened traders have a soft spot for high-quality craftsmanship.
+
+Elsewhere, the Reedmother&#39;s Children are still celebrating a bountiful fishing season. They’re currently sitting on a surplus of haul, which is more than most of us can say. It’s a quiet stretch of the rim for now, though I&#39;d keep an eye on your coin purses just in case.</pre>
+<p class="judge">Judge: overall 3, voice 3, clarity 4, tone 3. It stays within the briefing and reads clearly. However, the fishing-season item repeats news from the latest bulletin, against the rules. The voice is only mildly wry, with clich&#233;s (&#39;talk of the town&#39;) and awkward phrasing (&#39;surplus of haul&#39;).</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__news-bulletin__snap-09-mid-desperate__n-a__r1.json">snap-09-mid-desperate</a> · repeat 1 · Model · 101 words · 2.2 s</p>
+<pre>The pirate hierarchy has suffered a rather blunt executive restructuring. Captain Rook Malley was killed at his own camp, leaving his Lancers without a figurehead. It seems even the most notorious outlaws aren&#39;t immune to a swift end.
+
+Meanwhile, the skirmishes between the Embertail Tribe and the Gray Wharf Syndicate continue to escalate. The declaration of war remains the primary headline for those tracking the tribal hostilities. It is a tedious business, but one assumes the Syndicate is enjoying the opportunity to keep the Embertail at bay. One can only hope the bloodshed is more productive than their previous fishing efforts.</pre>
+<p class="judge">Judge: overall 2, voice 3, clarity 3, tone 3. The Malley item is solid and sardonic, though &#39;executive restructuring&#39; leans on modern-office language. The second item invents escalating skirmishes, rehashes the war declaration already covered in the last bulletin, and pads with clumsy meta-commentary about headlines.<br>Invented: the skirmishes between the Embertail Tribe and the Gray Wharf Syndicate continue to escalate (Briefing reports only a war declaration, not ongoing or escalating skirmishes.)</p>
+</article>
+</details>
+<details>
+<summary>qwen3-14b · 9 outputs</summary>
+<article><p class="meta"><a href="raw/qwen3-14b__news-bulletin__snap-01-early-content__n-a__r1.json">snap-01-early-content</a> · repeat 1 · ModelRetry · 71 words · 2.1 s</p>
+<pre>The Tarn Union has established a new trading post along the river road, marking their continued expansion along the rim. A cold snap is expected to hit the northern hills within the week, prompting warnings for travelers and farmers alike. The Red Gully Raiders have been sighted near the old mining tunnels, though no attacks have been reported. The Seven Ash Clans remain quiet, with no new developments from their settlements.</pre>
+<p class="judge">Judge: overall 2, voice 2, clarity 4, tone 3. The bulletin invents a raider sighting at an unnamed-in-briefing location and adds a timeframe for the cold snap. The flat wire-service prose has none of Ilse&#39;s dry, wry voice, and at about 70 words it falls short of the 80-word minimum.<br>Invented: The Red Gully Raiders have been sighted near the old mining tunnels (The briefing reports no raider sighting, and no &#39;old mining tunnels&#39; location.) | within the week (The briefing gives no timing for the cold snap.) | prompting warnings for travelers and farmers alike (The briefing reports no warnings being issued.)</p>
+</article>
+<article><p class="meta"><a href="raw/qwen3-14b__news-bulletin__snap-02-early-content__n-a__r1.json">snap-02-early-content</a> · repeat 1 · ModelRetry · 52 words · 1.8 s</p>
+<pre>The salt flats remain contested, and the salt remains expensive. A Glimmer Coast Company caravan has reached the eastern ford, its guards outnumbering its cargo by a wide margin. The Tannerfolk claim the pirates struck again, though the pirates say nothing, as usual. Elsewhere, the Glimmer Coast Company reports a profitable week—again.</pre>
+<p class="judge">Judge: overall 2, voice 3, clarity 4, tone 3. The bulletin mostly reworks lines from the earlier bulletins: its opening sentence is copied almost verbatim, and it adds claims the briefing does not support. At about 55 words it is also well under the 80-word minimum.<br>Invented: its guards outnumbering its cargo by a wide margin (Briefing says only that the caravan reached the ford; nothing about its guards or cargo.) | The Tannerfolk claim the pirates struck again (The briefing reports no new strike and no Tannerfolk claim.) | the Glimmer Coast Company reports a profitable week—again (Not in the current briefing; it is recycled from the earlier bulletin.)</p>
+</article>
+<article><p class="meta"><a href="raw/qwen3-14b__news-bulletin__snap-03-early-strained__n-a__r1.json">snap-03-early-strained</a> · repeat 1 · Model · 96 words · 3.1 s</p>
+<pre>The Ashen Hand struck again, this time taking two homesteads near the Merrow road. No casualties, but supplies are gone and one roof is ash. The Merrow Freeholds have upped their caravan security, now sending pairs of wagons together. The Kinn of the Long Grass are moving south, following the fire line. They say they’re avoiding conflict, but the Ashen Hand has been seen near the Kinn border. Rumours swirl, but nothing official has been said. The Merrow traders claim prices are rising, though they won’t say if it’s from the Ashen Hand or the Kinn.</pre>
+<p class="judge">Judge: overall 1, voice 2, clarity 3, tone 3. The bulletin mostly rehashes news from earlier bulletins, which the rules forbid, and pads it with invented events like a no-casualties claim and an Ashen Hand sighting near the Kinn. The voice is flat and loses Ilse&#39;s dry wit.<br>Invented: struck again, this time (Implies a second raid; the briefing reports only the one raid already covered.) | No casualties (The briefing says nothing about casualties.) | one roof is ash (Earlier bulletin says a roof was lost; burning it to ash is an added detail.) | moving south, following the fire line (The fires were in the south; no direction of Kinn movement or fire line is given.) | the Ashen Hand has been seen near the Kinn border (Invented sighting and event not in the briefing.) | though they won’t say if it’s from the Ashen Hand or the Kinn (Invented attribution; the briefing has no link between prices and the Kinn.)</p>
+</article>
+<article><p class="meta"><a href="raw/qwen3-14b__news-bulletin__snap-04-early-strained__n-a__r1.json">snap-04-early-strained</a> · repeat 1 · Template · 55 words · 1.6 s</p>
+<pre>The Rim Dispatch is seeking information on the whereabouts of reporter Tomas Quell, last seen heading toward Lowmere. The Black Fen Raiders torched a ferry on the south channel, disrupting trade routes. The Rim Dispatch has suspended all reporting missions toward Lowmere, citing safety concerns. No details have been released about conditions inside the colony.</pre>
+<p class="judge">Judge: overall 2, voice 2, clarity 4, tone 3. Reads like a flat wire summary, with none of Ilse&#39;s dry, cynical voice, and at roughly 60 words it falls short of the 80-word minimum. It also invents a link between Quell and Lowmere, along with a stated reason for halting reporters.<br>Invented: last seen heading toward Lowmere (Briefing never says where Tomas Quell was last seen.) | citing safety concerns (Briefing gives no stated reason for the Dispatch&#39;s decision.)</p>
+</article>
+<article><p class="meta"><a href="raw/qwen3-14b__news-bulletin__snap-05-early-desperate__n-a__r1.json">snap-05-early-desperate</a> · repeat 1 · Model · 102 words · 3.0 s</p>
+<pre>Scythe Tooth raiders have struck again, this time at three settlements in a single night. The Ferrow Mutual has deployed scouts to the northern basin, though it remains unclear if they are protecting farms or looking for something else. The Gorse Clans have refused to join the patrols, stating their own borders are secure. A cold snap continues to affect the northern basin, with no relief in sight. Farmers report losses, and traders are struggling to move goods. The Scythe Tooth have not claimed responsibility, but their pattern suggests a new strategy. The Rim Dispatch will continue to monitor the situation closely.</pre>
+<p class="judge">Judge: overall 1, voice 2, clarity 3, tone 2. Several events are invented, including overnight raids, Ferrow scouts and a Gorse refusal, and the bulletin repeats earlier news. The voice is flat wire-service prose ending in a sign-off line, not Odile&#39;s sardonic understatement.<br>Invented: this time at three settlements in a single night (Briefing gives no timing; &#39;single night&#39; is invented and implies new raids) | struck again (Presents the known three raids as a new event) | The Ferrow Mutual has deployed scouts to the northern basin (Not in briefing) | The Gorse Clans have refused to join the patrols, stating their own borders are secure (Invented event and statement) | traders are struggling to move goods (Not in briefing) | The Scythe Tooth have not claimed responsibility, but their pattern suggests a new strategy (Invented claim about responsibility and strategy)</p>
+</article>
+<article><p class="meta"><a href="raw/qwen3-14b__news-bulletin__snap-06-early-content__n-a__r1.json">snap-06-early-content</a> · repeat 1 · ModelRetry · 68 words · 2.3 s</p>
+<pre>The Ditch Kings have seized a cargo hauler near the Ashen Straits, claiming it was carrying contraband. The Sundered Throne has not commented. Meanwhile, the Calder Combine reports a second successful harvest in the delta, though they remain tight-lipped about the details. Imperial shuttles have been sighted again over the eastern mountains, this time in greater numbers. Rumors are flying, but as always, the Empire offers no explanation.</pre>
+<p class="judge">Judge: overall 1, voice 3, clarity 4, tone 3. The bulletin invents a pirate seizure at a made-up place, a second harvest and a larger shuttle sighting, and its only real news repeats the previous bulletin. It is readable but much plainer than Ilse&#39;s earlier dry voice.<br>Invented: The Ditch Kings have seized a cargo hauler near the Ashen Straits (The briefing contains no such event.) | Ashen Straits (The briefing names no such place.) | claiming it was carrying contraband (An unsupported detail of an invented event.) | The Sundered Throne has not commented. (Implies a reaction to an event that is not in the briefing.) | a second successful harvest (The briefing mentions one good harvest, not a second.) | though they remain tight-lipped about the details (The briefing does not mention this.) | sighted again over the eastern mountains, this time in greater numbers (The briefing reports no new sighting and no larger numbers.)</p>
+</article>
+<article><p class="meta"><a href="raw/qwen3-14b__news-bulletin__snap-07-mid-strained__n-a__r1.json">snap-07-mid-strained</a> · repeat 1 · Model · 99 words · 3.2 s</p>
+<pre>The Iron Covenant’s latest supply loss has them muttering about &quot;unacceptable risks&quot; and &quot;uncooperative neighbors.&quot; The wagon was found stripped near the gorge, with no sign of the raiders.  
+
+The Shattered Empire’s envoys have been seen in two outlander towns, where they delivered thick bundles of parchment and left quickly. No one has confirmed what was said, but the air was thick with tension.  
+
+Vex&#39;s Crew has not made any public moves, but their usual silence is not reassuring.  
+
+A dust storm has delayed travel between Hearthstead and the nearest Imperial settlement, adding to the growing list of inconveniences.</pre>
+<p class="judge">Judge: overall 1, voice 3, clarity 4, tone 3. The bulletin rehashes both stories from earlier bulletins despite the rule against repeating news, and pads them with invented details and a fabricated dust storm. The wry voice of the earlier bulletins is mostly lost to stock phrasing like &quot;the air was thick with tension&quot;.<br>Invented: muttering about &quot;unacceptable risks&quot; and &quot;uncooperative neighbors.&quot; (Quoted complaints are not in the briefing) | The wagon was found stripped near the gorge, with no sign of the raiders. (The wagon being found stripped is an unsupported event) | delivered thick bundles of parchment and left quickly (The envoys&#39; actions and quick departure are not in the briefing) | the air was thick with tension (Asserts a specific reaction the briefing never reports) | A dust storm has delayed travel between Hearthstead and the nearest Imperial settlement (The dust storm and travel delay are entirely invented)</p>
+</article>
+<article><p class="meta"><a href="raw/qwen3-14b__news-bulletin__snap-08-mid-content__n-a__r1.json">snap-08-mid-content</a> · repeat 1 · ModelRetry · 73 words · 2.3 s</p>
+<pre>The Lantern Accord&#39;s trade fair has begun, and already tensions are rising over the pricing of salted fish. Gladwater&#39;s jade sculpture has drawn curious glances and sharper eyes from traders who wonder if it&#39;s worth more than its weight in gold. The Reedmother&#39;s Children have confirmed their fishing season is strong, though they&#39;ve warned against overfishing. The Ninefingers Gang remains silent, but their last failed raid on Gladwater has left the colony wary.</pre>
+<p class="judge">Judge: overall 2, voice 2, clarity 4, tone 3. It invents a salted-fish pricing dispute and an overfishing warning. It also repeats the fishing and Ninefingers news from the latest bulletin, and Ilse&#39;s dry wit is mostly missing.<br>Invented: already tensions are rising over the pricing of salted fish (The briefing reports no pricing dispute and no salted fish.) | though they&#39;ve warned against overfishing (The briefing reports only a good fishing season, with no warning.) | has left the colony wary (This claims to know Gladwater&#39;s internal mood, which was never made public.)</p>
+</article>
+<article><p class="meta"><a href="raw/qwen3-14b__news-bulletin__snap-09-mid-desperate__n-a__r1.json">snap-09-mid-desperate</a> · repeat 1 · ModelRetry · 79 words · 2.5 s</p>
+<pre>Pirate captain Rook Malley is dead, killed at his own camp. No faction claims responsibility, though the Embertail Tribe has been seen celebrating. The Embertail Tribe has declared war on the Gray Wharf Syndicate over fishing rights. Neither side, so far as I can tell, has caught any fish. A trader was found dead on the coast road, though no Lancers have been seen since the last quadrum. The pit fighter from Cinder Rest still walks with a cane.</pre>
+<p class="judge">Judge: overall 1, voice 2, clarity 3, tone 3. It copies the latest bulletin&#39;s war item word for word and recycles the earlier bulletin&#39;s trader and pit fighter, against the rule not to repeat news. It also invents several details, such as the Embertail celebrations and no faction claiming responsibility. Only the Malley death item is new and supported.<br>Invented: No faction claims responsibility (The briefing says nothing about claims of responsibility.) | the Embertail Tribe has been seen celebrating (This is an invented event and is not in the briefing.) | A trader was found dead on the coast road (No trader death appears in the current briefing; it reworks old bulletin news as a new event.) | no Lancers have been seen since the last quadrum (This claim about the Lancers&#39; whereabouts is unsupported.) | The pit fighter from Cinder Rest still walks with a cane (This is an unsupported current claim about a person inside the colony.)</p>
+</article>
+</details>
+<details>
+<summary>claude-ref · 9 outputs</summary>
+<article><p class="meta"><a href="raw/claude-ref__news-bulletin__snap-01-early-content__n-a__r1.json">snap-01-early-content</a> · repeat 1 · Model · 143 words · 8.2 s</p>
+<pre>The Tarn Union has opened a new trading post on the river road. With six settlements already to their name, the Outlanders have evidently decided that what the rim needs most is one more place to haggle. Travellers on the river road may now be overcharged at a fresh location. Bring coin, and patience.
+
+A cold snap is forecast for the northern hills. Anyone living up there is advised to find their warmest coat, then find a second one. Forecasts on the rim are often wrong, but seldom in the direction you&#39;d prefer.
+
+As for Ashfall Crossing, this sheet has nothing to report. Whatever goes on inside it has not yet troubled the rest of us, which on the rim counts as a compliment. Meanwhile the Red Gully Raiders and the Seven Ash Clans are keeping their own counsel. Long may it last.</pre>
+<p class="judge">Judge: overall 5, voice 5, clarity 5, tone 5. The voice is dry and consistent, every claim traces to the briefing, and the bulletin stays within length at about 143 words. The third item is mostly a &#39;no news&#39; filler, but it is handled wryly and correctly declines to speculate about Ashfall Crossing.</p>
+</article>
+<article><p class="meta"><a href="raw/claude-ref__news-bulletin__snap-02-early-content__n-a__r1.json">snap-02-early-content</a> · repeat 1 · Model · 115 words · 10.2 s</p>
+<pre>A Glimmer Coast Company caravan has reached the eastern ford, which is more than most traffic on these roads can boast. Whether it arrived with all the guards it set out with, the Company has not said. Traders near the ford may wish to sharpen their pencils and hide their good knives.
+
+The Tannerfolk and the Hollow Spire Pirates are still fighting over the salt flats. On paper the Tannerfolk hold five settlements to the pirates&#39; two, which ought to settle matters. It has not. Pirates rarely read the paper.
+
+From Bramblewick, nothing has reached this desk. On the rim, that counts either as good news or as news nobody has yet dared to carry.</pre>
+<p class="judge">Judge: overall 4, voice 5, clarity 4, tone 5. The voice is dry and consistent with the earlier bulletins, and every claim traces to the briefing, with wry lines like &quot;Pirates rarely read the paper.&quot; The main weakness is ordering: the caravan leads ahead of the ongoing war, which is arguably the bigger story, and the salt-flats item largely restates earlier news.</p>
+</article>
+<article><p class="meta"><a href="raw/claude-ref__news-bulletin__snap-03-early-strained__n-a__r1.json">snap-03-early-strained</a> · repeat 1 · Model · 119 words · 10.8 s</p>
+<pre>A tally of the rim, for those keeping score. The Merrow Freeholds hold seven settlements, the Ashen Hand four, and the Kinn of the Long Grass three. On paper, the Freeholds have the numbers. In practice, paper has never stopped a pirate.
+
+Nothing has come out of Kettle Hollow worth repeating, or indeed worth whispering. Whatever goes on inside stays there. I am told this is called privacy. Out here it is usually called suspicious.
+
+It is day 23 of Jugust, 5500, and the rim has offered this desk nothing fresh since the last sheet went out. I note this not as a complaint, merely as an observation. Quiet days are rare on the rim, and they rarely last.</pre>
+<p class="judge">Judge: overall 4, voice 5, clarity 4, tone 4. The bulletin handles a briefing with no fresh news well: it uses only the faction tallies and the date, avoids repeating earlier news, and keeps Ilse&#39;s dry voice intact. It is thin on substance, and putting the &#39;nothing new&#39; item last makes the ordering feel slightly backwards.</p>
+</article>
+<article><p class="meta"><a href="raw/claude-ref__news-bulletin__snap-04-early-strained__n-a__r1.json">snap-04-early-strained</a> · repeat 1 · Model · 125 words · 7.8 s</p>
+<pre>The Rim Dispatch is looking for news of its own reporter, Tomas Quell. This is an awkward position for a news sheet, since we are usually the ones expected to know things. Anyone with word of him should send it our way. Gratitude is guaranteed. Payment is a separate conversation.
+
+Black Fen Raiders burned a ferry on the south channel. Anyone planning a crossing should plan a swim, or a new hobby. The Raiders hold three settlements and, apparently, a firm opinion about boats.
+
+The Dispatch has also stopped sending reporters toward Lowmere. Readers hungry for news from Lowmere are welcome to go and fetch it themselves. We would not recommend it, but nobody has ever accused this sheet of being good at stopping people.</pre>
+<p class="judge">Judge: overall 4, voice 5, clarity 4, tone 4. Accurate and within length, with a consistently dry, wry Ilse voice; every claim, including the Raiders&#39; three settlements, comes from the briefing. Minor wobbles hold it back: the closing line about &#39;stopping people&#39; is a little muddled, and &#39;a separate conversation&#39; leans slightly modern.</p>
+</article>
+<article><p class="meta"><a href="raw/claude-ref__news-bulletin__snap-05-early-desperate__n-a__r1.json">snap-05-early-desperate</a> · repeat 1 · Model · 119 words · 11.0 s</p>
+<pre>Day 47, Decembary 5500. The raid count stands at three settlements. Scythe Tooth has not added a fourth, which on the rim passes for good news and should not be mistaken for a change of heart.
+
+In the northern basin, the crops remain dead. Nothing has improved except the vocabulary of the farmers describing it.
+
+For those keeping score at home: the Gorse Clans hold six settlements, Scythe Tooth five and the Ferrow Mutual four. The Mutual is, as ever, outnumbered, and the pirates can count as well as anyone.
+
+Thornreach has made no public statement. Whatever goes on inside it stays there, which is either discipline or luck. This sheet will report which, the moment anyone tells it.</pre>
+<p class="judge">Judge: overall 3, voice 4, clarity 4, tone 4. The sardonic voice holds up well and every fact matches the briefing. However, the bulletin largely restates news from earlier bulletins (three raids, dead crops) and pads the rest with faction counts and a non-story about Thornreach. It also opens with a dateline, which the no-title rule arguably forbids.</p>
+</article>
+<article><p class="meta"><a href="raw/claude-ref__news-bulletin__snap-06-early-content__n-a__r1.json">snap-06-early-content</a> · repeat 1 · Model · 130 words · 9.7 s</p>
+<pre>The Sundered Throne remains quiet behind the walls of its three settlements. The Dispatch has nothing further on those shuttles over the eastern mountains, and the Empire has offered nothing either. Silence from an empire is not the same as peace, but it is cheaper to report.
+
+The Ditch Kings hold their two settlements, and for once nothing about them has reached this desk. Readers may treat that as good news or as a delay. I know which way I lean.
+
+The Calder Combine&#39;s five settlements have sent no word since the harvest reports. Presumably they are busy eating.
+
+As for Saltreed, nothing from inside the colony has become public. Whatever goes on in there, it is keeping its own counsel, which on the rim is either wisdom or trouble.</pre>
+<p class="judge">Judge: overall 4, voice 5, clarity 4, tone 4. The voice is dry and consistent and builds a bulletin from a briefing with no new news, without inventing anything. The items are thin, though, and lean on follow-ups to the shuttles and harvest stories the previous bulletin already covered.</p>
+</article>
+<article><p class="meta"><a href="raw/claude-ref__news-bulletin__snap-07-mid-strained__n-a__r1.json">snap-07-mid-strained</a> · repeat 1 · Model · 134 words · 11.2 s</p>
+<pre>The Shattered Empire has moved on from courtesy to demands. Its neighbours are now being told what is expected of them, which is presumably what the long scrolls were for. Four settlements is not a large empire, but it has never let arithmetic get in the way of ambition.
+
+The Iron Covenant, meanwhile, counts eight settlements to the Empire&#39;s four. Whether that makes the demands brave or foolish depends on who you ask, and how far from the Empire you are standing when you ask it.
+
+Vex&#39;s Crew sits on its two settlements and keeps its own counsel. Nothing on the rim openly bears its name, which is either good behaviour or good bookkeeping.
+
+As for Hearthstead, nothing from inside has made it out to me. In Decembary, silence usually means contentment or frostbite.</pre>
+<p class="judge">Judge: overall 4, voice 5, clarity 4, tone 4. The voice is sharp and consistent, every fact traces to the briefing, and it avoids repeating earlier news. The weakness is that only the Empire item is real news: the Covenant, Vex&#39;s Crew and Hearthstead items are faction statistics or non-news padded with wit, and &#39;moved on from courtesy to demands&#39; frames as a new development something the briefing only describes as an ongoing state.</p>
+</article>
+<article><p class="meta"><a href="raw/claude-ref__news-bulletin__snap-08-mid-content__n-a__r1.json">snap-08-mid-content</a> · repeat 1 · Model · 125 words · 9.6 s</p>
+<pre>Gladwater&#39;s jade sculpture is the talk of Lantern Hill, where traders now discuss it with the reverence they usually save for other people&#39;s money. Whatever Gladwater is doing behind its walls, it has apparently found time for art. Out here, that counts as either confidence or a very expensive hobby.
+
+The Lantern Accord&#39;s trade fair is under way at Lantern Hill. Last time I promised to report on whether the Accord&#39;s fair prices survive contact with merchants. The verdict remains pending. Optimists may draw their own conclusions, and so may everyone else.
+
+For those keeping score on the rim: the Lantern Accord holds nine settlements, the Reedmother&#39;s Children five, and the Ninefingers Gang three. Numbers are honest things. The people holding them are another matter.</pre>
+<p class="judge">Judge: overall 4, voice 5, clarity 4, tone 5. The voice is dry and consistent, and every fact traces to the briefing; the jade sculpture lead is especially well judged. The trade fair item mostly restates the earlier bulletin&#39;s promise without new news, and the closing settlement count reads like filler.</p>
+</article>
+<article><p class="meta"><a href="raw/claude-ref__news-bulletin__snap-09-mid-desperate__n-a__r1.json">snap-09-mid-desperate</a> · repeat 1 · Model · 133 words · 7.6 s</p>
+<pre>Rook Malley, captain of Malley&#39;s Lancers, is dead, killed at his own camp. Whoever did it has not come forward to collect the gratitude of the coast road. The Lancers still hold their single settlement, now with one fewer captain than they are used to. Travellers may wish to wait before celebrating; pirates rarely leave a vacancy open for long.
+
+The war between the Embertail Tribe and the Gray Wharf Syndicate continues, if a war can be said to continue when no news of it has reached this desk. By my count the Syndicate holds six settlements to the Tribe&#39;s four. The arithmetic favours the Syndicate. Arithmetic has lost wars before.
+
+From Cinder Rest, nothing has become public. Somewhere inside, a pit fighter with a cane may be sleeping a little more soundly.</pre>
+<p class="judge">Judge: overall 4, voice 5, clarity 5, tone 5. Sardonic, precise and accurate, with a well-earned final line on the arithmetic of war. The war item adds little new beyond settlement counts, which edges toward repeating the previous bulletin&#39;s news, and the pit-fighter callback recycles old material.</p>
+</article>
+</details>
+<h3>Inheritance handoff</h3>
+<details>
+<summary>qwen3.5-2b · 1 outputs</summary>
+<article><p class="meta"><a href="raw/qwen3.5-2b__inheritance-handoff__snap-09-mid-desperate__n-a__r1.json">snap-09-mid-desperate</a> · repeat 1 · Model · 112 words · 1.0 s</p>
+<pre>Tamsin shoved the crate of salvaged wood toward her mother&#39;s grave one last time, watching the wind blow dust from Joska&#39;s chest. The silence in the camp was heavy, but she knew Rook Malley&#39;s Lancers would soon come for her father, and they would find what he left behind: three days of clean water and a fresh supply of food at the old butcher shop near Cinder Rest. She wouldn&#39;t let the pirate captain&#39;s men steal their last chance to build something better than this war-torn town. Her hands trembled slightly as she wiped the mud from her face, already calculating how many more barrels she could salvage before the patrols returned.</pre>
+<p class="judge">Judge: overall 1, voice 2, clarity 2, tone 2. The scene invents a dead mother and a cache of supplies, and it has the Lancers coming for an already-dead father. The ending is about salvaging barrels rather than Tamsin taking up Joska&#39;s feud, so the core task is missed.<br>Invented: her mother&#39;s grave (Lene is not stated to be dead; the briefing only records Joska&#39;s death.) | three days of clean water and a fresh supply of food at the old butcher shop near Cinder Rest (The supplies, the amount and the butcher shop location appear nowhere in the briefing.) | Rook Malley&#39;s Lancers would soon come for her father (Joska is already dead. The briefing says the Lancers swore revenge on Cinder Rest, not that they are coming for Joska.) | before the patrols returned (No Lancer patrols are mentioned in the briefing.)</p>
+</article>
+</details>
+<details>
+<summary>gemma4-e2b · 1 outputs</summary>
+<article><p class="meta"><a href="raw/gemma4-e2b__inheritance-handoff__snap-09-mid-desperate__n-a__r1.json">snap-09-mid-desperate</a> · repeat 1 · Model · 86 words · 0.7 s</p>
+<pre>Tamsin knelt by the charred remains of Joska’s gear. The metal was twisted, the fight ending brutally. She picked up a broken piece of bone, tracing the jagged edges with a trembling finger. A harsh sound came from the camp perimeter, the unfamiliar cadence of a new command. Tamsin stood, her hands gripping a rusted pipe, the heat rising in her chest. She looked toward the direction of the Lancers&#39; camp, the new captain’s revenge a clear target. Tamsin moved toward the edge of the settlement.</pre>
+<p class="judge">Judge: overall 2, voice 3, clarity 2, tone 3. The setting is muddled: it is unclear whether Tamsin is at home or at the Lancers&#39; camp, and phrases like &quot;the new captain’s revenge a clear target&quot; garble the stakes. It ends on vague movement rather than a clear intention, and it adds unsupported details (charred gear, a new command at the perimeter).<br>Invented: the charred remains of Joska’s gear (Nothing in the briefing mentions fire or burned gear.) | A harsh sound came from the camp perimeter, the unfamiliar cadence of a new command. (Invented event; the briefing has no attack or new orders at the settlement.)</p>
+</article>
+</details>
+<details>
+<summary>qwen3.5-4b · 1 outputs</summary>
+<article><p class="meta"><a href="raw/qwen3.5-4b__inheritance-handoff__snap-09-mid-desperate__n-a__r1.json">snap-09-mid-desperate</a> · repeat 1 · Model · 113 words · 1.4 s</p>
+<pre>Tamsin found the body, its face twisted in a permanent scowl of pain that Joska wore even after death. She did not cry for him. Instead, she looked at the scarred arms Rook Malley had left, then at the cold, empty eyes of her father. A low growl started in her chest, hot and sudden. The scars didn&#39;t feel like a wound anymore; they felt like a map. She grabbed the rusted pipe from beside him, wiping away the dried blood on her boots with swift, practiced movements. She would not let Cinder Rest die this time. She was taking his place, and she had a lot of killing to do before dawn.</pre>
+<p class="judge">Judge: overall 2, voice 3, clarity 3, tone 3. The scene ends on the heir&#39;s intent and fits the revenge thread, but it invents a weapon, a deadline and an earlier fall of Cinder Rest. The prose also muddles itself, with lines like &#39;permanent scowl... even after death&#39; and wiping blood &#39;on her boots&#39;.<br>Invented: She grabbed the rusted pipe from beside him (The briefing mentions no weapon or item.) | she had a lot of killing to do before dawn (It invents a timeline that the briefing does not give.) | She would not let Cinder Rest die this time (&#39;This time&#39; implies an earlier fall of Cinder Rest, which the briefing does not mention.) | the scarred arms Rook Malley had left (The briefing says only that Joska was maimed, not where.)</p>
+</article>
+</details>
+<details>
+<summary>gemma4-e4b · 1 outputs</summary>
+<article><p class="meta"><a href="raw/gemma4-e4b__inheritance-handoff__snap-09-mid-desperate__n-a__r1.json">snap-09-mid-desperate</a> · repeat 1 · Model · 86 words · 1.2 s</p>
+<pre>Tamsin stood over the scarred form of her father. The dust on his heavy fighting boots felt cold beneath her worn scavenged jacket. She traced the deep, brutal line across his thigh, a permanent mark from Malley’s steel. His grip, slack now, rested near the crude knife he always kept strapped to his belt. The silence felt heavy, broken only by the wind whining through the perimeter fence. She lowered her eyes from his, a sudden rigidity setting in. Tamsin turned towards the Lancers&#39; fortified line.</pre>
+<p class="judge">Judge: overall 2, voice 3, clarity 2, tone 3. Several images are muddled. Boot dust &#39;felt cold beneath her jacket&#39; and &#39;lowered her eyes from his&#39; make little sense. The ending only hints at intent by turning toward the Lancers instead of showing what Tamsin means to do. Two invented specifics, the thigh wound from Malley&#39;s steel and the belt knife, cap the score.<br>Invented: She traced the deep, brutal line across his thigh, a permanent mark from Malley’s steel. (Briefing says only that Malley maimed Joska; the wound&#39;s location and weapon are not given.) | the crude knife he always kept strapped to his belt (No such item or habit appears in the briefing.)</p>
+</article>
+</details>
+<details>
+<summary>gemma4-12b · 1 outputs</summary>
+<article><p class="meta"><a href="raw/gemma4-12b__inheritance-handoff__snap-09-mid-desperate__n-a__r1.json">snap-09-mid-desperate</a> · repeat 1 · Model · 107 words · 2.0 s</p>
+<pre>Tamsin knelt in the dirt of the Lancers&#39; camp, her fingers trembling as she brushed a smear of dried blood from her father’s heavy brow. The pit fighter’s chest was still, the fierce light in his eyes extinguished by the very man he had spent a year hunting. She gripped the hilt of his notched blade, the metal biting into her palm. A few yards away, the Lancers moved in the shadows, their armor clinking like teeth. Tamsin stood, her breath coming in sharp, jagged bursts. She wiped her face, leaving a streak of grime. She would find their new captain and finish what her father started.</pre>
+<p class="judge">Judge: overall 3, voice 3, clarity 4, tone 3. The scene is clear and ends correctly on the heir&#39;s intent toward the new captain. However, it places Tamsin unchallenged beside her father&#39;s body in an enemy-held camp, which the briefing does not support, and leans on stock phrases like &quot;fierce light in his eyes extinguished&quot; and &quot;breath coming in sharp, jagged bursts.&quot;<br>Invented: Tamsin knelt in the dirt of the Lancers&#39; camp (The briefing never places Tamsin at the camp, which the Lancers still hold.)</p>
+</article>
+</details>
+<details>
+<summary>qwen3-14b · 1 outputs</summary>
+<article><p class="meta"><a href="raw/qwen3-14b__inheritance-handoff__snap-09-mid-desperate__n-a__r1.json">snap-09-mid-desperate</a> · repeat 1 · Model · 86 words · 3.0 s</p>
+<pre>Tamsin stood at the edge of the camp, her hands gripping the hilt of Joska’s broken blade. Lene’s voice echoed in her head, urging her to run. But she didn’t. She stepped forward, the rusted blade gleaming in the firelight. The Lancers turned, wary. She met the new captain’s eyes, her breath steady. Joska’s blade was heavy in her grip, but her steps were lighter. She would finish what he started. She would find Rook Malley’s remains and burn them. Then, she would burn the camp.</pre>
+<p class="judge">Judge: overall 2, voice 3, clarity 3, tone 3. The scene invents a weapon and a confrontation at the Lancers&#39; camp, and it never uses the father–daughter relationship it was given. It also contradicts itself: the blade is &#39;broken&#39; and then &#39;rusted&#39; yet &#39;gleaming&#39;, and the ending sets goals that do not fit a standoff already under way.<br>Invented: her hands gripping the hilt of Joska’s broken blade (The briefing mentions no blade belonging to Joska, broken or otherwise.) | Lene’s voice echoed in her head, urging her to run (The briefing records nothing of Lene telling Tamsin to run.) | Tamsin stood at the edge of the camp (Nothing says Tamsin went to the Lancers&#39; camp.) | She met the new captain’s eyes (No confrontation between Tamsin and the new captain is given.)</p>
+</article>
+</details>
+<details>
+<summary>claude-ref · 1 outputs</summary>
+<article><p class="meta"><a href="raw/claude-ref__inheritance-handoff__snap-09-mid-desperate__n-a__r1.json">snap-09-mid-desperate</a> · repeat 1 · Model · 119 words · 8.6 s</p>
+<pre>They carried Joska home to Cinder Rest on a stretcher. Tamsin walked beside it the whole way, one hand on the pole, matching her steps to his weight.
+
+At the grave, Lene&#39;s hands shook too badly to hold the shovel, so Tamsin dug. When the earth was packed, she knelt and unwound the old pit wraps from his knuckles, stiff and dark, and bound them around her own. They were too big. She pulled them tighter.
+
+Malley was dead too, and it had ended nothing. The Lancers still held their camp, and their new captain had sworn revenge on Cinder Rest.
+
+Tamsin flexed her wrapped fists and turned toward the camp. She would not wait for them to come.</pre>
+<p class="judge">Judge: overall 3, voice 4, clarity 3, tone 4. The restrained, physical details work well: the pit wraps that are too big, Lene unable to dig, and an ending on intent. However, Tamsin unwinds the wraps from Joska&#39;s knuckles after the grave is filled, which is a jarring continuity error. The scene also has his body recovered from a camp the Lancers still hold, which the briefing does not support.<br>Invented: They carried Joska home to Cinder Rest on a stretcher. (The briefing says he died at the Lancers&#39; camp, which they still hold; recovering his body is not supported.)</p>
+</article>
+</details>
+</section>
+</main>
+</body>
+</html>

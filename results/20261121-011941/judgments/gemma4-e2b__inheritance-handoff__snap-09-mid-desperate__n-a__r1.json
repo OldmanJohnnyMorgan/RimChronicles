@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__inheritance-handoff__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the charred remains of Joska\u2019s gear\u0022,\u0022reason\u0022:\u0022Nothing in the briefing mentions fire or burned gear.\u0022},{\u0022span\u0022:\u0022A harsh sound came from the camp perimeter, the unfamiliar cadence of a new command.\u0022,\u0022reason\u0022:\u0022Invented event; the briefing has no attack or new orders at the settlement.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The setting is muddled: it is unclear whether Tamsin is at home or at the Lancers\u0027 camp, and phrases like \\\u0022the new captain\u2019s revenge a clear target\\\u0022 garble the stakes. It ends on vague movement rather than a clear intention, and it adds unsupported details (charred gear, a new command at the perimeter).\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.6055721,
+      "inputTokens": 1904,
+      "outputTokens": 589
+    }
+  ]
+}

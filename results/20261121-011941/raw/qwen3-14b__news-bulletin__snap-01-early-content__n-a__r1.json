@@ -1,0 +1,32 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-01-early-content__n-a__r1",
+  "model": "qwen3-14b",
+  "task": "news-bulletin",
+  "snapshot": "snap-01-early-content",
+  "grammar": "n/a",
+  "repeat": 1,
+  "promptVersion": "news-bulletin/v2",
+  "outcome": "Model",
+  "value": "News since your last bulletin  \nThe Tarn Union opened a new trading post on the river road. It\u2019s modest, but it\u2019s a sign they\u2019re not content to stay in the shadows. Whether they\u2019re looking to expand trade or just to rub it in the Red Gully Raiders\u2019 faces remains to be seen.  \n\nA cold snap is forecast for the northern hills. The kind that turns roads to slush and makes even the hardiest traders think twice. The Ash Clans, who rely on the hills for hunting, may find their winter provisions thinner than expected.  \n\nAlready reported  \nThe Tarn Union, Red Gully Raiders, and the Seven Ash Clans each hold their own corners of the rim, with no clear signs of conflict yet.",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.\n\nWrite your next news bulletin.\n\nWhat to write:\n- 2 or 3 short news items, most important first, separated by a blank line.\n- Each item is 2 to 4 sentences. The whole bulletin is 80 to 150 words.\n- Lead with the items under \u0022News since your last bulletin\u0022.\n- Items under \u0022Already reported\u0022 are old news. You may mention them briefly as background, but never present them as new or happening again.\n- If there is little new news, fill the remaining items with dry comment on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.\n\nWhat you know:\n- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events, and never add details to an event that the briefing does not give.\n- You do not know what happens inside the colony unless your briefing says it became public.\n\nStyle:\n- Keep your voice the same as in your earlier bulletins, but do not reuse their jokes or sentences.\n- Write only the bulletin itself: no title, no dateline, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 2 (Aprimay 5500).\nThe colony you report near: Ashfall Crossing. You do not know what happens inside it unless listed below.\n\nFactions:\n- The Tarn Union (Outlanders): 6 settlements\n- Red Gully Raiders (Pirates): 3 settlements\n- The Seven Ash Clans (Tribe): 4 settlements\n\nNews since your last bulletin:\n- The Tarn Union opened a new trading post on the river road\n- A cold snap is forecast for the northern hills\n\n## Your earlier bulletins\nNone yet. This is your first bulletin.\n\nWrite the bulletin now.\n",
+        "maxOutputTokens": 500,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "News since your last bulletin  \nThe Tarn Union opened a new trading post on the river road. It\u2019s modest, but it\u2019s a sign they\u2019re not content to stay in the shadows. Whether they\u2019re looking to expand trade or just to rub it in the Red Gully Raiders\u2019 faces remains to be seen.  \n\nA cold snap is forecast for the northern hills. The kind that turns roads to slush and makes even the hardiest traders think twice. The Ash Clans, who rely on the hills for hunting, may find their winter provisions thinner than expected.  \n\nAlready reported  \nThe Tarn Union, Red Gully Raiders, and the Seven Ash Clans each hold their own corners of the rim, with no clear signs of conflict yet.",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.7372625,
+      "inputTokens": 443,
+      "outputTokens": 153,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-316\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795224134,\u0022model\u0022:\u0022qwen3:14b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022News since your last bulletin  \\nThe Tarn Union opened a new trading post on the river road. It\u2019s modest, but it\u2019s a sign they\u2019re not content to stay in the shadows. Whether they\u2019re looking to expand trade or just to rub it in the Red Gully Raiders\u2019 faces remains to be seen.  \\n\\nA cold snap is forecast for the northern hills. The kind that turns roads to slush and makes even the hardiest traders think twice. The Ash Clans, who rely on the hills for hunting, may find their winter provisions thinner than expected.  \\n\\nAlready reported  \\nThe Tarn Union, Red Gully Raiders, and the Seven Ash Clans each hold their own corners of the rim, with no clear signs of conflict yet.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:443,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:3},\u0022completion_tokens\u0022:153,\u0022total_tokens\u0022:596}}\n"
+    }
+  ]
+}

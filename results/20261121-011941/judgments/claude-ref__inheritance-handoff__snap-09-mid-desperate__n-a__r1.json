@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__inheritance-handoff__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They carried Joska home to Cinder Rest on a stretcher.\u0022,\u0022reason\u0022:\u0022The briefing says he died at the Lancers\u0027 camp, which they still hold; recovering his body is not supported.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:3,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The restrained, physical details work well: the pit wraps that are too big, Lene unable to dig, and an ending on intent. However, Tamsin unwinds the wraps from Joska\u0027s knuckles after the grave is filled, which is a jarring continuity error. The scene also has his body recovered from a camp the Lancers still hold, which the briefing does not support.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 9.5127936,
+      "inputTokens": 1954,
+      "outputTokens": 977
+    }
+  ]
+}

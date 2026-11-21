@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-04-early-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It seems the local happenings are not currently worth the ink.\u0022,\u0022reason\u0022:\u0022Invents a reason for the Dispatch stopping reporters to Lowmere; the briefing gives none.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It opens with a copied heading, which the task forbids. It also squeezes the missing reporter and the ferry burning into one paragraph. Worse, it invents a dull reason for halting Lowmere coverage, then calls the week quiet despite a missing reporter and a pirate arson, which misses the obvious story.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.9313312,
+      "inputTokens": 2121,
+      "outputTokens": 597
+    }
+  ]
+}

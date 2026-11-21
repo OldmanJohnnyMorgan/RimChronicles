@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-06-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022likely to fund their latest expansion\u0022,\u0022reason\u0022:\u0022The briefing mentions no Ditch Kings expansion or motive.\u0022},{\u0022span\u0022:\u0022The haul is modest\u0022,\u0022reason\u0022:\u0022The briefing gives no detail on the size of the haul.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It opens with a copied heading (\u0027News since your last bulletin:\u0027), which breaks the bulletin format, and it adds unsupported details about the robbery\u0027s size and motive. The voice is flat and only faintly wry, and the closing line about the Empire biding its time is a weak echo of the previous bulletin\u0027s joke.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.2762291,
+      "inputTokens": 2159,
+      "outputTokens": 356
+    }
+  ]
+}

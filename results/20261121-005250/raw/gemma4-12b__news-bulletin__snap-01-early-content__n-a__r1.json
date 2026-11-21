@@ -1,0 +1,53 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-01-early-content__n-a__r1",
+  "model": "gemma4-12b",
+  "task": "news-bulletin",
+  "snapshot": "snap-01-early-content",
+  "grammar": "n/a",
+  "repeat": 1,
+  "promptVersion": "news-bulletin/v1",
+  "outcome": "ModelRetry",
+  "value": "The Tarn Union has officially opened a new trading post along the river road. It is another expansion for the Outlanders, providing a fresh stop for anyone with enough credits to spare. They are moving in, and the road is getting busier by the day.\n\nLooking toward the northern hills, the forecast indicates a biting cold snap is on the horizon. It won\u0027t be pleasant for those caught out in the open, so if you have a coat, you might want to keep it within reach. \n\nThe Rim remains as restless as ever, but these are the only whispers worth sharing today. Keep your eyes open and your boots dry; the weather has a way of turning sour before you know it.",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.\n\nWrite your next news bulletin.\n\nRules:\n- 80 to 150 words in total.\n- 2 to 4 short news items, the most important first.\n- Use only facts and names from your briefing. Never invent people, places, factions, numbers or events.\n- You do not know what happens inside the colony unless your briefing says it became public.\n- Keep your voice the same as in your earlier bulletins, but do not repeat their news.\n- Write only the bulletin itself: no title, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 2 (Aprimay 5500).\nThe colony you report near: Ashfall Crossing. You do not know what happens inside it unless listed below.\n\nFactions:\n- The Tarn Union (Outlanders): 6 settlements\n- Red Gully Raiders (Pirates): 3 settlements\n- The Seven Ash Clans (Tribe): 4 settlements\n\nNews on the rim:\n- The Tarn Union opened a new trading post on the river road\n- A cold snap is forecast for the northern hills\n\n## Your earlier bulletins\nNone yet. This is your first bulletin.\n\nWrite the bulletin now.\n",
+        "maxOutputTokens": 500,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "The Tarn Union has established a new trading post along the river road. If you\u2019re looking to swap scraps for something useful, that\u2019s your new destination. \n\nOn a less profitable note, a cold snap is forecast for the northern hills. It\u2019s going to be a miserable stretch for anyone foolish enough to be caught out in the open without proper gear. Expect the frost to bite.",
+      "error": null,
+      "failures": [
+        "Use 80-150 words; this has 66"
+      ],
+      "latencySeconds": 1.4297742,
+      "inputTokens": 315,
+      "outputTokens": 82,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-136\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795222519,\u0022model\u0022:\u0022gemma4:12b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022The Tarn Union has established a new trading post along the river road. If you\u2019re looking to swap scraps for something useful, that\u2019s your new destination. \\n\\nOn a less profitable note, a cold snap is forecast for the northern hills. It\u2019s going to be a miserable stretch for anyone foolish enough to be caught out in the open without proper gear. Expect the frost to bite.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:315,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:82,\u0022total_tokens\u0022:397}}\n"
+    },
+    {
+      "request": {
+        "system": "You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.\n\nWrite your next news bulletin.\n\nRules:\n- 80 to 150 words in total.\n- 2 to 4 short news items, the most important first.\n- Use only facts and names from your briefing. Never invent people, places, factions, numbers or events.\n- You do not know what happens inside the colony unless your briefing says it became public.\n- Keep your voice the same as in your earlier bulletins, but do not repeat their news.\n- Write only the bulletin itself: no title, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 2 (Aprimay 5500).\nThe colony you report near: Ashfall Crossing. You do not know what happens inside it unless listed below.\n\nFactions:\n- The Tarn Union (Outlanders): 6 settlements\n- Red Gully Raiders (Pirates): 3 settlements\n- The Seven Ash Clans (Tribe): 4 settlements\n\nNews on the rim:\n- The Tarn Union opened a new trading post on the river road\n- A cold snap is forecast for the northern hills\n\n## Your earlier bulletins\nNone yet. This is your first bulletin.\n\nWrite the bulletin now.\n\n\nYour previous answer was rejected:\n- Use 80-150 words; this has 66\nAnswer again, following every rule.",
+        "maxOutputTokens": 500,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "The Tarn Union has officially opened a new trading post along the river road. It is another expansion for the Outlanders, providing a fresh stop for anyone with enough credits to spare. They are moving in, and the road is getting busier by the day.\n\nLooking toward the northern hills, the forecast indicates a biting cold snap is on the horizon. It won\u0027t be pleasant for those caught out in the open, so if you have a coat, you might want to keep it within reach. \n\nThe Rim remains as restless as ever, but these are the only whispers worth sharing today. Keep your eyes open and your boots dry; the weather has a way of turning sour before you know it.",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.2424061,
+      "inputTokens": 347,
+      "outputTokens": 143,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-748\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795222521,\u0022model\u0022:\u0022gemma4:12b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022The Tarn Union has officially opened a new trading post along the river road. It is another expansion for the Outlanders, providing a fresh stop for anyone with enough credits to spare. They are moving in, and the road is getting busier by the day.\\n\\nLooking toward the northern hills, the forecast indicates a biting cold snap is on the horizon. It won\u0027t be pleasant for those caught out in the open, so if you have a coat, you might want to keep it within reach. \\n\\nThe Rim remains as restless as ever, but these are the only whispers worth sharing today. Keep your eyes open and your boots dry; the weather has a way of turning sour before you know it.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:347,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:143,\u0022total_tokens\u0022:490}}\n"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-06-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Ditch Kings remain rumored to be stirring near the southern routes\u0022,\u0022reason\u0022:\u0022The briefing has no Ditch Kings activity and no southern routes.\u0022},{\u0022span\u0022:\u0022Saltreed remains quiet, as usual\u0022,\u0022reason\u0022:\u0022The reporter knows nothing of the colony\u0027s state; nothing about Saltreed is public.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It repeats the harvest and shuttle news from the last bulletin and invents a Ditch Kings rumour on the southern routes. It also ends with a sign-off, which the rules forbid.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.8056499,
+      "inputTokens": 1956,
+      "outputTokens": 429
+    }
+  ]
+}

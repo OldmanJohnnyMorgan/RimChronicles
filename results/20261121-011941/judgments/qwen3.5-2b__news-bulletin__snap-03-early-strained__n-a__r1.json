@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Merrow Freeholds have issued new caravans\u0022,\u0022reason\u0022:\u0022No new caravans in briefing; news is \u0027none\u0027.\u0022},{\u0022span\u0022:\u0022reports from border patrols suggest prices remain stubbornly high\u0022,\u0022reason\u0022:\u0022Border patrols and price reports not in briefing.\u0022},{\u0022span\u0022:\u0022The Ashen Hand, who are currently conducting raids on homesteads along the Merrow road\u0022,\u0022reason\u0022:\u0022Presents old raid as ongoing current news.\u0022},{\u0022span\u0022:\u0022without any specific casualties yet\u0022,\u0022reason\u0022:\u0022Unsupported detail about casualties.\u0022},{\u0022span\u0022:\u0022Kinn of the Long Grass remains stationary on their northern territory\u0022,\u0022reason\u0022:\u0022No northern territory or stationary status in briefing; it contradicts the earlier report that they are moving.\u0022},{\u0022span\u0022:\u0022they have not initiated firebreaks and appear entirely unresponsive to any perceived encroachment\u0022,\u0022reason\u0022:\u0022Invented events and behaviour.\u0022},{\u0022span\u0022:\u0022There is no indication that the fires mentioned in earlier bulletins have recently intensified, leaving the grasslands relatively open for transit\u0022,\u0022reason\u0022:\u0022Invented status of fires and grasslands.\u0022},{\u0022span\u0022:\u0022Despite Kinn\u0027s refusal to leave their land\u0022,\u0022reason\u0022:\u0022Invented, and contradicts the earlier report that the Kinn are on the move.\u0022},{\u0022span\u0022:\u0022no new skirmishes have been recorded in the reports provided by your correspondent on the southern perimeter\u0022,\u0022reason\u0022:\u0022Invented correspondent and southern perimeter reports.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022Breaks format with headings that copy the prompt and reads like a dry analyst\u0027s report, not Ilse\u0027s wry voice. It invents many details, presents old raids as current news and contradicts the earlier Kinn report, all at around 190 words, over the 150-word limit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.1164549,
+      "inputTokens": 2434,
+      "outputTokens": 602
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-04-early-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The colony at Lowmere continues its slow grind\u0022,\u0022reason\u0022:\u0022Asserts the colony\u0027s state, which the briefing says is unknown\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It copies the briefing\u0027s section labels (\u0027News since your last bulletin:\u0027, \u0027Already reported:\u0027) into the bulletin. That breaks character, and the \u0027Already reported\u0027 label mislabels new material. The prose is also wordy and generic (\u0027speaks volumes\u0027, \u0027quest for truth\u0027) rather than dry and wry, and it smothers the striking news of the Dispatch abandoning Lowmere and its missing reporter.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.3461303,
+      "inputTokens": 2224,
+      "outputTokens": 572
+    }
+  ]
+}

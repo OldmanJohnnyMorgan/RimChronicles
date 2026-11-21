@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022neither side daring to strike where they are weakest\u0022,\u0022reason\u0022:\u0022Asserts a current standoff between the factions that the briefing does not describe.\u0022},{\u0022span\u0022:\u0022The Kinn continue to wander their grasslands in search of smoke\u0022,\u0022reason\u0022:\u0022Presents ongoing Kinn movement as current news. The briefing gives no current Kinn activity, and \u0027in search of smoke\u0027 misstates the earlier report.\u0022},{\u0022span\u0022:\u0022the burning of something very far away\u0022,\u0022reason\u0022:\u0022Implies the fires are still burning, which the briefing does not support.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It opens by copying the briefing label \u0027News since your last bulletin:\u0027, which breaks character, and it recycles the earlier \u0027trouble finding them\u0027 joke. It also presents the Kinn fires and a faction standoff as current news without support.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.347056,
+      "inputTokens": 2237,
+      "outputTokens": 629
+    }
+  ]
+}

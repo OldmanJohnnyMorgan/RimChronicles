@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-07-mid-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The voice is sharp and consistent, every fact traces to the briefing, and it avoids repeating earlier news. The weakness is that only the Empire item is real news: the Covenant, Vex\u0027s Crew and Hearthstead items are faction statistics or non-news padded with wit, and \u0027moved on from courtesy to demands\u0027 frames as a new development something the briefing only describes as an ongoing state.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 8.6059807,
+      "inputTokens": 2111,
+      "outputTokens": 853
+    }
+  ]
+}

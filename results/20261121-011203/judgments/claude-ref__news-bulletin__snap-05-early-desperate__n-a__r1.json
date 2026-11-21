@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They have offered no reason\u0022,\u0022reason\u0022:\u0022Adds a detail to the market closure that the briefing does not give\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Sharp, well-ordered bulletin that leads correctly with the market closure, frames the old news properly as background and makes good use of the faction sizes. It adds an unsupported detail, the claim that the Clans gave no reason, which caps the overall score.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.1365367,
+      "inputTokens": 2296,
+      "outputTokens": 520
+    }
+  ]
+}

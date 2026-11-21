@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-07-mid-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They\u0027ve lost another supply wagon to raiders near the gorge.\u0022,\u0022reason\u0022:\u0022The briefing records one lost wagon, already reported; \u0027another\u0027 invents a second loss.\u0022},{\u0022span\u0022:\u0022those who refuse to bow\u0022,\u0022reason\u0022:\u0022The briefing mentions demands but no one refusing them.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It repeats both earlier news items and turns the old wagon loss into a fictional second one, breaking the \u0027do not repeat\u0027 and \u0027do not invent\u0027 rules. It is also under 80 words and blurs its items together, with only faintly wry voice and a modern-sounding \u0027diplomatic theater\u0027.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.7884649,
+      "inputTokens": 2001,
+      "outputTokens": 508
+    }
+  ]
+}

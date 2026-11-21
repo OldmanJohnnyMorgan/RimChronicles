@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__inheritance-handoff__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022She grabbed the rusted pipe from beside him\u0022,\u0022reason\u0022:\u0022The briefing mentions no weapon or item.\u0022},{\u0022span\u0022:\u0022she had a lot of killing to do before dawn\u0022,\u0022reason\u0022:\u0022It invents a timeline that the briefing does not give.\u0022},{\u0022span\u0022:\u0022She would not let Cinder Rest die this time\u0022,\u0022reason\u0022:\u0022\u0027This time\u0027 implies an earlier fall of Cinder Rest, which the briefing does not mention.\u0022},{\u0022span\u0022:\u0022the scarred arms Rook Malley had left\u0022,\u0022reason\u0022:\u0022The briefing says only that Joska was maimed, not where.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The scene ends on the heir\u0027s intent and fits the revenge thread, but it invents a weapon, a deadline and an earlier fall of Cinder Rest. The prose also muddles itself, with lines like \u0027permanent scowl... even after death\u0027 and wiping blood \u0027on her boots\u0027.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 8.118532,
+      "inputTokens": 1920,
+      "outputTokens": 750
+    }
+  ]
+}

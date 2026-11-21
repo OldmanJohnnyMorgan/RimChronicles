@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-07-mid-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022all traffic on the gorge road requires their permission\u0022,\u0022reason\u0022:\u0022Adds a permission requirement covering all traffic; the briefing only says tolls were demanded.\u0022},{\u0022span\u0022:\u0022the Covenant is having to dodge the tolls\u0022,\u0022reason\u0022:\u0022Implies the Iron Covenant is evading the tolls, which the briefing does not state.\u0022},{\u0022span\u0022:\u0022the Empire is having more trouble making headway\u0022,\u0022reason\u0022:\u0022Asserts an outcome for the Empire\u0027s efforts that the briefing does not give.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It opens with a copied heading, which breaks the no-heading rule, and the closing sentence is muddled and invents the Covenant dodging tolls. The wit is generic rather than Ilse\u0027s dry voice, and the old news about the wagon and the envoys goes unused as background.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.0287503,
+      "inputTokens": 2239,
+      "outputTokens": 512
+    }
+  ]
+}

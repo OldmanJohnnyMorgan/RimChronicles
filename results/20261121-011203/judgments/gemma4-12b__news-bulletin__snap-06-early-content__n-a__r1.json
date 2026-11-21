@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-06-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022taking what the Calder Combine worked so hard to grow\u0022,\u0022reason\u0022:\u0022The briefing does not say the barge\u0027s grain belonged to the Calder Combine.\u0022},{\u0022span\u0022:\u0022the Imperial shuttles continue to haunt the eastern mountains\u0022,\u0022reason\u0022:\u0022The briefing reports one past sighting, not continuing activity; this presents old news as ongoing.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It copies the briefing\u0027s section headings into the bulletin, which breaks character. It also ties the robbed grain to the Calder Combine and presents the old shuttle sighting as ongoing, neither of which the briefing supports, and at about 70 words it falls short of the 80-word minimum.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.4247437,
+      "inputTokens": 2179,
+      "outputTokens": 568
+    }
+  ]
+}

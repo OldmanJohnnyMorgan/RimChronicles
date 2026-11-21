@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Every item repeats news from the earlier bulletins: the crop failure, the three raids and the Ferrow patrol squabble. That directly breaks the brief\u0027s rule against repeating earlier news. The prose also leans on office language (\u0027logistics\u0027, \u0027masterclass\u0027, a thrice-repeated \u0027currently\u0027), which flattens Odile\u0027s sardonic understatement.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.0289808,
+      "inputTokens": 2028,
+      "outputTokens": 484
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-01-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Red Gully Raiders maintain their usual pattern of harassing minor supply lines\u0022,\u0022reason\u0022:\u0022The briefing reports no raider activity, only their settlement count.\u0022},{\u0022span\u0022:\u0022The Seven Ash Clans continue their existing territorial disputes\u0022,\u0022reason\u0022:\u0022The briefing mentions no disputes or wars involving the Clans.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It opens with a copied heading, which breaks the no-title rule. It also invents raider harassment and clan territorial disputes instead of commenting dryly on the faction sizes it was given. The prose is generic and report-like rather than Ilse\u0027s wry voice, and the closing item about \u0027the sheer volume of settlements\u0027 says nothing.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.5335108,
+      "inputTokens": 2092,
+      "outputTokens": 471
+    }
+  ]
+}

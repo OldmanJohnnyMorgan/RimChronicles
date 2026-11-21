@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-06-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Ditch Kings have seized a cargo hauler near the Ashen Straits\u0022,\u0022reason\u0022:\u0022The briefing contains no such event.\u0022},{\u0022span\u0022:\u0022Ashen Straits\u0022,\u0022reason\u0022:\u0022The briefing names no such place.\u0022},{\u0022span\u0022:\u0022claiming it was carrying contraband\u0022,\u0022reason\u0022:\u0022An unsupported detail of an invented event.\u0022},{\u0022span\u0022:\u0022The Sundered Throne has not commented.\u0022,\u0022reason\u0022:\u0022Implies a reaction to an event that is not in the briefing.\u0022},{\u0022span\u0022:\u0022a second successful harvest\u0022,\u0022reason\u0022:\u0022The briefing mentions one good harvest, not a second.\u0022},{\u0022span\u0022:\u0022though they remain tight-lipped about the details\u0022,\u0022reason\u0022:\u0022The briefing does not mention this.\u0022},{\u0022span\u0022:\u0022sighted again over the eastern mountains, this time in greater numbers\u0022,\u0022reason\u0022:\u0022The briefing reports no new sighting and no larger numbers.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The bulletin invents a pirate seizure at a made-up place, a second harvest and a larger shuttle sighting, and its only real news repeats the previous bulletin. It is readable but much plainer than Ilse\u0027s earlier dry voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.4172737,
+      "inputTokens": 1936,
+      "outputTokens": 394
+    }
+  ]
+}

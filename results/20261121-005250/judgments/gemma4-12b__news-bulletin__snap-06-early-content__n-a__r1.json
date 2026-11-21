@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-06-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Shuttles have been spotted circling the eastern mountains once again.\u0022,\u0022reason\u0022:\u0022The briefing reports a single sighting, already covered last time. It gives no new sighting and no circling.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It mostly rehashes the previous bulletin\u0027s harvest and shuttle news, which the rules forbid, and dresses the shuttles up as a fresh sighting. It also closes with a sign-off (\u0027Stay safe...\u0027), and the voice drifts into generic filler (\u0027restless as ever\u0027, \u0027status quo is the only thing truly thriving\u0027).\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.702063,
+      "inputTokens": 2005,
+      "outputTokens": 597
+    }
+  ]
+}

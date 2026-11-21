@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the Lancers have not yet named a successor\u0022,\u0022reason\u0022:\u0022Briefing says nothing about succession or the Lancers\u0027 response.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022Breaks character by copying the briefing headings (\u0027News since your last bulletin:\u0027, \u0027Already reported:\u0027) into the bulletin, and adds an unsupported detail about the Lancers\u0027 succession. It is also under the word count and has almost none of Brask\u0027s sardonic voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.8949328,
+      "inputTokens": 2257,
+      "outputTokens": 317
+    }
+  ]
+}

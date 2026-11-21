@@ -1,0 +1,32 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-02-early-content__n-a__r1",
+  "model": "gemma4-12b",
+  "task": "news-bulletin",
+  "snapshot": "snap-02-early-content",
+  "grammar": "n/a",
+  "repeat": 1,
+  "promptVersion": "news-bulletin/v1",
+  "outcome": "Model",
+  "value": "The Tannerfolk and Hollow Spire Pirates are still trading blows over the salt flats. It\u2019s the same mess as last week, just with more smoke and less salt for the buyers. If you\u0027re looking for a quiet path, you won\u0027t find it out there.\n\nMeanwhile, a Glimmer Coast Company caravan has finally reached the eastern ford. They\u0027ve made it past the hazards, which is a minor miracle for the Company\u0027s bottom line. It seems the roads are still passable, provided you have the patience\u2014and the guards\u2014to navigate them.",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.\n\nWrite your next news bulletin.\n\nRules:\n- 80 to 150 words in total.\n- 2 to 4 short news items, the most important first.\n- Use only facts and names from your briefing. Never invent people, places, factions, numbers or events.\n- You do not know what happens inside the colony unless your briefing says it became public.\n- Keep your voice the same as in your earlier bulletins, but do not repeat their news.\n- Write only the bulletin itself: no title, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 11 (Aprimay 5500).\nThe colony you report near: Bramblewick. You do not know what happens inside it unless listed below.\n\nFactions:\n- The Glimmer Coast Company (Outlanders): 5 settlements\n- Hollow Spire Pirates (Pirates): 2 settlements\n- The Tannerfolk (Tribe): 5 settlements, at war with Hollow Spire Pirates\n\nNews on the rim:\n- The Tannerfolk and the Hollow Spire Pirates are fighting over the salt flats\n- A Glimmer Coast Company caravan reached the eastern ford\n\n## Your earlier bulletins\nEarlier bulletin:\nSalt is dear again. The Tannerfolk say the Hollow Spire lot burned two of their drying racks, and the pirates say nothing, which is how pirates say yes. Elsewhere, a Glimmer Coast caravan is on the move with more guards than goods, which tells you all you need to know about the roads.\n\nLatest bulletin:\nThe salt flats remain contested and the salt remains expensive. Readers wishing to avoid both are advised to stay inland. The Glimmer Coast Company reports a profitable week; the Company always reports a profitable week.\n\nWrite the bulletin now.\n",
+        "maxOutputTokens": 500,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "The Tannerfolk and Hollow Spire Pirates are still trading blows over the salt flats. It\u2019s the same mess as last week, just with more smoke and less salt for the buyers. If you\u0027re looking for a quiet path, you won\u0027t find it out there.\n\nMeanwhile, a Glimmer Coast Company caravan has finally reached the eastern ford. They\u0027ve made it past the hazards, which is a minor miracle for the Company\u0027s bottom line. It seems the roads are still passable, provided you have the patience\u2014and the guards\u2014to navigate them.",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 1.9151186,
+      "inputTokens": 436,
+      "outputTokens": 119,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-246\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795222523,\u0022model\u0022:\u0022gemma4:12b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022The Tannerfolk and Hollow Spire Pirates are still trading blows over the salt flats. It\u2019s the same mess as last week, just with more smoke and less salt for the buyers. If you\u0027re looking for a quiet path, you won\u0027t find it out there.\\n\\nMeanwhile, a Glimmer Coast Company caravan has finally reached the eastern ford. They\u0027ve made it past the hazards, which is a minor miracle for the Company\u0027s bottom line. It seems the roads are still passable, provided you have the patience\u2014and the guards\u2014to navigate them.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:436,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:119,\u0022total_tokens\u0022:555}}\n"
+    }
+  ]
+}

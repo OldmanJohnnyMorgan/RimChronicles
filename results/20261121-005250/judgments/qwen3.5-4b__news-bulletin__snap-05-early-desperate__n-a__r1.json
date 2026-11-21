@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Three more settlements have fallen to the Scythe Tooth\u0022,\u0022reason\u0022:\u0022Briefing reports raids at three settlements, not three additional ones, and not that any fell.\u0022},{\u0022span\u0022:\u0022Their ships cut through the fog\u0022,\u0022reason\u0022:\u0022No ships or fog are mentioned in the briefing.\u0022},{\u0022span\u0022:\u0022No bodies were found yet\u0022,\u0022reason\u0022:\u0022Unsupported claim about the raids\u0027 aftermath.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin mostly recycles the earlier bulletins\u0027 news (fur-for-grain prices, the patrol funding quarrel) and inflates the raids into \u0027three more\u0027 settlements that \u0027fell\u0027. The \u0027knives on cheese\u0027 simile and the closing hedge undercut the precise, understated voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.5412356,
+      "inputTokens": 2026,
+      "outputTokens": 545
+    }
+  ]
+}

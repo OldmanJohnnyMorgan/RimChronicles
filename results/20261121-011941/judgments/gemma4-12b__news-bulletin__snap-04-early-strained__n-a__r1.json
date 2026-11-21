@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-04-early-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It copies the briefing\u0027s section headings into the bulletin and adds a meta line (\u0027There is currently no previous news to report\u0027), breaking the no-headings, no-notes rule. The items themselves are flat restatements with little of Ilse\u0027s dry voice, and \u0027successfully burned\u0027 reads oddly.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.3526963,
+      "inputTokens": 2111,
+      "outputTokens": 353
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022This move seems to follow the recent downturn in the northern basin\u0027s harvest yields.\u0022,\u0022reason\u0022:\u0022The briefing gives no cause for the market closure; this adds a causal link.\u0022},{\u0022span\u0022:\u0022The Ferrow Mutual continues to request increased patrols across their territories.\u0022,\u0022reason\u0022:\u0022Not in the briefing; it presents an old patrol request as ongoing current news.\u0022},{\u0022span\u0022:\u0022formally closed their markets to any outside trade\u0022,\u0022reason\u0022:\u0022Adds \u0027formally\u0027, a detail the briefing does not give.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It breaks the format by opening with a heading, gives the old Scythe Tooth raids a full item of their own, and attaches an unsupported cause to the market closure. The flat, report-like prose has none of Odile\u0027s sardonic understatement, and at roughly 70 words it falls below the 80-word minimum.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.049854,
+      "inputTokens": 2200,
+      "outputTokens": 655
+    }
+  ]
+}

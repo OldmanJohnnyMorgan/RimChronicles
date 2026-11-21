@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Ashen Hand pirates struck again\u0022,\u0022reason\u0022:\u0022Implies a new, second raid; the briefing lists only the one raid already reported.\u0022},{\u0022span\u0022:\u0022the movement of the Kinn of the Long Grass remains observable near the south\u0022,\u0022reason\u0022:\u0022The current briefing does not mention any ongoing Kinn movement.\u0022},{\u0022span\u0022:\u0022the Merrow Freeholds have mandated that all caravans\u0022,\u0022reason\u0022:\u0022The briefing does not say this was a formal mandate covering all caravans.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It mostly rehashes news from the earlier bulletins and frames it as new (\u0027struck again\u0027), breaking the no-repeat rule. The voice slides into flat officialese (\u0027mandated\u0027, \u0027impacting local transport costs\u0027) instead of Ilse\u0027s dry wit, and at roughly 70 words it falls short of the 80-word minimum.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.8328076,
+      "inputTokens": 2008,
+      "outputTokens": 675
+    }
+  ]
+}

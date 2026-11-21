@@ -1,0 +1,32 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "model": "qwen3-14b",
+  "task": "news-bulletin",
+  "snapshot": "snap-05-early-desperate",
+  "grammar": "n/a",
+  "repeat": 1,
+  "promptVersion": "news-bulletin/v1",
+  "outcome": "Model",
+  "value": "Scythe Tooth raiders have struck again, this time at three settlements in a single night. The Ferrow Mutual has deployed scouts to the northern basin, though it remains unclear if they are protecting farms or looking for something else. The Gorse Clans have refused to join the patrols, stating their own borders are secure. A cold snap continues to affect the northern basin, with no relief in sight. Farmers report losses, and traders are struggling to move goods. The Scythe Tooth have not claimed responsibility, but their pattern suggests a new strategy. The Rim Dispatch will continue to monitor the situation closely.",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are Odile Brask, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is sardonic, precise and fond of understatement.\n\nWrite your next news bulletin.\n\nRules:\n- 80 to 150 words in total.\n- 2 to 4 short news items, the most important first.\n- Use only facts and names from your briefing. Never invent people, places, factions, numbers or events.\n- You do not know what happens inside the colony unless your briefing says it became public.\n- Keep your voice the same as in your earlier bulletins, but do not repeat their news.\n- Write only the bulletin itself: no title, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 47 (Decembary 5500).\nThe colony you report near: Thornreach. You do not know what happens inside it unless listed below.\n\nFactions:\n- Scythe Tooth (Pirates): 5 settlements\n- The Ferrow Mutual (Outlanders): 4 settlements\n- The Gorse Clans (Tribe): 6 settlements\n\nNews on the rim:\n- A cold snap has killed crops across the northern basin\n- Scythe Tooth raids reported at three settlements\n\n## Your earlier bulletins\nEarlier bulletin:\nThe cold has come early. Every farm north of the Ferrow road reports lost crops, and the Gorse Clans are trading furs for grain at prices that would make a usurer blush.\n\nLatest bulletin:\nScythe Tooth raiders have now hit three settlements in a quadrum. The Ferrow Mutual has asked its members to share patrols. Its members have asked who is paying.\n\nWrite the bulletin now.\n",
+        "maxOutputTokens": 500,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "Scythe Tooth raiders have struck again, this time at three settlements in a single night. The Ferrow Mutual has deployed scouts to the northern basin, though it remains unclear if they are protecting farms or looking for something else. The Gorse Clans have refused to join the patrols, stating their own borders are secure. A cold snap continues to affect the northern basin, with no relief in sight. Farmers report losses, and traders are struggling to move goods. The Scythe Tooth have not claimed responsibility, but their pattern suggests a new strategy. The Rim Dispatch will continue to monitor the situation closely.",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.0121973,
+      "inputTokens": 380,
+      "outputTokens": 122,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-28\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795222598,\u0022model\u0022:\u0022qwen3:14b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022Scythe Tooth raiders have struck again, this time at three settlements in a single night. The Ferrow Mutual has deployed scouts to the northern basin, though it remains unclear if they are protecting farms or looking for something else. The Gorse Clans have refused to join the patrols, stating their own borders are secure. A cold snap continues to affect the northern basin, with no relief in sight. Farmers report losses, and traders are struggling to move goods. The Scythe Tooth have not claimed responsibility, but their pattern suggests a new strategy. The Rim Dispatch will continue to monitor the situation closely.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:380,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:5},\u0022completion_tokens\u0022:122,\u0022total_tokens\u0022:502}}\n"
+    }
+  ]
+}

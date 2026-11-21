@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The sardonic voice holds up well and every fact matches the briefing. However, the bulletin largely restates news from earlier bulletins (three raids, dead crops) and pads the rest with faction counts and a non-story about Thornreach. It also opens with a dateline, which the no-title rule arguably forbids.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.2171256,
+      "inputTokens": 2060,
+      "outputTokens": 427
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022this time at three settlements in a single night\u0022,\u0022reason\u0022:\u0022Briefing gives no timing; \u0027single night\u0027 is invented and implies new raids\u0022},{\u0022span\u0022:\u0022struck again\u0022,\u0022reason\u0022:\u0022Presents the known three raids as a new event\u0022},{\u0022span\u0022:\u0022The Ferrow Mutual has deployed scouts to the northern basin\u0022,\u0022reason\u0022:\u0022Not in briefing\u0022},{\u0022span\u0022:\u0022The Gorse Clans have refused to join the patrols, stating their own borders are secure\u0022,\u0022reason\u0022:\u0022Invented event and statement\u0022},{\u0022span\u0022:\u0022traders are struggling to move goods\u0022,\u0022reason\u0022:\u0022Not in briefing\u0022},{\u0022span\u0022:\u0022The Scythe Tooth have not claimed responsibility, but their pattern suggests a new strategy\u0022,\u0022reason\u0022:\u0022Invented claim about responsibility and strategy\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022Several events are invented, including overnight raids, Ferrow scouts and a Gorse refusal, and the bulletin repeats earlier news. The voice is flat wire-service prose ending in a sign-off line, not Odile\u0027s sardonic understatement.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.3621323,
+      "inputTokens": 2023,
+      "outputTokens": 372
+    }
+  ]
+}

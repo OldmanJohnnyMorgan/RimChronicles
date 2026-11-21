@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-06-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022recent soil sampling by independent analysts suggests the quality was merely adequate due to irrigation runoff\u0022,\u0022reason\u0022:\u0022Briefing has no soil sampling, analysts or irrigation runoff.\u0022},{\u0022span\u0022:\u0022Combine representatives have been spotted driving across border lines toward the Sundered Throne perimeter\u0022,\u0022reason\u0022:\u0022Invented event; no Combine movement toward the Empire is in the briefing.\u0022},{\u0022span\u0022:\u0022the Empire\u0027s last public statement indicated they would likely intervene if the Combine crossed their own outer walls\u0022,\u0022reason\u0022:\u0022The briefing says the Empire is quiet and gives no statement.\u0022},{\u0022span\u0022:\u0022three craft descended from orbit without any sign of landing gear deployment\u0022,\u0022reason\u0022:\u0022Invented number of craft and invented details.\u0022},{\u0022span\u0022:\u0022Rumors swirl that a new trade route is being carved out\u0022,\u0022reason\u0022:\u0022Invented rumour about a trade route.\u0022},{\u0022span\u0022:\u0022anyone attempting to verify these claims via radio will likely be seized by local smugglers\u0022,\u0022reason\u0022:\u0022Invented smugglers and threat.\u0022},{\u0022span\u0022:\u0022increased shipping activity from the eastern delta, citing improved logistics for their remaining three settlements\u0022,\u0022reason\u0022:\u0022Invented shipping claim; the Combine has 5 settlements, not three.\u0022},{\u0022span\u0022:\u0022this figure is inflated by double-counting ships currently docked at multiple harbors\u0022,\u0022reason\u0022:\u0022Invented double-counting and harbors.\u0022},{\u0022span\u0022:\u0022continuing their traditional raids in the unpatrolled north\u0022,\u0022reason\u0022:\u0022Invented raids and invented \u0027north\u0027 location.\u0022},{\u0022span\u0022:\u0022the expanding imperial presence to the east\u0022,\u0022reason\u0022:\u0022The briefing does not say the Empire is expanding.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The bulletin is mostly fabrication: it invents analysts, border crossings, imperial statements, smugglers and wrong settlement counts. It also adds a heading, runs well past 150 words, repeats news from the last bulletin, and swaps Ilse\u0027s dry voice for generic newswire prose.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.2200587,
+      "inputTokens": 2242,
+      "outputTokens": 670
+    }
+  ]
+}

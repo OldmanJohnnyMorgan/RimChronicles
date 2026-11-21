@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-07-mid-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022lost again near the gorge\u0022,\u0022reason\u0022:\u0022The briefing reports one wagon lost, not a repeat loss.\u0022},{\u0022span\u0022:\u0022becoming increasingly rare\u0022,\u0022reason\u0022:\u0022Implies a pattern of repeated wagon losses that the briefing does not support.\u0022},{\u0022span\u0022:\u0022the bustling skirmishes further south\u0022,\u0022reason\u0022:\u0022No skirmishes or southern location appear in the briefing.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It rehashes both earlier bulletins, recycling their jokes and garbling the eyesight gag onto the raiders. It also invents a second wagon loss and southern skirmishes, then ends on a muddled, self-referential line about the Dispatch.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.3253649,
+      "inputTokens": 2045,
+      "outputTokens": 569
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-07-mid-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022has once again demanded tolls\u0022,\u0022reason\u0022:\u0022The briefing gives no earlier toll demand, so this presents the new event as a repeat.\u0022},{\u0022span\u0022:\u0022forcing locals to navigate the narrow pass with extra care\u0022,\u0022reason\u0022:\u0022This adds an effect on locals and a \u0027narrow pass\u0027 that the briefing does not give.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The voice is flat and lacks Ilse\u0027s wry edge, and the piece reuses the earlier wagon line almost word for word. It also falsely frames the toll demand as a repeat, breaks the format (one block, about 55 words, no separate items) and pads with bare faction counts that carry no dry comment.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.3643223,
+      "inputTokens": 2188,
+      "outputTokens": 522
+    }
+  ]
+}

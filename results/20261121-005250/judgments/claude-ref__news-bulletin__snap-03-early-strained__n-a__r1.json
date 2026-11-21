@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The bulletin handles a briefing with no fresh news well: it uses only the faction tallies and the date, avoids repeating earlier news, and keeps Ilse\u0027s dry voice intact. It is thin on substance, and putting the \u0027nothing new\u0027 item last makes the ordering feel slightly backwards.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.9441159,
+      "inputTokens": 2096,
+      "outputTokens": 312
+    }
+  ]
+}

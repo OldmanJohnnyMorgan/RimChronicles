@@ -1,0 +1,55 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "model": "qwen3.5-2b",
+  "task": "news-bulletin",
+  "snapshot": "snap-05-early-desperate",
+  "grammar": "n/a",
+  "repeat": 1,
+  "promptVersion": "news-bulletin/v1",
+  "outcome": "Template",
+  "value": "(template)",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are Odile Brask, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is sardonic, precise and fond of understatement.\n\nWrite your next news bulletin.\n\nRules:\n- 80 to 150 words in total.\n- 2 to 4 short news items, the most important first.\n- Use only facts and names from your briefing. Never invent people, places, factions, numbers or events.\n- You do not know what happens inside the colony unless your briefing says it became public.\n- Keep your voice the same as in your earlier bulletins, but do not repeat their news.\n- Write only the bulletin itself: no title, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 47 (Decembary 5500).\nThe colony you report near: Thornreach. You do not know what happens inside it unless listed below.\n\nFactions:\n- Scythe Tooth (Pirates): 5 settlements\n- The Ferrow Mutual (Outlanders): 4 settlements\n- The Gorse Clans (Tribe): 6 settlements\n\nNews on the rim:\n- A cold snap has killed crops across the northern basin\n- Scythe Tooth raids reported at three settlements\n\n## Your earlier bulletins\nEarlier bulletin:\nThe cold has come early. Every farm north of the Ferrow road reports lost crops, and the Gorse Clans are trading furs for grain at prices that would make a usurer blush.\n\nLatest bulletin:\nScythe Tooth raiders have now hit three settlements in a quadrum. The Ferrow Mutual has asked its members to share patrols. Its members have asked who is paying.\n\nWrite the bulletin now.\n",
+        "maxOutputTokens": 350,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "Crops withered across the northern basin under a new frost, while the Scythe Tooth pirates circled three settlements for a third night in a week. The Ferrow Mutual demanded that their patrol teams be stationed at the colony gate to protect against these maritime bandits who have begun demanding ransoms from local traders. Meanwhile, the Gorse Clans continue to barter pelts for grain with prices high enough to bankrupt any merchant willing to risk credit on this rim.",
+      "error": null,
+      "failures": [
+        "Use 80-150 words; this has 78"
+      ],
+      "latencySeconds": 0.7381154,
+      "inputTokens": 392,
+      "outputTokens": 96,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-382\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795222393,\u0022model\u0022:\u0022qwen3.5:2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022Crops withered across the northern basin under a new frost, while the Scythe Tooth pirates circled three settlements for a third night in a week. The Ferrow Mutual demanded that their patrol teams be stationed at the colony gate to protect against these maritime bandits who have begun demanding ransoms from local traders. Meanwhile, the Gorse Clans continue to barter pelts for grain with prices high enough to bankrupt any merchant willing to risk credit on this rim.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:392,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:96,\u0022total_tokens\u0022:488}}\n"
+    },
+    {
+      "request": {
+        "system": "You are Odile Brask, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is sardonic, precise and fond of understatement.\n\nWrite your next news bulletin.\n\nRules:\n- 80 to 150 words in total.\n- 2 to 4 short news items, the most important first.\n- Use only facts and names from your briefing. Never invent people, places, factions, numbers or events.\n- You do not know what happens inside the colony unless your briefing says it became public.\n- Keep your voice the same as in your earlier bulletins, but do not repeat their news.\n- Write only the bulletin itself: no title, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 47 (Decembary 5500).\nThe colony you report near: Thornreach. You do not know what happens inside it unless listed below.\n\nFactions:\n- Scythe Tooth (Pirates): 5 settlements\n- The Ferrow Mutual (Outlanders): 4 settlements\n- The Gorse Clans (Tribe): 6 settlements\n\nNews on the rim:\n- A cold snap has killed crops across the northern basin\n- Scythe Tooth raids reported at three settlements\n\n## Your earlier bulletins\nEarlier bulletin:\nThe cold has come early. Every farm north of the Ferrow road reports lost crops, and the Gorse Clans are trading furs for grain at prices that would make a usurer blush.\n\nLatest bulletin:\nScythe Tooth raiders have now hit three settlements in a quadrum. The Ferrow Mutual has asked its members to share patrols. Its members have asked who is paying.\n\nWrite the bulletin now.\n\n\nYour previous answer was rejected:\n- Use 80-150 words; this has 78\nAnswer again, following every rule.",
+        "maxOutputTokens": 350,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "Thornreach sees no sign of winter\u0027s fury; crops survived thanks to earlier snowfall from the Ferrow Mutual. Gorse Clan barter rates dipped since harvest ended.\n\nScythe Tooth pirates have not struck again this month despite rumors of movement north. They currently occupy their five settlements with ample guard.\n\nFerrow Mutual logistics are failing. Members demand proof of funding for new patrols and accuse local traders of theft while waiting on the colony council.\n\nThe colony remains quiet while the rim burns.",
+      "error": null,
+      "failures": [
+        "Do not mention names that are not in the briefing: Clan"
+      ],
+      "latencySeconds": 0.7723231,
+      "inputTokens": 424,
+      "outputTokens": 102,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-211\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795222394,\u0022model\u0022:\u0022qwen3.5:2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022Thornreach sees no sign of winter\u0027s fury; crops survived thanks to earlier snowfall from the Ferrow Mutual. Gorse Clan barter rates dipped since harvest ended.\\n\\nScythe Tooth pirates have not struck again this month despite rumors of movement north. They currently occupy their five settlements with ample guard.\\n\\nFerrow Mutual logistics are failing. Members demand proof of funding for new patrols and accuse local traders of theft while waiting on the colony council.\\n\\nThe colony remains quiet while the rim burns.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:424,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:102,\u0022total_tokens\u0022:526}}\n"
+    }
+  ]
+}

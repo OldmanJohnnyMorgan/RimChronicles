@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin restates the earlier bulletins\u0027 news (crop loss, three raids, the Ferrow patrol request), which breaks the rule against repeating news. It also runs about 50 words against a minimum of 80, and swaps Odile\u0027s sardonic voice for flat office language such as \u0027reallocation of patrol duties\u0027 and \u0027questions regarding compensation remain unaddressed.\u0027\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.8392484,
+      "inputTokens": 1937,
+      "outputTokens": 466
+    }
+  ]
+}

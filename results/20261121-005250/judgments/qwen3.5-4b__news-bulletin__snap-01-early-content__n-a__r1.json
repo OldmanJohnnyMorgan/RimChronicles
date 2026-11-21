@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-01-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They claim it\u0027s \\\u0022vital commerce,\\\u0022\u0022,\u0022reason\u0022:\u0022A quoted statement from the Tarn Union that the briefing does not contain.\u0022},{\u0022span\u0022:\u0022It\u0027s going to be another long, freezing day at Ashfall Crossing\u0022,\u0022reason\u0022:\u0022The cold snap is forecast for the northern hills, not for Ashfall Crossing.\u0022},{\u0022span\u0022:\u0022the Seven Ash Clans are likely still arguing over who stole whose goat\u0022,\u0022reason\u0022:\u0022The briefing reports no Seven Ash Clans activity. Despite the hedge, this suggests an ongoing dispute.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The wry, cynical voice comes through, but the bulletin pads two real news items with filler about factions that did nothing. It also invents a quote and moves the cold snap to Ashfall Crossing. The items blur into one paragraph, and the weather news is buried.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.2482854,
+      "inputTokens": 1956,
+      "outputTokens": 597
+    }
+  ]
+}

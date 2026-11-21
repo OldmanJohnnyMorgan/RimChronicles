@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-02-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022reporting another profitable week\u0022,\u0022reason\u0022:\u0022The briefing has no new Company report; this recycles an earlier bulletin\u0027s line as fresh news.\u0022},{\u0022span\u0022:\u0022as they move along the eastern ford\u0022,\u0022reason\u0022:\u0022The briefing only says a caravan reached the ford, and that is old news. Ongoing movement is an added detail presented as current.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It opens with a heading, which breaks the format, and the voice is flat and bureaucratic rather than wry. It also contradicts itself (fighting \u0027on pause\u0027, then \u0027continue their conflict\u0027), recasts old news as current, and reuses the earlier profitable-week joke.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.1558504,
+      "inputTokens": 2345,
+      "outputTokens": 511
+    }
+  ]
+}

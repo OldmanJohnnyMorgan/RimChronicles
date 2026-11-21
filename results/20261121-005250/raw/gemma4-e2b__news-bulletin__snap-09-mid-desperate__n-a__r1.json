@@ -1,0 +1,55 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-09-mid-desperate__n-a__r1",
+  "model": "gemma4-e2b",
+  "task": "news-bulletin",
+  "snapshot": "snap-09-mid-desperate",
+  "grammar": "n/a",
+  "repeat": 1,
+  "promptVersion": "news-bulletin/v1",
+  "outcome": "Template",
+  "value": "(template)",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are Odile Brask, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is sardonic, precise and fond of understatement.\n\nWrite your next news bulletin.\n\nRules:\n- 80 to 150 words in total.\n- 2 to 4 short news items, the most important first.\n- Use only facts and names from your briefing. Never invent people, places, factions, numbers or events.\n- You do not know what happens inside the colony unless your briefing says it became public.\n- Keep your voice the same as in your earlier bulletins, but do not repeat their news.\n- Write only the bulletin itself: no title, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 288 (Decembary 5504).\nThe colony you report near: Cinder Rest. You do not know what happens inside it unless listed below.\n\nFactions:\n- Malley\u0027s Lancers (Pirates): 1 settlement\n- The Gray Wharf Syndicate (Outlanders): 6 settlements\n- Embertail Tribe (Tribe): 4 settlements, at war with The Gray Wharf Syndicate\n\nNews on the rim:\n- Pirate captain Rook Malley was killed at his camp\n- The Embertail Tribe declared war on the Gray Wharf Syndicate\n- Pirate captain Rook Malley is dead, killed at his own camp\n\n## Your earlier bulletins\nEarlier bulletin:\nCaptain Rook Malley\u0027s Lancers are getting bolder. A trader was killed on the coast road last quadrum, and a pit fighter from Cinder Rest is said to be walking with a cane because of them.\n\nLatest bulletin:\nThe Embertail Tribe has declared war on the Gray Wharf Syndicate over fishing rights. Neither side, so far as I can tell, has caught any fish.\n\nWrite the bulletin now.\n",
+        "maxOutputTokens": 350,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "Rook Malley, captain of the Malley\u0027s Lancers, has been confirmed dead at his camp. This is the latest on the pirate faction.\n\nThe Embertail Tribe has formally declared war upon the Gray Wharf Syndicate. This conflict concerns fishing rights, a predictable, if tiresome, matter for these groups.\n\nNo further immediate developments have been reported from Cinder Rest or the surrounding areas.",
+      "error": null,
+      "failures": [
+        "Use 80-150 words; this has 61"
+      ],
+      "latencySeconds": 0.5139049,
+      "inputTokens": 418,
+      "outputTokens": 83,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-860\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795222427,\u0022model\u0022:\u0022gemma4:e2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022Rook Malley, captain of the Malley\u0027s Lancers, has been confirmed dead at his camp. This is the latest on the pirate faction.\\n\\nThe Embertail Tribe has formally declared war upon the Gray Wharf Syndicate. This conflict concerns fishing rights, a predictable, if tiresome, matter for these groups.\\n\\nNo further immediate developments have been reported from Cinder Rest or the surrounding areas.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:418,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:83,\u0022total_tokens\u0022:501}}\n"
+    },
+    {
+      "request": {
+        "system": "You are Odile Brask, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is sardonic, precise and fond of understatement.\n\nWrite your next news bulletin.\n\nRules:\n- 80 to 150 words in total.\n- 2 to 4 short news items, the most important first.\n- Use only facts and names from your briefing. Never invent people, places, factions, numbers or events.\n- You do not know what happens inside the colony unless your briefing says it became public.\n- Keep your voice the same as in your earlier bulletins, but do not repeat their news.\n- Write only the bulletin itself: no title, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 288 (Decembary 5504).\nThe colony you report near: Cinder Rest. You do not know what happens inside it unless listed below.\n\nFactions:\n- Malley\u0027s Lancers (Pirates): 1 settlement\n- The Gray Wharf Syndicate (Outlanders): 6 settlements\n- Embertail Tribe (Tribe): 4 settlements, at war with The Gray Wharf Syndicate\n\nNews on the rim:\n- Pirate captain Rook Malley was killed at his camp\n- The Embertail Tribe declared war on the Gray Wharf Syndicate\n- Pirate captain Rook Malley is dead, killed at his own camp\n\n## Your earlier bulletins\nEarlier bulletin:\nCaptain Rook Malley\u0027s Lancers are getting bolder. A trader was killed on the coast road last quadrum, and a pit fighter from Cinder Rest is said to be walking with a cane because of them.\n\nLatest bulletin:\nThe Embertail Tribe has declared war on the Gray Wharf Syndicate over fishing rights. Neither side, so far as I can tell, has caught any fish.\n\nWrite the bulletin now.\n\n\nYour previous answer was rejected:\n- Use 80-150 words; this has 61\nAnswer again, following every rule.",
+        "maxOutputTokens": 350,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "Rook Malley, captain of the Malley\u0027s Lancers, has met his end at his camp. This concludes the latest movement from that faction.\n\nSimultaneously, the Embertail Tribe has formally declared war against the Gray Wharf Syndicate. This escalation follows previous disputes regarding fishing rights.\n\nThe Syndicate, in turn, has not yet offered a public statement regarding the declaration of hostilities. Cinder Rest remains quiet, as usual.",
+      "error": null,
+      "failures": [
+        "Use 80-150 words; this has 65"
+      ],
+      "latencySeconds": 0.6113713,
+      "inputTokens": 450,
+      "outputTokens": 91,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-490\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795222427,\u0022model\u0022:\u0022gemma4:e2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022Rook Malley, captain of the Malley\u0027s Lancers, has met his end at his camp. This concludes the latest movement from that faction.\\n\\nSimultaneously, the Embertail Tribe has formally declared war against the Gray Wharf Syndicate. This escalation follows previous disputes regarding fishing rights.\\n\\nThe Syndicate, in turn, has not yet offered a public statement regarding the declaration of hostilities. Cinder Rest remains quiet, as usual.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:450,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:413},\u0022completion_tokens\u0022:91,\u0022total_tokens\u0022:541}}\n"
+    }
+  ]
+}

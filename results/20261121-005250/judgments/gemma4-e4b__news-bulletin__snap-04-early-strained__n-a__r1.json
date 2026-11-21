@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-04-early-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Brine Coast League remains silent on the matter.\u0022,\u0022reason\u0022:\u0022The briefing gives no news or stance from the League.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022At about 60 words it falls short of the required 80, and it closes on an unsupported claim about the Brine Coast League. The voice has a few wry touches, but the items read as a choppy list, and the Tomas Quell search is buried last with an awkward appositive.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.4589333,
+      "inputTokens": 1879,
+      "outputTokens": 421
+    }
+  ]
+}

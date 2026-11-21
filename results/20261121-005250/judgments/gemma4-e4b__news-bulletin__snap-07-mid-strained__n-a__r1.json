@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-07-mid-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Reports from Hearthstead suggest a lull in the overt clashes\u0022,\u0022reason\u0022:\u0022The briefing reports nothing from Hearthstead and mentions no clashes or lull.\u0022},{\u0022span\u0022:\u0022The Iron Covenant recently suffered another setback\u0022,\u0022reason\u0022:\u0022\u0027Another\u0027 implies a second loss. The briefing lists only the one wagon, which was already reported.\u0022},{\u0022span\u0022:\u0022have finished their visits to two outlander towns\u0022,\u0022reason\u0022:\u0022The briefing does not say the envoys\u0027 visits have ended.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin mostly rehashes both earlier bulletins, breaking the no-repeat rule. It also invents a Hearthstead lull and frames the old wagon loss as a new setback. The voice has a few wry touches but is flatter and more generic than Ilse\u0027s earlier work.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.6197756,
+      "inputTokens": 2027,
+      "outputTokens": 555
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-01-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It\u2019s modest\u0022,\u0022reason\u0022:\u0022The briefing gives no detail about the trading post\u0027s size.\u0022},{\u0022span\u0022:\u0022The Ash Clans, who rely on the hills for hunting\u0022,\u0022reason\u0022:\u0022The briefing says nothing linking the Seven Ash Clans to the northern hills or to hunting.\u0022},{\u0022span\u0022:\u0022with no clear signs of conflict yet\u0022,\u0022reason\u0022:\u0022The briefing does not mention the state of relations or conflict between the factions.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It copies the briefing\u0027s section headings (\u0027News since your last bulletin\u0027, \u0027Already reported\u0027) into what should be bare bulletin text, and it mislabels faction background as already reported in a first bulletin. It also adds unsupported details: the post being \u0027modest\u0027, the Ash Clans relying on the hills for hunting, and a winter framing for an Aprimay cold snap.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.2124005,
+      "inputTokens": 2130,
+      "outputTokens": 584
+    }
+  ]
+}

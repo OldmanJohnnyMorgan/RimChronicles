@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022No faction claims responsibility\u0022,\u0022reason\u0022:\u0022The briefing says nothing about claims of responsibility.\u0022},{\u0022span\u0022:\u0022the Embertail Tribe has been seen celebrating\u0022,\u0022reason\u0022:\u0022This is an invented event and is not in the briefing.\u0022},{\u0022span\u0022:\u0022A trader was found dead on the coast road\u0022,\u0022reason\u0022:\u0022No trader death appears in the current briefing; it reworks old bulletin news as a new event.\u0022},{\u0022span\u0022:\u0022no Lancers have been seen since the last quadrum\u0022,\u0022reason\u0022:\u0022This claim about the Lancers\u0027 whereabouts is unsupported.\u0022},{\u0022span\u0022:\u0022The pit fighter from Cinder Rest still walks with a cane\u0022,\u0022reason\u0022:\u0022This is an unsupported current claim about a person inside the colony.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It copies the latest bulletin\u0027s war item word for word and recycles the earlier bulletin\u0027s trader and pit fighter, against the rule not to repeat news. It also invents several details, such as the Embertail celebrations and no faction claiming responsibility. Only the Malley death item is new and supported.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.6458999,
+      "inputTokens": 2047,
+      "outputTokens": 788
+    }
+  ]
+}

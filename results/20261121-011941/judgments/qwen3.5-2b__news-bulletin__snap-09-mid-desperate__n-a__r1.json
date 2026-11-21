@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022He was found murdered in a cell\u0022,\u0022reason\u0022:\u0022Briefing says only that he was killed at his camp; it never mentions a cell or murder.\u0022},{\u0022span\u0022:\u0022suggesting the pirates\u0027 internal conflict has reached its final conclusion\u0022,\u0022reason\u0022:\u0022The briefing mentions no internal pirate conflict.\u0022},{\u0022span\u0022:\u0022The Gray Wharf Syndicate remains the dominant force along the coast\u0022,\u0022reason\u0022:\u0022The briefing gives no coast or dominance claim, only a settlement count.\u0022},{\u0022span\u0022:\u0022in recent years\u0022,\u0022reason\u0022:\u0022Adds a time span not in the briefing.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022Breaks format with markdown headings and recycles the earlier fishing joke almost word for word. It also invents details: a cell, internal conflict and coastal dominance.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.5919058,
+      "inputTokens": 2258,
+      "outputTokens": 283
+    }
+  ]
+}

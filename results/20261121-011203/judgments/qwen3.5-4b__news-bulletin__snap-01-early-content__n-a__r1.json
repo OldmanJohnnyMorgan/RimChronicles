@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-01-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022day two of April 5500\u0022,\u0022reason\u0022:\u0022The briefing gives the quadrum as Aprimay; \u0027April\u0027 is not a RimWorld date.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The output breaks the format by adding bold headings copied from the prompt, and it labels current faction facts as \u0027Already reported\u0027 when the briefing lists nothing as old news. It also renders the quadrum as \u0027April\u0027, while the wry voice comes through only faintly.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.3334457,
+      "inputTokens": 2121,
+      "outputTokens": 448
+    }
+  ]
+}

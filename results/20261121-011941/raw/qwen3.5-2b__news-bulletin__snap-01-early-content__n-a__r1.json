@@ -1,0 +1,55 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-01-early-content__n-a__r1",
+  "model": "qwen3.5-2b",
+  "task": "news-bulletin",
+  "snapshot": "snap-01-early-content",
+  "grammar": "n/a",
+  "repeat": 1,
+  "promptVersion": "news-bulletin/v2",
+  "outcome": "Template",
+  "value": "(template)",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.\n\nWrite your next news bulletin.\n\nWhat to write:\n- 2 or 3 short news items, most important first, separated by a blank line.\n- Each item is 2 to 4 sentences. The whole bulletin is 80 to 150 words.\n- Lead with the items under \u0022News since your last bulletin\u0022.\n- Items under \u0022Already reported\u0022 are old news. You may mention them briefly as background, but never present them as new or happening again.\n- If there is little new news, fill the remaining items with dry comment on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.\n\nWhat you know:\n- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events, and never add details to an event that the briefing does not give.\n- You do not know what happens inside the colony unless your briefing says it became public.\n\nStyle:\n- Keep your voice the same as in your earlier bulletins, but do not reuse their jokes or sentences.\n- Write only the bulletin itself: no title, no dateline, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 2 (Aprimay 5500).\nThe colony you report near: Ashfall Crossing. You do not know what happens inside it unless listed below.\n\nFactions:\n- The Tarn Union (Outlanders): 6 settlements\n- Red Gully Raiders (Pirates): 3 settlements\n- The Seven Ash Clans (Tribe): 4 settlements\n\nNews since your last bulletin:\n- The Tarn Union opened a new trading post on the river road\n- A cold snap is forecast for the northern hills\n\n## Your earlier bulletins\nNone yet. This is your first bulletin.\n\nWrite the bulletin now.\n",
+        "maxOutputTokens": 350,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "News since your last bulletin\nThe Tarn Union\u0027s new river post has been quietly operational, a quiet expansion that only matters when the next trade dispute breaks out elsewhere. Meanwhile, ice packs are already forming over the northern hills, threatening to choke off traffic for at least another week. The forecast calls for a cold snap, which adds a layer of dread to an otherwise mundane week ahead.\n\n## Already reported\nAshfall Crossing remains isolated; both factions maintain their respective territories without sign of internal strife. Despite the weather front\u0027s approach, the colony\u0027s current population sits well above the average, proving that survival in these shifting sands doesn\u0027t always require constant fighting.",
+      "error": null,
+      "failures": [
+        "Do not mention names that are not in the briefing: Already"
+      ],
+      "latencySeconds": 1.0173107,
+      "inputTokens": 457,
+      "outputTokens": 134,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-836\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795223990,\u0022model\u0022:\u0022qwen3.5:2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022News since your last bulletin\\nThe Tarn Union\u0027s new river post has been quietly operational, a quiet expansion that only matters when the next trade dispute breaks out elsewhere. Meanwhile, ice packs are already forming over the northern hills, threatening to choke off traffic for at least another week. The forecast calls for a cold snap, which adds a layer of dread to an otherwise mundane week ahead.\\n\\n## Already reported\\nAshfall Crossing remains isolated; both factions maintain their respective territories without sign of internal strife. Despite the weather front\u0027s approach, the colony\u0027s current population sits well above the average, proving that survival in these shifting sands doesn\u0027t always require constant fighting.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:457,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:134,\u0022total_tokens\u0022:591}}\n"
+    },
+    {
+      "request": {
+        "system": "You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.\n\nWrite your next news bulletin.\n\nWhat to write:\n- 2 or 3 short news items, most important first, separated by a blank line.\n- Each item is 2 to 4 sentences. The whole bulletin is 80 to 150 words.\n- Lead with the items under \u0022News since your last bulletin\u0022.\n- Items under \u0022Already reported\u0022 are old news. You may mention them briefly as background, but never present them as new or happening again.\n- If there is little new news, fill the remaining items with dry comment on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.\n\nWhat you know:\n- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events, and never add details to an event that the briefing does not give.\n- You do not know what happens inside the colony unless your briefing says it became public.\n\nStyle:\n- Keep your voice the same as in your earlier bulletins, but do not reuse their jokes or sentences.\n- Write only the bulletin itself: no title, no dateline, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 2 (Aprimay 5500).\nThe colony you report near: Ashfall Crossing. You do not know what happens inside it unless listed below.\n\nFactions:\n- The Tarn Union (Outlanders): 6 settlements\n- Red Gully Raiders (Pirates): 3 settlements\n- The Seven Ash Clans (Tribe): 4 settlements\n\nNews since your last bulletin:\n- The Tarn Union opened a new trading post on the river road\n- A cold snap is forecast for the northern hills\n\n## Your earlier bulletins\nNone yet. This is your first bulletin.\n\nWrite the bulletin now.\n\n\nYour previous answer was rejected:\n- Do not mention names that are not in the briefing: Already\nAnswer again, following every rule.",
+        "maxOutputTokens": 350,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "### News since your last bulletin\nThe Tarn Union has secured a new trading post along the river road between the two factions\u0027 territories. This outpost likely aims to increase efficiency and perhaps undercut the prices of goods offered by the Red Gully Raiders or Seven Ash Clans. A cold snap is now forecast to move in from the northern hills, which will significantly impact agricultural harvests.\n\n### Already reported\nSix settlements remain loyal to the Tarn Union following their recent expansion on the river road, a small victory for the Outlanders. The Three Ash Clans currently control a quarter of the colony\u0027s total population, while the Red Gully Raiders operate from three scattered locations inland.",
+      "error": null,
+      "failures": [
+        "Do not mention names that are not in the briefing: Already, Three"
+      ],
+      "latencySeconds": 1.0319436,
+      "inputTokens": 486,
+      "outputTokens": 138,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-670\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795223991,\u0022model\u0022:\u0022qwen3.5:2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022### News since your last bulletin\\nThe Tarn Union has secured a new trading post along the river road between the two factions\u0027 territories. This outpost likely aims to increase efficiency and perhaps undercut the prices of goods offered by the Red Gully Raiders or Seven Ash Clans. A cold snap is now forecast to move in from the northern hills, which will significantly impact agricultural harvests.\\n\\n### Already reported\\nSix settlements remain loyal to the Tarn Union following their recent expansion on the river road, a small victory for the Outlanders. The Three Ash Clans currently control a quarter of the colony\u0027s total population, while the Red Gully Raiders operate from three scattered locations inland.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:486,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:138,\u0022total_tokens\u0022:624}}\n"
+    }
+  ]
+}

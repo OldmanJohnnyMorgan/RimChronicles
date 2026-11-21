@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-02-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Salt prices at Bramblewick hold steady\u0022,\u0022reason\u0022:\u0022Briefing gives no salt price news at Bramblewick.\u0022},{\u0022span\u0022:\u0022north of town\u0022,\u0022reason\u0022:\u0022Location of the salt flats is not given.\u0022},{\u0022span\u0022:\u0022its escort numbers exceed cargo loads\u0022,\u0022reason\u0022:\u0022Repeats an earlier bulletin rather than the briefing, which only says the caravan reached the ford.\u0022},{\u0022span\u0022:\u0022the Company seized three small fishing vessels during a routine patrol along the western shore\u0022,\u0022reason\u0022:\u0022Event, number and place are not in the briefing.\u0022},{\u0022span\u0022:\u0022roughly two thousand credits\u0022,\u0022reason\u0022:\u0022Invented number and currency.\u0022},{\u0022span\u0022:\u0022rumors of sabotage persist among the Tannerfolk regarding the pirate supply lines\u0022,\u0022reason\u0022:\u0022Event not in the briefing.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The bulletin invents a ship seizure, a sum of credits, sabotage rumours and locations, and it recycles the caravan-guards joke from an earlier bulletin. Its stiff wire-report phrasing (\u0027signaling an economic threat to regional markets\u0027) loses Ilse\u0027s dry voice, and \u0027credits\u0027 is foreign to RimWorld.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.6809848,
+      "inputTokens": 2182,
+      "outputTokens": 416
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-08-mid-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022sparking interest from three different factions within two days\u0022,\u0022reason\u0022:\u0022Number of factions and timeframe not in briefing\u0022},{\u0022span\u0022:\u0022Jade Merchant Guild\u0022,\u0022reason\u0022:\u0022Invented faction name\u0022},{\u0022span\u0022:\u0022no official announcements have yet come from the Jade Merchant Guild regarding their participation in the upcoming trade fair\u0022,\u0022reason\u0022:\u0022Invented event\u0022},{\u0022span\u0022:\u0022a failed raid on Gladwater last week\u0022,\u0022reason\u0022:\u0022\u0027Last week\u0027 timing not given; raid is only from earlier bulletin\u0022},{\u0022span\u0022:\u0022having reportedly agreed not to intervene if the Accord\u0027s representatives do not arrive early\u0022,\u0022reason\u0022:\u0022Invented agreement\u0022},{\u0022span\u0022:\u0022lantern accord representatives continue to navigate the delicate balance between trade expectations and border security\u0022,\u0022reason\u0022:\u0022Invented activity and border security concern\u0022},{\u0022span\u0022:\u0022ninefingers pirates have not spoken since their last raid\u0022,\u0022reason\u0022:\u0022Embellishes the Gang\u0027s quiet into a claim not in briefing\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022Breaks format with headings and a meta \u0027Already reported\u0027 section, invents a faction and several events, recycles earlier bulletins\u0027 jokes as stale news, and runs well over the word limit. Flat, bureaucratic prose with no trace of Ilse\u0027s wry voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.430135,
+      "inputTokens": 2551,
+      "outputTokens": 447
+    }
+  ]
+}

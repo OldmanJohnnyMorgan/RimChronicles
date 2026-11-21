@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the Lancers remain active in their pirate ways\u0022,\u0022reason\u0022:\u0022No current Lancer activity in briefing; captain just died\u0022},{\u0022span\u0022:\u0022leaving behind a trail of dead traders and injured local laborers who require frequent cane replacements\u0022,\u0022reason\u0022:\u0022Inflates one earlier trader death and one pit fighter into plural, ongoing casualties\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin reuses the previous bulletin\u0027s war and fish joke, against the no-repeat rule, and inflates old Lancer news into ongoing raids after their captain\u0027s death. The Malley lead is fine, but the closing line is filler.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 8.2855747,
+      "inputTokens": 2088,
+      "outputTokens": 770
+    }
+  ]
+}

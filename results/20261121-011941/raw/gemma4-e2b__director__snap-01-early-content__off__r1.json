@@ -1,0 +1,50 @@
+{
+  "cell": "gemma4-e2b__director__snap-01-early-content__off__r1",
+  "model": "gemma4-e2b",
+  "task": "director",
+  "snapshot": "snap-01-early-content",
+  "grammar": "off",
+  "repeat": 1,
+  "promptVersion": "director/v1",
+  "outcome": "Model",
+  "value": "\u0060\u0060\u0060json\n{\n\u0022choice\u0022: \u0022Wait\u0022,\n\u0022reason\u0022: \u0022The colony is very new, having only survived the initial crash and established basic shelter. There are no immediate threats or tasks requiring action.\u0022\n}\n\u0060\u0060\u0060",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are the plot director for a story told through a RimWorld colony. You decide what happens next in the colony\u0027s plots.\n\nRules:\n- Choose exactly one option from the allowed list. Copy it exactly, character for character.\n- Choose \u0022Wait\u0022 if the colony is in crisis or the story needs a pause.\n- Prefer the option that follows most naturally from what has already happened.\n- Give a reason in one or two short sentences. Use only facts from the briefing.\n\nAnswer with JSON only, in this form:\n{\u0022choice\u0022: \u0022\u003Cone allowed option\u003E\u0022, \u0022reason\u0022: \u0022\u003Cone or two sentences\u003E\u0022}\n",
+        "user": "## The world\nDate: day 2 (Aprimay 5500).\nColony: Ashfall Crossing, 3 people, wealth 9,800 silver, mood content.\n\nPeople:\n- Ren (29); traits: Industrious, Optimist; backstory: Glitterworld engineer.\n- Hollis (41); traits: Tough; backstory: Midworld soldier.\n- Wen (23); traits: Kind, Green thumb; backstory: Farm girl; the crash\u0027s only medic, untrained.\n\nHistory:\n- Day 1: Ashfall Crossing was founded by crash survivors.\n\nFactions:\n- The Tarn Union (Outlanders): goodwill \u002B15, 6 settlements.\n- Red Gully Raiders (Pirates): goodwill -80, 3 settlements.\n- The Seven Ash Clans (Tribe): goodwill 0, 4 settlements.\n\nRecent events:\n- Three survivors crash-landed day 1\n- First shelter walls finished day 2\n\n## Active plots\nNo active plots.\n\n## Allowed options\n- Wait\n\nChoose one allowed option.\n",
+        "maxOutputTokens": 200,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "choice": {
+              "type": "string",
+              "enum": [
+                "Wait"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "choice",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "ok": true,
+      "text": "\u0060\u0060\u0060json\n{\n\u0022choice\u0022: \u0022Wait\u0022,\n\u0022reason\u0022: \u0022The colony is very new, having only survived the initial crash and established basic shelter. There are no immediate threats or tasks requiring action.\u0022\n}\n\u0060\u0060\u0060",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 0.3345801,
+      "inputTokens": 380,
+      "outputTokens": 48,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-207\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795222414,\u0022model\u0022:\u0022gemma4:e2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022\u0060\u0060\u0060json\\n{\\n\\\u0022choice\\\u0022: \\\u0022Wait\\\u0022,\\n\\\u0022reason\\\u0022: \\\u0022The colony is very new, having only survived the initial crash and established basic shelter. There are no immediate threats or tasks requiring action.\\\u0022\\n}\\n\u0060\u0060\u0060\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:380,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:375},\u0022completion_tokens\u0022:48,\u0022total_tokens\u0022:428}}\n"
+    }
+  ]
+}

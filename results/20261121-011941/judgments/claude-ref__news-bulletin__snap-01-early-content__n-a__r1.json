@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-01-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:5,\u0022comment\u0022:\u0022Every fact traces to the briefing, and the dry, cynical voice holds steady across all three items. The quiet-week filler about faction sizes and the closed-mouthed colony is handled wryly without inventing anything.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.2992502,
+      "inputTokens": 2123,
+      "outputTokens": 363
+    }
+  ]
+}

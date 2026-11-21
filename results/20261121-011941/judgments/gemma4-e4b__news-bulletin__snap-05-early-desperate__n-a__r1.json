@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The output copies the briefing\u0027s section labels as headings, which breaks character and violates the no-headings instruction. It is also under the 80-word minimum, and the old raids and cold are framed as ongoing rather than as brief background.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.6747071,
+      "inputTokens": 2193,
+      "outputTokens": 314
+    }
+  ]
+}

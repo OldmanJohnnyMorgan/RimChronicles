@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-02-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022nursing their grievances over the missing salt\u0022,\u0022reason\u0022:\u0022No briefing fact says any salt went missing.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It copies the briefing\u0027s section headings into the bulletin, which breaks character and the no-headings rule. It also restates the old caravan story as if it were fresh news and adds an unsupported \u0027missing salt\u0027 detail.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.5010001,
+      "inputTokens": 2329,
+      "outputTokens": 336
+    }
+  ]
+}

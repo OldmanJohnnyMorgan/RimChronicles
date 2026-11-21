@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-06-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin breaks character by copying the briefing\u0027s section labels (\u0027News since your last bulletin:\u0027, \u0027Already reported in our earlier dispatches\u0027), which the task forbids. It is also short of 80 words, and the second item mostly restates old news instead of offering dry comment.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.8362941,
+      "inputTokens": 2176,
+      "outputTokens": 734
+    }
+  ]
+}

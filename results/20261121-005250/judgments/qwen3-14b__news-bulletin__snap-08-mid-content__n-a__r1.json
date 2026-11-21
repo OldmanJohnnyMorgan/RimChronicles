@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-08-mid-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022already tensions are rising over the pricing of salted fish\u0022,\u0022reason\u0022:\u0022The briefing reports no pricing dispute and no salted fish.\u0022},{\u0022span\u0022:\u0022though they\u0027ve warned against overfishing\u0022,\u0022reason\u0022:\u0022The briefing reports only a good fishing season, with no warning.\u0022},{\u0022span\u0022:\u0022has left the colony wary\u0022,\u0022reason\u0022:\u0022This claims to know Gladwater\u0027s internal mood, which was never made public.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It invents a salted-fish pricing dispute and an overfishing warning. It also repeats the fishing and Ninefingers news from the latest bulletin, and Ilse\u0027s dry wit is mostly missing.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.0424537,
+      "inputTokens": 2021,
+      "outputTokens": 485
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "cell": "claude-ref__director__snap-08-mid-content__on__r1",
+  "model": "claude-ref",
+  "task": "director",
+  "snapshot": "snap-08-mid-content",
+  "grammar": "on",
+  "repeat": 1,
+  "promptVersion": "director/v1",
+  "outcome": "Model",
+  "value": "{\u0022choice\u0022: \u0022Seed:Rivalry:p4:p2\u0022, \u0022reason\u0022: \u0022Gladwater is stable and content, with no active plots, so it can afford some new tension. Yara\u0027s recent concert success gives a reasonable spark for friction with Esme.\u0022}",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are the plot director for a story told through a RimWorld colony. You decide what happens next in the colony\u0027s plots.\n\nRules:\n- Choose exactly one option from the allowed list. Copy it exactly, character for character.\n- Choose \u0022Wait\u0022 if the colony is in crisis or the story needs a pause.\n- Prefer the option that follows most naturally from what has already happened.\n- Give a reason in one or two short sentences. Use only facts from the briefing.\n\nAnswer with JSON only, in this form:\n{\u0022choice\u0022: \u0022\u003Cone allowed option\u003E\u0022, \u0022reason\u0022: \u0022\u003Cone or two sentences\u003E\u0022}\n",
+        "user": "## The world\nDate: day 130 (Aprimay 5502).\nColony: Gladwater, 7 people, wealth 96,500 silver, mood content.\n\nPeople:\n- Halvard (50); traits: Industrious, Steadfast; backstory: Midworld mayor; role: Leader.\n- Esme (31); traits: Kind, Green thumb; backstory: Botanist; wife of Cato.\n- Cato (33); traits: Careful shooter; backstory: Colonial marshal; husband of Esme.\n- Yara (24); traits: Sanguine, Beautiful; backstory: Singer.\n- Brannock (46); traits: Tough; backstory: Miner.\n\nHistory:\n- Day 88: Esme married Cato.\n- Day 112: Gladwater repelled a raid by Ninefingers Gang.\n- Day 126: Brannock made a masterwork: a jade sculpture called \u0027The Patient Hill\u0027.\n\nFactions:\n- The Lantern Accord (Outlanders): goodwill \u002B60, 9 settlements.\n- Ninefingers Gang (Pirates): goodwill -70, 3 settlements.\n- The Reedmother\u0027s Children (Tribe): goodwill \u002B35, 5 settlements.\n\nRecent events:\n- Raid repelled day 112 with no losses\n- Brannock carved a masterwork jade sculpture day 126\n- Yara\u0027s concert raised the colony\u0027s mood day 128\n\n## Active plots\nNo active plots.\n\n## Allowed options\n- Wait\n- Seed:Rivalry:p4:p2\n\nChoose one allowed option.\n",
+        "maxOutputTokens": 300,
+        "useGrammar": true,
+        "thinking": "Off",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "choice": {
+              "type": "string",
+              "enum": [
+                "Wait",
+                "Seed:Rivalry:p4:p2"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "choice",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "ok": true,
+      "text": "{\u0022choice\u0022: \u0022Seed:Rivalry:p4:p2\u0022, \u0022reason\u0022: \u0022Gladwater is stable and content, with no active plots, so it can afford some new tension. Yara\u0027s recent concert success gives a reasonable spark for friction with Esme.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.5622777,
+      "inputTokens": 967,
+      "outputTokens": 206,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022model\u0022:\u0022claude-opus-5-5\u0022,\u0022id\u0022:\u0022msg_011ChFAVi8iZHR349zjH7iZ4\u0022,\u0022type\u0022:\u0022message\u0022,\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:[{\u0022type\u0022:\u0022thinking\u0022,\u0022thinking\u0022:\u0022\u0022,\u0022signature\u0022:\u0022CAQShQcKEAgUGAI4AUIIdGhpbmtpbmcSDNlS0wWD49uxJx8IARoMNoyetyO2yaHB8whDIjB70\\u002BK/88gJ8/2Z5zTEMJvQom6ZWIV95UMv7i65JRHFEGMTPY6Sne2QWBHhtk0H9OkqogbslHVE2IPytl/cAPB1Hi/W\\u002BUENP2UL22LEEDBWEC3iA8KqyvJKqmBW/yePPAFQ6bghLTMy3tqhYEfbaOsZqd8iCNvDg/AbD7DGmP4fywGgLhF2KwDZmWWJ/f1HL2sikwTcbajJIQqGK30Bj2RLAi036t8Z00jaql3qMttQBZLaOrQO66NWKXDYbssHKvnB4gjMy/5w1wfLv7FbN/vN\\u002B0Yi72YQFEH8yNTT8vYPi4cN9WiVHPSQ8paWFRlA4joeZ8RAAdE4eU4wvHU9i2jebgb1PIy7xJC7ZTFckuT3hgQxjqrmGQGeGxl4MyF4pplr\\u002Bt\\u002BfPgOp9\\u002BVx2ItOZvj196lafjag116lVu4IsvFzo3dqW52mIz8ABFMW4ljPbxjDoM3lG4T5osCVwld\\u002BxE19q\\u002B6OK6iX4veyCMJ4a23MsrMuS6LDFeYzEycbkBmmf5BVGeha4gSGdHRcwUh17Rtmni9RbxjmAsWyj0pIfo7uR2Anx5HdCS2WOk9qMZE9iE8tZ7A1fWDEW8ehUeJ7EqQbr7BZb2\\u002BXsQOcPjD/CYvBvJPer6VKYabsKoCe2RPhM8vw80Zya\\u002BGdhN6KVq\\u002Bw3jkJMohqg1OQN\\u002BQCrbgdjFbBJS0jsHcuSo/BgH3wN9Mfb6ELkYPMRAUHGjqaGt8Od2fvOr7MEc2HwDTgEex0isEt6mE5vB0GRIQV92vQ1uOek/oa/WxUHlVRezfXhZwlr2GMnIj3ssKczRUaKpleHAbdNlqXv/nWaMSX7YYX9zUvAaRTkVI2rfrlt\\u002BOKsPnuCmawnW14\\u002B8S/E5pbxi0N1A178ODgw2NpSDCf8zzFLad\\u002BULVWLAOi5zHDbyYjq1GwS2bbtzgokBdhNoT8\\u002BKA3M/eiB84TQbH02KIlALSl88KdAtKAFyfZfoxBGXBptFfdur82V\\u002B/m76GyAFc2y69mEiTlUGyTSTj72ezcUT2XhuqBaLzIiiU/01UOBUppBq0QFy5bV3RxNdCnSt9Jk0DZMkZmYcQu4CBLSimH6nrnFEuxKsfIT4fPqbnSAtUJta3bcGyWW4bKB0g4jJ8GNb8hzexVQawaZhR7GAE=\u0022},{\u0022type\u0022:\u0022text\u0022,\u0022text\u0022:\u0022{\\u0022choice\\u0022: \\u0022Seed:Rivalry:p4:p2\\u0022, \\u0022reason\\u0022: \\u0022Gladwater is stable and content, with no active plots, so it can afford some new tension. Yara\\u0027s recent concert success gives a reasonable spark for friction with Esme.\\u0022}\u0022}],\u0022container\u0022:null,\u0022stop_reason\u0022:\u0022end_turn\u0022,\u0022stop_sequence\u0022:null,\u0022stop_details\u0022:null,\u0022usage\u0022:{\u0022input_tokens\u0022:967,\u0022cache_creation_input_tokens\u0022:0,\u0022cache_read_input_tokens\u0022:0,\u0022cache_creation\u0022:{\u0022ephemeral_5m_input_tokens\u0022:0,\u0022ephemeral_1h_input_tokens\u0022:0},\u0022iterations\u0022:[{\u0022input_tokens\u0022:967,\u0022output_tokens\u0022:206,\u0022cache_read_input_tokens\u0022:0,\u0022cache_creation_input_tokens\u0022:0,\u0022cache_creation\u0022:{\u0022ephemeral_5m_input_tokens\u0022:0,\u0022ephemeral_1h_input_tokens\u0022:0},\u0022type\u0022:\u0022message\u0022,\u0022model\u0022:null}],\u0022output_tokens\u0022:206,\u0022output_tokens_details\u0022:{\u0022thinking_tokens\u0022:123},\u0022service_tier\u0022:\u0022standard\u0022,\u0022inference_geo\u0022:\u0022global\u0022,\u0022speed\u0022:\u0022standard\u0022},\u0022diagnostics\u0022:null}"
+    }
+  ]
+}

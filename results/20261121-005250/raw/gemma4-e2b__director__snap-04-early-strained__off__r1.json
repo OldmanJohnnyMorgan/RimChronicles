@@ -1,0 +1,52 @@
+{
+  "cell": "gemma4-e2b__director__snap-04-early-strained__off__r1",
+  "model": "gemma4-e2b",
+  "task": "director",
+  "snapshot": "snap-04-early-strained",
+  "grammar": "off",
+  "repeat": 1,
+  "promptVersion": "director/v1",
+  "outcome": "Model",
+  "value": "\u0060\u0060\u0060json\n{\n\u0022choice\u0022: \u0022Complication:VisitorRumour\u0022,\n\u0022reason\u0022: \u0022The trader\u0027s comment suggests that outsiders are aware of the events involving Teodor, creating a situation ripe for rumors.\u0022\n}\n\u0060\u0060\u0060",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are the plot director for a story told through a RimWorld colony. You decide what happens next in the colony\u0027s plots.\n\nRules:\n- Choose exactly one option from the allowed list. Copy it exactly, character for character.\n- Choose \u0022Wait\u0022 if the colony is in crisis or the story needs a pause.\n- Prefer the option that follows most naturally from what has already happened.\n- Give a reason in one or two short sentences. Use only facts from the briefing.\n\nAnswer with JSON only, in this form:\n{\u0022choice\u0022: \u0022\u003Cone allowed option\u003E\u0022, \u0022reason\u0022: \u0022\u003Cone or two sentences\u003E\u0022}\n",
+        "user": "## The world\nDate: day 38 (Septober 5500).\nColony: Lowmere, 6 people, wealth 34,100 silver, mood strained.\n\nPeople:\n- Teodor (44); traits: Psychopath, Industrious; backstory: Urbworld enforcer; shot the reporter on day 31.\n- Aiko (30); traits: Kind; backstory: Mechanoid nerd.\n- Grieve (36); traits: Gourmand; backstory: Cook.\n- Lisbet (28); traits: Too smart, Neurotic; backstory: Archaeologist.\n- Juno (22); traits: Sanguine; backstory: Courier.\n- Harrow (57); traits: Pessimist; backstory: Miner.\n\nHistory:\n- Day 31: Teodor killed Tomas Quell.\n\nFactions:\n- The Rim Dispatch (Outlanders): goodwill -20, 1 settlement.\n- The Brine Coast League (Outlanders): goodwill \u002B20, 6 settlements.\n- Black Fen Raiders (Pirates): goodwill -85, 3 settlements.\n\nRecent events:\n- The reporter Tomas Quell was shot by Teodor day 31\n- No bulletin since day 30\n- A Brine Coast trader said the Dispatch \u0027isn\u0027t sending anyone your way anymore\u0027 day 36\n\n## Active plots\n- silent-01 (Silent Press): beat Complication, protagonist Lowmere. Teodor shot the Dispatch reporter Tomas Quell during a visit on day 31. Bulletins stopped. A trader has hinted that the Dispatch knows.\n\n## Allowed options\n- Wait\n- Complication:VisitorRumour\n- Choice:ReparationsEnvoy\n\nChoose one allowed option.\n",
+        "maxOutputTokens": 200,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "choice": {
+              "type": "string",
+              "enum": [
+                "Wait",
+                "Complication:VisitorRumour",
+                "Choice:ReparationsEnvoy"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "choice",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "ok": true,
+      "text": "\u0060\u0060\u0060json\n{\n\u0022choice\u0022: \u0022Complication:VisitorRumour\u0022,\n\u0022reason\u0022: \u0022The trader\u0027s comment suggests that outsiders are aware of the events involving Teodor, creating a situation ripe for rumors.\u0022\n}\n\u0060\u0060\u0060",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 0.2656929,
+      "inputTokens": 525,
+      "outputTokens": 50,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-202\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795222416,\u0022model\u0022:\u0022gemma4:e2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022\u0060\u0060\u0060json\\n{\\n\\\u0022choice\\\u0022: \\\u0022Complication:VisitorRumour\\\u0022,\\n\\\u0022reason\\\u0022: \\\u0022The trader\u0027s comment suggests that outsiders are aware of the events involving Teodor, creating a situation ripe for rumors.\\\u0022\\n}\\n\u0060\u0060\u0060\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:525,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:524},\u0022completion_tokens\u0022:50,\u0022total_tokens\u0022:575}}\n"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the Farrow road remains open for trade anyway\u0022,\u0022reason\u0022:\u0022The briefing never says any road is open for trade, and the name is misspelled from the earlier bulletin\u0027s \u0027Ferrow road\u0027.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It breaks format by printing the briefing\u0027s section labels as headings. The second item repeats old news as if it were new, rehashing the earlier \u0027who is paying\u0027 joke. It also invents a claim that a road is open for trade, and the prose is wordy rather than sardonic or precise.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.3698154,
+      "inputTokens": 2281,
+      "outputTokens": 497
+    }
+  ]
+}

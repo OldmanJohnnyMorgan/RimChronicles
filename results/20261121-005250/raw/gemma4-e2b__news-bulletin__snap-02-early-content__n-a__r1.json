@@ -1,0 +1,55 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-02-early-content__n-a__r1",
+  "model": "gemma4-e2b",
+  "task": "news-bulletin",
+  "snapshot": "snap-02-early-content",
+  "grammar": "n/a",
+  "repeat": 1,
+  "promptVersion": "news-bulletin/v1",
+  "outcome": "Template",
+  "value": "(template)",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.\n\nWrite your next news bulletin.\n\nRules:\n- 80 to 150 words in total.\n- 2 to 4 short news items, the most important first.\n- Use only facts and names from your briefing. Never invent people, places, factions, numbers or events.\n- You do not know what happens inside the colony unless your briefing says it became public.\n- Keep your voice the same as in your earlier bulletins, but do not repeat their news.\n- Write only the bulletin itself: no title, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 11 (Aprimay 5500).\nThe colony you report near: Bramblewick. You do not know what happens inside it unless listed below.\n\nFactions:\n- The Glimmer Coast Company (Outlanders): 5 settlements\n- Hollow Spire Pirates (Pirates): 2 settlements\n- The Tannerfolk (Tribe): 5 settlements, at war with Hollow Spire Pirates\n\nNews on the rim:\n- The Tannerfolk and the Hollow Spire Pirates are fighting over the salt flats\n- A Glimmer Coast Company caravan reached the eastern ford\n\n## Your earlier bulletins\nEarlier bulletin:\nSalt is dear again. The Tannerfolk say the Hollow Spire lot burned two of their drying racks, and the pirates say nothing, which is how pirates say yes. Elsewhere, a Glimmer Coast caravan is on the move with more guards than goods, which tells you all you need to know about the roads.\n\nLatest bulletin:\nThe salt flats remain contested and the salt remains expensive. Readers wishing to avoid both are advised to stay inland. The Glimmer Coast Company reports a profitable week; the Company always reports a profitable week.\n\nWrite the bulletin now.\n",
+        "maxOutputTokens": 350,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "The Tannerfolk and the Hollow Spire Pirates are locked in a dispute over the salt flats. This friction continues, as usual. A Glimmer Coast Company caravan has reached the eastern ford, a predictable movement for the Company. Meanwhile, the skirmishes over the flats do little to alter the cost of salt. Stay inland if you wish to avoid the usual chaos.",
+      "error": null,
+      "failures": [
+        "Use 80-150 words; this has 61"
+      ],
+      "latencySeconds": 0.4292234,
+      "inputTokens": 432,
+      "outputTokens": 75,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-366\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795222420,\u0022model\u0022:\u0022gemma4:e2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022The Tannerfolk and the Hollow Spire Pirates are locked in a dispute over the salt flats. This friction continues, as usual. A Glimmer Coast Company caravan has reached the eastern ford, a predictable movement for the Company. Meanwhile, the skirmishes over the flats do little to alter the cost of salt. Stay inland if you wish to avoid the usual chaos.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:432,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:75,\u0022total_tokens\u0022:507}}\n"
+    },
+    {
+      "request": {
+        "system": "You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.\n\nWrite your next news bulletin.\n\nRules:\n- 80 to 150 words in total.\n- 2 to 4 short news items, the most important first.\n- Use only facts and names from your briefing. Never invent people, places, factions, numbers or events.\n- You do not know what happens inside the colony unless your briefing says it became public.\n- Keep your voice the same as in your earlier bulletins, but do not repeat their news.\n- Write only the bulletin itself: no title, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 11 (Aprimay 5500).\nThe colony you report near: Bramblewick. You do not know what happens inside it unless listed below.\n\nFactions:\n- The Glimmer Coast Company (Outlanders): 5 settlements\n- Hollow Spire Pirates (Pirates): 2 settlements\n- The Tannerfolk (Tribe): 5 settlements, at war with Hollow Spire Pirates\n\nNews on the rim:\n- The Tannerfolk and the Hollow Spire Pirates are fighting over the salt flats\n- A Glimmer Coast Company caravan reached the eastern ford\n\n## Your earlier bulletins\nEarlier bulletin:\nSalt is dear again. The Tannerfolk say the Hollow Spire lot burned two of their drying racks, and the pirates say nothing, which is how pirates say yes. Elsewhere, a Glimmer Coast caravan is on the move with more guards than goods, which tells you all you need to know about the roads.\n\nLatest bulletin:\nThe salt flats remain contested and the salt remains expensive. Readers wishing to avoid both are advised to stay inland. The Glimmer Coast Company reports a profitable week; the Company always reports a profitable week.\n\nWrite the bulletin now.\n\n\nYour previous answer was rejected:\n- Use 80-150 words; this has 61\nAnswer again, following every rule.",
+        "maxOutputTokens": 350,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "Bramblewick reports little movement, as usual. The Tannerfolk and the Hollow Spire Pirates continue their tiresome dispute over the salt flats. Reports indicate ongoing conflict between the two groups. Meanwhile, a Glimmer Coast Company caravan has made contact at the eastern ford. This suggests the Company is still making its predictable progress along the established routes. The salt remains expensive, and the fighting continues where the brine is thickest.",
+      "error": null,
+      "failures": [
+        "Use 80-150 words; this has 69"
+      ],
+      "latencySeconds": 0.5468878,
+      "inputTokens": 464,
+      "outputTokens": 86,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-838\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795222421,\u0022model\u0022:\u0022gemma4:e2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022Bramblewick reports little movement, as usual. The Tannerfolk and the Hollow Spire Pirates continue their tiresome dispute over the salt flats. Reports indicate ongoing conflict between the two groups. Meanwhile, a Glimmer Coast Company caravan has made contact at the eastern ford. This suggests the Company is still making its predictable progress along the established routes. The salt remains expensive, and the fighting continues where the brine is thickest.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:464,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:427},\u0022completion_tokens\u0022:86,\u0022total_tokens\u0022:550}}\n"
+    }
+  ]
+}

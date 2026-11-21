@@ -1,0 +1,32 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "model": "qwen3.5-2b",
+  "task": "news-bulletin",
+  "snapshot": "snap-05-early-desperate",
+  "grammar": "n/a",
+  "repeat": 1,
+  "promptVersion": "news-bulletin/v2",
+  "outcome": "Model",
+  "value": "News since your last bulletin\nThe Gorse Clans have banned all trade with outsiders, turning the town square into a fortress where no outsider\u0027s goods are accepted or stored. This policy reversal comes after their usual seasonal grain-for-fur agreements that made merchants weep. Local vendors report empty stalls daily and fear future reprisal.\n\nAlready reported in your earlier bulletins\nThornreach now stands alone as the only commercial settlement in the Gorse territory, a result of the clan\u0027s market closure order. The colony remains silent on the subject, though rumors persist that the ban is merely a prelude to an even more severe isolationist movement.\n\nFactions: The Scythe Tooth raiders occupy three settlements within the Ferrow Mutual\u0027s borders. A cold winter has frozen harvests across the northern basin for the past month. The Gorse Clans control a total of six settlements in the surrounding wilderness.",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are Odile Brask, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is sardonic, precise and fond of understatement.\n\nWrite your next news bulletin.\n\nWhat to write:\n- 2 or 3 short news items, most important first, separated by a blank line.\n- Each item is 2 to 4 sentences. The whole bulletin is 80 to 150 words.\n- Lead with the items under \u0022News since your last bulletin\u0022.\n- Items under \u0022Already reported\u0022 are old news. You may mention them briefly as background, but never present them as new or happening again.\n- If there is little new news, fill the remaining items with dry comment on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.\n\nWhat you know:\n- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events, and never add details to an event that the briefing does not give.\n- You do not know what happens inside the colony unless your briefing says it became public.\n\nStyle:\n- Keep your voice the same as in your earlier bulletins, but do not reuse their jokes or sentences.\n- Write only the bulletin itself: no title, no dateline, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 47 (Decembary 5500).\nThe colony you report near: Thornreach. You do not know what happens inside it unless listed below.\n\nFactions:\n- Scythe Tooth (Pirates): 5 settlements\n- The Ferrow Mutual (Outlanders): 4 settlements\n- The Gorse Clans (Tribe): 6 settlements\n\nNews since your last bulletin:\n- The Gorse Clans closed their markets to outsiders\n\nAlready reported in your earlier bulletins (background only, not news):\n- A cold snap has killed crops across the northern basin\n- Scythe Tooth raids reported at three settlements\n\n## Your earlier bulletins\nEarlier bulletin:\nThe cold has come early. Every farm north of the Ferrow road reports lost crops, and the Gorse Clans are trading furs for grain at prices that would make a usurer blush.\n\nLatest bulletin:\nScythe Tooth raiders have now hit three settlements in a quadrum. The Ferrow Mutual has asked its members to share patrols. Its members have asked who is paying.\n\nWrite the bulletin now.\n",
+        "maxOutputTokens": 350,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "News since your last bulletin\nThe Gorse Clans have banned all trade with outsiders, turning the town square into a fortress where no outsider\u0027s goods are accepted or stored. This policy reversal comes after their usual seasonal grain-for-fur agreements that made merchants weep. Local vendors report empty stalls daily and fear future reprisal.\n\nAlready reported in your earlier bulletins\nThornreach now stands alone as the only commercial settlement in the Gorse territory, a result of the clan\u0027s market closure order. The colony remains silent on the subject, though rumors persist that the ban is merely a prelude to an even more severe isolationist movement.\n\nFactions: The Scythe Tooth raiders occupy three settlements within the Ferrow Mutual\u0027s borders. A cold winter has frozen harvests across the northern basin for the past month. The Gorse Clans control a total of six settlements in the surrounding wilderness.",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 1.3656353,
+      "inputTokens": 557,
+      "outputTokens": 184,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-467\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795223999,\u0022model\u0022:\u0022qwen3.5:2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022News since your last bulletin\\nThe Gorse Clans have banned all trade with outsiders, turning the town square into a fortress where no outsider\u0027s goods are accepted or stored. This policy reversal comes after their usual seasonal grain-for-fur agreements that made merchants weep. Local vendors report empty stalls daily and fear future reprisal.\\n\\nAlready reported in your earlier bulletins\\nThornreach now stands alone as the only commercial settlement in the Gorse territory, a result of the clan\u0027s market closure order. The colony remains silent on the subject, though rumors persist that the ban is merely a prelude to an even more severe isolationist movement.\\n\\nFactions: The Scythe Tooth raiders occupy three settlements within the Ferrow Mutual\u0027s borders. A cold winter has frozen harvests across the northern basin for the past month. The Gorse Clans control a total of six settlements in the surrounding wilderness.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:557,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:184,\u0022total_tokens\u0022:741}}\n"
+    }
+  ]
+}

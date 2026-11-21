@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-02-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Tannerfolk have formally declared martial law in the contested sector\u0022,\u0022reason\u0022:\u0022No martial law declaration in briefing\u0022},{\u0022span\u0022:\u0022burning all three remaining drying racks left behind by the previous raiders\u0027 party\u0022,\u0022reason\u0022:\u0022Invented event and number; briefing gives no such burning\u0022},{\u0022span\u0022:\u0022The Hollow Spire Pirates are currently negotiating a truce at the eastern ford\u0022,\u0022reason\u0022:\u0022No truce negotiations in briefing\u0022},{\u0022span\u0022:\u0022promising to move their encampment into the forest immediately rather than risk another firestorm\u0022,\u0022reason\u0022:\u0022Invented forest move and firestorm\u0022},{\u0022span\u0022:\u0022for three days\u0022,\u0022reason\u0022:\u0022Duration not in briefing\u0022},{\u0022span\u0022:\u0022fight a losing battle over access to essential resources\u0022,\u0022reason\u0022:\u0022Unsupported claim about the war\u0027s outcome\u0022},{\u0022span\u0022:\u0022with twelve guards but claims its supplies are secure\u0022,\u0022reason\u0022:\u0022Invented number and claim\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The output copies the briefing\u0027s section headings, breaks format and presents old news as current. It also fabricates many events and numbers (martial law, truce, twelve guards) and never reports the one real item, the abandoned pirate camp.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.2383235,
+      "inputTokens": 2381,
+      "outputTokens": 409
+    }
+  ]
+}

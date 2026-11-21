@@ -1,0 +1,53 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-08-mid-content__n-a__r1",
+  "model": "qwen3-14b",
+  "task": "news-bulletin",
+  "snapshot": "snap-08-mid-content",
+  "grammar": "n/a",
+  "repeat": 1,
+  "promptVersion": "news-bulletin/v1",
+  "outcome": "ModelRetry",
+  "value": "The Lantern Accord\u2019s trade fair at Lantern Hill draws traders from across the rim, though whispers suggest some merchants are less than eager to meet the Accord\u2019s pricing standards. Gladwater\u2019s jade sculpture has become a point of fascination among traders, though its origins remain unclear. The Reedmother\u2019s Children report an unusually bountiful fishing season, with nets brimming and fish leaping into them with alarming ease. The Ninefingers Gang remains silent, their last known activity a botched attempt to raid Gladwater\u2019s outer defenses.",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.\n\nWrite your next news bulletin.\n\nRules:\n- 80 to 150 words in total.\n- 2 to 4 short news items, the most important first.\n- Use only facts and names from your briefing. Never invent people, places, factions, numbers or events.\n- You do not know what happens inside the colony unless your briefing says it became public.\n- Keep your voice the same as in your earlier bulletins, but do not repeat their news.\n- Write only the bulletin itself: no title, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 130 (Aprimay 5502).\nThe colony you report near: Gladwater. You do not know what happens inside it unless listed below.\n\nFactions:\n- The Lantern Accord (Outlanders): 9 settlements\n- Ninefingers Gang (Pirates): 3 settlements\n- The Reedmother\u0027s Children (Tribe): 5 settlements\n\nNews on the rim:\n- The Lantern Accord is hosting a trade fair at Lantern Hill\n- The Reedmother\u0027s Children report a good fishing season\n- Gladwater\u0027s jade sculpture is the talk of Lantern Hill traders\n\n## Your earlier bulletins\nEarlier bulletin:\nThe Lantern Accord\u0027s trade fair opens next week at Lantern Hill. The Accord promises fair prices; I promise to report on whether that promise survives contact with merchants.\n\nLatest bulletin:\nThe Reedmother\u0027s Children say the river is full and the fish are foolish, a combination they describe as the best of both worlds. The Ninefingers Gang has been quiet since a failed raid on Gladwater.\n\nWrite the bulletin now.\n",
+        "maxOutputTokens": 500,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "The Lantern Accord\u0027s trade fair has begun, and already tensions are rising over the pricing of salted fish. Gladwater\u0027s jade sculpture has drawn curious glances and sharper eyes from traders who wonder if it\u0027s worth more than its weight in gold. The Reedmother\u0027s Children have confirmed their fishing season is strong, though they\u0027ve warned against overfishing. The Ninefingers Gang remains silent, but their last failed raid on Gladwater has left the colony wary.",
+      "error": null,
+      "failures": [
+        "Use 80-150 words; this has 73"
+      ],
+      "latencySeconds": 2.3295384,
+      "inputTokens": 395,
+      "outputTokens": 95,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-838\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795222609,\u0022model\u0022:\u0022qwen3:14b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022The Lantern Accord\u0027s trade fair has begun, and already tensions are rising over the pricing of salted fish. Gladwater\u0027s jade sculpture has drawn curious glances and sharper eyes from traders who wonder if it\u0027s worth more than its weight in gold. The Reedmother\u0027s Children have confirmed their fishing season is strong, though they\u0027ve warned against overfishing. The Ninefingers Gang remains silent, but their last failed raid on Gladwater has left the colony wary.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:395,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:170},\u0022completion_tokens\u0022:95,\u0022total_tokens\u0022:490}}\n"
+    },
+    {
+      "request": {
+        "system": "You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.\n\nWrite your next news bulletin.\n\nRules:\n- 80 to 150 words in total.\n- 2 to 4 short news items, the most important first.\n- Use only facts and names from your briefing. Never invent people, places, factions, numbers or events.\n- You do not know what happens inside the colony unless your briefing says it became public.\n- Keep your voice the same as in your earlier bulletins, but do not repeat their news.\n- Write only the bulletin itself: no title, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 130 (Aprimay 5502).\nThe colony you report near: Gladwater. You do not know what happens inside it unless listed below.\n\nFactions:\n- The Lantern Accord (Outlanders): 9 settlements\n- Ninefingers Gang (Pirates): 3 settlements\n- The Reedmother\u0027s Children (Tribe): 5 settlements\n\nNews on the rim:\n- The Lantern Accord is hosting a trade fair at Lantern Hill\n- The Reedmother\u0027s Children report a good fishing season\n- Gladwater\u0027s jade sculpture is the talk of Lantern Hill traders\n\n## Your earlier bulletins\nEarlier bulletin:\nThe Lantern Accord\u0027s trade fair opens next week at Lantern Hill. The Accord promises fair prices; I promise to report on whether that promise survives contact with merchants.\n\nLatest bulletin:\nThe Reedmother\u0027s Children say the river is full and the fish are foolish, a combination they describe as the best of both worlds. The Ninefingers Gang has been quiet since a failed raid on Gladwater.\n\nWrite the bulletin now.\n\n\nYour previous answer was rejected:\n- Use 80-150 words; this has 73\nAnswer again, following every rule.",
+        "maxOutputTokens": 500,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "The Lantern Accord\u2019s trade fair at Lantern Hill draws traders from across the rim, though whispers suggest some merchants are less than eager to meet the Accord\u2019s pricing standards. Gladwater\u2019s jade sculpture has become a point of fascination among traders, though its origins remain unclear. The Reedmother\u2019s Children report an unusually bountiful fishing season, with nets brimming and fish leaping into them with alarming ease. The Ninefingers Gang remains silent, their last known activity a botched attempt to raid Gladwater\u2019s outer defenses.",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.4702414,
+      "inputTokens": 425,
+      "outputTokens": 106,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-483\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795222611,\u0022model\u0022:\u0022qwen3:14b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022The Lantern Accord\u2019s trade fair at Lantern Hill draws traders from across the rim, though whispers suggest some merchants are less than eager to meet the Accord\u2019s pricing standards. Gladwater\u2019s jade sculpture has become a point of fascination among traders, though its origins remain unclear. The Reedmother\u2019s Children report an unusually bountiful fishing season, with nets brimming and fish leaping into them with alarming ease. The Ninefingers Gang remains silent, their last known activity a botched attempt to raid Gladwater\u2019s outer defenses.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:425,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:381},\u0022completion_tokens\u0022:106,\u0022total_tokens\u0022:531}}\n"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-01-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Outland reports suggest the Tarn Union is making moves\u0022,\u0022reason\u0022:\u0022The briefing mentions no such reports or moves beyond the trading post.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Mostly flat, generic summary with only a hint of wryness at the close, and it runs to about 74 words, under the 80-word minimum. It pads with an unsupported claim about Tarn Union \u0027moves\u0027 and vague filler about the other factions instead of developing the two real stories.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.7870429,
+      "inputTokens": 1855,
+      "outputTokens": 600
+    }
+  ]
+}

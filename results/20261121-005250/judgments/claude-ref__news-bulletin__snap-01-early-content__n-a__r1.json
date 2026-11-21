@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-01-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:5,\u0022comment\u0022:\u0022The voice is dry and consistent, every claim traces to the briefing, and the bulletin stays within length at about 143 words. The third item is mostly a \u0027no news\u0027 filler, but it is handled wryly and correctly declines to speculate about Ashfall Crossing.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 8.1249285,
+      "inputTokens": 1971,
+      "outputTokens": 793
+    }
+  ]
+}

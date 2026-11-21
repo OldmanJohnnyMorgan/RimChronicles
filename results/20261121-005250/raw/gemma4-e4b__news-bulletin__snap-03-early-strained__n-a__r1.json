@@ -1,0 +1,53 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-03-early-strained__n-a__r1",
+  "model": "gemma4-e4b",
+  "task": "news-bulletin",
+  "snapshot": "snap-03-early-strained",
+  "grammar": "n/a",
+  "repeat": 1,
+  "promptVersion": "news-bulletin/v1",
+  "outcome": "ModelRetry",
+  "value": "Two homesteads near the Merrow road were recently struck by the Ashen Hand. The pirates have made a visible appearance, raiding structures along that trade route. In response, the Merrow Freeholds have changed their transport protocols, insisting that all caravans now travel in pairs. This, naturally, means a certain uptick in the cost of whatever they are hauling. The situation remains tense along the border zones. No other immediate developments have been noted from the other factions operating near Kettle Hollow.",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.\n\nWrite your next news bulletin.\n\nRules:\n- 80 to 150 words in total.\n- 2 to 4 short news items, the most important first.\n- Use only facts and names from your briefing. Never invent people, places, factions, numbers or events.\n- You do not know what happens inside the colony unless your briefing says it became public.\n- Keep your voice the same as in your earlier bulletins, but do not repeat their news.\n- Write only the bulletin itself: no title, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 23 (Jugust 5500).\nThe colony you report near: Kettle Hollow. You do not know what happens inside it unless listed below.\n\nFactions:\n- The Ashen Hand (Pirates): 4 settlements\n- The Merrow Freeholds (Outlanders): 7 settlements\n- Kinn of the Long Grass (Tribe): 3 settlements\n\nNews on the rim:\n- The Ashen Hand raided two homesteads near the Merrow road\n- Merrow Freeholds caravans now travel only in pairs\n\n## Your earlier bulletins\nEarlier bulletin:\nThe Ashen Hand are out in numbers. Two homesteads on the Merrow road lost their stores, and one lost its roof. Merrow traders are travelling in pairs now, which doubles the guards and, they assure me, the prices.\n\nLatest bulletin:\nGrass fires in the south have the Kinn on the move. They are not, by their account, looking for trouble. Neither, I suspect, is trouble looking for them, but it usually finds someone.\n\nWrite the bulletin now.\n",
+        "maxOutputTokens": 500,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "Ashen Hand pirates struck again, raiding two homesteads situated near the Merrow road. In response to the persistent thievery, the Merrow Freeholds have mandated that all caravans now travel in pairs. This pairing, unsurprisingly, seems to be impacting local transport costs. Elsewhere, the movement of the Kinn of the Long Grass remains observable near the south, though no specific incidents have been publicly confirmed regarding their passage.",
+      "error": null,
+      "failures": [
+        "Use 80-150 words; this has 67"
+      ],
+      "latencySeconds": 0.7188004,
+      "inputTokens": 405,
+      "outputTokens": 85,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-105\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795222481,\u0022model\u0022:\u0022gemma4:e4b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022Ashen Hand pirates struck again, raiding two homesteads situated near the Merrow road. In response to the persistent thievery, the Merrow Freeholds have mandated that all caravans now travel in pairs. This pairing, unsurprisingly, seems to be impacting local transport costs. Elsewhere, the movement of the Kinn of the Long Grass remains observable near the south, though no specific incidents have been publicly confirmed regarding their passage.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:405,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:85,\u0022total_tokens\u0022:490}}\n"
+    },
+    {
+      "request": {
+        "system": "You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.\n\nWrite your next news bulletin.\n\nRules:\n- 80 to 150 words in total.\n- 2 to 4 short news items, the most important first.\n- Use only facts and names from your briefing. Never invent people, places, factions, numbers or events.\n- You do not know what happens inside the colony unless your briefing says it became public.\n- Keep your voice the same as in your earlier bulletins, but do not repeat their news.\n- Write only the bulletin itself: no title, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 23 (Jugust 5500).\nThe colony you report near: Kettle Hollow. You do not know what happens inside it unless listed below.\n\nFactions:\n- The Ashen Hand (Pirates): 4 settlements\n- The Merrow Freeholds (Outlanders): 7 settlements\n- Kinn of the Long Grass (Tribe): 3 settlements\n\nNews on the rim:\n- The Ashen Hand raided two homesteads near the Merrow road\n- Merrow Freeholds caravans now travel only in pairs\n\n## Your earlier bulletins\nEarlier bulletin:\nThe Ashen Hand are out in numbers. Two homesteads on the Merrow road lost their stores, and one lost its roof. Merrow traders are travelling in pairs now, which doubles the guards and, they assure me, the prices.\n\nLatest bulletin:\nGrass fires in the south have the Kinn on the move. They are not, by their account, looking for trouble. Neither, I suspect, is trouble looking for them, but it usually finds someone.\n\nWrite the bulletin now.\n\n\nYour previous answer was rejected:\n- Use 80-150 words; this has 67\nAnswer again, following every rule.",
+        "maxOutputTokens": 500,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "Two homesteads near the Merrow road were recently struck by the Ashen Hand. The pirates have made a visible appearance, raiding structures along that trade route. In response, the Merrow Freeholds have changed their transport protocols, insisting that all caravans now travel in pairs. This, naturally, means a certain uptick in the cost of whatever they are hauling. The situation remains tense along the border zones. No other immediate developments have been noted from the other factions operating near Kettle Hollow.",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 0.8590275,
+      "inputTokens": 437,
+      "outputTokens": 98,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-706\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795222482,\u0022model\u0022:\u0022gemma4:e4b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022Two homesteads near the Merrow road were recently struck by the Ashen Hand. The pirates have made a visible appearance, raiding structures along that trade route. In response, the Merrow Freeholds have changed their transport protocols, insisting that all caravans now travel in pairs. This, naturally, means a certain uptick in the cost of whatever they are hauling. The situation remains tense along the border zones. No other immediate developments have been noted from the other factions operating near Kettle Hollow.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:437,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:400},\u0022completion_tokens\u0022:98,\u0022total_tokens\u0022:535}}\n"
+    }
+  ]
+}

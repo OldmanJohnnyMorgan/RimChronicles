@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022for a third night in a week\u0022,\u0022reason\u0022:\u0022The briefing gives no timing or frequency for the raids.\u0022},{\u0022span\u0022:\u0022The Ferrow Mutual demanded that their patrol teams be stationed at the colony gate\u0022,\u0022reason\u0022:\u0022This demand is not in the briefing, and nothing public is known about Thornreach\u0027s gate.\u0022},{\u0022span\u0022:\u0022maritime bandits\u0022,\u0022reason\u0022:\u0022Nothing in the briefing says Scythe Tooth is seafaring.\u0022},{\u0022span\u0022:\u0022have begun demanding ransoms from local traders\u0022,\u0022reason\u0022:\u0022The briefing reports no ransoms.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022Several fabrications stack up: the raid timing, the gate demand, the \u0027maritime\u0027 pirates and the ransoms. The bulletin also largely recycles the crop, fur-trade and patrol news from earlier bulletins, with little of Odile\u0027s sardonic understatement.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.7147273,
+      "inputTokens": 1977,
+      "outputTokens": 497
+    }
+  ]
+}

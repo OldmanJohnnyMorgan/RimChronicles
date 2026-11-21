@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-04-early-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022went quiet last night\u0022,\u0022reason\u0022:\u0022The briefing gives no timing for Quell\u0027s disappearance.\u0022},{\u0022span\u0022:\u0022Rumor says he was heading to Lowmere\u0022,\u0022reason\u0022:\u0022The briefing never links Quell to Lowmere.\u0022},{\u0022span\u0022:\u0022I\u0027ve halted all dispatches to that settlement\u0022,\u0022reason\u0022:\u0022The briefing says the Rim Dispatch stopped sending reporters; it does not say Ilse did.\u0022},{\u0022span\u0022:\u0022burned another ferry\u0022,\u0022reason\u0022:\u0022Implies an earlier ferry burning that the briefing does not mention.\u0022},{\u0022span\u0022:\u0022Three settlements report smoke rising over the water\u0022,\u0022reason\u0022:\u0022Invented reports; reuses the raiders\u0027 settlement count as a number of witnesses.\u0022},{\u0022span\u0022:\u0022locals say they fled for their lives before the boats caught fire\u0022,\u0022reason\u0022:\u0022Invented eyewitness event.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The bulletin piles invented detail onto the briefing: timing, a Lowmere link, three witnessing settlements and fleeing locals. It also breaks the format with a radio-style \u0027stay tuned\u0027 sign-off and a word-count note. The voice is generic and melodramatic (\u0027deafening\u0027 silence) rather than dry and wry.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.6107001,
+      "inputTokens": 1942,
+      "outputTokens": 721
+    }
+  ]
+}

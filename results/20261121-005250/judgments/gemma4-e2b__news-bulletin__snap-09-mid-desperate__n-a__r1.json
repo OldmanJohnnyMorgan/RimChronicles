@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin is accurate but falls short of 80 words and largely repeats the war news from the previous bulletin, including the fishing-rights detail. The voice is flat and padded with filler (\u0027This is the latest on the pirate faction\u0027, \u0027No further immediate developments\u0027), with only a faint trace of Odile\u0027s sardonic edge.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.7763885,
+      "inputTokens": 2025,
+      "outputTokens": 413
+    }
+  ]
+}

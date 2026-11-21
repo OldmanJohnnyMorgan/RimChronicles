@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__inheritance-handoff__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022her hands gripping the hilt of Joska\u2019s broken blade\u0022,\u0022reason\u0022:\u0022The briefing mentions no blade belonging to Joska, broken or otherwise.\u0022},{\u0022span\u0022:\u0022Lene\u2019s voice echoed in her head, urging her to run\u0022,\u0022reason\u0022:\u0022The briefing records nothing of Lene telling Tamsin to run.\u0022},{\u0022span\u0022:\u0022Tamsin stood at the edge of the camp\u0022,\u0022reason\u0022:\u0022Nothing says Tamsin went to the Lancers\u0027 camp.\u0022},{\u0022span\u0022:\u0022She met the new captain\u2019s eyes\u0022,\u0022reason\u0022:\u0022No confrontation between Tamsin and the new captain is given.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The scene invents a weapon and a confrontation at the Lancers\u0027 camp, and it never uses the father\u2013daughter relationship it was given. It also contradicts itself: the blade is \u0027broken\u0027 and then \u0027rusted\u0027 yet \u0027gleaming\u0027, and the ending sets goals that do not fit a standoff already under way.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.4481599,
+      "inputTokens": 1899,
+      "outputTokens": 600
+    }
+  ]
+}

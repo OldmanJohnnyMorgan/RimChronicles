@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022found dead on his dock\u0022,\u0022reason\u0022:\u0022Briefing says only that he was killed at his camp; no dock is mentioned.\u0022},{\u0022span\u0022:\u0022murdered by an unknown assailant\u0022,\u0022reason\u0022:\u0022The briefing does not say who killed him or whether the killer is unknown.\u0022},{\u0022span\u0022:\u0022war parties are mobilizing against syndicate outposts in the north sector\u0022,\u0022reason\u0022:\u0022No mobilization, outposts or north sector appear in the briefing.\u0022},{\u0022span\u0022:\u0022since the last patrol\u0022,\u0022reason\u0022:\u0022The briefing mentions no patrol.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It breaks the format with a title, bullet headings and markdown, and invents several details (dock, unknown assailant, north sector mobilization). It also repeats the earlier fishing joke, and some sentences barely make sense (\u0027Official word from the captain does not come close to the blood\u0027, \u0027a single net worth of fish\u0027).\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.8184869,
+      "inputTokens": 2087,
+      "outputTokens": 313
+    }
+  ]
+}

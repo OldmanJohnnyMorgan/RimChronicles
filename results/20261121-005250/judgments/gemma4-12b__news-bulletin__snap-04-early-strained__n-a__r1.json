@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-04-early-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate to the briefing, clearly ordered and within length, with some dry humour. But phrasing like \u0027issuing a public appeal for information regarding\u0027, \u0027management\u0027 and \u0027deployments\u0027 reads as modern office-speak rather than frontier reporting, and \u0027Stay sharp out there\u0027 is close to the forbidden sign-off.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.3570627,
+      "inputTokens": 1944,
+      "outputTokens": 385
+    }
+  ]
+}

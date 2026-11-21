@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-07-mid-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022muttering about \\\u0022unacceptable risks\\\u0022 and \\\u0022uncooperative neighbors.\\\u0022\u0022,\u0022reason\u0022:\u0022Quoted complaints are not in the briefing\u0022},{\u0022span\u0022:\u0022The wagon was found stripped near the gorge, with no sign of the raiders.\u0022,\u0022reason\u0022:\u0022The wagon being found stripped is an unsupported event\u0022},{\u0022span\u0022:\u0022delivered thick bundles of parchment and left quickly\u0022,\u0022reason\u0022:\u0022The envoys\u0027 actions and quick departure are not in the briefing\u0022},{\u0022span\u0022:\u0022the air was thick with tension\u0022,\u0022reason\u0022:\u0022Asserts a specific reaction the briefing never reports\u0022},{\u0022span\u0022:\u0022A dust storm has delayed travel between Hearthstead and the nearest Imperial settlement\u0022,\u0022reason\u0022:\u0022The dust storm and travel delay are entirely invented\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The bulletin rehashes both stories from earlier bulletins despite the rule against repeating news, and pads them with invented details and a fabricated dust storm. The wry voice of the earlier bulletins is mostly lost to stock phrasing like \\\u0022the air was thick with tension\\\u0022.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.097444,
+      "inputTokens": 2067,
+      "outputTokens": 669
+    }
+  ]
+}

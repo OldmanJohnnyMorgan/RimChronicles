@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022struck again, this time\u0022,\u0022reason\u0022:\u0022Implies a second raid; the briefing reports only the one raid already covered.\u0022},{\u0022span\u0022:\u0022No casualties\u0022,\u0022reason\u0022:\u0022The briefing says nothing about casualties.\u0022},{\u0022span\u0022:\u0022one roof is ash\u0022,\u0022reason\u0022:\u0022Earlier bulletin says a roof was lost; burning it to ash is an added detail.\u0022},{\u0022span\u0022:\u0022moving south, following the fire line\u0022,\u0022reason\u0022:\u0022The fires were in the south; no direction of Kinn movement or fire line is given.\u0022},{\u0022span\u0022:\u0022the Ashen Hand has been seen near the Kinn border\u0022,\u0022reason\u0022:\u0022Invented sighting and event not in the briefing.\u0022},{\u0022span\u0022:\u0022though they won\u2019t say if it\u2019s from the Ashen Hand or the Kinn\u0022,\u0022reason\u0022:\u0022Invented attribution; the briefing has no link between prices and the Kinn.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The bulletin mostly rehashes news from earlier bulletins, which the rules forbid, and pads it with invented events like a no-casualties claim and an Ashen Hand sighting near the Kinn. The voice is flat and loses Ilse\u0027s dry wit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.5815648,
+      "inputTokens": 2053,
+      "outputTokens": 723
+    }
+  ]
+}

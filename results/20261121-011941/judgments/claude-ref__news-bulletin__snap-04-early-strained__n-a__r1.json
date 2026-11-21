@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-04-early-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A dry, consistent voice that sticks to the briefing, and the \u0027hobbies\u0027 and \u0027curious from a respectable distance\u0027 lines land well. The closing aside that the League still has its ferries implies ferries the briefing never gives them, and it sits loosely on the Lowmere item.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.5802374,
+      "inputTokens": 2180,
+      "outputTokens": 462
+    }
+  ]
+}

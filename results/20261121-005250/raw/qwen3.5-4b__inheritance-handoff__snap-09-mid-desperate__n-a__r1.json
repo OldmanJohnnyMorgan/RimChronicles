@@ -1,0 +1,32 @@
+{
+  "cell": "qwen3.5-4b__inheritance-handoff__snap-09-mid-desperate__n-a__r1",
+  "model": "qwen3.5-4b",
+  "task": "inheritance-handoff",
+  "snapshot": "snap-09-mid-desperate",
+  "grammar": "n/a",
+  "repeat": 1,
+  "promptVersion": "inheritance-handoff/v1",
+  "outcome": "Model",
+  "value": "Tamsin found the body, its face twisted in a permanent scowl of pain that Joska wore even after death. She did not cry for him. Instead, she looked at the scarred arms Rook Malley had left, then at the cold, empty eyes of her father. A low growl started in her chest, hot and sudden. The scars didn\u0027t feel like a wound anymore; they felt like a map. She grabbed the rusted pipe from beside him, wiping away the dried blood on her boots with swift, practiced movements. She would not let Cinder Rest die this time. She was taking his place, and she had a lot of killing to do before dawn.",
+  "attempts": [
+    {
+      "request": {
+        "system": "You write short scenes for a story told through a RimWorld colony.\n\nThe main character of a story has died. Someone close to them now takes up that story as their own. Write the moment it passes to them.\n\nRules:\n- 60 to 120 words.\n- Use the relationship between the two exactly as given.\n- Use only names and facts from the dossiers and the story so far.\n- Show feeling through actions and small details, not by naming emotions.\n- End on what the heir now means to do.\n- Write only the scene: no title, no notes, no word count.\n",
+        "user": "## The one who died\nJoska (42), dead; traits: Tough, Bloodlust; backstory: Pit fighter; husband of Lene, father of Tamsin.\nHistory:\n- Day 243: Captain Rook Malley maimed Joska and escaped.\n- Day 286: Captain Rook Malley killed Joska.\n\n## The heir\nTamsin (17); traits: Nimble, Hot-tempered; backstory: Scavenger; daughter of Joska and Lene.\n\n## Their relationship\nTamsin was Joska\u0027s daughter.\n\n## The story so far\nJoska spent a year hunting the pirate captain Rook Malley, who maimed him. He finally caught Malley at the Lancers\u0027 camp, and both died in the fight. Malley\u0027s Lancers still hold the camp, and their new captain has sworn revenge on Cinder Rest.\n\nWrite the scene now.\n",
+        "maxOutputTokens": 400,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "Tamsin found the body, its face twisted in a permanent scowl of pain that Joska wore even after death. She did not cry for him. Instead, she looked at the scarred arms Rook Malley had left, then at the cold, empty eyes of her father. A low growl started in her chest, hot and sudden. The scars didn\u0027t feel like a wound anymore; they felt like a map. She grabbed the rusted pipe from beside him, wiping away the dried blood on her boots with swift, practiced movements. She would not let Cinder Rest die this time. She was taking his place, and she had a lot of killing to do before dawn.",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 1.4444448,
+      "inputTokens": 350,
+      "outputTokens": 141,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-527\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795222460,\u0022model\u0022:\u0022qwen3.5:4b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022Tamsin found the body, its face twisted in a permanent scowl of pain that Joska wore even after death. She did not cry for him. Instead, she looked at the scarred arms Rook Malley had left, then at the cold, empty eyes of her father. A low growl started in her chest, hot and sudden. The scars didn\u0027t feel like a wound anymore; they felt like a map. She grabbed the rusted pipe from beside him, wiping away the dried blood on her boots with swift, practiced movements. She would not let Cinder Rest die this time. She was taking his place, and she had a lot of killing to do before dawn.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:350,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:141,\u0022total_tokens\u0022:491}}\n"
+    }
+  ]
+}

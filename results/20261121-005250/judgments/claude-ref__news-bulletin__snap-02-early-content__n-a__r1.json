@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-02-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:4,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The voice is dry and consistent with the earlier bulletins, and every claim traces to the briefing, with wry lines like \\\u0022Pirates rarely read the paper.\\\u0022 The main weakness is ordering: the caravan leads ahead of the ongoing war, which is arguably the bigger story, and the salt-flats item largely restates earlier news.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.6605525,
+      "inputTokens": 2141,
+      "outputTokens": 391
+    }
+  ]
+}

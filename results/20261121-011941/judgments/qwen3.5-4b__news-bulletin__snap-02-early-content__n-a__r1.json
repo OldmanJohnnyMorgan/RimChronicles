@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-02-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022while claiming innocence\u0022,\u0022reason\u0022:\u0022No pirate statement is in the briefing, and it contradicts their \u0027silence\u0027.\u0022},{\u0022span\u0022:\u0022maintaining their silence about the burned drying racks\u0022,\u0022reason\u0022:\u0022The drying racks come from an earlier bulletin, not the briefing, and are presented as ongoing.\u0022},{\u0022span\u0022:\u0022just barely past the midpoint of the year so far\u0022,\u0022reason\u0022:\u0022False: day 11 of Aprimay is early in the year.\u0022},{\u0022span\u0022:\u0022still moving goods with more guards than cargo\u0022,\u0022reason\u0022:\u0022Reuses an old joke and presents it as current, while the briefing says the caravan reached the eastern ford.\u0022},{\u0022span\u0022:\u0022before the Tannerfolk arrives\u0022,\u0022reason\u0022:\u0022Implies a Tannerfolk advance the briefing does not give.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It breaks the format by copying the briefing\u0027s section headings into the bulletin, and it invents details, including a pirate claim of innocence and a false date claim. It also reuses an earlier joke, and the prose is clumsy (\u0027the Tannerfolk arrives\u0027) with little of Ilse\u0027s wry voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.6826062,
+      "inputTokens": 2363,
+      "outputTokens": 720
+    }
+  ]
+}

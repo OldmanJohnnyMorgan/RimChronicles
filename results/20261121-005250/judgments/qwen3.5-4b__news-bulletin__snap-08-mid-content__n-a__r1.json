@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-08-mid-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022none of the merchants seem interested in negotiating contracts or discussing safety in Ninefingers territory\u0022,\u0022reason\u0022:\u0022The briefing says nothing about what merchants are or aren\u0027t discussing at the fair.\u0022},{\u0022span\u0022:\u0022no actual fish have been seen entering Gladwater\u0027s waters yet\u0022,\u0022reason\u0022:\u0022An invented observation not found in the briefing.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It invents merchant behaviour and a fish observation, and repeats the fishing and failed-raid news from the last bulletin. The prose is clumsy (\u0027remains quietly\u0027, \u0027attempt on us\u0027), the items run together without clear separation, and the wry voice only occasionally comes through.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.0300628,
+      "inputTokens": 2097,
+      "outputTokens": 545
+    }
+  ]
+}

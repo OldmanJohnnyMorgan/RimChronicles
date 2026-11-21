@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It marks the end of the Lancers\u0027 solitary settlement in this sector.\u0022,\u0022reason\u0022:\u0022The briefing still lists the Lancers with 1 settlement. Nothing says the settlement ended.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It copies the briefing headings into the bulletin, reuses the earlier fishing joke word for word, and comes in well under 80 words. It also wrongly claims Malley\u0027s death ended the Lancers\u0027 settlement.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.9405408,
+      "inputTokens": 2215,
+      "outputTokens": 420
+    }
+  ]
+}

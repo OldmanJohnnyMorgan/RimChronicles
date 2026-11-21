@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022south of Kettle Hollow\u0022,\u0022reason\u0022:\u0022The briefing places the raids near the Merrow road and gives no direction relative to Kettle Hollow.\u0022},{\u0022span\u0022:\u0022have retreated to three settlements following grass fires\u0022,\u0022reason\u0022:\u0022The briefing lists only a settlement count. A retreat caused by the fires is invented.\u0022},{\u0022span\u0022:\u0022reports suggest they are merely guarding their own borders\u0022,\u0022reason\u0022:\u0022No such reports appear in the briefing.\u0022},{\u0022span\u0022:\u0022outsiders who rarely visit Kettle Hollow\u0022,\u0022reason\u0022:\u0022The briefing says nothing about visitors to Kettle Hollow.\u0022},{\u0022span\u0022:\u0022despite earlier patrols near the trade hub\u0022,\u0022reason\u0022:\u0022Neither the patrols nor the trade hub appear in the briefing.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The bulletin invents several events and locations: a Kinn retreat, border reports, patrols and the raids being south of Kettle Hollow. It also recycles both earlier bulletins almost line for line, including the roof and the pairs-and-prices joke with its point muddled, and it opens with a headline-style summary in flat, voiceless prose.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 8.1729671,
+      "inputTokens": 2092,
+      "outputTokens": 736
+    }
+  ]
+}

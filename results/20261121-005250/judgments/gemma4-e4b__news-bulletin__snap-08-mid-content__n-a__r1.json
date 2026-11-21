@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-08-mid-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Accord has nine settlements represented at the fair.\u0022,\u0022reason\u0022:\u0022Briefing gives nine Accord settlements but never says they are all at the fair.\u0022},{\u0022span\u0022:\u0022Gladwater\u2019s jade sculptures\u0022,\u0022reason\u0022:\u0022Briefing mentions one jade sculpture, not several.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The voice is flat and generic, with none of Ilse\u0027s dry wit. It repeats the fair, fishing and Ninefingers news from earlier bulletins, falls short of 80 words, and turns the Accord\u0027s nine settlements into nine fair attendees.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.2838331,
+      "inputTokens": 2022,
+      "outputTokens": 617
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__inheritance-handoff__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022her mother\u0027s grave\u0022,\u0022reason\u0022:\u0022Lene is not stated to be dead; the briefing only records Joska\u0027s death.\u0022},{\u0022span\u0022:\u0022three days of clean water and a fresh supply of food at the old butcher shop near Cinder Rest\u0022,\u0022reason\u0022:\u0022The supplies, the amount and the butcher shop location appear nowhere in the briefing.\u0022},{\u0022span\u0022:\u0022Rook Malley\u0027s Lancers would soon come for her father\u0022,\u0022reason\u0022:\u0022Joska is already dead. The briefing says the Lancers swore revenge on Cinder Rest, not that they are coming for Joska.\u0022},{\u0022span\u0022:\u0022before the patrols returned\u0022,\u0022reason\u0022:\u0022No Lancer patrols are mentioned in the briefing.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The scene invents a dead mother and a cache of supplies, and it has the Lancers coming for an already-dead father. The ending is about salvaging barrels rather than Tamsin taking up Joska\u0027s feud, so the core task is missed.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.4939328,
+      "inputTokens": 1923,
+      "outputTokens": 568
+    }
+  ]
+}

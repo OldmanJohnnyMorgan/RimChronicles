@@ -1,0 +1,52 @@
+{
+  "cell": "gemma4-e2b__director__snap-07-mid-strained__off__r1",
+  "model": "gemma4-e2b",
+  "task": "director",
+  "snapshot": "snap-07-mid-strained",
+  "grammar": "off",
+  "repeat": 1,
+  "promptVersion": "director/v1",
+  "outcome": "Model",
+  "value": "\u0060\u0060\u0060json\n{\n\u0022choice\u0022: \u0022Complication:VexSighted\u0022,\n\u0022reason\u0022: \u0022Mara is actively seeking Vex, so it makes sense that she might have sighted him. This advances the Nemesis plotline.\u0022\n}\n\u0060\u0060\u0060",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are the plot director for a story told through a RimWorld colony. You decide what happens next in the colony\u0027s plots.\n\nRules:\n- Choose exactly one option from the allowed list. Copy it exactly, character for character.\n- Choose \u0022Wait\u0022 if the colony is in crisis or the story needs a pause.\n- Prefer the option that follows most naturally from what has already happened.\n- Give a reason in one or two short sentences. Use only facts from the briefing.\n\nAnswer with JSON only, in this form:\n{\u0022choice\u0022: \u0022\u003Cone allowed option\u003E\u0022, \u0022reason\u0022: \u0022\u003Cone or two sentences\u003E\u0022}\n",
+        "user": "## The world\nDate: day 412 (Decembary 5506).\nColony: Hearthstead, 9 people, wealth 184,000 silver, mood strained.\n\nPeople:\n- Mara (34); traits: Tough, Bloodlust; backstory: Imperial deserter; widow of Dorin; role: Shooting specialist.\n- Dorin (38), dead; traits: Kind, Great memory; backstory: Colony doctor; husband of Mara.\n- Sela (12); traits: Nimble; backstory: Child; daughter of Mara and Dorin.\n- Arne (55); traits: Pessimist, Industrious; backstory: Mechanic.\n- Quill (29); traits: Abrasive; backstory: Smuggler.\n\nHistory:\n- Day 355: Mara married Dorin.\n- Day 398: Raider \u0027Vex\u0027 killed Dorin and escaped.\n- Day 405: Quill led a trade caravan to The Iron Covenant.\n\nFactions:\n- The Shattered Empire (Empire): goodwill -40, 4 settlements, Empire state: Stirring.\n- Vex\u0027s Crew (Pirates): goodwill -100, 2 settlements.\n- The Iron Covenant (Outlanders): goodwill \u002B45, 8 settlements.\n\nRecent events:\n- Raid repelled day 398, Dorin killed\n- Trade caravan to the Iron Covenant day 405\n- Mara refused to leave Dorin\u0027s grave for two days\n\n## Active plots\n- nemesis-01 (Nemesis): beat Hook, protagonist Mara. Raider \u0027Vex\u0027 killed Mara\u0027s husband Dorin on day 398 and escaped. Mara has sworn to find him.\n\n## Allowed options\n- Wait\n- Complication:VexSighted\n- Complication:ImperialBounty\n\nChoose one allowed option.\n",
+        "maxOutputTokens": 200,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "choice": {
+              "type": "string",
+              "enum": [
+                "Wait",
+                "Complication:VexSighted",
+                "Complication:ImperialBounty"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "choice",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "ok": true,
+      "text": "\u0060\u0060\u0060json\n{\n\u0022choice\u0022: \u0022Complication:VexSighted\u0022,\n\u0022reason\u0022: \u0022Mara is actively seeking Vex, so it makes sense that she might have sighted him. This advances the Nemesis plotline.\u0022\n}\n\u0060\u0060\u0060",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 0.2930793,
+      "inputTokens": 555,
+      "outputTokens": 53,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-276\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795222418,\u0022model\u0022:\u0022gemma4:e2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022\u0060\u0060\u0060json\\n{\\n\\\u0022choice\\\u0022: \\\u0022Complication:VexSighted\\\u0022,\\n\\\u0022reason\\\u0022: \\\u0022Mara is actively seeking Vex, so it makes sense that she might have sighted him. This advances the Nemesis plotline.\\\u0022\\n}\\n\u0060\u0060\u0060\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:555,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:554},\u0022completion_tokens\u0022:53,\u0022total_tokens\u0022:608}}\n"
+    }
+  ]
+}

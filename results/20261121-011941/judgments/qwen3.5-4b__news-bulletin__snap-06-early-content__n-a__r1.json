@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-06-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the Emperor\u0027s apparent lack of interest in explaining himself or protecting his people\u0022,\u0022reason\u0022:\u0022The briefing names no Emperor and says nothing about the Empire failing to protect anyone.\u0022},{\u0022span\u0022:\u0022those Imperial shuttles are still there, presumably circling again\u0022,\u0022reason\u0022:\u0022The shuttle sighting is old news; the briefing does not say they are still there or circling again.\u0022},{\u0022span\u0022:\u0022farmers worry over empty sacks\u0022,\u0022reason\u0022:\u0022The briefing gives no detail about farmers\u0027 losses or reactions to the robbery.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It breaks the format by adding the section headings \u0027News since your last bulletin\u0027 and \u0027Already reported\u0027, and it presents the old shuttle sighting as ongoing. It also invents an Emperor and farmers\u0027 reactions, while the Sundered Throne line is muddled and the bulletin likely runs over 150 words.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.7063537,
+      "inputTokens": 2303,
+      "outputTokens": 563
+    }
+  ]
+}

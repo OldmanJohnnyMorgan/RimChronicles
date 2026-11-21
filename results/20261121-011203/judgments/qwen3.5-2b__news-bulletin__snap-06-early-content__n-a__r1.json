@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-06-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Combine claims this marks their best harvest in years.\u0022,\u0022reason\u0022:\u0022Ties old harvest news to the robbery and presents it as new; the briefing does not link them.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The bulletin copies the briefing\u0027s internal headings into the text, which breaks character. It also re-presents the already-reported harvest as new and confusingly links it to the barge robbery, while the one real news item gets a single flat sentence.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.4699133,
+      "inputTokens": 2187,
+      "outputTokens": 455
+    }
+  ]
+}

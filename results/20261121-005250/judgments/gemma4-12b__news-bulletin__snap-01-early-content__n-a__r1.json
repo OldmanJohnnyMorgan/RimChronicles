@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-01-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and clearly ordered, with a faintly wry voice that stays mostly generic. At about 66 words it falls short of the required 80\u2013150, and the dry cynicism of the persona barely shows.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.2628334,
+      "inputTokens": 1821,
+      "outputTokens": 333
+    }
+  ]
+}

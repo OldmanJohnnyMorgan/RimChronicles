@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-01-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the Red Gully Raiders continue their usual sporadic activity in the surrounding sectors\u0022,\u0022reason\u0022:\u0022Briefing lists the faction but reports no raider activity.\u0022},{\u0022span\u0022:\u0022generates predictable friction amongst the local populace\u0022,\u0022reason\u0022:\u0022No reaction to the trading post is reported in the briefing.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It invents raider activity and local friction that the briefing does not report, and closes with a sign-off the rules forbid. It also runs under 80 words, and phrases like \u0027as usual\u0027 and \u0027as always\u0027 imply a history this first bulletin does not have. The cynicism is there but generic, and \u0027sectors\u0027 sounds more sci-fi than rim.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.0956313,
+      "inputTokens": 1863,
+      "outputTokens": 667
+    }
+  ]
+}

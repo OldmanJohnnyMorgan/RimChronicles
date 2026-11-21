@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-02-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022leaving behind scattered debris\u0022,\u0022reason\u0022:\u0022Adds detail to the abandonment that the briefing does not give.\u0022},{\u0022span\u0022:\u0022though the Glimmer Coast Company insists they were just looting for supplies\u0022,\u0022reason\u0022:\u0022Invented claim attributed to the Company.\u0022},{\u0022span\u0022:\u0022a Glimmer Coast caravan is crossing the eastern ford\u0022,\u0022reason\u0022:\u0022Presents an already-reported caravan arrival as current news.\u0022},{\u0022span\u0022:\u0022since day 10\u0022,\u0022reason\u0022:\u0022Invented date.\u0022},{\u0022span\u0022:\u0022while some claim the conflict has ended, others insist it continues beneath the surface\u0022,\u0022reason\u0022:\u0022Invented claims about the war\u0027s status.\u0022},{\u0022span\u0022:\u0022last week\u0022,\u0022reason\u0022:\u0022Invented timing.\u0022},{\u0022span\u0022:\u0022the current skirmish\u0022,\u0022reason\u0022:\u0022Invented event.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It breaks format with markdown section headings and re-presents old news as current. It also recycles the earlier bulletin\u0027s drying-rack and \u0027more guards than goods\u0027 lines, and invents several details, including a date, a Company claim and debris.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.2713782,
+      "inputTokens": 2426,
+      "outputTokens": 363
+    }
+  ]
+}

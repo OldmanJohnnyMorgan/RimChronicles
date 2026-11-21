@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-04-early-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Rim Dispatch has consequently pulled its staff from Lowmere for now.\u0022,\u0022reason\u0022:\u0022Briefing says only that it stopped sending reporters toward Lowmere. It gives no causal link and does not say staff were withdrawn from there.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The output copies the briefing\u0027s section headings and wrongly files the League\u0027s size under \u0027Already reported\u0027, which breaks character. It also crams all three news items into one flat paragraph and invents a cause-and-effect link, so it does not deliver a wry, multi-item bulletin.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.1383356,
+      "inputTokens": 2107,
+      "outputTokens": 687
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-02-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and clearly ordered, but the voice is flatter than Ilse\u0027s earlier bulletins. Lines like \u0027trading blows\u0027 and \u0027the Company\u0027s bottom line\u0027 read generic or modern-office rather than dry frontier wit, and the salt-flats item largely rehashes earlier coverage.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.4135017,
+      "inputTokens": 2092,
+      "outputTokens": 334
+    }
+  ]
+}

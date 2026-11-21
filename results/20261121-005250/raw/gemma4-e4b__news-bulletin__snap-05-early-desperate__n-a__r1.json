@@ -1,0 +1,55 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "model": "gemma4-e4b",
+  "task": "news-bulletin",
+  "snapshot": "snap-05-early-desperate",
+  "grammar": "n/a",
+  "repeat": 1,
+  "promptVersion": "news-bulletin/v1",
+  "outcome": "Template",
+  "value": "(template)",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are Odile Brask, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is sardonic, precise and fond of understatement.\n\nWrite your next news bulletin.\n\nRules:\n- 80 to 150 words in total.\n- 2 to 4 short news items, the most important first.\n- Use only facts and names from your briefing. Never invent people, places, factions, numbers or events.\n- You do not know what happens inside the colony unless your briefing says it became public.\n- Keep your voice the same as in your earlier bulletins, but do not repeat their news.\n- Write only the bulletin itself: no title, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 47 (Decembary 5500).\nThe colony you report near: Thornreach. You do not know what happens inside it unless listed below.\n\nFactions:\n- Scythe Tooth (Pirates): 5 settlements\n- The Ferrow Mutual (Outlanders): 4 settlements\n- The Gorse Clans (Tribe): 6 settlements\n\nNews on the rim:\n- A cold snap has killed crops across the northern basin\n- Scythe Tooth raids reported at three settlements\n\n## Your earlier bulletins\nEarlier bulletin:\nThe cold has come early. Every farm north of the Ferrow road reports lost crops, and the Gorse Clans are trading furs for grain at prices that would make a usurer blush.\n\nLatest bulletin:\nScythe Tooth raiders have now hit three settlements in a quadrum. The Ferrow Mutual has asked its members to share patrols. Its members have asked who is paying.\n\nWrite the bulletin now.\n",
+        "maxOutputTokens": 500,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "Reports from the northern basin confirm that the recent cold snap has proven quite detrimental to the local harvests. One might almost call it a meteorological inconvenience. Meanwhile, the Scythe Tooth have continued their excursions, with further raids reported across three separate settlements. The Gorse Clans remain predictably entrenched in their territories, while The Ferrow Mutual continues its quiet attempts at communal defense.",
+      "error": null,
+      "failures": [
+        "Use 80-150 words; this has 63"
+      ],
+      "latencySeconds": 0.7713128,
+      "inputTokens": 384,
+      "outputTokens": 74,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-655\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795222485,\u0022model\u0022:\u0022gemma4:e4b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022Reports from the northern basin confirm that the recent cold snap has proven quite detrimental to the local harvests. One might almost call it a meteorological inconvenience. Meanwhile, the Scythe Tooth have continued their excursions, with further raids reported across three separate settlements. The Gorse Clans remain predictably entrenched in their territories, while The Ferrow Mutual continues its quiet attempts at communal defense.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:384,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:74,\u0022total_tokens\u0022:458}}\n"
+    },
+    {
+      "request": {
+        "system": "You are Odile Brask, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is sardonic, precise and fond of understatement.\n\nWrite your next news bulletin.\n\nRules:\n- 80 to 150 words in total.\n- 2 to 4 short news items, the most important first.\n- Use only facts and names from your briefing. Never invent people, places, factions, numbers or events.\n- You do not know what happens inside the colony unless your briefing says it became public.\n- Keep your voice the same as in your earlier bulletins, but do not repeat their news.\n- Write only the bulletin itself: no title, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 47 (Decembary 5500).\nThe colony you report near: Thornreach. You do not know what happens inside it unless listed below.\n\nFactions:\n- Scythe Tooth (Pirates): 5 settlements\n- The Ferrow Mutual (Outlanders): 4 settlements\n- The Gorse Clans (Tribe): 6 settlements\n\nNews on the rim:\n- A cold snap has killed crops across the northern basin\n- Scythe Tooth raids reported at three settlements\n\n## Your earlier bulletins\nEarlier bulletin:\nThe cold has come early. Every farm north of the Ferrow road reports lost crops, and the Gorse Clans are trading furs for grain at prices that would make a usurer blush.\n\nLatest bulletin:\nScythe Tooth raiders have now hit three settlements in a quadrum. The Ferrow Mutual has asked its members to share patrols. Its members have asked who is paying.\n\nWrite the bulletin now.\n\n\nYour previous answer was rejected:\n- Use 80-150 words; this has 63\nAnswer again, following every rule.",
+        "maxOutputTokens": 500,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "A significant cold snap is affecting the northern basin, claiming crops across the region. It seems the growing season has concluded rather abruptly.\n\nFurthermore, reports persist of Scythe Tooth activity. These pirates have targeted three distinct settlements. Meanwhile, the dynamic between the established factions continues. The Scythe Tooth maintain their presence across five settlements, while the Gorse Clans hold ground in six. The Ferrow Mutual remains entrenched in four settlements. One watches the weather, another the pirates.",
+      "error": null,
+      "failures": [
+        "Use 80-150 words; this has 77"
+      ],
+      "latencySeconds": 0.8986383,
+      "inputTokens": 416,
+      "outputTokens": 96,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-654\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795222486,\u0022model\u0022:\u0022gemma4:e4b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022A significant cold snap is affecting the northern basin, claiming crops across the region. It seems the growing season has concluded rather abruptly.\\n\\nFurthermore, reports persist of Scythe Tooth activity. These pirates have targeted three distinct settlements. Meanwhile, the dynamic between the established factions continues. The Scythe Tooth maintain their presence across five settlements, while the Gorse Clans hold ground in six. The Ferrow Mutual remains entrenched in four settlements. One watches the weather, another the pirates.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:416,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:379},\u0022completion_tokens\u0022:96,\u0022total_tokens\u0022:512}}\n"
+    }
+  ]
+}

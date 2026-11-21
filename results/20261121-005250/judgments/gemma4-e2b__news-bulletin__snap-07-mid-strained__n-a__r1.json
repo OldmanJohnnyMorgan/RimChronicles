@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-07-mid-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Reports confirm these visits involved the exchange of scrolls\u0022,\u0022reason\u0022:\u0022The briefing mentions no scrolls or confirming reports. The scrolls were the narrator\u0027s own colour in the earlier bulletin, now restated as confirmed fact.\u0022},{\u0022span\u0022:\u0022Hearthstead reports little of consequence\u0022,\u0022reason\u0022:\u0022The briefing gives no reports from Hearthstead, and the reporter is told she does not know what happens inside it.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It mostly rehashes the two stories already covered in earlier bulletins, in flat, office-like phrasing (\u0027sustained a loss\u0027, \u0027current tally\u0027) with little of Ilse\u0027s wry edge. It is also under the 80-word minimum and ends on a confusing, meta-sounding line about Vex\u0027s Crew.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.275784,
+      "inputTokens": 2009,
+      "outputTokens": 685
+    }
+  ]
+}

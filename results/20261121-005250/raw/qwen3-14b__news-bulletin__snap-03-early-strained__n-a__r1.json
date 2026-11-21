@@ -1,0 +1,32 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-03-early-strained__n-a__r1",
+  "model": "qwen3-14b",
+  "task": "news-bulletin",
+  "snapshot": "snap-03-early-strained",
+  "grammar": "n/a",
+  "repeat": 1,
+  "promptVersion": "news-bulletin/v1",
+  "outcome": "Model",
+  "value": "The Ashen Hand struck again, this time taking two homesteads near the Merrow road. No casualties, but supplies are gone and one roof is ash. The Merrow Freeholds have upped their caravan security, now sending pairs of wagons together. The Kinn of the Long Grass are moving south, following the fire line. They say they\u2019re avoiding conflict, but the Ashen Hand has been seen near the Kinn border. Rumours swirl, but nothing official has been said. The Merrow traders claim prices are rising, though they won\u2019t say if it\u2019s from the Ashen Hand or the Kinn.",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.\n\nWrite your next news bulletin.\n\nRules:\n- 80 to 150 words in total.\n- 2 to 4 short news items, the most important first.\n- Use only facts and names from your briefing. Never invent people, places, factions, numbers or events.\n- You do not know what happens inside the colony unless your briefing says it became public.\n- Keep your voice the same as in your earlier bulletins, but do not repeat their news.\n- Write only the bulletin itself: no title, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 23 (Jugust 5500).\nThe colony you report near: Kettle Hollow. You do not know what happens inside it unless listed below.\n\nFactions:\n- The Ashen Hand (Pirates): 4 settlements\n- The Merrow Freeholds (Outlanders): 7 settlements\n- Kinn of the Long Grass (Tribe): 3 settlements\n\nNews on the rim:\n- The Ashen Hand raided two homesteads near the Merrow road\n- Merrow Freeholds caravans now travel only in pairs\n\n## Your earlier bulletins\nEarlier bulletin:\nThe Ashen Hand are out in numbers. Two homesteads on the Merrow road lost their stores, and one lost its roof. Merrow traders are travelling in pairs now, which doubles the guards and, they assure me, the prices.\n\nLatest bulletin:\nGrass fires in the south have the Kinn on the move. They are not, by their account, looking for trouble. Neither, I suspect, is trouble looking for them, but it usually finds someone.\n\nWrite the bulletin now.\n",
+        "maxOutputTokens": 500,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "The Ashen Hand struck again, this time taking two homesteads near the Merrow road. No casualties, but supplies are gone and one roof is ash. The Merrow Freeholds have upped their caravan security, now sending pairs of wagons together. The Kinn of the Long Grass are moving south, following the fire line. They say they\u2019re avoiding conflict, but the Ashen Hand has been seen near the Kinn border. Rumours swirl, but nothing official has been said. The Merrow traders claim prices are rising, though they won\u2019t say if it\u2019s from the Ashen Hand or the Kinn.",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.1243401,
+      "inputTokens": 407,
+      "outputTokens": 129,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-177\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795222592,\u0022model\u0022:\u0022qwen3:14b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022The Ashen Hand struck again, this time taking two homesteads near the Merrow road. No casualties, but supplies are gone and one roof is ash. The Merrow Freeholds have upped their caravan security, now sending pairs of wagons together. The Kinn of the Long Grass are moving south, following the fire line. They say they\u2019re avoiding conflict, but the Ashen Hand has been seen near the Kinn border. Rumours swirl, but nothing official has been said. The Merrow traders claim prices are rising, though they won\u2019t say if it\u2019s from the Ashen Hand or the Kinn.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:407,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:171},\u0022completion_tokens\u0022:129,\u0022total_tokens\u0022:536}}\n"
+    }
+  ]
+}

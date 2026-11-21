@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Kinn of the Long Grass continue to move due to the southern grass fires.\u0022,\u0022reason\u0022:\u0022The briefing gives no current status for the Kinn. The earlier bulletin only reported that they were moving.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The output copies the briefing\u0027s section headings (\\\u0022News since your last bulletin:\\\u0022, \\\u0022Already reported:\\\u0022) into the bulletin, which breaks character and the no-headings rule. It also recycles the earlier prices-and-guards joke, and the flat \u0027nothing of note\u0027 opening has none of Ilse\u0027s wry voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.5785864,
+      "inputTokens": 2272,
+      "outputTokens": 499
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Kinn of the Long Grass have moved their largest settlement, leaving behind a smoldering campsite.\u0022,\u0022reason\u0022:\u0022Briefing says there is no new news; this event is invented.\u0022},{\u0022span\u0022:\u0022No one claims responsibility, but the ash is fresh and the wind carries the scent of burnt sage.\u0022,\u0022reason\u0022:\u0022Invented details about the invented event.\u0022},{\u0022span\u0022:\u0022their ships anchored in the bay\u0022,\u0022reason\u0022:\u0022No ships or bay are in the briefing.\u0022},{\u0022span\u0022:\u0022The Ashen Hand have not made a move in weeks.\u0022,\u0022reason\u0022:\u0022Unsupported timeframe; the briefing gives no such period.\u0022},{\u0022span\u0022:\u0022Some say they\u2019re waiting, others say they\u2019re tired.\u0022,\u0022reason\u0022:\u0022Invented rumours attributed to sources.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It breaks the format with a \u0027News since your last bulletin:\u0027 heading and invents a Kinn relocation, even though the briefing says nothing new happened. It also adds ships and a bay that are not in the briefing, and the voice lacks Ilse\u0027s dry wit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.1035914,
+      "inputTokens": 2271,
+      "outputTokens": 371
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022have doubled caravan patrols along the road to Kettle Hollow\u0022,\u0022reason\u0022:\u0022Briefing says caravans travel in pairs, not patrols to Kettle Hollow; also old news presented as new\u0022},{\u0022span\u0022:\u0022has left no trace of stolen goods\u0022,\u0022reason\u0022:\u0022Detail not in briefing\u0022},{\u0022span\u0022:\u0022are currently patrolling the southern perimeter\u0022,\u0022reason\u0022:\u0022Kinn patrolling not in briefing; fires were from earlier bulletin only\u0022},{\u0022span\u0022:\u0022strictly defensive against stray fires rather than an offensive strike\u0022,\u0022reason\u0022:\u0022Added detail to Kinn\u0027s movements not given\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It breaks character by opening with the briefing heading, recasts old news as new with invented details, and the closing filler about faction sizes and the date is flat rather than wry. The figures \\\u00224, 7, and 3\\\u0022 are given \u0027respectively\u0027 after no list of factions, so they are hard to follow.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.0946624,
+      "inputTokens": 2255,
+      "outputTokens": 334
+    }
+  ]
+}

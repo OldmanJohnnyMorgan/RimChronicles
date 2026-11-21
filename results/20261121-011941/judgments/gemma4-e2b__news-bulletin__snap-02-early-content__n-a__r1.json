@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-02-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022reporting another profitable week despite the local tensions\u0022,\u0022reason\u0022:\u0022Briefing gives no new Company report; this recycles an earlier bulletin as current news.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It opens with a copied heading, \u0027News since your last bulletin\u0027, which breaks the no-headings rule, and it presents the Company\u0027s profitable week as fresh news when it is a recycled earlier joke. The prose is clear but flat, with little of Ilse\u0027s dry bite and a repeated \u0027hardly surprising/hardly be surprised\u0027.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.0070535,
+      "inputTokens": 2352,
+      "outputTokens": 411
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-08-mid-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It invents nothing, but it repeats the trade fair and fishing news from earlier bulletins, falls short of 80 words (about 65), and puts the one fresh item, the jade sculpture, last. The wry voice is thin, the opening drops \u0027The\u0027, and \u0027Nothing more, nothing less\u0027 is filler.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.5686528,
+      "inputTokens": 2006,
+      "outputTokens": 460
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "cell": "qwen3-14b__director__snap-08-mid-content__on__r1",
+  "model": "qwen3-14b",
+  "task": "director",
+  "snapshot": "snap-08-mid-content",
+  "grammar": "on",
+  "repeat": 1,
+  "promptVersion": "director/v1",
+  "outcome": "Model",
+  "value": "{\u0022choice\u0022: \u0022Seed:Rivalry:p4:p2\u0022, \u0022reason\u0022: \u0022The colony\u0027s recent success in repelling a raid and creating a masterwork sculpture may have drawn attention from rival factions, making it a natural next step to introduce a rivalry plot.\u0022}",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are the plot director for a story told through a RimWorld colony. You decide what happens next in the colony\u0027s plots.\n\nRules:\n- Choose exactly one option from the allowed list. Copy it exactly, character for character.\n- Choose \u0022Wait\u0022 if the colony is in crisis or the story needs a pause.\n- Prefer the option that follows most naturally from what has already happened.\n- Give a reason in one or two short sentences. Use only facts from the briefing.\n\nAnswer with JSON only, in this form:\n{\u0022choice\u0022: \u0022\u003Cone allowed option\u003E\u0022, \u0022reason\u0022: \u0022\u003Cone or two sentences\u003E\u0022}\n",
+        "user": "## The world\nDate: day 130 (Aprimay 5502).\nColony: Gladwater, 7 people, wealth 96,500 silver, mood content.\n\nPeople:\n- Halvard (50); traits: Industrious, Steadfast; backstory: Midworld mayor; role: Leader.\n- Esme (31); traits: Kind, Green thumb; backstory: Botanist; wife of Cato.\n- Cato (33); traits: Careful shooter; backstory: Colonial marshal; husband of Esme.\n- Yara (24); traits: Sanguine, Beautiful; backstory: Singer.\n- Brannock (46); traits: Tough; backstory: Miner.\n\nHistory:\n- Day 88: Esme married Cato.\n- Day 112: Gladwater repelled a raid by Ninefingers Gang.\n- Day 126: Brannock made a masterwork: a jade sculpture called \u0027The Patient Hill\u0027.\n\nFactions:\n- The Lantern Accord (Outlanders): goodwill \u002B60, 9 settlements.\n- Ninefingers Gang (Pirates): goodwill -70, 3 settlements.\n- The Reedmother\u0027s Children (Tribe): goodwill \u002B35, 5 settlements.\n\nRecent events:\n- Raid repelled day 112 with no losses\n- Brannock carved a masterwork jade sculpture day 126\n- Yara\u0027s concert raised the colony\u0027s mood day 128\n\n## Active plots\nNo active plots.\n\n## Allowed options\n- Wait\n- Seed:Rivalry:p4:p2\n\nChoose one allowed option.\n",
+        "maxOutputTokens": 300,
+        "useGrammar": true,
+        "thinking": "Off",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "choice": {
+              "type": "string",
+              "enum": [
+                "Wait",
+                "Seed:Rivalry:p4:p2"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "choice",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "ok": true,
+      "text": "{\u0022choice\u0022: \u0022Seed:Rivalry:p4:p2\u0022, \u0022reason\u0022: \u0022The colony\u0027s recent success in repelling a raid and creating a masterwork sculpture may have drawn attention from rival factions, making it a natural next step to introduce a rivalry plot.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 1.5155775,
+      "inputTokens": 492,
+      "outputTokens": 56,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-859\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795223736,\u0022model\u0022:\u0022qwen3:14b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022{\\\u0022choice\\\u0022: \\\u0022Seed:Rivalry:p4:p2\\\u0022, \\\u0022reason\\\u0022: \\\u0022The colony\u0027s recent success in repelling a raid and creating a masterwork sculpture may have drawn attention from rival factions, making it a natural next step to introduce a rivalry plot.\\\u0022}\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:492,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:140},\u0022completion_tokens\u0022:56,\u0022total_tokens\u0022:548}}\n"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-08-mid-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It stays within the briefing and reads clearly. However, the fishing-season item repeats news from the latest bulletin, against the rules. The voice is only mildly wry, with clich\u00E9s (\u0027talk of the town\u0027) and awkward phrasing (\u0027surplus of haul\u0027).\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.9065202,
+      "inputTokens": 2063,
+      "outputTokens": 428
+    }
+  ]
+}

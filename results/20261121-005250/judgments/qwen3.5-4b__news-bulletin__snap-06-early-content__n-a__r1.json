@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-06-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the pirates are waiting\u0022,\u0022reason\u0022:\u0022The briefing reports no pirate activity; it only lists the Ditch Kings\u0027 settlements.\u0022},{\u0022span\u0022:\u0022heading to the delta to check if those harvest reports hold water\u0022,\u0022reason\u0022:\u0022The briefing contains no journey to the delta by the reporter.\u0022},{\u0022span\u0022:\u0022the Imperials are back\u0022,\u0022reason\u0022:\u0022The briefing only says shuttles were seen. Nothing says they returned.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The bulletin rehashes the previous news and invents pirate activity and a trip to the delta. Its opening reads like leaked instructions (\u0027Aim at a new story...\u0027), and its meta-talk about not being able to enter the colony breaks character.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.39574,
+      "inputTokens": 2007,
+      "outputTokens": 582
+    }
+  ]
+}

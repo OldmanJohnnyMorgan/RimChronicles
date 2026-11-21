@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022reportedly raiding two homesteads near the Merrow road again\u0022,\u0022reason\u0022:\u0022\u0027Again\u0027 presents a second raid; the briefing lists only the one raid already reported.\u0022},{\u0022span\u0022:\u0022Kettle Hollow remains quiet, as expected.\u0022,\u0022reason\u0022:\u0022The briefing reports nothing about the state of the colony.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin rehashes both earlier bulletins: the Ashen Hand raids and the Kinn on the move. It turns the raid into a fresh event with \u0027again\u0027 and drops the real update about caravans travelling in pairs. \u0027Fewer moving targets\u0027 does not follow from anything, and the wry voice is thinner than in the earlier bulletins.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.4867008,
+      "inputTokens": 2034,
+      "outputTokens": 643
+    }
+  ]
+}

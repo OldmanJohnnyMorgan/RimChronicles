@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-02-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Tannerfolk have seized another section of the salt flats from the Hollow Spire Pirates\u0022,\u0022reason\u0022:\u0022Briefing says only that they are fighting; no territory seized.\u0022},{\u0022span\u0022:\u0022the local militia is currently rehearsing drills in an empty field\u0022,\u0022reason\u0022:\u0022No Bramblewick events are public in the briefing.\u0022},{\u0022span\u0022:\u0022the town hall remains shuttered\u0022,\u0022reason\u0022:\u0022Invented detail about the colony\u0027s interior.\u0022},{\u0022span\u0022:\u0022rumors of unpaid mercenaries\u0022,\u0022reason\u0022:\u0022Not in the briefing.\u0022},{\u0022span\u0022:\u0022escorted by a contingent\u0022,\u0022reason\u0022:\u0022Briefing says only that the caravan reached the ford, not that it was escorted.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It invents a salt-flat seizure and reports on Bramblewick\u0027s internal affairs, which breaks the rule about what the reporter can know. The sign-off violates the format rules, and filler such as \u0027saltshocks\u0027 and \u0027edge of chaos\u0027 weakens the dry voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.9934176,
+      "inputTokens": 2174,
+      "outputTokens": 603
+    }
+  ]
+}

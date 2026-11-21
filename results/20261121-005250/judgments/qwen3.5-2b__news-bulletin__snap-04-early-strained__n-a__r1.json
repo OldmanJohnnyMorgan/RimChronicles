@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-04-early-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The colony\u0027s security protocol has officially terminated all reporting activity within its borders, citing internal instability\u0022,\u0022reason\u0022:\u0022The briefing says only that the Dispatch stopped sending reporters. It gives no colony action and no stated reason.\u0022},{\u0022span\u0022:\u0022we previously documented a Black Fen Raider ambush on the north landing ramp\u0022,\u0022reason\u0022:\u0022There is no such ambush in the briefing, and this is the first bulletin.\u0022},{\u0022span\u0022:\u0022the Brine Coast League holds sway over the eastern ports where shipping is increasingly disrupted by unauthorized smuggling routes\u0022,\u0022reason\u0022:\u0022The eastern ports and the smuggling are not in the briefing.\u0022},{\u0022span\u0022:\u0022The Rim Dispatch maintains control of the western spires with its loyal crew\u0022,\u0022reason\u0022:\u0022The western spires are not in the briefing.\u0022},{\u0022span\u0022:\u0022rely on the remaining three settlements for intelligence before our departure dates run out\u0022,\u0022reason\u0022:\u0022The three settlements and the departure dates are unsupported.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It invents many specifics, including a prior bulletin that does not exist, and it distorts the briefing facts. The modern-office language (\u0027security protocol\u0027, \u0027empty inbox\u0027, \u0027stay tuned\u0027) breaks the frontier tone and the reporter\u0027s voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.8555595,
+      "inputTokens": 2045,
+      "outputTokens": 437
+    }
+  ]
+}

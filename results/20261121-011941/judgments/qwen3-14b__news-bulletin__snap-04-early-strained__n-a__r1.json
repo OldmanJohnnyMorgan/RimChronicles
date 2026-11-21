@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-04-early-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Last seen near the southern edge of Lowmere\u0022,\u0022reason\u0022:\u0022The briefing gives no last-seen location for Quell.\u0022},{\u0022span\u0022:\u0022has not returned to any known Outlander settlement\u0022,\u0022reason\u0022:\u0022This adds detail about Quell\u0027s whereabouts that the briefing does not give.\u0022},{\u0022span\u0022:\u0022disrupting trade between Lowmere and the Brine Coast League\u0022,\u0022reason\u0022:\u0022The briefing does not link the ferry to trade or to either party.\u0022},{\u0022span\u0022:\u0022No casualties were reported\u0022,\u0022reason\u0022:\u0022The briefing says nothing about casualties.\u0022},{\u0022span\u0022:\u0022the damage is expected to delay supplies for weeks\u0022,\u0022reason\u0022:\u0022This consequence and its timeframe are invented.\u0022},{\u0022span\u0022:\u0022citing \u201Cunforeseen risks.\u201D\u0022,\u0022reason\u0022:\u0022This is an invented quote and reason.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The bulletin copies the briefing\u0027s section header verbatim, which breaks character. It also pads every item with invented details, including a last-seen location, trade disruption, a casualty report and a fabricated quote. The writing is plain wire-service copy with none of Ilse\u0027s dry, wry voice, though each item is easy to follow.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.893262,
+      "inputTokens": 2136,
+      "outputTokens": 572
+    }
+  ]
+}

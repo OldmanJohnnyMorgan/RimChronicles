@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-04-early-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The recent skirmishes between the factions have continued their usual pace.\u0022,\u0022reason\u0022:\u0022Briefing mentions no skirmishes between factions.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It reproduces the briefing\u0027s section headings as titles and lists the facts flatly, with no trace of Ilse\u0027s dry voice. It also invents ongoing skirmishes and labels them \u0027Already reported\u0027 when nothing was previously reported.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.557584,
+      "inputTokens": 2086,
+      "outputTokens": 168
+    }
+  ]
+}

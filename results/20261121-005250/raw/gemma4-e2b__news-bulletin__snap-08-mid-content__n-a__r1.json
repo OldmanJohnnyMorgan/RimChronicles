@@ -1,0 +1,53 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-08-mid-content__n-a__r1",
+  "model": "gemma4-e2b",
+  "task": "news-bulletin",
+  "snapshot": "snap-08-mid-content",
+  "grammar": "n/a",
+  "repeat": 1,
+  "promptVersion": "news-bulletin/v1",
+  "outcome": "ModelRetry",
+  "value": "The Lantern Accord is currently hosting a trade fair at Lantern Hill. One can expect prices to be discussed, though the actual outcome remains to be seen.\n\nNews from the southern reaches indicates the Reedmother\u0027s Children have reported a good fishing season, a testament to the local waters.\n\nMeanwhile, the jade sculpture unearthed in Gladwater is proving to be the subject of considerable discussion among the traders gathered at Lantern Hill. The Ninefingers Gang has maintained a silence since their last attempt on the settlement.",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.\n\nWrite your next news bulletin.\n\nRules:\n- 80 to 150 words in total.\n- 2 to 4 short news items, the most important first.\n- Use only facts and names from your briefing. Never invent people, places, factions, numbers or events.\n- You do not know what happens inside the colony unless your briefing says it became public.\n- Keep your voice the same as in your earlier bulletins, but do not repeat their news.\n- Write only the bulletin itself: no title, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 130 (Aprimay 5502).\nThe colony you report near: Gladwater. You do not know what happens inside it unless listed below.\n\nFactions:\n- The Lantern Accord (Outlanders): 9 settlements\n- Ninefingers Gang (Pirates): 3 settlements\n- The Reedmother\u0027s Children (Tribe): 5 settlements\n\nNews on the rim:\n- The Lantern Accord is hosting a trade fair at Lantern Hill\n- The Reedmother\u0027s Children report a good fishing season\n- Gladwater\u0027s jade sculpture is the talk of Lantern Hill traders\n\n## Your earlier bulletins\nEarlier bulletin:\nThe Lantern Accord\u0027s trade fair opens next week at Lantern Hill. The Accord promises fair prices; I promise to report on whether that promise survives contact with merchants.\n\nLatest bulletin:\nThe Reedmother\u0027s Children say the river is full and the fish are foolish, a combination they describe as the best of both worlds. The Ninefingers Gang has been quiet since a failed raid on Gladwater.\n\nWrite the bulletin now.\n",
+        "maxOutputTokens": 350,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "Lantern Accord is holding a trade fair at Lantern Hill. One can only hope the promised fair prices hold up against the usual haggling.\n\nThe Reedmother\u0027s Children are reporting a good fishing season, a sentiment that seems to be the only consistent joy these folk manage.\n\nGladwater\u2019s jade sculpture is currently the main topic of discussion among the Lantern Hill traders. Nothing more, nothing less.",
+      "error": null,
+      "failures": [
+        "Use 80-150 words; this has 65"
+      ],
+      "latencySeconds": 0.4788667,
+      "inputTokens": 407,
+      "outputTokens": 82,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-578\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795222426,\u0022model\u0022:\u0022gemma4:e2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022Lantern Accord is holding a trade fair at Lantern Hill. One can only hope the promised fair prices hold up against the usual haggling.\\n\\nThe Reedmother\u0027s Children are reporting a good fishing season, a sentiment that seems to be the only consistent joy these folk manage.\\n\\nGladwater\u2019s jade sculpture is currently the main topic of discussion among the Lantern Hill traders. Nothing more, nothing less.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:407,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:82,\u0022total_tokens\u0022:489}}\n"
+    },
+    {
+      "request": {
+        "system": "You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.\n\nWrite your next news bulletin.\n\nRules:\n- 80 to 150 words in total.\n- 2 to 4 short news items, the most important first.\n- Use only facts and names from your briefing. Never invent people, places, factions, numbers or events.\n- You do not know what happens inside the colony unless your briefing says it became public.\n- Keep your voice the same as in your earlier bulletins, but do not repeat their news.\n- Write only the bulletin itself: no title, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 130 (Aprimay 5502).\nThe colony you report near: Gladwater. You do not know what happens inside it unless listed below.\n\nFactions:\n- The Lantern Accord (Outlanders): 9 settlements\n- Ninefingers Gang (Pirates): 3 settlements\n- The Reedmother\u0027s Children (Tribe): 5 settlements\n\nNews on the rim:\n- The Lantern Accord is hosting a trade fair at Lantern Hill\n- The Reedmother\u0027s Children report a good fishing season\n- Gladwater\u0027s jade sculpture is the talk of Lantern Hill traders\n\n## Your earlier bulletins\nEarlier bulletin:\nThe Lantern Accord\u0027s trade fair opens next week at Lantern Hill. The Accord promises fair prices; I promise to report on whether that promise survives contact with merchants.\n\nLatest bulletin:\nThe Reedmother\u0027s Children say the river is full and the fish are foolish, a combination they describe as the best of both worlds. The Ninefingers Gang has been quiet since a failed raid on Gladwater.\n\nWrite the bulletin now.\n\n\nYour previous answer was rejected:\n- Use 80-150 words; this has 65\nAnswer again, following every rule.",
+        "maxOutputTokens": 350,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "The Lantern Accord is currently hosting a trade fair at Lantern Hill. One can expect prices to be discussed, though the actual outcome remains to be seen.\n\nNews from the southern reaches indicates the Reedmother\u0027s Children have reported a good fishing season, a testament to the local waters.\n\nMeanwhile, the jade sculpture unearthed in Gladwater is proving to be the subject of considerable discussion among the traders gathered at Lantern Hill. The Ninefingers Gang has maintained a silence since their last attempt on the settlement.",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 0.5761471,
+      "inputTokens": 439,
+      "outputTokens": 102,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-667\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795222426,\u0022model\u0022:\u0022gemma4:e2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022The Lantern Accord is currently hosting a trade fair at Lantern Hill. One can expect prices to be discussed, though the actual outcome remains to be seen.\\n\\nNews from the southern reaches indicates the Reedmother\u0027s Children have reported a good fishing season, a testament to the local waters.\\n\\nMeanwhile, the jade sculpture unearthed in Gladwater is proving to be the subject of considerable discussion among the traders gathered at Lantern Hill. The Ninefingers Gang has maintained a silence since their last attempt on the settlement.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:439,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:402},\u0022completion_tokens\u0022:102,\u0022total_tokens\u0022:541}}\n"
+    }
+  ]
+}

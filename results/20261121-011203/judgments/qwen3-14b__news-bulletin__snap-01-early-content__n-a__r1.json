@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-01-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It\u2019s a modest affair\u0022,\u0022reason\u0022:\u0022The briefing gives no size or description of the trading post.\u0022},{\u0022span\u0022:\u0022the Union now has a presence on both sides of the river\u0022,\u0022reason\u0022:\u0022Invented geographic detail not in the briefing.\u0022},{\u0022span\u0022:\u0022The Ash Clans have already begun moving their herds\u0022,\u0022reason\u0022:\u0022Invented event; the briefing only gives the forecast.\u0022},{\u0022span\u0022:\u0022the Raiders are staying put\u0022,\u0022reason\u0022:\u0022Invented Raider behaviour; not in the briefing.\u0022},{\u0022span\u0022:\u0022No major conflicts have been reported.\u0022,\u0022reason\u0022:\u0022The briefing says nothing about conflicts, so this is an unsupported claim.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It copies the briefing\u0027s section headings into the bulletin, breaking format, and invents several details: the post being modest, a presence on both banks, herd movements and Raider behaviour. The wry voice only shows faintly, and the \u0027Already reported\u0027 section is filler with nothing actually previously reported.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.616386,
+      "inputTokens": 2106,
+      "outputTokens": 532
+    }
+  ]
+}

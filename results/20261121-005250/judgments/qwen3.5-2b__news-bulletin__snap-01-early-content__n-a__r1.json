@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-01-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Ashfall Crossing sees its third settlement in two days\u0022,\u0022reason\u0022:\u0022No such event or number in the briefing\u0022},{\u0022span\u0022:\u0022has already begun to attract three separate gangs of Red Gully Raiders\u0022,\u0022reason\u0022:\u0022Invented event and number\u0022},{\u0022span\u0022:\u0022the pirate faction has been forced into a defensive stand at one of their three settlements\u0022,\u0022reason\u0022:\u0022Invented event\u0022},{\u0022span\u0022:\u0022rumors persist among the tribe\u0027s four settlements about impending raids on their own encampment\u0022,\u0022reason\u0022:\u0022Invented rumours/event\u0022},{\u0022span\u0022:\u0022local weather watchers remain divided\u0022,\u0022reason\u0022:\u0022Invented event beyond the forecast\u0022},{\u0022span\u0022:\u0022the high pressure from the Tarn Union\u0027s trading outpost might simply delay it\u0022,\u0022reason\u0022:\u0022Invented, nonsensical causal claim\u0022},{\u0022span\u0022:\u0022no significant incidents have occurred inside Ashfall Crossing today. The colony continues its routine operations\u0022,\u0022reason\u0022:\u0022Reporter has no knowledge of the colony\u0027s interior\u0022},{\u0022span\u0022:\u0022within three miles\u0022,\u0022reason\u0022:\u0022Invented number\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The bulletin invents raids, rumours and weather disputes, and makes claims about the colony\u0027s interior that the reporter cannot know. It also exceeds the length limit, and passages like the trading post\u0027s \u0027high pressure\u0027 are muddled, with little of the dry, wry voice that was asked for.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.015713,
+      "inputTokens": 2052,
+      "outputTokens": 469
+    }
+  ]
+}

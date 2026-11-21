@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It copies the briefing\u0027s section headings into the bulletin, which breaks character and the \u0027no titles or notes\u0027 rule. It is also about 55 words, under the 80-word minimum, and reads like a flat office summary with none of Ilse\u0027s dry wit, even though it stays within the facts.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.6648371,
+      "inputTokens": 2206,
+      "outputTokens": 362
+    }
+  ]
+}

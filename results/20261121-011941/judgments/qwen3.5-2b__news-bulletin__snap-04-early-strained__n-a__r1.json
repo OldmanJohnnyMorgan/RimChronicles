@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-04-early-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022went missing shortly after arriving at a nearby outland settlement three weeks ago\u0022,\u0022reason\u0022:\u0022Briefing only says the Dispatch is looking for news of him; arrival, settlement and timing are invented.\u0022},{\u0022span\u0022:\u0022a ferry carrying grain\u0022,\u0022reason\u0022:\u0022Cargo not given in briefing.\u0022},{\u0022span\u0022:\u0022this morning\u0022,\u0022reason\u0022:\u0022Timing not given.\u0022},{\u0022span\u0022:\u0022our station in Lowmere\u0022,\u0022reason\u0022:\u0022The Dispatch has no stated station in Lowmere; it stopped sending reporters toward Lowmere.\u0022},{\u0022span\u0022:\u0022extending any further scouting parties today\u0022,\u0022reason\u0022:\u0022Distorts the briefing fact; scouting parties and \u0027today\u0027 are invented.\u0022},{\u0022span\u0022:\u0022A recent conflict between The Brine Coast League and Outlanders resulted in six settlements being occupied by the league\u0027s forces\u0022,\u0022reason\u0022:\u0022No such conflict exists; the six settlements are simply the League\u0027s own count.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The output breaks format by copying the briefing\u0027s section headings, has no dry reporter voice, and invents many details, including a war that never happened and a Dispatch station in Lowmere.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.8161637,
+      "inputTokens": 2102,
+      "outputTokens": 394
+    }
+  ]
+}

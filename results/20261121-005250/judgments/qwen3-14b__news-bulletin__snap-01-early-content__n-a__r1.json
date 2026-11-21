@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-01-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Red Gully Raiders have been sighted near the old mining tunnels\u0022,\u0022reason\u0022:\u0022The briefing reports no raider sighting, and no \u0027old mining tunnels\u0027 location.\u0022},{\u0022span\u0022:\u0022within the week\u0022,\u0022reason\u0022:\u0022The briefing gives no timing for the cold snap.\u0022},{\u0022span\u0022:\u0022prompting warnings for travelers and farmers alike\u0022,\u0022reason\u0022:\u0022The briefing reports no warnings being issued.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin invents a raider sighting at an unnamed-in-briefing location and adds a timeframe for the cold snap. The flat wire-service prose has none of Ilse\u0027s dry, wry voice, and at about 70 words it falls short of the 80-word minimum.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.3288355,
+      "inputTokens": 1836,
+      "outputTokens": 465
+    }
+  ]
+}

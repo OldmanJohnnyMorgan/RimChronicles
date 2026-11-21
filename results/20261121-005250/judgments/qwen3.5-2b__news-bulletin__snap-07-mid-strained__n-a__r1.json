@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-07-mid-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the colony\u0027s council issuing no formal statements\u0022,\u0022reason\u0022:\u0022No council or internal colony news in briefing\u0022},{\u0022span\u0022:\u0022rumors circulating that the Elder Brother and his wife have been stripped of their titles\u0022,\u0022reason\u0022:\u0022Invented people and event inside Hearthstead\u0022},{\u0022span\u0022:\u0022negotiations stalled when one town refused to open its gates until receiving gifts in exchange for peace talks\u0022,\u0022reason\u0022:\u0022Invented outcome of envoy visits\u0022},{\u0022span\u0022:\u0022Vex\u0027s crew successfully commandeered a merchant ship near the coast\u0022,\u0022reason\u0022:\u0022Invented event, ship and coast\u0022},{\u0022span\u0022:\u0022threatening to raid Iron Covenant supplies if not deterred by threats of naval action\u0022,\u0022reason\u0022:\u0022Invented threat and naval action\u0022},{\u0022span\u0022:\u0022focusing on internal squabbles between their four settlements\u0022,\u0022reason\u0022:\u0022Invented internal conflict; briefing says the Empire is making demands of neighbours\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022Almost entirely fabricated: it invents colony politics the reporter cannot know, a pirate ship seizure, naval threats and imperial infighting, and it repeats the envoy news from the last bulletin. It also uses a flat wire-service voice instead of Ilse\u0027s dry wit, with no item breaks.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.4901674,
+      "inputTokens": 2099,
+      "outputTokens": 439
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022raiding two additional homesteads along the Merrow road\u0022,\u0022reason\u0022:\u0022The briefing lists two raids, already reported; \u0027additional\u0027 invents two more.\u0022},{\u0022span\u0022:\u0022The Ashen Hand expanded its footprint today\u0022,\u0022reason\u0022:\u0022The briefing gives no timing for the raids; \u0027today\u0027 is unsupported.\u0022},{\u0022span\u0022:\u0022the fires continue to scorch the southern reaches\u0022,\u0022reason\u0022:\u0022Fires are not in the briefing; this carries forward and extends old bulletin news.\u0022},{\u0022span\u0022:\u0022pushing the Kinn toward new grazing grounds\u0022,\u0022reason\u0022:\u0022The briefing does not mention Kinn movement or grazing grounds.\u0022},{\u0022span\u0022:\u0022when smoke rises from the north\u0022,\u0022reason\u0022:\u0022No northern smoke or fire in the briefing; it also contradicts the southern fires.\u0022},{\u0022span\u0022:\u0022stolen in the last few weeks\u0022,\u0022reason\u0022:\u0022The time span is invented.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It mostly rehashes both earlier bulletins and inflates them, adding invented extra raids, ongoing fires and northern smoke. The few wry touches are undercut by melodrama (\u0027a matter of survival\u0027) and a muddled sentence about assurances.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.4130843,
+      "inputTokens": 2079,
+      "outputTokens": 748
+    }
+  ]
+}

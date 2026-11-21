@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-08-mid-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022following their recent incursion near Gladwater\u0022,\u0022reason\u0022:\u0022The raid is not in the briefing. It comes only from an earlier bulletin, which said it was \u0027on\u0027 Gladwater, and here it is restated as recent.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It opens with a heading (\u0027News since your last bulletin\u0027), which breaks character, and the flat, bureaucratic phrasing (\u0027currently the subject of discussion\u0027, \u0027maintaining its routine trade activities\u0027) has none of Ilse\u0027s dry wit. It also runs well under the 80-word minimum and recycles the Ninefingers raid, which is not in the briefing.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.821137,
+      "inputTokens": 2217,
+      "outputTokens": 563
+    }
+  ]
+}

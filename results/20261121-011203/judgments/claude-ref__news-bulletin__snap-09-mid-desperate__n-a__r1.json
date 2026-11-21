@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:5,\u0022comment\u0022:\u0022Sticks tightly to the briefing: it leads with Malley\u0027s death without embellishing it and treats the war only as ongoing background. The sardonic, understated voice holds throughout, and the closing line ties the date back to the lead neatly.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.4955232,
+      "inputTokens": 2342,
+      "outputTokens": 386
+    }
+  ]
+}

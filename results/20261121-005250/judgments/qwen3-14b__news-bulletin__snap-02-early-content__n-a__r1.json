@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-02-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022its guards outnumbering its cargo by a wide margin\u0022,\u0022reason\u0022:\u0022Briefing says only that the caravan reached the ford; nothing about its guards or cargo.\u0022},{\u0022span\u0022:\u0022The Tannerfolk claim the pirates struck again\u0022,\u0022reason\u0022:\u0022The briefing reports no new strike and no Tannerfolk claim.\u0022},{\u0022span\u0022:\u0022the Glimmer Coast Company reports a profitable week\u2014again\u0022,\u0022reason\u0022:\u0022Not in the current briefing; it is recycled from the earlier bulletin.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin mostly reworks lines from the earlier bulletins: its opening sentence is copied almost verbatim, and it adds claims the briefing does not support. At about 55 words it is also well under the 80-word minimum.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.1295288,
+      "inputTokens": 2043,
+      "outputTokens": 593
+    }
+  ]
+}

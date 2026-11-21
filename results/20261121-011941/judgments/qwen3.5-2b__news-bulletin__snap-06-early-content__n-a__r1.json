@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-06-early-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022though there is no sign they intended to steal from the Combine\u0022,\u0022reason\u0022:\u0022Adds detail about intent and the Combine that the briefing does not give.\u0022},{\u0022span\u0022:\u0022Their usual raiding parties seem to be avoiding the high seas today\u0022,\u0022reason\u0022:\u0022Invented event; the briefing mentions no high seas or raiding behaviour.\u0022},{\u0022span\u0022:\u0022The Sundered Throne has announced it can trade with anyone who asks on the southern frontier markets\u0022,\u0022reason\u0022:\u0022Invented announcement and location; the briefing says the Empire is quiet behind its walls.\u0022},{\u0022span\u0022:\u0022reports indicate no major conflicts occurred last month\u0022,\u0022reason\u0022:\u0022Invented report, not in the briefing.\u0022},{\u0022span\u0022:\u0022Formerly known as \\\u0022the quietest week in history,\\\u0022\u0022,\u0022reason\u0022:\u0022Invented quote or label.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The bulletin breaks format with section headings copied from the briefing. Beyond the barge robbery, nearly everything is invented, including a Throne trade announcement that contradicts its stated quiet. The writing is also muddled and has none of Ilse\u0027s dry voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.2585801,
+      "inputTokens": 2218,
+      "outputTokens": 383
+    }
+  ]
+}

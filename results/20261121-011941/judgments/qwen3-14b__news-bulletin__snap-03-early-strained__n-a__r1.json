@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Ashen Hand have been seen patrolling the edges of the Merrow road again\u0022,\u0022reason\u0022:\u0022Briefing says there is no new news; this patrolling event is invented.\u0022},{\u0022span\u0022:\u0022Their numbers seem to be growing\u0022,\u0022reason\u0022:\u0022Unsupported claim; the briefing gives only a static count of 4 settlements.\u0022},{\u0022span\u0022:\u0022making the Merrow Freeholds reconsider their travel routes once more\u0022,\u0022reason\u0022:\u0022Invented reaction not in the briefing.\u0022},{\u0022span\u0022:\u0022moved their largest settlement north by twenty leagues\u0022,\u0022reason\u0022:\u0022Invented event and distance.\u0022},{\u0022span\u0022:\u0022the last dry spell\u0022,\u0022reason\u0022:\u0022Not in the briefing.\u0022},{\u0022span\u0022:\u0022the first sightings of the firebeast in the region\u0022,\u0022reason\u0022:\u0022Invented creature and event.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It invents several events (patrols, a settlement move, a firebeast) even though the briefing says nothing new happened. It also breaks format by copying the briefing\u0027s section headings into the bulletin, and it has none of Ilse\u0027s dry wit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.2932031,
+      "inputTokens": 2275,
+      "outputTokens": 365
+    }
+  ]
+}

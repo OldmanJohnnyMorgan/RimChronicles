@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-08-mid-content__n-a__r1",
+  "promptVersion": "judge/v1",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022snapped up Gladwater\u0027s jade sculptures for double the rim prices\u0022,\u0022reason\u0022:\u0022The briefing says only that the sculpture is talked about. It mentions no sale, no plural sculptures and no price.\u0022},{\u0022span\u0022:\u0022Accusations of fraud are mounting against the Accord\u0022,\u0022reason\u0022:\u0022No fraud accusations appear in the briefing.\u0022},{\u0022span\u0022:\u0022local merchants plan to boycott them next week unless demands are met immediately\u0022,\u0022reason\u0022:\u0022The briefing mentions no boycott or demands.\u0022},{\u0022span\u0022:\u0022a failed raid on Gladwater this month\u0022,\u0022reason\u0022:\u0022The briefing does not say when the raid happened, and the raid comes only from an earlier bulletin.\u0022},{\u0022span\u0022:\u0022they say no one knows why they stopped\u0022,\u0022reason\u0022:\u0022This statement from the gang is not in the briefing.\u0022},{\u0022span\u0022:\u0022Gladwater jade sculpture demand is surging due to trade prices doubling\u0022,\u0022reason\u0022:\u0022Rising demand and doubled prices are unsupported.\u0022}],\u0022voice\u0022:1,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The output invents fraud charges, a boycott and doubled prices, and it repeats earlier bulletins\u0027 news almost word for word. It also breaks format by adding a bulleted summary, and it has none of Ilse\u0027s wry voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.4275306,
+      "inputTokens": 2140,
+      "outputTokens": 423
+    }
+  ]
+}
