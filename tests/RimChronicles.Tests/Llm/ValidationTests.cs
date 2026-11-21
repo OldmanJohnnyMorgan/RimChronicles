@@ -104,6 +104,15 @@ public class CheckTests
     }
 
     [Fact]
+    public void GroundingCheck_AllowsHyphenatedTraitsAndTitles()
+    {
+        var check = new GroundingCheck(["Constance", "Iron"]);
+
+        Assert.Empty(check.FindUnknownNames("He thought of Constance, Iron-willed to the end, and the Marshal's coat."));
+        Assert.Equal(["Stone-Eyes"], check.FindUnknownNames("He thought of Constance and old Stone-Eyes."));
+    }
+
+    [Fact]
     public void GroundingCheck_AllowsTheReportersContractionsButNotWeekdays()
     {
         var unknown = Grounding.FindUnknownNames("Mara says I'm wrong, and I’ve heard I'd lose. I'll wait. Such flair for a Tuesday, or a Monday.");

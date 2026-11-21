@@ -126,6 +126,10 @@ public class EvalTaskTests
     }
 
     [Fact]
+    public void HandoffWordRange_LeavesSlackAroundThePrompts60To120() =>
+        Assert.Equal((50, 130), EvalTasks.WordRange("inheritance-handoff", Snap("snap-09-mid-desperate")));
+
+    [Fact]
     public void BulletinWordRange_ScoresLengthAgainstTheSnapshotsRange()
     {
         var text = string.Join(' ', Enumerable.Repeat("word", 45));

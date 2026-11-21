@@ -38,7 +38,7 @@ public static class EvalTasks
     public static (int Min, int Max) WordRange(string task, WorldSnapshot s) => task switch
     {
         WorldSummarizer.NewsBulletinTask => WorldSummarizer.BulletinWordRange(s),
-        WorldSummarizer.HandoffTask => (60, 120),
+        WorldSummarizer.HandoffTask => WorldSummarizer.HandoffWordRange,
         _ => throw new ArgumentException($"{task} has no word range."),
     };
 

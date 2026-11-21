@@ -88,7 +88,7 @@ public sealed partial class GroundingCheck : IOutputCheck
     [
         "I", "Rim", "Dispatch", "Aprimay", "Jugust", "Septober", "Decembary",
         "Spring", "Summer", "Fall", "Winter", "Empire", "Imperial", "Imperials",
-        "Lord", "Lady", "Sir", "Captain", "Commander", "Knight", "Count", "Baron", "Duke", "Stellarch",
+        "Lord", "Lady", "Sir", "Captain", "Commander", "Marshal", "Sergeant", "Knight", "Count", "Baron", "Duke", "Stellarch",
         "News", "Week", "Day", "Quadrum",
     ];
 
@@ -98,9 +98,17 @@ public sealed partial class GroundingCheck : IOutputCheck
         CapitalisedWord().Matches(output)
             .Where(m => !m.Groups["start"].Success)
             .Select(m => Normalise(m.Groups["word"].Value))
-            .Where(w => w.Length > 1 && !_allowedWords.Contains(w))
+            .Where(w => w.Length > 1 && !IsAllowed(w))
             .Distinct(StringComparer.OrdinalIgnoreCase)
             .ToList();
+
+    // A hyphenated word is allowed when each capitalised part is: "Iron-willed" matches the trait "Iron-willed",
+    // which the summarizer records as "Iron".
+    private bool IsAllowed(string word) =>
+        _allowedWords.Contains(word) ||
+        (word.Contains('-') && word.Split('-', StringSplitOptions.RemoveEmptyEntries)
+            .Where(part => char.IsUpper(part[0]))
+            .All(part => _allowedWords.Contains(Normalise(part))));
 
     public CheckResult Check(string output)
     {
