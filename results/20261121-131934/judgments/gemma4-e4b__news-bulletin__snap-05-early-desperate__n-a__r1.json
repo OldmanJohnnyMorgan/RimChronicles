@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They continue their pattern of raiding.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing activity not reported in briefing; also repeats old news and uses forbidden \u0027continue\u0027\u0022},{\u0022span\u0022:\u0022They seem to be managing their shared patrols with a certain weary diligence.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news (shared patrols from earlier bulletin) and adds ongoing status; hedged only partly\u0022},{\u0022span\u0022:\u0022Their six settlements now present a rather impenetrable front\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027now\u0027 implies comparison with earlier state the briefing does not give\u0022},{\u0022span\u0022:\u0022The Ferrow Mutual holds four settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies shared patrols are ongoing, drawn from earlier bulletin without marking it as old\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is correct, but the second and third items lean on old news, use the banned \u0027continue\u0027 and ongoing-status framing, and the wit is mild. The paragraphs are also short of three sentences with a dry take each, and the \u0027authorities\u0027 guess is vague filler.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.3910958,
+      "inputTokens": 3448,
+      "outputTokens": 390
+    }
+  ]
+}

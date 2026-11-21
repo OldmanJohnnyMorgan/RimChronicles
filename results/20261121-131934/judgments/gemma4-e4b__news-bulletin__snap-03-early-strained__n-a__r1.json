@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The usual quiet has settled over the rim.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies comparison with an earlier state (\u0027usual\u0027); the briefing only says a quiet stretch\u0022},{\u0022span\u0022:\u0022They are certainly active enough to keep the rim interesting.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing activity stated as fact; the briefing reports no current activity\u0022},{\u0022span\u0022:\u0022The Ashen Hand maintain four settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022uses \u0027maintain\u0027, which the task explicitly forbids; implies a prior state\u0022},{\u0022span\u0022:\u0022They travel in pairs for their caravans.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a current fact rather than marking it as old with a short clause\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin repeats the same faction counts across items (the Merrow and Ashen Hand figures appear twice) and pads to fill space. It also uses the forbidden \u0027maintain\u0027, and gives old news about paired caravans as a main item. The dry voice is only intermittent and the structure is repetitive.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.202689,
+      "inputTokens": 3528,
+      "outputTokens": 378
+    }
+  ]
+}

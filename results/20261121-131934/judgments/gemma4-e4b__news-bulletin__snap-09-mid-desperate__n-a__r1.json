@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Tribe continues its hostilities with the Syndicate.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing activity not in briefing; \u0027continues\u0027 also banned by the task\u0022},{\u0022span\u0022:\u0022over fishing rights\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; the cause comes from an earlier bulletin, not today\u0027s briefing, though it is framed as background\u0022},{\u0022span\u0022:\u0022It seems the conflict over fishing rights has settled into a rather predictable pattern.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied status of the war; a guess, but it asserts a pattern the briefing does not give\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate and suitably dry, but the second paragraph breaks the \u0027continues\u0027 rule and implies an ongoing war pattern. The text is also thin on wit, with several flat, list-like sentences and fewer than the three sentences each item should have in the first paragraph, plus the word count is likely under 70.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.9598731,
+      "inputTokens": 3476,
+      "outputTokens": 340
+    }
+  ]
+}

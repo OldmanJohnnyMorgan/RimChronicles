@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-04-early-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They seem to enjoy making things inconvenient for everyone else.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as \u0027seem\u0027, but states an ongoing pattern of behaviour; borderline opinion, mild\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Facts are accurate and guesses are framed as guesses, but the bulletin is only about 75 words, merges two briefing items into one paragraph, and gives paragraphs fewer than three sentences with thin wit. It reads as generic rather than distinctly Ilse, and it does not meet the paragraph-length requirement.}\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.6490485,
+      "inputTokens": 3317,
+      "outputTokens": 223
+    }
+  ]
+}

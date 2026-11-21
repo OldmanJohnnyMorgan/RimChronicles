@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Scythe Tooth raiders have struck three settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as if just happened\u0022},{\u0022span\u0022:\u0022The Ferrow Mutual has requested shared patrols.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022repeats old news from the earlier bulletin, told as new; not in the current briefing\u0022},{\u0022span\u0022:\u0022This is hardly surprising, given the current climate.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied cause stated as fact; briefing gives no climate\u0022},{\u0022span\u0022:\u0022This is a predictable pattern for them.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies earlier pattern of raids not in briefing\u0022},{\u0022span\u0022:\u0022This suggests a growing awareness of external threats.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied trend (\u0027growing\u0027) not in briefing\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Two of the three items are old news retold as fresh (the raids, and a patrol request that is not even in the current briefing), and the dry wit is generic and thin. The Gorse Clans lead is correct but underdeveloped.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.1264047,
+      "inputTokens": 3471,
+      "outputTokens": 373
+    }
+  ]
+}

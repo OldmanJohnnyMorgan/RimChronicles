@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eval run 20261121-131934</title>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #898781;
+  --grid: #e1e0d9; --axis: #c3c2b7; --border: rgba(11,11,11,0.10);
+  --series: #2a78d6; --pass: #006300; --fail: #d03b3b;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --muted: #898781;
+    --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,0.10);
+    --series: #3987e5; --pass: #0ca30c; --fail: #e05555;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink); font: 14px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 1100px; margin: 0 auto; padding: 24px 16px 64px; }
+h1 { font-size: 22px; margin: 0 0 4px; }
+h2 { font-size: 18px; margin: 32px 0 8px; }
+h3 { font-size: 15px; margin: 20px 0 8px; }
+p { max-width: 75ch; }
+.meta { color: var(--ink-2); margin: 4px 0; }
+.note { color: var(--ink-2); border-left: 3px solid var(--axis); padding-left: 10px; }
+.muted { color: var(--muted); }
+code { font: 12px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.scroll { overflow-x: auto; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; }
+table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+th, td { padding: 6px 10px; text-align: left; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+thead th { color: var(--ink-2); font-weight: 600; font-size: 12px; }
+tbody th { font-weight: 600; }
+tbody tr:last-child > * { border-bottom: none; }
+.num { text-align: right; }
+.icon { font-weight: 700; }
+.icon.pass { color: var(--pass); }
+.icon.fail { color: var(--fail); }
+figure { margin: 12px 0 0; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px; overflow-x: auto; }
+.chart { width: 100%; min-width: 520px; height: auto; display: block; }
+.chart text { fill: var(--ink-2); font-size: 12px; }
+.chart .chart-title { fill: var(--ink); font-weight: 600; font-size: 13px; }
+.chart .tick { fill: var(--muted); font-size: 11px; }
+.chart .grid { stroke: var(--grid); stroke-width: 1; }
+.chart .threshold { stroke: var(--ink-2); stroke-width: 1.5; stroke-dasharray: 4 4; }
+.chart .whisker { stroke: var(--series); stroke-width: 2; stroke-linecap: round; }
+.chart .dot { fill: var(--series); stroke: var(--surface); stroke-width: 2; }
+.chart .hit { fill: transparent; }
+.chart .row:hover .hit { fill: var(--grid); fill-opacity: 0.5; }
+details { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; padding: 8px 12px; }
+summary { cursor: pointer; font-weight: 600; }
+article { border-top: 1px solid var(--grid); padding: 8px 0; }
+pre { white-space: pre-wrap; font: 13px/1.5 system-ui, sans-serif; margin: 4px 0; }
+.judge { color: var(--ink-2); font-size: 13px; margin: 4px 0; }
+a { color: var(--series); }
+</style>
+</head>
+<body>
+<main>
+<header>
+<h1>Rim Chronicles model evaluation</h1>
+<p class="meta">Run <strong>20261121-131934</strong> · 27 outputs · 3 models · commit <code>129d4675</code> · prompts <code>director/v1</code>, <code>inheritance-handoff/v1</code>, <code>judge/v3</code>, <code>news-bulletin/v6</code></p>
+<p class="meta">Judged 27 prose outputs blind (judge/v3).</p>
+</header>
+<section>
+<h2>At a glance</h2>
+<p>Whether each model meets every pass bar that applies to it, per task. Failing bars are named; details follow below.</p>
+<div class="scroll"><table>
+<thead><tr><th>Model</th><th>Tier</th><th>Server</th><th>Quantization</th><th class="num">VRAM</th><th>News bulletin</th></tr></thead>
+<tbody>
+<tr><th scope="row">gemma4-e2b</th><td>Minimum</td><td>ollama</td><td>Q4_K_M</td><td class="num">0.4 GB</td><td><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> Fails: length, invented facts</td></tr>
+<tr><th scope="row">gemma4-e4b</th><td>Recommended</td><td>ollama</td><td>Q4_K_M</td><td class="num">0.5 GB</td><td><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> Fails: invented facts, prose quality</td></tr>
+<tr><th scope="row">gemma4-12b</th><td>High</td><td>ollama</td><td>Q4_K_M</td><td class="num">1.5 GB</td><td><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> Fails: length</td></tr>
+</tbody></table></div>
+</section>
+<section>
+<h2>News bulletin</h2>
+<p>Pass bars: length in range at least 90%; at most 1 invented fact per 10 outputs (a new person, place, number, quote or event, or a contradiction); overall quality at least 3.5 (Recommended tier); median latency at most 20 s (Minimum, Recommended, High tiers). Rates use first answers only.</p>
+<div class="scroll"><table>
+<thead><tr><th>Model</th><th>Tier</th><th class="num">Outputs</th><th class="num">Judged</th><th class="num">Length in range</th><th class="num">Invented facts / 10</th><th class="num">Embellishments / 10</th><th class="num">Voice</th><th class="num">Clarity</th><th class="num">Tone</th><th class="num">Overall</th><th class="num">Names grounded</th><th class="num">Passed first try</th><th class="num">Fell back</th><th class="num">Median s</th><th class="num">p90 s</th><th class="num">Output tokens</th><th class="num">Reasoning tokens</th></tr></thead>
+<tbody>
+<tr><th scope="row">gemma4-e2b</th><td>Minimum</td><td class="num">9</td><td class="num">9</td><td class="num"><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> 89%</td><td class="num"><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> 3.3</td><td class="num">33.3</td><td class="num">2.8</td><td class="num">3.8</td><td class="num">2.8</td><td class="num">2.3</td><td class="num">89%</td><td class="num">67%</td><td class="num">11%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 0.6</td><td class="num">0.7</td><td class="num">100</td><td class="num">–</td></tr>
+<tr><th scope="row">gemma4-e4b</th><td>Recommended</td><td class="num">9</td><td class="num">9</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num"><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> 1.1</td><td class="num">31.1</td><td class="num">3.0</td><td class="num">3.7</td><td class="num">3.0</td><td class="num"><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> 2.7</td><td class="num">100%</td><td class="num">100%</td><td class="num">0%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 0.8</td><td class="num">1.1</td><td class="num">94</td><td class="num">–</td></tr>
+<tr><th scope="row">gemma4-12b</th><td>High</td><td class="num">9</td><td class="num">9</td><td class="num"><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> 89%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 0.0</td><td class="num">23.3</td><td class="num">3.1</td><td class="num">4.0</td><td class="num">3.1</td><td class="num">3.0</td><td class="num">78%</td><td class="num">67%</td><td class="num">0%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 1.8</td><td class="num">2.1</td><td class="num">105</td><td class="num">–</td></tr>
+</tbody></table></div>
+<figure>
+<svg class="chart" viewBox="0 0 710 160" role="img" aria-label="News bulletin latency: median (dot) and 90th percentile (line end), seconds">
+<text class="chart-title" x="0" y="16">News bulletin latency: median (dot) and 90th percentile (line end), seconds</text>
+<line class="grid" x1="230" x2="230" y1="34" y2="130"/><text class="tick" x="230" y="148" text-anchor="middle">0</text>
+<line class="grid" x1="340" x2="340" y1="34" y2="130"/><text class="tick" x="340" y="148" text-anchor="middle">5</text>
+<line class="grid" x1="450" x2="450" y1="34" y2="130"/><text class="tick" x="450" y="148" text-anchor="middle">10</text>
+<line class="grid" x1="560" x2="560" y1="34" y2="130"/><text class="tick" x="560" y="148" text-anchor="middle">15</text>
+<line class="grid" x1="670" x2="670" y1="34" y2="130"/><text class="tick" x="670" y="148" text-anchor="middle">20</text>
+<line class="threshold" x1="670" x2="670" y1="30" y2="130"/><text class="tick" x="666" y="28" text-anchor="end">bar 20 s (local tiers)</text>
+<g class="row"><title>gemma4-e2b: median 0.6 s, p90 0.7 s (9 outputs)</title><rect class="hit" x="0" y="40" width="710" height="28"/><text class="label" x="218" y="58" text-anchor="end">gemma4-e2b</text><line class="whisker" x1="243" x2="246" y1="54" y2="54"/><circle class="dot" cx="243" cy="54" r="5"/></g>
+<g class="row"><title>gemma4-e4b: median 0.8 s, p90 1.1 s (9 outputs)</title><rect class="hit" x="0" y="68" width="710" height="28"/><text class="label" x="218" y="86" text-anchor="end">gemma4-e4b</text><line class="whisker" x1="247.3" x2="254.9" y1="82" y2="82"/><circle class="dot" cx="247.3" cy="82" r="5"/></g>
+<g class="row"><title>gemma4-12b: median 1.8 s, p90 2.1 s (9 outputs)</title><rect class="hit" x="0" y="96" width="710" height="28"/><text class="label" x="218" y="114" text-anchor="end">gemma4-12b</text><line class="whisker" x1="269.8" x2="276.6" y1="110" y2="110"/><circle class="dot" cx="269.8" cy="110" r="5"/></g>
+</svg>
+</figure>
+</section>
+<section>
+<h2>Outputs</h2>
+<p>Every first answer, grouped by task and model. Open the raw file for the full request, retries and timings.</p>
+<h3>News bulletin</h3>
+<details>
+<summary>gemma4-e2b · 9 outputs</summary>
+<article><p class="meta"><a href="raw/gemma4-e2b__news-bulletin__snap-01-early-content__n-a__r1.json">snap-01-early-content</a> · repeat 1 · Model · 67 words · 0.5 s</p>
+<pre>The Tarn Union opened a new trading post on the river road. A cold snap is forecast for the northern hills.
+
+The Red Gully Raiders have three settlements. They are currently operating in the lower sectors. One assumes they are still bothering the local trade routes.
+
+The Seven Ash Clans have four settlements. They occupy the interior territories. It seems they prefer staying put rather than moving.</pre>
+<p class="judge">Judge: overall 2, voice 2, clarity 3, tone 2. The first item is a bare restatement with no wry take and the paragraph structure is wrong. The other two items invent locations (&#39;lower sectors&#39;, &#39;interior territories&#39;) and have almost no dry wit, so the output is flat and unreliable.<br>Invented: They are currently operating in the lower sectors. (names a location (lower sectors) and an activity the briefing does not give) | They occupy the interior territories. (invented location for the clans; briefing gives only settlement count) | [minor] still bothering the local trade routes (framed as a guess, but uses forbidden &#39;still&#39; and implies ongoing activity; borderline)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__news-bulletin__snap-02-early-content__n-a__r1.json">snap-02-early-content</a> · repeat 1 · Model · 81 words · 0.6 s</p>
+<pre>Hollow Spire Pirates abandoned a camp on the salt flats. They left whatever they had behind, which is typical. One assumes they simply decided the salt flats were too much trouble.
+
+The Tannerfolk have five settlements. They are currently engaged in conflict with the Hollow Spire Pirates. This endless squabbling over land is hardly surprising.
+
+The Glimmer Coast Company has five settlements. They are currently operating in the region. I suspect they are making a profit, as they always seem to.</pre>
+<p class="judge">Judge: overall 3, voice 3, clarity 4, tone 3. Leads correctly with the new item and mostly sticks to the briefing, but it is short of the word count, has only a faint dry voice, and several items are bare faction-size recitals with thin wit. The claim that the pirates left things behind is an unsupported addition.<br>Invented: [minor] They left whatever they had behind, which is typical. (implies they left goods behind; briefing only says the camp was abandoned) | [minor] They are currently operating in the region. (ongoing activity/location of the Company not given in briefing) | [minor] This endless squabbling over land is hardly surprising. (&#39;endless&#39; implies duration not in briefing; also the war is not stated as being over land in this item)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__news-bulletin__snap-03-early-strained__n-a__r1.json">snap-03-early-strained</a> · repeat 1 · Model · 108 words · 0.7 s</p>
+<pre>The Ashen Hand currently occupy four settlements. They have been noted for their activity near the Merrow road, as I reported last time. One assumes they are just counting the spoils of minor inconveniences.
+
+The Merrow Freeholds have seven settlements scattered across the region. Their caravans are restricted to traveling in pairs, a measure that presumably keeps things slow. It seems they prefer a cautious pace over any grand adventure.
+
+The Kinn of the Long Grass have three settlements in their domain. They were seen moving due to some grass fires in the south. I suspect they are not seeking conflict, but trouble rarely waits for an invitation.</pre>
+<p class="judge">Judge: overall 3, voice 3, clarity 4, tone 3. Reads clearly and keeps guesses framed, but it largely rehashes old news (caravans, the Kinn&#39;s move) as current items, and the humour is mild and generic. It also frames the raids as &#39;minor inconveniences&#39;, which undercuts the earlier reporting.<br>Invented: [minor] scattered across the region (adds spatial detail about the settlements the briefing does not give) | [minor] They were seen moving due to some grass fires in the south. (repeats old news from the latest bulletin as if current, with no marker that it is old) | [minor] Their caravans are restricted to traveling in pairs (repeats old news as current fact with no old-news clause; &#39;restricted&#39; implies an imposed rule) | [minor] They have been noted for their activity near the Merrow road (vague activity claim; the raid is old news and is softened, and &#39;noted&#39; implies ongoing activity) | [minor] counting the spoils of minor inconveniences (stated in a guess frame but belittles raids that cost stores and a roof, which slightly misstates the earlier facts)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__news-bulletin__snap-04-early-strained__n-a__r1.json">snap-04-early-strained</a> · repeat 1 · ModelRetry · 54 words · 0.3 s</p>
+<pre>The Rim Dispatch is still looking for Tomas Quell. This is hardly news. The Black Fen Raiders burned a ferry on the south channel. One assumes they needed a new way to get their supplies across. The Rim Dispatch has stopped sending reporters toward Lowmere. Apparently, Lowmere is not worth the effort this cycle.</pre>
+<p class="judge">Judge: overall 2, voice 3, clarity 3, tone 3. The bulletin is too short, has no paragraph breaks, and does not follow the format: it runs about 55 words against the 70 to 130 required, and each item has fewer than 3 sentences. It also breaks the explicit ban on &quot;still&quot; and wrongly treats a new item as old news, while the wit is thin and generic.<br>Invented: [minor] The Rim Dispatch is still looking for Tomas Quell. (&quot;still&quot; implies an ongoing status the briefing does not report) | [minor] This is hardly news. (implies the search is old news, but this is the first bulletin and the item is new) | [minor] Apparently, Lowmere is not worth the effort this cycle. (implies a reason for the decision that the briefing does not give; &quot;apparently&quot; is a weak hedge and &quot;this cycle&quot; implies a comparison with earlier periods)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__news-bulletin__snap-05-early-desperate__n-a__r1.json">snap-05-early-desperate</a> · repeat 1 · Template · 87 words · 0.7 s</p>
+<pre>The Gorse Clans closed their markets to outsiders. This is hardly surprising, given the current climate. One assumes they prefer to manage their own trade routes when things get inconvenient.
+
+Scythe Tooth raiders have struck three settlements. This is a predictable pattern for them. It seems they have a reliable appetite for disruption, regardless of the local politics.
+
+The Ferrow Mutual has requested shared patrols. This suggests a growing awareness of external threats. I suspect they are simply trying to pool resources where individual efforts prove insufficient.</pre>
+<p class="judge">Judge: overall 2, voice 3, clarity 4, tone 3. Two of the three items are old news retold as fresh (the raids, and a patrol request that is not even in the current briefing), and the dry wit is generic and thin. The Gorse Clans lead is correct but underdeveloped.<br>Invented: [minor] Scythe Tooth raiders have struck three settlements. (repeats old news as if just happened) | The Ferrow Mutual has requested shared patrols. (repeats old news from the earlier bulletin, told as new; not in the current briefing) | [minor] This is hardly surprising, given the current climate. (implied cause stated as fact; briefing gives no climate) | [minor] This is a predictable pattern for them. (implies earlier pattern of raids not in briefing) | [minor] This suggests a growing awareness of external threats. (implied trend (&#39;growing&#39;) not in briefing)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__news-bulletin__snap-06-early-content__n-a__r1.json">snap-06-early-content</a> · repeat 1 · ModelRetry · 80 words · 0.6 s</p>
+<pre>Ditch Kings robbed a grain barge on the delta. They took supplies from a merchant vessel. One assumes this is just another Tuesday for them.
+
+The Calder Combine reports good harvests along the delta. They are apparently happy about the yield. One expects them to be happy about something, even if it is just grain.
+
+The Sundered Throne has three settlements behind its walls. They are quiet, as usual. It is a fine time for the Empire to be silent.</pre>
+<p class="judge">Judge: overall 2, voice 3, clarity 4, tone 3. The second item is old news retold as a full item, which the task forbids, and the third pads with &#39;as usual&#39;. Items are short and the wit is thin, with a robbery framed as a &#39;Tuesday&#39;. Items also fall short of three sentences of fact plus a take, and the piece is likely under the word count.<br>Invented: [minor] They took supplies from a merchant vessel. (adds detail not in briefing; barge described as merchant vessel and &#39;supplies&#39; rather than grain) | [minor] One assumes this is just another Tuesday for them. (implies the robberies are routine, a comparison with earlier state not in briefing (though framed as an assumption)) | [minor] The Calder Combine reports good harvests along the delta. (repeats old news as a full item, not a short clause marking it as old) | [minor] They are apparently happy about the yield. (inference about Combine&#39;s feelings not in briefing) | [minor] They are quiet, as usual. (&#39;as usual&#39; implies a comparison with earlier state the briefing does not give)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__news-bulletin__snap-07-mid-strained__n-a__r1.json">snap-07-mid-strained</a> · repeat 1 · Model · 79 words · 0.6 s</p>
+<pre>The Shattered Empire demanded tolls on the gorge road. This is hardly news. One assumes they need coin more than they need actual passage.
+
+Vex&#39;s Crew has two settlements. They are likely busy counting their loot or arguing over who gets the best salvage. It seems a predictable occupation for pirates.
+
+The Iron Covenant has eight settlements. They are probably just waiting for the next inevitable inconvenience. One suspects they are preparing for another loss, as is their custom.</pre>
+<p class="judge">Judge: overall 3, voice 3, clarity 4, tone 3. The dry voice is serviceable and the claims are mostly framed as guesses, but each item is thin: the tolls item is a single fact plus a shrug, and the other two items are faction-size filler. The &#39;another loss&#39; line leans on old news without marking it as old, and the paragraphs fall short of the required three sentences with real wit.<br>Invented: [minor] This is hardly news. (states as fact that the demand is unsurprising, implying a prior pattern the briefing does not give) | [minor] One suspects they are preparing for another loss, as is their custom. (&#39;another loss&#39; and &#39;their custom&#39; imply a pattern of losses beyond the briefing; it repeats old news of the lost wagon without marking it as old)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__news-bulletin__snap-08-mid-content__n-a__r1.json">snap-08-mid-content</a> · repeat 1 · Model · 96 words · 0.6 s</p>
+<pre>Gladwater&#39;s jade sculpture is the talk of Lantern Hill traders. The Lantern Accord is hosting a trade fair at Lantern Hill, as I reported last time. It seems the usual pleasantries are still the main event for the Outlanders.
+
+The Ninefingers Gang has three settlements. They have been quiet since a failed raid on Gladwater. I suspect they are just waiting for the next easy target.
+
+The Reedmother&#39;s Children report the river is full and the fish are foolish. They call this a good combination. One assumes they are happy with whatever the river spits out.</pre>
+<p class="judge">Judge: overall 2, voice 3, clarity 4, tone 3. Only the first item is actually new; the other two items rehash old bulletins as if fresh, and the jade sculpture lead gets no wry take at all. It also breaks the &#39;still&#39; rule and has weak, generic wit.<br>Invented: [minor] The Lantern Accord is hosting a trade fair at Lantern Hill, as I reported last time. (repeats old news, though it is marked as old; the sentence still gives it a full sentence and the &#39;present tense&#39; framing) | [minor] It seems the usual pleasantries are still the main event for the Outlanders. (hedged with &#39;it seems&#39; but uses &#39;still&#39; and implies an ongoing status not in the briefing) | [minor] The Ninefingers Gang has been quiet since a failed raid on Gladwater. (repeats old news from the latest bulletin, told as current) | [minor] The Reedmother&#39;s Children report the river is full and the fish are foolish. (repeats old news; the briefing only gives a good fishing season, and this comes from the earlier bulletin)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__news-bulletin__snap-09-mid-desperate__n-a__r1.json">snap-09-mid-desperate</a> · repeat 1 · Model · 83 words · 0.6 s</p>
+<pre>Captain Rook Malley is dead. He was killed at his camp. One assumes this resolves the immediate issue of pirate activity near Cinder Rest.
+
+The Embertail Tribe is engaged in conflict with the Gray Wharf Syndicate. Both groups have been involved in this dispute over fishing rights. It seems a predictable squabble over sustenance.
+
+The Gray Wharf Syndicate occupies six settlements. They are currently in opposition to the Embertail Tribe, which holds four settlements. This arrangement suggests a rather messy division of territory.</pre>
+<p class="judge">Judge: overall 2, voice 2, clarity 4, tone 2. The output is accurate on Malley&#39;s death but pads the rest with repeated old news about the war, and the voice is flat and bureaucratic rather than sardonic. The first item has little wit, and the final two items say the same thing twice.<br>Invented: [minor] The Embertail Tribe is engaged in conflict with the Gray Wharf Syndicate. Both groups have been involved in this dispute over fishing rights. (repeats old news as current; the war and fishing rights came from an earlier bulletin, not the new briefing items) | [minor] One assumes this resolves the immediate issue of pirate activity near Cinder Rest. (framed as a guess, but it implies the consequence that pirate activity is resolved; Lancers still have a settlement (borderline)) | [minor] They are currently in opposition to the Embertail Tribe (repeats the war a third time and is padded as an ongoing status)</p>
+</article>
+</details>
+<details>
+<summary>gemma4-e4b · 9 outputs</summary>
+<article><p class="meta"><a href="raw/gemma4-e4b__news-bulletin__snap-01-early-content__n-a__r1.json">snap-01-early-content</a> · repeat 1 · Model · 64 words · 0.6 s</p>
+<pre>The Tarn Union has opened a new trading post on the river road. One assumes this will bring more commerce, or at least more arguments over tariffs. The Outlanders now hold six settlements in the region.
+
+A cold snap is forecast for the northern hills. Presumably, this means more rationing and fewer excuses for poor harvests. The Red Gully Raiders currently control three settlements.</pre>
+<p class="judge">Judge: overall 3, voice 3, clarity 4, tone 3. It stays accurate and follows the brief. But it is thin, at roughly 70 words, and the jokes are generic. The faction facts are tacked on awkwardly, and the Seven Ash Clans are left out.<br>Invented: [minor] The Outlanders now hold six settlements in the region. (&quot;now&quot; implies a change from an earlier count, and &quot;in the region&quot; adds a location the briefing does not give) | [minor] Presumably, this means more rationing and fewer excuses for poor harvests. (framed as a guess, so it is not an invented fact; listed only because it hints at harvests, which the briefing does not mention)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__news-bulletin__snap-02-early-content__n-a__r1.json">snap-02-early-content</a> · repeat 1 · Model · 66 words · 0.7 s</p>
+<pre>The Hollow Spire Pirates abandoned a camp on the salt flats. One assumes they found a better place to bother their enemies. It is a development, though I suspect it means nothing of consequence.
+
+The Tannerfolk hold five settlements. The Glimmer Coast Company also commands five settlements. The pirates hold two. It seems the balance of power is as predictable as the dust on the rim.</pre>
+<p class="judge">Judge: overall 3, voice 3, clarity 4, tone 3. Accurate to the briefing and clearly written, but the dry wit is thin and generic. The first item is short, with only two sentences beyond the fact, and the second is mostly a list of numbers. It does not reach the 70-word minimum or the three sentences each item needs.<br>Invented: [minor] One assumes they found a better place to bother their enemies. (framed as a guess, so not invented; borderline, listed for caution only)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__news-bulletin__snap-03-early-strained__n-a__r1.json">snap-03-early-strained</a> · repeat 1 · Model · 103 words · 1.1 s</p>
+<pre>Another day passes in Kettle Hollow. The usual quiet has settled over the rim. The Ashen Hand hold four settlements. The Merrow Freeholds occupy seven. The Kinn of the Long Grass have three settlements. One assumes this lack of drama is merely exhaustion setting in.
+
+The Merrow Freeholds have seven settlements. They travel in pairs for their caravans. I suspect this precaution is as much about optics as it is about actual safety.
+
+The Ashen Hand maintain four settlements. They are certainly active enough to keep the rim interesting. I guess we should all be grateful for the current level of low-grade tension.</pre>
+<p class="judge">Judge: overall 2, voice 3, clarity 3, tone 3. The bulletin repeats the same faction counts across items (the Merrow and Ashen Hand figures appear twice) and pads to fill space. It also uses the forbidden &#39;maintain&#39;, and gives old news about paired caravans as a main item. The dry voice is only intermittent and the structure is repetitive.<br>Invented: [minor] The usual quiet has settled over the rim. (implies comparison with an earlier state (&#39;usual&#39;); the briefing only says a quiet stretch) | [minor] They are certainly active enough to keep the rim interesting. (ongoing activity stated as fact; the briefing reports no current activity) | [minor] The Ashen Hand maintain four settlements. (uses &#39;maintain&#39;, which the task explicitly forbids; implies a prior state) | [minor] They travel in pairs for their caravans. (repeats old news as a current fact rather than marking it as old with a short clause)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__news-bulletin__snap-04-early-strained__n-a__r1.json">snap-04-early-strained</a> · repeat 1 · Model · 72 words · 0.8 s</p>
+<pre>The Rim Dispatch is looking for Tomas Quell. One suspects he wandered off to find a decent meal. The Dispatch has ceased sending reporters toward Lowmere. Perhaps the scenery there has become too tiresome for even them.
+
+The Black Fen Raiders burned a ferry on the south channel. They seem to enjoy making things inconvenient for everyone else. I assume this was a display of power, or perhaps just poor fuel management.</pre>
+<p class="judge">Judge: overall 3, voice 3, clarity 4, tone 3. Facts are accurate and guesses are framed as guesses, but the bulletin is only about 75 words, merges two briefing items into one paragraph, and gives paragraphs fewer than three sentences with thin wit. It reads as generic rather than distinctly Ilse, and it does not meet the paragraph-length requirement.}<br>Invented: [minor] They seem to enjoy making things inconvenient for everyone else. (framed as &#39;seem&#39;, but states an ongoing pattern of behaviour; borderline opinion, mild)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__news-bulletin__snap-05-early-desperate__n-a__r1.json">snap-05-early-desperate</a> · repeat 1 · Model · 79 words · 1.0 s</p>
+<pre>The Gorse Clans have shut their markets to outsiders. One assumes this is a response to the ongoing chill. Their six settlements now present a rather impenetrable front to any curious traveler.
+
+The pirate settlements number five. They continue their pattern of raiding. I suspect the local authorities are growing rather weary of the persistent disruptions.
+
+It is day 47. The Ferrow Mutual holds four settlements. They seem to be managing their shared patrols with a certain weary diligence.</pre>
+<p class="judge">Judge: overall 3, voice 3, clarity 4, tone 3. The lead item is correct, but the second and third items lean on old news, use the banned &#39;continue&#39; and ongoing-status framing, and the wit is mild. The paragraphs are also short of three sentences with a dry take each, and the &#39;authorities&#39; guess is vague filler.<br>Invented: [minor] They continue their pattern of raiding. (ongoing activity not reported in briefing; also repeats old news and uses forbidden &#39;continue&#39;) | [minor] They seem to be managing their shared patrols with a certain weary diligence. (repeats old news (shared patrols from earlier bulletin) and adds ongoing status; hedged only partly) | [minor] Their six settlements now present a rather impenetrable front (&#39;now&#39; implies comparison with earlier state the briefing does not give) | [minor] The Ferrow Mutual holds four settlements. (implies shared patrols are ongoing, drawn from earlier bulletin without marking it as old)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__news-bulletin__snap-06-early-content__n-a__r1.json">snap-06-early-content</a> · repeat 1 · Model · 111 words · 1.1 s</p>
+<pre>The Ditch Kings took a grain barge on the delta. One assumes they needed the extra rations for their current lifestyle. They certainly made a fine piece of work of it, by the sound of it.
+
+The Calder Combine operates five settlements across the rim. They seem content with their current holdings, which is saying something these days. I suspect their good harvests are only as good as the next raid.
+
+The Sundered Throne holds three settlements, and they are quiet. Silence from the Empire is usually a prelude to something tedious or something very loud. I suppose we should all just wait and see what they decide to do next.</pre>
+<p class="judge">Judge: overall 3, voice 3, clarity 4, tone 3. The bulletin leads with the new item correctly and invents nothing major, but the first item is thin and padded. The &#39;fine piece of work&#39; line implies unreported detail. The second and third items are filler about faction sizes, and the wit is generic with a weak, vague ending. Items also run shorter than the 3-sentence minimum in places, and the Combine&#39;s harvests are referenced as a guess, not as old news in a short clause.<br>Invented: [minor] They certainly made a fine piece of work of it, by the sound of it. (implies details of how the robbery went, which the briefing does not give) | [minor] The Calder Combine operates five settlements across the rim. (&#39;across the rim&#39; adds a location the briefing does not give) | [minor] They seem content with their current holdings (inference about the Combine&#39;s state of mind, stated as a mild observation rather than clearly as a guess) | [minor] The Sundered Throne holds three settlements, and they are quiet. (drops &#39;behind its walls&#39; but is otherwise supported; &#39;quiet&#39; is an ongoing status, only a minor stretch)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__news-bulletin__snap-07-mid-strained__n-a__r1.json">snap-07-mid-strained</a> · repeat 1 · Model · 79 words · 0.8 s</p>
+<pre>The Shattered Empire has demanded tolls on the gorge road. One assumes this is another exercise in bureaucratic extortion. They seem to believe the road belongs to them, despite the Iron Covenant having a sizeable presence nearby.
+
+The Iron Covenant currently controls eight settlements. They are certainly busy with their own affairs, as I reported last time. It is a quiet week, which I suspect means everyone is too busy staring at their own dwindling resources to cause trouble.</pre>
+<p class="judge">Judge: overall 2, voice 3, clarity 3, tone 3. The first item is on target, but it invents an Iron Covenant presence near the gorge, and the second item misattributes a claim to the earlier bulletin and calls the week quiet right after reporting news. Wit is mild and the second item is padded, and it is also short of the 3-sentence-per-item guidance in spirit.<br>Invented: despite the Iron Covenant having a sizeable presence nearby (briefing gives no Iron Covenant presence near the gorge road; &#39;nearby&#39; and &#39;sizeable&#39; are invented) | [minor] They seem to believe the road belongs to them (inference about the Empire&#39;s motive stated as an observation, not in briefing) | [minor] They are certainly busy with their own affairs, as I reported last time. (claims the earlier bulletin reported this; it did not, and the activity is not in the briefing) | [minor] It is a quiet week (contradicts the item just reported (a new Imperial demand), so the claim is unsupported)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__news-bulletin__snap-08-mid-content__n-a__r1.json">snap-08-mid-content</a> · repeat 1 · Model · 71 words · 0.8 s</p>
+<pre>Jade sculptures are currently drawing the attention of Lantern Hill traders. One assumes these pieces are as valuable as the Accord claims. I suspect the quality of the craftsmanship is as dubious as the advertised prices.
+
+The Lantern Accord holds nine settlements across the rim. The Ninefingers Gang operates from three settlements. The Reedmother&#39;s Children claim five settlements. It seems the rim is settling into a predictable pattern of territorial squabbling.</pre>
+<p class="judge">Judge: overall 2, voice 3, clarity 3, tone 3. The lead item misses the key fact, Gladwater&#39;s sculpture, and instead invents Accord claims and prices. Both items fall short of three sentences and the second is a flat list of faction sizes. The dry voice is only generic. The word count is also below the 70 minimum, and the added claims make this unfit to ship.<br>Invented: [minor] Jade sculptures are currently drawing the attention of Lantern Hill traders. (briefing says Gladwater&#39;s one jade sculpture is the talk of traders; this generalizes to plural sculptures and drops Gladwater as the source) | [minor] One assumes these pieces are as valuable as the Accord claims. (implies the Accord made value claims about the sculptures; the briefing gives none (framed as a guess, but the claim is presupposed)) | [minor] as dubious as the advertised prices (implies advertised prices for the sculptures; not in briefing, and the earlier fair-prices promise is mixed in) | [minor] The Ninefingers Gang operates from three settlements. (&#39;operates from&#39; adds an ongoing activity the briefing does not report) | [minor] The Reedmother&#39;s Children claim five settlements. (&#39;claim&#39; implies disputed ownership; briefing just states five settlements) | [minor] territorial squabbling (stated as fact in a &#39;seems&#39; sentence, but implies territorial disputes that the briefing does not report; mostly opinion)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__news-bulletin__snap-09-mid-desperate__n-a__r1.json">snap-09-mid-desperate</a> · repeat 1 · Model · 63 words · 0.8 s</p>
+<pre>Rook Malley, captain of the Lancers, is dead. He met his end at his own camp. One assumes this sudden vacancy will cause some minor rearrangement among the pirates.
+
+The Gray Wharf Syndicate holds six settlements. The Embertail Tribe occupies four. The Tribe continues its hostilities with the Syndicate. It seems the conflict over fishing rights has settled into a rather predictable pattern.</pre>
+<p class="judge">Judge: overall 3, voice 3, clarity 4, tone 3. The lead item is accurate and suitably dry, but the second paragraph breaks the &#39;continues&#39; rule and implies an ongoing war pattern. The text is also thin on wit, with several flat, list-like sentences and fewer than the three sentences each item should have in the first paragraph, plus the word count is likely under 70.<br>Invented: [minor] The Tribe continues its hostilities with the Syndicate. (ongoing activity not in briefing; &#39;continues&#39; also banned by the task) | [minor] over fishing rights (repeats old news; the cause comes from an earlier bulletin, not today&#39;s briefing, though it is framed as background) | [minor] It seems the conflict over fishing rights has settled into a rather predictable pattern. (implied status of the war; a guess, but it asserts a pattern the briefing does not give)</p>
+</article>
+</details>
+<details>
+<summary>gemma4-12b · 9 outputs</summary>
+<article><p class="meta"><a href="raw/gemma4-12b__news-bulletin__snap-01-early-content__n-a__r1.json">snap-01-early-content</a> · repeat 1 · Model · 121 words · 2.1 s</p>
+<pre>The Tarn Union opened a new trading post on the river road. It is a bold move to invite commerce to a path where most people prefer to stay hidden. One assumes the Union believes people actually want to trade for things they can&#39;t already find.
+
+A cold snap is forecast for the northern hills. The locals will likely find the freezing temperatures a refreshing change from the usual misery. I suspect the frost will be the only thing moving in those hills for a while.
+
+The Tarn Union has six settlements. The Red Gully Raiders have three settlements. The Seven Ash Clans have four settlements. It is a lovely, balanced distribution of property for such a desolate stretch of land.</pre>
+<p class="judge">Judge: overall 3, voice 3, clarity 4, tone 3. Accurate on the core facts and reasonably dry, but the wit is generic, the first item&#39;s joke implies the road is dangerous, and the third item just recites faction counts in flat sentences. Items run short of the three-sentence rule in places and the word count looks near the lower bound.<br>Invented: [minor] a path where most people prefer to stay hidden (stated as fact; implies the river road is dangerous or avoided, which the briefing does not say) | [minor] The locals will likely find the freezing temperatures a refreshing change from the usual misery. (implies locals exist and a usual state of misery; hedged with &#39;likely&#39; but presented as a claim about the hills) | [minor] It is a lovely, balanced distribution of property for such a desolate stretch of land. (calls the land desolate and the distribution balanced; mostly opinion, but &#39;balanced&#39; is a loose characterization of 6/3/4)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__news-bulletin__snap-02-early-content__n-a__r1.json">snap-02-early-content</a> · repeat 1 · ModelRetry · 78 words · 1.6 s</p>
+<pre>The Hollow Spire Pirates abandoned a camp on the salt flats. One assumes they found a better place to be miserable. They are currently at war with the Tannerfolk over the same patch of dirt. It is a charming way to spend a Tuesday.
+
+The Glimmer Coast Company owns five settlements. They have a caravan at the eastern ford, as I reported last time. I suspect they enjoy the scenery, provided the scenery doesn&#39;t try to rob them.</pre>
+<p class="judge">Judge: overall 3, voice 4, clarity 4, tone 4. The dry voice is consistent and the lead item is right, but the piece pads and leans on old news, with an invented Tuesday and a caravan whose current location is stated as fact. It is also short of the three-sentence paragraph minimum in places, and the second item is thin filler.
+<br>Invented: [minor] It is a charming way to spend a Tuesday. (the briefing gives no day of the week, only day 11 of Aprimay) | [minor] They have a caravan at the eastern ford, as I reported last time. (the briefing says the caravan reached the ford; saying it is still there is a status the briefing does not give) | [minor] They are currently at war with the Tannerfolk over the same patch of dirt. (the briefing says the war is between the Tannerfolk and the pirates and that the fight over the salt flats is old news; this retells that old news as a current fact)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__news-bulletin__snap-03-early-strained__n-a__r1.json">snap-03-early-strained</a> · repeat 1 · Model · 87 words · 1.8 s</p>
+<pre>It has been a quiet stretch since my last report. The silence is almost more suspicious than the usual chaos.
+
+The Ashen Hand control four settlements. One assumes they have enough loot to keep them occupied for a while.
+
+The Merrow Freeholds occupy seven settlements. They have a lot of ground to cover, which presumably makes for a lot of paperwork.
+
+The Kinn of the Long Grass have three settlements. They are a small group, but I suspect they are very good at staying out of sight.</pre>
+<p class="judge">Judge: overall 3, voice 3, clarity 4, tone 3. It uses the quiet-week approach correctly and avoids forbidden words like &#39;still&#39;. But it makes four items from one-line facts, so it falls short of the 3-sentence minimum and the 70-word length. The wit is thin, and two small claims are stated as fact.<br>Invented: [minor] They are a small group (inference stated as fact; the briefing gives only the settlement count, not the tribe&#39;s size) | [minor] They have a lot of ground to cover (added claim about the Freeholds&#39; territory, stated as fact rather than as a guess)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__news-bulletin__snap-04-early-strained__n-a__r1.json">snap-04-early-strained</a> · repeat 1 · Model · 85 words · 1.8 s</p>
+<pre>The Rim Dispatch is searching for reporter Tomas Quell. One assumes he either found a better life or a very deep hole. The paper has also ceased sending reporters toward Lowmere. Presumably, the local scenery has become too dull for professional scrutiny.
+
+The Black Fen Raiders burned a ferry on the south channel. It is a bold way to ensure no one visits, though it ruins the commute. The Brine Coast League holds six settlements. One suspects they enjoy the view from those six spots.</pre>
+<p class="judge">Judge: overall 3, voice 3, clarity 4, tone 3. Facts stay faithful to the briefing, and guesses are framed as guesses. However, the jokes are generic and sometimes muddled (the ferry &#39;commute&#39; quip, the scenery joke). The bulletin has only two paragraphs with fewer than three sentences in places, and the Rim Dispatch items are split awkwardly across the ferry story.</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__news-bulletin__snap-05-early-desperate__n-a__r1.json">snap-05-early-desperate</a> · repeat 1 · Model · 89 words · 2.0 s</p>
+<pre>The Gorse Clans have closed their markets to outsiders. One assumes they find our presence tiresome or perhaps just inconvenient. It is a charming way to handle a trade deficit.
+
+The Scythe Tooth pirates have five settlements. They seem to be expanding their portfolio of stolen goods. I suspect they enjoy the scenery of their new acquisitions.
+
+The Ferrow Mutual has four settlements. As I reported last time, the cold has killed the northern crops. One might guess the frost is the only thing currently growing in the basin.</pre>
+<p class="judge">Judge: overall 3, voice 3, clarity 4, tone 3. The lead item is correct and the dry voice is passable, but the second and third items pad with filler about settlement counts and old news, and &#39;last time&#39; misattributes the crop story. The jokes are generic and a few lines imply facts beyond the briefing, such as a trade deficit and new acquisitions.<br>Invented: [minor] It is a charming way to handle a trade deficit. (asserts a trade deficit the briefing does not give, stated as fact) | [minor] They seem to be expanding their portfolio of stolen goods. (implies expansion and new acquisitions; hedged with &#39;seem&#39; but the following sentence treats &#39;new acquisitions&#39; as fact) | [minor] their new acquisitions (states settlements are newly acquired, a comparison with an earlier state the briefing does not give) | [minor] As I reported last time, the cold has killed the northern crops. (repeats old news; the briefing says the cold snap was in an earlier bulletin, though it is marked as old, and the latest bulletin was actually the raids, so &#39;last time&#39; is inaccurate)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__news-bulletin__snap-06-early-content__n-a__r1.json">snap-06-early-content</a> · repeat 1 · Model · 84 words · 1.8 s</p>
+<pre>The Ditch Kings robbed a grain barge on the delta. They have a talent for taking what others have grown. One assumes the pirates find stolen grain more palatable than honest work.
+
+The Calder Combine has five settlements. They possess a decent amount of land and apparently a lot of patience. I suspect they are tired of being the local pantry.
+
+The Sundered Throne has three settlements. They are quiet behind their walls. One assumes silence is the only thing they have in abundance.</pre>
+<p class="judge">Judge: overall 3, voice 3, clarity 4, tone 3. Accurate to the briefing and in a dry voice, with mostly guess-framed wit, but the jokes are flat, the second and third items are only faction counts, and a couple of small added claims slip in. It is also short of the 3-sentence-minimum paragraphs in spirit and likely under the word count.}<br>Invented: [minor] They possess a decent amount of land (land holdings not in briefing; stated as fact) | [minor] They have a talent for taking what others have grown. (implies a pattern of robbery beyond the single reported event, stated as fact)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__news-bulletin__snap-07-mid-strained__n-a__r1.json">snap-07-mid-strained</a> · repeat 1 · ModelRetry · 91 words · 1.7 s</p>
+<pre>The Shattered Empire demanded tolls on the gorge road. They seem to think a piece of dirt is a private highway. One assumes they expect us to pay for the privilege of being robbed.
+
+The Iron Covenant has eight settlements. They have a lot of roofs to keep dry. I suspect they find the upkeep of such a large real estate portfolio quite exhausting.
+
+The Shattered Empire has four settlements. They are currently sending envoys to make demands of their neighbors. It is a very active way to spend a Tuesday.</pre>
+<p class="judge">Judge: overall 3, voice 3, clarity 4, tone 3. The facts stay close to the briefing and the dry guesses are properly framed. But the bulletin is too short for the 70-word minimum, the items have fewer than three sentences each, the wit is generic, and it repeats the Empire&#39;s demands in the third item instead of using a different fact.<br>Invented: [minor] It is a very active way to spend a Tuesday. (Tuesday is a day of the week the briefing does not give; the date is day 412, Decembary 5506.) | [minor] They are currently sending envoys to make demands of their neighbors. (presents an ongoing activity as current; the briefing gives it as a general description of the faction, not as something happening now.)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__news-bulletin__snap-08-mid-content__n-a__r1.json">snap-08-mid-content</a> · repeat 1 · Model · 106 words · 2.1 s</p>
+<pre>Gladwater&#39;s jade sculpture is the current obsession of Lantern Hill traders. Apparently, a piece of rock is more interesting than the actual goods for sale. I suspect the traders are simply looking for something pretty to distract them from their empty pockets.
+
+The Lantern Accord occupies nine settlements. They have a trade fair at Lantern Hill, as I reported last time. One assumes they believe more territory equates to a more successful business model.
+
+The Reedmother&#39;s Children have five settlements. They report a good fishing season, which I mentioned previously. I guess it is nice to have a full belly when the world is falling apart.</pre>
+<p class="judge">Judge: overall 3, voice 3, clarity 4, tone 3. The lead item is correct and the dry guesses are properly framed, but two of three items just rehash old news and faction counts, and the second and third paragraphs read thin and a bit generic. The &#39;goods for sale&#39; claim and &#39;world falling apart&#39; add unsupported colour.<br>Invented: [minor] Apparently, a piece of rock is more interesting than the actual goods for sale. (implies traders neglect goods at the fair; not in briefing, stated as fact) | [minor] They have a trade fair at Lantern Hill, as I reported last time. (repeats old news, though flagged as old; present tense implies it is ongoing) | [minor] I guess it is nice to have a full belly when the world is falling apart. (implies world is falling apart; framed as opinion so mild)</p>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__news-bulletin__snap-09-mid-desperate__n-a__r1.json">snap-09-mid-desperate</a> · repeat 1 · ModelRetry · 59 words · 1.5 s</p>
+<pre>Captain Rook Malley is dead, killed at his own camp. One assumes the pirates have discovered that being a target is less efficient than being a predator.
+
+The Embertail Tribe has four settlements. They are at war with the Gray Wharf Syndicate, who possess six settlements. I suspect the math of war is rarely as simple as counting dirt.</pre>
+<p class="judge">Judge: overall 3, voice 3, clarity 4, tone 3. Accurate to the briefing, with the Malley lead handled correctly, but it is thin: two items, the second is a weak, repeated war item with a muddled joke (&#39;counting dirt&#39;), and the wit is only moderately sharp. Each paragraph falls short of the three-sentence minimum and the total is under the word floor.<br>Invented: [minor] One assumes the pirates have discovered that being a target is less efficient than being a predator. (framed as a guess, so not strictly invented; implies the pirates have responded or learned something, but hedged) | [minor] The Embertail Tribe has four settlements. They are at war with the Gray Wharf Syndicate, who possess six settlements. (repeats old news: the war was covered in an earlier bulletin and is presented as current fact without a clause marking it as old)</p>
+</article>
+</details>
+</section>
+</main>
+</body>
+</html>

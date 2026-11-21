@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022scattered across the region\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds spatial detail about the settlements the briefing does not give\u0022},{\u0022span\u0022:\u0022They were seen moving due to some grass fires in the south.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news from the latest bulletin as if current, with no marker that it is old\u0022},{\u0022span\u0022:\u0022Their caravans are restricted to traveling in pairs\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as current fact with no old-news clause; \u0027restricted\u0027 implies an imposed rule\u0022},{\u0022span\u0022:\u0022They have been noted for their activity near the Merrow road\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022vague activity claim; the raid is old news and is softened, and \u0027noted\u0027 implies ongoing activity\u0022},{\u0022span\u0022:\u0022counting the spoils of minor inconveniences\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022stated in a guess frame but belittles raids that cost stores and a roof, which slightly misstates the earlier facts\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Reads clearly and keeps guesses framed, but it largely rehashes old news (caravans, the Kinn\u0027s move) as current items, and the humour is mild and generic. It also frames the raids as \u0027minor inconveniences\u0027, which undercuts the earlier reporting.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.0790832,
+      "inputTokens": 3527,
+      "outputTokens": 438
+    }
+  ]
+}

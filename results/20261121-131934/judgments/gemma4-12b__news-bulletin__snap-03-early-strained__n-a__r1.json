@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They are a small group\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022inference stated as fact; the briefing gives only the settlement count, not the tribe\u0027s size\u0022},{\u0022span\u0022:\u0022They have a lot of ground to cover\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022added claim about the Freeholds\u0027 territory, stated as fact rather than as a guess\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It uses the quiet-week approach correctly and avoids forbidden words like \u0027still\u0027. But it makes four items from one-line facts, so it falls short of the 3-sentence minimum and the 70-word length. The wit is thin, and two small claims are stated as fact.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.855345,
+      "inputTokens": 3477,
+      "outputTokens": 237
+    }
+  ]
+}

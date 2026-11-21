@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-07-mid-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It is a very active way to spend a Tuesday.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Tuesday is a day of the week the briefing does not give; the date is day 412, Decembary 5506.\u0022},{\u0022span\u0022:\u0022They are currently sending envoys to make demands of their neighbors.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022presents an ongoing activity as current; the briefing gives it as a general description of the faction, not as something happening now.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The facts stay close to the briefing and the dry guesses are properly framed. But the bulletin is too short for the 70-word minimum, the items have fewer than three sentences each, the wit is generic, and it repeats the Empire\u0027s demands in the third item instead of using a different fact.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8049999,
+      "inputTokens": 3496,
+      "outputTokens": 273
+    }
+  ]
+}

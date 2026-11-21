@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-01-early-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022a path where most people prefer to stay hidden\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022stated as fact; implies the river road is dangerous or avoided, which the briefing does not say\u0022},{\u0022span\u0022:\u0022The locals will likely find the freezing temperatures a refreshing change from the usual misery.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies locals exist and a usual state of misery; hedged with \u0027likely\u0027 but presented as a claim about the hills\u0022},{\u0022span\u0022:\u0022It is a lovely, balanced distribution of property for such a desolate stretch of land.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022calls the land desolate and the distribution balanced; mostly opinion, but \u0027balanced\u0027 is a loose characterization of 6/3/4\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate on the core facts and reasonably dry, but the wit is generic, the first item\u0027s joke implies the road is dangerous, and the third item just recites faction counts in flat sentences. Items run short of the three-sentence rule in places and the word count looks near the lower bound.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.2481474,
+      "inputTokens": 3345,
+      "outputTokens": 365
+    }
+  ]
+}

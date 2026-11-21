@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-02-early-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It is a charming way to spend a Tuesday.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022the briefing gives no day of the week, only day 11 of Aprimay\u0022},{\u0022span\u0022:\u0022They have a caravan at the eastern ford, as I reported last time.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022the briefing says the caravan reached the ford; saying it is still there is a status the briefing does not give\u0022},{\u0022span\u0022:\u0022They are currently at war with the Tannerfolk over the same patch of dirt.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022the briefing says the war is between the Tannerfolk and the pirates and that the fight over the salt flats is old news; this retells that old news as a current fact\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is consistent and the lead item is right, but the piece pads and leans on old news, with an invented Tuesday and a caravan whose current location is stated as fact. It is also short of the three-sentence paragraph minimum in places, and the second item is thin filler.\\n\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.3713542,
+      "inputTokens": 3546,
+      "outputTokens": 354
+    }
+  ]
+}

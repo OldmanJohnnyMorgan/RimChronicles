@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-08-mid-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Apparently, a piece of rock is more interesting than the actual goods for sale.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies traders neglect goods at the fair; not in briefing, stated as fact\u0022},{\u0022span\u0022:\u0022They have a trade fair at Lantern Hill, as I reported last time.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news, though flagged as old; present tense implies it is ongoing\u0022},{\u0022span\u0022:\u0022I guess it is nice to have a full belly when the world is falling apart.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies world is falling apart; framed as opinion so mild\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is correct and the dry guesses are properly framed, but two of three items just rehash old news and faction counts, and the second and third paragraphs read thin and a bit generic. The \u0027goods for sale\u0027 claim and \u0027world falling apart\u0027 add unsupported colour.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.9765905,
+      "inputTokens": 3516,
+      "outputTokens": 324
+    }
+  ]
+}

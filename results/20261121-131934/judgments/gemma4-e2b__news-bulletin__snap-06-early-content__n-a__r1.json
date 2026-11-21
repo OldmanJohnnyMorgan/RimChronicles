@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-06-early-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They took supplies from a merchant vessel.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds detail not in briefing; barge described as merchant vessel and \u0027supplies\u0027 rather than grain\u0022},{\u0022span\u0022:\u0022One assumes this is just another Tuesday for them.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the robberies are routine, a comparison with earlier state not in briefing (though framed as an assumption)\u0022},{\u0022span\u0022:\u0022The Calder Combine reports good harvests along the delta.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a full item, not a short clause marking it as old\u0022},{\u0022span\u0022:\u0022They are apparently happy about the yield.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022inference about Combine\u0027s feelings not in briefing\u0022},{\u0022span\u0022:\u0022They are quiet, as usual.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027as usual\u0027 implies a comparison with earlier state the briefing does not give\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The second item is old news retold as a full item, which the task forbids, and the third pads with \u0027as usual\u0027. Items are short and the wit is thin, with a robbery framed as a \u0027Tuesday\u0027. Items also fall short of three sentences of fact plus a take, and the piece is likely under the word count.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.5246499,
+      "inputTokens": 3401,
+      "outputTokens": 427
+    }
+  ]
+}

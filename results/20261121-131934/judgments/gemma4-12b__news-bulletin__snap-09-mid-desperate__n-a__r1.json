@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022One assumes the pirates have discovered that being a target is less efficient than being a predator.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, so not strictly invented; implies the pirates have responded or learned something, but hedged\u0022},{\u0022span\u0022:\u0022The Embertail Tribe has four settlements. They are at war with the Gray Wharf Syndicate, who possess six settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news: the war was covered in an earlier bulletin and is presented as current fact without a clause marking it as old\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate to the briefing, with the Malley lead handled correctly, but it is thin: two items, the second is a weak, repeated war item with a muddled joke (\u0027counting dirt\u0027), and the wit is only moderately sharp. Each paragraph falls short of the three-sentence minimum and the total is under the word floor.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.2984032,
+      "inputTokens": 3448,
+      "outputTokens": 323
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-07-mid-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022This is hardly news.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022states as fact that the demand is unsurprising, implying a prior pattern the briefing does not give\u0022},{\u0022span\u0022:\u0022One suspects they are preparing for another loss, as is their custom.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027another loss\u0027 and \u0027their custom\u0027 imply a pattern of losses beyond the briefing; it repeats old news of the lost wagon without marking it as old\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is serviceable and the claims are mostly framed as guesses, but each item is thin: the tolls item is a single fact plus a shrug, and the other two items are faction-size filler. The \u0027another loss\u0027 line leans on old news without marking it as old, and the paragraphs fall short of the required three sentences with real wit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.0787477,
+      "inputTokens": 3480,
+      "outputTokens": 291
+    }
+  ]
+}

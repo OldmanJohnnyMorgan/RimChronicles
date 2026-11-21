@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-07-mid-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022despite the Iron Covenant having a sizeable presence nearby\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022briefing gives no Iron Covenant presence near the gorge road; \u0027nearby\u0027 and \u0027sizeable\u0027 are invented\u0022},{\u0022span\u0022:\u0022They seem to believe the road belongs to them\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022inference about the Empire\u0027s motive stated as an observation, not in briefing\u0022},{\u0022span\u0022:\u0022They are certainly busy with their own affairs, as I reported last time.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022claims the earlier bulletin reported this; it did not, and the activity is not in the briefing\u0022},{\u0022span\u0022:\u0022It is a quiet week\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022contradicts the item just reported (a new Imperial demand), so the claim is unsupported\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The first item is on target, but it invents an Iron Covenant presence near the gorge, and the second item misattributes a claim to the earlier bulletin and calls the week quiet right after reporting news. Wit is mild and the second item is padded, and it is also short of the 3-sentence-per-item guidance in spirit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.8300075,
+      "inputTokens": 3482,
+      "outputTokens": 400
+    }
+  ]
+}

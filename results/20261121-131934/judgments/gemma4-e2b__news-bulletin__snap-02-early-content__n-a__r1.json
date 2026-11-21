@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-02-early-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They left whatever they had behind, which is typical.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies they left goods behind; briefing only says the camp was abandoned\u0022},{\u0022span\u0022:\u0022They are currently operating in the region.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing activity/location of the Company not given in briefing\u0022},{\u0022span\u0022:\u0022This endless squabbling over land is hardly surprising.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027endless\u0027 implies duration not in briefing; also the war is not stated as being over land in this item\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Leads correctly with the new item and mostly sticks to the briefing, but it is short of the word count, has only a faint dry voice, and several items are bare faction-size recitals with thin wit. The claim that the pirates left things behind is an unsupported addition.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.4357585,
+      "inputTokens": 3558,
+      "outputTokens": 293
+    }
+  ]
+}

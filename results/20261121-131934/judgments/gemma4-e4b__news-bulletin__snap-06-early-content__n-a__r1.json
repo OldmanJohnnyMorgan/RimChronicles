@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-06-early-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They certainly made a fine piece of work of it, by the sound of it.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies details of how the robbery went, which the briefing does not give\u0022},{\u0022span\u0022:\u0022The Calder Combine operates five settlements across the rim.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027across the rim\u0027 adds a location the briefing does not give\u0022},{\u0022span\u0022:\u0022They seem content with their current holdings\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022inference about the Combine\u0027s state of mind, stated as a mild observation rather than clearly as a guess\u0022},{\u0022span\u0022:\u0022The Sundered Throne holds three settlements, and they are quiet.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022drops \u0027behind its walls\u0027 but is otherwise supported; \u0027quiet\u0027 is an ongoing status, only a minor stretch\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The bulletin leads with the new item correctly and invents nothing major, but the first item is thin and padded. The \u0027fine piece of work\u0027 line implies unreported detail. The second and third items are filler about faction sizes, and the wit is generic with a weak, vague ending. Items also run shorter than the 3-sentence minimum in places, and the Combine\u0027s harvests are referenced as a guess, not as old news in a short clause.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.7125382,
+      "inputTokens": 3443,
+      "outputTokens": 432
+    }
+  ]
+}

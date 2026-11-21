@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-04-early-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Rim Dispatch is still looking for Tomas Quell.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\\\u0022still\\\u0022 implies an ongoing status the briefing does not report\u0022},{\u0022span\u0022:\u0022This is hardly news.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the search is old news, but this is the first bulletin and the item is new\u0022},{\u0022span\u0022:\u0022Apparently, Lowmere is not worth the effort this cycle.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a reason for the decision that the briefing does not give; \\\u0022apparently\\\u0022 is a weak hedge and \\\u0022this cycle\\\u0022 implies a comparison with earlier periods\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin is too short, has no paragraph breaks, and does not follow the format: it runs about 55 words against the 70 to 130 required, and each item has fewer than 3 sentences. It also breaks the explicit ban on \\\u0022still\\\u0022 and wrongly treats a new item as old news, while the wit is thin and generic.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.4313347,
+      "inputTokens": 3285,
+      "outputTokens": 350
+    }
+  ]
+}

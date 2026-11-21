@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-08-mid-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Jade sculptures are currently drawing the attention of Lantern Hill traders.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says Gladwater\u0027s one jade sculpture is the talk of traders; this generalizes to plural sculptures and drops Gladwater as the source\u0022},{\u0022span\u0022:\u0022One assumes these pieces are as valuable as the Accord claims.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the Accord made value claims about the sculptures; the briefing gives none (framed as a guess, but the claim is presupposed)\u0022},{\u0022span\u0022:\u0022as dubious as the advertised prices\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies advertised prices for the sculptures; not in briefing, and the earlier fair-prices promise is mixed in\u0022},{\u0022span\u0022:\u0022The Ninefingers Gang operates from three settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027operates from\u0027 adds an ongoing activity the briefing does not report\u0022},{\u0022span\u0022:\u0022The Reedmother\u0027s Children claim five settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027claim\u0027 implies disputed ownership; briefing just states five settlements\u0022},{\u0022span\u0022:\u0022territorial squabbling\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022stated as fact in a \u0027seems\u0027 sentence, but implies territorial disputes that the briefing does not report; mostly opinion\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The lead item misses the key fact, Gladwater\u0027s sculpture, and instead invents Accord claims and prices. Both items fall short of three sentences and the second is a flat list of faction sizes. The dry voice is only generic. The word count is also below the 70 minimum, and the added claims make this unfit to ship.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.7855204,
+      "inputTokens": 3472,
+      "outputTokens": 568
+    }
+  ]
+}

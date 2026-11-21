@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-01-early-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They are currently operating in the lower sectors.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022names a location (lower sectors) and an activity the briefing does not give\u0022},{\u0022span\u0022:\u0022They occupy the interior territories.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022invented location for the clans; briefing gives only settlement count\u0022},{\u0022span\u0022:\u0022still bothering the local trade routes\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, but uses forbidden \u0027still\u0027 and implies ongoing activity; borderline\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The first item is a bare restatement with no wry take and the paragraph structure is wrong. The other two items invent locations (\u0027lower sectors\u0027, \u0027interior territories\u0027) and have almost no dry wit, so the output is flat and unreliable.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.3391102,
+      "inputTokens": 3259,
+      "outputTokens": 276
+    }
+  ]
+}

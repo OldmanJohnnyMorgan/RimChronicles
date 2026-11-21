@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Embertail Tribe is engaged in conflict with the Gray Wharf Syndicate. Both groups have been involved in this dispute over fishing rights.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as current; the war and fishing rights came from an earlier bulletin, not the new briefing items\u0022},{\u0022span\u0022:\u0022One assumes this resolves the immediate issue of pirate activity near Cinder Rest.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, but it implies the consequence that pirate activity is resolved; Lancers still have a settlement (borderline)\u0022},{\u0022span\u0022:\u0022They are currently in opposition to the Embertail Tribe\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats the war a third time and is padded as an ongoing status\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The output is accurate on Malley\u0027s death but pads the rest with repeated old news about the war, and the voice is flat and bureaucratic rather than sardonic. The first item has little wit, and the final two items say the same thing twice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.4678241,
+      "inputTokens": 3522,
+      "outputTokens": 365
+    }
+  ]
+}

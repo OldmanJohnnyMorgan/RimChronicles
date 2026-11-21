@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-08-mid-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Lantern Accord is hosting a trade fair at Lantern Hill, as I reported last time.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news, though it is marked as old; the sentence still gives it a full sentence and the \u0027present tense\u0027 framing\u0022},{\u0022span\u0022:\u0022It seems the usual pleasantries are still the main event for the Outlanders.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022hedged with \u0027it seems\u0027 but uses \u0027still\u0027 and implies an ongoing status not in the briefing\u0022},{\u0022span\u0022:\u0022The Ninefingers Gang has been quiet since a failed raid on Gladwater.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news from the latest bulletin, told as current\u0022},{\u0022span\u0022:\u0022The Reedmother\u0027s Children report the river is full and the fish are foolish.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; the briefing only gives a good fishing season, and this comes from the earlier bulletin\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Only the first item is actually new; the other two items rehash old bulletins as if fresh, and the jade sculpture lead gets no wry take at all. It also breaks the \u0027still\u0027 rule and has weak, generic wit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.9559586,
+      "inputTokens": 3502,
+      "outputTokens": 416
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-01-early-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Outlanders now hold six settlements in the region.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\\\u0022now\\\u0022 implies a change from an earlier count, and \\\u0022in the region\\\u0022 adds a location the briefing does not give\u0022},{\u0022span\u0022:\u0022Presumably, this means more rationing and fewer excuses for poor harvests.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, so it is not an invented fact; listed only because it hints at harvests, which the briefing does not mention\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It stays accurate and follows the brief. But it is thin, at roughly 70 words, and the jokes are generic. The faction facts are tacked on awkwardly, and the Seven Ash Clans are left out.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.5694158,
+      "inputTokens": 3256,
+      "outputTokens": 265
+    }
+  ]
+}

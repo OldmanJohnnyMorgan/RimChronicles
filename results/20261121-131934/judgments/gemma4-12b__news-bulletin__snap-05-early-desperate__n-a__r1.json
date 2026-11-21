@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It is a charming way to handle a trade deficit.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022asserts a trade deficit the briefing does not give, stated as fact\u0022},{\u0022span\u0022:\u0022They seem to be expanding their portfolio of stolen goods.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies expansion and new acquisitions; hedged with \u0027seem\u0027 but the following sentence treats \u0027new acquisitions\u0027 as fact\u0022},{\u0022span\u0022:\u0022their new acquisitions\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022states settlements are newly acquired, a comparison with an earlier state the briefing does not give\u0022},{\u0022span\u0022:\u0022As I reported last time, the cold has killed the northern crops.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; the briefing says the cold snap was in an earlier bulletin, though it is marked as old, and the latest bulletin was actually the raids, so \u0027last time\u0027 is inaccurate\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is correct and the dry voice is passable, but the second and third items pad with filler about settlement counts and old news, and \u0027last time\u0027 misattributes the crop story. The jokes are generic and a few lines imply facts beyond the briefing, such as a trade deficit and new acquisitions.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.4986944,
+      "inputTokens": 3469,
+      "outputTokens": 429
+    }
+  ]
+}
