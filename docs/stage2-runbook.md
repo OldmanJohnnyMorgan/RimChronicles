@@ -100,9 +100,10 @@ Send me pass or fail per row, and the text of the replacement's first bulletin f
 
 ## M6: prompt check and the 60-day proof run
 
-### 1. Harness trial of bulletin prompt v9
+### 1. Harness trial of the bulletin prompt
 
-Bulletin prompt v9 stops quiet weeks from being padded with faction settlement counts. The harness now has 23
+Bulletin prompt v9 (then v10) stops quiet weeks from being padded with faction settlement counts. v10 also drops the
+counts from the reporter's briefing. The harness now has 23
 snapshots: the 20 hand-written ones plus 3 exported from your games (a quiet week, two conditions ending, and the
 reporter's death). This trial runs only the bulletin task, once per snapshot, on the three Gemma models, with the judge.
 That's 69 judged bulletins, about $1.
@@ -111,10 +112,10 @@ That's 69 judged bulletins, about $1.
 cd C:\RimworldMods\RimChronicles\RimChronicles
 git pull
 dotnet run --project harness/RimChronicles.Eval -- run --repeats 1 --tasks news-bulletin --models gemma4-e2b,gemma4-e4b,gemma4-12b --judge
-dotnet run --project harness/RimChronicles.Eval -- report latest --compare 20261121-141140
+dotnet run --project harness/RimChronicles.Eval -- report latest --compare 20261121-204624
 ```
 
-The second command adds the change against the Stage 0 full run (bulletin v8) to `summary.html`. Push the run to the
+The second command adds the change against the v9 trial (run `20261121-204624`) to `summary.html`. Push the run to the
 results branch as before, with the run ID from the `Report:` line:
 
 ```powershell
@@ -123,7 +124,7 @@ cd ..\rc-results
 git pull
 Copy-Item -Recurse ..\RimChronicles\results\$run results\
 git add -f results\$run
-git commit -m "Stage 2 M6 trial: bulletin v9 (run $run)"
+git commit -m "Stage 2 M6 trial: bulletin v10 (run $run)"
 git push
 cd ..\RimChronicles
 ```

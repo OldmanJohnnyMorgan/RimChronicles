@@ -3,10 +3,10 @@ Date: day 722 (Aprimay 5512).
 The colony you report near: Ironbloom. You do not know what happens inside it unless listed below.
 
 Factions:
-- The Shattered Empire (Empire): 9 settlements, at war with The Ashford Compact, expanding by force
-- The Ashford Compact (Outlanders): 5 settlements, at war with The Shattered Empire
-- Kestrel Tribe (Tribe): 4 settlements
-- Bonecutter Gang (Pirates): 2 settlements
+- The Shattered Empire (Empire): at war with The Ashford Compact, expanding by force
+- The Ashford Compact (Outlanders): at war with The Shattered Empire
+- Kestrel Tribe (Tribe)
+- Bonecutter Gang (Pirates)
 
 You have heard nothing new since your last bulletin. It has been a quiet stretch.
 
