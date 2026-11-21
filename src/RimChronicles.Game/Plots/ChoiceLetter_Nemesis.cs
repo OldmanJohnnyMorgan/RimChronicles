@@ -41,6 +41,7 @@ public sealed class ChoiceLetter_Nemesis : ChoiceLetter
             }
 
             yield return bounty;
+            yield return new DiaOption(NemesisLetters.HuntOption) { action = () => Answer(NemesisArc.ChoiceHunt), resolveTree = true };
             yield return new DiaOption(NemesisLetters.WaitOption) { action = () => Answer(NemesisArc.ChoiceWait), resolveTree = true };
             yield return Option_Postpone;
         }
@@ -56,7 +57,16 @@ public sealed class ChoiceLetter_Nemesis : ChoiceLetter
             }
 
             plot.SetFact(NemesisArc.Choice, choice);
-            plot.Note(GenDate.DaysPassed, choice == NemesisArc.ChoiceBounty ? $"the colony posted a {cost}-silver bounty" : "the colony chose to wait");
+            plot.Note(GenDate.DaysPassed, choice switch
+            {
+                NemesisArc.ChoiceBounty => $"the colony posted a {cost}-silver bounty",
+                NemesisArc.ChoiceHunt => "the colony chose to hunt them down",
+                _ => "the colony chose to wait",
+            });
+            if (choice == NemesisArc.ChoiceHunt)
+            {
+                plot.NextBeatDay = GenDate.DaysPassed; // offer the Hunt quest at the next daily check
+            }
         }
 
         Find.LetterStack.RemoveLetter(this);

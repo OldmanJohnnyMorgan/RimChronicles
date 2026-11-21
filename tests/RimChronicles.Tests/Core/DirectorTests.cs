@@ -131,4 +131,38 @@ public class DirectorTests
         Assert.Equal(5, loaded.Decisions[0].Day);
         Assert.Equal("Day 204, nemesis-1: Wait (Random). r204", loaded.Decisions[^1].ToString());
     }
+
+    [Fact]
+    public void Nemesis_HuntPath_OffersTheQuestWaitsOnItThenFollowsItsOutcome()
+    {
+        var plot = NemesisPlotNamed("Vex");
+        var book = new PlotBook();
+        book.Active.Add(plot);
+        book.Advance(plot, PlotBeat.Choice, 9, 5, "choice");
+        plot.SetFact(NemesisArc.Choice, NemesisArc.ChoiceHunt);
+
+        Assert.Equal(nameof(NemesisStep.Hunt), Assert.Single(NemesisArc.Transitions(plot)).Step);
+
+        book.LinkQuest(plot, 7, QuestTemplates.Hunt, 10);
+        Assert.Empty(NemesisArc.Transitions(plot)); // the quest decides
+
+        book.QuestEnded(book.Quests[0], QuestOutcome.Fail, 20);
+        Assert.Equal(nameof(NemesisStep.SecondRaid), Assert.Single(NemesisArc.Transitions(plot)).Step);
+
+        plot.SetFact(NemesisArc.SecondRaidDone, "yes");
+        Assert.Equal(nameof(NemesisStep.Vanished), Assert.Single(NemesisArc.Transitions(plot)).Step);
+    }
+
+    [Fact]
+    public void Nemesis_ChoiceLetter_NamesAllThreeOptions()
+    {
+        var plot = NemesisPlotNamed("Vex");
+        plot.SetFact(NemesisPlot.VictimName, "Dorin");
+        plot.SetFact(NemesisArc.Place, "Kelso");
+        var text = NemesisLetters.Choice(NemesisLetters.Facts.From(plot, "C"), 300).Text;
+
+        Assert.Contains("300 silver", text);
+        Assert.Contains("go after Vex in person, to the camp near Kelso", text);
+        Assert.Contains("the colony can wait", text);
+    }
 }
