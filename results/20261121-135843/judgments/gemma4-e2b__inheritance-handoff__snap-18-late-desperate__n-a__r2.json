@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__inheritance-handoff__snap-18-late-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022a worn, knitted shawl, the wool smelling faintly of lavender and something sharp, like winter air\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022a belonging the briefing does not mention, with an added detail about Constance\u0027s past\u0022},{\u0022span\u0022:\u0022remembering the way his mother used to tuck it around his shoulders\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022an added past detail about Constance that the briefing does not give, though it does not contradict it\u0022},{\u0022span\u0022:\u0022The memory of the blizzard was a dull ache beneath his ribs.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Elias was not at the blizzard, so he cannot have a memory of it; this puts him at a past event\u0022},{\u0022span\u0022:\u0022the small storage crate where Constance\u2019s tools were kept\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022a crate and tools the briefing does not mention\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The scene has a restrained, plain tone, but it gives Elias a memory of the blizzard he did not witness, which breaks a core rule. It also ends on a vague \\\u0022check the inventory\\\u0022 with no link to Ada or to taking up the story, so it never lands the handoff.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.005982,
+      "inputTokens": 2958,
+      "outputTokens": 396
+    }
+  ]
+}

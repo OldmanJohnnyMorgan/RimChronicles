@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__inheritance-handoff__snap-18-late-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The news had arrived with the morning mail\u2014a brief, devastating note about the blizzard and the lost caravan.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022briefing does not say how the news arrived; invents a note and morning mail delivery\u0022},{\u0022span\u0022:\u0022Elias sat in the cramped workshop\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022a specific place not named in the briefing; the workshop and the desk in the corner within it are invented, though plausible staging\u0022},{\u0022span\u0022:\u0022Constance\u2019s spectacles still sat atop a stack of old lesson plans\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022spectacles are an invented detail; lesson plans are an inference from her teacher backstory\u0022},{\u0022span\u0022:\u0022picked up her heavy coat from the hook\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022coat is a plausible belonging, but the story says she died of cold on the trip, so a coat left at home is a slight stretch\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The scene uses Constance\u0027s belongings and ends on Elias\u0027s intent to reach the village, which fits. But it invents the mail and note that delivered the news, and it leans on stock phrases like \\\u0022hands trembling\\\u0022 and \\\u0022breath hitching\\\u0022 and the \\\u0022devastating\\\u0022 label. It never uses Ada\u0027s name or the letter, and the ending is a vague resolve.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.772113,
+      "inputTokens": 3002,
+      "outputTokens": 447
+    }
+  ]
+}

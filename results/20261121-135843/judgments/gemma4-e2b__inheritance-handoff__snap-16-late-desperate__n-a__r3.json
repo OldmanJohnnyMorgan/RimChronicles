@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__inheritance-handoff__snap-16-late-desperate__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022a tarnished silver locket, the one Bertram always wore\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022locket not in briefing; invented object and a claim about Bertram\u0027s habit, and it would be at home though he always wore it\u0022},{\u0022span\u0022:\u0022She traced the engraving\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds a detail about the invented locket\u0022},{\u0022span\u0022:\u0022She needed to check the traps before the next patrol.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022traps and patrols are not in the briefing, and the ending does not follow the story (hunting Dunmore)\u0022},{\u0022span\u0022:\u0022the empty space on the cot where he usually slept\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds a detail about Bertram\u0027s habits and sleeping place not given\u0022},{\u0022span\u0022:\u0022Bertram\u0027s old coat\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022invented belonging, plausible staging but not in briefing\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The scene is restrained, but it invents a locket that Bertram \u0027always wore\u0027 and ends on checking traps instead of taking up Bertram\u0027s hunt for Dunmore. It also ignores Rook the warg, who is the strongest anchor at home, so the handoff does not land.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.4353,
+      "inputTokens": 2963,
+      "outputTokens": 407
+    }
+  ]
+}

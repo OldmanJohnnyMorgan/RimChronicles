@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__inheritance-handoff__snap-09-mid-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022She would find Malley.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Malley died in the fight with Joska; the heir\u0027s goal contradicts the briefing (the living threat is the new captain).\u0022},{\u0022span\u0022:\u0022Joska\u2019s old fighting gloves\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Gloves are an added belonging, though plausible for a pit fighter; staging, borderline.\u0022},{\u0022span\u0022:\u0022a worn training dummy, its straw stuffing loose\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Training dummy with a handle is an invented object; odd and not supported.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The ending contradicts the story: Malley is already dead, so Tamsin\u0027s resolve to find him misreads the briefing and ignores the new captain who has sworn revenge. The prose is competent but generic, with a clumsy \u0027training dummy with a handle\u0027 and the stated \u0027weight\u0027 of silence.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.0457577,
+      "inputTokens": 2972,
+      "outputTokens": 319
+    }
+  ]
+}

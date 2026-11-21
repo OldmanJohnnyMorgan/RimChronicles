@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__inheritance-handoff__snap-16-late-desperate__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022a souvenir from one of their many patrols\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022invents a shared past event (patrols together) and the origin of the scar; the briefing gives no such patrols\u0022},{\u0022span\u0022:\u0022Bertram\u2019s tactical vest\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022added belonging detail not in the briefing, though plausible as staging\u0022},{\u0022span\u0022:\u0022their shared quarters\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022the briefing says they were best friends, not that they shared quarters; invents a shared place\u0022},{\u0022span\u0022:\u0022his heavy rifle\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022a specific belonging not given, though plausible staging\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Competent, ends on a clear resolve, and uses Rook and Bertram\u0027s belongings appropriately, but the scar from \u0027one of their many patrols\u0027 invents a shared past event. Phrasing like \u0027hands trembling\u0027 and \u0027mourning howl\u0027 leans generic and slightly melodramatic.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.0757675,
+      "inputTokens": 3001,
+      "outputTokens": 344
+    }
+  ]
+}

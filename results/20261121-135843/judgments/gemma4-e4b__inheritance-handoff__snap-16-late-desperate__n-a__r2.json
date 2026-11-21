@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__inheritance-handoff__snap-16-late-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Bertram\u2019s favorite worn leather jacket\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022jacket not in briefing; added detail about dead one\u0027s belongings\u0022},{\u0022span\u0022:\u0022remembering how he\u2019d always laugh when he wore it\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022invented habit of the dead character\u0022},{\u0022span\u0022:\u0022walked toward the armory\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022names a room the briefing does not give\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Uses Rook and Bertram\u0027s belongings sensibly and shows feeling through action, but the armory is an unnamed room and the ending only hints at her intent (no mention of Dunmore or the hunt), so the handoff is vague. The prose is generic and a bit clich\u00E9d (\\\u0022silence felt too vast\\\u0022).\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.9673508,
+      "inputTokens": 2962,
+      "outputTokens": 280
+    }
+  ]
+}

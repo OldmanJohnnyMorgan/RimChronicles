@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__inheritance-handoff__snap-18-late-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the small study, the scent of old chalk dust clinging to the air\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022a study is a room the briefing does not name, though it is plausible staging\u0022},{\u0022span\u0022:\u0022the worn, leather-bound copy of Constance\u2019s lesson plans\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022lesson plans are a new belonging, though they fit her teacher backstory\u0022},{\u0022span\u0022:\u0022He remembered her iron will, how she\u2019d faced down the passes for Ada.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Elias was not on the caravan and did not see her face the passes; this is a past event he did not witness\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It is clear and ends on a concrete aim, but it has Elias remember Constance facing the passes, an event he did not see. The voice is generic and the imagery is stock, so the feeling is only lightly shown.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8745231,
+      "inputTokens": 2963,
+      "outputTokens": 307
+    }
+  ]
+}

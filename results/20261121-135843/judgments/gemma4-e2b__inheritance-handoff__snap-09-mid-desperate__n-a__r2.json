@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__inheritance-handoff__snap-09-mid-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The memory of the fight, the way he moved, was sharp.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Implies Tamsin remembers or witnessed a fight; she was not there, and the final fight is not hers to remember.\u0022},{\u0022span\u0022:\u0022Joska\u2019s old leather tunic\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Belongings are allowed, but the tunic is a new specific object, with faded markings not in the briefing.\u0022},{\u0022span\u0022:\u0022the storage crates where her father kept his tools\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Adds a specific storage place and tools not named in the briefing.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The scene is restrained and plausible, but it references a fight memory the heir could not have, and it ends on a vague \\\u0022find something sharp\\\u0022 rather than a clear intent tied to the story (Lancers, revenge, Cinder Rest). The word count is also under 120 but the ending lacks resolve.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.7517164,
+      "inputTokens": 2988,
+      "outputTokens": 326
+    }
+  ]
+}

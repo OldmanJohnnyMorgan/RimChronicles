@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__inheritance-handoff__snap-09-mid-desperate__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Joska\u0027s old fighting gloves\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022gloves not in briefing; plausible for pit fighter but added object tied to his past\u0022},{\u0022span\u0022:\u0022a tarnished piece of metal, the kind Joska used to keep tucked in his tunic\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022invented habit of the dead character\u0022},{\u0022span\u0022:\u0022Lene was nearby, tending to the hydroponics\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Lene is named as mother, but hydroponics is a new place/room not in briefing\u0022},{\u0022span\u0022:\u0022the focused intensity in his eyes when he hunted\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022added detail of past; heir may remember traits, plausible but not stated\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Competent and restrained, and it avoids showing the death, but it stays generic and never lands the handoff: the ending says she turns toward the door without a clear intent (revenge on the Lancers or protecting Cinder Rest). The invented objects and the hydroponics detail add small unsupported specifics.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.3889092,
+      "inputTokens": 3009,
+      "outputTokens": 371
+    }
+  ]
+}

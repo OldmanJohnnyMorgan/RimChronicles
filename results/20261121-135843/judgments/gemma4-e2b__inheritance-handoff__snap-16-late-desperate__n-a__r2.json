@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__inheritance-handoff__snap-16-late-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022A worn leather strap lay near her hand.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022object not in briefing, but plausible staging of belongings; trivial\u0022},{\u0022span\u0022:\u0022The scent of stale tobacco clung to the fabric.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds detail about Bertram\u0027s habits (tobacco) not in briefing\u0022},{\u0022span\u0022:\u0022She picked up a small, tarnished silver locket, turning it over and over.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022locket is a new significant object implying backstory, not in briefing\u0022},{\u0022span\u0022:\u0022Rook whined softly, nudging her hand.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Rook is named in story so present is allowed; minor addition of bonded warg comforting Elske\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Competent and within the rules, using Bertram\u0027s belongings and Rook, but the ending is weak: checking ammunition stores does not clearly state she will take up Bertram\u0027s hunt for Dunmore, so the handoff does not land. The scene is also generic, with a few invented props like the locket and tobacco.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.2832532,
+      "inputTokens": 2988,
+      "outputTokens": 380
+    }
+  ]
+}

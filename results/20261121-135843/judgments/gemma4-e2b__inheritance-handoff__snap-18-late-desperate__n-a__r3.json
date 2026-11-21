@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__inheritance-handoff__snap-18-late-desperate__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022a small, tarnished locket that had been kept on the bedside table\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022locket and its location not in briefing; named new object with implied history\u0022},{\u0022span\u0022:\u0022the storage crate where her tools lay\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Constance\u0027s tools not in briefing; implies a past detail about her (a teacher) not supported\u0022},{\u0022span\u0022:\u0022Constance\u2019s favorite woolen shawl\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022added detail about what she favored, not in briefing\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Competent staging with the right restraint, but it never touches Ada, the letter or the lost journey, and the ending (checking the south wall) is an unmotivated non sequitur rather than taking up his mother\u0027s story; the added objects are also unsupported.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.9943448,
+      "inputTokens": 2970,
+      "outputTokens": 285
+    }
+  ]
+}

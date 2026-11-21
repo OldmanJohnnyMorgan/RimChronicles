@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__inheritance-handoff__snap-16-late-desperate__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Bertram\u2019s favorite coat\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022coat not in briefing; though plausible belonging, adds a specific favorite item\u0022},{\u0022span\u0022:\u0022the hunting rifle he\u2019d left leaning against the wall\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Bertram\u0027s rifle left at home is a specific object; it fits a hunter, but implies he went unarmed or with another weapon\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Stays at home, uses Rook and belongings correctly, and avoids showing the death. However, it ends on checking a rifle rather than a clear statement of intent to take up the hunt for Dunmore, and it uses stock phrasing like \u0027gaping hole\u0027 that names the feeling and edges toward clich\u00E9.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.3614018,
+      "inputTokens": 2968,
+      "outputTokens": 275
+    }
+  ]
+}

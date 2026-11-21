@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__inheritance-handoff__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022a souvenir from the day Malley first broke him\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds detail about the past: the notch is tied to the day 243 maiming, which the briefing does not say\u0022},{\u0022span\u0022:\u0022the metallic tang of the whetstone he used to sharpen his blades\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds a detail about the dead man\u0027s habits and equipment (blades); the briefing does not give it\u0022},{\u0022span\u0022:\u0022his notched sword\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022a sword is a new object, and Joska is not stated to have used one\u0022},{\u0022span\u0022:\u0022She had to find Malley\u0027s men.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Malley is already dead, so the target is the Lancers; the intent is plausible but loosely framed. It does not name the new captain, who has sworn revenge\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Concrete objects and a restrained, grounded tone work well, and it ends on the heir\u0027s intent. But it adds invented past detail (the notch from Malley breaking him, the sword), and the ending is thin: it does not name the Lancers or tie to the story\u0027s threat. Nothing marks Tamsin as hot-tempered or nimble beyond the white knuckles.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.9755891,
+      "inputTokens": 3028,
+      "outputTokens": 419
+    }
+  ]
+}

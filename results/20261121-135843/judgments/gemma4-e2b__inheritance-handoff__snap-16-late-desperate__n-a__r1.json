@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__inheritance-handoff__snap-16-late-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022a small, tarnished silver locket that had belonged to him\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022a specific belonging not in briefing; adds a detail about Bertram\u0027s past\u0022},{\u0022span\u0022:\u0022the storage crate where Rook usually slept\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds a detail about Rook\u0027s habits and a specific crate not in briefing\u0022},{\u0022span\u0022:\u0022Bertram\u0027s old coat\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022a plausible belonging, but not in the briefing\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The scene never names Kael Dunmore or the hunt and does not pick up Bertram\u0027s story, so the heir takes on nothing; it ends on bland office-style \u0027secure the perimeter patrols\u0027 rather than a clear aim. Rook is mentioned only as an absence, and the locket and crate are invented props.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.5041119,
+      "inputTokens": 2984,
+      "outputTokens": 301
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__inheritance-handoff__snap-16-late-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Elske traced the jagged scar on the vest\u0027s shoulder, a souvenir from one of their many hunts.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022puts Elske at past hunts; the briefing never says she joined any, and it names only Bertram leading three hunts\u0022},{\u0022span\u0022:\u0022the way he always stood between her and the worst of the world\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022added detail about their shared past not in the briefing\u0022},{\u0022span\u0022:\u0022his boisterous laugh\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022invented trait detail not in briefing\u0022},{\u0022span\u0022:\u0022the common room\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022an unnamed room not in the briefing, though plausibly generic colony space\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Competent scene that ends on resolve and uses Rook well, but it claims Elske went on \\\u0022one of their many hunts\\\u0022, which puts her at past events the briefing does not support. The prose leans on stock phrases like \\\u0022trembling hands\\\u0022 and \\\u0022heavy silence\\\u0022.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.4862578,
+      "inputTokens": 2988,
+      "outputTokens": 351
+    }
+  ]
+}

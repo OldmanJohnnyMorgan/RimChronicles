@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__inheritance-handoff__snap-09-mid-desperate__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Joska\u2019s old fighting gloves\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022belongings are plausible staging, but gloves are not in the briefing; pit-fighter wraps are allowed, so this is borderline\u0022},{\u0022span\u0022:\u0022She remembered Joska\u2019s fierce grin before a match, the way he\u2019d always challenge the impossible.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022added detail about Joska\u0027s past not in the briefing, though it fits his traits\u0022},{\u0022span\u0022:\u0022Lene stood near the hearth, her hands still moving in small, repetitive motions.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Lene is named in the briefing, but her presence and behaviour at home are added staging; acceptable but borderline\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It stays within the facts and ends on a resolve, but the voice is generic and the ending \u0027She would find them\u0027 is vague and slightly off: the Lancers hold a camp and Malley is already dead. The line \u0027The Lancers\u0027 captain swore revenge\u0027 is dropped in without being linked to Tamsin, and \u0027too heavy for her nimble fingers\u0027 feels forced.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.0619322,
+      "inputTokens": 2999,
+      "outputTokens": 389
+    }
+  ]
+}

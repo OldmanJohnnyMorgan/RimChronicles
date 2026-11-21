@@ -1,0 +1,53 @@
+{
+  "cell": "gemma4-e2b__inheritance-handoff__snap-18-late-desperate__n-a__r1",
+  "model": "gemma4-e2b",
+  "task": "inheritance-handoff",
+  "snapshot": "snap-18-late-desperate",
+  "grammar": "n/a",
+  "repeat": 1,
+  "promptVersion": "inheritance-handoff/v2",
+  "outcome": "ModelRetry",
+  "value": "Elias sat by the hearth, the silence of the house heavy. He picked up a worn, knitted shawl, the wool smelling faintly of woodsmoke and something else, something familiar. He traced the pattern with his thumb, his fingers lingering on the spot where Constance\u2019s hand would have rested. The memory of her quiet strength, the way she always held herself steady, surfaced. He moved to the workbench, his movements jerky, and began examining the tools laid out for repair. He needed to fix something, make something solid.",
+  "attempts": [
+    {
+      "request": {
+        "system": "You write short scenes for a story told through a RimWorld colony.\n\nThe main character of a story has died. Someone close to them now takes up that story as their own. Write the moment it passes to them.\n\nWhere and when:\n- The scene happens at home in the colony, after the death, once the news has reached the heir.\n- The heir was not there when it happened, unless the story so far says so. Never show the death, the fight or the last moments, and never put the heir where it happened.\n- The body did not come home, unless the story so far says it did. Use what is at home instead: the dead one\u0027s belongings, a place they shared, or the people and animals the story names.\n- The heir may remember the dead one\u0027s traits and the past they shared, but never an event they did not see.\n\nRules:\n- 60 to 120 words.\n- Use the relationship between the two exactly as given.\n- Use only names and facts from the dossiers and the story so far.\n- Show feeling through actions and small details, not by naming emotions.\n- End on what the heir now means to do.\n- Write only the scene: no title, no notes, no word count.\n",
+        "user": "## The one who died\nConstance (58), dead; traits: Kind, Iron-willed; backstory: Midworld teacher; mother of Elias.\nHistory:\n- Day 744: Constance received a letter from Ada.\n- Day 790: Wren\u0027s Hollow lost a caravan led by Constance.\n- Day 803: Constance died.\n\n## The heir\nElias (34); traits: Neurotic, Industrious; backstory: Engineer; son of Constance.\n\n## Their relationship\nElias was Constance\u0027s son.\n\n## The story so far\nConstance learned from a letter that her sister Ada, lost for thirty years, was alive in a Wailing Moth village. She led a caravan through the passes to bring Ada home. A blizzard caught them; the caravan was lost, and Constance died of cold. Ada is still in the village.\n\nWrite the scene now.\n",
+        "maxOutputTokens": 300,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "Elias sat by the hearth, tracing the worn edge of Constance\u2019s favorite woolen shawl. The silence in the small room felt heavy, different now. He picked up a small, smooth stone Constance had kept on her bedside table. He remembered the way she used to hum while mending, the quiet strength in her hands. He looked toward the door, then back at the shawl. He needed to check the stores in Sector Three.",
+      "error": null,
+      "failures": [
+        "Do not mention names that are not in the briefing: Sector, Three"
+      ],
+      "latencySeconds": 0.6102012,
+      "inputTokens": 481,
+      "outputTokens": 89,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-979\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795269538,\u0022model\u0022:\u0022gemma4:e2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022Elias sat by the hearth, tracing the worn edge of Constance\u2019s favorite woolen shawl. The silence in the small room felt heavy, different now. He picked up a small, smooth stone Constance had kept on her bedside table. He remembered the way she used to hum while mending, the quiet strength in her hands. He looked toward the door, then back at the shawl. He needed to check the stores in Sector Three.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:481,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:89,\u0022total_tokens\u0022:570}}\n"
+    },
+    {
+      "request": {
+        "system": "You write short scenes for a story told through a RimWorld colony.\n\nThe main character of a story has died. Someone close to them now takes up that story as their own. Write the moment it passes to them.\n\nWhere and when:\n- The scene happens at home in the colony, after the death, once the news has reached the heir.\n- The heir was not there when it happened, unless the story so far says so. Never show the death, the fight or the last moments, and never put the heir where it happened.\n- The body did not come home, unless the story so far says it did. Use what is at home instead: the dead one\u0027s belongings, a place they shared, or the people and animals the story names.\n- The heir may remember the dead one\u0027s traits and the past they shared, but never an event they did not see.\n\nRules:\n- 60 to 120 words.\n- Use the relationship between the two exactly as given.\n- Use only names and facts from the dossiers and the story so far.\n- Show feeling through actions and small details, not by naming emotions.\n- End on what the heir now means to do.\n- Write only the scene: no title, no notes, no word count.\n",
+        "user": "## The one who died\nConstance (58), dead; traits: Kind, Iron-willed; backstory: Midworld teacher; mother of Elias.\nHistory:\n- Day 744: Constance received a letter from Ada.\n- Day 790: Wren\u0027s Hollow lost a caravan led by Constance.\n- Day 803: Constance died.\n\n## The heir\nElias (34); traits: Neurotic, Industrious; backstory: Engineer; son of Constance.\n\n## Their relationship\nElias was Constance\u0027s son.\n\n## The story so far\nConstance learned from a letter that her sister Ada, lost for thirty years, was alive in a Wailing Moth village. She led a caravan through the passes to bring Ada home. A blizzard caught them; the caravan was lost, and Constance died of cold. Ada is still in the village.\n\nWrite the scene now.\n\n\nYour previous answer was rejected:\n- Do not mention names that are not in the briefing: Sector, Three\nAnswer again, following every rule.",
+        "maxOutputTokens": 300,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "Elias sat by the hearth, the silence of the house heavy. He picked up a worn, knitted shawl, the wool smelling faintly of woodsmoke and something else, something familiar. He traced the pattern with his thumb, his fingers lingering on the spot where Constance\u2019s hand would have rested. The memory of her quiet strength, the way she always held herself steady, surfaced. He moved to the workbench, his movements jerky, and began examining the tools laid out for repair. He needed to fix something, make something solid.",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 0.6926332,
+      "inputTokens": 512,
+      "outputTokens": 108,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-509\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795269539,\u0022model\u0022:\u0022gemma4:e2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022Elias sat by the hearth, the silence of the house heavy. He picked up a worn, knitted shawl, the wool smelling faintly of woodsmoke and something else, something familiar. He traced the pattern with his thumb, his fingers lingering on the spot where Constance\u2019s hand would have rested. The memory of her quiet strength, the way she always held herself steady, surfaced. He moved to the workbench, his movements jerky, and began examining the tools laid out for repair. He needed to fix something, make something solid.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:512,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:476},\u0022completion_tokens\u0022:108,\u0022total_tokens\u0022:620}}\n"
+    }
+  ]
+}

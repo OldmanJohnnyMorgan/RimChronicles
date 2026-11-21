@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__inheritance-handoff__snap-09-mid-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022tracing the jagged scar across the knuckles\u2014a souvenir from Rook Malley\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022briefing says Malley maimed Joska, not a scar on a gauntlet\u0027s knuckles; the gauntlet and scar are invented and tied to a past event told differently\u0022},{\u0022span\u0022:\u0022the one he had carried until his last breath\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the sword was with him at death; not in briefing, and touches the last moments\u0022},{\u0022span\u0022:\u0022The room smelled of old sweat and the metallic tang of the whetstone he used to sharpen his blades\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022added detail about Joska\u0027s habits and blades, not in briefing\u0022},{\u0022span\u0022:\u0022the notched sword leaning against the wall\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022sword is plausible staging but the notched detail and its history are added\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The scene is clear and ends on a concrete intention, but it invents a scarred gauntlet linked to Malley, and the \u0027father\u0027s ghost\u0027 line and the sharpening ending are somewhat cliched. The relationship is used correctly, but the ending doesn\u0027t clearly tie to taking up the story.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.5837778,
+      "inputTokens": 3025,
+      "outputTokens": 413
+    }
+  ]
+}

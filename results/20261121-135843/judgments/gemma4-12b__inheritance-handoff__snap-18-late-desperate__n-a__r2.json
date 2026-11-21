@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__inheritance-handoff__snap-18-late-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the faint, lingering scent of cedar and old books\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022added detail about the dead one\u0027s past habits not in briefing\u0022},{\u0022span\u0022:\u0022the empty chair where she used to sit, watching him work\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022invented habit of the dead character\u0022},{\u0022span\u0022:\u0022his mother\u2019s heavy wool coat\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022belonging not in briefing, but plausible staging\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Competent, restrained scene that uses the letter and ends on a clear intent (going to Ada). It leans on generic emotional phrasing like \u0027silence felt heavy, pressing against his chest\u0027 and adds invented habits for Constance, such as her sitting and watching him work.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.4538006,
+      "inputTokens": 3001,
+      "outputTokens": 273
+    }
+  ]
+}

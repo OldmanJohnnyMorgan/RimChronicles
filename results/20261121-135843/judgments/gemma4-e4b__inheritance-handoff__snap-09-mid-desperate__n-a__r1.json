@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__inheritance-handoff__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the one he always kept on the mantle\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022added detail about the dead one\u0027s habits and an object not in the briefing\u0022},{\u0022span\u0022:\u0022She had to find Malley.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022contradicts the briefing: Malley died in the same fight, so Tamsin cannot find him; the goal is wrong\u0022},{\u0022span\u0022:\u0022his laugh, loud even when he was tired after a long hunt\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022added past detail about Joska\u0027s laugh and habits, not in briefing\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The staging with the glove is a fair choice, but the ending has Tamsin set out to find Malley, who the story says is already dead, and it ignores the new captain who swore revenge on Cinder Rest. The scene also names feeling outright (\\\u0022felt heavy\\\u0022) rather than showing it.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.4657157,
+      "inputTokens": 2955,
+      "outputTokens": 309
+    }
+  ]
+}

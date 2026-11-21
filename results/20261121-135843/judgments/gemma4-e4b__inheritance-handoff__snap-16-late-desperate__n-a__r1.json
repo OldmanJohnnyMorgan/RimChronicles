@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__inheritance-handoff__snap-16-late-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Bertram\u2019s favorite jacket\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022jacket not in briefing; plausible belonging but specific added object/detail about the dead\u0022},{\u0022span\u0022:\u0022draped over the chair where Bertram always sat, planning the next move\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds a habit of the dead character not in briefing\u0022},{\u0022span\u0022:\u0022the scent of stale gunpowder clinging faintly to the hide\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022added detail about the jacket\u0027s past use\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Competent staging with Rook and the belongings, but the ending is vague: she picks up a rifle and turns to the perimeter without clearly resolving to hunt Dunmore. The relationship as best friend is barely used, and \u0027Rook nudged her hand\u0027 sits oddly with a \u0027whine vibrating through the floorboards\u0027.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.1590782,
+      "inputTokens": 2991,
+      "outputTokens": 313
+    }
+  ]
+}

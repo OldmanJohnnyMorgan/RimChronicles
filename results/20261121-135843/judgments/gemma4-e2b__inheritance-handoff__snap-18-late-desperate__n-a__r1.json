@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__inheritance-handoff__snap-18-late-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Constance\u2019s favorite woolen shawl\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022shawl not in briefing; plausible belonging but a specific added detail about her\u0022},{\u0022span\u0022:\u0022a small, smooth stone Constance had kept on her bedside table\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022stone and bedside habit not in briefing; added detail about the past\u0022},{\u0022span\u0022:\u0022the way she used to hum while mending\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022added habit of the dead character not in briefing\u0022},{\u0022span\u0022:\u0022Sector Three\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022names a place/area the briefing does not give\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The scene stages the home moment gently, but it invents a named place (Sector Three) and ends on a mundane chore instead of Elias taking up Constance\u0027s story (Ada, the village, the lost caravan). The ending does not land the handoff.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.9781773,
+      "inputTokens": 2939,
+      "outputTokens": 313
+    }
+  ]
+}

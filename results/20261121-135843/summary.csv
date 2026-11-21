@@ -1,0 +1,4 @@
+model,tier,task,grammar,n,first_ok_rate,json_valid_rate,choice_allowed_rate,length_ok_rate,grounded_rate,passed_first_rate,fallback_rate,median_latency_s,p90_latency_s,mean_output_tokens,mean_reasoning_tokens
+gemma4-e2b,Minimum,inheritance-handoff,n/a,9,1,,,1,0.889,0.889,0,0.773,0.81,111.111,
+gemma4-e4b,Recommended,inheritance-handoff,n/a,9,1,,,1,1,1,0,0.96,0.989,106.222,
+gemma4-12b,High,inheritance-handoff,n/a,9,1,,,1,1,1,0,1.942,2.152,132.111,

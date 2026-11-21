@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__inheritance-handoff__snap-18-late-desperate__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the ink blurred by moisture\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022added detail about the letter\u0027s condition and past, not in briefing\u0022},{\u0022span\u0022:\u0022the heavy wool coat she had worn, still smelling of woodsmoke and the harsh, biting air of the passes\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022implies the coat came back from the passes (she wore it on the trip, where she died and the body and caravan were lost); the briefing doesn\u0027t say any belongings returned\u0022},{\u0022span\u0022:\u0022He pulled a map of the Wailing Moth region toward him, his fingers tracing the treacherous routes she had braved\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022map is a new object, and \u0027routes she had braved\u0027 implies knowledge of the journey, which Elias did not see\u0022},{\u0022span\u0022:\u0022their shared quarters\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing does not say Elias and Constance shared quarters\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It ends on a clear intent and uses the letter and drafting skills well, but the coat smelling of the passes is a continuity error given the caravan was lost and Constance died there. The prose also leans on stock phrases like \u0027haunting stillness\u0027 and \u0027hands trembling\u0027.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.8894677,
+      "inputTokens": 3010,
+      "outputTokens": 417
+    }
+  ]
+}

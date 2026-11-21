@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__inheritance-handoff__snap-09-mid-desperate__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022She traced the jagged scar on the sleeve\u2014the mark Rook Malley had left on him a year ago.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022a scar on a tunic sleeve is an added detail about the past; the briefing says Malley maimed him, not a scar on clothing\u0022},{\u0022span\u0022:\u0022his notched combat knife, the blade dulled from a thousand strikes\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022invented detail about the dead man\u0027s past use of the knife; the knife is not in the briefing\u0022},{\u0022span\u0022:\u0022where her father used to boast of his victories\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022added habit of the dead man, not in the briefing\u0022},{\u0022span\u0022:\u0022Her mother sat in the shadows, silent\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Lene is not named, but she is the mother in the briefing; placing her present is staging\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Atmospheric and in keeping with the harsh setting, with a sensible ending on the scavenger\u0027s pack, but it never states what Tamsin means to do and has no real link to the revenge threat against Cinder Rest. It also adds a few invented details about Joska\u0027s past: a scar on the tunic sleeve, the notched knife and his boasting.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.8119142,
+      "inputTokens": 3029,
+      "outputTokens": 421
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__inheritance-handoff__snap-18-late-desperate__n-a__r3",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the silver locket she always wore\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022locket not in briefing; added detail about the dead one\u0027s habit\u0022},{\u0022span\u0022:\u0022favorite textbook, the one she used when teaching in Midworld\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022textbook is an added belonging and detail about her past, though plausible for a teacher\u0022},{\u0022span\u0022:\u0022just as the letter from Ada had brought her home\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022contradicts the briefing: the letter led her away to find Ada, and Ada is still in the village; Constance never came home\u0022},{\u0022span\u0022:\u0022the passes marked in faded ink\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022map is a new object, though plausible staging; the passes were mentioned in the story\u0022},{\u0022span\u0022:\u0022schematics for a reinforced sled\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022new object that implies a plan not in the briefing, though it fits Elias as an engineer\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The restrained, object-based staging fits the scene, and the engineer ending is a nice touch, but the line about the letter bringing her home contradicts the story. The ending also never says what Elias means to do, and it does not mention Ada, who is the thread he would pick up.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.3570537,
+      "inputTokens": 2967,
+      "outputTokens": 418
+    }
+  ]
+}

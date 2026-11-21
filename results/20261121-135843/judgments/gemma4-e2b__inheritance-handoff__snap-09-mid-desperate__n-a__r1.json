@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__inheritance-handoff__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Joska\u2019s favorite leather vest\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022invented belonging and detail about the dead character\u0027s habits; not in briefing\u0022},{\u0022span\u0022:\u0022the heavy, blood-stained knife lying near the workbench\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022added object and a detail about the past (blood-stained) not in briefing\u0022},{\u0022span\u0022:\u0022tending to a small patch of herbs\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Lene\u0027s activity is plausible staging but adds an indoor herb patch; borderline\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Competent and restrained, but the ending is vague: Tamsin walks out into the cold without a stated intent, and the scene never touches the revenge thread or Cinder Rest. Small invented props (vest, blood-stained knife) add minor unsupported detail, and \u0027different now\u0027 tells the feeling instead of showing it.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.0580892,
+      "inputTokens": 2998,
+      "outputTokens": 316
+    }
+  ]
+}

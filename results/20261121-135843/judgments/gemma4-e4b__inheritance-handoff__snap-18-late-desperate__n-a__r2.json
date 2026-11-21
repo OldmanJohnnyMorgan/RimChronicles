@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__inheritance-handoff__snap-18-late-desperate__n-a__r2",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Constance\u2019s favorite textbook, the one she used when teaching\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022added belonging/detail; briefing says only that she was a teacher\u0022},{\u0022span\u0022:\u0022the small, smooth river stone she always kept on her desk\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022invented object and habit of the dead character\u0022},{\u0022span\u0022:\u0022his fingers brushing the cool, empty space where her pen usually rested\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022invented habit of the dead character (pen on desk)\u0022},{\u0022span\u0022:\u0022The blizzard had taken her, just as the letter from Ada had brought her near.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027brought her near\u0027 is loose; the letter led her to set out, but she never got near Ada\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Scene is restrained, stays at home with belongings, and ends on a clear intention to go to the Wailing Moth village. But it leans on invented personal details (stone, pen, textbook) and the \u0027brought her near\u0027 line is slightly off. The ending also lacks any link to Elias\u0027s own motive, such as bringing Ada home.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.4733034,
+      "inputTokens": 2972,
+      "outputTokens": 382
+    }
+  ]
+}

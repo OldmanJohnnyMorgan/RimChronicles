@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__inheritance-handoff__snap-16-late-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022their shared quarters\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022briefing never says Elske and Bertram shared quarters; they are best friends\u0022},{\u0022span\u0022:\u0022a tattered map marked with Dunmore\u2019s last known coordinates\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022map and coordinates not in briefing; new object implying tracking knowledge\u0022},{\u0022span\u0022:\u0022Bertram\u2019s notched combat knife\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022specific belonging not in briefing; plausible staging but adds detail\u0022},{\u0022span\u0022:\u0022the deep gouge in the wood where Bertram had sharpened his blade\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022invented past habit of the dead character\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The ending (go after Dunmore) fits and Rook\u0027s return is used, but it invents a shared room and a map with coordinates. Rook\u0027s pacing is odd given the warg just came home alone, and \u0027her hands trembling\u0027 leans on stock phrasing, so the scene feels generic.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.6297366,
+      "inputTokens": 3015,
+      "outputTokens": 347
+    }
+  ]
+}
