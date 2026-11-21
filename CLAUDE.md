@@ -14,7 +14,7 @@ dotnet run --project harness/RimChronicles.Eval -- --help   # Stage 0 eval harne
 dotnet run --project harness/RimChronicles.Eval -- validate  # snapshots, prompts and models.json agree
 dotnet run --project harness/RimChronicles.Eval -- check     # preflight model servers: names, test calls, thinking off, VRAM
 dotnet run --project harness/RimChronicles.Eval -- run --config harness/models.stub.json   # smoke run, no server
-dotnet run --project harness/RimChronicles.Eval -- run --models qwen3.5-4b --tasks director  # real run (needs the server)
+dotnet run --project harness/RimChronicles.Eval -- run --models gemma4-e4b --tasks director  # real run (needs the server)
 dotnet run --project harness/RimChronicles.Eval -- run --judge     # generate, then judge prose with Claude (needs RIMCHRONICLES_ANTHROPIC_API_KEY)
 dotnet run --project harness/RimChronicles.Eval -- run --judge --temperature default   # local models at the server's default temperature
 dotnet run --project harness/RimChronicles.Eval -- judge latest    # judge an existing run; rewrites summary.html

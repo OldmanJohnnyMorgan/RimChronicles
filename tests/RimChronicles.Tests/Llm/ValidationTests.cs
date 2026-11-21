@@ -75,8 +75,11 @@ public class CheckTests
         Assert.Equal(passes, new WordCountCheck(min, max).Check(text).Passed);
 
     [Fact]
-    public void WordCountCheck_FailureNamesTheCount() =>
-        Assert.Contains("this has 2", new WordCountCheck(3, 5).Check("one two").Failures[0]);
+    public void WordCountCheck_FailureSaysWhatToChange()
+    {
+        Assert.StartsWith("Too short: 2 words, but at least 3", new WordCountCheck(3, 5).Check("one two").Failures[0]);
+        Assert.StartsWith("Too long: 6 words, but at most 5", new WordCountCheck(3, 5).Check("a b c d e f").Failures[0]);
+    }
 
     private static readonly GroundingCheck Grounding = new(["Hearthstead", "Mara", "Raider 'Vex'", "The Shattered Empire"]);
 

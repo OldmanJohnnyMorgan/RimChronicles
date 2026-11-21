@@ -11,7 +11,7 @@ Allow about an hour, plus download time. Every command here is for **PowerShell*
 | Windows | 10 or 11, 64-bit |
 | GPU | NVIDIA RTX 5060 Ti, 16 GB (the reference card) |
 | Memory | 16 GB RAM at least; 32 GB is more comfortable |
-| Disk | About 35 GB free, mostly for the models (roughly 30 GB) |
+| Disk | About 25 GB free, mostly for the models |
 | Accounts | Access to the `OldmanJohnnyMorgan/RimChronicles` repo on GitHub, and the Anthropic API key |
 
 ## 1. GPU driver
@@ -68,7 +68,7 @@ The tests should all pass, and `validate` should end with `OK`. If either fails,
 
 ## 4. Ollama
 
-Ollama runs all six local models. The seventh, the Claude reference, runs in the cloud.
+Ollama runs the three local models (all Gemma 4). The fourth, the Claude reference, runs in the cloud.
 
 **Settings.** Two settings matter for fair results:
 
@@ -90,23 +90,22 @@ curl.exe http://localhost:11434/api/version
 
 That prints a version number. An error means Ollama isn't running.
 
-**Models.** Pull the six models in `harness/models.json`. This is the big download, about 30 GB in all:
+**Models.** Pull the three models in `harness/models.json`. This is the big download:
 
 ```powershell
-ollama pull qwen3.5:2b
 ollama pull gemma4:e2b
-ollama pull qwen3.5:4b
 ollama pull gemma4:e4b
 ollama pull gemma4:12b
-ollama pull qwen3:14b
 ```
 
-These names are our best guess at Ollama's tags. If a pull says the model doesn't exist, look the model up on ollama.com/library, pull it under the name shown there, and change that model's `"model"` value in `harness/models.json` to match.
+If a pull says the model doesn't exist, look the model up on ollama.com/library, pull it under the name shown there, and change that model's `"model"` value in `harness/models.json` to match.
+
+The Qwen models were dropped from the evaluation after the trial rounds. If you pulled them earlier, `ollama rm qwen3.5:2b qwen3.5:4b qwen3:14b` frees their disk space.
 
 **Check the GPU is used.** Run one model briefly, then list what's loaded:
 
 ```powershell
-ollama run qwen3.5:4b "Say hello in five words."
+ollama run gemma4:e4b "Say hello in five words."
 ollama ps
 ```
 
