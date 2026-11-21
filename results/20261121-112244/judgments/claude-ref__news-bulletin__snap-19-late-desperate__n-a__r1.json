@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-19-late-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The bulletin is accurate and well framed: it leads with the siege, treats Fenwick as old news and fills the second item with dry commentary on the briefing\u0027s own faction facts. The second item is somewhat list-like, and \u0027the sequel nobody requested\u0027 leans a little modern.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.9029509,
+      "inputTokens": 2756,
+      "outputTokens": 387
+    }
+  ]
+}

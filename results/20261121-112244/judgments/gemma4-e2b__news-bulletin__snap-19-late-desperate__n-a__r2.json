@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-19-late-desperate__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022this relentless approach\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Adds a manner the briefing does not give; it says only \u0027expanding by force\u0027.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and clear, but the voice is generic rather than sardonic, with stiff phrasing like \u0027a certain level of stubbornness\u0027 and \u0027viable alternatives\u0027. It presents the old Fenwick razing as fresh news and pads the third item with already-covered background instead of finding wit in the siege.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.2385717,
+      "inputTokens": 2725,
+      "outputTokens": 503
+    }
+  ]
+}

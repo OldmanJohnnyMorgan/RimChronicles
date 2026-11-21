@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-16-late-desperate__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022officially placed\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027Officially\u0027 adds a manner the briefing does not give.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The bulletin is accurate and clear, and it leads correctly with the bounty and gives it a dry, framed guess. It runs short of the 70-word minimum, and the Glass Throne item\u0027s closing quip is fairly limp.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.603293,
+      "inputTokens": 2644,
+      "outputTokens": 346
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-05-early-desperate__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The bulletin leads correctly with the market closure and stays faithful to the briefing, using earlier bulletins only as background. Lines like \u0027haggle with the gate\u0027 land well. The quiet-week paragraph is solid but a little listy, and its closing line leans on a stock phrase.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.4122186,
+      "inputTokens": 2747,
+      "outputTokens": 609
+    }
+  ]
+}

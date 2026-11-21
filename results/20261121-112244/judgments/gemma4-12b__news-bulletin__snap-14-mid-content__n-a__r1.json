@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-14-mid-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Blue Antler Tribe continues to hold five settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies an unchanged count over time; the briefing gives only the current number.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and plainly reported, but the wit is limp and generic. The faction-count items read as filler, and \\\u0022administrative headache\\\u0022 and \\\u0022sprawling footprint\\\u0022 drift toward office-speak rather than Ilse\u0027s sharper earlier voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.7618333,
+      "inputTokens": 2747,
+      "outputTokens": 477
+    }
+  ]
+}

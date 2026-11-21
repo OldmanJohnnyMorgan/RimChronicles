@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-13-mid-strained__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022publicly snubbed\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says only that they refused; \u0027publicly\u0027 adds manner.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item reports the refusal accurately with an acceptable guess-framed quip. The second item is muddled: it describes a continuing \u0027parade of demands\u0027 and then a \u0027lull\u0027 in negotiation, and its humour is generic, not sharp.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.9346848,
+      "inputTokens": 2730,
+      "outputTokens": 512
+    }
+  ]
+}

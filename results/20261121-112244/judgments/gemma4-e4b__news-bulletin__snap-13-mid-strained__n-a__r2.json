@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-13-mid-strained__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022With six settlements involved\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Briefing gives the Sun Throne 6 settlements, not six settlements involved in the tour or demands.\u0022},{\u0022span\u0022:\u0022just demanding coin\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says tribute; it never says the tribute is coin.\u0022},{\u0022span\u0022:\u0022the Sun Throne\u0027s latest demands\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says tribute, not a newer or \u0027latest\u0027 set of demands.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate, but its wit is limp (\u0027a bold move, or perhaps just poor planning\u0027). The second item calls the week quiet right after real news, then rehashes the old tribute tour with a muddled \u0027six settlements involved\u0027.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.9792895,
+      "inputTokens": 2713,
+      "outputTokens": 628
+    }
+  ]
+}

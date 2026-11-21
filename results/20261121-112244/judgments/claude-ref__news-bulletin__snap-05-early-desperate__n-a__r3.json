@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-05-early-desperate__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022though old is not the same as over\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies the cold snap and raids are still ongoing, which the briefing does not say.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A dry, well-judged bulletin that leads correctly and handles the quiet week by commenting on faction sizes and the date. The aside that the old troubles are not over hints they continue, which the briefing does not support, and \\\u0022may now presumably miss them\\\u0022 reads a little clumsily.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.3573435,
+      "inputTokens": 2693,
+      "outputTokens": 554
+    }
+  ]
+}

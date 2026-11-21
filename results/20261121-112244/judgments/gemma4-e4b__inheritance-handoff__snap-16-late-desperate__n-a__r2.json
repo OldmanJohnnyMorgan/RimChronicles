@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__inheritance-handoff__snap-16-late-desperate__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the final, ragged breath leaving him\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Has Elske present at Bertram\u0027s death, which the briefing does not support; Rook came home alone from the ambush.\u0022},{\u0022span\u0022:\u0022the cold metal of his sidearm, the one he always kept close\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Introduces a specific item and habit that the briefing never mentions.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The scene contradicts itself: Bertram is a \u0027cooling form\u0027 yet his \u0027final, ragged breath\u0027 is still leaving him. It also puts Elske at his death, against the briefing\u0027s \u0027Rook came home alone\u0027, and invents a signature sidearm. The ending works, but the prose is generic, with fragments and a vague \u0027scarred horizon\u0027.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.7815397,
+      "inputTokens": 2122,
+      "outputTokens": 673
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-07-mid-strained__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They are still managing their affairs after the wagon incident.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Inference about the Covenant\u0027s current state stated as fact.\u0022},{\u0022span\u0022:\u0022their already precarious logistics\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Embellishes the wagon loss into an ongoing logistics problem.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate on the toll news and framed with hedges, but the wit is thin. \\\u0022Monetize\\\u0022 and \\\u0022revenue stream\\\u0022 are modern-office phrasing that jars with the frontier voice, and the second item pads with mild embellishment at just under the word count.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.7140964,
+      "inputTokens": 2661,
+      "outputTokens": 605
+    }
+  ]
+}

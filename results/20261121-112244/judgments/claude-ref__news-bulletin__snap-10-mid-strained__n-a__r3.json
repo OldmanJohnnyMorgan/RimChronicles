@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-10-mid-strained__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:5,\u0022comment\u0022:\u0022Accurate and well built: it leads with the one new item, keeps the captive-taking and bounty as background, and gets the 3\u002B4=7 comparison right. The dry asides are framed as guesses; \u0027sound business model\u0027 leans slightly modern but works as irony.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.5806184,
+      "inputTokens": 2781,
+      "outputTokens": 525
+    }
+  ]
+}

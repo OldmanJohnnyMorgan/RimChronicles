@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-20-late-strained__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and properly hedged, but the voice is flat and generic. Phrases like \\\u0022local power dynamics\\\u0022 read as office-speak, the jokes barely land, and \\\u0022stubborn\\\u0022 is used twice. The third item mostly restates old news without a fresh angle.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.6326584,
+      "inputTokens": 2716,
+      "outputTokens": 493
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-04-early-strained__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It seems they are still very dedicated to maritime sabotage.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027Still\u0027 implies a history of earlier sabotage that the briefing does not give.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry asides fit, and the guesses are framed as guesses. But the ferry burning is folded into the Quell paragraph as a two-sentence aside, which breaks the one-item-per-paragraph, three-sentence structure. The \u0027still dedicated\u0027 line also hints at a history the briefing does not give.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.6124465,
+      "inputTokens": 2540,
+      "outputTokens": 551
+    }
+  ]
+}

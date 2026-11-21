@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-10-mid-strained__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate and dry, but the second item builds a whole paragraph out of old news, which the brief said to mention only as background. The third item\u0027s quip about Weir settlement counts is flat filler.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.8746889,
+      "inputTokens": 2755,
+      "outputTokens": 350
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-18-late-desperate__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The bulletin is accurate and disciplined: it leads with the one new item, uses the closed passes only as background and frames its guesses properly. The faction-count paragraph is a sound quiet-week filler with correct arithmetic. The line \u0027I will not dress it up\u0027 leans slightly self-aware, but the worried, plain voice holds throughout.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.947847,
+      "inputTokens": 2772,
+      "outputTokens": 531
+    }
+  ]
+}

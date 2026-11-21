@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-14-mid-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Tribe\u0027s trade pact with the League still stands\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing only says the pact was signed; that it still stands is an inference stated as fact.\u0022},{\u0022span\u0022:\u0022a single barge on open water\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027Open water\u0027 embellishes the briefing, which only says the barge was on the river.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A dry, consistent voice that handles the single new item and the old background well, and the closing joke about silence lands. It is slightly marred by stating the pact\u0027s continued standing as fact and by small embellishments of the setting.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.3916234,
+      "inputTokens": 2799,
+      "outputTokens": 521
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-06-early-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Its shuttles over the eastern mountains still lack an explanation\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022States as current fact that no explanation has emerged since; the briefing only gives the old sighting.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate and clearly ordered. The new robbery leads, and the harvest and shuttles are framed as background, with guesses properly hedged. The wit is competent but a little repetitive, with \\\u0022one assumes\\\u0022 used twice and \\\u0022presumably\\\u0022 alongside, and the shuttle line slightly implies ongoing knowledge the briefing doesn\u0027t give.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.3340185,
+      "inputTokens": 2674,
+      "outputTokens": 548
+    }
+  ]
+}

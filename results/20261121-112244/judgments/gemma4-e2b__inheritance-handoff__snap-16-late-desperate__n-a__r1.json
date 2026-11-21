@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__inheritance-handoff__snap-16-late-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the scorched remains of the last hunting ground\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The briefing mentions no fire or burned site, and does not say Elske went to the ambush site.\u0022},{\u0022span\u0022:\u0022broken timber\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Added scenery implying destruction at the site.\u0022},{\u0022span\u0022:\u0022Bertram\u2019s empty saddle\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing mentions no saddle or riding mount; only the warg Rook is named.\u0022},{\u0022span\u0022:\u0022her rifle\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Weapon type is inferred from the Careful shooter trait, not stated.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The scene ends correctly on the heir\u0027s intent, but it invents a scorched ambush site. The prose is generic, and \u0027the careful shooter in her steady hands\u0027 clumsily drops a trait name into the text. It also ignores Rook, the most usable detail in the briefing.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 8.8945871,
+      "inputTokens": 2145,
+      "outputTokens": 764
+    }
+  ]
+}

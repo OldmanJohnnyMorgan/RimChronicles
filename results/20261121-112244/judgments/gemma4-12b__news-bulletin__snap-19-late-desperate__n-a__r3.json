@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-19-late-desperate__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They have managed to keep these three despite the ongoing war\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies the League has held its ground, which the briefing does not say.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The bulletin is accurate and plainly ordered, but the wit is weak: the \u0027bold strategy\u0027 joke is logically muddled. The second item restates old news with only a limp quip.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.2474992,
+      "inputTokens": 2692,
+      "outputTokens": 430
+    }
+  ]
+}

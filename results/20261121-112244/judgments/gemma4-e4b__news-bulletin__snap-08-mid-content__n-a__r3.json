@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-08-mid-content__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It seems even amidst the Accord\u2019s trade fair\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies the fair is still running now and that the buzz is happening there; the briefing does not say so.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The bulletin is accurate and guesses are properly hedged, but the voice is flat and generic (\u0027currently drawing the attention\u0027, \u0027less conspicuous endeavor\u0027). The quiet-week item mostly just lists faction sizes, with little wit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.4706371,
+      "inputTokens": 2702,
+      "outputTokens": 592
+    }
+  ]
+}

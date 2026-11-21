@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-14-mid-content__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the Corsairs are still practicing their maritime dentistry\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027Still\u0027 implies earlier river raids, which the briefing does not mention.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate, but the \u0027maritime dentistry\u0027 joke is obscure, and calling the week \u0027remarkably uneventful\u0027 right after reporting a raid contradicts itself. The second item also pads with a bare list of faction counts and lifts \u0027A quiet week is a fine story\u0027 straight from the instructions.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.3718942,
+      "inputTokens": 2719,
+      "outputTokens": 495
+    }
+  ]
+}

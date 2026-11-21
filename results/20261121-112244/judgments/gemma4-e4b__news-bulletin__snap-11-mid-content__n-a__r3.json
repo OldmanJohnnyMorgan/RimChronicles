@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-11-mid-content__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Hearthguard Compact continues its prize offering for new inventions.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Asserts the old prize offer is still ongoing; the briefing only says it was covered before.\u0022},{\u0022span\u0022:\u0022The Mire Rats remain absent from the eastern marsh.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022States their continued absence as fact rather than as a guess.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It leads correctly with the peace feast and keeps things plain, but the wit is thin and generic. The second item rehashes old news and recycles the earlier bulletin\u0027s plough joke instead of finding a fresh angle.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.4427639,
+      "inputTokens": 2644,
+      "outputTokens": 530
+    }
+  ]
+}

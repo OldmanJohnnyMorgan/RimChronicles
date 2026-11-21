@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-12-mid-desperate__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022have reached the Saltmarch Assembly\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says only that envoys were sent, not that they arrived.\u0022},{\u0022span\u0022:\u0022The Gallows Crew continues its quiet holding of a medical professional.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Old news restated as still ongoing; the briefing does not say the captivity continues.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and readable, but the voice is generic and the wit is thin. \u0027Medical professional\u0027 is office-speak, and at about 60 words the bulletin falls short of the 70-word minimum. The second item mostly recycles old news without a sharp take.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.3633095,
+      "inputTokens": 2694,
+      "outputTokens": 468
+    }
+  ]
+}

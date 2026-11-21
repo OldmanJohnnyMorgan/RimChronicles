@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-17-late-strained__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022One assumes the fighting around Harlow Ford is merely a temporary lull.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The briefing only says militias are gathering at Harlow Ford. It mentions no fighting there, and the guess framing still presupposes fighting as fact.\u0022},{\u0022span\u0022:\u0022The faction counts remain stubbornly unchanged.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing gives no earlier counts to compare with, so \u0027unchanged\u0027 is an inference stated as fact.\u0022},{\u0022span\u0022:\u0022still presses its advantage\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says the Empire is expanding by force but says nothing about it holding an advantage.\u0022},{\u0022span\u0022:\u0022four strongholds\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Calling the Kestrel Tribe\u0027s settlements strongholds embellishes them.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It respects the quiet week, but it invents fighting at Harlow Ford, and the \u0027lull\u0027 sentence contradicts itself. The second item is mostly a list of faction sizes with one limp quip, so the dry voice of the earlier bulletins never really arrives.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 8.7777911,
+      "inputTokens": 2750,
+      "outputTokens": 854
+    }
+  ]
+}

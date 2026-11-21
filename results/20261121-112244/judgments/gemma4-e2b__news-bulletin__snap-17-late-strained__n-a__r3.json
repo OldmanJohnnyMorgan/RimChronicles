@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-17-late-strained__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They are the usual pirates, making a predictable nuisance.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies Bonecutter activity that the briefing does not report.\u0022},{\u0022span\u0022:\u0022They remain a quiet entity in this volatile landscape.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022States the Kestrel Tribe\u0027s inactivity as fact; the briefing gives only their settlement count.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It handles the quiet week honestly, using only the briefing\u0027s faction facts. The voice is flat and generic, though. Phrases like \u0027expansionist posture\u0027 and \u0027quiet entity in this volatile landscape\u0027 read like a report rather than Ilse\u0027s dry wit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.4510205,
+      "inputTokens": 2796,
+      "outputTokens": 470
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__inheritance-handoff__snap-18-late-desperate__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The caravan had gone out with too little.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing blames the blizzard. Insufficient supplies is an implied cause stated as fact.\u0022},{\u0022span\u0022:\u0022The passes marked in Constance\u0027s careful pencil.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Embellishes the letter with markings that the briefing does not mention.\u0022},{\u0022span\u0022:\u0022a lower route that avoided the high pass\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Adds route geography beyond the briefing\u0027s simple mention of \u0027the passes\u0027.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A restrained scene that shows grief and Elias\u0027s neurotic, industrious traits through the list and the crossed-out dates, ending on a clear resolve. Its one weakness is that it states as fact that the caravan was underprovisioned, which the briefing does not support.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.5972946,
+      "inputTokens": 2207,
+      "outputTokens": 781
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-13-mid-strained__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022more than the actual gold\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing never says what form the tribute takes.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is reported accurately and framed as a guess. The second and third items are thin padding that restates faction facts and old tribute news with weak, repetitive jokes. The voice is mildly wry but lacks the bite of the earlier bulletins.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.9179799,
+      "inputTokens": 2770,
+      "outputTokens": 412
+    }
+  ]
+}

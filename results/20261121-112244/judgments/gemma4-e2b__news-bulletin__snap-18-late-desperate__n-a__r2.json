@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-18-late-desperate__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022No invented facts, but the bulletin pads two of its three items with old news. The granary item restates the previous bulletin\u0027s joke almost word for word, and the Harrow Teeth remark is muddled. The lead also shrugs off the loss of a Wren\u0027s Hollow caravan as \\\u0022usual business\\\u0022, which clashes with Tomas\u0027s earnest, quick-to-worry voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.7415754,
+      "inputTokens": 2700,
+      "outputTokens": 523
+    }
+  ]
+}

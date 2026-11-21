@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-16-late-desperate__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It stays within the briefing, but it reports the bounty twice as if it were two separate events, which reads as padding. The wit is stiff and generic (\\\u0022organized desperation\\\u0022, \\\u0022new forms of commerce\\\u0022) rather than Odile\u0027s sharp understatement, and calling the bounty profitable for the side paying it makes little sense.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.8835637,
+      "inputTokens": 2724,
+      "outputTokens": 493
+    }
+  ]
+}

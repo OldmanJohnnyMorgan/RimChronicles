@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__inheritance-handoff__snap-18-late-desperate__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022faded ink on the letter\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Embellishes the letter\u0027s appearance; the briefing gives no detail of it.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The scene is clear and grounded, and the wrench and seals suit an industrious, neurotic engineer. But it fails the core task: Elias ends up securing the perimeter instead of taking up his mother\u0027s unfinished story of bringing Ada home, so Ada is mentioned and then dropped. \u0027Mirroring the chill that had taken his mother\u0027 is also a heavy-handed line.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.6695126,
+      "inputTokens": 2104,
+      "outputTokens": 436
+    }
+  ]
+}

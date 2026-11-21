@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-10-mid-strained__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They are quite content to sit on their land while the other factions bicker.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022An inference stated as fact. It also sits oddly with the Federation\u0027s earlier bounty on Stonecutter leaders.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is clean and properly framed, and its ransom joke lands drily. The quiet-week second item asserts the Federation\u0027s passivity as fact, which undercuts their bounty, and the closing jab is generic.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.4630423,
+      "inputTokens": 2711,
+      "outputTokens": 516
+    }
+  ]
+}

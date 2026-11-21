@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-04-early-strained__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022is still seeking news\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\\\u0022Still\\\u0022 implies an earlier, ongoing search. This is the first bulletin and the briefing gives no prior search.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The ferry item is crammed into the Quell paragraph with only two sentences, so the three items are muddled into two paragraphs. The wit also misses the obvious link: a missing reporter and the Dispatch withdrawing reporters from Lowmere. Calling that withdrawal a sign Lowmere is \u0027unremarkable\u0027 reads as tone-deaf, though the voice is passably dry.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.4595563,
+      "inputTokens": 2551,
+      "outputTokens": 541
+    }
+  ]
+}

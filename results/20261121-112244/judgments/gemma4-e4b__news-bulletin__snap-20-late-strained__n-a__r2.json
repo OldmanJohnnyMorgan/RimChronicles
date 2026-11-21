@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-20-late-strained__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022as thin as their supply lines\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies the Alliance has thin supply lines, which the briefing never states.\u0022},{\u0022span\u0022:\u0022a stubborn patch of coastline\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Describes the Alliance\u0027s territory as coastline. This is drawn only from an earlier joke, not from the briefing\u0027s facts.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The bulletin is accurate on the lead item and clearly ordered, but its wit is generic. It also leans on the earlier bulletin\u0027s \u0027resolve\u0027 and \u0027beach\u0027 jokes, which the task said not to reuse, and the supply-lines jab smuggles in an unsupported detail.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.3322463,
+      "inputTokens": 2679,
+      "outputTokens": 570
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-13-mid-strained__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Seven towns received the demand, so five answers have yet to reach me.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing does not say every one of the seven settlements was sent the demand; this is an inference stated as fact.\u0022}],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A sharp, dry bulletin that leads correctly with the refusals and makes good use of the faction sizes. The one weakness is that it presents as fact that all seven towns received the demand.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.3424175,
+      "inputTokens": 2790,
+      "outputTokens": 467
+    }
+  ]
+}

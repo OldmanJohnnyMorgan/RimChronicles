@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-17-late-strained__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Shattered Empire still holds Dunwold\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says only that Dunwold was taken. That it is still held is an inference stated as fact.\u0022},{\u0022span\u0022:\u0022The bounty remains active\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing does not say the bounty is still active. This is an inference stated as fact.\u0022},{\u0022span\u0022:\u0022The Empire continues to hunt for the defector Severin\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing mentions only that a bounty was posted. An ongoing hunt is not stated.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It reports a quiet week honestly and gets the 5-versus-9 tally right, but two of its three items rehash old news as ongoing, through unsupported \u0027still\u0027 and \u0027remains\u0027 claims. The wit leans on clich\u00E9s like \u0027deafening silence\u0027 and office phrasing like \u0027expansionist agenda\u0027, and the final line\u0027s \u0027they\u0027 is muddled.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.3023525,
+      "inputTokens": 2784,
+      "outputTokens": 628
+    }
+  ]
+}

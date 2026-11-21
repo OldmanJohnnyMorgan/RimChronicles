@@ -1,0 +1,52 @@
+{
+  "cell": "claude-ref__director__snap-11-mid-content__off__r1",
+  "model": "claude-ref",
+  "task": "director",
+  "snapshot": "snap-11-mid-content",
+  "grammar": "off",
+  "repeat": 1,
+  "promptVersion": "director/v1",
+  "outcome": "Model",
+  "value": "{\u0022choice\u0022: \u0022Complication:SabotagedNotes\u0022, \u0022reason\u0022: \u0022Ilan was seen near Rosamund\u0027s notes at night after three fights over research credit. Sabotaged notes follow directly from that hook, and the colony is stable enough to escalate.\u0022}",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are the plot director for a story told through a RimWorld colony. You decide what happens next in the colony\u0027s plots.\n\nRules:\n- Choose exactly one option from the allowed list. Copy it exactly, character for character.\n- Choose \u0022Wait\u0022 if the colony is in crisis or the story needs a pause.\n- Prefer the option that follows most naturally from what has already happened.\n- Give a reason in one or two short sentences. Use only facts from the briefing.\n\nAnswer with JSON only, in this form:\n{\u0022choice\u0022: \u0022\u003Cone allowed option\u003E\u0022, \u0022reason\u0022: \u0022\u003Cone or two sentences\u003E\u0022}\n",
+        "user": "## The world\nDate: day 167 (Decembary 5502).\nColony: Dovecote, 8 people, wealth 110,000 silver, mood content.\n\nPeople:\n- Rosamund (28); traits: Too smart, Abrasive; backstory: Researcher.\n- Ilan (30); traits: Too smart, Jealous; backstory: Researcher.\n- Gerda (54); traits: Kind; backstory: Nurse.\n- Wick (22); traits: Sanguine, Nimble; backstory: Courier.\n\nHistory:\n- Day 140: Rosamund fought Ilan.\n- Day 151: Ilan fought Rosamund.\n- Day 162: Rosamund fought Ilan.\n\nFactions:\n- The Hearthguard Compact (Outlanders): goodwill \u002B55, 8 settlements.\n- Mire Rats (Pirates): goodwill -60, 2 settlements.\n- Children of the Green Bell (Tribe): goodwill \u002B20, 4 settlements.\n\nRecent events:\n- Third fight between Rosamund and Ilan day 162\n- Microelectronics research finished day 165\n- Good harvest stored\n\n## Active plots\n- rivalry-01 (Rivalry): beat Hook, protagonist Rosamund. Rosamund and Ilan have fought three times over credit for the colony\u0027s research. Ilan was seen near Rosamund\u0027s notes at night.\n\n## Allowed options\n- Wait\n- Complication:SabotagedNotes\n- Complication:CompactPrize\n\nChoose one allowed option.\n",
+        "maxOutputTokens": 300,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "choice": {
+              "type": "string",
+              "enum": [
+                "Wait",
+                "Complication:SabotagedNotes",
+                "Complication:CompactPrize"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "choice",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "ok": true,
+      "text": "{\u0022choice\u0022: \u0022Complication:SabotagedNotes\u0022, \u0022reason\u0022: \u0022Ilan was seen near Rosamund\u0027s notes at night after three fights over research credit. Sabotaged notes follow directly from that hook, and the colony is stable enough to escalate.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 1.0982564,
+      "inputTokens": 708,
+      "outputTokens": 85,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022model\u0022:\u0022claude-opus-5-5\u0022,\u0022id\u0022:\u0022msg_011ChFPttj7CShh6WQnsR5Ta\u0022,\u0022type\u0022:\u0022message\u0022,\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:[{\u0022type\u0022:\u0022text\u0022,\u0022text\u0022:\u0022{\\u0022choice\\u0022: \\u0022Complication:SabotagedNotes\\u0022, \\u0022reason\\u0022: \\u0022Ilan was seen near Rosamund\\u0027s notes at night after three fights over research credit. Sabotaged notes follow directly from that hook, and the colony is stable enough to escalate.\\u0022}\u0022}],\u0022container\u0022:null,\u0022stop_reason\u0022:\u0022end_turn\u0022,\u0022stop_sequence\u0022:null,\u0022stop_details\u0022:null,\u0022usage\u0022:{\u0022input_tokens\u0022:708,\u0022cache_creation_input_tokens\u0022:0,\u0022cache_read_input_tokens\u0022:0,\u0022cache_creation\u0022:{\u0022ephemeral_5m_input_tokens\u0022:0,\u0022ephemeral_1h_input_tokens\u0022:0},\u0022iterations\u0022:[{\u0022input_tokens\u0022:708,\u0022output_tokens\u0022:85,\u0022cache_read_input_tokens\u0022:0,\u0022cache_creation_input_tokens\u0022:0,\u0022cache_creation\u0022:{\u0022ephemeral_5m_input_tokens\u0022:0,\u0022ephemeral_1h_input_tokens\u0022:0},\u0022type\u0022:\u0022message\u0022,\u0022model\u0022:null}],\u0022output_tokens\u0022:85,\u0022output_tokens_details\u0022:{\u0022thinking_tokens\u0022:0},\u0022service_tier\u0022:\u0022standard\u0022,\u0022inference_geo\u0022:\u0022global\u0022,\u0022speed\u0022:\u0022standard\u0022},\u0022diagnostics\u0022:null}"
+    }
+  ]
+}

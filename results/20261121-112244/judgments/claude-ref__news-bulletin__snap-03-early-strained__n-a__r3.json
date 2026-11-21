@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-03-early-strained__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022raiding two Merrow homesteads earlier\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says the homesteads were near the Merrow road, not that they belonged to the Freeholds.\u0022},{\u0022span\u0022:\u0022day 23 of Jugust\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing gives day 23 with Jugust as the quadrum; calling it day 23 of Jugust reframes the date, and quadrums are only 15 days.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A solid quiet-week bulletin that comments drily on faction sizes and keeps old news as background. It slightly misreads \u0027homesteads near the Merrow road\u0027 as Merrow-owned, and the Kinn item is thin and a little repetitive.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 8.3941732,
+      "inputTokens": 2761,
+      "outputTokens": 845
+    }
+  ]
+}

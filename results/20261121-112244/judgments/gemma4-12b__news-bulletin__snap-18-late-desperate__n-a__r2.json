@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-18-late-desperate__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They continue to rob stranded travelers while the passes remain closed.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Restates old news as still ongoing, which the briefing does not confirm.\u0022},{\u0022span\u0022:\u0022They have kept their granaries open to those who can make the trip.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The granary offer comes from an earlier bulletin; that it is still open is an assumption.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate and has a dry remark that is properly hedged. The other two items rehash old news as though it were still current, and the voice is generic rather than earnest and worried.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.3420878,
+      "inputTokens": 2721,
+      "outputTokens": 578
+    }
+  ]
+}

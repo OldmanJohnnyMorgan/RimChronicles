@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-13-mid-strained__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They remain a constant presence on the rim.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing gives only their settlement count; \u0027constant presence\u0027 embellishes their activity.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate and correctly framed. However, it recycles the \u0027boots\u0027 joke from the earlier bulletin, and the two filler items about faction sizes are flat and generic rather than sharply wry.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.4361889,
+      "inputTokens": 2749,
+      "outputTokens": 440
+    }
+  ]
+}

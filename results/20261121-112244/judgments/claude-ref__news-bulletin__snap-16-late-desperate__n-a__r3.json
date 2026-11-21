@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-16-late-desperate__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate and well structured: it leads with the bounty, keeps every guess hedged, and fills the quiet second item with dry faction arithmetic. The second paragraph leans on \u0027quiet\u0027 repeatedly, and its closing line is a touch generic.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.3571079,
+      "inputTokens": 2720,
+      "outputTokens": 493
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They seem content to maintain their current reach without further expansion.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies a stable, non-expanding trend; the briefing gives only a current count.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It is accurate and readable, and it handles the quiet week by commenting on faction sizes as instructed. The wit is thin and generic, though: the closing remarks are weak, the line \u0027Silence is rare... but it is a change of pace\u0027 is muddled, and it lacks the earlier bulletins\u0027 sharp eye for the absurd.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.1614223,
+      "inputTokens": 2702,
+      "outputTokens": 513
+    }
+  ]
+}

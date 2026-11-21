@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-07-mid-strained__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They manage to keep their borders intact\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says nothing about Covenant borders; this is an inference stated as fact.\u0022},{\u0022span\u0022:\u0022while the Empire expands its list of grievances\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Embellishes the Empire\u0027s \u0027demands\u0027 as growing grievances; the briefing does not say they are expanding.\u0022},{\u0022span\u0022:\u0022a lack of infrastructure\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies the gorge road has no infrastructure, which the briefing does not state, though it is softened by \u0027seem to think\u0027.\u0022},{\u0022span\u0022:\u0022so frequently inconvenienced\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing records only one lost wagon; \u0027frequently\u0027 overstates it.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It leads correctly with the toll news and keeps the old wagon story as background. The jokes are muddled, though: \u0027more useful than their own demands\u0027 makes little sense. The second item pads a quiet fact with unsupported claims about borders and grievances.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.7360134,
+      "inputTokens": 2690,
+      "outputTokens": 603
+    }
+  ]
+}

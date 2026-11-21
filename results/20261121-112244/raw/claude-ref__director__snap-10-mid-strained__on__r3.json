@@ -1,0 +1,52 @@
+{
+  "cell": "claude-ref__director__snap-10-mid-strained__on__r3",
+  "model": "claude-ref",
+  "task": "director",
+  "snapshot": "snap-10-mid-strained",
+  "grammar": "on",
+  "repeat": 3,
+  "promptVersion": "director/v1",
+  "outcome": "Model",
+  "value": "{\u0022choice\u0022:\u0022Choice:RescueOrRansom\u0022,\u0022reason\u0022:\u0022Six days after Saskia\u0027s letter about her capture by the Stonecutter Raiders, Anouk is losing sleep, so the colony should now face the choice of rescuing or ransoming her. The colony is strained but not in open crisis, so the plot can move forward.\u0022}",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are the plot director for a story told through a RimWorld colony. You decide what happens next in the colony\u0027s plots.\n\nRules:\n- Choose exactly one option from the allowed list. Copy it exactly, character for character.\n- Choose \u0022Wait\u0022 if the colony is in crisis or the story needs a pause.\n- Prefer the option that follows most naturally from what has already happened.\n- Give a reason in one or two short sentences. Use only facts from the briefing.\n\nAnswer with JSON only, in this form:\n{\u0022choice\u0022: \u0022\u003Cone allowed option\u003E\u0022, \u0022reason\u0022: \u0022\u003Cone or two sentences\u003E\u0022}\n",
+        "user": "## The world\nDate: day 205 (Jugust 5503).\nColony: Wyrmfold, 8 people, wealth 142,000 silver, mood strained.\n\nPeople:\n- Anouk (35); traits: Kind, Neurotic; backstory: Tribal child; born in the Ochre Hand tribe.\n- Feodor (49); traits: Industrious; backstory: Engineer.\n- Biel (30); traits: Jealous; backstory: Cook.\n- Hanne (27); traits: Psychically sensitive; backstory: Psychic.\n\nHistory:\n- Day 180: Feodor recruited Anouk.\n- Day 199: Anouk received a letter from Saskia.\n\nFactions:\n- The Ochre Hand (Tribe): goodwill -10, 3 settlements, at war with Stonecutter Raiders.\n- Stonecutter Raiders (Pirates): goodwill -90, 4 settlements.\n- The Weir Federation (Outlanders): goodwill \u002B40, 7 settlements.\n\nRecent events:\n- Letter from Saskia arrived day 199\n- Anouk has not slept well since the letter\n- Short on medicine\n\n## Active plots\n- family-01 (Lost Family): beat Complication, protagonist Anouk. A letter from Anouk\u0027s sister Saskia, still with the Ochre Hand, says Stonecutter Raiders took her and two others as captives.\n\n## Allowed options\n- Wait\n- Choice:RescueOrRansom\n- Complication:SecondLetter\n\nChoose one allowed option.\n",
+        "maxOutputTokens": 300,
+        "useGrammar": true,
+        "thinking": "Off",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "choice": {
+              "type": "string",
+              "enum": [
+                "Wait",
+                "Choice:RescueOrRansom",
+                "Complication:SecondLetter"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "choice",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "ok": true,
+      "text": "{\u0022choice\u0022:\u0022Choice:RescueOrRansom\u0022,\u0022reason\u0022:\u0022Six days after Saskia\u0027s letter about her capture by the Stonecutter Raiders, Anouk is losing sleep, so the colony should now face the choice of rescuing or ransoming her. The colony is strained but not in open crisis, so the plot can move forward.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.0153114,
+      "inputTokens": 968,
+      "outputTokens": 110,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022model\u0022:\u0022claude-opus-5-5\u0022,\u0022id\u0022:\u0022msg_011ChFPtVB15TD13fBpGU3Uo\u0022,\u0022type\u0022:\u0022message\u0022,\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:[{\u0022type\u0022:\u0022text\u0022,\u0022text\u0022:\u0022{\\u0022choice\\u0022:\\u0022Choice:RescueOrRansom\\u0022,\\u0022reason\\u0022:\\u0022Six days after Saskia\\u0027s letter about her capture by the Stonecutter Raiders, Anouk is losing sleep, so the colony should now face the choice of rescuing or ransoming her. The colony is strained but not in open crisis, so the plot can move forward.\\u0022}\u0022}],\u0022container\u0022:null,\u0022stop_reason\u0022:\u0022end_turn\u0022,\u0022stop_sequence\u0022:null,\u0022stop_details\u0022:null,\u0022usage\u0022:{\u0022input_tokens\u0022:968,\u0022cache_creation_input_tokens\u0022:0,\u0022cache_read_input_tokens\u0022:0,\u0022cache_creation\u0022:{\u0022ephemeral_5m_input_tokens\u0022:0,\u0022ephemeral_1h_input_tokens\u0022:0},\u0022iterations\u0022:[{\u0022input_tokens\u0022:968,\u0022output_tokens\u0022:110,\u0022cache_read_input_tokens\u0022:0,\u0022cache_creation_input_tokens\u0022:0,\u0022cache_creation\u0022:{\u0022ephemeral_5m_input_tokens\u0022:0,\u0022ephemeral_1h_input_tokens\u0022:0},\u0022type\u0022:\u0022message\u0022,\u0022model\u0022:null}],\u0022output_tokens\u0022:110,\u0022output_tokens_details\u0022:{\u0022thinking_tokens\u0022:0},\u0022service_tier\u0022:\u0022standard\u0022,\u0022inference_geo\u0022:\u0022global\u0022,\u0022speed\u0022:\u0022standard\u0022},\u0022diagnostics\u0022:null}"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-01-early-content__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Another predictable weather pattern for this time of year.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Asserts the cold snap is seasonal and typical; the briefing does not say so.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The facts are accurate and the guesses are framed as guesses, but \\\u0022monetize\\\u0022 and \\\u0022paperwork\\\u0022 are modern-office language that does not fit the rim. The closing joke about the clans also contradicts itself and reads muddled.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.7501649,
+      "inputTokens": 2463,
+      "outputTokens": 504
+    }
+  ]
+}

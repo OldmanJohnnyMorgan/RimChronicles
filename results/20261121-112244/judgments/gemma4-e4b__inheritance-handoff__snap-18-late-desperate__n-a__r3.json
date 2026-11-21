@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__inheritance-handoff__snap-18-late-desperate__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022his mother\u2019s worn coat, the fabric stiff with frost\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies her coat was recovered from the lost caravan; the briefing does not say so.\u0022},{\u0022span\u0022:\u0022The letter from Ada, now brittle, lay in his palm\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Elias having the letter is an inferred detail the briefing does not give.\u0022},{\u0022span\u0022:\u0022the familiar tremor in his hands\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022A habitual tremor is an embellishment drawn from the Neurotic trait.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The scene is clear, within length and ends on a firm intent to find Ada, but the prose leans on stock phrasing (\u0027wind whistling\u0027, \u0027chased a ghost\u0027). It also comes close to naming feeling with \u0027meticulous focus suddenly frayed\u0027.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.4932165,
+      "inputTokens": 2139,
+      "outputTokens": 698
+    }
+  ]
+}

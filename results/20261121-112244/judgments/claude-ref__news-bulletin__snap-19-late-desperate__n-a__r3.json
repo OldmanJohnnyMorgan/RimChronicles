@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-19-late-desperate__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The bulletin is accurate and well ordered. It leads with the siege, keeps Fenwick as background and frames its guesses as guesses. The dry asides are serviceable but a little soft, and \u0027a poor listener\u0027 lands vaguely.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.6387684,
+      "inputTokens": 2745,
+      "outputTokens": 447
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-14-mid-content__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It seems the river is a reliable source of trouble for anyone traveling.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Generalises one barge raid into a pattern of river danger; the briefing reports only this single raid.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate but padded: the third item merely restates the raid, and the second re-airs the old trade pact with no new angle. The wit is flat and hedged (\u0027I suppose\u0027, \u0027It seems\u0027), far weaker than the earlier bulletins\u0027 dry humour.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.4114787,
+      "inputTokens": 2729,
+      "outputTokens": 436
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__inheritance-handoff__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The silence of the Lancers\u0027 camp pressed in.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Places Tamsin at the enemy-held camp. This is unsupported, and the scene itself later puts the camp on a distant horizon.\u0022},{\u0022span\u0022:\u0022the charred remains of their shared gear\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Invents a fire and shared possessions the briefing never mentions.\u0022},{\u0022span\u0022:\u0022the broken weapon\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Adds an unmentioned object, presumably Joska\u0027s, as a fact.\u0022},{\u0022span\u0022:\u0022Lene\u2019s face, etched with exhaustion, was visible in the shadows.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Places Lene in the scene and describes her state, neither of which the briefing gives.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The setting contradicts itself: Tamsin is at the Lancers\u0027 camp and also gazing at it on a distant horizon. It also invents charred gear and a broken weapon, and leans on clich\u00E9 (\u0027knuckles white\u0027). The sharpening ending gestures at intent but never names Malley\u0027s successor or what the hunt is for.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 8.2601883,
+      "inputTokens": 2148,
+      "outputTokens": 755
+    }
+  ]
+}

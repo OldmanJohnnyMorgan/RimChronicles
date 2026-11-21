@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-12-mid-desperate__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022After fallout and a kidnapping\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies the fallout has ended, which the briefing does not say. It also calls the captivity a \u0027kidnapping\u0027, inferring how the doctor was taken.\u0022},{\u0022span\u0022:\u0022Nobody has explained the masks.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022States as fact that no explanation was given, which the briefing does not establish.\u0022}],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A sharp, dry bulletin that leads correctly with the envoys and turns the faction counts into a neat quiet-week item; \u0027plus one doctor\u0027 is a good joke. The only problems are small embellishments: it implies the fallout is over and asserts that nobody explained the masks.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.7328685,
+      "inputTokens": 2784,
+      "outputTokens": 507
+    }
+  ]
+}

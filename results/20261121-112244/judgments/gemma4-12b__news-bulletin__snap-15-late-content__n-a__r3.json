@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-15-late-content__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They seem quite determined to find him.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Adds a degree of intent the briefing does not give; it only says they asked about him.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The Leopold item is accurate and has a decent wry line. The second item is flat filler about faction sizes with almost no wit. \u0027Real estate\u0027 and \u0027footprint\u0027 read as slightly modern-office language, and \u0027quite determined\u0027 embellishes the briefing.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.3390965,
+      "inputTokens": 2661,
+      "outputTokens": 387
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-10-mid-strained__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Weir Federation continues its bounty hunt\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says only that a bounty was raised, not that an active hunt is under way.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The joke that the Ochre Hand \u0027need the coin\u0027 is backwards, since they are the ones offering silver, and it muddles the lead item. The bulletin is also short of the 70-word minimum, and the second item is bland filler built from old news.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.68033,
+      "inputTokens": 2683,
+      "outputTokens": 510
+    }
+  ]
+}

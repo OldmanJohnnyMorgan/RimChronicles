@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-04-early-strained__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It is a shame we have to waste ink on his disappearance.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says only that the Dispatch seeks news of him; calling it a disappearance is an inference stated as fact.\u0022},{\u0022span\u0022:\u0022It is a quiet change for a quiet place.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Characterises Lowmere as quiet, which the briefing does not support.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A dry, coherent bulletin that reports the three items faithfully and frames most guesses properly. It slips into calling Quell\u0027s case a \u0027disappearance\u0027, and its callousness about a colleague feels slightly forced.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.2506282,
+      "inputTokens": 2592,
+      "outputTokens": 442
+    }
+  ]
+}

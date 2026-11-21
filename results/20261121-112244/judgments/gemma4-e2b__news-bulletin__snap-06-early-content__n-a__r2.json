@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-06-early-content__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The pirates made off with some provisions.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Adds what was taken; the briefing says only that the barge was robbed.\u0022},{\u0022span\u0022:\u0022They always report good harvests when things are otherwise predictable.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Asserts a habitual pattern of reporting not in the briefing, stated as fact.\u0022},{\u0022span\u0022:\u0022Three settlements are holding steady.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027Holding steady\u0027 embellishes the bare settlement count.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The bulletin leads correctly with the barge robbery, but its wit misfires: the \u0027fuel more than the food\u0027 quip makes no sense for a grain barge, and \u0027predictable\u0027 is repeated limply. Rehashing the old harvest story pads the bulletin and adds a small unsupported claim.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.723762,
+      "inputTokens": 2611,
+      "outputTokens": 606
+    }
+  ]
+}

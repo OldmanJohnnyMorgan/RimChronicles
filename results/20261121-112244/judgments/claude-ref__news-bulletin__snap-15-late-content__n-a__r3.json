@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-15-late-content__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the Choir is not known for explaining itself\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Asserts a reputation for the Choir that the briefing does not give.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A clean, dry lead on the one new item, with wry callbacks that treat the old news as background and frame guesses as guesses. The only stretch is the unsupported claim about the Choir\u0027s reputation, and the archers line leans close to reusing the earlier bulletin\u0027s joke.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.9122758,
+      "inputTokens": 2748,
+      "outputTokens": 421
+    }
+  ]
+}

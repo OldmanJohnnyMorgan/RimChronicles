@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-20-late-strained__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It is at war with no one.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Inferred from the absence of a listed war and stated as fact, not framed as a guess.\u0022}],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A sharp, consistent dry voice that leads properly with the governorship offer, frames its guesses as guesses and lands a fresh biscuit joke. The only slip is stating the Tribe\u0027s peace as fact when the briefing merely lists no war.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.3999146,
+      "inputTokens": 2749,
+      "outputTokens": 445
+    }
+  ]
+}

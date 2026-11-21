@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-20-late-strained__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022nobody has offered the tribe anything\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Stated as fact; the briefing says nothing about offers to the tribe.\u0022},{\u0022span\u0022:\u0022Nobody outside the colony knows yet what it thinks of the offer\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Asserts public knowledge about the colony\u0027s response, which the briefing does not give.\u0022}],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A sharp, consistent Ilse voice with fresh jokes, and \u0027less a war than a sum\u0027 is a highlight. A couple of small unsupported assertions are stated as fact, notably that no one has offered the tribe anything.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.0259951,
+      "inputTokens": 2769,
+      "outputTokens": 475
+    }
+  ]
+}

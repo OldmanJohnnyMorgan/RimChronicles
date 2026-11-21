@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-07-mid-strained__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It stays within the briefing, but the lead item is undercut by \\\u0022This is hardly news\\\u0022 and never links the tolls to the earlier gorge raid or the imperial envoys. The two filler items about faction sizes rest on weak, repetitive jokes (\\\u0022always maintaining\\\u0022, two \\\u0022One assumes\\\u0022) that fall short of the earlier bulletins\u0027 wit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.5774155,
+      "inputTokens": 2693,
+      "outputTokens": 699
+    }
+  ]
+}

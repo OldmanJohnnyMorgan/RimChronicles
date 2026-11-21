@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__inheritance-handoff__snap-09-mid-desperate__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022remembering the fight, the final clash\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Implies Tamsin witnessed the fight at the Lancers\u0027 camp; the briefing never places her there.\u0022},{\u0022span\u0022:\u0022the worn leather of her father\u2019s coat\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Adds a specific possession that the briefing never mentions.\u0022},{\u0022span\u0022:\u0022She traced the deep gouges on the material\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Embellishes the fight with physical damage to an item the briefing does not establish.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The prose is plain and has a few physical details, but it implies Tamsin witnessed the fight and is muddled about where she is (\u0027the camp entrance\u0027, \u0027their demise\u0027). It ends on a vague wish to learn the captain\u0027s plans rather than a clear intent of her own.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 8.4255154,
+      "inputTokens": 2134,
+      "outputTokens": 646
+    }
+  ]
+}

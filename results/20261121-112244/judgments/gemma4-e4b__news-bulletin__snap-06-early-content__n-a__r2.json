@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-06-early-content__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It seems even the Combine\u0027s bounty is a tempting target\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies the barge carried Combine grain; the briefing does not say whose barge it was.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The robbery leads correctly and the harvest callback is fair background, though the bulletin links the barge to the Combine without support. The quiet-week item is bland filler, and calling it a quiet week sits oddly after reporting a robbery.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.6515132,
+      "inputTokens": 2615,
+      "outputTokens": 596
+    }
+  ]
+}

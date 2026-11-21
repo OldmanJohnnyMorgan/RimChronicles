@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-07-mid-strained__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Iron Covenant still lacks that supply wagon\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing does not say the wagon was never recovered; this states an inference as fact.\u0022},{\u0022span\u0022:\u0022a bit of dirt and a steep incline\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Gives the gorge road physical features the briefing does not describe.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item reports the toll demand plainly and frames its jab as a guess. The second item recycles old news with a muddled joke about finding the wagon and raiders at once, and it implies the wagon is still missing.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.3566467,
+      "inputTokens": 2684,
+      "outputTokens": 543
+    }
+  ]
+}

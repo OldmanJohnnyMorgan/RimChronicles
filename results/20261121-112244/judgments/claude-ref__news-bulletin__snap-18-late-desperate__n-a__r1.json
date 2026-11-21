@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-18-late-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The bulletin is accurate and well ordered: it leads with the lost caravan, treats the closed passes as background, and fits Quell\u0027s earnest, worried voice. The second item is thin filler, though, and the pirate-pride joke lands weakly.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.5180343,
+      "inputTokens": 2753,
+      "outputTokens": 426
+    }
+  ]
+}

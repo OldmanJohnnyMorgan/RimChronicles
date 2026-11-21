@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-09-mid-desperate__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:5,\u0022comment\u0022:\u0022Accurate and restrained: it leads with Malley\u0027s death without inventing a killer and frames the \u0027tidy\u0027 remark as a guess. The war item is handled as background with dry, correct arithmetic, and the voice stays consistent throughout.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.0694853,
+      "inputTokens": 2760,
+      "outputTokens": 363
+    }
+  ]
+}

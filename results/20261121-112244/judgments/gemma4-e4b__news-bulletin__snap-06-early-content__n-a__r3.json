@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-06-early-content__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022even the Combine\u0027s bountiful harvests are a tempting target\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies the robbed barge carried Calder Combine grain. The briefing does not say whose barge it was, and \u0027It seems\u0027 only half-hedges the claim.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate and within length, with a wry \u0027relieve\u0027 and a sensible quiet-week second item. However, linking the barge to the Combine\u0027s harvest is an unhedged inference, and the closing \u0027calm before\u0027 line is a stock clich\u00E9 that dulls the voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.1462827,
+      "inputTokens": 2624,
+      "outputTokens": 434
+    }
+  ]
+}

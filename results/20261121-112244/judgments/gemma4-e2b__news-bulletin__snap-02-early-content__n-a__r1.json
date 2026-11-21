@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-02-early-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Glimmer Coast Company reports a profitable week.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022This comes from an earlier bulletin, not from this week\u0027s news, but is presented as new.\u0022},{\u0022span\u0022:\u0022they always abandon things when things get inconvenient\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies a cause and a habit for the abandonment that the briefing does not give.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The third item recycles the earlier bulletin\u0027s Glimmer Coast joke almost word for word and presents last week\u0027s profit report as fresh news. The war item is old news padded into a full paragraph, and the wit is flat and hedged (\u0027it seems\u0027).\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.382974,
+      "inputTokens": 2806,
+      "outputTokens": 636
+    }
+  ]
+}

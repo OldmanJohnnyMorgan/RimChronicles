@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-07-mid-strained__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Vex\u0027s Crew has two settlements operating nearby.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing gives the settlement count but not their location relative to Hearthstead.\u0022},{\u0022span\u0022:\u0022They are always operating nearby, which is usually the problem.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies a pattern of activity the briefing does not mention.\u0022},{\u0022span\u0022:\u0022They are perpetually short on supplies, as usual.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Inflates one lost wagon into a chronic shortage, stated as fact.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Calling the only new item \u0027hardly news\u0027 undercuts the lead, and the remaining items lean on embellishments (Vex\u0027s Crew \u0027nearby\u0027, the Covenant \u0027perpetually short\u0027). The wit is thin and generic next to the sharper earlier bulletins.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.1553055,
+      "inputTokens": 2693,
+      "outputTokens": 608
+    }
+  ]
+}

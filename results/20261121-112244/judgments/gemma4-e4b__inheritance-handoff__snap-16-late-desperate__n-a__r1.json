@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__inheritance-handoff__snap-16-late-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the worn leather of his jacket\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Clothing detail not in the briefing.\u0022},{\u0022span\u0022:\u0022toward the woods where Dunmore had slipped away\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The ambush setting is not described; \u0027woods\u0027 is added.\u0022},{\u0022span\u0022:\u0022Elske knelt beside Bertram, the blood dark against the dirt\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies Elske found the body at the scene, though the briefing says only that Rook came home alone.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The scene is clear and restrained, and it ends correctly on Elske\u0027s intent. The prose is generic, though, and leans on small invented details, while \u0027sudden stillness\u0027 rings false for a body she has only just found.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 8.8276167,
+      "inputTokens": 2114,
+      "outputTokens": 790
+    }
+  ]
+}

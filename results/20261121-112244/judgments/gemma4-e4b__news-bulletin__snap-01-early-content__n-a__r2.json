@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-01-early-content__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022tacked on another trading post\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027Another\u0027 implies earlier posts the briefing never mentions.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Clean, accurate and properly dry, with guesses correctly hedged. The closing lines of each item are a little generic, and \u0027another\u0027 quietly implies earlier trading posts.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.1885455,
+      "inputTokens": 2474,
+      "outputTokens": 304
+    }
+  ]
+}

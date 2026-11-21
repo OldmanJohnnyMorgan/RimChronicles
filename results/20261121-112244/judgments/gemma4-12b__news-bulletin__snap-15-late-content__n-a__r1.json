@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-15-late-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They seem quite interested in his whereabouts.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Embellishes \u0027asking about\u0027 into a search for his location.\u0022},{\u0022span\u0022:\u0022The Fox-Lantern Tribe continues to hold its spring games. They are still occupied with racing and archery.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Asserts the old-news games are still ongoing; the briefing does not say so.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is reported accurately and has a decent wry closer. The rest is flat and padded: a limp quip about ten settlements, and old news about the games restated as ongoing.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.9962441,
+      "inputTokens": 2705,
+      "outputTokens": 593
+    }
+  ]
+}

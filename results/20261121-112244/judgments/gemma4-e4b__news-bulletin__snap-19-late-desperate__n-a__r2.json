@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-19-late-desperate__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Empire seems rather fond of sieges lately.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies a pattern of sieges; the briefing names only this one, and Fenwick was razed, not besieged.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The output stays accurate and clear, but it runs to about 67 words, short of the 70-word minimum. The wit is thin and generic for Odile\u0027s sardonic voice, and calling a week with a new siege \u0027quiet\u0027 undercuts the lead.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.5544758,
+      "inputTokens": 2682,
+      "outputTokens": 646
+    }
+  ]
+}

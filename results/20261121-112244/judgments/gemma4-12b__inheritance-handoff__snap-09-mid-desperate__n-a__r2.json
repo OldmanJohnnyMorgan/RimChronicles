@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__inheritance-handoff__snap-09-mid-desperate__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022She would find the man who took her father\u2019s life and end him.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Contradicts the briefing: Malley, who killed Joska, already died in the same fight.\u0022},{\u0022span\u0022:\u0022his heavy, notched blade\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Introduces a specific weapon the briefing never mentions.\u0022},{\u0022span\u0022:\u0022the jagged scar on her father\u2019s chest\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Embellishes the maiming with an unstated wound and location.\u0022},{\u0022span\u0022:\u0022where the new captain sat\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Places the new captain within sight of the body, which the briefing does not say.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The ending has Tamsin vowing to kill her father\u0027s killer, but the briefing says Malley is already dead; the heir\u0027s aim should have been the new captain or the Lancers. The scene also contradicts itself: she traces the scar on her father\u0027s body, then his body lies \u0027a few feet away\u0027.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.6456578,
+      "inputTokens": 2168,
+      "outputTokens": 679
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-18-late-desperate__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The facts are accurate and the guesses are properly framed. However, the second item rehashes the earlier granary story and reuses its \u0027reaching them\u0027 joke, against the instructions. Phrases like \u0027primary obstacle\u0027 and \u0027still maintains\u0027 sound flat and office-like, and there is little of Quell\u0027s worried edge.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.8677645,
+      "inputTokens": 2673,
+      "outputTokens": 515
+    }
+  ]
+}

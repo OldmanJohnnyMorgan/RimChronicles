@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-11-mid-content__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate and dry: it leads with the feast, keeps the Mire Rats as background, and frames every guess as a guess. The second paragraph leans on stacked guesses and a stock line about quiet weeks, so it reads slightly padded.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.1157086,
+      "inputTokens": 2717,
+      "outputTokens": 467
+    }
+  ]
+}

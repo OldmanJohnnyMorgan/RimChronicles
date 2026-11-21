@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-20-late-strained__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:5,\u0022comment\u0022:\u0022Clean and accurate. It leads with the one new item, treats the Alliance\u0027s two towns as background, and draws a dry joke from correct arithmetic about the Driftwood Tribe without inventing anything. The voice matches the earlier bulletins without reusing their lines.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.586733,
+      "inputTokens": 2729,
+      "outputTokens": 477
+    }
+  ]
+}

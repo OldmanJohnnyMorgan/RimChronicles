@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-15-late-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and clean, with the guess about Leopold properly hedged. However, the second item is a limp filler observation, the wit is mild and generic next to the earlier bulletins, and at about 66 words it falls short of the 70-word minimum.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.5588755,
+      "inputTokens": 2651,
+      "outputTokens": 506
+    }
+  ]
+}

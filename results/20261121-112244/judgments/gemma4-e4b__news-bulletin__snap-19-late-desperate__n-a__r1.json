@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-19-late-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The bulletin stays accurate, but its wit is thin and generic. Lines like \u0027considerable amount of logistical effort\u0027 and \u0027inevitable skirmish\u0027 read as filler rather than Odile\u0027s sardonic voice, and calling a siege week \u0027quiet\u0027 is muddled. At about 68 words it also falls just short of the 70-word minimum.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.8890715,
+      "inputTokens": 2684,
+      "outputTokens": 579
+    }
+  ]
+}

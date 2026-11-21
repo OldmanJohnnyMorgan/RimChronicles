@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-02-early-content__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The bulletin is accurate: it leads with the abandoned camp and frames every speculation as a guess. The wit is serviceable but slightly generic, and the \u0027scenery\u0027 joke is used twice in two consecutive items.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.628634,
+      "inputTokens": 2841,
+      "outputTokens": 704
+    }
+  ]
+}

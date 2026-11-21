@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-11-mid-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:4,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The bulletin is accurate and stays within the briefing: the 8-to-4 comparison, the 2 Mire Rats settlements and the eviction as background are all correct, and every guess is hedged. The voice is consistently dry. The pudding joke is a little muddled in its logic, which keeps it just short of shipping unchanged.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.9536057,
+      "inputTokens": 2697,
+      "outputTokens": 507
+    }
+  ]
+}

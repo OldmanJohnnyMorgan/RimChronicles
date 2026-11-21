@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-01-early-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate and tightly built: every claim matches the briefing, and the guesses are properly hedged (\\\u0022I suspect\\\u0022, \\\u0022presumably\\\u0022). The wit lands, especially the pirates\u0027 \\\u0022fixed address\\\u0022, though the quiet-week third item is a little flat next to the first two.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.832837,
+      "inputTokens": 2555,
+      "outputTokens": 407
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-13-mid-strained__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Rustback Raiders are still active on the old highway. They continue their usual business\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The briefing records one past caravan raid; ongoing current activity on the highway is not reported.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The lead item reports the tribute refusal correctly. However, with only one new fact the writer padded to three items by recycling old news as current, including an unsupported claim of ongoing Rustback raids. The wit is limp and generic (\u0027tiresome\u0027, \u0027predictable, really\u0027) next to the sharper earlier bulletins.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.3226088,
+      "inputTokens": 2751,
+      "outputTokens": 630
+    }
+  ]
+}

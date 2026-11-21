@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-18-late-desperate__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022No word has come back about the travelers.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Adds an aftermath detail the briefing does not give; it only says the caravan was lost.\u0022},{\u0022span\u0022:\u0022The passes remain shut down by the ongoing blizzard.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Asserts the blizzard is still ongoing; the briefing only says it closed the passes, which is old news.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is clear, and its guesses are properly hedged. The second item is a thin rehash of old news, and the voice is plain rather than distinctly worried or wry, with little real humour.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.4389884,
+      "inputTokens": 2674,
+      "outputTokens": 651
+    }
+  ]
+}

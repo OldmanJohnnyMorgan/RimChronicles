@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-07-mid-strained__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Making demands of a neighbour twice your size takes a certain confidence\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies the tolls target the Iron Covenant. The briefing only says the Empire makes demands of its neighbours.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A tight, dry bulletin that leads with the one new item and handles a quiet week well with correct faction arithmetic and properly hedged guesses. It slightly implies the Iron Covenant is the target of the toll demand, which the briefing does not say.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.9058879,
+      "inputTokens": 2747,
+      "outputTokens": 587
+    }
+  ]
+}

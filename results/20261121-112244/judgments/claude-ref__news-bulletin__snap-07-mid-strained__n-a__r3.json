@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-07-mid-strained__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022This is the same road where the Iron Covenant lost a wagon to raiders\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing places the loss only \u0027near the gorge\u0027, not on the gorge road itself.\u0022},{\u0022span\u0022:\u0022Making demands of a neighbour twice your size takes real nerve\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing does not say the toll or any demand was aimed at the Iron Covenant.\u0022}],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A sharp, consistent bulletin that ties the toll to earlier news and makes good jokes from the faction sizes. It slightly overstates the links, placing the wagon loss on the toll road and aiming the demands at the Covenant.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.5365013,
+      "inputTokens": 2762,
+      "outputTokens": 571
+    }
+  ]
+}

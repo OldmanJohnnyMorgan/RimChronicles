@@ -1,0 +1,52 @@
+{
+  "cell": "claude-ref__director__snap-12-mid-desperate__off__r3",
+  "model": "claude-ref",
+  "task": "director",
+  "snapshot": "snap-12-mid-desperate",
+  "grammar": "off",
+  "repeat": 3,
+  "promptVersion": "director/v1",
+  "outcome": "Model",
+  "value": "{\u0022choice\u0022: \u0022Wait\u0022, \u0022reason\u0022: \u0022Red Furrow is in crisis, with four wounded from the day 339 raid, six days of toxic fallout, and a desperate mood. Sabine\u0027s choice about rescuing Gideon should wait until the colony can recover.\u0022}",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are the plot director for a story told through a RimWorld colony. You decide what happens next in the colony\u0027s plots.\n\nRules:\n- Choose exactly one option from the allowed list. Copy it exactly, character for character.\n- Choose \u0022Wait\u0022 if the colony is in crisis or the story needs a pause.\n- Prefer the option that follows most naturally from what has already happened.\n- Give a reason in one or two short sentences. Use only facts from the briefing.\n\nAnswer with JSON only, in this form:\n{\u0022choice\u0022: \u0022\u003Cone allowed option\u003E\u0022, \u0022reason\u0022: \u0022\u003Cone or two sentences\u003E\u0022}\n",
+        "user": "## The world\nDate: day 341 (Septober 5505).\nColony: Red Furrow, 10 people, wealth 158,000 silver, mood desperate.\n\nPeople:\n- Sabine (31); traits: Tough, Careful shooter; backstory: Imperial deserter.\n- Gideon (45), captured; traits: Kind, Iron-willed; backstory: Doctor; brother of Sabine.\n- Ora (26); traits: Sanguine; backstory: Cook.\n- Lutz (37); traits: Industrious; backstory: Miner.\n\nHistory:\n- Day 290: \u0027Hatchet\u0027 Imre killed Marta Venn and escaped.\n- Day 322: \u0027Hatchet\u0027 Imre kidnapped Gideon.\n- Day 339: Red Furrow repelled a raid by the Gallows Crew.\n\nFactions:\n- The Gallows Crew (Pirates): goodwill -100, 3 settlements.\n- The Saltmarch Assembly (Outlanders): goodwill \u002B15, 6 settlements.\n- The Glass Throne (Empire): goodwill -10, 5 settlements, Empire state: Dormant.\n\nRecent events:\n- Gideon kidnapped day 322\n- Second Gallows Crew raid repelled day 339, four wounded\n- Toxic fallout has lasted six days\n\n## Active plots\n- nemesis-03 (Nemesis): beat Choice, protagonist Sabine. \u0027Hatchet\u0027 Imre of the Gallows Crew killed Marta Venn and kidnapped Sabine\u0027s brother Gideon. Sabine has found the Gallows camp but the colony is weak after another raid.\n\n## Allowed options\n- Wait\n- Choice:RescueNow\n- Choice:TradeForBrother\n\nChoose one allowed option.\n",
+        "maxOutputTokens": 300,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "choice": {
+              "type": "string",
+              "enum": [
+                "Wait",
+                "Choice:RescueNow",
+                "Choice:TradeForBrother"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "choice",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "ok": true,
+      "text": "{\u0022choice\u0022: \u0022Wait\u0022, \u0022reason\u0022: \u0022Red Furrow is in crisis, with four wounded from the day 339 raid, six days of toxic fallout, and a desperate mood. Sabine\u0027s choice about rescuing Gideon should wait until the colony can recover.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 1.4202143,
+      "inputTokens": 794,
+      "outputTokens": 127,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022model\u0022:\u0022claude-opus-5-5\u0022,\u0022id\u0022:\u0022msg_011ChFPu8hEJe4pqXpbfPbTT\u0022,\u0022type\u0022:\u0022message\u0022,\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:[{\u0022type\u0022:\u0022thinking\u0022,\u0022thinking\u0022:\u0022\u0022,\u0022signature\u0022:\u0022CAQSxwUKEAgUGAI4AUIIdGhpbmtpbmcSDATnrSKBCkdOvnqXGxoM4K2mC6IYZdgD5dHkIjDkBHkNY\\u002Bd90F6gbYFleNBKE4bRUVili97G3K/OEU9l30\\u002BqtaPhDuiqKvL395K7UZoq5AQQz8241qqbC3W4lzkL3h/v2D32H4Bzol6\\u002BznKytGQSqxS8jyl337rtVj0n1tZhZSfFoADpv8bu60ODmVUke7Xhj7RFbm3I1GIzPMkzEqfxO6ZKuRjpeEJ\\u002BYUyh6VRUP21aqWXywufucVmHVkt\\u002Bflqxkk6Du6TulVN9Ea3ttA\\u002BugFMZ0W/jeqP8dmw0NlnQmFLQoF0ep4lwrFVFVaG2uC6675hu8GWuiwuySlSv51zLEgNtbLgzmxxGLlMalhGM6a0G732keMNDMzVS2LPfpNVcIS0\\u002BD1SroEkamlyNtzAd5yfsusZNgxlczsfP\\u002BM7St/DU9VaDIYPNHoOQpNam5lI\\u002B/9qZBpcwm7gbVLHWYxL4ARecLnGA6SbCw87fj6zrzX9x0hnkRG0LfpObhAqtkqphfhiVTyeexqDFT7JZswGtyhgt7egmwOgsjCQ8kd1C7/LoN6kjpbEeoveMokhULk91HszNaQQnygUPRDnCiDQX\\u002B4oEOGu95eLpjJyopNb\\u002BR6KXhiZ5\\u002B12Z\\u002B2gvgzcRVRCXB\\u002BYn5At4SOiwExf48HDJ4mD2hMiiu4vEnLnn\\u002BbXg3fZ7G5gSBHKtb2LWytlUhXgDDDdyJ97qXVurH7ksvMthNvgcKGWDj71On4D0VYaX/15fydZ4vP8rgPX34lIOr0JwlJj\\u002BRWuJn89PvdlPuAr3NeamUa8XbJ7diXfFieC3nZO1/JVRMfxqIvbbCt\\u002BOqtYov4obLx4dZmSyOverleIH86RsevS1RijxmfrKQB3D9DAOkq9Q7T74qjHe3QT5Hi/f23FCAGezD7ERUvABLbD8d\\u002BJ5e78YAQ==\u0022},{\u0022type\u0022:\u0022text\u0022,\u0022text\u0022:\u0022{\\u0022choice\\u0022: \\u0022Wait\\u0022, \\u0022reason\\u0022: \\u0022Red Furrow is in crisis, with four wounded from the day 339 raid, six days of toxic fallout, and a desperate mood. Sabine\\u0027s choice about rescuing Gideon should wait until the colony can recover.\\u0022}\u0022}],\u0022container\u0022:null,\u0022stop_reason\u0022:\u0022end_turn\u0022,\u0022stop_sequence\u0022:null,\u0022stop_details\u0022:null,\u0022usage\u0022:{\u0022input_tokens\u0022:794,\u0022cache_creation_input_tokens\u0022:0,\u0022cache_read_input_tokens\u0022:0,\u0022cache_creation\u0022:{\u0022ephemeral_5m_input_tokens\u0022:0,\u0022ephemeral_1h_input_tokens\u0022:0},\u0022iterations\u0022:[{\u0022input_tokens\u0022:794,\u0022output_tokens\u0022:127,\u0022cache_read_input_tokens\u0022:0,\u0022cache_creation_input_tokens\u0022:0,\u0022cache_creation\u0022:{\u0022ephemeral_5m_input_tokens\u0022:0,\u0022ephemeral_1h_input_tokens\u0022:0},\u0022type\u0022:\u0022message\u0022,\u0022model\u0022:null}],\u0022output_tokens\u0022:127,\u0022output_tokens_details\u0022:{\u0022thinking_tokens\u0022:38},\u0022service_tier\u0022:\u0022standard\u0022,\u0022inference_geo\u0022:\u0022global\u0022,\u0022speed\u0022:\u0022standard\u0022},\u0022diagnostics\u0022:null}"
+    }
+  ]
+}

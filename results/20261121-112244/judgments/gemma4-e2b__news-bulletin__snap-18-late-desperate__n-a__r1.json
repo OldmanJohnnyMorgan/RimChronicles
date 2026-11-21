@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-18-late-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The facts are accurate. However, the second item repeats the granary story from the latest bulletin as if it were new. The voice is flat and lacks Tomas\u0027s worry: a lost caravan gets only a limp \u0027persistent nuisance\u0027 remark, and phrases like \u0027for access\u0027 and \u0027logistics\u0027 sound bland and office-like.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.1457391,
+      "inputTokens": 2742,
+      "outputTokens": 519
+    }
+  ]
+}

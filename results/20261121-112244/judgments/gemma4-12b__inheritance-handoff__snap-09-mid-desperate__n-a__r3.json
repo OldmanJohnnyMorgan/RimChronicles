@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__inheritance-handoff__snap-09-mid-desperate__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022her father\u2019s heavy, notched blade\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The briefing names no weapon; this is an invented item.\u0022},{\u0022span\u0022:\u0022the jagged scar on her father\u0027s arm\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027Maimed\u0027 is given, but a scar on the arm is an invented specific.\u0022},{\u0022span\u0022:\u0022Beside her, the body of Rook Malley lay cooling\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Puts Tamsin at the fight site inside the Lancer-held camp, which the briefing does not support and which conflicts with her later turning \u0027toward the camp\u0027.\u0022},{\u0022span\u0022:\u0022The metal was still warm from the struggle.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies she arrived moments after the fight, which the briefing does not say.\u0022},{\u0022span\u0022:\u0022She didn\u0027t look at her mother.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies Lene is present at the scene, which the briefing does not say.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It ends cleanly on a clear intent tied to the new captain, but it invents a specific blade and stages the scene at the enemy camp in a way that muddles where Tamsin is. Clich\u00E9s like \u0027silent testament\u0027 flatten the restraint.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 9.4835729,
+      "inputTokens": 2171,
+      "outputTokens": 912
+    }
+  ]
+}

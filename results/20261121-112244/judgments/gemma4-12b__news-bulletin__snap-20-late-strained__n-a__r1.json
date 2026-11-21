@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-20-late-strained__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022holding almost nothing but the coastline\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Contradicts the briefing: the Empire holds 21 settlements and controls most of the region.\u0022},{\u0022span\u0022:\u0022a settlement that seems to be shrinking by the day\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Nothing in the briefing says Varrowgate is shrinking. \u0027Seems\u0027 is only a weak hedge.\u0022},{\u0022span\u0022:\u0022They are issuing final demands to the Free Coast Alliance.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says the Empire is issuing final demands but does not say to whom.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The closing joke says the Empire holds \u0027almost nothing but the coastline\u0027, which contradicts its 21 settlements and muddles who is being described. The rest is competent but bland, and the dry wit is thin.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.4447774,
+      "inputTokens": 2670,
+      "outputTokens": 622
+    }
+  ]
+}

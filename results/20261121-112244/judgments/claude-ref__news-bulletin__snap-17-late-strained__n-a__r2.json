@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-17-late-strained__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A clean quiet-week bulletin that uses only briefing facts and frames its guesses properly. The dry asides are solid but somewhat familiar, and the numbers-recital structure is a little flat.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.1159208,
+      "inputTokens": 2803,
+      "outputTokens": 423
+    }
+  ]
+}

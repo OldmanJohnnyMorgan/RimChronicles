@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-16-late-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022even when those assets are a pirate\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Calls Dunmore a pirate and implies he is the Accord\u0027s asset; the briefing names him only as a mercenary.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It reports the same bounty as two separate items, which reads as padding and could suggest two different prices. The wit is mostly generic or muddled (\\\u0022assets\\\u0022, \\\u0022stillness is the loudest statement\\\u0022) rather than Odile\u0027s sharp understatement.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.9065458,
+      "inputTokens": 2734,
+      "outputTokens": 620
+    }
+  ]
+}

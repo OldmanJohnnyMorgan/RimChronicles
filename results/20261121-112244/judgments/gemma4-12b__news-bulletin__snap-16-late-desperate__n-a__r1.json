@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-16-late-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022officially placed a bounty\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027Officially\u0027 adds a manner the briefing does not give.\u0022},{\u0022span\u0022:\u0022left the mercenary still at large\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implied consequence of the ambush; the briefing does not say he escaped or remains loose.\u0022},{\u0022span\u0022:\u0022while the heatwave continues to parch the southern plain\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Treats old news as ongoing; the briefing does not say the heatwave continues.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate in outline, but the first item\u0027s closing guess is muddled and the Glass Throne joke is bland, so Odile\u0027s sardonic edge is mostly missing. Small embellishments (\u0027officially\u0027, \u0027still at large\u0027, the heatwave \u0027continues\u0027) keep it from being clean.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.8442926,
+      "inputTokens": 2669,
+      "outputTokens": 578
+    }
+  ]
+}

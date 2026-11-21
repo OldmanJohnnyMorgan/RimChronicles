@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-17-late-strained__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Shattered Empire still holds Dunwold\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Briefing says the Empire took Dunwold but not that it still holds it; an inference stated as fact.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It handles the quiet week properly, using real faction facts without inventing events. But the voice is generic next to the earlier bulletins, \u0027bruised egos\u0027 and \u0027monotony\u0027 are flat, and the second item has only two sentences.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.7587106,
+      "inputTokens": 2781,
+      "outputTokens": 402
+    }
+  ]
+}

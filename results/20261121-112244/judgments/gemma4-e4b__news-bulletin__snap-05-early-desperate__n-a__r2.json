@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-05-early-desperate__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Their decision leaves the usual trade routes rather sparse this cycle.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022A consequence of the market closure stated as fact; the briefing gives no effect on trade routes.\u0022},{\u0022span\u0022:\u0022The Scythe Tooth continue their sporadic raids.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Presents old news as ongoing and adds \u0027sporadic\u0027; the briefing reports no new raids.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The voice is flat and lacks Odile\u0027s sardonic bite, and the second item contradicts itself by calling the raids continuing and then a lull. The bulletin also falls short of the 70-word minimum and states unsupported consequences as fact.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 8.0501632,
+      "inputTokens": 2627,
+      "outputTokens": 766
+    }
+  ]
+}

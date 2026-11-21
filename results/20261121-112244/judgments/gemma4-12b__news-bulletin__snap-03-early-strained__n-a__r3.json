@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-03-early-strained__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They remain a persistent thorn in the side of any local commerce.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Generalises the old homestead raids into an ongoing effect on commerce that the briefing never states.\u0022},{\u0022span\u0022:\u0022They are currently doubling their guard costs to keep their caravans moving.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Turns \u0027travel in pairs\u0027 into a stated fact about doubled costs and presents old news as current activity.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It correctly treats the week as quiet and sticks to faction counts, but the wit is thin and clich\u00E9d (\u0027thorn in the side\u0027). The Merrow item restates old news as a present-tense fact with an added cost claim.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.3149019,
+      "inputTokens": 2689,
+      "outputTokens": 486
+    }
+  ]
+}

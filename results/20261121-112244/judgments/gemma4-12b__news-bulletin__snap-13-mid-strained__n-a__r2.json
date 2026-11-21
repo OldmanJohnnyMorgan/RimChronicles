@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-13-mid-strained__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They remain a constant, if predictable, nuisance on the rim.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies ongoing, repeated raiding; the briefing gives only one caravan hit.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022It leads correctly with the tribute refusal and stays accurate, with guesses properly framed. The voice is serviceable but generic, the \u0027reach longer than their patience\u0027 line doesn\u0027t quite land, and the filler items lean on restating faction sizes.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.6201653,
+      "inputTokens": 2758,
+      "outputTokens": 594
+    }
+  ]
+}

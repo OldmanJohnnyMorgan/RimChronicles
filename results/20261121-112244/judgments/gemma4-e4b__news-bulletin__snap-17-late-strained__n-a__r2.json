@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-17-late-strained__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022slow, methodical march\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says only \u0027expanding by force\u0027. Slow and methodical are added manner.\u0022},{\u0022span\u0022:\u0022the pace is decidedly sluggish\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Pace is stated as fact. The briefing gives no pace, and \u0027by force\u0027 hints otherwise.\u0022},{\u0022span\u0022:\u0022apparently undisturbed by the border skirmishes\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing describes a war, not \u0027border skirmishes\u0027. The tribe\u0027s reaction is also not given.\u0022},{\u0022span\u0022:\u0022They seem content to remain in the shadows\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022This is an embellishment about the gang\u0027s behaviour that the briefing does not support.\u0022},{\u0022span\u0022:\u0022here in Ironbloom\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022It places the reporter inside the colony, but the briefing only puts her near it.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It handles the quiet week correctly without inventing events. But the prose is bland, with little of Ilse\u0027s dry bite. It also embellishes the war\u0027s pace and scale (\u0027slow, methodical\u0027, \u0027sluggish\u0027, \u0027border skirmishes\u0027) beyond what the briefing gives.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.6483758,
+      "inputTokens": 2755,
+      "outputTokens": 721
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-20-late-strained__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022continues its skirmishes\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says only \u0027at war\u0027; calling it skirmishes adds a scale and manner it does not give.\u0022},{\u0022span\u0022:\u0022their three scattered posts\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027Scattered\u0027 is an added detail; the briefing gives only 3 settlements.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The output is accurate on its core facts, but the wit is thin. The second and third items are flat restatements with no real dry remark, and calling it \u0027a quiet week\u0027 right after leading with a governorship offer undercuts the bulletin.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.4658577,
+      "inputTokens": 2695,
+      "outputTokens": 456
+    }
+  ]
+}

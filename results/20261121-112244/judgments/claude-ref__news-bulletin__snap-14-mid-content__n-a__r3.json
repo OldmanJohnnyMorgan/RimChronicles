@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-14-mid-content__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022a fresh trade pact with the League\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing does not say how recent the pact is.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The raid is reported plainly, and old news is used correctly as background, with good dry lines such as \u0027Pirates, presumably, do not read paper.\u0027 The second paragraph wanders across faction sizes, the Tribe and the date without a clear focus, and \u0027fresh\u0027 slightly embellishes the pact.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.1759037,
+      "inputTokens": 2777,
+      "outputTokens": 476
+    }
+  ]
+}

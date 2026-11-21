@@ -1,0 +1,52 @@
+{
+  "cell": "gemma4-e2b__director__snap-10-mid-strained__on__r1",
+  "model": "gemma4-e2b",
+  "task": "director",
+  "snapshot": "snap-10-mid-strained",
+  "grammar": "on",
+  "repeat": 1,
+  "promptVersion": "director/v1",
+  "outcome": "Model",
+  "value": "{\u0022choice\u0022: \u0022Choice:RescueOrRansom\u0022, \u0022reason\u0022: \u0022Anouk has received distressing news about her family, making a rescue or ransom attempt the most immediate action.\u0022}",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are the plot director for a story told through a RimWorld colony. You decide what happens next in the colony\u0027s plots.\n\nRules:\n- Choose exactly one option from the allowed list. Copy it exactly, character for character.\n- Choose \u0022Wait\u0022 if the colony is in crisis or the story needs a pause.\n- Prefer the option that follows most naturally from what has already happened.\n- Give a reason in one or two short sentences. Use only facts from the briefing.\n\nAnswer with JSON only, in this form:\n{\u0022choice\u0022: \u0022\u003Cone allowed option\u003E\u0022, \u0022reason\u0022: \u0022\u003Cone or two sentences\u003E\u0022}\n",
+        "user": "## The world\nDate: day 205 (Jugust 5503).\nColony: Wyrmfold, 8 people, wealth 142,000 silver, mood strained.\n\nPeople:\n- Anouk (35); traits: Kind, Neurotic; backstory: Tribal child; born in the Ochre Hand tribe.\n- Feodor (49); traits: Industrious; backstory: Engineer.\n- Biel (30); traits: Jealous; backstory: Cook.\n- Hanne (27); traits: Psychically sensitive; backstory: Psychic.\n\nHistory:\n- Day 180: Feodor recruited Anouk.\n- Day 199: Anouk received a letter from Saskia.\n\nFactions:\n- The Ochre Hand (Tribe): goodwill -10, 3 settlements, at war with Stonecutter Raiders.\n- Stonecutter Raiders (Pirates): goodwill -90, 4 settlements.\n- The Weir Federation (Outlanders): goodwill \u002B40, 7 settlements.\n\nRecent events:\n- Letter from Saskia arrived day 199\n- Anouk has not slept well since the letter\n- Short on medicine\n\n## Active plots\n- family-01 (Lost Family): beat Complication, protagonist Anouk. A letter from Anouk\u0027s sister Saskia, still with the Ochre Hand, says Stonecutter Raiders took her and two others as captives.\n\n## Allowed options\n- Wait\n- Choice:RescueOrRansom\n- Complication:SecondLetter\n\nChoose one allowed option.\n",
+        "maxOutputTokens": 200,
+        "useGrammar": true,
+        "thinking": "Off",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "choice": {
+              "type": "string",
+              "enum": [
+                "Wait",
+                "Choice:RescueOrRansom",
+                "Complication:SecondLetter"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "choice",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "ok": true,
+      "text": "{\u0022choice\u0022: \u0022Choice:RescueOrRansom\u0022, \u0022reason\u0022: \u0022Anouk has received distressing news about her family, making a rescue or ransom attempt the most immediate action.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 0.2990707,
+      "inputTokens": 484,
+      "outputTokens": 38,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-595\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795232009,\u0022model\u0022:\u0022gemma4:e2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022{\\\u0022choice\\\u0022: \\\u0022Choice:RescueOrRansom\\\u0022, \\\u0022reason\\\u0022: \\\u0022Anouk has received distressing news about her family, making a rescue or ransom attempt the most immediate action.\\\u0022}\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:484,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:38,\u0022total_tokens\u0022:522}}\n"
+    }
+  ]
+}

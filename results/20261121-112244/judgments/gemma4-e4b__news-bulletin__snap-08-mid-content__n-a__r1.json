@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-08-mid-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022now the main attraction at Lantern Hill\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says only that it is the talk of the traders; \u0027main attraction\u0027 inflates its scale.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It is accurate and well structured, and it correctly uses the faction counts for its second item. The wit is thin, though: \u0027One assumes the craftsmanship is as impressive\u0027 and \u0027stubbornly unchanged\u0027 are mild and generic next to the sharper voice of the earlier bulletins.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.3299365,
+      "inputTokens": 2674,
+      "outputTokens": 480
+    }
+  ]
+}

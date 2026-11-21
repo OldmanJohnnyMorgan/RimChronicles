@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-09-mid-desperate__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022nobody has come forward to boast\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Asserts that no one has claimed the killing; the briefing says nothing about this.\u0022},{\u0022span\u0022:\u0022a man with a cane\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The earlier bulletin mentions only a pit fighter and never gives a gender.\u0022}],\u0022voice\u0022:5,\u0022clarity\u0022:4,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A sharp, dry bulletin that correctly leads with Malley\u0027s death and treats the war as background. The cane callback and the cold-weather guess land well. Two small embellishments keep it from a clean ship: that nobody has boasted of the killing, and the pit fighter\u0027s gender.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.238928,
+      "inputTokens": 2777,
+      "outputTokens": 561
+    }
+  ]
+}

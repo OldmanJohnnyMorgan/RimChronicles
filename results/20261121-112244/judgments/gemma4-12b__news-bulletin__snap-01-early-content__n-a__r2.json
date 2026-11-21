@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-01-early-content__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The bulletin is accurate and stays within the briefing, but the wit is flat and generic. Jabs like \u0027content with just existing\u0027 and \u0027remind us of our insignificance\u0027 lean toward vague cynicism rather than sharp, dry observation.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.544354,
+      "inputTokens": 2468,
+      "outputTokens": 594
+    }
+  ]
+}

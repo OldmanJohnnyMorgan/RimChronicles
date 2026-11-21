@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-20-late-strained__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022a settlement that is currently being squeezed by neighbors\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The briefing says nothing about Varrowgate being under pressure from neighbours.\u0022},{\u0022span\u0022:\u0022It is a bold strategy to demand everything while holding almost nothing.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022This contradicts the briefing: the Empire holds 21 settlements and controls most of the region.\u0022},{\u0022span\u0022:\u0022They are issuing final demands to the Free Coast Alliance.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing does not say who the final demands are addressed to.\u0022},{\u0022span\u0022:\u0022They seem content to watch the larger factions tear each other apart.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022This attributes a stance to the Driftwood Tribe and implies a scale of war that the briefing does not give.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The lead item is handled reasonably. The second item\u0027s joke contradicts the briefing, though: it mocks the Empire for \u0027holding almost nothing\u0027 right after crediting it with twenty-one settlements. The first item also invents pressure on Varrowgate.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.4664095,
+      "inputTokens": 2728,
+      "outputTokens": 688
+    }
+  ]
+}

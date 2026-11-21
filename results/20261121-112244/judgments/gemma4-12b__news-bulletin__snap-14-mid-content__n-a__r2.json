@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-14-mid-content__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They are a small group with a very large appetite for other people\u0027s cargo.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies habitual raiding beyond the single reported raid.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate lead, but the \\\u0022insurance premiums\\\u0022 joke is modern-office language that jars with the RimWorld setting. The third item pads with faction counts and a generic quip, and the trade pact is restated rather than used as brief background.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.1187372,
+      "inputTokens": 2752,
+      "outputTokens": 437
+    }
+  ]
+}

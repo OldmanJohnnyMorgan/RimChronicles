@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-06-early-content__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Calder Combine continues to report good harvests along the delta. They claim the yield is excellent this cycle.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Re-presents old news as a fresh, ongoing report with a new claim attributed to the Combine.\u0022},{\u0022span\u0022:\u0022It is probably just a sign that they are waiting for something to happen.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022A loosely hedged inference about the Empire\u0027s motives, stated close to fact.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It leads correctly with the barge robbery, but the voice is flat and its jokes misfire (\u0027a proper statement\u0027, \u0027lying about the weather\u0027). The third item recycles the old harvest story as if it were current news.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.7985556,
+      "inputTokens": 2652,
+      "outputTokens": 558
+    }
+  ]
+}

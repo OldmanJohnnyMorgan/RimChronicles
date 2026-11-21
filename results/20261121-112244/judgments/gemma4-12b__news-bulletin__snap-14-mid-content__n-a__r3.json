@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-14-mid-content__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It is accurate and treats the trade pact properly as background, but the corporate phrasing (\u0027business model\u0027, \u0027profit margins\u0027) clashes with the frontier tone. The second item\u0027s wit is flat, so the voice reads more generic than the earlier bulletins.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.9440732,
+      "inputTokens": 2714,
+      "outputTokens": 413
+    }
+  ]
+}

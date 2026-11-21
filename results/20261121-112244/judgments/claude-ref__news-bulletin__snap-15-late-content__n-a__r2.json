@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-15-late-content__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:5,\u0022comment\u0022:\u0022The bulletin is accurate. It leads with the only new item and handles the quiet rest of the week by commenting drily on faction sizes. Every guess is framed as a guess, and the closing jab at Grinning Jack\u0027s arithmetic is sharp and does not reuse earlier jokes.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.0287162,
+      "inputTokens": 2739,
+      "outputTokens": 489
+    }
+  ]
+}

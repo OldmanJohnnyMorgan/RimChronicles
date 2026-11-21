@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-11-mid-content__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022This suggests a temporary truce, which is always a fragile thing.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies prior conflict and fragility; the briefing reports only a peace feast.\u0022},{\u0022span\u0022:\u0022continues to offer prizes for new inventions\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022States that old news is ongoing; the briefing does not say the prizes are still on offer.\u0022},{\u0022span\u0022:\u0022The Mire Rats remain a nuisance\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Adds an ongoing threat the briefing does not report.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022With only one new item, it pads the bulletin with two items of old news, recycled as if still developing. The wit is generic (\u0027Reports indicate\u0027, \u0027something shiny\u0027) and weaker than the sharp earlier bulletins.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.034805,
+      "inputTokens": 2712,
+      "outputTokens": 671
+    }
+  ]
+}

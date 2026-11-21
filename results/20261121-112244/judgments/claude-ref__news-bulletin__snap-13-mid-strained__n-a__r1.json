@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-13-mid-strained__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:5,\u0022comment\u0022:\u0022Accurate and well within length: it leads with the refusal, gets the arithmetic right (five remaining towns, seven against six), and hedges every guess. The dry asides, such as \u0027saves on envoys\u0027 and the \u0027larger handwriting\u0027, are fresh and fit the earlier bulletins\u0027 voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.6423421,
+      "inputTokens": 2774,
+      "outputTokens": 526
+    }
+  ]
+}

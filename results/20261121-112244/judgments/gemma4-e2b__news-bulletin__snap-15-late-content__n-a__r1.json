@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-15-late-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The archery dispute is now on its third day\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Repeats the earlier bulletin\u0027s \u0027third day\u0027 as the current state, which time since then contradicts.\u0022},{\u0022span\u0022:\u0022The Fox-Lantern Tribe\u0027s spring games continue.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies the games are still running; the briefing gives no current status.\u0022},{\u0022span\u0022:\u0022She promised less bother for the outlanders.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Loose paraphrase of the earlier promise (\u0027lower tolls and fewer speeches\u0027) that drifts from what was given.\u0022},{\u0022span\u0022:\u0022by the time the next council meeting convenes\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies a council and its meetings; the briefing mentions neither.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Only one item is new; the other two re-present old news as current and recycle the earlier bulletins\u0027 jokes. The \u0027third day\u0027 line is now stale, and the lead item has only two sentences.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 8.3796558,
+      "inputTokens": 2709,
+      "outputTokens": 707
+    }
+  ]
+}

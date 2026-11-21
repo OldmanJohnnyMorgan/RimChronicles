@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-09-mid-desperate__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Neither side has managed to secure any fish during this ongoing conflict.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022States as fact an outcome the briefing never gives; the earlier bulletin only hedged it with \u0027so far as I can tell\u0027.\u0022},{\u0022span\u0022:\u0022manage a leadership crisis\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies a consequence for the Lancers\u0027 leadership that the briefing does not state.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate, with the assassin guess properly hedged, but the second item recycles the earlier bulletin\u0027s fish joke and hardens its hedge into fact. The bulletin is also slightly under the 70-word minimum.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 8.2442592,
+      "inputTokens": 2685,
+      "outputTokens": 766
+    }
+  ]
+}

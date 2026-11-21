@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__inheritance-handoff__snap-16-late-desperate__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The silence in the small clearing\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing gives no ambush location. Placing Elske at a clearing with the body is an added setting.\u0022},{\u0022span\u0022:\u0022She looked toward the path where Dunmore had vanished.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022This implies Elske is at the ambush site, which the briefing does not establish. It only says Rook came home alone.\u0022},{\u0022span\u0022:\u0022the rifle slung across her back\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022A specific weapon not in the dossier, embellished from the Careful shooter trait.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The scene is clean and ends firmly on the heir\u0027s intent, but the prose is generic. Lines like \u0027too heavy, too final\u0027 and \u0027his presence suddenly absent\u0027 edge toward naming feeling rather than showing it, and the scene invents an ambush-site setting the briefing doesn\u0027t support.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 8.2251886,
+      "inputTokens": 2106,
+      "outputTokens": 704
+    }
+  ]
+}

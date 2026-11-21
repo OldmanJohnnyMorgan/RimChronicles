@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-03-early-strained__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They remain in their established patterns.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Unsupported claim about Kinn behaviour; the last bulletin had them on the move from grass fires.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate, and it handles the quiet week by commenting on faction sizes, but the voice is flat and generic. The Merrow cost line recycles the earlier prices joke, and filler like \u0027Another day passes\u0027 and \u0027this current cycle\u0027 weakens the wit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.8603581,
+      "inputTokens": 2712,
+      "outputTokens": 505
+    }
+  ]
+}

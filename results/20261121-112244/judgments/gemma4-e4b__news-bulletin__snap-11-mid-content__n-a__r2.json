@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-11-mid-content__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Mire Rats are still nowhere in sight after their marsh eviction.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing has no new information on the Mire Rats; their continued absence is stated as fact.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It leads correctly with the peace feast and frames its guesses as guesses, but the wit is thin and generic. The second item is mostly a restatement of old news, with a small unsupported claim about the Mire Rats.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.256639,
+      "inputTokens": 2652,
+      "outputTokens": 458
+    }
+  ]
+}

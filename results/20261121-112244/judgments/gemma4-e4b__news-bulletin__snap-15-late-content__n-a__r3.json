@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-15-late-content__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It seems the Choir is getting restless\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Inference about the Choir\u0027s mood, only lightly hedged; the briefing says nothing about restlessness.\u0022},{\u0022span\u0022:\u0022a group that likes to whisper\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Characterisation of the cult stated as fact; not in the briefing.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The output is accurate on the core facts and faction counts, but the voice is generic and the second item leans on a stock clich\u00E9 (\u0027lull before the next inevitable squabble\u0027). The first item also pads with mild unsupported characterisation of the Choir.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.5705191,
+      "inputTokens": 2672,
+      "outputTokens": 535
+    }
+  ]
+}

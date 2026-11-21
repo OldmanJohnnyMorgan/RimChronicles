@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__inheritance-handoff__snap-16-late-desperate__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022She traced the scorched earth where Bertram had fallen.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says only that Bertram was ambushed. Scorched ground at the spot is added detail.\u0022},{\u0022span\u0022:\u0022broken only by the distant sounds of the colony\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022This implies the ambush site is near the colony, which the briefing does not say.\u0022},{\u0022span\u0022:\u0022Elske stood by the wreckage of the last hunt.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022This places Elske at the ambush site and adds wreckage. The briefing only says Rook came home alone.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It is accurate in outline and ends on the heir\u0027s intent, but the prose is flat, choppy and stock (\u0027silence was heavy\u0027, \u0027gaze hardening\u0027). It also never shows the closeness of the friendship, and its small embellishments add scene-setting the briefing does not support.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.06207,
+      "inputTokens": 2129,
+      "outputTokens": 635
+    }
+  ]
+}

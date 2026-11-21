@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-11-mid-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Mire Rats remain confined to their two settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing gives two settlements but not that they are confined to them.\u0022},{\u0022span\u0022:\u0022the usual posturing has temporarily paused\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies prior hostility between the two factions, which the briefing does not state.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The peace feast leads correctly, but the bulletin then calls it a quiet week and spends its second item on old news and a disconnected Mire Rats line. At about 67 words it is below the 70-word minimum, and the wit is generic rather than sharp.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.8488442,
+      "inputTokens": 2625,
+      "outputTokens": 667
+    }
+  ]
+}

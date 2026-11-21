@@ -1,0 +1,51 @@
+{
+  "cell": "claude-ref__director__snap-02-early-content__off__r1",
+  "model": "claude-ref",
+  "task": "director",
+  "snapshot": "snap-02-early-content",
+  "grammar": "off",
+  "repeat": 1,
+  "promptVersion": "director/v1",
+  "outcome": "Model",
+  "value": "{\u0022choice\u0022: \u0022Seed:PastCatchesUp:p3\u0022, \u0022reason\u0022: \u0022Ilka joined on day 4 after fleeing a cult in the south, a natural thread for her past to catch up with her. The colony is content after its first potato harvest, so there is room to start a plot.\u0022}",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are the plot director for a story told through a RimWorld colony. You decide what happens next in the colony\u0027s plots.\n\nRules:\n- Choose exactly one option from the allowed list. Copy it exactly, character for character.\n- Choose \u0022Wait\u0022 if the colony is in crisis or the story needs a pause.\n- Prefer the option that follows most naturally from what has already happened.\n- Give a reason in one or two short sentences. Use only facts from the briefing.\n\nAnswer with JSON only, in this form:\n{\u0022choice\u0022: \u0022\u003Cone allowed option\u003E\u0022, \u0022reason\u0022: \u0022\u003Cone or two sentences\u003E\u0022}\n",
+        "user": "## The world\nDate: day 11 (Aprimay 5500).\nColony: Bramblewick, 4 people, wealth 21,400 silver, mood content.\n\nPeople:\n- Odette (34); traits: Kind, Too smart; backstory: Medieval lord\u0027s daughter; sister of Bastian.\n- Bastian (31); traits: Brawler, Hard worker; backstory: Urbworld enforcer; brother of Odette.\n- Ilka (52); traits: Ascetic; backstory: Cult escapee; joined after fleeing a cult in the south.\n- Fenn (19); traits: Nimble, Night owl; backstory: Pickpocket.\n\nHistory:\n- Day 4: Bastian recruited Ilka.\n- Day 9: Fenn tamed a muffalo named Barley.\n\nFactions:\n- The Glimmer Coast Company (Outlanders): goodwill \u002B25, 5 settlements.\n- Hollow Spire Pirates (Pirates): goodwill -75, 2 settlements.\n- The Tannerfolk (Tribe): goodwill \u002B10, 5 settlements, at war with Hollow Spire Pirates.\n\nRecent events:\n- Ilka recruited day 4\n- Barley the muffalo tamed day 9\n- First potato harvest day 10\n\n## Active plots\nNo active plots.\n\n## Allowed options\n- Wait\n- Seed:PastCatchesUp:p3\n\nChoose one allowed option.\n",
+        "maxOutputTokens": 300,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "choice": {
+              "type": "string",
+              "enum": [
+                "Wait",
+                "Seed:PastCatchesUp:p3"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "choice",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "ok": true,
+      "text": "{\u0022choice\u0022: \u0022Seed:PastCatchesUp:p3\u0022, \u0022reason\u0022: \u0022Ilka joined on day 4 after fleeing a cult in the south, a natural thread for her past to catch up with her. The colony is content after its first potato harvest, so there is room to start a plot.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.0314069,
+      "inputTokens": 677,
+      "outputTokens": 135,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022model\u0022:\u0022claude-opus-5-5\u0022,\u0022id\u0022:\u0022msg_011ChFAVFsuX15FUfHXK1TTE\u0022,\u0022type\u0022:\u0022message\u0022,\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:[{\u0022type\u0022:\u0022thinking\u0022,\u0022thinking\u0022:\u0022\u0022,\u0022signature\u0022:\u0022CAQS2gUKEAgUGAI4AUIIdGhpbmtpbmcSDJMVoVfudd6fufaXLxoM\\u002BVKPz3//rsNqp2zMIjBESmMke26WGQCGVc3z0h7r82dT1o74vSddhqIPrwQJNhWF\\u002B\\u002B9jJ4xM3lcS4d7TG/Qq9wTnjeR2f8W0Ec\\u002BwWsti8nlFgpsRMz7cGTf/YQQSG0ckDubkcUiq2wxLzV3r0XVivhsuyagNe8M1A4teAD9HeZkdRBnRzlzCDHveR3UU2DyT8omDAEb0eGHV\\u002BmHUYXluDQs8XjGcLWy39keBkEDcNK\\u002BcTY6NZhDJtSnJXfB52oIuNrROIy5wtAng7Gd7PsDMqxGpw4pg87MRY3d5st2ZS/RGbFGG9pB6VwMDr1IQ9H99MQ5eR9f2m8Ixca04w7sxrDI/730V7nys9sJ1\\u002BeZc7uSNFXpfj1lBFB5Hs03Ya/fTmXN478/e7Qm6ItIo3eB42MQuoIS3bHjZ7PjCZrQHVQW1biU/k18aqppWBzLW5UQjYQeY6WAw1B3bt9f4f5ym5dP3lybAwBVL7ornZdFcypeqqpUjF5QphVmiVFg3FPmrgXCzS\\u002Bw0d8/vn/UjiRGIN7zTRayeNOEX74n/9PZGTsJ8kTzyoWqeV2ijQbHG5LOi2mg2FnqIfjQd1L91jNf/szc2c7KVuNRKNV51d4bf7v3Db9UfB9LaRbNsqWwl1m8mBKEXphtc8BU9Ky\\u002BjEeX1g83hixgiBKZWa7BoknLmP5VrQRkNTSK9e403ZGjlP9IiwrV0HG74v75wwY/0fsIwwLThPiUVh1t\\u002BJdrBTHxM5MdrwuoZc9DFiyntG/OIxjnFLmbm7/28P\\u002BnVOILwMf6zi3\\u002Br2/dyI8ZTtkvcd/8u2sXgVB4drZi7rM9F5T8oamyhMPl8nXzdUSoV82Z9NP0SeNbSUbRLX95hFkMjfH7dtQ5UluAlxLZFCROtKXUB5gJrlzIY2n9G4l224rWZfhfT0XpIfrbPdw/GGAE=\u0022},{\u0022type\u0022:\u0022text\u0022,\u0022text\u0022:\u0022{\\u0022choice\\u0022: \\u0022Seed:PastCatchesUp:p3\\u0022, \\u0022reason\\u0022: \\u0022Ilka joined on day 4 after fleeing a cult in the south, a natural thread for her past to catch up with her. The colony is content after its first potato harvest, so there is room to start a plot.\\u0022}\u0022}],\u0022container\u0022:null,\u0022stop_reason\u0022:\u0022end_turn\u0022,\u0022stop_sequence\u0022:null,\u0022stop_details\u0022:null,\u0022usage\u0022:{\u0022input_tokens\u0022:677,\u0022cache_creation_input_tokens\u0022:0,\u0022cache_read_input_tokens\u0022:0,\u0022cache_creation\u0022:{\u0022ephemeral_5m_input_tokens\u0022:0,\u0022ephemeral_1h_input_tokens\u0022:0},\u0022iterations\u0022:[{\u0022input_tokens\u0022:677,\u0022output_tokens\u0022:135,\u0022cache_read_input_tokens\u0022:0,\u0022cache_creation_input_tokens\u0022:0,\u0022cache_creation\u0022:{\u0022ephemeral_5m_input_tokens\u0022:0,\u0022ephemeral_1h_input_tokens\u0022:0},\u0022type\u0022:\u0022message\u0022,\u0022model\u0022:null}],\u0022output_tokens\u0022:135,\u0022output_tokens_details\u0022:{\u0022thinking_tokens\u0022:43},\u0022service_tier\u0022:\u0022standard\u0022,\u0022inference_geo\u0022:\u0022global\u0022,\u0022speed\u0022:\u0022standard\u0022},\u0022diagnostics\u0022:null}"
+    }
+  ]
+}

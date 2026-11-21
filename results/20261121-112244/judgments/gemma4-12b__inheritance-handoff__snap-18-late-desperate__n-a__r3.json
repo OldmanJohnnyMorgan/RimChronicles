@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__inheritance-handoff__snap-18-late-desperate__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Elias knelt in the snow, his hands trembling as he smoothed the frozen fabric of his mother\u0027s coat. The wind howled through the pass\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The briefing never says Elias went to the pass or found her body.\u0022},{\u0022span\u0022:\u0022He pulled a crumpled letter from her pocket\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The letter exists, but that she carried it on the caravan is an embellishment.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It ends correctly on Elias\u0027s intent to reach Ada, but it invents a scene with Elias at the pass beside her body. It also leans on stock phrases (\u0027wind howled\u0027, \u0027would not let her sacrifice be for nothing\u0027) and has a muddled line where the letter\u0027s ink \u0027traces the path\u0027 of the blizzard.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.2644291,
+      "inputTokens": 2173,
+      "outputTokens": 660
+    }
+  ]
+}

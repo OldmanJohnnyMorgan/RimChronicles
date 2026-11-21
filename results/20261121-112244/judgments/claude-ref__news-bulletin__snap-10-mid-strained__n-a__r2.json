@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-10-mid-strained__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate and well hedged: it leads with the ransom offer, treats the old captives and bounty strictly as background, and pads the quiet second item with real faction counts. The closing line about a busy summer is limp filler, and \u0027the rim is counting\u0027 is slightly muddled.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.5147215,
+      "inputTokens": 2784,
+      "outputTokens": 405
+    }
+  ]
+}

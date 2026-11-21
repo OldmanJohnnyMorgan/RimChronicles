@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-07-mid-strained__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022their endless demands\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Embellishes the briefing\u0027s \u0027making demands\u0027 with a claim of scale.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Accurate but flat. It calls the only real news item \u0027hardly news\u0027 and then a \u0027quiet week\u0027, which undercuts the lead. The second and third items are padding about faction sizes with limp, repetitive guesses rather than the sharp, wry voice of the earlier bulletins.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.3467153,
+      "inputTokens": 2693,
+      "outputTokens": 509
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-17-late-strained__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They are small in number\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing gives only a settlement count, not the gang\u0027s membership size.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and correctly treats the stretch as quiet, but the wit is thin and generic: the second item barely has a joke, and the closing line repeats the opening. \u0027Stay relevant\u0027 also reads as modern phrasing.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.8081508,
+      "inputTokens": 2735,
+      "outputTokens": 472
+    }
+  ]
+}

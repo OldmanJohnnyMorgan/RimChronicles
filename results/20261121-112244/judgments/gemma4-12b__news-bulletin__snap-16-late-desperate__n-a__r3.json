@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-16-late-desperate__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Free Company remains active despite the new target on Dunmore\u2019s head.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing gives no current activity for the Free Company. This restates an old \u0027still loose\u0027 bulletin as present fact.\u0022},{\u0022span\u0022:\u0022a man who is already quite difficult to catch\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022This is an inference stated as fact. The briefing says nothing about attempts to catch him.\u0022},{\u0022span\u0022:\u0022a man who enjoys the company of pirates\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022It embellishes. The briefing calls him a mercenary whose company is a pirate faction, not someone who \u0027enjoys\u0027 pirates.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The bulletin omits the ambush near Gallowmere, the one concrete new detail, and pads a thin second item with unsupported claims about the Free Company. Some jokes are muddled: the Accord set the bounty, so it would pay the reward rather than collect one.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.3920642,
+      "inputTokens": 2675,
+      "outputTokens": 668
+    }
+  ]
+}

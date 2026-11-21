@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-05-early-desperate__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Ferrow Mutual now requires members to share patrols.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Not in the briefing. The earlier bulletin says the Mutual \u0027asked\u0027, not \u0027requires\u0027, and it is presented as new.\u0022},{\u0022span\u0022:\u0022They have also asked who is paying for the privilege.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Misattributed: the earlier bulletin says the members asked, not the Mutual itself.\u0022},{\u0022span\u0022:\u0022It is a charming way to manage a trade deficit.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies a trade deficit as the cause of the closure; the briefing gives no reason.\u0022},{\u0022span\u0022:\u0022for those with no permanent address\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Scythe Tooth has 5 settlements per the briefing.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Only the first item is new. The raids and the patrol story are old news presented as current, and the patrol item distorts and reuses the earlier bulletin\u0027s joke. Office-speak like \u0027diversify their portfolio\u0027 and \u0027fiscal policy\u0027 breaks the frontier tone.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 8.1736846,
+      "inputTokens": 2691,
+      "outputTokens": 826
+    }
+  ]
+}

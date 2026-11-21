@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-07-mid-strained__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The output is accurate: it leads with the toll demand and uses the Covenant\u0027s size and the old wagon loss only as background. The wit is thin and generic (\u0027certainly keeping busy\u0027, \u0027background noise\u0027) next to the earlier bulletins, and \u0027credits\u0027 jars where rim currency is silver.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.6165183,
+      "inputTokens": 2699,
+      "outputTokens": 430
+    }
+  ]
+}

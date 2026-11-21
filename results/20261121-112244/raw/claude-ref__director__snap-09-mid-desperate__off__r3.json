@@ -1,0 +1,52 @@
+{
+  "cell": "claude-ref__director__snap-09-mid-desperate__off__r3",
+  "model": "claude-ref",
+  "task": "director",
+  "snapshot": "snap-09-mid-desperate",
+  "grammar": "off",
+  "repeat": 3,
+  "promptVersion": "director/v1",
+  "outcome": "Model",
+  "value": "{\u0022choice\u0022: \u0022Wait\u0022, \u0022reason\u0022: \u0022Cinder Rest is in crisis, with an infection spreading, three colonists bedridden and mood desperate. Captain Rook Malley is already dead, so passing the grudge to Lene or Tamsin can wait until the colony recovers.\u0022}",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are the plot director for a story told through a RimWorld colony. You decide what happens next in the colony\u0027s plots.\n\nRules:\n- Choose exactly one option from the allowed list. Copy it exactly, character for character.\n- Choose \u0022Wait\u0022 if the colony is in crisis or the story needs a pause.\n- Prefer the option that follows most naturally from what has already happened.\n- Give a reason in one or two short sentences. Use only facts from the briefing.\n\nAnswer with JSON only, in this form:\n{\u0022choice\u0022: \u0022\u003Cone allowed option\u003E\u0022, \u0022reason\u0022: \u0022\u003Cone or two sentences\u003E\u0022}\n",
+        "user": "## The world\nDate: day 288 (Decembary 5504).\nColony: Cinder Rest, 8 people, wealth 121,000 silver, mood desperate.\n\nPeople:\n- Joska (42), dead; traits: Tough, Bloodlust; backstory: Pit fighter; husband of Lene, father of Tamsin.\n- Lene (39); traits: Iron-willed, Careful shooter; backstory: Bounty hunter; widow of Joska, mother of Tamsin.\n- Tamsin (17); traits: Nimble, Hot-tempered; backstory: Scavenger; daughter of Joska and Lene.\n- Orrin (60); traits: Kind; backstory: Doctor.\n- Vash (28); traits: Abrasive; backstory: Mechanoid nerd.\n\nHistory:\n- Day 201: Captain Rook Malley killed Pavo Inn and escaped.\n- Day 243: Captain Rook Malley maimed Joska and escaped.\n- Day 286: Captain Rook Malley killed Joska.\n- Day 286: Captain Rook Malley died.\n\nFactions:\n- Malley\u0027s Lancers (Pirates): goodwill -100, 1 settlement.\n- The Gray Wharf Syndicate (Outlanders): goodwill \u002B20, 6 settlements.\n- Embertail Tribe (Tribe): goodwill -30, 4 settlements, at war with The Gray Wharf Syndicate.\n\nRecent events:\n- Joska and Captain Rook Malley killed each other day 286\n- Infection spreading in the colony\n- Three colonists in bed\n\n## Active plots\n- nemesis-02 (Nemesis): beat Resolution, protagonist Joska. Captain Rook Malley killed the trader Pavo Inn, then maimed Joska. On day 286 Joska cornered Malley at the Lancers\u0027 camp; both died.\n\n## Allowed options\n- Wait\n- Resolution:InheritToKin:p3\n- Resolution:InheritToSpouse:p2\n\nChoose one allowed option.\n",
+        "maxOutputTokens": 300,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "choice": {
+              "type": "string",
+              "enum": [
+                "Wait",
+                "Resolution:InheritToKin:p3",
+                "Resolution:InheritToSpouse:p2"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "choice",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "ok": true,
+      "text": "{\u0022choice\u0022: \u0022Wait\u0022, \u0022reason\u0022: \u0022Cinder Rest is in crisis, with an infection spreading, three colonists bedridden and mood desperate. Captain Rook Malley is already dead, so passing the grudge to Lene or Tamsin can wait until the colony recovers.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.1468231,
+      "inputTokens": 883,
+      "outputTokens": 162,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022model\u0022:\u0022claude-opus-5-5\u0022,\u0022id\u0022:\u0022msg_011ChFPtL1MHPv7eADgRNdci\u0022,\u0022type\u0022:\u0022message\u0022,\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:[{\u0022type\u0022:\u0022thinking\u0022,\u0022thinking\u0022:\u0022\u0022,\u0022signature\u0022:\u0022CAQSlQYKEAgUGAI4AUIIdGhpbmtpbmcSDNLmniY\\u002BH1idqIyL4RoM3I17SRQ3Sx6rFdY6IjBzEF09jMtrY4ZzdotoIc7pD7UAsFV1tBHnIvkes8Rcirn3ovHOJrEvYyZfBO3GnfYqsgU9UPMAI0/wAqscwW9Cx9uzGSRhC/aDwm7x\\u002B\\u002BESQ7IEyaEudKYTj19D5C\\u002B9H5LmTkEBRQBIuQr42LuBC3qLkFumnzbNyx35Svm1e7u08J3f4t6GUvVphPpMHqw\\u002B5x8c3BZCq/SIYoIP7IidJDpX4T74yq0L/lMrVvEOGkDnfqEkTn4EZ92Yw0TH\\u002Bhp5qi3jlktkS/TNxDd1C8iqZJl2Fz0Zd994rR4dhjW5J2BOMrzj6wSG\\u002BG3WUU3YoRA1Z\\u002BLtsV6EpZh\\u002Bgn6JsiwYTMGFZD7/mlS1ZK1w7FHWTMt0cmcoKSEf7Wi9rbpXIMrIyhDo6DTBDp5YXGRrfsj1gNhRO3CdR7LPdt5E9htw5dQqoBguzkcHovchNwYyqifulxFcM1F52BhMiHsov67uJkQk5Q3zOS\\u002BBqf0L5EYkKvv3qCIWekJ2CHP0wZGQ\\u002BSwmwvTIfHpgJ73di4\\u002BPLmXfX4/MPZFBGva1OzfFkKQpjl2WcGJzh1mbWC1C31lvSfMbCPP3tXgzD6NuK5dElE/Ua7dq4pgi1BI4rIAhkGsEYKJLxPaAjRpPqY8qLa6erOg5HenI\\u002BSAzEckcUheYCTrir7DpXkhrU9cEAieaGOxlfSv3ZGEbEhitDCB3kfLggklZnn\\u002Bj5m1R0xhc1OuZh6BN8vcpBOUGju81fNJpeMTmbzkY8rpHGHJnAzbdjr297GQQqr049WAbTdQtwerui86ey82QvUiZu4RaJKUoR5vssRo94jWvulnrNuXnh41H4n2EO0ilPOWDW4ngJgBMVQ4BAeC8deP9h5XxEnTlX1vBkrkaoNdiVvBhLf5yy62zfUB7ETdfq3ZJ8zL2mcIh3wmEZ0ogmyF8iOVoYu8S6teqFhW6T\\u002B3yA7f65TpMxUB2OyRiu6LKlCynELAASGxJBzv2jDBQTr\\u002BHe9oYAQ==\u0022},{\u0022type\u0022:\u0022text\u0022,\u0022text\u0022:\u0022{\\u0022choice\\u0022: \\u0022Wait\\u0022, \\u0022reason\\u0022: \\u0022Cinder Rest is in crisis, with an infection spreading, three colonists bedridden and mood desperate. Captain Rook Malley is already dead, so passing the grudge to Lene or Tamsin can wait until the colony recovers.\\u0022}\u0022}],\u0022container\u0022:null,\u0022stop_reason\u0022:\u0022end_turn\u0022,\u0022stop_sequence\u0022:null,\u0022stop_details\u0022:null,\u0022usage\u0022:{\u0022input_tokens\u0022:883,\u0022cache_creation_input_tokens\u0022:0,\u0022cache_read_input_tokens\u0022:0,\u0022cache_creation\u0022:{\u0022ephemeral_5m_input_tokens\u0022:0,\u0022ephemeral_1h_input_tokens\u0022:0},\u0022iterations\u0022:[{\u0022input_tokens\u0022:883,\u0022output_tokens\u0022:162,\u0022cache_read_input_tokens\u0022:0,\u0022cache_creation_input_tokens\u0022:0,\u0022cache_creation\u0022:{\u0022ephemeral_5m_input_tokens\u0022:0,\u0022ephemeral_1h_input_tokens\u0022:0},\u0022type\u0022:\u0022message\u0022,\u0022model\u0022:null}],\u0022output_tokens\u0022:162,\u0022output_tokens_details\u0022:{\u0022thinking_tokens\u0022:66},\u0022service_tier\u0022:\u0022standard\u0022,\u0022inference_geo\u0022:\u0022global\u0022,\u0022speed\u0022:\u0022standard\u0022},\u0022diagnostics\u0022:null}"
+    }
+  ]
+}

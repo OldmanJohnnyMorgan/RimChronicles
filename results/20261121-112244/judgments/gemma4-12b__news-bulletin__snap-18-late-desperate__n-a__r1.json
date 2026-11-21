@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-18-late-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It is a shame to see such effort buried in the snow.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says only that the caravan was lost. \u0027Buried in the snow\u0027 states a consequence as fact.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It leads correctly with the new item, and its guesses are mostly framed as guesses. But the voice lacks Tomas\u0027s earnest worry, the \u0027frozen snack\u0027 joke reads as callous, and the second and third items are bland filler built on old news and faction counts.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.4840393,
+      "inputTokens": 2711,
+      "outputTokens": 577
+    }
+  ]
+}

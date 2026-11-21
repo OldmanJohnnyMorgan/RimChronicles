@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__inheritance-handoff__snap-18-late-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022traced the faded ink on the letter\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The letter is only about two months old; \u0027faded\u0027 is an added detail.\u0022},{\u0022span\u0022:\u0022The memory of the blizzard, the loss of the caravan, settled in his chest\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027Memory\u0027 implies Elias was on the caravan or witnessed the blizzard, which the briefing never says.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It is accurate in outline and ends on a clear intent, but the prose is flat. It breaks the rule against naming emotions (\u0027the anxiety tightening his jaw\u0027), and its final lines read like a summary rather than a moment.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.7276297,
+      "inputTokens": 2107,
+      "outputTokens": 477
+    }
+  ]
+}

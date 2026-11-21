@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-15-late-content__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The bulletin is accurate and sticks to the briefing, with its guesses properly hedged. The wit is thin, though: the Leopold item rests on two near-identical speculations and the \u0027lost trinket\u0027 line lands oddly. The quiet-week paragraph ends on a generic platitude rather than the sharper dryness of the earlier bulletins.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.9903885,
+      "inputTokens": 2663,
+      "outputTokens": 538
+    }
+  ]
+}

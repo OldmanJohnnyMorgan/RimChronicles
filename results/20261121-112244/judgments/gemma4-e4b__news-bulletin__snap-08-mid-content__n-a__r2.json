@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-08-mid-content__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the collective wisdom of the Accord council\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing never mentions an Accord council; the joke presupposes a governing body.\u0022},{\u0022span\u0022:\u0022The Lantern Accord continues its trade fair at Lantern Hill.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing only says the Accord is hosting the fair; that it is still running now is an inference.\u0022},{\u0022span\u0022:\u0022They still insist on fair prices\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Restates the earlier bulletin\u0027s promise as a fresh, ongoing claim the briefing does not report.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It leads correctly with the sculpture and frames its guesses properly. But the second item recycles old news and the earlier \u0027fair prices\u0027 joke, and \u0027in this economy\u0027 is modern phrasing that jars with the frontier tone.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 8.2642743,
+      "inputTokens": 2676,
+      "outputTokens": 720
+    }
+  ]
+}

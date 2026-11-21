@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-10-mid-strained__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022however temporary that truce might be\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies a truce results from the offer; the briefing mentions only an offer of silver.\u0022},{\u0022span\u0022:\u0022They maintain their bounty on the Stonecutter leaders.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022States the bounty is still in force; the briefing only says it was raised, in old news.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate and the guesses are mostly hedged, but the \u0027truce\u0027 is an unsupported implication. The second item recycles old news and reuses the earlier bulletin\u0027s \u0027bounty will go unclaimed\u0027 joke instead of commenting drily on the quiet week.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.2489789,
+      "inputTokens": 2708,
+      "outputTokens": 580
+    }
+  ]
+}

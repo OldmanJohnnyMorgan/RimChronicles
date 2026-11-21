@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-12-mid-desperate__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022continues its peculiar habit of acquiring medical personnel\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies repeated captures; the briefing mentions only one captive doctor.\u0022},{\u0022span\u0022:\u0022signals a shift in the usual strained quietude\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies existing strained relations and a policy shift that the briefing does not give.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It leads correctly with the envoys and keeps old news mostly as background. But the voice reads stiff and bureaucratic (\u0027medical asset\u0027, \u0027quietude\u0027, \u0027atmospheric conditions\u0027), lacking the earlier bulletins\u0027 bite, and the second item recycles old news with a slight embellishment.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 8.4687374,
+      "inputTokens": 2767,
+      "outputTokens": 776
+    }
+  ]
+}

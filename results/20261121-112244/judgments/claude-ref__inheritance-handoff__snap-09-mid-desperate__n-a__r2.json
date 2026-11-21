@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__inheritance-handoff__snap-09-mid-desperate__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They carried Joska home to Cinder Rest on a door\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing never says the body was recovered from the Lancer-held camp.\u0022},{\u0022span\u0022:\u0022his knuckles still split from the fight\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Added physical detail not in the briefing.\u0022},{\u0022span\u0022:\u0022unwound the fighting wraps from her father\u0027s hands\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022An invented item, though it is in keeping with his pit-fighter backstory.\u0022}],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A restrained, well-observed scene: the inherited wraps, too long for her wrists, show grief and resolve without naming either, and it ends cleanly on Tamsin\u0027s intent. The only problems are small invented details, chiefly the recovery of the body from a camp the Lancers still hold.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.8503367,
+      "inputTokens": 2199,
+      "outputTokens": 565
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-16-late-desperate__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The mercenary earned it after an ambush near Gallowmere.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027Earned it\u0027 implies Dunmore carried out the ambush; the briefing says only that the price followed an ambush, not who ambushed whom.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A clean, dry bulletin that leads correctly with the bounty and uses faction sizes well for the quiet items. However, \u0027earned it\u0027 quietly assigns blame for the ambush, which the briefing does not.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.3596208,
+      "inputTokens": 2759,
+      "outputTokens": 487
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "cell": "gemma4-12b__director__snap-13-mid-strained__off__r3",
+  "model": "gemma4-12b",
+  "task": "director",
+  "snapshot": "snap-13-mid-strained",
+  "grammar": "off",
+  "repeat": 3,
+  "promptVersion": "director/v1",
+  "outcome": "Model",
+  "value": "\u0060\u0060\u0060json\n{\u0022choice\u0022: \u0022Empire:DemandTribute\u0022, \u0022reason\u0022: \u0022The Sun Throne has already sent an envoy and is seeking tribute from nearby towns. This follows the most logical progression of the empire\u0027s current \u0027Stirring\u0027 state.\u0022}\n\u0060\u0060\u0060",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are the plot director for a story told through a RimWorld colony. You decide what happens next in the colony\u0027s plots.\n\nRules:\n- Choose exactly one option from the allowed list. Copy it exactly, character for character.\n- Choose \u0022Wait\u0022 if the colony is in crisis or the story needs a pause.\n- Prefer the option that follows most naturally from what has already happened.\n- Give a reason in one or two short sentences. Use only facts from the briefing.\n\nAnswer with JSON only, in this form:\n{\u0022choice\u0022: \u0022\u003Cone allowed option\u003E\u0022, \u0022reason\u0022: \u0022\u003Cone or two sentences\u003E\u0022}\n",
+        "user": "## The world\nDate: day 254 (Aprimay 5504).\nColony: Stonewake, 9 people, wealth 176,000 silver, mood strained.\n\nPeople:\n- Corvin (40); traits: Steadfast, Too smart; backstory: Noble; once held an Imperial title.\n- Liesl (33); traits: Kind; backstory: Archivist.\n- Darro (29); traits: Brawler; backstory: Gladiator.\n- Yusra (36); traits: Industrious; backstory: Smith.\n\nHistory:\n- Day 230: Corvin refused a title from The Sun Throne.\n- Day 249: an envoy of The Sun Throne visited Stonewake.\n\nFactions:\n- The Sun Throne (Empire): goodwill -25, 6 settlements, Empire state: Stirring.\n- The Cobalt Free Towns (Outlanders): goodwill \u002B30, 7 settlements.\n- Rustback Raiders (Pirates): goodwill -80, 3 settlements.\n\nRecent events:\n- Corvin refused an Imperial title day 230\n- Imperial envoy visited day 249 and left unhappy\n- Colonists argue over whether to submit\n\n## Active plots\n- empire-01 (Awakened Empire): beat Stirring, protagonist Stonewake. Corvin refused an Imperial title on day 230. The Sun Throne has woken and sent an envoy demanding tribute from nearby towns.\n\n## Allowed options\n- Wait\n- Empire:EnvoyReturns\n- Empire:DemandTribute\n- Empire:Awaken\n\nChoose one allowed option.\n",
+        "maxOutputTokens": 300,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "choice": {
+              "type": "string",
+              "enum": [
+                "Wait",
+                "Empire:EnvoyReturns",
+                "Empire:DemandTribute",
+                "Empire:Awaken"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "choice",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "ok": true,
+      "text": "\u0060\u0060\u0060json\n{\u0022choice\u0022: \u0022Empire:DemandTribute\u0022, \u0022reason\u0022: \u0022The Sun Throne has already sent an envoy and is seeking tribute from nearby towns. This follows the most logical progression of the empire\u0027s current \u0027Stirring\u0027 state.\u0022}\n\u0060\u0060\u0060",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 0.7527843,
+      "inputTokens": 505,
+      "outputTokens": 56,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-198\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795232506,\u0022model\u0022:\u0022gemma4:12b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022\u0060\u0060\u0060json\\n{\\\u0022choice\\\u0022: \\\u0022Empire:DemandTribute\\\u0022, \\\u0022reason\\\u0022: \\\u0022The Sun Throne has already sent an envoy and is seeking tribute from nearby towns. This follows the most logical progression of the empire\u0027s current \u0027Stirring\u0027 state.\\\u0022}\\n\u0060\u0060\u0060\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:505,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:500},\u0022completion_tokens\u0022:56,\u0022total_tokens\u0022:561}}\n"
+    }
+  ]
+}

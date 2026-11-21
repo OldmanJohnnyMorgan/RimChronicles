@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-17-late-strained__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022This is an accurate quiet-week bulletin. It uses only briefing facts, keeps old news as background and frames its guesses properly. The voice is dry and consistent, though a little safe compared with the sharper earlier bulletins.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.7682327,
+      "inputTokens": 2802,
+      "outputTokens": 401
+    }
+  ]
+}

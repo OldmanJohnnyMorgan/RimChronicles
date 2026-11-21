@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-13-mid-strained__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The bulletin is accurate and drily funny, and it pads a thin week with correct arithmetic about faction sizes and properly hedged guesses. The \u0027bet my boots\u0027 line leans on the earlier bulletin\u0027s boots joke, which edges toward reuse.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.5364241,
+      "inputTokens": 2785,
+      "outputTokens": 469
+    }
+  ]
+}

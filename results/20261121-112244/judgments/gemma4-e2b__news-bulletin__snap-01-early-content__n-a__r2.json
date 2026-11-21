@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-01-early-content__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It sticks to the briefing\u0027s facts and frames its guesses properly. However, it crams both new items into one paragraph, and modern phrases like \u0027monetize the landscape\u0027 and \u0027keep the lights on\u0027 don\u0027t fit the frontier tone. The faction items read as generic filler rather than dry wit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.3684345,
+      "inputTokens": 2554,
+      "outputTokens": 415
+    }
+  ]
+}

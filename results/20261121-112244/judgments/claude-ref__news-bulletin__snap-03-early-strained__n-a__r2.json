@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-03-early-strained__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022This is an accurate quiet-week bulletin, and the faction arithmetic (seven equals four plus three) is correct, with dry asides throughout. It loses a little by saying \u0027no raids\u0027 twice, and the third item mostly restates the first.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.7147996,
+      "inputTokens": 2749,
+      "outputTokens": 411
+    }
+  ]
+}

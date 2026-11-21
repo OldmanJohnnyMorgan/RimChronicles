@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-19-late-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022besieging the Marrow League settlements\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says the League is being besieged, not which or how many of its settlements.\u0022},{\u0022span\u0022:\u0022relentless expansion\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027Relentless\u0027 adds scale and manner to the plain \u0027expanding by force\u0027.\u0022},{\u0022span\u0022:\u0022temporary sanctuary\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Nothing in the briefing says the shelter is temporary.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The prose is flat and generic, with little of Odile\u0027s sardonic precision. The third item is a muddled two-sentence remark about Last Lantern being an \u0027unlisted entity\u0027 that reads like the writer talking about its briefing, and it ignores the stated war with the Sun Throne.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.1290837,
+      "inputTokens": 2718,
+      "outputTokens": 715
+    }
+  ]
+}

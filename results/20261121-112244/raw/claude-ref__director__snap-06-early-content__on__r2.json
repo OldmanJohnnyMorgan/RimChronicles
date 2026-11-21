@@ -1,0 +1,51 @@
+{
+  "cell": "claude-ref__director__snap-06-early-content__on__r2",
+  "model": "claude-ref",
+  "task": "director",
+  "snapshot": "snap-06-early-content",
+  "grammar": "on",
+  "repeat": 2,
+  "promptVersion": "director/v1",
+  "outcome": "Model",
+  "value": "{\u0022choice\u0022:\u0022Seed:PastCatchesUp:p1\u0022,\u0022reason\u0022:\u0022The colony is content with no active plots, and Augustin\u0027s exile from an Imperial house sets up a natural past-catches-up thread involving the dormant Sundered Throne.\u0022}",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are the plot director for a story told through a RimWorld colony. You decide what happens next in the colony\u0027s plots.\n\nRules:\n- Choose exactly one option from the allowed list. Copy it exactly, character for character.\n- Choose \u0022Wait\u0022 if the colony is in crisis or the story needs a pause.\n- Prefer the option that follows most naturally from what has already happened.\n- Give a reason in one or two short sentences. Use only facts from the briefing.\n\nAnswer with JSON only, in this form:\n{\u0022choice\u0022: \u0022\u003Cone allowed option\u003E\u0022, \u0022reason\u0022: \u0022\u003Cone or two sentences\u003E\u0022}\n",
+        "user": "## The world\nDate: day 5 (Aprimay 5500).\nColony: Saltreed, 4 people, wealth 14,700 silver, mood content.\n\nPeople:\n- Augustin (48); traits: Jogger, Kind; backstory: Noble; exiled from an Imperial house.\n- Mira (26); traits: Beautiful, Hard worker; backstory: Model.\n- Tobiah (39); traits: Green thumb; backstory: Botanist; husband of Rhea.\n- Rhea (37); traits: Tough; backstory: Hunter; wife of Tobiah.\n\nHistory:\n- Day 3: Tobiah married Rhea.\n\nFactions:\n- The Calder Combine (Outlanders): goodwill \u002B30, 5 settlements.\n- Ditch Kings (Pirates): goodwill -70, 2 settlements.\n- The Sundered Throne (Empire): goodwill 0, 3 settlements, Empire state: Dormant.\n\nRecent events:\n- Tobiah and Rhea married day 3\n- A herd of alpacas passed through day 4\n\n## Active plots\nNo active plots.\n\n## Allowed options\n- Wait\n- Seed:PastCatchesUp:p1\n\nChoose one allowed option.\n",
+        "maxOutputTokens": 300,
+        "useGrammar": true,
+        "thinking": "Off",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "choice": {
+              "type": "string",
+              "enum": [
+                "Wait",
+                "Seed:PastCatchesUp:p1"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "choice",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "ok": true,
+      "text": "{\u0022choice\u0022:\u0022Seed:PastCatchesUp:p1\u0022,\u0022reason\u0022:\u0022The colony is content with no active plots, and Augustin\u0027s exile from an Imperial house sets up a natural past-catches-up thread involving the dormant Sundered Throne.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.1150591,
+      "inputTokens": 854,
+      "outputTokens": 83,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022model\u0022:\u0022claude-opus-5-5\u0022,\u0022id\u0022:\u0022msg_011ChFPsny3XvMvWmAjYtNS7\u0022,\u0022type\u0022:\u0022message\u0022,\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:[{\u0022type\u0022:\u0022text\u0022,\u0022text\u0022:\u0022{\\u0022choice\\u0022:\\u0022Seed:PastCatchesUp:p1\\u0022,\\u0022reason\\u0022:\\u0022The colony is content with no active plots, and Augustin\\u0027s exile from an Imperial house sets up a natural past-catches-up thread involving the dormant Sundered Throne.\\u0022}\u0022}],\u0022container\u0022:null,\u0022stop_reason\u0022:\u0022end_turn\u0022,\u0022stop_sequence\u0022:null,\u0022stop_details\u0022:null,\u0022usage\u0022:{\u0022input_tokens\u0022:854,\u0022cache_creation_input_tokens\u0022:0,\u0022cache_read_input_tokens\u0022:0,\u0022cache_creation\u0022:{\u0022ephemeral_5m_input_tokens\u0022:0,\u0022ephemeral_1h_input_tokens\u0022:0},\u0022iterations\u0022:[{\u0022input_tokens\u0022:854,\u0022output_tokens\u0022:83,\u0022cache_read_input_tokens\u0022:0,\u0022cache_creation_input_tokens\u0022:0,\u0022cache_creation\u0022:{\u0022ephemeral_5m_input_tokens\u0022:0,\u0022ephemeral_1h_input_tokens\u0022:0},\u0022type\u0022:\u0022message\u0022,\u0022model\u0022:null}],\u0022output_tokens\u0022:83,\u0022output_tokens_details\u0022:{\u0022thinking_tokens\u0022:0},\u0022service_tier\u0022:\u0022standard\u0022,\u0022inference_geo\u0022:\u0022global\u0022,\u0022speed\u0022:\u0022standard\u0022},\u0022diagnostics\u0022:null}"
+    }
+  ]
+}

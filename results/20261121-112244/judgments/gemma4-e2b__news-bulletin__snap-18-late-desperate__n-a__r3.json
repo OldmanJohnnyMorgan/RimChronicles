@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-18-late-desperate__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Anyone can reach them, but getting there is the real hurdle.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Garbles the earlier bulletin, which said the granaries were open to anyone who *can* reach them.\u0022},{\u0022span\u0022:\u0022The faction counts remain as they were.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies earlier counts were reported; the briefing gives no prior figures.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It leads correctly with the lost caravan, but then re-presents the granary story from the latest bulletin as if it were new. The faction-count paragraph is a flat list padded to fill space. \u0027Just another Tuesday\u0027 is a modern idiom, and the dismissive tone misses the earnest, quick-to-worry persona.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 9.358158,
+      "inputTokens": 2738,
+      "outputTokens": 838
+    }
+  ]
+}

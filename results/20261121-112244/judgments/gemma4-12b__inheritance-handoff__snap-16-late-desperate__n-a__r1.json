@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__inheritance-handoff__snap-16-late-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Beside them, Rook let out a low, mourning whine\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The briefing says Rook came home alone. Placing him beside the body with Elske at the death site contradicts that.\u0022},{\u0022span\u0022:\u0022The heavy weight of his mercenary rifle lay in the grass, its barrel still warm\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The weapon is not in the briefing, and \u0027still warm\u0027 implies Elske reached him moments after the ambush.\u0022},{\u0022span\u0022:\u0022the jagged scar on Bertram\u0027s chest\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022An invented physical detail. A scar also reads oddly for a fresh death wound.\u0022},{\u0022span\u0022:\u0022her own sidearm\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022An item the briefing does not give.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The scene is clear and shows feeling through action, but it puts Elske and Rook at the body when the briefing has Rook coming home alone. It also leans on clich\u00E9s (\u0027knuckles turning white\u0027, \u0027mask of stone\u0027) and ends on checking a chamber rather than plainly stating what Elske means to do.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 8.5216529,
+      "inputTokens": 2174,
+      "outputTokens": 797
+    }
+  ]
+}

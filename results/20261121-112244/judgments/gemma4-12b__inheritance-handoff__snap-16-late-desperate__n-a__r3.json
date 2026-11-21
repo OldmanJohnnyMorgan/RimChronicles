@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__inheritance-handoff__snap-16-late-desperate__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022pulling out the notched hunting knife he had carried for years\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The briefing names no such knife; this is a new item with an invented history.\u0022},{\u0022span\u0022:\u0022Bertram\u2019s cooling cheek\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Places Elske at a freshly dead body with Rook beside her, which sits awkwardly with Rook coming home alone. It also clashes with the \u0027dried blood\u0027 in the same sentence.\u0022},{\u0022span\u0022:\u0022The heavy weight of his mercenary gear\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Embellishes his Mercenary backstory into physical gear he was wearing.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The scene is clear and ends on Elske\u0027s intent to hunt Dunmore, but it invents a significant heirloom knife. It also leans on clich\u00E9s like the white knuckles, the hardening gaze and the mourning howl, and the setting conflicts with Rook coming home alone.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 9.8942466,
+      "inputTokens": 2179,
+      "outputTokens": 809
+    }
+  ]
+}

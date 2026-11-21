@@ -1,0 +1,32 @@
+{
+  "cell": "gemma4-12b__inheritance-handoff__snap-09-mid-desperate__n-a__r3",
+  "model": "gemma4-12b",
+  "task": "inheritance-handoff",
+  "snapshot": "snap-09-mid-desperate",
+  "grammar": "n/a",
+  "repeat": 3,
+  "promptVersion": "inheritance-handoff/v1",
+  "outcome": "Model",
+  "value": "Tamsin knelt in the dirt, her hands trembling as she gripped her father\u2019s heavy, notched blade. The metal was still warm from the struggle. Beside her, the body of Rook Malley lay cooling, a silent testament to Joska\u2019s final stand. She looked at the jagged scar on her father\u0027s arm, then at the Lancers\u0027 banners fluttering in the distance. Her knuckles whitened against the hilt. She didn\u0027t look at her mother. Instead, she stood, her breath hitching in her chest as she turned toward the camp. She would find the new captain and finish what her father started.",
+  "attempts": [
+    {
+      "request": {
+        "system": "You write short scenes for a story told through a RimWorld colony.\n\nThe main character of a story has died. Someone close to them now takes up that story as their own. Write the moment it passes to them.\n\nRules:\n- 60 to 120 words.\n- Use the relationship between the two exactly as given.\n- Use only names and facts from the dossiers and the story so far.\n- Show feeling through actions and small details, not by naming emotions.\n- End on what the heir now means to do.\n- Write only the scene: no title, no notes, no word count.\n",
+        "user": "## The one who died\nJoska (42), dead; traits: Tough, Bloodlust; backstory: Pit fighter; husband of Lene, father of Tamsin.\nHistory:\n- Day 243: Captain Rook Malley maimed Joska and escaped.\n- Day 286: Captain Rook Malley killed Joska.\n\n## The heir\nTamsin (17); traits: Nimble, Hot-tempered; backstory: Scavenger; daughter of Joska and Lene.\n\n## Their relationship\nTamsin was Joska\u0027s daughter.\n\n## The story so far\nJoska spent a year hunting the pirate captain Rook Malley, who maimed him. He finally caught Malley at the Lancers\u0027 camp, and both died in the fight. Malley\u0027s Lancers still hold the camp, and their new captain has sworn revenge on Cinder Rest.\n\nWrite the scene now.\n",
+        "maxOutputTokens": 400,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "Tamsin knelt in the dirt, her hands trembling as she gripped her father\u2019s heavy, notched blade. The metal was still warm from the struggle. Beside her, the body of Rook Malley lay cooling, a silent testament to Joska\u2019s final stand. She looked at the jagged scar on her father\u0027s arm, then at the Lancers\u0027 banners fluttering in the distance. Her knuckles whitened against the hilt. She didn\u0027t look at her mother. Instead, she stood, her breath hitching in her chest as she turned toward the camp. She would find the new captain and finish what her father started.",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 1.9197207,
+      "inputTokens": 349,
+      "outputTokens": 131,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-871\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795232713,\u0022model\u0022:\u0022gemma4:12b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022Tamsin knelt in the dirt, her hands trembling as she gripped her father\u2019s heavy, notched blade. The metal was still warm from the struggle. Beside her, the body of Rook Malley lay cooling, a silent testament to Joska\u2019s final stand. She looked at the jagged scar on her father\u0027s arm, then at the Lancers\u0027 banners fluttering in the distance. Her knuckles whitened against the hilt. She didn\u0027t look at her mother. Instead, she stood, her breath hitching in her chest as she turned toward the camp. She would find the new captain and finish what her father started.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:349,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:344},\u0022completion_tokens\u0022:131,\u0022total_tokens\u0022:480}}\n"
+    }
+  ]
+}

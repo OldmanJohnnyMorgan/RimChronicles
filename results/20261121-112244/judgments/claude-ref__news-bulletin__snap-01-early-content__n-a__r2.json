@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-01-early-content__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The bulletin is accurate and stays within the briefing. Every guess is framed as a guess, and the dry voice holds throughout, as in \u0027Forecasts cost nothing, which is roughly what most of them are worth.\u0027 The hedge \u0027might presumably\u0027 is clumsy, and the third item is slightly thin.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.806812,
+      "inputTokens": 2576,
+      "outputTokens": 505
+    }
+  ]
+}

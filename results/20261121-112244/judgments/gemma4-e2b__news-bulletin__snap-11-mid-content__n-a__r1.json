@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-11-mid-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Reports indicate the Hearthguard Compact is still offering prizes for new inventions.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Old news is re-presented as a fresh report, and the claim that the prizes are still on offer is unsupported.\u0022},{\u0022span\u0022:\u0022The Mire Rats remain a nuisance\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Adds an ongoing threat the briefing does not mention.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate, but two of the three paragraphs pad the bulletin by rehashing old news as current. The wit is generic and repetitive: \u0027peace lasts until fighting starts\u0027 and \u0027waiting to cause trouble\u0027 are flat cynicism rather than the sharp eye for the absurd seen in the earlier bulletins.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.6526436,
+      "inputTokens": 2737,
+      "outputTokens": 543
+    }
+  ]
+}

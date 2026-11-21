@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-13-mid-strained__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Their envoys are apparently quite persistent in their negotiations.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing only says envoys make demands. Persistence and negotiations are added manner.\u0022},{\u0022span\u0022:\u0022The faction counts remain stable.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing gives current counts, not whether they have changed.\u0022},{\u0022span\u0022:\u0022One suspects the Cobalt Free Towns are enjoying this unexpected lull.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022It implies a lull, which contradicts the item\u0027s own news of a tribute refusal.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item reports the refusal accurately with a framed guess. The second item rehashes old tribute news, and the third calls it a quiet week with an \u0027unexpected lull\u0027 right after a defiance story, which reads as padding. The wit is mild and generic next to the earlier bulletins.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.8818365,
+      "inputTokens": 2761,
+      "outputTokens": 617
+    }
+  ]
+}

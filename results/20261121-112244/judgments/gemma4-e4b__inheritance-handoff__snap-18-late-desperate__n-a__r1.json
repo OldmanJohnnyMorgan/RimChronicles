@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__inheritance-handoff__snap-18-late-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Constance\u2019s teaching manual\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Embellishes her teacher backstory with an object the briefing never mentions.\u0022},{\u0022span\u0022:\u0022The letter from Ada, still tucked into the binding\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The letter\u0027s whereabouts are never given; implies it stayed behind rather than going with her on the caravan.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The small physical details are restrained and fit the game, but the ending is too oblique to say what Elias means to do. A shelter sketch hints at the passes without ever naming Ada or the village. \\\u0022He remembered her iron will\\\u0022 also restates a trait instead of showing it.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.9935078,
+      "inputTokens": 2109,
+      "outputTokens": 575
+    }
+  ]
+}

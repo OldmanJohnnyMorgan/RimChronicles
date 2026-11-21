@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-19-late-desperate__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate and well ordered: it leads with the siege, keeps Fenwick as background, and gets its comedy from the briefing\u0027s own numbers. The \u0027generous curve\u0027 grading joke reads slightly modern-classroom, and the second item is a quiet-week filler that lands softer than the first.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.4338756,
+      "inputTokens": 2753,
+      "outputTokens": 448
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-16-late-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate and dry, and it handles the missing ambush details honestly. It does recycle the previous bulletin\u0027s \u0027be elsewhere\u0027 joke against instructions, and that callback\u0027s \u0027added incentive not to be\u0027 is muddled.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.7726436,
+      "inputTokens": 2747,
+      "outputTokens": 514
+    }
+  ]
+}

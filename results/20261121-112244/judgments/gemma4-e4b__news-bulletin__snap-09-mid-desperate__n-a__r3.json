@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-09-mid-desperate__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022He was found at his own camp.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says he was killed at his camp. \u0027Found\u0027 implies a discovery scenario and drops the killing.\u0022},{\u0022span\u0022:\u0022the fishing rights dispute has settled into a rather predictable stalemate\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing gives no state of the war. The \u0027it seems\u0027 hedge is weak, and a stalemate is asserted as the outcome.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It is short of the 70-word minimum. It blurs the key fact that Malley was killed into \u0027found deceased\u0027, and the wit is thin and generic (\u0027find a suitable replacement, if they can find one at all\u0027 is clumsy). The second item leans on old news, adds a speculative stalemate, and lacks the sharp understatement of the earlier bulletins.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.9454285,
+      "inputTokens": 2671,
+      "outputTokens": 626
+    }
+  ]
+}

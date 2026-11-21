@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__inheritance-handoff__snap-18-late-desperate__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022still expecting her sister\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing never says Ada knew Constance was coming; this is an inference stated as fact.\u0022},{\u0022span\u0022:\u0022the weather logs from Day 790\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies the blizzard struck on Day 790, the day the caravan was recorded lost. Plausible, but not stated.\u0022}],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A restrained, well-observed scene: the wrench pinning the letter, the creases, and the torn-up lists show Elias\u0027s grief and his Neurotic and Industrious traits without naming emotions, and it ends cleanly on his intent. The only drawback is the small unsupported assumption that Ada was expecting her sister.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.5836558,
+      "inputTokens": 2165,
+      "outputTokens": 587
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-17-late-strained__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A clean quiet-week bulletin that sticks strictly to the briefing. Guesses are properly hedged, and the pirate-modesty line is a good dry touch. The opening item is a little list-like, reading more like a recitation of faction figures than a story.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.9349589,
+      "inputTokens": 2816,
+      "outputTokens": 433
+    }
+  ]
+}

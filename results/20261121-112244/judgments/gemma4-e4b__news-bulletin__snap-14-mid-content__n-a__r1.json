@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-14-mid-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022This week has been remarkably uneventful, considering the usual state of affairs.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Calls the week uneventful right after reporting a raid, and implies a usual state the briefing does not describe.\u0022},{\u0022span\u0022:\u0022The Fernhollow League maintains its eight settlements. The Blue Antler Tribe still holds five.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027Maintains\u0027 and \u0027still\u0027 imply the counts are unchanged, but no earlier figures are given.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The raid is reported plainly with properly hedged guesses. The second item is filler that undercuts itself: it calls the week uneventful and peaceful just after reporting a raid. The wit is thin and generic.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 8.1494448,
+      "inputTokens": 2703,
+      "outputTokens": 842
+    }
+  ]
+}

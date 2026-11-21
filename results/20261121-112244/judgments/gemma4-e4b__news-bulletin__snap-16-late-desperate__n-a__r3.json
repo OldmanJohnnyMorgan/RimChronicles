@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-16-late-desperate__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Conversely, Dunmore himself now carries a price tag\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies a second bounty distinct from the Accord\u0027s; the briefing gives one event twice.\u0022},{\u0022span\u0022:\u0022this mutual enmity\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies hostility runs both ways; the briefing only gives the Accord\u0027s bounty on Dunmore.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It treats the two briefing lines as separate events and links them with a baffling \u0027Conversely\u0027, which muddles the lead story. The voice is a generic \u0027quite keen\u0027/\u0027quietude\u0027 register with a modern \u0027neutralized\u0027, rather than Odile\u0027s sharper understatement.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.8533907,
+      "inputTokens": 2697,
+      "outputTokens": 598
+    }
+  ]
+}

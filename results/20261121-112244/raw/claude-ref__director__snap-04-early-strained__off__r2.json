@@ -1,0 +1,52 @@
+{
+  "cell": "claude-ref__director__snap-04-early-strained__off__r2",
+  "model": "claude-ref",
+  "task": "director",
+  "snapshot": "snap-04-early-strained",
+  "grammar": "off",
+  "repeat": 2,
+  "promptVersion": "director/v1",
+  "outcome": "Model",
+  "value": "{\u0022choice\u0022: \u0022Choice:ReparationsEnvoy\u0022, \u0022reason\u0022: \u0022A Brine Coast trader has already hinted that the Dispatch knows about Tomas Quell\u0027s death, and goodwill sits at -20. An envoy demanding reparations moves the Silent Press plot from rumour to a real decision for Lowmere about Teodor.\u0022}",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are the plot director for a story told through a RimWorld colony. You decide what happens next in the colony\u0027s plots.\n\nRules:\n- Choose exactly one option from the allowed list. Copy it exactly, character for character.\n- Choose \u0022Wait\u0022 if the colony is in crisis or the story needs a pause.\n- Prefer the option that follows most naturally from what has already happened.\n- Give a reason in one or two short sentences. Use only facts from the briefing.\n\nAnswer with JSON only, in this form:\n{\u0022choice\u0022: \u0022\u003Cone allowed option\u003E\u0022, \u0022reason\u0022: \u0022\u003Cone or two sentences\u003E\u0022}\n",
+        "user": "## The world\nDate: day 38 (Septober 5500).\nColony: Lowmere, 6 people, wealth 34,100 silver, mood strained.\n\nPeople:\n- Teodor (44); traits: Psychopath, Industrious; backstory: Urbworld enforcer; shot the reporter on day 31.\n- Aiko (30); traits: Kind; backstory: Mechanoid nerd.\n- Grieve (36); traits: Gourmand; backstory: Cook.\n- Lisbet (28); traits: Too smart, Neurotic; backstory: Archaeologist.\n- Juno (22); traits: Sanguine; backstory: Courier.\n- Harrow (57); traits: Pessimist; backstory: Miner.\n\nHistory:\n- Day 31: Teodor killed Tomas Quell.\n\nFactions:\n- The Rim Dispatch (Outlanders): goodwill -20, 1 settlement.\n- The Brine Coast League (Outlanders): goodwill \u002B20, 6 settlements.\n- Black Fen Raiders (Pirates): goodwill -85, 3 settlements.\n\nRecent events:\n- The reporter Tomas Quell was shot by Teodor day 31\n- No bulletin since day 30\n- A Brine Coast trader said the Dispatch \u0027isn\u0027t sending anyone your way anymore\u0027 day 36\n\n## Active plots\n- silent-01 (Silent Press): beat Complication, protagonist Lowmere. Teodor shot the Dispatch reporter Tomas Quell during a visit on day 31. Bulletins stopped. A trader has hinted that the Dispatch knows.\n\n## Allowed options\n- Wait\n- Complication:VisitorRumour\n- Choice:ReparationsEnvoy\n\nChoose one allowed option.\n",
+        "maxOutputTokens": 300,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "choice": {
+              "type": "string",
+              "enum": [
+                "Wait",
+                "Complication:VisitorRumour",
+                "Choice:ReparationsEnvoy"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "choice",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "ok": true,
+      "text": "{\u0022choice\u0022: \u0022Choice:ReparationsEnvoy\u0022, \u0022reason\u0022: \u0022A Brine Coast trader has already hinted that the Dispatch knows about Tomas Quell\u0027s death, and goodwill sits at -20. An envoy demanding reparations moves the Silent Press plot from rumour to a real decision for Lowmere about Teodor.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.3673663,
+      "inputTokens": 788,
+      "outputTokens": 252,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022model\u0022:\u0022claude-opus-5-5\u0022,\u0022id\u0022:\u0022msg_011ChFPsYYsfDCWpZdy4VEWf\u0022,\u0022type\u0022:\u0022message\u0022,\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:[{\u0022type\u0022:\u0022thinking\u0022,\u0022thinking\u0022:\u0022\u0022,\u0022signature\u0022:\u0022CAQS3gcKEAgUGAI4AUIIdGhpbmtpbmcSDD47uREfFTh6LQ6IARoM4xuET8fM8JFMolDAIjB07E2PQbKlc41FogEdmxvBbSGRbpwfovHkZ\\u002BQko3nJMbdy5dodfFGAN2tJHi7Gqocq\\u002Bwboyvq4Fk7dmxqV7T8cezib8u1KxezvFA9gArShJrhkZGwPf\\u002BRMmFHHPY9Bdb2wF1vE1RmKv6DEVS1XqL78FUWzBlzwLCVRjdExUgL4wmSorRaxc/VObwP9HbQKQRQg4fwgSp7efgxuGG0ytd1Z0ImGPy3dKdkIq9O7HAXJMTzJ\\u002BAK1rb0uBPSXJXsvvSTKoNHRhSgNq\\u002BLFhbeJ7aHmb9XoYXqapSyK3yHCqhB/W8hnyua2mzqJF9/hdxcfQUYSYJVfaV9PZRsb\\u002Bsa1PzyMdaJvX2mQnWt8UK0wlSVBjCR93FLjDUaQbFyfYfkO6IBLweKq9BbT\\u002BO6U\\u002Bwv6kujo9Wlf/m3bUZaPdl1YBoNb1F\\u002BAi94MYHkIdY\\u002BATLCPWQfXtBt9a6llQJ1Y5O9YFa2Hd7bTQJ3Up89wTcqzZ51Iz4VbKFuU\\u002B3Hk\\u002BG\\u002BhW7FWCWLSzaM\\u002BL7OQ5V3OHzCML7ny7S1Z6387EwZWgSZVb0qYRn2RzeJJi1e/oyTol9v38144iiGLdwQPjqpdfzgoqPSe9TZnQNVA7IKv47y2wd2xmcb3PWIilRCPayTXwmEo5WUZyjXzku2ro9AQk0/iPuGrbb0RdF7Ldm5hrSt3jHF0VVtt2XoMlRjUin/H2jqTsEcpcgKpahH1FZBa8MD06jJi1Z25SP5SriDCd6\\u002BOFvn/EYAOyqdQCmKM30uo02TyEgOZEK/wR5Y8bVh89kXXN\\u002BeD7qdVYUjdPvax6N34adsd2F8n\\u002B3b\\u002BhbUcL6It7OvbVuFBEIxfaDSGNC5CxVJVFo5CXXg4QMrGGFnQkTwC4QQNcrhjukscaXR3HaqzKun9R8q3xAdvAZnPt8cldK\\u002BDyOImLtUY0yyYRcjziikV4iva5zJ1H9zFXLoPoFf/\\u002BhuGfC96I/uMkXHsqUkv0kCGe6W3CcDQbZ/vieByfIuNJRHZaQu/TcT1u84fD9Yhu6gvPOaMiAgHGsIOhf3eX1zVnEjs4Fnbm3t0n00tIv9FubDNzcpj8EkqrbCwb\\u002Bf9tOg5C\\u002Bksztqu5i56\\u002BEeAGXw8SOrIV4DOFYkM4URV0tULCqOYMw5A\\u002BW/or81UCwiMVpFtsbhzpZzYPQjHDDjA3lMZPGOAdhPb4imhG3oXKYhslc/EkxGK4o/1ht00ItyRLHocqPfMg4GVUw5AC5TsL/8X5jthdAB5yc0qULJ57m2\\u002BbgkYAQ==\u0022},{\u0022type\u0022:\u0022text\u0022,\u0022text\u0022:\u0022{\\u0022choice\\u0022: \\u0022Choice:ReparationsEnvoy\\u0022, \\u0022reason\\u0022: \\u0022A Brine Coast trader has already hinted that the Dispatch knows about Tomas Quell\\u0027s death, and goodwill sits at -20. An envoy demanding reparations moves the Silent Press plot from rumour to a real decision for Lowmere about Teodor.\\u0022}\u0022}],\u0022container\u0022:null,\u0022stop_reason\u0022:\u0022end_turn\u0022,\u0022stop_sequence\u0022:null,\u0022stop_details\u0022:null,\u0022usage\u0022:{\u0022input_tokens\u0022:788,\u0022cache_creation_input_tokens\u0022:0,\u0022cache_read_input_tokens\u0022:0,\u0022cache_creation\u0022:{\u0022ephemeral_5m_input_tokens\u0022:0,\u0022ephemeral_1h_input_tokens\u0022:0},\u0022iterations\u0022:[{\u0022input_tokens\u0022:788,\u0022output_tokens\u0022:252,\u0022cache_read_input_tokens\u0022:0,\u0022cache_creation_input_tokens\u0022:0,\u0022cache_creation\u0022:{\u0022ephemeral_5m_input_tokens\u0022:0,\u0022ephemeral_1h_input_tokens\u0022:0},\u0022type\u0022:\u0022message\u0022,\u0022model\u0022:null}],\u0022output_tokens\u0022:252,\u0022output_tokens_details\u0022:{\u0022thinking_tokens\u0022:137},\u0022service_tier\u0022:\u0022standard\u0022,\u0022inference_geo\u0022:\u0022global\u0022,\u0022speed\u0022:\u0022standard\u0022},\u0022diagnostics\u0022:null}"
+    }
+  ]
+}

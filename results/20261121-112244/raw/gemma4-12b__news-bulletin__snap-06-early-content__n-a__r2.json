@@ -1,0 +1,32 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-06-early-content__n-a__r2",
+  "model": "gemma4-12b",
+  "task": "news-bulletin",
+  "snapshot": "snap-06-early-content",
+  "grammar": "n/a",
+  "repeat": 2,
+  "promptVersion": "news-bulletin/v5",
+  "outcome": "Model",
+  "value": "The Ditch Kings robbed a grain barge on the delta. It seems the pirates have a keen eye for logistics. One assumes they find the taste of stolen calories superior to their own.\n\nThe Calder Combine still reports good harvests along the delta. It is a miracle of agriculture that keeps the local bellies full. I suspect the soil is simply tired of being ignored.\n\nThe Sundered Throne remains quiet behind its walls. Silence is a rare commodity in these parts. Presumably, they are just very good at keeping their secrets.",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.\n\nWrite your next news bulletin.\n\nWhat to write:\n- 2 or 3 news items, most important first, separated by a blank line. 70 to 130 words in all.\n- Each item is a paragraph of at least 3 sentences: the fact, then your dry take on it.\n- Start with what you heard since your last bulletin. If there is only one new item, 2 items are enough: never pad with invented detail.\n- What your earlier bulletins already covered is old news. You may mention it briefly as background, but never present it as new or happening again.\n- On a quiet week, comment drily on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.\n\nWhat you know:\n- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events.\n- Report each fact as plainly as the briefing gives it. Do not add how big, how bad, why or what happened next.\n- Your wit is your opinion, not new facts. Give every item at least one dry, wry remark, and frame any guess as a guess: \u0022I suspect\u0022, \u0022presumably\u0022, \u0022one assumes\u0022.\n- You do not know what happens inside the colony unless your briefing says it became public.\n\nStyle:\n- Sound like your earlier bulletins: the same dry voice, the same eye for the absurd. Do not reuse their jokes or sentences.\n- Keep sentences short, mostly under 20 words.\n- Write plain paragraphs of prose. The briefing\u0027s headings and labels are notes for you: never copy them into the bulletin.\n- Write only the bulletin itself: no title, no headings, no dateline, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 5 (Aprimay 5500).\nThe colony you report near: Saltreed. You do not know what happens inside it unless listed below.\n\nFactions:\n- The Calder Combine (Outlanders): 5 settlements\n- Ditch Kings (Pirates): 2 settlements\n- The Sundered Throne (Empire): 3 settlements, quiet behind its walls\n\nHeard since your last bulletin (lead with these):\n- Ditch Kings robbed a grain barge on the delta\n\nYour earlier bulletins already covered (old news, background only):\n- The Calder Combine reports good harvests along the delta\n- Imperial shuttles were seen over the eastern mountains\n\n## Your earlier bulletins\nLatest bulletin:\nGood news is rare enough that I report it whenever it happens. The Calder Combine says the delta harvest is the best in years. Imperial shuttles were seen over the eastern mountains; nobody knows why, and the Empire is not in the habit of explaining.\n\nWrite the bulletin now.\n",
+        "maxOutputTokens": 500,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "The Ditch Kings robbed a grain barge on the delta. It seems the pirates have a keen eye for logistics. One assumes they find the taste of stolen calories superior to their own.\n\nThe Calder Combine still reports good harvests along the delta. It is a miracle of agriculture that keeps the local bellies full. I suspect the soil is simply tired of being ignored.\n\nThe Sundered Throne remains quiet behind its walls. Silence is a rare commodity in these parts. Presumably, they are just very good at keeping their secrets.",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 1.8558335,
+      "inputTokens": 654,
+      "outputTokens": 107,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-82\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795260311,\u0022model\u0022:\u0022gemma4:12b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022The Ditch Kings robbed a grain barge on the delta. It seems the pirates have a keen eye for logistics. One assumes they find the taste of stolen calories superior to their own.\\n\\nThe Calder Combine still reports good harvests along the delta. It is a miracle of agriculture that keeps the local bellies full. I suspect the soil is simply tired of being ignored.\\n\\nThe Sundered Throne remains quiet behind its walls. Silence is a rare commodity in these parts. Presumably, they are just very good at keeping their secrets.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:654,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:107,\u0022total_tokens\u0022:761}}\n"
+    }
+  ]
+}

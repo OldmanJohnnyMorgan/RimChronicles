@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-05-early-desperate__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It is a predictable development for a group that prefers their own company.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Characterises the Gorse Clans as reclusive, stated as fact. The briefing gives no such trait, and the earlier bulletin has them actively trading.\u0022},{\u0022span\u0022:\u0022the constant threat of piracy\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Exaggerates three reported raids into a \u0027constant\u0027 threat.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The second item restates already-covered Scythe Tooth raids as fresh news and nearly copies the latest bulletin\u0027s sentence, which breaks two explicit instructions. The jokes are also generic (\u0027antisocial\u0027, \u0027enjoying the scenery\u0027) rather than Odile\u0027s precise understatement.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.6084264,
+      "inputTokens": 2684,
+      "outputTokens": 562
+    }
+  ]
+}

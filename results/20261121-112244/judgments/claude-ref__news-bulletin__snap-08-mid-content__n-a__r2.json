@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-08-mid-content__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The bulletin leads correctly with the one new item and treats the failed raid only as background. Its dry asides (the unseen sculpture, the \u0027missing digit\u0027 gang) are clearly the narrator\u0027s opinion. The closing line \u0027a carved stone nobody can see\u0027 drifts close to stating a guess as fact, which keeps it just short of shipping unchanged.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.710271,
+      "inputTokens": 2757,
+      "outputTokens": 612
+    }
+  ]
+}

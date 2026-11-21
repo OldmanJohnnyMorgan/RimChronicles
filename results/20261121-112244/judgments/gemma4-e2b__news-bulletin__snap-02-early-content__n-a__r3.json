@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-02-early-content__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Glimmer Coast Company continues its profitable run.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The briefing reports no current Company profits; this presents an old-bulletin claim as an ongoing, current fact.\u0022},{\u0022span\u0022:\u0022It is a predictable move for those who prefer to leave things messy behind.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies the pirates left a mess, which the briefing does not say.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The lead item is reported correctly. The third item restates the earlier \u0027always report a profitable week\u0027 joke almost word for word and presents profits as current news. Its closing line confusingly treats the Outlanders as separate from the Company, which is itself an Outlander faction. The wit is weak and generic throughout.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 8.4692434,
+      "inputTokens": 2820,
+      "outputTokens": 735
+    }
+  ]
+}

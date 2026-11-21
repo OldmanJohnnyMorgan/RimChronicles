@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-19-late-desperate__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022this relentless expansion\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Adds \u0027relentless\u0027 to the briefing\u0027s plain \u0027expanding by force\u0027.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The facts are accurate and clearly ordered, but the voice is flat and generic, and the dry takes barely land (\u0027now they simply exist\u0027). The third item is padding about the static Starling Tribe and adds no wit, despite the brief allowing only two items.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.5702326,
+      "inputTokens": 2749,
+      "outputTokens": 552
+    }
+  ]
+}

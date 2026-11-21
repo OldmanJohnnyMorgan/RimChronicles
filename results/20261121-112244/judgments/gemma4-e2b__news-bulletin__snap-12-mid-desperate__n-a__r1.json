@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-12-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022given the usual tedious dance between the Empire and the Outlanders\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies an ongoing history of dealings that the briefing never mentions, stated as fact.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It is accurate and leads correctly with the envoys, but the wit is thin and generic, with phrases like \\\u0022medical personnel\\\u0022 sounding office-like. The middle item spends a full paragraph on old news, and both later items close with \\\u0022One assumes\\\u0022.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.0441498,
+      "inputTokens": 2780,
+      "outputTokens": 512
+    }
+  ]
+}

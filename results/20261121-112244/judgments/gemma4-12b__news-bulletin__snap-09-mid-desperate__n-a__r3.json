@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-09-mid-desperate__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Neither side has managed to secure any fish despite the ongoing hostilities.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Turns the earlier bulletin\u0027s hedged joke into a plain factual claim; the briefing says nothing about fish.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The Malley item is clean, and its guess is properly hedged. The second item recycles the previous bulletin\u0027s fish joke, restating it as fact, and the bulletin falls short of 70 words.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.0708181,
+      "inputTokens": 2679,
+      "outputTokens": 718
+    }
+  ]
+}

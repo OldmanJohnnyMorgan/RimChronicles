@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-13-mid-strained__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Rustback Raiders have been active again, hitting a caravan on the old highway.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Old news presented as a new, repeated raid.\u0022},{\u0022span\u0022:\u0022They are offering rewards for the goods and for explanations of their methods.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Credits the raiders with offering rewards, which contradicts the earlier bulletin; the caravan owners offered them, and this is not in the briefing.\u0022},{\u0022span\u0022:\u0022across the rim\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing gives demands only to neighbours and the Cobalt Free Towns, not the whole rim.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The lead item is accurate and its guesses are framed as guesses. But the bulletin pads with old news presented as new, and it garbles the caravan story by having the raiders offer rewards. The voice is bland and officey (\u0027remit the required tribute\u0027) rather than Ilse\u0027s dry wit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.271716,
+      "inputTokens": 2766,
+      "outputTokens": 593
+    }
+  ]
+}

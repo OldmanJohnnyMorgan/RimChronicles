@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-10-mid-strained__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the skirmishes continue between the Ochre Hand and the Stonecutter Raiders\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says only \u0027at war\u0027. Ongoing skirmishes is an added claim about current fighting.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It is accurate on the one new fact, but the first item says it twice and the second leans on old news with a generic closing quip. The voice is serviceable but lacks the bite of the earlier bulletins.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.0656527,
+      "inputTokens": 2715,
+      "outputTokens": 491
+    }
+  ]
+}

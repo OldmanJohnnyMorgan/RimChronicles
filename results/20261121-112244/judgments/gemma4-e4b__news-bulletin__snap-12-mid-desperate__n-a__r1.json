@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-12-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022continues their peculiar habit of acquiring medical personnel\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies repeated captures; the briefing mentions only one captive doctor.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It is accurate on the lead, but the wit is flat and self-contradictory: the envoys are called a prelude to something \u0027more tedious\u0027 and then \u0027more interesting\u0027. The second item rehashes old news while calling it a quiet week, and the \u0027damp scrap of canvas\u0027 line lands oddly.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.8479723,
+      "inputTokens": 2703,
+      "outputTokens": 568
+    }
+  ]
+}

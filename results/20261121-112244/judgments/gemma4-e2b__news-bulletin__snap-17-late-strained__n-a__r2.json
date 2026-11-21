@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-17-late-strained__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They are preparing for whatever the Empire throws at them next.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Purpose of the militia gathering is an inference stated as fact.\u0022},{\u0022span\u0022:\u0022They remain an unmoving fixture in this shifting landscape.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies the tribe\u0027s size or position is static; the briefing gives only its settlement count.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The second item rehashes the Harlow Ford militia gathering, already covered, in the present tense as if it were current news. The wit is thin and generic: \u0027endless cycle of conflict\u0027 and the flat tribe joke fall short of the earlier bulletins\u0027 dry voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.3749761,
+      "inputTokens": 2777,
+      "outputTokens": 571
+    }
+  ]
+}

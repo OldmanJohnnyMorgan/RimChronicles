@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-05-early-desperate__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They have always preferred to keep their dealings to themselves.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Unsupported history stated as fact; it contradicts the earlier bulletin, where the Clans were trading furs for grain.\u0022},{\u0022span\u0022:\u0022It is a quiet week, which is hardly a novelty.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Calls the week quiet when the briefing has new news (the market closure).\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin repeats the old raid news as if it were current and pads with a flat \u0027quiet week\u0027 item that contradicts its own lead. It falls short of the word count, and the voice is limp, with stock hedges and none of Odile\u0027s sharp understatement.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.2029345,
+      "inputTokens": 2653,
+      "outputTokens": 628
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-11-mid-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They have successfully avoided the eastern marsh for now.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Recasts being driven out as voluntary avoidance, implying an ongoing state the briefing does not give.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate, and \u0027teeth to toasts\u0027 is a good line. The two quiet-week items are flat filler, though: the faction-size remarks read generically, and the Mire Rats item spins old news.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.8442456,
+      "inputTokens": 2677,
+      "outputTokens": 466
+    }
+  ]
+}

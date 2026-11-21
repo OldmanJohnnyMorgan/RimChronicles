@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-02-early-content__n-a__r3",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate and well ordered: it leads with the single new fact, treats the salt-flats war as background, and handles the quiet week with correct faction counts and the date. The wit is dry and fits the voice, though some lines are a little flat, such as \\\u0022That is the whole of the news.\\\u0022\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.2352031,
+      "inputTokens": 2825,
+      "outputTokens": 460
+    }
+  ]
+}

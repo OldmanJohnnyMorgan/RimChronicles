@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-15-late-content__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They seem remarkably interested in his whereabouts.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Adds a degree of interest and a focus on his location that the briefing does not give.\u0022},{\u0022span\u0022:\u0022They are quite established in the region.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022An inference stated as fact; the briefing gives only the settlement count.\u0022},{\u0022span\u0022:\u0022despite the ongoing archery dispute\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Presents the old archery argument as still going on, which the briefing does not say.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Leading with the Leopold item is right, and \u0027very popular or very wanted\u0027 is a decent dry line. The filler items are bland (\u0027quite established\u0027, \u0027continue their traditions\u0027) and slip in small unsupported embellishments, including treating the archery dispute as still running.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.270196,
+      "inputTokens": 2690,
+      "outputTokens": 586
+    }
+  ]
+}

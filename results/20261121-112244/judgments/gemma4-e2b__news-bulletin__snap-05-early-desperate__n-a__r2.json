@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-05-early-desperate__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They have always preferred their own arrangements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Unsupported history stated as fact; it also sits oddly with the earlier bulletin showing them trading furs for grain.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The second item restates old news (the raids and the patrol request) in the present tense as if it were new, and the bulletin is about 55 words, well under the 70-word minimum. The wit is flat and generic, nowhere near the sardonic voice of the earlier bulletins.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.8528078,
+      "inputTokens": 2623,
+      "outputTokens": 648
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__inheritance-handoff__snap-18-late-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Elias found the letter in his mother\u0027s footlocker\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing does not say where the letter was kept or that Elias found it.\u0022},{\u0022span\u0022:\u0022in a hand he didn\u0027t know\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing gives no detail about the handwriting or Elias\u0027s familiarity with Ada.\u0022},{\u0022span\u0022:\u0022his mother\u0027s sister was still waiting\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says Ada is still in the village, not that she is waiting for anyone.\u0022}],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A restrained, well-built scene: Elias\u0027s Neurotic and Industrious traits come through in the crossed-out, rechecked list, and it ends cleanly on his intent to bring Ada home. Only small embellishments, such as the footlocker and the unfamiliar handwriting, keep it from a perfect score.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.897899,
+      "inputTokens": 2181,
+      "outputTokens": 533
+    }
+  ]
+}

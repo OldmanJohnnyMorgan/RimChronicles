@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-16-late-desperate__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Conversely, a price has also been set on Dunmore by some unnamed party following an ambush near Gallowmere.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Splits one bounty into two and invents a second, separate party. The briefing names no other party.\u0022},{\u0022span\u0022:\u0022six strongholds\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Upgrades the briefing\u0027s plain \u0027settlements\u0027 to fortified strongholds.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin reads the two briefing lines as two separate bounties and invents an \u0027unnamed party\u0027, which leaves the lead item muddled and contradictory. The voice leans on \u0027rather\u0027 three times, and the second item is flat filler about faction counts.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.9082821,
+      "inputTokens": 2714,
+      "outputTokens": 747
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-16-late-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022One assumes this mutual antagonism\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies hostility runs both ways. The briefing gives only the Accord\u0027s bounty on Dunmore.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item garbles the news. \u0027Conversely\u0027 presents one bounty as two separate events, leaving it unclear who wants whom. The Glass Throne item is padded with \u0027quiet\u0027 three times and calls a newsworthy week quiet.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.8081968,
+      "inputTokens": 2684,
+      "outputTokens": 744
+    }
+  ]
+}

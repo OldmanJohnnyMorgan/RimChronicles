@@ -1,0 +1,32 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-13-mid-strained__n-a__r3",
+  "model": "gemma4-e4b",
+  "task": "news-bulletin",
+  "snapshot": "snap-13-mid-strained",
+  "grammar": "n/a",
+  "repeat": 3,
+  "promptVersion": "news-bulletin/v5",
+  "outcome": "Model",
+  "value": "Two Cobalt Free Towns have publicly snubbed the Sun Throne\u2019s latest tribute demands. One assumes this is a bold move, or perhaps just poor planning. The Empire\u2019s envoys are likely having a rather tedious afternoon.\n\nIt seems the Sun Throne continues its parade of demands across the rim. With six settlements involved, they certainly have enough mouths to feed, or at least enough to lecture. One suspects the Cobalt Free Towns are enjoying this brief lull in aggressive negotiation.",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.\n\nWrite your next news bulletin.\n\nWhat to write:\n- 2 or 3 news items, most important first, separated by a blank line. 70 to 130 words in all.\n- Each item is a paragraph of at least 3 sentences: the fact, then your dry take on it.\n- Start with what you heard since your last bulletin. If there is only one new item, 2 items are enough: never pad with invented detail.\n- What your earlier bulletins already covered is old news. You may mention it briefly as background, but never present it as new or happening again.\n- On a quiet week, comment drily on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.\n\nWhat you know:\n- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events.\n- Report each fact as plainly as the briefing gives it. Do not add how big, how bad, why or what happened next.\n- Your wit is your opinion, not new facts. Give every item at least one dry, wry remark, and frame any guess as a guess: \u0022I suspect\u0022, \u0022presumably\u0022, \u0022one assumes\u0022.\n- You do not know what happens inside the colony unless your briefing says it became public.\n\nStyle:\n- Sound like your earlier bulletins: the same dry voice, the same eye for the absurd. Do not reuse their jokes or sentences.\n- Keep sentences short, mostly under 20 words.\n- Write plain paragraphs of prose. The briefing\u0027s headings and labels are notes for you: never copy them into the bulletin.\n- Write only the bulletin itself: no title, no headings, no dateline, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 254 (Aprimay 5504).\nThe colony you report near: Stonewake. You do not know what happens inside it unless listed below.\n\nFactions:\n- The Sun Throne (Empire): 6 settlements, sending envoys and making demands of its neighbours\n- The Cobalt Free Towns (Outlanders): 7 settlements\n- Rustback Raiders (Pirates): 3 settlements\n\nHeard since your last bulletin (lead with these):\n- Two Cobalt Free Towns refused to pay the Sun Throne\u0027s tribute\n\nYour earlier bulletins already covered (old news, background only):\n- The Sun Throne demanded tribute from the Cobalt Free Towns\n- Rustback Raiders hit a caravan on the old highway\n- The Sun Throne is demanding tribute from the Cobalt Free Towns\n\n## Your earlier bulletins\nEarlier bulletin:\nThe Sun Throne has remembered that it exists. Its envoys are touring the Cobalt Free Towns with demands for tribute and very good boots.\n\nLatest bulletin:\nRustback Raiders robbed a caravan on the old highway. The caravan\u0027s owners are offering a reward for its return and a larger reward for an explanation of what their guards were doing.\n\nWrite the bulletin now.\n",
+        "maxOutputTokens": 500,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "Two Cobalt Free Towns have publicly snubbed the Sun Throne\u2019s latest tribute demands. One assumes this is a bold move, or perhaps just poor planning. The Empire\u2019s envoys are likely having a rather tedious afternoon.\n\nIt seems the Sun Throne continues its parade of demands across the rim. With six settlements involved, they certainly have enough mouths to feed, or at least enough to lecture. One suspects the Cobalt Free Towns are enjoying this brief lull in aggressive negotiation.",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 0.9241868,
+      "inputTokens": 694,
+      "outputTokens": 96,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-316\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795260259,\u0022model\u0022:\u0022gemma4:e4b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022Two Cobalt Free Towns have publicly snubbed the Sun Throne\u2019s latest tribute demands. One assumes this is a bold move, or perhaps just poor planning. The Empire\u2019s envoys are likely having a rather tedious afternoon.\\n\\nIt seems the Sun Throne continues its parade of demands across the rim. With six settlements involved, they certainly have enough mouths to feed, or at least enough to lecture. One suspects the Cobalt Free Towns are enjoying this brief lull in aggressive negotiation.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:694,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:693},\u0022completion_tokens\u0022:96,\u0022total_tokens\u0022:790}}\n"
+    }
+  ]
+}

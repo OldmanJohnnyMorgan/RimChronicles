@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-16-late-desperate__n-a__r2",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It sticks to the briefing, but it reports the same bounty twice as separate items, and the second item contradicts the first by guessing at a price already set. The voice is flat and lacks Odile\u0027s sardonic bite: lines like \\\u0022It is always interesting to observe\\\u0022 are filler, not wit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.2716642,
+      "inputTokens": 2724,
+      "outputTokens": 438
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-15-late-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate and tightly sourced: the Leopold item is reported plainly with a good dry aside, and the quiet-week item uses the briefing\u0027s faction counts correctly. The second paragraph reads a little like a list before its closing joke lands.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.7939602,
+      "inputTokens": 2692,
+      "outputTokens": 462
+    }
+  ]
+}
