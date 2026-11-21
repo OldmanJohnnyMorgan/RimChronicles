@@ -36,4 +36,7 @@ public static class NewsPhrasing
     public static string LeaderDied(string faction, string title, string leader, string? successor) => successor is null
         ? $"{leader}, {title} of {faction}, has died"
         : $"{leader}, {title} of {faction}, has died, and {successor} now leads them";
+
+    /// <summary>A reporter's death not caused by the colony; the replacement's first bulletin leads with it.</summary>
+    public static string ReporterDied(string name, string outlet) => $"{name}, correspondent for {outlet}, has died";
 }

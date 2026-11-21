@@ -11,6 +11,7 @@ public static class NewsKind
     public const string SettlementDestroyed = "SettlementDestroyed";
     public const string FactionDefeated = "FactionDefeated";
     public const string LeaderDied = "LeaderDied";
+    public const string ReporterDied = "ReporterDied";
 }
 
 /// <summary>One piece of public world news: something the reporter could plausibly hear about. The text is a plain

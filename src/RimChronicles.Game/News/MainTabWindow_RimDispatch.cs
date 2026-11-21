@@ -27,7 +27,8 @@ public sealed class MainTabWindow_RimDispatch : MainTabWindow
         Widgets.Label(new Rect(inRect.x, inRect.y, inRect.width, 34f), reporter.Outlet.CapitalizeFirst());
         Text.Font = GameFont.Small;
         var byline = reporter.Faction.Length > 0 ? $"Correspondent: {reporter.Name} of {reporter.Faction}" : $"Correspondent: {reporter.Name}";
-        var next = desk.NextDueDay >= 0 ? $"   ·   Next bulletin: day {desk.NextDueDay}" : "";
+        // No hint when the news has stopped: the player has to work out why (Silent Press).
+        var next = desk.NextDueDay >= 0 && reporter.Status == ReporterStatus.Active ? $"   ·   Next bulletin: day {desk.NextDueDay}" : "";
         Widgets.Label(new Rect(inRect.x, inRect.y + 36f, inRect.width, 24f), byline + next);
 
         var outRect = new Rect(inRect.x, inRect.y + 68f, inRect.width, inRect.height - 68f);
