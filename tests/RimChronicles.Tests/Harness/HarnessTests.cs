@@ -57,7 +57,7 @@ public sealed class HarnessConfigTests : IDisposable
         var config = HarnessConfig.Load(Repo.Path("harness", "models.json"));
 
         Assert.Equal(4, config.Models.Count);
-        Assert.DoesNotContain(config.Models, m => m.Id == "raon-1-nano"); // deferred; see the comment in models.json
+        Assert.DoesNotContain(config.Models, m => m.Id == "raon-1-nano"); // dropped 2026-11-21; see docs/stage0-results.md
         Assert.DoesNotContain(config.Models, m => m.Id.StartsWith("qwen", StringComparison.Ordinal)); // dropped 2026-11-21
         Assert.Equal(["Minimum", "Recommended", "High", "Reference"], config.Models.Select(m => m.Tier).Distinct());
         // Local models think on no task (the token caps are sized for the answer), using the field Ollama's OpenAI endpoint honours.
