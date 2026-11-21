@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__inheritance-handoff__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022She would find Malley.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Contradicts the briefing: Malley died in the same fight. The heir\u0027s purpose rests on a dead man.\u0022},{\u0022span\u0022:\u0022She would carve her name into his flesh.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Revenge aimed at Malley, who is already dead per the briefing.\u0022},{\u0022span\u0022:\u0022the jagged scar across his cheek\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022A specific wound the briefing does not give; it says only that Joska was maimed.\u0022},{\u0022span\u0022:\u0022She had seen that scar before\u2014on Malley\u2019s face, mirrored like a cruel joke.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Invented physical detail about Malley, not in the briefing.\u0022},{\u0022span\u0022:\u0022his old combat knife, the one he\u2019d used to carve his name into the wall\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022An invented item and an invented past event.\u0022},{\u0022span\u0022:\u0022She pressed it to her palm, then to her thigh. The blood bloomed fast.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Self-wounding ritual is added action not grounded in the briefing.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The scene ends with Tamsin vowing to hunt Malley, who the briefing says died alongside Joska. It ignores the real threat, the Lancers\u0027 new captain, and piles on invented scars, a knife and backstory. The self-cutting and \u0027cruel joke\u0027 imagery tip into melodrama.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 8.4082776,
+      "inputTokens": 2138,
+      "outputTokens": 755
+    }
+  ]
+}

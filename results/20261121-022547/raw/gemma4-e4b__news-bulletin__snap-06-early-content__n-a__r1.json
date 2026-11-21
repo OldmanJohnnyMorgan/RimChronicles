@@ -1,0 +1,55 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-06-early-content__n-a__r1",
+  "model": "gemma4-e4b",
+  "task": "news-bulletin",
+  "snapshot": "snap-06-early-content",
+  "grammar": "n/a",
+  "repeat": 1,
+  "promptVersion": "news-bulletin/v4",
+  "outcome": "Template",
+  "value": "(template)",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.\n\nWrite your next news bulletin.\n\nWhat to write:\n- 2 or 3 news items, most important first, each a paragraph of about 3 short sentences, separated by a blank line. About 70 to 130 words in all.\n- Start with what you heard since your last bulletin. If there is only one new item, 2 items are enough: never pad.\n- What your earlier bulletins already covered is old news. You may mention it briefly as background, but never present it as new or happening again.\n- On a quiet week, comment drily on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.\n\nWhat you know:\n- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events.\n- Report each fact as plainly as the briefing gives it. Do not add how big, how bad, why or what happened next.\n- Your wit is your opinion, not new facts. Frame any guess as a guess: \u0022I suspect\u0022, \u0022presumably\u0022, \u0022one assumes\u0022.\n- You do not know what happens inside the colony unless your briefing says it became public.\n\nStyle:\n- Keep your voice the same as in your earlier bulletins, but do not reuse their jokes or sentences.\n- Keep sentences short, mostly under 20 words.\n- Write plain paragraphs of prose. The briefing\u0027s headings and labels are notes for you: never copy them into the bulletin.\n- Write only the bulletin itself: no title, no headings, no dateline, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 5 (Aprimay 5500).\nThe colony you report near: Saltreed. You do not know what happens inside it unless listed below.\n\nFactions:\n- The Calder Combine (Outlanders): 5 settlements\n- Ditch Kings (Pirates): 2 settlements\n- The Sundered Throne (Empire): 3 settlements, quiet behind its walls\n\nHeard since your last bulletin (lead with these):\n- Ditch Kings robbed a grain barge on the delta\n\nYour earlier bulletins already covered (old news, background only):\n- The Calder Combine reports good harvests along the delta\n- Imperial shuttles were seen over the eastern mountains\n\n## Your earlier bulletins\nLatest bulletin:\nGood news is rare enough that I report it whenever it happens. The Calder Combine says the delta harvest is the best in years. Imperial shuttles were seen over the eastern mountains; nobody knows why, and the Empire is not in the habit of explaining.\n\nWrite the bulletin now.\n",
+        "maxOutputTokens": 500,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "The Ditch Kings took a grain barge on the delta. They seem to be active this cycle.\n\nIt is a quiet week here in Saltreed. The Calder Combine still maintains five settlements. The Sundered Throne remains tucked away in three.",
+      "error": null,
+      "failures": [
+        "Use 60-150 words; this has 40"
+      ],
+      "latencySeconds": 0.4519839,
+      "inputTokens": 616,
+      "outputTokens": 50,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-36\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795228015,\u0022model\u0022:\u0022gemma4:e4b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022The Ditch Kings took a grain barge on the delta. They seem to be active this cycle.\\n\\nIt is a quiet week here in Saltreed. The Calder Combine still maintains five settlements. The Sundered Throne remains tucked away in three.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:616,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:50,\u0022total_tokens\u0022:666}}\n"
+    },
+    {
+      "request": {
+        "system": "You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.\n\nWrite your next news bulletin.\n\nWhat to write:\n- 2 or 3 news items, most important first, each a paragraph of about 3 short sentences, separated by a blank line. About 70 to 130 words in all.\n- Start with what you heard since your last bulletin. If there is only one new item, 2 items are enough: never pad.\n- What your earlier bulletins already covered is old news. You may mention it briefly as background, but never present it as new or happening again.\n- On a quiet week, comment drily on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.\n\nWhat you know:\n- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events.\n- Report each fact as plainly as the briefing gives it. Do not add how big, how bad, why or what happened next.\n- Your wit is your opinion, not new facts. Frame any guess as a guess: \u0022I suspect\u0022, \u0022presumably\u0022, \u0022one assumes\u0022.\n- You do not know what happens inside the colony unless your briefing says it became public.\n\nStyle:\n- Keep your voice the same as in your earlier bulletins, but do not reuse their jokes or sentences.\n- Keep sentences short, mostly under 20 words.\n- Write plain paragraphs of prose. The briefing\u0027s headings and labels are notes for you: never copy them into the bulletin.\n- Write only the bulletin itself: no title, no headings, no dateline, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 5 (Aprimay 5500).\nThe colony you report near: Saltreed. You do not know what happens inside it unless listed below.\n\nFactions:\n- The Calder Combine (Outlanders): 5 settlements\n- Ditch Kings (Pirates): 2 settlements\n- The Sundered Throne (Empire): 3 settlements, quiet behind its walls\n\nHeard since your last bulletin (lead with these):\n- Ditch Kings robbed a grain barge on the delta\n\nYour earlier bulletins already covered (old news, background only):\n- The Calder Combine reports good harvests along the delta\n- Imperial shuttles were seen over the eastern mountains\n\n## Your earlier bulletins\nLatest bulletin:\nGood news is rare enough that I report it whenever it happens. The Calder Combine says the delta harvest is the best in years. Imperial shuttles were seen over the eastern mountains; nobody knows why, and the Empire is not in the habit of explaining.\n\nWrite the bulletin now.\n\n\nYour previous answer was rejected:\n- Use 60-150 words; this has 40\nAnswer again, following every rule.",
+        "maxOutputTokens": 500,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "The Ditch Kings took a grain barge down by the delta. They seem to be having a profitable week. The Calder Combine noted good harvests earlier.\n\nIt is a quiet stretch of days here in Saltreed. The Sundered Throne maintains its usual silence. The Calder Combine still controls five settlements.",
+      "error": null,
+      "failures": [
+        "Use 60-150 words; this has 50"
+      ],
+      "latencySeconds": 0.485603,
+      "inputTokens": 648,
+      "outputTokens": 61,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-818\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795228015,\u0022model\u0022:\u0022gemma4:e4b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022The Ditch Kings took a grain barge down by the delta. They seem to be having a profitable week. The Calder Combine noted good harvests earlier.\\n\\nIt is a quiet stretch of days here in Saltreed. The Sundered Throne maintains its usual silence. The Calder Combine still controls five settlements.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:648,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:611},\u0022completion_tokens\u0022:61,\u0022total_tokens\u0022:709}}\n"
+    }
+  ]
+}

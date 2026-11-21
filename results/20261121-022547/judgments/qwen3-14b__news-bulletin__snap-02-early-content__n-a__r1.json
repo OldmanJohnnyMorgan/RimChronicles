@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-02-early-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022No one claims it yet.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing does not say whether anyone has claimed the abandoned camp; this aftermath is stated as fact.\u0022},{\u0022span\u0022:\u0022The Glimmer Coast Company continues to report profits.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Ongoing profits are not in the briefing; this extends a joke from an earlier bulletin into present fact.\u0022},{\u0022span\u0022:\u0022as planned\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing does not say the caravan\u0027s arrival was planned.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022There is only one new item, yet the bulletin pads to three by restating old news (the ford arrival, the salt-flat war) as current reports, which the task forbids. The voice is flatter and less wry than the earlier bulletins, and it echoes their salt-price lines.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.0967708,
+      "inputTokens": 2702,
+      "outputTokens": 684
+    }
+  ]
+}

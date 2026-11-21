@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-07-mid-strained__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They are short on supplies\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing records one lost wagon. A general supply shortage is an added consequence.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The second item restates last time\u0027s wagon theft as a full news item, padding a one-item week with old news. Both paragraphs recycle earlier jokes (\u0027polite smiles and long scrolls\u0027, \u0027short on\u2026 long on complaints\u0027) instead of writing fresh wit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.4376773,
+      "inputTokens": 2635,
+      "outputTokens": 525
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-02-early-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022This follows the ongoing skirmishes with the Tannerfolk.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies a sequence or cause for the abandonment that the briefing does not state. It also recasts the war as \u0027skirmishes\u0027.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The output is accurate on the lead and easy to follow, but it lacks Ilse\u0027s dry wit entirely. The faction counts are recited flatly, and at about 50 words it falls well short of the requested length. Calling the week \u0027dull\u0027 also undercuts the one real piece of news.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.0965437,
+      "inputTokens": 2677,
+      "outputTokens": 521
+    }
+  ]
+}

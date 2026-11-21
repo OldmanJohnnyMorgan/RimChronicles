@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-07-mid-strained__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Iron Covenant remains at eight settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027Remains\u0027 implies an unchanged earlier count; the briefing gives only the current number.\u0022},{\u0022span\u0022:\u0022Vex\u0027s Crew still controls two settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027Still\u0027 implies continuity that the briefing does not state.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Accurate on the toll news but flat and repetitive (\u0027demanded\u2026 demands\u2026 demanding\u0027), with little of Ilse\u0027s wry bite. At about 55 words it falls short of the 70\u2013130 target, and calling the week \u0027remarkably dull\u0027 right after the toll demand undercuts the lead.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.7605653,
+      "inputTokens": 2601,
+      "outputTokens": 547
+    }
+  ]
+}

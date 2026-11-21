@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-06-early-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Saltreed remains empty as usual.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The briefing gives nothing about the colony\u0027s state. Calling it empty is an invented and contradictory claim about the inside of the colony.\u0022},{\u0022span\u0022:\u0022The Combine says harvests are good elsewhere.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The briefing places the good harvests along the delta, not elsewhere. This contradicts it.\u0022},{\u0022span\u0022:\u0022Ditch Kings stole a grain barge on the delta.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says they robbed a barge; stealing the barge itself goes beyond that.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The lead item is right, but the bulletin invents an \u0027empty\u0027 Saltreed and moves the harvests \u0027elsewhere\u0027, contradicting the briefing. The third paragraph is padding, and the voice is flat with little of Ilse\u0027s wry edge.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.3105398,
+      "inputTokens": 2540,
+      "outputTokens": 717
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Grass fires in the south continue.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Briefing reports nothing new; claims an old event is ongoing now.\u0022},{\u0022span\u0022:\u0022The Kinn are moving, but not in a way that suggests conflict.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Presents the Kinn\u0027s movement as current news with an unsupported assessment.\u0022},{\u0022span\u0022:\u0022Their fires are slow, and their steps are slower.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Embellishes the pace of the fires and the Kinn\u0027s movement.\u0022},{\u0022span\u0022:\u0022but they are watching\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022States the Ashen Hand\u0027s intent as fact rather than as a guess.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin re-presents the old grass fires and Kinn migration as ongoing news, which contradicts the quiet briefing. The voice is flat and lacks the dry wit of earlier bulletins; the faction-count opener is the only solid part.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.2241809,
+      "inputTokens": 2643,
+      "outputTokens": 675
+    }
+  ]
+}

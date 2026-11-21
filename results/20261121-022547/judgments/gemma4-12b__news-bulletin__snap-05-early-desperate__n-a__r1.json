@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Scythe Tooth pirates have struck three settlements. This follows the previous raids I reported.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Presents old news as new and implies a second, separate set of raids that the briefing does not report.\u0022},{\u0022span\u0022:\u0022The Ferrow Mutual is still debating the cost of their shared patrols.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Claims the debate is ongoing; nothing in the briefing says what happened with the patrols since.\u0022},{\u0022span\u0022:\u0022A quiet week is, in itself, a notable occurrence.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Calls the week quiet even though there was new news: the Gorse Clans closed their markets.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The lead item is handled adequately. The second paragraph rehashes old raid news as though it were fresh and implies new raids. The closing calls the week quiet despite real news, and it reads as filler.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.6438511,
+      "inputTokens": 2616,
+      "outputTokens": 587
+    }
+  ]
+}

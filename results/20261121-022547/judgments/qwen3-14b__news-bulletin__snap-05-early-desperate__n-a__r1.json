@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022No goods move through their gates.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Extends \u0027closed to outsiders\u0027 to a total halt on goods.\u0022},{\u0022span\u0022:\u0022No traders are seen near their settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022An implied consequence stated as an observed fact.\u0022},{\u0022span\u0022:\u0022The cold snap continues to affect the northern basin.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing does not say the cold snap is ongoing.\u0022},{\u0022span\u0022:\u0022but only among themselves now\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022An inference from the market closure, stated as fact.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Only one item is new, yet the bulletin pads with two old-news paragraphs presented as current, recycling the patrol-payment joke and dropping the sardonic voice almost entirely. The lead item is also inflated with unsupported consequences.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.9473009,
+      "inputTokens": 2599,
+      "outputTokens": 741
+    }
+  ]
+}

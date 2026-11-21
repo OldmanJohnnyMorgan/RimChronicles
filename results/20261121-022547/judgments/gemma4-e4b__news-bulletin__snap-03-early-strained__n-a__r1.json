@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and free of invented facts, but the bulletin is thin and bland: it falls short of the word count, recites the faction sizes without much wit, and misses easy dry material like the date or the old raids. It reads as filler rather than Ilse\u0027s sharper voice from earlier bulletins.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.7473483,
+      "inputTokens": 2603,
+      "outputTokens": 337
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Kinn of the Long Grass are moving south.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The briefing does not say this. The earlier bulletin placed the grass fires in the south, not the Kinn\u0027s direction, and it is presented as current news.\u0022},{\u0022span\u0022:\u0022Their intentions remain unstated, as usual.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022This contradicts the earlier bulletin, where the Kinn said they were not looking for trouble.\u0022},{\u0022span\u0022:\u0022The Ashen Hand remain in their usual pattern of raiding.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022It turns one covered raid into an ongoing \u0027usual pattern\u0027, stated as fact.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin restates old news as if it were current and gets the Kinn wrong, contradicting the earlier report. It is also flat and short, with none of Ilse\u0027s dry wit and no use of quiet-week material such as faction sizes or the date.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 8.133432,
+      "inputTokens": 2594,
+      "outputTokens": 765
+    }
+  ]
+}

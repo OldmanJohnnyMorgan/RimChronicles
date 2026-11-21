@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-04-early-strained__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022He was last seen heading toward Lowmere.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The briefing never says where Quell was last seen. It only implies a possible link between him and Lowmere.\u0022},{\u0022span\u0022:\u0022No one claims responsibility.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022This contradicts the briefing, which attributes the burning to the Black Fen Raiders.\u0022},{\u0022span\u0022:\u0022The fire was reported by a merchant ship passing through.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The merchant ship and how the fire was reported are invented.\u0022},{\u0022span\u0022:\u0022The Rim Dispatch has fewer reporters than the Brine Coast League.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The briefing gives settlement counts, not reporter counts. The comparison is invented.\u0022},{\u0022span\u0022:\u0022They rely on tips from traders.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022This is an invented claim about how the Dispatch operates.\u0022},{\u0022span\u0022:\u0022The station\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Calling the Dispatch a \u0027station\u0027 is an unsupported embellishment.\u0022},{\u0022span\u0022:\u0022before he vanished\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022This treats a disappearance as fact. The briefing only says the Dispatch is looking for news of him.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022Five major inventions: a last-seen location, an unclaimed attack that contradicts the briefing, a merchant ship, reporter counts, and trader tips. The voice is also flat, not wry, and oddly distant, with the reporter calling her own paper \u0027they\u0027.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 8.0093102,
+      "inputTokens": 2499,
+      "outputTokens": 808
+    }
+  ]
+}

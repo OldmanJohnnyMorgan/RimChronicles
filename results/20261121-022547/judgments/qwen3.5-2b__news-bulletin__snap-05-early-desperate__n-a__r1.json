@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Perhaps they simply want to avoid further disputes with the Scythe Tooth pirates.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022\u0027Further\u0027 presupposes existing disputes between the Gorse Clans and Scythe Tooth, which the briefing never mentions.\u0022},{\u0022span\u0022:\u0022Its members have asked who is paying for the defense.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Repeats an old-bulletin line as if new and adds \u0027for the defense\u0027.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The second paragraph copies the latest bulletin almost word for word and presents the old raid news as current, breaking both the old-news rule and the no-reuse rule. The closing paragraph is a muddled single-sentence guess that adds nothing, so only the lead item does any real work.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 8.2523194,
+      "inputTokens": 2633,
+      "outputTokens": 768
+    }
+  ]
+}

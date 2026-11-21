@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-08-mid-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Ninefingers Gang remains silent.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Asserts their quiet continues this week; the briefing has no new information on the gang.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The lead item is a single sentence copied from the briefing, and the old news is padded out into three more paragraphs. It also reuses the earlier bulletin\u0027s \u0027river is full and the fish are foolish\u0027 line, which the task forbids, and the voice is flat with almost no wit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.2698595,
+      "inputTokens": 2649,
+      "outputTokens": 474
+    }
+  ]
+}

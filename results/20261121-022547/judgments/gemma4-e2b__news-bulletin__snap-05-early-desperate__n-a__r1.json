@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Scythe Tooth raids continue in a quadrum.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The briefing reports only past raids at three settlements. It does not say they are continuing, so this presents old news as ongoing.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The lead item is a bare one-sentence restatement. The second item recycles old news as if the raids are still happening. The closing paragraph is empty filler that pads the bulletin and lacks Odile\u0027s sardonic precision.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.0604761,
+      "inputTokens": 2558,
+      "outputTokens": 496
+    }
+  ]
+}

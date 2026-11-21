@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-04-early-strained__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Tomas Quell\u0027s last known position was in the northern sector\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Briefing gives no location for Quell; \u0027northern sector\u0027 is invented.\u0022},{\u0022span\u0022:\u0022before he vanished into thin air\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Briefing only says the Dispatch is seeking news of him; vanishing is an inference stated as fact.\u0022},{\u0022span\u0022:\u0022The Brine Coast League seized three Black Fen Raiders\u0027 vessels on the south channel.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Invented event and number; contradicts the briefing, which says Black Fen Raiders burned a ferry.\u0022},{\u0022span\u0022:\u0022ceased operations\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Contradicts the briefing: the Dispatch stopped sending reporters toward Lowmere, not all operations. The \u0027I suspect\u0027 framing does not cover a claim that contradicts the facts.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It replaces the ferry burning with an invented seizure of three vessels, and it adds a location for Quell that the briefing never gives. Each item is a single flat sentence, well short of the length and format asked for, with almost no wry voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.4057872,
+      "inputTokens": 2419,
+      "outputTokens": 404
+    }
+  ]
+}

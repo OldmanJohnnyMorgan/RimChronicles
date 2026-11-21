@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Lancers now control only one settlement.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027Now ... only\u0027 implies they lost settlements, possibly because of Malley\u0027s death. The briefing just gives 1 settlement.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and readable, but almost voiceless: it reads like a list of briefing facts with none of Odile\u0027s sardonic wit. Calling it \u0027a quiet week\u0027 right after a pirate captain\u0027s death falls flat rather than landing as understatement.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.2903487,
+      "inputTokens": 2607,
+      "outputTokens": 351
+    }
+  ]
+}

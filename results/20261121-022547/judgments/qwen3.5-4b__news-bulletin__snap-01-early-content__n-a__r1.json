@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-01-early-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022before winter sets in\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Adds a season context the briefing lacks; it is Aprimay (spring), so winter is not imminent.\u0022},{\u0022span\u0022:\u0022three scattered settlements on the edge of the map\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Adds \u0027scattered\u0027 and a location the briefing does not give; \u0027map\u0027 is also game-meta language.\u0022},{\u0022span\u0022:\u0022four remaining settlements\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027Remaining\u0027 implies losses the briefing never mentions.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It covers both items in order and frames most guesses properly, but it piles on unsupported colour (\u0027remaining\u0027, \u0027scattered\u0027, \u0027before winter\u0027) in a spring bulletin. \u0027Edge of the map\u0027 breaks the frontier voice, and several sentences run well over 20 words.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.6264039,
+      "inputTokens": 2474,
+      "outputTokens": 627
+    }
+  ]
+}

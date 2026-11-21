@@ -1,0 +1,32 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-01-early-content__n-a__r1",
+  "model": "gemma4-e2b",
+  "task": "news-bulletin",
+  "snapshot": "snap-01-early-content",
+  "grammar": "n/a",
+  "repeat": 1,
+  "promptVersion": "news-bulletin/v4",
+  "outcome": "Model",
+  "value": "The Tarn Union has established a new trading post on the river road. A cold snap is forecast for the northern hills.\n\nRed Gully Raiders are still operating in their usual territories. The Seven Ash Clans maintain their current distribution of settlements.\n\nOne assumes the weather will be inconvenient for any commerce. The current arrangement of factions remains unchanged for this cycle.",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.\n\nWrite your next news bulletin.\n\nWhat to write:\n- 2 or 3 news items, most important first, each a paragraph of about 3 short sentences, separated by a blank line. About 70 to 130 words in all.\n- Start with what you heard since your last bulletin. If there is only one new item, 2 items are enough: never pad.\n- What your earlier bulletins already covered is old news. You may mention it briefly as background, but never present it as new or happening again.\n- On a quiet week, comment drily on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.\n\nWhat you know:\n- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events.\n- Report each fact as plainly as the briefing gives it. Do not add how big, how bad, why or what happened next.\n- Your wit is your opinion, not new facts. Frame any guess as a guess: \u0022I suspect\u0022, \u0022presumably\u0022, \u0022one assumes\u0022.\n- You do not know what happens inside the colony unless your briefing says it became public.\n\nStyle:\n- Keep your voice the same as in your earlier bulletins, but do not reuse their jokes or sentences.\n- Keep sentences short, mostly under 20 words.\n- Write plain paragraphs of prose. The briefing\u0027s headings and labels are notes for you: never copy them into the bulletin.\n- Write only the bulletin itself: no title, no headings, no dateline, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 2 (Aprimay 5500).\nThe colony you report near: Ashfall Crossing. You do not know what happens inside it unless listed below.\n\nFactions:\n- The Tarn Union (Outlanders): 6 settlements\n- Red Gully Raiders (Pirates): 3 settlements\n- The Seven Ash Clans (Tribe): 4 settlements\n\nHeard since your last bulletin (lead with these):\n- The Tarn Union opened a new trading post on the river road\n- A cold snap is forecast for the northern hills\n\n## Your earlier bulletins\nNone yet. This is your first bulletin.\n\nWrite the bulletin now.\n",
+        "maxOutputTokens": 350,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "The Tarn Union has established a new trading post on the river road. A cold snap is forecast for the northern hills.\n\nRed Gully Raiders are still operating in their usual territories. The Seven Ash Clans maintain their current distribution of settlements.\n\nOne assumes the weather will be inconvenient for any commerce. The current arrangement of factions remains unchanged for this cycle.",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 0.4549499,
+      "inputTokens": 546,
+      "outputTokens": 72,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-966\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795227972,\u0022model\u0022:\u0022gemma4:e2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022The Tarn Union has established a new trading post on the river road. A cold snap is forecast for the northern hills.\\n\\nRed Gully Raiders are still operating in their usual territories. The Seven Ash Clans maintain their current distribution of settlements.\\n\\nOne assumes the weather will be inconvenient for any commerce. The current arrangement of factions remains unchanged for this cycle.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:546,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:72,\u0022total_tokens\u0022:618}}\n"
+    }
+  ]
+}

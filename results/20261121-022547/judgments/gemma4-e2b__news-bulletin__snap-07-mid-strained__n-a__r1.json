@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-07-mid-strained__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022active this cycle\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing gives only the settlement count, not any activity.\u0022},{\u0022span\u0022:\u0022They are still counting losses against their current tally.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Stated as fact, not as a guess, that the Covenant is still tallying losses. This stretches the old wagon story.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin is too short (about 45 words, against 70\u2013130) and mostly flat. The lead item gets one bare sentence with no wit, and the closing line is muddled and asserts ongoing losses the briefing doesn\u0027t support.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.9129203,
+      "inputTokens": 2573,
+      "outputTokens": 456
+    }
+  ]
+}

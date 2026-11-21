@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-01-early-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022This follows their expansion into the region.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The briefing reports one trading post; it mentions no prior expansion into the region.\u0022},{\u0022span\u0022:\u0022The Tarn Union continues to grow.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Ongoing growth is inferred from a single trading post but stated as fact.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The prose is flat and generic, with almost none of the dry, wry Ilse Varrow persona. It also invents a prior \u0027expansion into the region\u0027 and states the Tarn Union\u0027s growth as fact rather than as a guess.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.664238,
+      "inputTokens": 2433,
+      "outputTokens": 560
+    }
+  ]
+}

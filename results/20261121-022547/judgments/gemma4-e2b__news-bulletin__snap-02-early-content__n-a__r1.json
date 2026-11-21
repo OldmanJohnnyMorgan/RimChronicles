@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-02-early-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Glimmer Coast Company continues its movement.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing only says a caravan reached the eastern ford, which is old news; ongoing movement is implied.\u0022},{\u0022span\u0022:\u0022They are noted for their consistent profitability.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022This restates an earlier joke as a plain fact; the briefing gives no profitability information.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin is flat and repetitive, with almost none of Ilse\u0027s dry wit. Two of its three paragraphs rehash old news as if it were current, which pads a one-item week. The lead item is undersold, and calling it a \u0027quiet week\u0027 at the end doesn\u0027t rescue the dull, report-like prose.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.7390647,
+      "inputTokens": 2717,
+      "outputTokens": 500
+    }
+  ]
+}

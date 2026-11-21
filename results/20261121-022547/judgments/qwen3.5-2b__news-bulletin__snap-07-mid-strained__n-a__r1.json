@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-07-mid-strained__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They expect every traveler to pay their share before crossing the narrow pass.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Embellishes the toll demand with details of who pays and when, plus \u0027narrow pass\u0027.\u0022},{\u0022span\u0022:\u0022Vex\u0027s Crew has two settlements, but they seem content with doing nothing.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Characterises the pirates\u0027 activity, which the briefing does not describe.\u0022},{\u0022span\u0022:\u0022Imperial envoys visited two outlander towns yesterday.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Invents a date (\u0027yesterday\u0027) and presents old news as new.\u0022},{\u0022span\u0022:\u0022Raiders took it near the gorge in broad daylight\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Repeats an old item as if it were current news; \u0027broad daylight\u0027 also comes only from the earlier bulletin, not the briefing.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It copies the earlier bulletin\u0027s wagon joke word for word and re-presents both old items as fresh news, dating the envoy visit to \u0027yesterday\u0027. Its final sentence is also garbled.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.3498172,
+      "inputTokens": 2695,
+      "outputTokens": 376
+    }
+  ]
+}

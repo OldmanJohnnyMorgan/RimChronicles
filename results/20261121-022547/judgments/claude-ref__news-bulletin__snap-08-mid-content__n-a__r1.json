@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-08-mid-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:5,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:5,\u0022comment\u0022:\u0022It leads correctly with the single new item and fills the quiet week with dry commentary on the faction counts, with every guess framed as a guess. It invents no facts, keeps the persona\u0027s wry voice, and only nods to old news as background.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.8577109,
+      "inputTokens": 2689,
+      "outputTokens": 492
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022His Lancers remain the only pirate settlement left in the region.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027Left\u0027 implies other pirate settlements were lost, which the briefing does not say.\u0022},{\u0022span\u0022:\u0022their fleet\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing gives the Lancers no fleet; the phrase presupposes one inside a guess.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The lead item is plain and accurate. The second paragraph presents the already-covered war as new and reuses the earlier bulletin\u0027s sentences almost word for word, including the fish joke, which breaks two explicit instructions. The closing line about a \u0027quiet week\u0027 also contradicts the news of a captain\u0027s death.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.1819796,
+      "inputTokens": 2669,
+      "outputTokens": 729
+    }
+  ]
+}

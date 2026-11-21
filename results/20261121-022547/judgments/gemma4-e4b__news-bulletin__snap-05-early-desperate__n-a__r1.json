@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022This development follows the recent crop losses in the northern basin.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies a causal link between the crop losses and the market closure that the briefing does not give.\u0022},{\u0022span\u0022:\u0022Scythe Tooth raids continue across the rim.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Presents old news as ongoing and widens it \u0027across the rim\u0027. The briefing only reports raids at three settlements, already covered.\u0022},{\u0022span\u0022:\u0022The Ferrow Mutual continues to organize patrols.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The briefing says nothing about Ferrow patrols. Even the earlier bulletin said only that it asked members to share patrols, not that it is organising them.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Flat and voiceless, with none of Odile\u0027s sardonic understatement. The second paragraph rehashes old news as if it were still happening and asserts unsupported ongoing patrols instead of commenting drily on a quiet week.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.8585179,
+      "inputTokens": 2546,
+      "outputTokens": 711
+    }
+  ]
+}

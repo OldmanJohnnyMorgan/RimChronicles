@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-01-early-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Red Gully Raiders are still operating in their usual territories.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing gives only a settlement count. It says nothing about ongoing activity or territories.\u0022},{\u0022span\u0022:\u0022The current arrangement of factions remains unchanged for this cycle.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022This is the first bulletin, so there is no earlier state to compare against. \u0027Unchanged\u0027 is an unsupported inference stated as fact.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin reads like a flat report with almost none of Ilse\u0027s dry wit. It crams both new items into one paragraph and pads with vague filler about the factions instead of using the settlement counts. It also falls short of the word target.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.5277549,
+      "inputTokens": 2418,
+      "outputTokens": 514
+    }
+  ]
+}

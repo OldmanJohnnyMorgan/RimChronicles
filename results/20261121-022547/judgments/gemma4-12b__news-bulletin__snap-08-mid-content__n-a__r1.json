@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-08-mid-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The bulletin is accurate and clear, but the voice is flat. Only the \u0027one assumes\u0027 line shows any wryness, and the last two items just restate old news and the date without the dry commentary a quiet week calls for.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.2973815,
+      "inputTokens": 2630,
+      "outputTokens": 365
+    }
+  ]
+}

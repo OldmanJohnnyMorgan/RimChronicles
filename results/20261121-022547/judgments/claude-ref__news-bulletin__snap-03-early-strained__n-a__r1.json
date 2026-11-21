@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The tally stands where it stood.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies the faction counts are unchanged, but no earlier figures were given.\u0022},{\u0022span\u0022:\u0022which may be why they keep to homesteads\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Stretches one raid on two homesteads into a habit; the cause is hedged but the pattern is stated as fact.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022A sound quiet-week bulletin that comments drily on the faction counts and the colony\u0027s silence, with clear structure and no padding. The \u0027tally stands\u0027 line and the \u0027keep to homesteads\u0027 generalisation stretch the briefing slightly, and the opening is a little flat.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.350786,
+      "inputTokens": 2691,
+      "outputTokens": 674
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-09-mid-desperate__n-a__r1",
+  "model": "qwen3-14b",
+  "task": "news-bulletin",
+  "snapshot": "snap-09-mid-desperate",
+  "grammar": "n/a",
+  "repeat": 1,
+  "promptVersion": "news-bulletin/v4",
+  "outcome": "Model",
+  "value": "I heard that Pirate captain Rook Malley was killed at his camp. Pirate captain Rook Malley is dead, killed at his own camp. His body was found with a knife in his back, and no one claims to have seen him alive since.\n\nThe Embertail Tribe continues its war with the Gray Wharf Syndicate. Both sides remain stubborn, and neither has yet managed to take a settlement. The war, as before, shows no sign of ending soon.\n\nMalley\u2019s Lancers have not made any new claims or threats. The pirates are quiet, which is unusual for them. I suspect the leadership is in disarray without their captain.",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are Odile Brask, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is sardonic, precise and fond of understatement.\n\nWrite your next news bulletin.\n\nWhat to write:\n- 2 or 3 news items, most important first, each a paragraph of about 3 short sentences, separated by a blank line. About 70 to 130 words in all.\n- Start with what you heard since your last bulletin. If there is only one new item, 2 items are enough: never pad.\n- What your earlier bulletins already covered is old news. You may mention it briefly as background, but never present it as new or happening again.\n- On a quiet week, comment drily on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.\n\nWhat you know:\n- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events.\n- Report each fact as plainly as the briefing gives it. Do not add how big, how bad, why or what happened next.\n- Your wit is your opinion, not new facts. Frame any guess as a guess: \u0022I suspect\u0022, \u0022presumably\u0022, \u0022one assumes\u0022.\n- You do not know what happens inside the colony unless your briefing says it became public.\n\nStyle:\n- Keep your voice the same as in your earlier bulletins, but do not reuse their jokes or sentences.\n- Keep sentences short, mostly under 20 words.\n- Write plain paragraphs of prose. The briefing\u0027s headings and labels are notes for you: never copy them into the bulletin.\n- Write only the bulletin itself: no title, no headings, no dateline, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 288 (Decembary 5504).\nThe colony you report near: Cinder Rest. You do not know what happens inside it unless listed below.\n\nFactions:\n- Malley\u0027s Lancers (Pirates): 1 settlement\n- The Gray Wharf Syndicate (Outlanders): 6 settlements\n- Embertail Tribe (Tribe): 4 settlements, at war with The Gray Wharf Syndicate\n\nHeard since your last bulletin (lead with these):\n- Pirate captain Rook Malley was killed at his camp\n- Pirate captain Rook Malley is dead, killed at his own camp\n\nYour earlier bulletins already covered (old news, background only):\n- The Embertail Tribe declared war on the Gray Wharf Syndicate\n\n## Your earlier bulletins\nEarlier bulletin:\nCaptain Rook Malley\u0027s Lancers are getting bolder. A trader was killed on the coast road last quadrum, and a pit fighter from Cinder Rest is said to be walking with a cane because of them.\n\nLatest bulletin:\nThe Embertail Tribe has declared war on the Gray Wharf Syndicate over fishing rights. Neither side, so far as I can tell, has caught any fish.\n\nWrite the bulletin now.\n",
+        "maxOutputTokens": 500,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "I heard that Pirate captain Rook Malley was killed at his camp. Pirate captain Rook Malley is dead, killed at his own camp. His body was found with a knife in his back, and no one claims to have seen him alive since.\n\nThe Embertail Tribe continues its war with the Gray Wharf Syndicate. Both sides remain stubborn, and neither has yet managed to take a settlement. The war, as before, shows no sign of ending soon.\n\nMalley\u2019s Lancers have not made any new claims or threats. The pirates are quiet, which is unusual for them. I suspect the leadership is in disarray without their captain.",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.950355,
+      "inputTokens": 661,
+      "outputTokens": 134,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-311\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795228087,\u0022model\u0022:\u0022qwen3:14b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022I heard that Pirate captain Rook Malley was killed at his camp. Pirate captain Rook Malley is dead, killed at his own camp. His body was found with a knife in his back, and no one claims to have seen him alive since.\\n\\nThe Embertail Tribe continues its war with the Gray Wharf Syndicate. Both sides remain stubborn, and neither has yet managed to take a settlement. The war, as before, shows no sign of ending soon.\\n\\nMalley\u2019s Lancers have not made any new claims or threats. The pirates are quiet, which is unusual for them. I suspect the leadership is in disarray without their captain.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:661,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:395},\u0022completion_tokens\u0022:134,\u0022total_tokens\u0022:795}}\n"
+    }
+  ]
+}

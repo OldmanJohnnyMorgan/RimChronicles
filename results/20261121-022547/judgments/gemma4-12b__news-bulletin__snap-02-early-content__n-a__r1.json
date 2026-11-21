@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-02-early-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The bulletin is accurate and leads correctly with the abandoned camp, and \u0027a better spot to be miserable\u0027 is a decent dry line. The rest is flat: the Glimmer Coast paragraph is filler without a joke, and at about 60 words the piece falls short of the requested length.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.9448628,
+      "inputTokens": 2666,
+      "outputTokens": 405
+    }
+  ]
+}

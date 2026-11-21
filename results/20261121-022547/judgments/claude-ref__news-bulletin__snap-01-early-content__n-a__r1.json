@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-01-early-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022this is the Dispatch\u0027s first bulletin\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says only that this is Ilse\u0027s first bulletin, not the Dispatch\u0027s first ever.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate and drily witty, with guesses properly hedged. The third paragraph turns the faction counts into a sensible quiet-week item, but it slightly misstates the first bulletin as the Dispatch\u0027s rather than Ilse\u0027s.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.263985,
+      "inputTokens": 2500,
+      "outputTokens": 486
+    }
+  ]
+}

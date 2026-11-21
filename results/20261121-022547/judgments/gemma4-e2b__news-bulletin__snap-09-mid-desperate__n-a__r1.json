@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Cinder Rest is quiet this week.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The reporter has no knowledge of the colony\u0027s internal affairs; quietness is an inference stated as fact.\u0022},{\u0022span\u0022:\u0022The faction sizes remain as previously noted.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022No earlier bulletin noted faction sizes, so this misrepresents the record.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The lead item is accurate, but the voice is flat and barely sardonic, and the third paragraph is filler that breaks the \u0027never pad\u0027 rule while misstating the colony and the earlier bulletins. The second item adds nothing beyond restating old news.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.9860971,
+      "inputTokens": 2633,
+      "outputTokens": 509
+    }
+  ]
+}

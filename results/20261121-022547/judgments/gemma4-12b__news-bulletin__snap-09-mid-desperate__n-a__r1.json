@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It remains a remarkably unproductive conflict for everyone involved.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022States the war\u0027s lack of results as fact; the briefing gives no outcome.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Clear and accurate on the lead item, with the guess about the Lancers properly hedged. But it runs short at about 50 words and the wit is thin and generic, especially in the second item, which also asserts an unsupported outcome.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.4632961,
+      "inputTokens": 2595,
+      "outputTokens": 451
+    }
+  ]
+}

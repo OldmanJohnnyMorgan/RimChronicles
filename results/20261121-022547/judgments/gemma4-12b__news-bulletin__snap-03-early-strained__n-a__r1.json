@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They continue to operate as they always have, despite the previous raids.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Stated as fact without support. It contradicts the briefing, which says Merrow caravans changed to travelling only in pairs.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The settlement counts are correct and the quiet week is acknowledged honestly. But the bulletin is flat and almost witless, nothing like the dry Ilse of earlier bulletins, and it closes with an unsupported claim that contradicts the caravans-in-pairs change.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.589885,
+      "inputTokens": 2596,
+      "outputTokens": 565
+    }
+  ]
+}

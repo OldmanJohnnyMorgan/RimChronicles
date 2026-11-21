@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-02-early-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022This leaves the contested flats open for other traders.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022An implied consequence stated as fact. It also contradicts the later claim that the flats remain contested.\u0022},{\u0022span\u0022:\u0022Their caravan moved through the eastern ford\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says the caravan reached the ford, not that it moved through it. This is also old news presented as current.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin leads correctly with the abandoned camp. It then recycles old news as new and lifts jokes and whole sentences verbatim from earlier bulletins (\\\u0022more guards than goods\\\u0022, \\\u0022stay inland\\\u0022, \\\u0022profitable week\\\u0022). It also contradicts itself about whether the flats are open or contested.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.4600587,
+      "inputTokens": 2724,
+      "outputTokens": 736
+    }
+  ]
+}

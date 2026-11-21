@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-06-early-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Calder Combine reports continued good harvests along the delta.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Recasts old news as a fresh report and adds \u0027continued\u0027; no new harvest report is in the briefing.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The lead item is a bare copy of the briefing line with no wit or development, and the old harvest news is recycled as if it were a new report. Four flat paragraphs and about 55 words miss the requested format and length, and Ilse\u0027s dry voice is barely present.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.1249618,
+      "inputTokens": 2533,
+      "outputTokens": 424
+    }
+  ]
+}

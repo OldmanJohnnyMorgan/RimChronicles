@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-01-early-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022finally snapped up the last stretch of the river road\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The briefing says only that a trading post opened; it says nothing of a last stretch or a takeover.\u0022},{\u0022span\u0022:\u0022the locals say it\u0027s just convenient for them\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Invented reported speech from unnamed locals.\u0022},{\u0022span\u0022:\u0022The Red Gully Raiders have been quiet lately\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Asserts the raiders\u0027 recent behaviour, which the briefing never mentions.\u0022},{\u0022span\u0022:\u0022likely bringing more snow than usual\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Adds scale to the cold snap forecast.\u0022},{\u0022span\u0022:\u0022anyone trying to reach the distant coast\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Introduces a coast the briefing does not name.\u0022},{\u0022span\u0022:\u0022This will probably make travel difficult\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implied consequence of the cold snap, beyond what the briefing gives.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin is readable and leads with the right news, but it embroiders both items with unsupported claims: the \u0027last stretch\u0027 of road, the locals\u0027 quote and a coast the briefing never names. The voice is only mildly wry, and \u0027One assumes\u0027 reads more like speculation than dry wit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.9244738,
+      "inputTokens": 2445,
+      "outputTokens": 788
+    }
+  ]
+}

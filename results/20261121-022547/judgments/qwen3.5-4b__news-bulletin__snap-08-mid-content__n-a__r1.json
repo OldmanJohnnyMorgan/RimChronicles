@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-08-mid-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022merchants are already queuing to see if they can afford a piece\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Invented event; the briefing says nothing of queues or sales.\u0022},{\u0022span\u0022:\u0022The trade fair at Lantern Hill remains open\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Infers the fair\u0027s current status, which the briefing does not give.\u0022},{\u0022span\u0022:\u0022leaving three settlements in a strange lull\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Embellishes the gang\u0027s quiet into a lull across all its settlements.\u0022},{\u0022span\u0022:\u0022continue to report a good fishing season\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Presents old news as ongoing, which the briefing does not state.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022There is only one new item, but the bulletin pads it with two paragraphs of old news and reuses the earlier bulletin\u0027s jokes almost word for word. It also invents queuing merchants and runs past the word limit. The \u0027only nine settlements\u0027 line makes little sense, since nine is the largest faction count.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.4028543,
+      "inputTokens": 2743,
+      "outputTokens": 737
+    }
+  ]
+}

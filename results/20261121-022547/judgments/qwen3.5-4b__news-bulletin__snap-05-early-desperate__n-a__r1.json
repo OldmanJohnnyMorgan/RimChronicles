@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022shut their markets to outsiders on day forty-seven\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The briefing gives day 47 as today\u0027s date, not the date the markets closed.\u0022},{\u0022span\u0022:\u0022This ends the fur-for-grain trade that kept prices low.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022This contradicts the earlier bulletin, which described the prices as high, and states an unsupported consequence as fact.\u0022},{\u0022span\u0022:\u0022last month\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The briefing gives no timing for the cold snap.\u0022},{\u0022span\u0022:\u0022in quick succession\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022This embellishes the manner of the raids; the earlier bulletin said only \u0027in a quadrum\u0027.\u0022},{\u0022span\u0022:\u0022Now Scythe Tooth pirates have raided three settlements\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027Now\u0027 presents old news as if it were new.\u0022},{\u0022span\u0022:\u0022The Ferrow Mutual is organizing patrols\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022This overstates what was reported: the Mutual only asked its members to share patrols.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The lead invents a date and a consequence that contradicts the earlier report of high prices. The second paragraph rehashes old news as if it were current and recycles the \u0027who is paying\u0027 joke, which pads a one-item week.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 9.1816971,
+      "inputTokens": 2599,
+      "outputTokens": 949
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-06-early-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It is a quiet week here in Saltreed.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The reporter is near Saltreed, not in it, and knows nothing of the colony\u0027s state.\u0022},{\u0022span\u0022:\u0022They seem to be active this cycle.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Infers ongoing activity from a single robbery, though \u0027seem\u0027 softens it.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The bulletin is accurate in substance but flat and far too short, about 45 words against the 70 to 130 asked for. It has almost none of Ilse\u0027s dry wit, and the faction-count paragraph just restates the briefing without any wry comment.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.3767963,
+      "inputTokens": 2498,
+      "outputTokens": 442
+    }
+  ]
+}

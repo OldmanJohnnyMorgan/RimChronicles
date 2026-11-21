@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-08-mid-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Jade sculptures are drawing the eye at Lantern Hill.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Briefing names one jade sculpture, Gladwater\u0027s; the plural and the dropped source distort it.\u0022},{\u0022span\u0022:\u0022The Accord\u0027s trade fair is underway.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Briefing only says the Accord is hosting a fair; \u0027underway\u0027 is an inference stated as fact.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The lead item drops Gladwater, the actual news, and turns one sculpture into several, so the story is lost. The bulletin is also well under length, calls a week with news \u0027quiet\u0027, and its jokes are flat lists of faction counts with little of Ilse\u0027s wit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.2866347,
+      "inputTokens": 2573,
+      "outputTokens": 624
+    }
+  ]
+}

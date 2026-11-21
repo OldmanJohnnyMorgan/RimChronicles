@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Ashen Hand\u0027s raiders are back on the Merrow road with fresh stores.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Presents a new raid; the briefing says nothing new happened.\u0022},{\u0022span\u0022:\u0022One homestead lost its roof and two others were looted of their grain.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Retells old news as new and contradicts it: three homesteads and grain are not in the briefing.\u0022},{\u0022span\u0022:\u0022prices for goods seem steady\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Invents price information; the earlier bulletin implied prices rose.\u0022},{\u0022span\u0022:\u0022The Kinn tribe has shifted their grazing routes south to avoid the old fire line.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Invents a new movement and a fire line. This is not in the briefing, and the fires were in the south.\u0022},{\u0022span\u0022:\u0022They claim they are simply moving livestock\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Invents a claim and livestock.\u0022},{\u0022span\u0022:\u0022caravan patrols\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Embellishes caravans into patrols.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022On a quiet week it invents a fresh raid, new figures and Kinn movements, and it contradicts itself by calling the week quiet straight after reporting attacks. The voice is flat and repeats earlier material instead of commenting drily.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.2018067,
+      "inputTokens": 2643,
+      "outputTokens": 453
+    }
+  ]
+}

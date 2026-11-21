@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-02-early-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:5,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The bulletin is accurate and well ordered. It leads with the abandoned camp, keeps the salt-flats war as background, and gets its quiet-week wit from the real settlement counts. The voice is dry and fitting but slightly less sharp than the earlier bulletins, and the closing \u0027arithmetic\u0027 line hints at a decline the briefing doesn\u0027t strictly show.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.6964683,
+      "inputTokens": 2749,
+      "outputTokens": 521
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-07-mid-strained__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They blame raiders, but no one has claimed responsibility.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Invents a new fact that no one claimed the raid, and casts doubt on the raiders, which the briefing states as fact.\u0022},{\u0022span\u0022:\u0022still rankles\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Adds an ongoing grievance that the briefing does not report.\u0022},{\u0022span\u0022:\u0022The gorge remains a contested stretch of road.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Embellishes the gorge as contested ground.\u0022},{\u0022span\u0022:\u0022This follows their envoys\u2019 recent visits to outlander towns.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies a sequence or link between the visits and the tolls that the briefing does not state.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The lead item is right, but the bulletin pads with a third paragraph that restates the Empire item. It also invents that no one claimed the wagon raid. The voice is flatter and less wry than in the earlier bulletins.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.8607241,
+      "inputTokens": 2663,
+      "outputTokens": 776
+    }
+  ]
+}

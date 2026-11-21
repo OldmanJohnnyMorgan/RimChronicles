@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-04-early-strained__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:1,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Accurate but lifeless: it restates the briefing with no dry wit or persona, crams all three new items into one paragraph, and falls well short of the 70\u2013130 word target. Calling it \u0027a quiet week\u0027 right after a burned ferry and a missing reporter reads as a contradiction rather than a joke.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.1079414,
+      "inputTokens": 2448,
+      "outputTokens": 295
+    }
+  ]
+}

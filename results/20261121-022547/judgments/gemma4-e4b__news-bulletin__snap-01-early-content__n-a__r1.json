@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-01-early-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and clear, but flat as a ledger: there is no trace of Ilse\u0027s dry, wry voice, and the second paragraph just recites the faction counts. It also runs only about 50 words, under the requested length.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.4685774,
+      "inputTokens": 2390,
+      "outputTokens": 113
+    }
+  ]
+}

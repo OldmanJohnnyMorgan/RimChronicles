@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022His body was found with a knife in his back\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The briefing gives no method of death and no discovery of a body.\u0022},{\u0022span\u0022:\u0022no one claims to have seen him alive since\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022This is an invented detail about witnesses.\u0022},{\u0022span\u0022:\u0022neither has yet managed to take a settlement\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The briefing says nothing about the war\u0027s progress or any settlements taken.\u0022},{\u0022span\u0022:\u0022Both sides remain stubborn\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022This embellishes the war with an unsupported description of manner.\u0022},{\u0022span\u0022:\u0022The war, as before, shows no sign of ending soon\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022This is an inference about the war\u0027s outcome stated as fact.\u0022},{\u0022span\u0022:\u0022Malley\u2019s Lancers have not made any new claims or threats. The pirates are quiet\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The briefing does not report on the Lancers\u0027 recent behaviour.\u0022},{\u0022span\u0022:\u0022which is unusual for them\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022This is an inferred characterisation of the Lancers stated as fact.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The bulletin copies the duplicated briefing line almost verbatim, so it reads as redundant and robotic. It invents several major details: the knife in the back, the absence of witnesses, no settlements taken, and the pirates going quiet. It also lacks the sardonic voice the persona calls for.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.8944681,
+      "inputTokens": 2701,
+      "outputTokens": 491
+    }
+  ]
+}

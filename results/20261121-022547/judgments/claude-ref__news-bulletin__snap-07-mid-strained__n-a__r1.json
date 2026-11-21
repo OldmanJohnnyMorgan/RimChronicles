@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-07-mid-strained__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Vex\u0027s Crew, with two settlements, has said nothing at all\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing records no statement or silence from Vex\u0027s Crew; it is an inference stated as fact.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Dry, clear and accurate on the toll news and the faction arithmetic. It breaks the brief by recycling earlier lines: \u0027polite smiles and long scrolls\u0027 and the escort-eyesight joke are reused outright rather than freshly written.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.5846444,
+      "inputTokens": 2710,
+      "outputTokens": 572
+    }
+  ]
+}

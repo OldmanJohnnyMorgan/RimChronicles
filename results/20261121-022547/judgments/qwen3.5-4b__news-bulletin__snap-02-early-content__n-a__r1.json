@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-02-early-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022leaving behind nothing but smoke and silence\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Adds detail of the abandonment (smoke) that the briefing does not give.\u0022},{\u0022span\u0022:\u0022The Tannerfolk claim this means they won\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Invents a Tannerfolk claim or statement not in the briefing.\u0022},{\u0022span\u0022:\u0022a stalemate that keeps prices high\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Calls the war a stalemate and links it to prices, neither of which the briefing states.\u0022},{\u0022span\u0022:\u0022reached the eastern ford earlier this week\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Invents a timeframe and presents old news as recent.\u0022},{\u0022span\u0022:\u0022with more guards than goods\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Attaches a detail from an earlier bulletin to this caravan as fact. It also reuses an old line.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The lead item is right, but the bulletin invents a Tannerfolk victory claim and a timeframe. The whole second paragraph rehashes old news and reuses the earlier \u0027more guards than goods\u0027 joke. The \u0027ran out of fuel\u0027 line is also muddled.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 8.8049967,
+      "inputTokens": 2766,
+      "outputTokens": 827
+    }
+  ]
+}

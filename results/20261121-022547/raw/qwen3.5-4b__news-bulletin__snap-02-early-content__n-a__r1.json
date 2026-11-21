@@ -1,0 +1,32 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-02-early-content__n-a__r1",
+  "model": "qwen3.5-4b",
+  "task": "news-bulletin",
+  "snapshot": "snap-02-early-content",
+  "grammar": "n/a",
+  "repeat": 1,
+  "promptVersion": "news-bulletin/v4",
+  "outcome": "Model",
+  "value": "Hollow Spire Pirates abandoned a camp on the salt flats, leaving behind nothing but smoke and silence. The Tannerfolk claim this means they won, while the pirates likely mean they just ran out of fuel. I suspect the real reason is that their supply line was cut by the Glimmer Coast Company.\n\nThe Tannerfolk and the Hollow Spire Pirates remain at war over the salt flats, a stalemate that keeps prices high. A Glimmer Coast Company caravan reached the eastern ford earlier this week with more guards than goods. It seems the company prefers to be seen rather than heard in these parts.",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are Ilse Varrow, a reporter for the Rim Dispatch, a news sheet that travels between the settlements of the rim. Your voice is dry, wry and slightly cynical.\n\nWrite your next news bulletin.\n\nWhat to write:\n- 2 or 3 news items, most important first, each a paragraph of about 3 short sentences, separated by a blank line. About 70 to 130 words in all.\n- Start with what you heard since your last bulletin. If there is only one new item, 2 items are enough: never pad.\n- What your earlier bulletins already covered is old news. You may mention it briefly as background, but never present it as new or happening again.\n- On a quiet week, comment drily on facts already in your briefing, such as faction sizes, wars or the date. A quiet week is a fine story.\n\nWhat you know:\n- Use only the facts and names in your briefing. Never invent people, places, factions, numbers, quotes, dates or events.\n- Report each fact as plainly as the briefing gives it. Do not add how big, how bad, why or what happened next.\n- Your wit is your opinion, not new facts. Frame any guess as a guess: \u0022I suspect\u0022, \u0022presumably\u0022, \u0022one assumes\u0022.\n- You do not know what happens inside the colony unless your briefing says it became public.\n\nStyle:\n- Keep your voice the same as in your earlier bulletins, but do not reuse their jokes or sentences.\n- Keep sentences short, mostly under 20 words.\n- Write plain paragraphs of prose. The briefing\u0027s headings and labels are notes for you: never copy them into the bulletin.\n- Write only the bulletin itself: no title, no headings, no dateline, no sign-off, no notes, no word count.\n",
+        "user": "## Your briefing\nDate: day 11 (Aprimay 5500).\nThe colony you report near: Bramblewick. You do not know what happens inside it unless listed below.\n\nFactions:\n- The Glimmer Coast Company (Outlanders): 5 settlements\n- Hollow Spire Pirates (Pirates): 2 settlements\n- The Tannerfolk (Tribe): 5 settlements, at war with Hollow Spire Pirates\n\nHeard since your last bulletin (lead with these):\n- Hollow Spire Pirates abandoned a camp on the salt flats\n\nYour earlier bulletins already covered (old news, background only):\n- The Tannerfolk and the Hollow Spire Pirates are fighting over the salt flats\n- A Glimmer Coast Company caravan reached the eastern ford\n\n## Your earlier bulletins\nEarlier bulletin:\nSalt is dear again. The Tannerfolk say the Hollow Spire lot burned two of their drying racks, and the pirates say nothing, which is how pirates say yes. Elsewhere, a Glimmer Coast caravan is on the move with more guards than goods, which tells you all you need to know about the roads.\n\nLatest bulletin:\nThe salt flats remain contested and the salt remains expensive. Readers wishing to avoid both are advised to stay inland. The Glimmer Coast Company reports a profitable week; the Company always reports a profitable week.\n\nWrite the bulletin now.\n",
+        "maxOutputTokens": 500,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "Hollow Spire Pirates abandoned a camp on the salt flats, leaving behind nothing but smoke and silence. The Tannerfolk claim this means they won, while the pirates likely mean they just ran out of fuel. I suspect the real reason is that their supply line was cut by the Glimmer Coast Company.\n\nThe Tannerfolk and the Hollow Spire Pirates remain at war over the salt flats, a stalemate that keeps prices high. A Glimmer Coast Company caravan reached the eastern ford earlier this week with more guards than goods. It seems the company prefers to be seen rather than heard in these parts.",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 1.3511927,
+      "inputTokens": 701,
+      "outputTokens": 124,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-651\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795227986,\u0022model\u0022:\u0022qwen3.5:4b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022Hollow Spire Pirates abandoned a camp on the salt flats, leaving behind nothing but smoke and silence. The Tannerfolk claim this means they won, while the pirates likely mean they just ran out of fuel. I suspect the real reason is that their supply line was cut by the Glimmer Coast Company.\\n\\nThe Tannerfolk and the Hollow Spire Pirates remain at war over the salt flats, a stalemate that keeps prices high. A Glimmer Coast Company caravan reached the eastern ford earlier this week with more guards than goods. It seems the company prefers to be seen rather than heard in these parts.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:701,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:124,\u0022total_tokens\u0022:825}}\n"
+    }
+  ]
+}

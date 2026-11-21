@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3-14b__news-bulletin__snap-08-mid-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Lantern Accord claims it\u2019s a gift from a distant patron.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Invented claim about the sculpture\u0027s origin; no such statement is in the briefing.\u0022},{\u0022span\u0022:\u0022The Lantern Accord\u2019s trade fair is still set for next week, as promised.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Invents a schedule and contradicts the timeline: the fair was already \u0027next week\u0027 in an earlier bulletin.\u0022},{\u0022span\u0022:\u0022Traders are debating its worth, though few seem to agree on much else.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Embellishes \u0027talk of the traders\u0027 with a debate and disagreement.\u0022},{\u0022span\u0022:\u0022has drawn a crowd\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Adds scale that the briefing does not give.\u0022},{\u0022span\u0022:\u0022which is not unusual for them\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Inference about the gang\u0027s habits, stated as fact.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Two invented facts: the \u0027distant patron\u0027 claim and the fair \u0027still set for next week\u0027, which contradicts the earlier bulletin. The second paragraph also pads with old news in a flat voice that has almost none of Ilse\u0027s dry wit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.6106889,
+      "inputTokens": 2629,
+      "outputTokens": 753
+    }
+  ]
+}

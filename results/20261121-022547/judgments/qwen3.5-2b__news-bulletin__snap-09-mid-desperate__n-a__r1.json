@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__news-bulletin__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Lancers are no longer feared for their aggression, though they still operate with impunity.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022A new claim about the Lancers\u0027 standing and activity that the briefing does not give, stated as fact.\u0022},{\u0022span\u0022:\u0022The skirmishes continue without bloodshed\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Invents ongoing skirmishes and their outcome; the briefing reports no fighting.\u0022},{\u0022span\u0022:\u0022Neither faction has yet secured any catch in recent waters\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022States the earlier bulletin\u0027s joke as a factual report on the current situation.\u0022},{\u0022span\u0022:\u0022suggests a quiet shift in pirate morale\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Implies a consequence of Malley\u0027s death that the briefing does not support.\u0022},{\u0022span\u0022:\u0022making the conflict purely ideological\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Characterises the war in a way the briefing does not support.\u0022},{\u0022span\u0022:\u0022formally declared war\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Embellishes the manner of the declaration.\u0022},{\u0022span\u0022:\u0022their volatile nature\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Unsupported characterisation of the factions.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022Re-reports the old war declaration as news, recycles the earlier fishing joke, and invents bloodless skirmishes and the Lancers\u0027 current reputation. Phrases like \u0027local law enforcement\u0027 and \u0027operate with impunity\u0027 read like modern newswire rather than Odile\u0027s dry frontier voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 9.361187,
+      "inputTokens": 2678,
+      "outputTokens": 956
+    }
+  ]
+}

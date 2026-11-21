@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-07-mid-strained__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Iron Covenant still lacks that supply wagon lost to the raiders.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing does not say the wagon was never recovered; this inference is stated as fact.\u0022},{\u0022span\u0022:\u0022The Empire continues its expansion of influence through these new demands.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027Expansion of influence\u0027 is an implied consequence, framed as fact.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate and has a dry guess in it, but the second paragraph reads as padding. It rehashes old news, states two inferences as fact and ends on a flat, analytical line that drops the persona\u0027s wit.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.6869566,
+      "inputTokens": 2613,
+      "outputTokens": 431
+    }
+  ]
+}

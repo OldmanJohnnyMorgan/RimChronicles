@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-01-early-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It will be a miserable week\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Adds a duration and severity to a forecast the briefing gives plainly.\u0022},{\u0022span\u0022:\u0022They are joined by the Red Gully Raiders with three\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027Joined by\u0027 can read as an alliance between the factions, which the briefing does not state.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022The first two items are accurate and drily witty, and the guess about the mud is properly hedged. The faction paragraph is flat, and \u0027joined by\u0027 wrongly hints at an alliance.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 5.5128341,
+      "inputTokens": 2447,
+      "outputTokens": 449
+    }
+  ]
+}

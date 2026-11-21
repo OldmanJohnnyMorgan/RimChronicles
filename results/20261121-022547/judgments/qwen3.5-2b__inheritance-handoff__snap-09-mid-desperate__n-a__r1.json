@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-2b__inheritance-handoff__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Now, she was the only one left to carry that memory.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Contradicts the briefing: Lene, Joska\u0027s wife and Tamsin\u0027s mother, is not said to be dead.\u0022},{\u0022span\u0022:\u0022the small scar on his neck where Malley had tried to stab him\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Invents a specific wound and attack the briefing never mentions.\u0022},{\u0022span\u0022:\u0022Joska\u0027s laugh when he told stories about how pirates were nothing but rats\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022Invented memory and characterisation of Joska\u0027s sayings.\u0022},{\u0022span\u0022:\u0022Tamsin knew the ground was unstable there\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Invents a fact about the camp\u0027s terrain.\u0022},{\u0022span\u0022:\u0022I\u0027m going to find out who is really behind that\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Implies a hidden culprit beyond the Lancers that the story never suggests.\u0022},{\u0022span\u0022:\u0022gripped the rifle tight\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022A weapon not named in the briefing.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:2,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022The scene runs to about 200 words, well over the 120 limit, and names emotions outright (\u0027grief mixed with a fierce determination\u0027). It also invents several facts, including erasing Lene and a conspiracy, and contradicts itself: she grips the rifle, then later pulls it from a \u0027shoulder holster\u0027.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 8.2483418,
+      "inputTokens": 2332,
+      "outputTokens": 849
+    }
+  ]
+}

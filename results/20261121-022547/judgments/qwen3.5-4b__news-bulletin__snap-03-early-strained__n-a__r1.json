@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Two homesteads on the Merrow road remain lost to their raiders\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The briefing says the homesteads were raided and lost stores, not that they are still lost or held.\u0022},{\u0022span\u0022:\u0022traders travel in pairs to pay the toll\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022No toll is mentioned anywhere; this invents a fact and a cause.\u0022},{\u0022span\u0022:\u0022moving northward\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022The briefing gives no direction for the Kinn\u0027s movement.\u0022},{\u0022span\u0022:\u0022keep the Kinn of the Long Grass moving\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022This presents the earlier grass-fire news as an ongoing current situation.\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022On a quiet week this rehashes old news as if it were current, and it recycles earlier jokes almost verbatim (doubled prices, trouble finding someone). It also adds unsupported details: a toll, a northward direction, and homesteads still \u0027lost\u0027.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 9.3592644,
+      "inputTokens": 2646,
+      "outputTokens": 887
+    }
+  ]
+}

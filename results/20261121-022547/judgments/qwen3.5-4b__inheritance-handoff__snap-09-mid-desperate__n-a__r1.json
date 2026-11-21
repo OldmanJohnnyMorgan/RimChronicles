@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__inheritance-handoff__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Tamsin sat in the mud where Joska had fallen\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Places Tamsin at the camp the Lancers still hold; the briefing never says she was there.\u0022},{\u0022span\u0022:\u0022the Lancers\u0027 ruined camp\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027Ruined\u0027 is an added embellishment; the briefing only says the Lancers still hold the camp.\u0022},{\u0022span\u0022:\u0022the cold, rusted hilt of his old blade\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Invents a specific item, Joska\u0027s blade, that the briefing never mentions.\u0022},{\u0022span\u0022:\u0022The memory of his final scream\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Implies Tamsin witnessed Joska\u0027s death, which the briefing does not support.\u0022},{\u0022span\u0022:\u0022imagining Captain Malley\u0027s new face, the one who would hunt Cinder Rest for revenge\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Muddles the dead Malley with the unnamed new captain, contradicting the briefing.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:2,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The scene invents a weapon and a witnessed death, wrongly puts Tamsin at the enemy-held camp, and confuses Malley with the new captain. It also names emotions outright (\u0027the anger felt different\u0027), and the ending is muddled: it is unclear who \u0027he\u0027 is in \u0027never found peace\u0027, and \u0027The hunt began\u0027 is a flat close rather than a clear statement of what Tamsin means to do.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 9.5447617,
+      "inputTokens": 2212,
+      "outputTokens": 993
+    }
+  ]
+}

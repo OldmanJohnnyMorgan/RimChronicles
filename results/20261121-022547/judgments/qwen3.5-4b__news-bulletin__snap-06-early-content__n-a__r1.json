@@ -1,0 +1,16 @@
+{
+  "cell": "qwen3.5-4b__news-bulletin__snap-06-early-content__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022even if the Combine claims their harvest is finally good enough to spare\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The briefing says only that harvests were good; that there is enough to spare is an embellishment.\u0022},{\u0022span\u0022:\u0022while imperial shuttles drift over the eastern mountains\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022The sighting is old news but is written in the present tense, implying it is still happening.\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The bulletin leads correctly with the barge robbery and uses the faction counts accurately. However, it presents the old shuttle sighting as current activity and embellishes the harvest. The voice is serviceable but less sharp than in the earlier bulletin.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 6.5271282,
+      "inputTokens": 2575,
+      "outputTokens": 569
+    }
+  ]
+}

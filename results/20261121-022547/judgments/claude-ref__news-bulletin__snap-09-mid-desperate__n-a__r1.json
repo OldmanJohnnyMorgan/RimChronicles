@@ -1,0 +1,16 @@
+{
+  "cell": "claude-ref__news-bulletin__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v2",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It is day 288 of Decembary\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022Day 288 is the day of the year; the phrasing misstates the date as the 288th day of Decembary.\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:5,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Dry, well-ordered bulletin that leads correctly with Malley\u0027s death, frames its guesses properly and handles the war as background. The garbled date phrasing (\u0027day 288 of Decembary\u0027) misstates the briefing and caps the score.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 7.4758478,
+      "inputTokens": 2699,
+      "outputTokens": 629
+    }
+  ]
+}
