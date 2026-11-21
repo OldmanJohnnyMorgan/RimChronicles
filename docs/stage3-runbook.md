@@ -61,13 +61,14 @@ Send me pass or fail per row, and anything in the letters that reads oddly.
 ### 1. Harness trial of the plot-letter prompt (rule 8)
 
 Four hand-written snapshots now carry a Nemesis letter case: a sighting (`snap-07`), a raid (`snap-16`), a choice
-(`snap-12`) and an ending (`snap-09`). This runs only the new task, 3 times each, on the three Gemma models, with the
-judge: 36 judged letters, well under $1. Start Ollama first.
+(`snap-12`) and an ending (`snap-09`). This runs only the new task, 3 times each, on the three Gemma models: 36 letters.
+It runs **without the Claude judge** (no API spend): the automated checks still score every letter, and Claude Code
+reviews the raw letters from the pushed run. Start Ollama first.
 
 ```powershell
 cd C:\RimworldMods\RimChronicles\RimChronicles
 git pull
-dotnet run --project harness/RimChronicles.Eval -- run --tasks plot-letter --models gemma4-e2b,gemma4-e4b,gemma4-12b --judge
+dotnet run --project harness/RimChronicles.Eval -- run --tasks plot-letter --models gemma4-e2b,gemma4-e4b,gemma4-12b
 ```
 
 Push the run to the results branch as before, with the run ID from the `Report:` line:

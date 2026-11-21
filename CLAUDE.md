@@ -16,6 +16,7 @@ dotnet run --project harness/RimChronicles.Eval -- check     # preflight model s
 dotnet run --project harness/RimChronicles.Eval -- run --config harness/models.stub.json   # smoke run, no server
 dotnet run --project harness/RimChronicles.Eval -- run --models gemma4-e4b --tasks director  # real run (needs the server)
 dotnet run --project harness/RimChronicles.Eval -- run --judge     # generate, then judge prose with Claude (needs RIMCHRONICLES_ANTHROPIC_API_KEY)
+# Since 2026-11-21 routine runs skip --judge and claude-ref to save API credits; Claude Code reviews raw/ outputs instead.
 dotnet run --project harness/RimChronicles.Eval -- run --judge --temperature default   # local models at the server's default temperature
 dotnet run --project harness/RimChronicles.Eval -- judge latest    # judge an existing run; rewrites summary.html
 dotnet run --project harness/RimChronicles.Eval -- report latest --compare <runId>   # rebuild summary.html with deltas
