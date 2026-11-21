@@ -144,6 +144,8 @@ Test 5 matters most: from then on, the eval harness runs on real colonies.
 - A one-page `ENGINE_NOTES.md` recording what was confirmed (runtime, Harmony, threading) and any API differences from 1.6.
 - The adapter-layer interface drafted (see Architecture).
 
+**Status: done (2026-11-21).** All five tests passed in game on RimWorld 1.7.9819 with Harmony 3.0.0-rc.7. A live export from a new colony passes the harness's snapshot check, apart from `allowedTransitions`, which the director fills from Stage 4. Findings are in `docs/ENGINE_NOTES.md`.
+
 ## System architecture
 
 The mod has three layers, and only the bottom one, the engine adapter, ever calls RimWorld. If 1.7 changes during beta, only the adapter is rewritten, and the story core and LLM layer stay untouched.
@@ -409,7 +411,7 @@ These go in the repo's `CLAUDE.md` (or equivalent) so every coding session follo
 ### Roadmap
 
 1. **Stage 0:** model evaluation harness (no game needed). Done 2026-11-21.
-2. **Stage 1:** 1.7 technical spike and snapshot exporter
+2. **Stage 1:** 1.7 technical spike and snapshot exporter. Done 2026-11-21.
 3. **Stage 2:** news agent (first playable release)
 4. **Stage 3:** minor plots, starting with Nemesis
 5. **Stage 4:** plot director and quest templates
