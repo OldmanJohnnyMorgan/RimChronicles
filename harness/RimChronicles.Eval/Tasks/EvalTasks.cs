@@ -1,4 +1,5 @@
 using System.Text.Json.Nodes;
+using RimChronicles.Core.News;
 using RimChronicles.Core.Snapshots;
 using RimChronicles.Core.Summaries;
 using RimChronicles.Eval.Config;
@@ -74,7 +75,10 @@ public static class EvalTasks
         {
             words = WordRange(task, s);
             var (min, max) = words.Value;
-            checks = [new WordCountCheck(min, max), new GroundingCheck(input.AllowedNames), new BannedPhraseCheck()];
+            // The bulletin's checks come from Core, the same ones the game runs.
+            checks = task == WorldSummarizer.NewsBulletinTask
+                ? BulletinTask.Checks(s, input)
+                : [new WordCountCheck(min, max), new GroundingCheck(input.AllowedNames), new BannedPhraseCheck()];
         }
 
         var definition = new TaskDefinition<string>

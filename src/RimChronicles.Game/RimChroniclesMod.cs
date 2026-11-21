@@ -12,9 +12,13 @@ public sealed class RimChroniclesMod : Mod
 
     public static RimChroniclesSettings Settings { get; private set; } = new();
 
+    /// <summary>The mod's prompts folder, or null before the mod is constructed.</summary>
+    public static string? PromptsRoot { get; private set; }
+
     public RimChroniclesMod(ModContentPack content) : base(content)
     {
         Settings = GetSettings<RimChroniclesSettings>();
+        PromptsRoot = Path.Combine(content.RootDir, "prompts");
         new Harmony(HarmonyId).PatchAll(typeof(RimChroniclesMod).Assembly);
         Log.Message($"[Rim Chronicles] Loaded on {System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription}; "
             + $"Harmony patches applied; tier {Settings.Tier}, model {Settings.Model} at {Settings.Endpoint}.");

@@ -119,6 +119,11 @@ public sealed class WorldReader : IWorldReader
             .ToList();
     }
 
+    /// <summary>The mod's own letters (bulletins and Dev Mode test letters) are not colony events.</summary>
+    private static bool IsOwnLetter(string label) =>
+        label.StartsWith("Rim Chronicles", StringComparison.Ordinal) ||
+        (RimChroniclesGameComponent.Current is { } c && label.StartsWith(c.Desk.Reporter.Outlet.CapitalizeFirst() + ", day ", StringComparison.Ordinal));
+
     private static List<string> ReadRecentEvents()
     {
         var archive = Find.Archive;
@@ -128,7 +133,7 @@ public sealed class WorldReader : IWorldReader
         }
 
         return archive.ArchivablesListForReading
-            .Where(a => !(a.ArchivedLabel ?? "").StartsWith("Rim Chronicles", StringComparison.Ordinal)) // our own letters
+            .Where(a => !IsOwnLetter(a.ArchivedLabel ?? ""))
             .OrderByDescending(a => a.CreatedTicksGame)
             .Take(MaxRecentEvents)
             .Select(a => $"{EventText.Shorten(a.ArchivedLabel ?? "")} (day {a.CreatedTicksGame / GenDate.TicksPerDay})")

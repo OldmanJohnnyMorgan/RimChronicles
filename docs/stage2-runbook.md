@@ -45,3 +45,24 @@ line each time news is recorded.
 | 7 (optional) | Kill a faction leader (find one in the **Factions** tab), or destroy a settlement with a caravan. | `<name>, <title> of <faction>, has died…`, or `<colony> destroyed <settlement>…`. |
 
 Send me pass or fail per row, the news log text from row 5, and the snapshot from row 6, uploaded to `reference`.
+
+## M3: the news pipeline
+
+The reporter is a placeholder (Ilse Varrow of the Rim Dispatch) until M4. Keep **Development mode** on: bulletins then
+show where they came from (`Model` or `Template`) in grey under the text, and the debug log notes when each is written.
+**Show news desk** and **Force bulletin** are under **Debug actions → Rim Chronicles**.
+
+| # | Do | Pass when |
+| --- | --- | --- |
+| 1 | Load a colony (Recommended tier, cadence 3). Let a day pass, then **Show news desk**. | It shows the next due day, about 3 days out. |
+| 2 | Play on to 2 days before that day. | The debug log says `Bulletin written (Model), due day N`, and the game doesn't stutter while it's written. **Show news desk** shows the waiting text. |
+| 3 | Play to the due day. | A letter **The Rim Dispatch, day N** arrives with that exact text, and `(Model, news-bulletin/v8)` underneath. The next due day is 3 days later. |
+| 4 | Execute **Cold snap**, then **Force bulletin**. | The bulletin leads with the cold snap. |
+| 5 | **Force bulletin** again. | The cold snap isn't presented as new. This one is a quiet week, or mentions the snap only as old news. |
+| 6 | Wait until a bulletin has been written but not delivered (**Show news desk** shows its text). Note the text, save, quit to the menu, and load. | **Show news desk** shows the same text, and the letter on the due day matches it word for word. |
+| 7 | Pick **Off** in the mod settings, then **Force bulletin**. | A bulletin still arrives, marked `(Template)`. No red errors. |
+| 8 | Pick **Recommended** again, quit Ollama, and **Force bulletin**. | A `(Template)` bulletin after the connection times out (up to a minute), and a yellow `fell back to a template` line in the log. Start Ollama again. |
+| 9 | Open the letters archive (the **History** tab, **Messages**). | Every bulletin is there with its text unchanged. |
+
+Send me pass or fail per row, and paste 2–3 of the model's bulletins (from step 3 onwards), so I can check how the
+prompt reads real game news.

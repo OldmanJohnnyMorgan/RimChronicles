@@ -59,4 +59,31 @@ public static class SpikeDebugActions
             : string.Join("\n", events.OrderBy(e => e.Day).Select(e => $"Day {e.Day} [{e.Kind}]: {e.Text}"));
         LetterSink.Instance.Send($"Rim Chronicles: news log ({events.Count})", text);
     }
+
+    [DebugAction(Category, "Force bulletin", allowedGameStates = AllowedGameStates.Playing)]
+    public static void ForceBulletin()
+    {
+        if (RimChroniclesGameComponent.Current is { } component)
+        {
+            News.NewsDriver.Force(component);
+        }
+    }
+
+    [DebugAction(Category, "Show news desk", allowedGameStates = AllowedGameStates.Playing)]
+    public static void ShowNewsDesk()
+    {
+        if (RimChroniclesGameComponent.Current is not { } component)
+        {
+            return;
+        }
+
+        var d = component.Desk;
+        var pending = d.Pending is { } p
+            ? $"written ({p.Source}), due day {p.DueDay}:\n{p.Text}"
+            : component.WritingBulletin ? "being written" : "not written yet";
+        var last = d.Delivered.Count == 0 ? "none yet" : string.Join("\n", d.Delivered.TakeLast(3).Select(b => $"Day {b.DeliveredDay} ({b.Source}): {b.Text}"));
+        LetterSink.Instance.Send("Rim Chronicles: news desk",
+            $"Reporter: {d.Reporter.Name}, {d.Reporter.Outlet}\nNext bulletin due: day {d.NextDueDay} (cadence {RimChroniclesMod.Settings.NewsCadenceDays} days)\n"
+            + $"Next bulletin: {pending}\nOld news remembered: {d.Reported.Count}\n\nLast bulletins:\n{last}");
+    }
 }

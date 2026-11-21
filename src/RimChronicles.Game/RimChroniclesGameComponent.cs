@@ -18,6 +18,7 @@ public sealed class RimChroniclesGameComponent : GameComponent
 
     private SpikeState _spike = new();
     private NewsLog _news = new();
+    private NewsDesk _desk = new();
 
     public RimChroniclesGameComponent(Verse.Game game)
     {
@@ -36,6 +37,12 @@ public sealed class RimChroniclesGameComponent : GameComponent
     /// <summary>Public world news collected during play (Stage 2 M2).</summary>
     public NewsLog News => _news;
 
+    /// <summary>The bulletin schedule and archive (Stage 2 M3).</summary>
+    public NewsDesk Desk => _desk;
+
+    /// <summary>True while a bulletin is being written in the background. Not saved: after a reload, writing restarts.</summary>
+    public bool WritingBulletin { get; set; }
+
     // Update runs every frame, paused or not, so replies arrive while the game is paused too.
     public override void GameComponentUpdate() =>
         _queue.Drain(ex => Log.Error($"[Rim Chronicles] Main-thread work failed: {ex}"));
@@ -44,8 +51,10 @@ public sealed class RimChroniclesGameComponent : GameComponent
     {
         ScribeArchive.Instance.Deep(ref _spike, "spike");
         ScribeArchive.Instance.Deep(ref _news, "news");
+        ScribeArchive.Instance.Deep(ref _desk, "newsDesk");
         _spike ??= new SpikeState();
         _news ??= new NewsLog();
+        _desk ??= new NewsDesk();
     }
 
     /// <summary>Called by the daily patch once per in-game day (spike test 2).</summary>
@@ -53,6 +62,6 @@ public sealed class RimChroniclesGameComponent : GameComponent
     {
         _spike.DaysSeen++;
         _spike.AddLog($"day {day}: daily patch ran ({_spike.DaysSeen} days seen)");
-        Log.Message($"[Rim Chronicles] Day {day}: daily patch ran; {_spike.DaysSeen} days seen in this save.");
+        Game.News.NewsDriver.Tick(this);
     }
 }
