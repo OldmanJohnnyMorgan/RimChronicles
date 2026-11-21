@@ -55,6 +55,14 @@ public static class Director
 {
     public const string WaitId = "Wait";
 
+    /// <summary>Pairs of beats that fired closer together than <paramref name="minDays"/> (the Stage 4 exit test: no
+    /// overlapping beats). Waits don't count; they fire nothing.</summary>
+    public static IReadOnlyList<(DirectorDecision First, DirectorDecision Second)> SpacingViolations(IReadOnlyList<DirectorDecision> decisions, int minDays)
+    {
+        var beats = decisions.Where(d => d.Choice != WaitId).OrderBy(d => d.Day).ToList();
+        return beats.Zip(beats.Skip(1)).Where(pair => pair.Second.Day - pair.First.Day < minDays).ToList();
+    }
+
     /// <summary>A weighted random pick. <paramref name="roll"/> is a number in [0, 1) from the caller.</summary>
     public static PlotTransition PickWeighted(IReadOnlyList<PlotTransition> options, double roll)
     {

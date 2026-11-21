@@ -25,6 +25,26 @@ public static class PlotDevActions
         LetterSink.Instance.Send($"Rim Chronicles: director log ({decisions.Count})", text);
     }
 
+    /// <summary>The Stage 4 exit check: lists any two beats that fired less than two days apart, from the decision log.</summary>
+    [DebugAction("Rim Chronicles", "Plot: check beat spacing", allowedGameStates = AllowedGameStates.Playing)]
+    public static void CheckBeatSpacing()
+    {
+        if (RimChroniclesGameComponent.Current is not { } component)
+        {
+            return;
+        }
+
+        var decisions = component.Plots.Decisions;
+        var violations = Core.Plots.Director.SpacingViolations(decisions, Core.Plots.PlotBook.BeatSpacingDays);
+        var beats = decisions.Count(d => d.Choice != Core.Plots.Director.WaitId);
+        var plots = decisions.Select(d => d.PlotId).Distinct().Count();
+        var text = violations.Count == 0
+            ? $"No overlapping beats: {beats} beats across {plots} plots, each at least {Core.Plots.PlotBook.BeatSpacingDays} days apart."
+            : $"{violations.Count} pair(s) of beats closer than {Core.Plots.PlotBook.BeatSpacingDays} days:\n"
+              + string.Join("\n", violations.Select(v => $"{v.First}\n  then {v.Second}"));
+        LetterSink.Instance.Send("Rim Chronicles: beat spacing", text);
+    }
+
     [DebugAction("Rim Chronicles", "Show plots", allowedGameStates = AllowedGameStates.Playing)]
     public static void ShowPlots()
     {
