@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-15-late-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Greywater Concord elected a new speaker. One assumes the new speaker will manage to keep the tolls low.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a standalone item; the tolls promise is also drawn from an earlier bulletin, not this briefing\u0022},{\u0022span\u0022:\u0022The Fox-Lantern Tribe is holding its spring games. The argument over the archery seems to be the main event this cycle.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a standalone item; the archery argument is a hedged guess but comes from an earlier bulletin\u0022},{\u0022span\u0022:\u0022Day 563 passes without incident, which is a rare commodity.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022claims nothing happened, contradicting the one new item and stating a status the briefing does not give\u0022},{\u0022span\u0022:\u0022I suspect they are looking for trouble, as usual.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027as usual\u0027 implies a past pattern the briefing does not give, though the main clause is framed as a guess\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The one new item is reported correctly, but the bulletin pads with two old-news items told as current, breaks the one-new-thing length rule, and ends by saying nothing happened right after reporting something. It should have been one or two short items on the Leopold inquiry plus a remark on the date.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.8004451,
+      "inputTokens": 3679,
+      "outputTokens": 457
+    }
+  ]
+}

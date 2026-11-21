@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The northern basin remains barren as I reported last time.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news and adds a status the briefing does not give; the briefing says crops were killed, not that the basin is barren, and \u0027remains\u0027 is forbidden\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The lead item is accurate and the guess is properly framed. The second item rehashes old news with a forbidden \u0027remains\u0027 and inflates crop loss into \u0027barren\u0027, and the one-new-thing bulletin was meant to use a dry remark on the quiet, not retell the cold snap.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.2967804,
+      "inputTokens": 3589,
+      "outputTokens": 217
+    }
+  ]
+}

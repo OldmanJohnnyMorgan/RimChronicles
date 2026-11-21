@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-13-mid-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The sun is high and the dust is thick today.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022weather detail not in briefing; added colour stated as fact about a world the reporter was not told about\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate and the guess is properly framed, but the joke about accounting skills is weak and unmotivated. The second item is filler weather that adds nothing, though it does fit the one-new-thing rule for a dry remark on the quiet or season. Both items are thin and the whole bulletin is bland.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.3443336,
+      "inputTokens": 3667,
+      "outputTokens": 205
+    }
+  ]
+}

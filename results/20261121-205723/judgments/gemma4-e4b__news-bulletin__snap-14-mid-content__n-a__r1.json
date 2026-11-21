@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-14-mid-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022One assumes the League lost more than just cargo.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, but implies cargo was lost, which the briefing does not give; borderline, hedged\u0022},{\u0022span\u0022:\u0022It seems the Corsairs are keeping busy.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies ongoing activity beyond the single raid; hedged with \u0027it seems\u0027\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead fact is accurate and plainly stated, but with one new thing the second item is meant to be a dry remark on the quiet, the season or the date, and instead it is more speculation about the raid. The wit is thin and generic, and the text runs well under the 40-word minimum.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.4056649,
+      "inputTokens": 3652,
+      "outputTokens": 259
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-16-late-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Mercenary Kael Dunmore now has a price on his head\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\\\u0022now\\\u0022 implies a prior state the briefing does not give; the task also forbids \\\u0022now\\\u0022\u0022},{\u0022span\u0022:\u0022This is a predictable move for those who deal in commerce.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022states as fact that the Accord deals in commerce and that the move was predictable; implied characterisation not in the briefing\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The two items are largely accurate but repeat the same fact twice with thin wit, and the \\\u0022now\\\u0022 breaks an explicit rule. The third item is filler that breaks the \u0027short bulletin\u0027 rule and adds nothing, and the whole piece is generic rather than sharply sardonic.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.7637378,
+      "inputTokens": 3654,
+      "outputTokens": 274
+    }
+  ]
+}

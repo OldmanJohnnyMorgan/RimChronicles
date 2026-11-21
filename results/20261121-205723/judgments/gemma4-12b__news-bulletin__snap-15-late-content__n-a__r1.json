@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-15-late-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The archery argument has reached its third day, which is a record for a dispute over a target.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022repeats old news and changes it: the earlier bulletin said third day, and \u0027a record\u0027 is an invented comparison; told as current\u0022},{\u0022span\u0022:\u0022The Fox-Lantern Tribe\u0027s spring games are ongoing, as I reported last time.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news and claims ongoing status the briefing does not report\u0022},{\u0022span\u0022:\u0022One assumes they are looking for a person, not a new way to worship the void.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022guess framed as assumption; \u0027the void\u0027 is invented cult detail but only as a joke\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The lead item is accurate and wry, but the second item pads with old news about the games, asserts they are ongoing, and invents a \u0027record\u0027, violating the one-new-thing rule against retelling old news.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8731832,
+      "inputTokens": 3630,
+      "outputTokens": 324
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+model,tier,task,grammar,n,first_ok_rate,json_valid_rate,choice_allowed_rate,length_ok_rate,grounded_rate,passed_first_rate,fallback_rate,median_latency_s,p90_latency_s,mean_output_tokens,mean_reasoning_tokens
+gemma4-e2b,Minimum,news-bulletin,n/a,23,1,,,0.826,1,0.826,0,0.638,0.868,97.87,
+gemma4-e4b,Recommended,news-bulletin,n/a,23,1,,,0.957,1,0.957,0.043,0.569,0.695,56.261,
+gemma4-12b,High,news-bulletin,n/a,23,1,,,1,1,1,0,1.47,1.695,61.174,

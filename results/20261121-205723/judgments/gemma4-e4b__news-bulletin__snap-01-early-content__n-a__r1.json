@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-01-early-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022their dubious wares\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the wares are dubious, which the briefing does not say; it is the narrator\u0027s opinion but is stated within a guess, so borderline\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:5,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and clear, with no invented facts beyond opinion. But it is thin: each item has only two sentences, and the total is about 40 words, which sits at the very bottom of the range. The wit is generic, and the \u0027wildlife in a foul mood\u0027 joke is a weak stab at dry humor.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.3819024,
+      "inputTokens": 3433,
+      "outputTokens": 206
+    }
+  ]
+}

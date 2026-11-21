@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-19-late-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Sun Throne razed Fenwick and is besieging the Marrow League.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news: the razing of Fenwick was in earlier bulletins, told as if just happened\u0022},{\u0022span\u0022:\u0022The Starling Tribe offered shelter to Fenwick\u0027s survivors.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news from an earlier bulletin, told as new\u0022},{\u0022span\u0022:\u0022They are apparently still offering that sort of hospitality.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing activity not in briefing; \u0027still\u0027 is also banned\u0022},{\u0022span\u0022:\u0022The season is holding steady.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022claims steadiness the briefing does not give; banned framing\u0022},{\u0022span\u0022:\u0022Last Lantern is involved in this conflict.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says Last Lantern is at war with the Sun Throne, not that it is involved in the Marrow League siege; stated as fact\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It breaks the brief by leading with and retelling old news (Fenwick, the Starling shelter) as fresh, uses banned words like \u0027still\u0027 and \u0027steady\u0027, and pads to five thin items. The wit is generic, not sardonic.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.1786804,
+      "inputTokens": 3725,
+      "outputTokens": 434
+    }
+  ]
+}

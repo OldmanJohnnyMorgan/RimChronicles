@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Ashen Hand raided two homesteads near the Merrow road. They are out in numbers, as I reported last time.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a main item, told as current; \u0027out in numbers\u0027 is a present status not in the briefing\u0022},{\u0022span\u0022:\u0022Merrow Freeholds caravans now travel only in pairs.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news told as current, and uses the banned \u0027now\u0027\u0022},{\u0022span\u0022:\u0022This doubles the guards, which presumably drives up the cost of everything.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news and adds a consequence (doubled guards) not in the briefing; the price guess is hedged\u0022},{\u0022span\u0022:\u0022The grass fires in the south have the Kinn on the move.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news from the latest bulletin, which is not in the briefing\u0027s list, presented as current\u0022},{\u0022span\u0022:\u0022They are not looking for trouble, according to their accounts.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news from the previous bulletin\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin should be a single short quiet-week item, but it retells three old stories as current news, breaking the no-old-news rule and the 40-80 word limit. It also reuses the earlier jokes and the banned \u0027now\u0027, and the writer\u0027s dry voice only shows in a few weak remarks.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.0420858,
+      "inputTokens": 3744,
+      "outputTokens": 474
+    }
+  ]
+}

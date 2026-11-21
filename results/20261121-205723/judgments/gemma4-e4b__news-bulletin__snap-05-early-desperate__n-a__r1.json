@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Scythe Tooth continue their raids.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing activity not reported in the briefing; \u0027continue\u0027 is also forbidden wording\u0022},{\u0022span\u0022:\u0022given the current chill\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied cause linking the closure to the cold snap; the briefing gives no reason (though framed as a guess)\u0022},{\u0022span\u0022:\u0022They have hit three settlements in a quadrum, as I reported last time.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a second item; the \u0027quadrum\u0027 detail comes from an earlier bulletin, not this briefing\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The Gorse Clans lead is correct, but the second item pads the bulletin with old news and uses \u0027continue\u0027, which the task forbids. The wit is mild and generic, and \u0027rather drastic\u0027 is weak against the sardonic persona.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.7362967,
+      "inputTokens": 3611,
+      "outputTokens": 316
+    }
+  ]
+}

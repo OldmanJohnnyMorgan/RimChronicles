@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-05-early-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Ferrow Mutual has asked its members to share patrols.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022repeats old news from an earlier bulletin, which is not in the briefing\u0027s new items and is told as current\u0022},{\u0022span\u0022:\u0022Scythe Tooth raids are reported at three settlements.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as if just reported, with no marker that it is old\u0022},{\u0022span\u0022:\u0022It seems the usual pattern persists.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies an ongoing pattern and uses \u0027persists\u0027, which the rules forbid; no briefing support\u0022},{\u0022span\u0022:\u0022The cold snap has killed crops across the northern basin. This was noted previously.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022old news retold as a full item rather than a short clause\u0022},{\u0022span\u0022:\u0022They are seeking some form of coordination.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022added inference stated as fact\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Only the first line is new, and the rest pads the bulletin with old news in separate items, against explicit instructions. The wit is flat and generic (\u0027Another cycle turns\u0027), and \u0027persists\u0027 breaks the no-continuity rule.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.3474983,
+      "inputTokens": 3701,
+      "outputTokens": 403
+    }
+  ]
+}

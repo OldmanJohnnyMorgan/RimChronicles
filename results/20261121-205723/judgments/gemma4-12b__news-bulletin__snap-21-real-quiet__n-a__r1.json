@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-21-real-quiet__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the only thing that grows faster than the weeds is the local gossip\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022figure of speech but implies gossip and weeds exist; vague colour, borderline\u0022},{\u0022span\u0022:\u0022the usual chaos\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a prior state of chaos the briefing does not give; framed as an assumption, borderline\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It says plainly that nothing was heard and keeps a mild dry voice, but it is only about 45 words, the joke is generic, and \\\u0022my last bulletin\\\u0022 is wrong because this is the first. It also leaves out the required remark on the season or date (day 3, Aprimay).\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.4508059,
+      "inputTokens": 3517,
+      "outputTokens": 252
+    }
+  ]
+}

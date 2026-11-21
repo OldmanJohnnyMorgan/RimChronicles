@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-08-mid-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Lantern Accord\u0027s trade fair continues at Lantern Hill.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a current event, and \u0027continues\u0027 asserts ongoing status the briefing does not give\u0022},{\u0022span\u0022:\u0022is drawing the attention of Lantern Hill traders\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027talk of traders\u0027 recast as ongoing activity; slight shift from briefing\u0022},{\u0022span\u0022:\u0022One assumes this trinket is proving more valuable than the Accord\u0027s promises of fair prices.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, but \u0027trinket\u0027 diminishes the sculpture; mostly opinion, minor\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The second item is old news retold (and uses the banned \u0027continues\u0027), which the task forbids when only one new thing was heard. The dry remarks are serviceable but thin, and the first item\u0027s guess is muddled.\u003C/br\u003E\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.1411741,
+      "inputTokens": 3648,
+      "outputTokens": 328
+    }
+  ]
+}

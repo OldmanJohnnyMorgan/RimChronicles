@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Lancers are apparently quieter now.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022unsupported status claim about the Lancers; hedged with \u0027apparently\u0027 but \u0027now\u0027 implies a comparison the briefing does not give\u0022},{\u0022span\u0022:\u0022They have not managed to secure any fish, as reported.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022repeats old news and states as fact that no fish were secured; the earlier joke was a guess, and the briefing says nothing about fish\u0022},{\u0022span\u0022:\u0022The Embertail Tribe is at war with the Gray Wharf Syndicate.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a lead item rather than a short clause marked as old, though the war is in the faction list\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin is padded with old news about the war and fish, and the second item invents a status for the Lancers. The sole genuinely new fact is stated flatly, with no dry remark, and the item is too short for the length target.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8521022,
+      "inputTokens": 3669,
+      "outputTokens": 339
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022One assumes the pirates are currently scrambling to figure out who is in charge of the mess.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, so not a claim; borderline implied consequence but hedged\u0022},{\u0022span\u0022:\u0022empty nets\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022refers to fishing rights, which came from the earlier bulletin, not this briefing; implies the fishing situation as a current fact\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice fits, and the lead on Malley\u0027s death is accurate, but the second item retells old news that the brief said should get only a clause, so it is padding. The \u0027productive conflict\u0027 and \u0027empty nets\u0027 joke also leans on earlier-bulletin details rather than the briefing.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.7441362,
+      "inputTokens": 3671,
+      "outputTokens": 269
+    }
+  ]
+}

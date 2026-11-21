@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-22-real-conditions__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Orbital Bazaar is moving goods. They are always moving goods, regardless of the weather.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022briefing has no news of the Orbital Bazaar; invents activity and a habitual claim\u0022},{\u0022span\u0022:\u0022The Shewokott are near the perimeter. They are always near the perimeter, waiting for something to happen.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022briefing has no news of the Shewokott; invents location and ongoing activity\u0022},{\u0022span\u0022:\u0022The air is clear now.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022added status beyond fallout ending; implies a consequence and a before/after state\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Two items invent faction activity the briefing never gives, which the task explicitly forbids, and the dry wit is thin. The opening restates the two facts plainly but without any wry take, and the format deviates from item structure.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.9173945,
+      "inputTokens": 3606,
+      "outputTokens": 315
+    }
+  ]
+}

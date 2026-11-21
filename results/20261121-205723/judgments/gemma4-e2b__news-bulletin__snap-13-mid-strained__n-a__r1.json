@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-13-mid-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Sun Throne is sending envoys to the Cobalt Free Towns with demands.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; earlier bulletin already covered the envoys and demands, retold as current\u0022},{\u0022span\u0022:\u0022The Rustback Raiders hit a caravan on the old highway.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news, told as if it just happened\u0022},{\u0022span\u0022:\u0022The owners are offering a reward for the return of the goods.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022changes the earlier bulletin: reward was for the caravan\u0027s return, and the reward detail is not in this briefing; presented as current news\u0022},{\u0022span\u0022:\u0022These settlements chose defiance over deference, a predictable move.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022inference stated as fact; calling it predictable is an added judgment about the event\u0022},{\u0022span\u0022:\u0022It seems the Empire prefers negotiation over outright annexation.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022hedged guess, but implies a motive the briefing does not give\u0022},{\u0022span\u0022:\u0022It is always a good trade for a few coins.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022vague and implies a trade of coins not in the briefing\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It leads correctly with the new refusal, but then pads with three more items that retell old news as fresh (the envoys and the caravan raid, with an altered reward detail). The item count is far over the one-news-item limit, and the jokes are weak.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 4.0363718,
+      "inputTokens": 3777,
+      "outputTokens": 494
+    }
+  ]
+}

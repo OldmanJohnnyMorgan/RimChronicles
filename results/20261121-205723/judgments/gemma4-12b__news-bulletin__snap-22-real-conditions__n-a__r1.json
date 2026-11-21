@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-22-real-conditions__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022One assumes the locals will now find new ways to complain about the humidity.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022humidity and locals\u0027 complaints are not in briefing, though framed as a guess so likely acceptable\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and clear, but it is short of the 40-word minimum for two items, and the jokes are thin; the cough line is odd and the humidity quip is arbitrary. Two new things call for 50 to 100 words, and this falls well under that.}\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.5787397,
+      "inputTokens": 3546,
+      "outputTokens": 196
+    }
+  ]
+}

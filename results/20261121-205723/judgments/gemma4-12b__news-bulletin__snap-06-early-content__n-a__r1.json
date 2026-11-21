@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-06-early-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The air in Saltreed is heavy with the smell of dust and stagnant water.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022claims about conditions inside Saltreed, which the briefing says the reporter cannot know; not given in briefing\u0022},{\u0022span\u0022:\u0022It is a miserable way to spend a day, but at least the dust doesn\u0027t ask for much.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022builds on the invented Saltreed atmosphere, presented as fact\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The first item is accurate and has a decent dry guess, but the second paragraph invents conditions inside Saltreed, which the reporter was told she cannot know. The bulletin is also short for one new thing and the second item is not really about the quiet or season or date as instructed.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8258552,
+      "inputTokens": 3585,
+      "outputTokens": 276
+    }
+  ]
+}

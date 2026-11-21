@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-20-late-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Driftwood Tribe is present. They are just\u2026 present.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022no news of the tribe in the briefing; pads with a faction and implies a status not reported\u0022},{\u0022span\u0022:\u0022The Empire is at war with the Free Coast Alliance. They are issuing final demands.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats background from the faction list as if it were news; not a new thing heard since the last bulletin\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin breaks the brief by padding a one-news-item week with a second item built from faction background and a third item about the tribe, which the briefing has no news of. The wit is thin and the structure is weak, although the lead item is accurate and the guesses are framed as guesses.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.0353358,
+      "inputTokens": 3665,
+      "outputTokens": 271
+    }
+  ]
+}

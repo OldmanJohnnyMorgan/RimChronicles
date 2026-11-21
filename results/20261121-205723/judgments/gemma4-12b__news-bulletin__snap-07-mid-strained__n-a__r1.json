@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-07-mid-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Iron Covenant is missing a supply wagon, as I reported last time.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; also the earlier bulletin was two bulletins back, not \u0027last time\u0027, and the second item is old news retold despite the one-new-thing rule\u0022},{\u0022span\u0022:\u0022It is a shame that raiders have such a keen eye for logistics.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies raiders targeted the wagon for logistics, an inferred motive stated as fact\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The lead item is correct and dry, but the second item retells old news (the stolen wagon) when the brief said a second item must be a remark on the quiet, season or date. The jokes are also fairly weak and generic, and the first item is very short.}\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.2317905,
+      "inputTokens": 3645,
+      "outputTokens": 281
+    }
+  ]
+}

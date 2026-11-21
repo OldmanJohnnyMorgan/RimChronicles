@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-01-early-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022another attempt to secure a foothold\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies earlier attempts and a motive; briefing gives neither, and \\\u0022likely\\\u0022 hedges only the motive\u0022},{\u0022span\u0022:\u0022This is likely just another attempt to secure a foothold.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\\\u0022another\\\u0022 compares with an earlier state the briefing does not give; this is the first bulletin and the post is described as new\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate to the briefing and clear, but at roughly 35 words it falls under the 40-word minimum. The wit is thin, and the cold-snap joke is a tautology rather than a wry take. \\\u0022Another attempt\\\u0022 implies earlier history the briefing does not give.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.1644783,
+      "inputTokens": 3427,
+      "outputTokens": 268
+    }
+  ]
+}

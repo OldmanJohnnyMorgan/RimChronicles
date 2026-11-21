@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-02-early-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The frost is beginning to bite the edges of the rim.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022weather/season claim stated as fact; briefing gives only the date (Aprimay), no frost or change in conditions\u0022},{\u0022span\u0022:\u0022or perhaps they simply ran out of things to burn\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022refers to pirates burning things, an earlier-bulletin claim; implies a cause, though framed as a guess\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate and dry, and the guesses are framed properly. The second item is padding: it states frost as fact with nothing in the briefing to support it. It also misses the quiet-season remark the task allows, using a weather claim instead of the date.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8225596,
+      "inputTokens": 3720,
+      "outputTokens": 266
+    }
+  ]
+}

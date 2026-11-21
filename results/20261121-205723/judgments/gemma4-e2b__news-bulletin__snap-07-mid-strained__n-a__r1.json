@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-07-mid-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Vex\u0027s Crew is operating near the gorge.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022briefing gives no news of Vex\u0027s Crew; stated as fact, and placing them near the gorge and operating there is invented\u0022},{\u0022span\u0022:\u0022They are likely looking for easy targets. One assumes they are.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, but the faction was not to be mentioned without news; builds on invented claim\u0022},{\u0022span\u0022:\u0022The Iron Covenant is short one supply wagon. They are complaining about it.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as if current, and the ongoing complaining is an added status\u0022},{\u0022span\u0022:\u0022It seems they are always complaining.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; guess framed but implies a pattern not in briefing\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Only the first item is legitimate news; the rest pads with an unsupported Vex\u0027s Crew claim and retells the old wagon story as current. The wit is thin and the format breaks the item rules (too many items, short flat sentences, a filler closing paragraph), with the dry take mostly missing.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.5432658,
+      "inputTokens": 3687,
+      "outputTokens": 393
+    }
+  ]
+}

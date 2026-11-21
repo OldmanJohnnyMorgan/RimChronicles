@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-08-mid-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It is a shame the sculpture is the only thing people seem to be discussing.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022stated as fact that the sculpture is the only topic; briefing says only that it is the talk of the traders\u0022},{\u0022span\u0022:\u0022One assumes the stone is more interesting than the actual goods being sold.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, but implies traders prefer it to goods; borderline, mostly opinion\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Leads correctly with the new item and marks the fair as old news, but the second item is padded with old news, which the one-new-thing rule forbids as a second item, and it adds a minor claim that the sculpture is the only topic. The wit is thin and the voice generic.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.6381543,
+      "inputTokens": 3651,
+      "outputTokens": 273
+    }
+  ]
+}

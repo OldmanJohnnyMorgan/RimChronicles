@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-18-late-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The blizzard has closed the passes to the Wailing Moth villages.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as current fact, no marker that it was already reported\u0022},{\u0022span\u0022:\u0022Harrow Teeth raiders are robbing stranded travellers. They are making the most of those who can\u0027t leave.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news told as new, with no marker that it is old\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The one new item is stated flatly with no dry remark, and the other two items just retell old news as fresh, which the task forbids; the length and structure also overshoot a one-new-thing bulletin. The jokes are thin, and the voice is not especially earnest or worried.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.00458,
+      "inputTokens": 3678,
+      "outputTokens": 260
+    }
+  ]
+}

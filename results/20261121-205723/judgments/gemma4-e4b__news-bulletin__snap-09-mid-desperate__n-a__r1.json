@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-09-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Embertail Tribe continues its conflict with the Gray Wharf Syndicate.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as current, and \u0027continues\u0027 is forbidden; implies ongoing activity\u0022},{\u0022span\u0022:\u0022It seems the dispute over fishing rights has not yet resulted in any actual catches.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news (fishing rights joke from last bulletin) rather than marking it as old\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The Malley item is accurate and dry, but the second item retells old news as current, using the banned \u0027continues\u0027 and recycling the previous fish joke. The briefing gave one new fact, so a second item should have been a remark on the quiet or the season, not old news.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.5717507,
+      "inputTokens": 3670,
+      "outputTokens": 274
+    }
+  ]
+}

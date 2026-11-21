@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-08-mid-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022while the traders argue over its worth\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022stated as fact; briefing says only that it is the talk of traders, not that they argue over value\u0022},{\u0022span\u0022:\u0022It sits there, presumably, gathering dust\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022hedged with presumably, but \u0027there\u0027 implies location of the sculpture at Lantern Hill, unsupported\u0022},{\u0022span\u0022:\u0022The Lantern Accord is hosting a trade fair at Lantern Hill. They promise fair prices\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as if new, with no marker that it was already reported\u0022},{\u0022span\u0022:\u0022The Reedmother\u0027s Children report the river is full and the fish are foolish. They call this a good combination.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news, retold as new\u0022},{\u0022span\u0022:\u0022The Ninefingers Gang has been quiet since a failed raid on Gladwater.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news from the latest bulletin as current\u0022},{\u0022span\u0022:\u0022The air remains the same.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022uses \u0027remains\u0027, implying an unchanged state the reporter cannot know\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Only one new item was heard, yet the bulletin retells three old items as current news and pads to five paragraphs, breaking the brief. It also uses forbidden \u0027remains\u0027 and adds speculation about the sculpture.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.7898336,
+      "inputTokens": 3733,
+      "outputTokens": 479
+    }
+  ]
+}

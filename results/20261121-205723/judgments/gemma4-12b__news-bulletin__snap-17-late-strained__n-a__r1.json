@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-17-late-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022It is a rare, dull stretch of time for the rim.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\\\u0022rare\\\u0022 implies a comparison with earlier states the briefing does not give\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It is accurate and says plainly that nothing is new, but it is generic and thin. The dry remark is a stock line about silence before disaster, with no specific eye for the season or date (Aprimay, day 722). Only one short item, and it reads slightly under the 40-word minimum.\u003C/br\u003E\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.3023337,
+      "inputTokens": 3645,
+      "outputTokens": 198
+    }
+  ]
+}

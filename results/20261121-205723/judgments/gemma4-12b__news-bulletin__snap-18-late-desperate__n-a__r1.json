@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-18-late-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022I suspect the frost took more than just the supplies.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, but implies supplies were aboard; borderline, guess so not counted strongly\u0022},{\u0022span\u0022:\u0022as the pirates are\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies pirates are indifferent to plight; vague, loosely tied to old news about raiders\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate lead with the new fact and old news properly marked, but the output pads with a second item that is mostly old news, and the dry remarks are thin. The \\\u0022our plight\\\u0022 line is generic and the pirate aside is vague.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.9062437,
+      "inputTokens": 3637,
+      "outputTokens": 234
+    }
+  ]
+}

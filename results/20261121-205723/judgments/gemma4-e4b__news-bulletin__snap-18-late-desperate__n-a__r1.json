@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-18-late-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022vanished in a blizzard\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says the caravan was lost; \u0027vanished\u0027 implies disappearance, a slight change\u0022},{\u0022span\u0022:\u0022The passes remain shut due to the snow.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a current claim, and \u0027remain\u0027 implies a continuing state, which the task forbids\u0022},{\u0022span\u0022:\u0022I assume the Thistle Commonwealth granaries are still a distant hope for anyone out here.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news about the granaries, framed as a guess but uses \u0027still\u0027; the granaries were in a prior bulletin, not the briefing\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The lead item is correct, but the second item pads with old news and breaks the explicit ban on \u0027remain\u0027 and \u0027still\u0027, and one new thing calls for 40 to 80 words with a dry remark rather than retold news. The wolves guess is framed acceptably, but the bulletin is thin and generic in voice.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.2857128,
+      "inputTokens": 3644,
+      "outputTokens": 355
+    }
+  ]
+}

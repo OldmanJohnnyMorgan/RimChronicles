@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-13-mid-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022One suspects the Empire is growing rather impatient with polite refusals.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022guess framed as \u0027suspects\u0027, but \u0027polite refusals\u0027 adds manner of refusal not in briefing (framed as guess otherwise, so minor)\u0022},{\u0022span\u0022:\u0022The Sun Throne continues its rounds, making demands of its neighbours.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027continues\u0027 implies ongoing activity and repeats old news; briefing forbids \u0027continues\u0027\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The lead is accurate, but the second item is padded repeat of old news using the banned word \u0027continues\u0027, and the bulletin has only a single new fact so it should be 1 or 2 short items with a fresh dry remark. Wit is mild and generic, and the first item\u0027s \u0027polite refusals\u0027 is invented flavour.\u003C/br\u003E\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.7872886,
+      "inputTokens": 3669,
+      "outputTokens": 308
+    }
+  ]
+}

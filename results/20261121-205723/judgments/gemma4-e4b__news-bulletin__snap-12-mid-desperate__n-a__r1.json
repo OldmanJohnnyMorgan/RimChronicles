@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-12-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022reached the Saltmarch Assembly\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022briefing says envoys were sent, not that they arrived\u0022},{\u0022span\u0022:\u0022The Gallows Crew continues to hold a doctor.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news, and \u0027continues\u0027 is a banned status claim\u0022},{\u0022span\u0022:\u0022The quiet persists, even amidst the fallout.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies ongoing quiet and fallout as current status, which the briefing does not report; \u0027persists\u0027 is a banned continuation word\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The lead item is right, but the second item retells old news with the banned word \u0027continues\u0027, and the third item pads with \u0027persists\u0027 and a fallout status claim. The bulletin also runs three items when only one new thing was heard, breaking the format rules.}\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.2090515,
+      "inputTokens": 3711,
+      "outputTokens": 299
+    }
+  ]
+}

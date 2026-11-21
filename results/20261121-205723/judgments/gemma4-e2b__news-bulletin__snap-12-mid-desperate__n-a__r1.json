@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-12-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The sky remains the colour of a bad bruise. The rain continues its dreary performance.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news: fallout/sky from an earlier bulletin, told as an ongoing state with \u0027remains\u0027 and \u0027continues\u0027\u0022},{\u0022span\u0022:\u0022The Gallows Crew is holding a doctor at their camp. This is the same tiresome detail as before.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news: the doctor item was already covered in earlier bulletins, retold as a current item\u0022},{\u0022span\u0022:\u0022The rain continues its dreary performance.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022rain is not in the current briefing; stated as ongoing fact\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Only one new thing was heard, yet the bulletin pads out to three items by retelling old news (the doctor, the fallout sky), and uses banned words like \u0027remains\u0027 and \u0027continues\u0027. The lead item is accurate but the wit is thin and the length guidance is ignored.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.0898789,
+      "inputTokens": 3720,
+      "outputTokens": 353
+    }
+  ]
+}

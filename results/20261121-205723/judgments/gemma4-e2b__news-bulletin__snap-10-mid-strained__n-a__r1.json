@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-10-mid-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Stonecutter Raiders are holding captives from the Ochre Hand.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a fresh item, not marked as old\u0022},{\u0022span\u0022:\u0022The Ochre Hand is at war with the Stonecutter Raiders.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news told as current item; the war is in the briefing but already covered\u0022},{\u0022span\u0022:\u0022The Weir Federation has put a bounty on Stonecutter leaders.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as if just happened\u0022},{\u0022span\u0022:\u0022I expect the bounty will go unclaimed for some time.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news and reuses the earlier bulletin\u0027s joke nearly verbatim\u0022},{\u0022span\u0022:\u0022They are apparently enjoying the inconvenience of holding people.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied motive about raiders not in briefing\u0022},{\u0022span\u0022:\u0022They are apparently keen on making a profit from the chaos.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied motive about the Federation not in briefing\u0022},{\u0022span\u0022:\u0022The season is settling in.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022vague claim about the season not in briefing\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Only the first item is new; the rest retells old news as fresh items, far exceeding the length for one new thing, and reuses a prior joke. Jokes are weak and the bulletin is padded with a faction-by-faction listing.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.6022869,
+      "inputTokens": 3830,
+      "outputTokens": 500
+    }
+  ]
+}

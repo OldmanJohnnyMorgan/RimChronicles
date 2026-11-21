@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-11-mid-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022the local tensions have been temporarily smoothed over with stew and forced pleasantries\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies prior tensions and a cause; framed with \u0027One assumes\u0027 but then stated as the meaning, and stew is invented detail\u0022},{\u0022span\u0022:\u0022The Mire Rats remain absent from the eastern marsh.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news and uses \u0027remain\u0027, implying ongoing status the briefing does not give\u0022},{\u0022span\u0022:\u0022They probably just found a better spot to bother people, perhaps closer to the settlement itself.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022guess framed as \u0027probably\u0027, but implies they relocated near the settlement; speculative, low risk\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The lead item is correct and dry, but the second item pads with old news about the Mire Rats and breaks the explicit ban on \u0027remain\u0027. The bulletin should have been one short item plus a dry remark on the quiet or season, not a retold old story.}\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.5305269,
+      "inputTokens": 3616,
+      "outputTokens": 353
+    }
+  ]
+}

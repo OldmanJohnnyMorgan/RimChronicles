@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-06-early-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Calder Combine reports good harvests along the delta.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news, told as if fresh rather than marked as earlier with a short clause\u0022},{\u0022span\u0022:\u0022I suspect they are merely trying to look prosperous.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, so not invented; but the second item is padding with old news instead of a dry remark on the quiet\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The first item is accurate and suitably short, but the second item retells old news (the Combine\u0027s harvests) as a fresh item, which the task explicitly forbids; the dry remarks are also thin. A one-item or quiet-remark second paragraph would have been right.\\n\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.7508025,
+      "inputTokens": 3553,
+      "outputTokens": 262
+    }
+  ]
+}

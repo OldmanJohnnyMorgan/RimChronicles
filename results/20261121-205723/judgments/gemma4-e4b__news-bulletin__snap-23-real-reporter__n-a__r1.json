@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-23-real-reporter__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:4,\u0022clarity\u0022:5,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and dry, with guesses properly framed, but it is very short. Two items should run 50 to 100 words and this is about 30, and the second item\u0027s joke is thin. It should be fuller before shipping.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 1.8397148,
+      "inputTokens": 3549,
+      "outputTokens": 109
+    }
+  ]
+}

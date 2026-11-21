@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-02-early-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Tannerfolk continue their skirmishes with the pirates.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as ongoing activity; \u0027continue\u0027 is banned and skirmishes status not in the new briefing\u0022},{\u0022span\u0022:\u0022It seems the salt flats are simply too profitable to leave unattended.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess (\u0027It seems\u0027), but implies a cause; profitability of the flats not in briefing\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate and the guesses are properly hedged. But the second item pads with old news and uses the forbidden \u0027continue\u0027, and the bulletin has only one new fact yet runs two items where the second should be a dry remark on the quiet or season, not a retread of the war.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.0241009,
+      "inputTokens": 3716,
+      "outputTokens": 279
+    }
+  ]
+}

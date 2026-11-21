@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-10-mid-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Stonecutter Raiders are still holding captives from the Ochre Hand camp.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news, and uses \u0027still\u0027, which the task forbids; presented as a fresh item\u0022},{\u0022span\u0022:\u0022as rusty as their cutlasses\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the raiders carry cutlasses and have been negotiating; neither is in the briefing\u0022},{\u0022span\u0022:\u0022hoping to trade their patience for some semblance of peace\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022guessed motive about peace; it is framed as a guess, so only the added \u0027peace\u0027 angle is questionable\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item correctly reports the new fact, but the second item retells old news with the banned word \u0027still\u0027 and pads with the cutlasses detail, and the jokes are weak. The \u0027one assumes\u0027 guess in the first item is acceptable but muddled.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.0385003,
+      "inputTokens": 3670,
+      "outputTokens": 325
+    }
+  ]
+}

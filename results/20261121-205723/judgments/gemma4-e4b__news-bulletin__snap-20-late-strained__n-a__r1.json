@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-20-late-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Empire continues its war with the Free Coast Alliance.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\\\u0022continues\\\u0022 implies an ongoing status the briefing does not report; also violates the no-continues rule and is padding, not news\u0022},{\u0022span\u0022:\u0022They are issuing final demands across the region.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\\\u0022across the region\\\u0022 adds scope; the briefing only says the Empire controls most of the region and issues final demands\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate and has a hedged dry remark, but the second item is padding built on the briefing\u0027s background and breaks the rule against \\\u0022continues\\\u0022. It also has no wry take, and the first item\u0027s joke is weak (\\\u0022smells more like a trap\\\u0022).\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.5723909,
+      "inputTokens": 3623,
+      "outputTokens": 266
+    }
+  ]
+}

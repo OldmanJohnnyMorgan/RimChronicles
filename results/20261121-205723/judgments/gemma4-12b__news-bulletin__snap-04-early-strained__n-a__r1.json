@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-04-early-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022One assumes the pirates find the smell of charred wood more appealing than the taste of cargo.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the ferry\u0027s cargo was left unlooted, which the briefing does not say; framed as a guess but rests on an unsupported premise\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:4,\u0022comment\u0022:\u0022Accurate to the briefing, with a dry voice and guesses framed properly. The ferry joke implies a cargo and that it was not taken, and the Lowmere item\u0027s wit is a bit soft.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.4011811,
+      "inputTokens": 3549,
+      "outputTokens": 199
+    }
+  ]
+}

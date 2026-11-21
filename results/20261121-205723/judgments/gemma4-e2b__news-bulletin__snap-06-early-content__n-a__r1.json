@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-06-early-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022This is the latest from the docks.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022the briefing names no docks; it invents a place and source\u0022},{\u0022span\u0022:\u0022They say the yield is fine.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds a claim about the Combine\u0027s statement; it only reported good harvests, and \u0027fine\u0027 is a different claim\u0022},{\u0022span\u0022:\u0022The Calder Combine reports good harvests along the delta.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a full item with no marker that it is old\u0022},{\u0022span\u0022:\u0022They pass by, and nobody seems to care.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022added ongoing activity and public reaction not in the briefing\u0022},{\u0022span\u0022:\u0022Another cycle passes without much excitement.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a comparison with earlier cycles and calls the period quiet, which the briefing does not give\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It pads a one-news-item bulletin with two retold old items and a filler item on the date, against explicit instructions, and invents \u0027the docks\u0027. The wit is weak and generic, though the leading item is correct.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.4204354,
+      "inputTokens": 3660,
+      "outputTokens": 382
+    }
+  ]
+}

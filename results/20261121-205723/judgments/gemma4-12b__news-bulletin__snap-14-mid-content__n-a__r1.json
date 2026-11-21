@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-14-mid-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022as I reported last time\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; the trade pact was covered two bulletins ago, not last time\u0022},{\u0022span\u0022:\u0022It is a shame the pirates haven\u0027t decided to join the negotiations.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the pirates are involved in or excluded from negotiations; not in briefing, stated as fact\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate and has a guess-framed joke, but the second item retells old news (the pact) as a filler item, which the task forbids when there is only one new thing, and wrongly attributes it to \u0027last time\u0027. It also adds a pirate-negotiation implication not in the briefing.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.5804426,
+      "inputTokens": 3679,
+      "outputTokens": 257
+    }
+  ]
+}

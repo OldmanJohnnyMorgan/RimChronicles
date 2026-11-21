@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-03-early-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022It invents no facts, but it ignores the instruction to say plainly that nothing was heard. The second paragraph is vague filler, so the bulletin falls short of the 40-word minimum (about 40 words, borderline), and the wit is thin and abstract. \u0027The cycle\u0027 is also an odd, non-RimWorld phrase, and the date or season is never used.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.0971447,
+      "inputTokens": 3614,
+      "outputTokens": 159
+    }
+  ]
+}

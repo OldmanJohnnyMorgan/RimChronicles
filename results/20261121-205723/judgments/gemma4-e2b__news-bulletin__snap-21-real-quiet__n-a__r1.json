@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-21-real-quiet__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The day is Aprimay 5500.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022garbles the date: briefing gives day 3 of Aprimay 5500, so the stated date is incomplete and slightly wrong\u0022},{\u0022span\u0022:\u0022The air is still.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022weather detail not in the briefing, stated as fact\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022Far too short (about 15 words against a 40 to 80 target) and the dry wit is thin: only one weak guess, no real remark on the quiet. It also drops the day number, and the first line reads like a note rather than a bulletin.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.7269801,
+      "inputTokens": 3473,
+      "outputTokens": 231
+    }
+  ]
+}

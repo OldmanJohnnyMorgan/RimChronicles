@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-23-real-reporter__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022I suspect this is just another casualty of the endless drift.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, but \\\u0022endless drift\\\u0022 is vague colour; \\\u0022another casualty\\\u0022 implies earlier deaths, mild and guess-framed so not counted as a claim\u0022},{\u0022span\u0022:\u0022One assumes this is just another local superstition taking root.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022guess-framed, but mischaracterises the psychic soothe as superstition and implies others before it\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022It reports both facts accurately and frames its remarks as guesses, but the wit is thin and generic, and the first item treats a colleague\u0027s death with a throwaway line. Both items are two sentences and the bulletin is under the 50-word minimum, and the \\\u0022superstition\\\u0022 take misreads the psychic soothe, a game event, so it is serviceable but not ready to ship.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.0307096,
+      "inputTokens": 3551,
+      "outputTokens": 318
+    }
+  ]
+}

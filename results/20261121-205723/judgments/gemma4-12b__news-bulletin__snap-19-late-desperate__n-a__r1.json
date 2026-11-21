@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-19-late-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Sun Throne razed Fenwick, as I reported last time.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a full item rather than a short clause; the new fact is that it razed Fenwick and is besieging, but this is old\u0022},{\u0022span\u0022:\u0022It is a shame about the architecture\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies Fenwick had notable architecture, which the briefing does not give\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The dry voice is good and the siege lead is correct, but the second item retells the Fenwick razing as a full item instead of a short old-news clause, and the architecture line adds an unsupported detail. The item also breaks the 2-4 sentence paragraph rule for the first item (only two sentences, acceptable) but the bulletin is thin on new content.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.6953663,
+      "inputTokens": 3660,
+      "outputTokens": 289
+    }
+  ]
+}

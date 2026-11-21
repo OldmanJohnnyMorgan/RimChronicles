@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-22-real-conditions__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022has finally ceased\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027finally\u0027 implies a long duration or wait the briefing does not give\u0022},{\u0022span\u0022:\u0022The cold snap near New Arrivals has also lifted.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\u0027also\u0027 is fine, but \u0027lifted\u0027 is fine; no issue beyond implied sequence\u0022},{\u0022span\u0022:\u0022Perhaps the settlements can now afford to look out their windows without frostbite.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022guess framed with \u0027perhaps\u0027 but \u0027settlements\u0027 and \u0027now\u0027 imply a before-state the briefing does not give\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:5,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate, clear and compliant with the two-item structure, but short of the 50 to 100 word target and the jokes are mild and generic; \u0027now\u0027 and \u0027finally\u0027 lean on a before-state the briefing does not give.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8060246,
+      "inputTokens": 3554,
+      "outputTokens": 305
+    }
+  ]
+}

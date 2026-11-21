@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-04-early-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Apparently, someone is missing.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies Quell is missing; briefing only says the Dispatch is looking for news of him\u0022},{\u0022span\u0022:\u0022Another piece of local chaos.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies earlier chaos as comparison; briefing gives no earlier events\u0022},{\u0022span\u0022:\u0022They have decided to take a step back.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies a deliberate decision and reason; briefing only says it stopped sending reporters\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate to the three briefing items with no major inventions, but the wit is thin and generic, and it adds minor implied causes (a missing person, a decision to step back). The word count is also near the top of the range, with filler lines like \\\u0022Apparently, someone is missing.\\\u0022\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.0089623,
+      "inputTokens": 3563,
+      "outputTokens": 294
+    }
+  ]
+}

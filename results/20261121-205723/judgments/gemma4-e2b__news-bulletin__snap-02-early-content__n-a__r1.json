@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-02-early-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Glimmer Coast Company reports a profitable week.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022repeats old news from an earlier bulletin, not in the briefing\u0027s new items or told as new; the claim is not supported by the briefing\u0022},{\u0022span\u0022:\u0022This conflict is old news, but it is still happening.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022states ongoing status (\u0027still happening\u0027) the briefing does not report, and breaks the \u0027still\u0027 rule\u0022},{\u0022span\u0022:\u0022The Tannerfolk are at war with the Hollow Spire Pirates.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as an item rather than a short clause marking it old\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The output restates the one new fact twice, then pads with old news and a profit claim from an earlier bulletin, breaking the rules on length, \u0027still\u0027, and old news. The dry voice is thin and the jokes are weak or recycled.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.1896624,
+      "inputTokens": 3798,
+      "outputTokens": 322
+    }
+  ]
+}

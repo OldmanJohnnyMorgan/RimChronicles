@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-10-mid-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The air in Wyrmfold is heavy with the scent of dust and stagnant water.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022specific claim about Wyrmfold\u0027s conditions not in briefing; also the briefing says she does not know the colony\u0027s inside\u0022},{\u0022span\u0022:\u0022It is a miserable day for anyone with a functioning sense of smell.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022extends the invented air claim as a fact about the day\u0022},{\u0022span\u0022:\u0022One assumes they think a few coins can compensate for the inconvenience of being kidnapped.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies the offer is small (\u0027a few coins\u0027); the briefing gives no amount\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The first item is accurate and suitably dry, but the second item pads the bulletin with an invented description of Wyrmfold\u0027s air, which the task forbids. The second item also is not a remark on the quiet, season or date, as the rules require for a second item.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.8925088,
+      "inputTokens": 3673,
+      "outputTokens": 333
+    }
+  ]
+}

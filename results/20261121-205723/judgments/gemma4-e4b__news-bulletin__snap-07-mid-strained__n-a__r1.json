@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e4b__news-bulletin__snap-07-mid-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022Imperial envoys are now making demands across the rim.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news; the envoy visits were already covered, and \u0027across the rim\u0027 adds scope the briefing does not give\u0022},{\u0022span\u0022:\u0022who holds the bigger stick\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022stated as the narrator\u0027s assumption, but it implies a power comparison the briefing lacks (borderline; opinion)\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The first item is accurate and suitably dry. The second item pads with old envoy news, adds \u0027across the rim\u0027 scope, and uses \u0027now\u0027, which the task forbids, so it breaks the rules for a one-new-thing bulletin.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.4277987,
+      "inputTokens": 3635,
+      "outputTokens": 254
+    }
+  ]
+}

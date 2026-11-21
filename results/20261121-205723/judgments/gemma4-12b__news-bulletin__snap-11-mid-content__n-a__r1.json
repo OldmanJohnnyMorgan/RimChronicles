@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-11-mid-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The air is heavy and the dirt is dry.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022weather details not in briefing, stated as fact\u0022},{\u0022span\u0022:\u0022It is a miserable sort of quiet\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022asserts a quiet and its mood as fact; the briefing gives no such status\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate and in a dry voice, but the second item pads with unsupported weather colour stated as fact. The joke in the first item is weak and the guess about the food is tonally flat.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.3824692,
+      "inputTokens": 3595,
+      "outputTokens": 208
+    }
+  ]
+}

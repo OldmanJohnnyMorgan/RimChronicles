@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-20-late-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Empire is at war with the Free Coast Alliance.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news: the war is background from the faction list, not new since the last bulletin, and is stated as a second item\u0022},{\u0022span\u0022:\u0022respond to the final demands with something other than a polite letter\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022framed as a guess, but implies the demands were issued to the Alliance; the briefing gives no target for them\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate and clearly stated, but with only one new thing the second item should be a dry remark on the quiet or season, not a restatement of the war. The jokes are generic, and the \u0027scenery\u0027 guess is weak and does not engage with the governorship offer.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.7863674,
+      "inputTokens": 3630,
+      "outputTokens": 267
+    }
+  ]
+}

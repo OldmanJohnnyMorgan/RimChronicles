@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-12-mid-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The fallout persists, as I reported last time.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022\\\u0022persists\\\u0022 implies ongoing status the briefing does not report; the task bans such continuity words\u0022},{\u0022span\u0022:\u0022ruin a perfectly good afternoon\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022adds a time of day and implies the fallout is current, which the briefing does not give\u0022}],\u0022voice\u0022:4,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022The lead item is accurate and dry, but the second item pads a one-fact week with old news and uses \\\u0022persists\\\u0022, which the task forbids; a second item should remark on the quiet or the date instead. Length and format are otherwise fine.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.6724423,
+      "inputTokens": 3665,
+      "outputTokens": 235
+    }
+  ]
+}

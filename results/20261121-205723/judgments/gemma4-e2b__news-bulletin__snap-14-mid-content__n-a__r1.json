@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-14-mid-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Fernhollow League and the Blue Antler Tribe have a trade pact. They exchange furs for steel.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a current item, not marked as old; furs/steel detail is from earlier bulletin, not the briefing\u0022},{\u0022span\u0022:\u0022The Corsair who returned talks about being well fed. His crewmates are divided on the matter.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a current item; \u0027divided\u0027 alters the earlier \u0027unsure whether relieved or insulted\u0027 and is not in the briefing\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The raid is led correctly, but the bulletin pads with two old-news items told as current, which the task forbids for a one-new-thing week, and it runs against the length and \u0027dry remark on the quiet\u0027 instruction. The wit is mild and generic.\\n\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.068173,
+      "inputTokens": 3741,
+      "outputTokens": 310
+    }
+  ]
+}

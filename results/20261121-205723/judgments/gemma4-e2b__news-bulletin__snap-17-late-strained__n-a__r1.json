@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-17-late-strained__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022They are currently at war with the Kestrel Tribe.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022briefing gives no war between Bonecutter Gang and Kestrel Tribe; invented relationship\u0022},{\u0022span\u0022:\u0022The Bonecutter Gang is operating.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022ongoing activity the briefing does not report; also lists a faction with no news\u0022},{\u0022span\u0022:\u0022The Ashford Compact militias are gathering at Harlow Ford.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as current, without marking it as old\u0022},{\u0022span\u0022:\u0022The air is still.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022weather detail not in briefing, though vague colour\u0022}],\u0022voice\u0022:2,\u0022clarity\u0022:3,\u0022tone\u0022:2,\u0022overall\u0022:1,\u0022comment\u0022:\u0022It invents a war between the Bonecutter Gang and the Kestrel Tribe, lists factions with no news, and retells old news as current. The voice is flat, with a stray \\\u0022Nothing new.\\\u0022 opener, and it ignores the 40-80 word quiet-week format of one short item.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.010378,
+      "inputTokens": 3775,
+      "outputTokens": 355
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-e2b__news-bulletin__snap-11-mid-content__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The Mire Rats are at war with the Children of the Green Bell.\u0022,\u0022severity\u0022:\u0022major\u0022,\u0022reason\u0022:\u0022war between these factions is not in the briefing; invented event/relationship\u0022},{\u0022span\u0022:\u0022I suspect the peace lasted only as long as the rations allowed.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022guess framed as such, but implies the peace already ended; borderline, speculative consequence\u0022},{\u0022span\u0022:\u0022The Hearthguard Compact offers prizes for new inventions. They have offered them before\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022repeats old news as a present item rather than a brief clause marking it as old\u0022},{\u0022span\u0022:\u0022Another cycle passes with little excitement.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implies comparison with earlier state and a status not in the briefing\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:3,\u0022tone\u0022:3,\u0022overall\u0022:2,\u0022comment\u0022:\u0022The bulletin invents a war between the Mire Rats and the Children of the Green Bell and pads out a one-news-item week with repeated old news, breaking the brief. The voice is only mildly dry and the jokes are generic.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 3.1450297,
+      "inputTokens": 3675,
+      "outputTokens": 362
+    }
+  ]
+}

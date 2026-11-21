@@ -1,0 +1,16 @@
+{
+  "cell": "gemma4-12b__news-bulletin__snap-16-late-desperate__n-a__r1",
+  "promptVersion": "judge/v3",
+  "outcome": "Model",
+  "attempts": [
+    {
+      "ok": true,
+      "text": "{\u0022inventedFacts\u0022:[{\u0022span\u0022:\u0022The bounty follows an ambush near Gallowmere.\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022implied cause: the briefing says he has a price on his head after an ambush, but does not say the bounty was a response to it, nor who ambushed whom\u0022},{\u0022span\u0022:\u0022a man who seems to enjoy being hunted\u0022,\u0022severity\u0022:\u0022minor\u0022,\u0022reason\u0022:\u0022inference about Dunmore\u0027s attitude; hedged with \u0027seems\u0027 but nearly stated as fact\u0022}],\u0022voice\u0022:3,\u0022clarity\u0022:4,\u0022tone\u0022:4,\u0022overall\u0022:3,\u0022comment\u0022:\u0022Accurate and clean, with no invented names or numbers, but the two items are really one fact split in two, and the wit is thin. The \u0027follows an ambush\u0027 link adds a cause the briefing does not state, and the second item is closer to padding than to a distinct news item.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 2.7965254,
+      "inputTokens": 3618,
+      "outputTokens": 273
+    }
+  ]
+}
