@@ -94,4 +94,23 @@ public static class NemesisDevActions
             }));
         LetterSink.Instance.Send($"Rim Chronicles: grudges ({grudges.Count})", text);
     }
+
+    /// <summary>Fires the oldest active plot's next beat now, ignoring its wait, the beat spacing and the pacing gate.</summary>
+    [DebugAction("Rim Chronicles", "Plot: advance beat", allowedGameStates = AllowedGameStates.Playing)]
+    public static void AdvanceBeat()
+    {
+        if (RimChroniclesGameComponent.Current is not { } component || component.Plots.Active.OrderBy(p => p.StartDay).FirstOrDefault() is not { } plot)
+        {
+            Messages.Message("Rim Chronicles: no active plot.", MessageTypeDefOf.RejectInput, historical: false);
+            return;
+        }
+
+        var today = GenDate.DaysPassed;
+        plot.NextBeatDay = today;
+        component.Plots.LastBeatDay = -1;
+        if (!PlotDriver.FireNow(component, plot, today))
+        {
+            Messages.Message($"Rim Chronicles: {plot.Id}'s beat couldn't fire now (see Show plots).", MessageTypeDefOf.RejectInput, historical: false);
+        }
+    }
 }

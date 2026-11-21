@@ -1,0 +1,210 @@
+using RimChronicles.Core.News;
+using RimChronicles.Core.Plots;
+using RimChronicles.Core.Plots.Nemesis;
+using RimChronicles.Game.Engine;
+using RimWorld;
+using Verse;
+using Verse.AI.Group;
+
+namespace RimChronicles.Game.Plots;
+
+/// <summary>Fires the Nemesis arc's beats in game (Stage 3 M3a): the sighting, the raid the nemesis leads, the bounty
+/// choice, and the endings with their payoffs and news. Letters use the templates in <see cref="NemesisLetters"/>.
+/// Main thread only.</summary>
+public static class NemesisBeats
+{
+    public static void Register() => PlotDriver.Register(NemesisPlot.TemplateId, Fire);
+
+    private static string Colony => Faction.OfPlayer.Name;
+
+    /// <summary>The plot driver's beat handler. Returns false when the beat couldn't fire today (it retries tomorrow).</summary>
+    public static bool Fire(RimChroniclesGameComponent component, Plot plot, PlotTemplate template, int today)
+    {
+        var nemesis = component.Tracked(plot.Fact(NemesisPlot.NemesisId) ?? "");
+        if (nemesis is null || nemesis.Dead || nemesis.Destroyed)
+        {
+            End(component, plot, today, NemesisEnd.KilledOtherwise);
+            return true;
+        }
+
+        var step = NemesisArc.NextStep(plot);
+        var gap = Rand.RangeInclusive(template.MinGapDays, template.MaxGapDays);
+        var facts = NemesisLetters.Facts.From(plot, Colony);
+        switch (step)
+        {
+            case NemesisStep.Sighting:
+                plot.SetFact(NemesisArc.Place, SightingPlace(nemesis));
+                facts = NemesisLetters.Facts.From(plot, Colony);
+                Send(NemesisLetters.Sighting(facts), LetterDefOf.NeutralEvent);
+                plot.PublicHint = NemesisLetters.SightingNews(facts);
+                component.News.Add(new NewsEvent(today, "PlotHint", plot.PublicHint, facts.Faction));
+                break;
+
+            case NemesisStep.Raid:
+            case NemesisStep.SecondRaid:
+                if (nemesis.Faction is not { IsPlayer: false } faction || !faction.HostileTo(Faction.OfPlayer))
+                {
+                    End(component, plot, today, NemesisEnd.FeudFaded);
+                    return true;
+                }
+
+                if (!TryRaid(nemesis, faction))
+                {
+                    return false; // no home map, or the raid couldn't start: try again tomorrow
+                }
+
+                Send(step == NemesisStep.Raid ? NemesisLetters.Raid(facts) : NemesisLetters.SecondRaid(facts), LetterDefOf.ThreatBig);
+                if (step == NemesisStep.SecondRaid)
+                {
+                    plot.SetFact(NemesisArc.SecondRaidDone, "yes");
+                }
+
+                break;
+
+            case NemesisStep.Choice:
+                if (nemesis.Spawned)
+                {
+                    return false; // still on the map after the raid: wait until they're gone
+                }
+
+                var cost = NemesisArc.BountyCost(WealthUtility.PlayerWealth);
+                plot.SetFact(NemesisArc.BountyCostFact, cost.ToString(System.Globalization.CultureInfo.InvariantCulture));
+                ChoiceLetter_Nemesis.Send(plot, facts, cost);
+                gap = NemesisArc.ChoiceTimeoutDays;
+                break;
+
+            case NemesisStep.BountyKill:
+                if (nemesis.Spawned)
+                {
+                    return false;
+                }
+
+                plot.SetFact("killedBy", "bounty");
+                nemesis.Kill(null); // the death patch ends the plot as KilledByBounty
+                return true;
+
+            case NemesisStep.Vanished:
+                if (nemesis.Spawned)
+                {
+                    return false;
+                }
+
+                End(component, plot, today, NemesisEnd.Vanished);
+                return true;
+        }
+
+        component.Plots.Advance(plot, NemesisArc.BeatAfter(step), today, gap, step.ToString());
+        return true;
+    }
+
+    /// <summary>Ends the plot with its payoff (a memory for the protagonist), its letter, and public news.</summary>
+    public static void End(RimChroniclesGameComponent component, Plot plot, int today, NemesisEnd end)
+    {
+        if (plot.Ended)
+        {
+            return;
+        }
+
+        var facts = NemesisLetters.Facts.From(plot, Colony);
+        Send(NemesisLetters.Ending(facts, end), end is NemesisEnd.Vanished or NemesisEnd.FeudFaded ? LetterDefOf.NeutralEvent : LetterDefOf.PositiveEvent);
+        if (NemesisLetters.EndingNews(facts, end) is { } news)
+        {
+            component.News.Add(new NewsEvent(today, "PlotResolved", news, facts.Faction));
+        }
+
+        GivePayoff(component, plot, end);
+        component.Plots.End(plot, today, end.ToString());
+        component.Grudges.Grudges.RemoveAll(g => g.PlotId == plot.Id);
+        component.ForgetUntracked();
+    }
+
+    /// <summary>The nemesis died: classifies who killed them and ends the plot.</summary>
+    public static void NemesisDied(RimChroniclesGameComponent component, Plot plot, Thing? killer)
+    {
+        var end = plot.Fact("killedBy") == "bounty" ? NemesisEnd.KilledByBounty
+            : killer?.Faction == Faction.OfPlayer ? NemesisEnd.KilledByColony
+            : NemesisEnd.KilledOtherwise;
+        End(component, plot, GenDate.DaysPassed, end);
+    }
+
+    private static void GivePayoff(RimChroniclesGameComponent component, Plot plot, NemesisEnd end)
+    {
+        var thought = end switch
+        {
+            NemesisEnd.KilledByColony => NemesisThoughts.Avenged,
+            NemesisEnd.KilledByBounty or NemesisEnd.KilledOtherwise or NemesisEnd.Captured => NemesisThoughts.Settled,
+            NemesisEnd.Vanished => NemesisThoughts.Escaped,
+            _ => null,
+        };
+        if (thought is null)
+        {
+            return;
+        }
+
+        var slot = plot.Protagonist;
+        var pawns = slot.Kind == ProtagonistKind.Colony
+            ? PawnsFinder.AllMaps_FreeColonists
+            : new[] { slot.PawnId, slot.CoLeadId }.Where(id => id.Length > 0).Select(component.TrackedOrFind).OfType<Pawn>().ToList();
+        foreach (var pawn in pawns.Where(p => !p.Dead && p.needs?.mood is not null))
+        {
+            pawn.needs.mood.thoughts.memories.TryGainMemory(thought);
+        }
+    }
+
+    private static string SightingPlace(Pawn nemesis) =>
+        Find.WorldObjects.Settlements.Where(s => s.Faction == nemesis.Faction).Select(s => s.Label).RandomElementWithFallback()
+        ?? "the wastes";
+
+    /// <summary>Starts a raid by the nemesis's faction on a home map and puts the nemesis in it.</summary>
+    private static bool TryRaid(Pawn nemesis, Faction faction)
+    {
+        if (nemesis.Spawned || Find.AnyPlayerHomeMap is not { } map)
+        {
+            return false;
+        }
+
+        var before = map.lordManager.lords.ToList();
+        var parms = StorytellerUtility.DefaultParmsNow(IncidentCategoryDefOf.ThreatBig, map);
+        parms.faction = faction;
+        parms.forced = true;
+        if (!IncidentDefOf.RaidEnemy.Worker.TryExecute(parms))
+        {
+            return false;
+        }
+
+        var lord = map.lordManager.lords.LastOrDefault(l => l.faction == faction && !before.Contains(l));
+        var anchor = lord?.ownedPawns.FirstOrDefault(p => p.Spawned);
+        IntVec3 cell;
+        if (anchor is not null)
+        {
+            cell = CellFinder.RandomClosewalkCellNear(anchor.Position, map, 4);
+        }
+        else if (!RCellFinder.TryFindRandomPawnEntryCell(out cell, map, CellFinder.EdgeRoadChance_Hostile))
+        {
+            return false;
+        }
+
+        GenSpawn.Spawn(nemesis, cell, map);
+        lord?.AddPawn(nemesis);
+        return true;
+    }
+
+    private static void Send((string Label, string Text) letter, LetterDef def) =>
+        Find.LetterStack.ReceiveLetter(letter.Label, letter.Text, def);
+}
+
+/// <summary>The payoff memories, defined in Defs/ThoughtDefs/RimChronicles_Thoughts.xml.</summary>
+[DefOf]
+public static class NemesisThoughts
+{
+    [DefAlias("RimChronicles_NemesisAvenged")]
+    public static ThoughtDef? Avenged;
+
+    [DefAlias("RimChronicles_NemesisSettled")]
+    public static ThoughtDef? Settled;
+
+    [DefAlias("RimChronicles_NemesisEscaped")]
+    public static ThoughtDef? Escaped;
+
+    static NemesisThoughts() => DefOfHelper.EnsureInitializedInCtor(typeof(NemesisThoughts));
+}

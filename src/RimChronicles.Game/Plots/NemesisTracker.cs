@@ -66,6 +66,15 @@ public static class NemesisTracker
             }
         }
 
+        // A nemesis the colony holds prisoner ends their plot.
+        foreach (var plot in component.Plots.Active.Where(p => p.Template == NemesisPlot.TemplateId).ToList())
+        {
+            if (component.Tracked(plot.Fact(NemesisPlot.NemesisId) ?? "") is { IsPrisonerOfColony: true, Dead: false })
+            {
+                NemesisBeats.End(component, plot, today, NemesisEnd.Captured);
+            }
+        }
+
         ledger.Expire(today);
         component.ForgetUntracked();
         TrySeed(component, today, force: false);

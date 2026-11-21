@@ -36,4 +36,9 @@ public static class PlotDriver
             }
         }
     }
+
+    /// <summary>Fires one plot's handler now (Dev Mode). False if it has none or the beat couldn't fire.</summary>
+    public static bool FireNow(RimChroniclesGameComponent component, Plot plot, int today) =>
+        PlotTemplateDef.Find(plot.Template) is { } template && Handlers.TryGetValue(plot.Template, out var handler)
+        && handler(component, plot, template, today);
 }
