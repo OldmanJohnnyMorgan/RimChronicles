@@ -89,4 +89,17 @@ public class NemesisArcTests
         Assert.Equal(("the raider", "the wastes"), (f.Nemesis, f.Place));
         Assert.DoesNotContain("  ", NemesisLetters.Sighting(f).Text);
     }
+
+    [Fact]
+    public void Deed_UsesTheVictimsPronoun()
+    {
+        var plot = NewPlot(GrudgeKind.Maimed, "Viggo");
+        plot.SetFact(NemesisPlot.VictimPronoun, "he");
+
+        Assert.Contains("cost Viggo his arm", NemesisLetters.Raid(NemesisLetters.Facts.From(plot, "C")).Text);
+    }
+
+    [Fact]
+    public void Choice_DoesNotPlaceTheBountyHuntersAtTheRaidersCamp() =>
+        Assert.DoesNotContain("hunters at", NemesisLetters.Choice(NemesisLetters.Facts.From(NewPlot(), "C"), 300).Text);
 }

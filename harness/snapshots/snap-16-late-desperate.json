@@ -164,7 +164,10 @@
       "nemesisFaction": "Dunmore's Free Company",
       "victimName": "Viggo",
       "grievance": "maimed",
-      "part": "leg"
+      "part": "leg",
+      "nemesisPronoun": "he",
+      "protagonistPronoun": "he",
+      "victimPronoun": "he"
     }
   }
 }

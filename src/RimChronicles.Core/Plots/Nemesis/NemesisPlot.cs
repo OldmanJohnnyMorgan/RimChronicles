@@ -13,6 +13,11 @@ public static class NemesisPlot
     public const string Grievance = "grievance";
     public const string Part = "part";
 
+    /// <summary>"he", "she" or "they": the game fills these in, so letters never guess a gender.</summary>
+    public const string NemesisPronoun = "nemesisPronoun";
+    public const string ProtagonistPronoun = "protagonistPronoun";
+    public const string VictimPronoun = "victimPronoun";
+
     /// <summary>What the victim was to the protagonist ("husband"), or "" when the protagonist is the victim.</summary>
     public const string Relation = "relation";
 

@@ -190,6 +190,9 @@ public static partial class WorldSummarizer
         "part" => "Body part lost",
         "place" => "Where the raider was seen",
         "bountyCost" => "Bounty price (silver)",
+        "nemesisPronoun" => "Raider's pronoun",
+        "protagonistPronoun" => "Protagonist's pronoun",
+        "victimPronoun" => "Victim's pronoun",
         _ => key,
     };
 
