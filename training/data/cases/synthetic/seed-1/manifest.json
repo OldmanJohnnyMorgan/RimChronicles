@@ -1,9 +1,9 @@
 {
   "generator": "director-gen",
-  "generatorVersion": 1,
+  "generatorVersion": 4,
   "seed": 1,
   "count": 5000,
-  "sha256": "97dd6f072e0a633db95c08b3cead6b78d5891892ba57964280ef719aad1a67d8",
+  "sha256": "4ac3740b8486064160c805c0bfaa852caeb91f741e215092e0f9025b7fc96846",
   "scenarios": [
     "Nemesis:AfterSighting",
     "Nemesis:SeenTwice",
@@ -24,9 +24,9 @@
     "Empire:Act3:neutral:broken"
   ],
   "waitExpected": {
-    "true": 2619,
-    "false": 752,
-    "open": 1132,
+    "true": 2169,
+    "false": 627,
+    "open": 1707,
     "no Wait offered": 497
   }
 }

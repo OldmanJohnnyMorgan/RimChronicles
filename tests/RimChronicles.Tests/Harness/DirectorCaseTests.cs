@@ -70,6 +70,10 @@ public class DirectorCaseTests
         Assert.Equal(expected, CaseGenerator.WaitExpected(offered, mood, situation, days));
 
     [Fact]
+    public void WaitExpected_IsOpen_WhenReliefIsOffered() =>
+        Assert.Null(CaseGenerator.WaitExpected(true, "desperate", "recent death", 5, reliefOffered: true));
+
+    [Fact]
     public void EveryCase_RendersThroughTheDirectorPrompt_WithinBudget()
     {
         foreach (var c in OneCycle().Take(68))

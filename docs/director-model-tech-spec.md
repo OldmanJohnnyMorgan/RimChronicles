@@ -135,3 +135,19 @@ The training spec's rules, adjusted to R1 and R5:
 ```powershell
 dotnet run --project harness/RimChronicles.Eval -- director-import --from "$env:USERPROFILE\AppData\LocalLow\Ludeon Studios\RimWorld by Ludeon Studios\RimChronicles\director-cases"
 ```
+
+## 9. Labelling pilot (D4, 2026-11-22)
+
+Teacher: Claude Code (Opus 5.5) in session, on the subscription (option B). Pack `training/data/labels/pilot`: 50 cases
+from seed 1, round-robin over the 7 arc/beat groups, 10 shown twice with the options reshuffled; teacher prompt
+`director-teacher/v1`.
+
+- All 60 labels pass `director-labels-check` (every option scored, best = top score, reasons ≤30 words, no names outside
+  the briefing). Self-agreement 10/10, inflated: the repeats were labelled in the same session.
+- Wait: picked in 20/20 wait-right cases, avoided in 7/7 wait-wrong ones, after one fix. The labels offered a treaty or
+  a governorship to reeling colonies (relief, not piling on), and the generator now leaves `waitExpected` open there
+  (generator v4); the rubric says so explicitly.
+- Generator fixes the pilot found: empty tale objects, "Maimed" vs "MaimedColonist", friendly factions raiding,
+  duplicate side plots, contradictory background events (generator v2–v3).
+- Base-model gap this targets (director v2 run `20261122-052929`): in a desperate colony just after a raid, every Gemma
+  acted where Claude waited.
