@@ -199,33 +199,36 @@ Psykers get a `RC_PsykerSupport` duty whose think tree runs an ability-scoring j
 - **Fixed kits, not random:** Empire pawn kinds get exactly the psycasts their specialty lists (§5.3.1), granted at generation. Strip any random psycasts vanilla gives with the psylink level.
 - If vanilla AI casts any psycasts on its own, switch that off for pawns with the `RC_PsykerSupport` duty (Harmony patch if needed) so only our scorers decide.
 - **Psykers obey neural heat and psyfocus.** No cheating. An overheated psyker is a window for the player.
-- **Enemy ban list** (`RC_EnemyAbilityBlocklist`, XML): psycasts Empire pawns must never get. Starts with Neuroquake, Manhunter Pulse and Flashstorm (too chaotic or too hard to counter for v1). Review during balance.
+- **Enemy ban list** (`RC_EnemyAbilityBlocklist`, XML): psycasts Empire pawns must never get. Starts with `Neuroquake`, `ManhunterPulse` and `Flashstorm` (too chaotic or too hard to counter for v1), and `EntropyDump` (colonist-only target; a day-long coma). Non-combat psycasts (`Waterskip`, `SolarPinhole`, the `WordOf*` casts, `Focus`) have no scorer, so they are never cast. Review during balance.
 - Every scorer names the psycast defs it needs; at startup, if one is missing, disable that scorer and log a warning. Never throw.
 
 #### 5.3.1 Specialties (vanilla psycasts)
 
-Psycast names below are the in-game names. **Confirm defNames and psylink levels in the API survey** and fix this table to match; a specialty only gets the psycasts its pawn's psylink level allows.
+Fixed to the real Royalty defs in the C0 survey (2026-11-22; full list in `docs/ENGINE_NOTES.md`, "Crisis survey"). Names are defNames; the number is the psylink level a psycast needs. A specialty only gets the psycasts its pawn's psylink level allows.
 
-| Specialty (pawn kind) | Psycasts | Battlefield job | Used most in |
-| --- | --- | --- | --- |
-| **Skip Adept** | Skip, Chaos Skip, Mass Chaos Skip, Beckon | Pulls colonists out of cover or into Praetorians, scatters defenders | Decapitation, Retrieval, Breach |
-| **Control Adept** | Stun, Burden, Mass Burden, Vertigo Pulse, Blinding Pulse | Slows and disables defenders, especially shooters | PsychicAssault, Siege |
-| **Mind Adept** | Berserk, Berserk Pulse | Turns clustered colonists on each other | PsychicAssault |
-| **Ward Adept** | Painblock (on allies), Wallraise, Smokepop, Bulletshield, Invisibility | Keeps Praetorians standing, blocks lines of fire, hides flankers | All operations |
-| **High Stellarch** | Skip + Ward kits, plus Farskip to escape once at low health | Commands the honor guard, rescues itself once | Citadel, FinalAssault |
+| Specialty (pawn kind) | Psycasts (level) | Battlefield job | Used most in | First stage |
+| --- | --- | --- | --- | --- |
+| **Skip Adept** | `ChaosSkip` (3), `Beckon` (3), `Skip` (4), `MassChaosSkip` (6) | Pulls colonists out of cover or into Praetorians, scatters defenders | Decapitation, Retrieval, Breach | 1 |
+| **Control Adept** | `Stun` (1), `Burden` (1), `BlindingPulse` (2), `VertigoPulse` (3) | Slows and disables defenders, especially shooters | PsychicAssault, Siege | 1 |
+| **Mind Adept** | `Berserk` (5), `BerserkPulse` (6) | Turns clustered colonists on each other | PsychicAssault | 3 (needs psylink 5) |
+| **Ward Adept** | `Painblock` (1), `Chunkskip` (1), `Smokepop` (4), `Wallraise` (4), `Invisibility` (5), `BulletShield` (6) | Keeps Praetorians standing, blocks lines of fire, hides flankers | All operations | 1 |
+| **High Stellarch** | Skip + Ward kits, plus `Farskip` (5) to escape once at low health | Commands the honor guard, rescues itself once | Citadel, FinalAssault | 4 |
+
+Survey corrections: vanilla has **no Mass Burden** (dropped; Vertigo and Blinding Pulse are the Control Adept's area casts). **Chunkskip** is added to the Ward kit so low-level Ward Adepts have more than Painblock (it drops rock chunks as cover). **Entropy Dump** exists but targets only colonists and puts its target in a coma for a day, so it joins the ban list (§5.3). **Farskip** is a world-map cast built for player caravans; the Stellarch's escape uses its psyfocus cost and visuals with a scripted exit (C13).
 
 Starting scorers (one or two per specialty):
 - **Skip:** skip the colonist in the best cover (or with the best weapon) out into open ground or next to 2+ Praetorians; skip an ally out of a losing melee.
 - **Chaos / Mass Chaos Skip:** 3+ colonists holding a chokepoint or killbox.
+- **Beckon:** pull a colonist who is shooting from cover toward Praetorians.
 - **Stun:** the colonist with the highest-damage weapon in range.
-- **Burden / Mass Burden:** colonists closing on a psyker or Herald.
+- **Burden:** a colonist closing on a psyker or Herald.
 - **Vertigo / Blinding Pulse:** 3+ colonists in radius, few allies in radius.
 - **Berserk:** a colonist standing in a group of 2+ other colonists; **Berserk Pulse:** 3+ colonists in radius, few allies.
 - **Painblock:** the most valuable ally that is in pain and still fighting.
-- **Wallraise:** block the doorway or gap the colony's turrets are firing through; **Smokepop:** cover an advance across open ground.
-- **Bulletshield:** a group of 3+ allies under ranged fire.
+- **Chunkskip:** cover for allies pinned in the open; **Wallraise:** block the doorway or gap the colony's turrets are firing through; **Smokepop:** cover an advance across open ground.
+- **BulletShield:** a group of 3+ allies under ranged fire.
 - **Invisibility:** a flanking adept or the Herald when it has no line of sight yet.
-- **Shared:** Entropy dump / wait when heat is high and nothing scores well.
+- **Shared:** hold (no cast, keep fighting) when heat is high or psyfocus is low and nothing scores well.
 
 **Operation mix:** each `OperationDef` lists which specialties it draws and in what ratio (e.g. PsychicAssault: Mind 2, Control 2, Ward 1 per 6 Praetorians), scaled by stage.
 
@@ -306,10 +309,12 @@ The crisis has **its own threat budget**, separate from the storyteller's raid p
 
 | Stage | Plot state | Operations allowed | Unit quality | Adept psylink |
 | --- | --- | --- | --- | --- |
-| 1 Stirring | Empire awakening | ProbingRaid | Good | 2–3 |
+| 1 Stirring | Empire awakening | ProbingRaid | Good | 3 |
 | 2 Reclamation | Taking territory | + Breach, PsychicAssault, Retrieval | Excellent | 3–4 |
 | 3 War | Open war | + SiegeWithBombardment, Decapitation | Masterwork | 4–5 |
 | 4 Finale | Endgame | + FinalAssault | Legendary on leaders | 5–6 |
+
+Adept psylink is set by the C0 survey: stage 1 is 3, not 2–3, because Skip Adepts need level 3 for their first cast. Level 3–4 psycasts need 25% psyfocus and level 5–6 need 50% (vanilla psyfocus bands), so high-level casts stop as a psyker's psyfocus runs down.
 
 - Destroying a Psychic Relay or Orbital Uplink site **removes** that capability for N days and weakens the Citadel (§4.5). Player actions at locations feed back into raids; that's the link between the two modules.
 - Intel (§5.6) can reduce or delay operations; it never removes the crisis.
