@@ -23,6 +23,9 @@ public enum NemesisStep
 
     /// <summary>The colony chose to hunt: a Hunt quest sends them to the nemesis's camp (Stage 4).</summary>
     Hunt,
+
+    /// <summary>Promotion (Stage 5): the nemesis joins the awakened Empire as an officer; the beat stays where it was.</summary>
+    ImperialOfficer,
 }
 
 /// <summary>How a Nemesis plot ended, which picks the payoff, the letter and the news.</summary>
@@ -117,6 +120,11 @@ public static class NemesisArc
 
                 var step = NextStep(plot);
                 return [new($"{BeatAfter(step)}:{step}", step.ToString(), 1)];
+        }
+
+        if (Empire.Promotion.NemesisCanJoin(plot))
+        {
+            options.Add(new($"Promote:{name}JoinsTheEmpire", nameof(NemesisStep.ImperialOfficer), 2));
         }
 
         if (!PlotBook.HasWaitedThisBeat(plot))
