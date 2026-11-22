@@ -58,7 +58,7 @@ public static partial class DirectorLabelCommand
 {
     /// <summary>Words from the rubric's machinery. A reason the student copies should be about the story (D4b recheck v2:
     /// "Since the beat has waited fewer than 25 days, Wait is the highest scoring pacing option").</summary>
-    [System.Text.RegularExpressions.GeneratedRegex(@"\b(reeling|pacing|scor(e|es|ed|ing)|step [12]|rubric)\b", System.Text.RegularExpressions.RegexOptions.IgnoreCase)]
+    [System.Text.RegularExpressions.GeneratedRegex(@"\b(pacing|scor(e|es|ed|ing)|step [12]|rubric)\b", System.Text.RegularExpressions.RegexOptions.IgnoreCase)]
     public static partial System.Text.RegularExpressions.Regex RubricTalk();
 
     private static readonly JsonSerializerOptions Line = new() { WriteIndented = false };
