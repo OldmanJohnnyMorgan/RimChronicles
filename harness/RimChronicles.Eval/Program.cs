@@ -21,6 +21,7 @@ const string usage = """
       director-pack         Write a labelling pack for a teacher working by hand (D4)
       director-labels-check Check a pack's labels.jsonl and aggregate it into labels-final.jsonl
       director-label        Label cases with a local model and the teacher rubric (D4, bulk; resumable)
+      director-report       Score models on the frozen director test set (D8): harness/reports/<name>.md
       director-dataset      Build train/val/test JSONL for fine-tuning from labelled cases (D5)
 
     <run> is a run id under --out, a path to a run folder, or "latest".
@@ -80,6 +81,16 @@ const string usage = """
       --recheck <dir>          Calibrate instead: label exactly the cases of a labelled folder (e.g. the pilot) into
                                results/label-check-<model>-<rubric> and report agreement with its labels
 
+    director-report options:
+      --models a,b             Models from --config to score (required); always-Wait is scored beside them
+      --name <name>            Report name (default the model ids joined by '+')
+      --base <id>              The prompted base the lift column compares against
+      --count <n>              Only n test cases, spread evenly over the set (a quick look)
+      --cases <dir>            Test cases (default training/data/cases/synthetic/seed-9001)
+      --labels <dir>           Test labels (default training/data/labels/test-v1)
+      --out <dir>              Report folder (default harness/reports)
+      --confirm-spend          Allow paid API models (Claude); without it they're refused
+
     director-dataset options:
       --labels a,b             Label folders with labels-final.jsonl (default training/data/labels/*)
       --cases a,b              Case folders (default every folder under training/data/cases)
@@ -103,9 +114,9 @@ if (args.Length == 0 || args[0] is "-h" or "--help" or "help")
 var root = FindRepoRoot();
 var valueOptions = new HashSet<string>
 {
-    "config", "prompts", "snapshots-dir", "passbars", "models", "tasks", "snapshots", "repeats", "out", "cache", "compare", "rate", "seed", "vram-budget", "temperature", "count", "from", "cases", "repeat", "pack", "labels", "tier", "test-seeds", "max-wait-share", "recheck",
+    "config", "prompts", "snapshots-dir", "passbars", "models", "tasks", "snapshots", "repeats", "out", "cache", "compare", "rate", "seed", "vram-budget", "temperature", "count", "from", "cases", "repeat", "pack", "labels", "tier", "test-seeds", "max-wait-share", "recheck", "name", "base",
 };
-var flags = new HashSet<string> { "no-cache", "dry-run", "judge", "resample", "no-wait-rule" };
+var flags = new HashSet<string> { "no-cache", "dry-run", "judge", "resample", "no-wait-rule", "confirm-spend" };
 
 CliArgs cli;
 try
@@ -282,6 +293,30 @@ try
 
             RimChronicles.Eval.DirectorCases.DirectorLabels.Check(outDir, labelOptions.CasesDir, Console.Out);
             return RimChronicles.Eval.DirectorCases.DirectorLabelCommand.Compare(recheck, outDir, Console.Out);
+        }
+
+        case "director-report":
+        {
+            var config = HarnessConfig.Load(configPath);
+            var ids = cli.List("models") ?? throw new ArgumentException("director-report needs --models a,b.");
+            var models = ids.Select(id => config.Models.FirstOrDefault(m => m.Id == id) ?? throw new ArgumentException($"No model '{id}' in {configPath}.")).ToList();
+            if (models.FirstOrDefault(m => m.Provider == ProviderKind.Anthropic) is { } paid && !cli.Has("confirm-spend"))
+            {
+                throw new ArgumentException($"{paid.Id} is a paid API model (5 calls per test case); add --confirm-spend to run it.");
+            }
+
+            var data = Path.Combine(root, "training", "data");
+            return await RimChronicles.Eval.DirectorCases.DirectorReportCommand.RunAsync(new RimChronicles.Eval.DirectorCases.ReportOptions
+            {
+                CasesDir = cli.Get("cases") is { } rcd ? Path.GetFullPath(rcd) : Path.Combine(data, "cases", "synthetic", "seed-9001"),
+                LabelsDir = cli.Get("labels") is { } rld ? Path.GetFullPath(rld) : Path.Combine(data, "labels", "test-v1"),
+                PromptsRoot = promptsRoot,
+                CacheDir = cacheDir,
+                OutDir = cli.Get("out") is { } ro ? Path.GetFullPath(ro) : Path.Combine(root, "harness", "reports"),
+                Name = cli.Get("name") ?? string.Join("+", ids),
+                BaseModel = cli.Get("base"),
+                Count = cli.Has("count") ? cli.Int("count", 0) : null,
+            }, models, RimChronicles.Eval.Providers.ProviderFactory.Create, Console.Out, cts.Token);
         }
 
         case "director-dataset":
