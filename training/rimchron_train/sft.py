@@ -6,7 +6,7 @@ import json
 import subprocess
 from pathlib import Path
 
-from . import data
+from . import data, progress
 from .config import Config
 
 
@@ -55,26 +55,36 @@ def run(cfg: Config) -> int:
     from unsloth import FastModel
     from unsloth.chat_templates import train_on_responses_only
 
+    import time
+
     import torch
     from datasets import Dataset
+    from transformers import TrainerCallback
     from trl import SFTConfig, SFTTrainer
 
     manifest = data.check_manifest(cfg.dataset)
     train_rows = data.load_split(cfg.dataset, "train")
     val_rows = data.load_split(cfg.dataset, "val")
-    print(f"dataset {cfg.dataset}: {len(train_rows)} train / {len(val_rows)} val rows, prompt {manifest['promptVersion']}, tier {manifest['tier']}")
+    eval_rows = progress.eval_sample(val_rows, cfg.eval_rows)
+    print(f"dataset {cfg.dataset}: {len(train_rows)} train / {len(val_rows)} val rows, prompt {manifest['promptVersion']}, "
+          f"tier {manifest['tier']}; generating on {len(eval_rows)} val cases every {cfg.eval_every_steps or 'no'} steps")
 
     free, total = torch.cuda.mem_get_info(0)
     print(f"VRAM {free / 2**30:.1f} of {total / 2**30:.1f} GB free")
+    if free / 2**30 < cfg.min_free_vram_gb:
+        raise SystemExit(f"Only {free / 2**30:.1f} GB of VRAM is free; this run needs about {cfg.min_free_vram_gb} GB. "
+                         "Close RimWorld, Ollama models (`ollama stop <model>`) and other training jobs, then try again.")
     model, tokenizer = load_model(cfg)
     check_markers(cfg, tokenizer, train_rows[0])
     model = FastModel.get_peft_model(
         model, finetune_vision_layers=False, finetune_language_layers=True, finetune_attention_modules=True,
         finetune_mlp_modules=True, r=cfg.lora_r, lora_alpha=cfg.lora_alpha, lora_dropout=cfg.lora_dropout,
-        bias="none", random_state=cfg.seed)
+        bias="none", random_state=cfg.seed, use_gradient_checkpointing="unsloth")
 
     texts = [render(tokenizer, r) for r in train_rows]
-    check_lengths([len(tokenizer(text=t)["input_ids"]) for t in texts], cfg.max_seq_length, [r.id for r in train_rows])
+    lengths = [len(tokenizer(text=t)["input_ids"]) for t in texts]
+    check_lengths(lengths, cfg.max_seq_length, [r.id for r in train_rows])
+    print(progress.length_report(lengths, cfg.max_seq_length))
     train = Dataset.from_list([{"text": t} for t in texts])
     # TRL renamed max_seq_length -> max_length and tokenizer -> processing_class; use whichever this version takes.
     length_key = "max_seq_length" if "max_seq_length" in inspect.signature(SFTConfig.__init__).parameters else "max_length"
@@ -82,41 +92,98 @@ def run(cfg: Config) -> int:
         dataset_text_field="text", **{length_key: cfg.max_seq_length},
         per_device_train_batch_size=cfg.per_device_batch, gradient_accumulation_steps=cfg.grad_accumulation,
         learning_rate=cfg.learning_rate, lr_scheduler_type="cosine", warmup_ratio=cfg.warmup_ratio,
-        num_train_epochs=cfg.epochs, max_steps=cfg.max_steps, logging_steps=1, optim="adamw_8bit",
-        seed=cfg.seed, output_dir=str(cfg.run_dir / "checkpoints"), report_to="none")
+        num_train_epochs=cfg.epochs, max_steps=cfg.max_steps, logging_steps=10, optim="adamw_8bit",
+        seed=cfg.seed, output_dir=str(cfg.run_dir / "checkpoints"), save_strategy="no", report_to="none")
     tokenizer_key = "processing_class" if "processing_class" in inspect.signature(SFTTrainer.__init__).parameters else "tokenizer"
     trainer = SFTTrainer(model=model, train_dataset=train, args=args, **{tokenizer_key: tokenizer})
     trainer = train_on_responses_only(trainer, instruction_part=cfg.instruction_marker, response_part=cfg.response_marker)
+
+    lora_dir = cfg.run_dir / "lora"
+    log = progress.CsvLog(cfg.run_dir / "progress.csv")
+    stopper = progress.EarlyStopper(cfg.patience, cfg.min_delta)
+    started = time.time()
+    evals: dict[int, dict] = {}
+
+    def save_lora() -> None:
+        model.save_pretrained(str(lora_dir))
+        tokenizer.save_pretrained(str(lora_dir))
+
+    def check(state) -> bool:
+        """Generates on the val sample, logs it, keeps the best LoRA; returns True to stop training."""
+        result = evaluate(model, tokenizer, eval_rows, cfg.max_new_tokens)
+        back_to_training(model)
+        improved, stop = stopper.update(state.global_step, result.top1)
+        if improved:
+            save_lora()
+        evals[state.global_step] = result.as_dict()
+        loss = progress.last_train_loss(state.log_history)
+        log.write(step=state.global_step, epoch=round(state.epoch or 0, 2), train_loss=loss, val_valid=round(result.valid_share, 4),
+                  val_top1=round(result.top1, 4), val_wait=round(result.wait_share, 4), best_top1=round(stopper.best, 4),
+                  best_step=stopper.best_step, elapsed_min=round((time.time() - started) / 60, 1))
+        print(f"step {state.global_step} (epoch {state.epoch or 0:.2f}): loss {loss}, val valid {result.valid}/{result.total}, "
+              f"top-1 {result.agree}/{result.total} ({result.top1:.0%}), Wait {result.wait_share:.0%}; "
+              f"best {stopper.best:.0%} at step {stopper.best_step}{' (saved)' if improved else ''}{'; stopping early' if stop else ''}")
+        return stop
+
+    class GenerateEval(TrainerCallback):
+        def on_step_end(self, args, state, control, **kwargs):
+            if cfg.eval_every_steps and state.global_step % cfg.eval_every_steps == 0 and check(state):
+                control.should_training_stop = True
+            return control
+
+    trainer.add_callback(GenerateEval())
     stats = trainer.train()
+    final_step = trainer.state.global_step
+    if final_step not in evals:
+        check(trainer.state)  # the end of training is always evaluated, and kept if it's the best
+    if stopper.best_step is None:
+        save_lora()
 
-    cfg.run_dir.mkdir(parents=True, exist_ok=True)
-    model.save_pretrained(str(cfg.run_dir / "lora"))
-    tokenizer.save_pretrained(str(cfg.run_dir / "lora"))
-
-    valid = evaluate(model, tokenizer, val_rows[:20])
     manifest_out = {
         "run": cfg.run_name, "gitCommit": _git_commit(), "baseModel": cfg.base_model, "dataset": str(cfg.dataset),
-        "datasetManifest": manifest, "config": {k: str(v) for k, v in vars(cfg).items()},
-        "trainLoss": stats.training_loss, "valValidJson": valid,
+        "datasetManifest": manifest, "config": {k: str(v) for k, v in vars(cfg).items()}, "versions": _versions(),
+        "trainLoss": stats.training_loss, "steps": final_step, "minutes": round((time.time() - started) / 60, 1),
+        "bestStep": stopper.best_step, "bestVal": evals.get(stopper.best_step), "evals": evals,
     }
     (cfg.run_dir / "manifest.json").write_text(json.dumps(manifest_out, indent=2), encoding="utf-8")
-    print(f"saved the LoRA to {cfg.run_dir / 'lora'}; val answers valid {valid['valid']}/{valid['total']}, "
-          f"matching the teacher {valid['agree']}/{valid['total']}")
+    best = evals.get(stopper.best_step) or {}
+    print(f"saved the best LoRA (step {stopper.best_step}) to {lora_dir}; val answers valid {best.get('valid')}/{best.get('total')}, "
+          f"matching the teacher {best.get('agree')}/{best.get('total')}. Log: {cfg.run_dir / 'progress.csv'}")
     return 0
 
 
-def evaluate(model, tokenizer, rows: list[data.Row]) -> dict:
-    """Generates answers without grammar: valid JSON with an allowed choice, and agreement with the teacher."""
+def back_to_training(model) -> None:
+    """Undo `for_inference` after an evaluation (Unsloth switches kernels and caching for generation)."""
+    from unsloth import FastModel
+
+    if hasattr(FastModel, "for_training"):
+        FastModel.for_training(model)
+    else:
+        model.train()
+
+
+def _versions() -> dict:
+    import importlib.metadata as md
+
+    out = {}
+    for pkg in ("torch", "transformers", "trl", "peft", "unsloth", "datasets"):
+        try:
+            out[pkg] = md.version(pkg)
+        except md.PackageNotFoundError:
+            out[pkg] = None
+    return out
+
+
+def evaluate(model, tokenizer, rows: list[data.Row], max_new_tokens: int = 160) -> progress.EvalResult:
+    """Generates answers greedily, without grammar (stricter than the game, which constrains decoding), and scores
+    them against the teacher: valid JSON with an allowed choice, top-1 agreement, and how often it picks Wait."""
     from unsloth import FastModel
 
     FastModel.for_inference(model)
-    valid = agree = 0
+    answers = []
     for row in rows:
         prompt = render(tokenizer, row, with_answer=False)
         inputs = tokenizer(text=prompt, return_tensors="pt").to(model.device)
-        out = model.generate(**inputs, max_new_tokens=200, do_sample=False)
-        text = tokenizer.decode(out[0][inputs["input_ids"].shape[1]:], skip_special_tokens=True)
-        ok = data.is_valid_answer(text, row.allowed)
-        valid += ok
-        agree += ok and json.loads(text[text.index("{"):text.rindex("}") + 1])["choice"] == row.choice()
-    return {"total": len(rows), "valid": valid, "agree": agree}
+        out = model.generate(**inputs, max_new_tokens=max_new_tokens, do_sample=False)
+        answers.append((row, tokenizer.decode(out[0][inputs["input_ids"].shape[1]:], skip_special_tokens=True)))
+    return progress.score(answers)

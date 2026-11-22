@@ -22,6 +22,6 @@ learning_rate: 2.0e-4
 warmup_ratio: 0.03
 per_device_batch: 2
 grad_accumulation: 8
-max_steps: 30                            # the spike only proves the pipeline; real runs use epochs (director.yaml)
+max_steps: 30                            # the spike only proves the pipeline; real runs use epochs (director-e2b.yaml, director-e4b.yaml)
 seed: 1
 quantizations: [q4_k_m]

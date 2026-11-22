@@ -1,0 +1,26 @@
+# Director SFT for the Minimum tier (D6): Gemma 4 E2B on the Minimum-tier dataset. Training spec §5.2.
+base_model: unsloth/gemma-4-E2B-it
+ollama_base: gemma4:e2b                  # the Ollama model whose chat template the export copies
+dataset: data/splits/minimum             # director-dataset --tier Minimum
+output_dir: ~/rimchron-runs              # on the WSL disk, not /mnt/c (much faster)
+export_dir: /mnt/c/RimworldMods/rc-models
+run_name: director-e2b
+instruction_marker: "<|turn>user\n"      # Gemma 4 turn markers (D0)
+response_marker: "<|turn>model\n"
+load_in_4bit: true
+max_seq_length: 4096                     # sft prints the p99 row length; lower this to it to save memory
+lora_r: 16
+lora_alpha: 32
+lora_dropout: 0.05
+learning_rate: 2.0e-4
+warmup_ratio: 0.03
+per_device_batch: 2
+grad_accumulation: 8                     # effective batch 16
+epochs: 3
+seed: 1
+quantizations: [q4_k_m, q8_0]
+eval_every_steps: 100                    # generate on the val sample every 100 optimizer steps
+eval_rows: 100
+patience: 4                              # stop after 4 evaluations (400 steps) without a better top-1
+max_new_tokens: 160
+min_free_vram_gb: 5

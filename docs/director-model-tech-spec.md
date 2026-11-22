@@ -92,7 +92,7 @@ Each milestone is a PR with tests passing, like the stages. GPU steps run on the
 | D3 | In-game decision recording | codespace, then PC | Dev Mode setting to record each director request; a harness command to import them as `exported` cases | Cases from a real save load and label like synthetic ones |
 | D4 | Teacher labelling | codespace, then PC | `prompts/director-teacher/v1` (rubric); `director-label` with `--teacher claude|local`, Batch API, 5 shuffled orderings, cache, spend log, filters, `--confirm` above $5 | 50-case pilot labelled; real cost and self-agreement known |
 | D5 | Dataset builder | codespace | `director-dataset`: split by seed, frozen versioned test set, augmentation (3 orderings, ID renaming on 20%, 5% decoy mentions), manifest | Splits disjoint by seed (tested); test set hash recorded |
-| D6 | SFT | PC | `python -m rimchron_train sft`: Unsloth QLoRA per `director.yaml`, generate-based early stopping on val top-1, CSV log, run manifest | E4B and E2B adapters trained |
+| D6 | SFT | PC | `python -m rimchron_train sft`: Unsloth QLoRA per `director-e2b.yaml` and `director-e4b.yaml`, generate-based early stopping on val top-1, CSV log, run manifest | E4B and E2B adapters trained |
 | D7 | Export and integration | PC + codespace | `export.py` (merge, GGUF Q4_K_M and Q8_0, Modelfile with the Gemma 4 template and temperature 0.2); `models.json` entries; **Director model** setting in the mod | The fine-tuned model runs in the harness and in the game |
 | D8 | Metrics and report | codespace | `director-report`: JSON/choice validity, top-1/top-2 agreement, regret, lift over base, Wait accuracy, position bias, ID robustness, invented facts, injection, latency; per arc and beat; committed to `harness/reports/` | A report for base, SFT and Claude on the frozen test set |
 | D9 | Blind review | codespace | `spotcheck` extended: 50 decisions, two anonymised answers (fine-tuned vs Claude), better / same | John's review recorded with the report |
@@ -242,3 +242,18 @@ labelled with grammar on and off, two more option orders, ids renamed to C1, C2â
   report lists examples to check by eye.
 - **Not here:** lift needs the same-size prompted base in the same report (`--base`). Claude as a model row needs
   `--confirm-spend`.
+
+## 14. SFT (D6)
+
+`sft --config config/director-e2b.yaml` (or `-e4b`): QLoRA with Unsloth's gradient checkpointing; loss on the answer
+only; epochs (3) rather than D0's fixed steps.
+
+- **Generate-based early stopping:** every `eval_every_steps` (100) optimizer steps, greedy answers without grammar on
+  `eval_rows` (100) val cases, one per case and spread over the split; top-1 against the teacher, validity, and the
+  share that picks Wait (D0's failure). The LoRA with the best top-1 is kept; training stops after `patience` (4)
+  checks without improving; the end of training is always checked.
+- **Logs:** `progress.csv` (step, epoch, loss, val validity, top-1, Wait share, best so far, minutes) and
+  `manifest.json` (git commit, config, library versions, dataset manifest, every evaluation, the best step).
+- **Fails early:** too little free VRAM (`min_free_vram_gb`), turn markers missing, or any row over `max_seq_length`;
+  prints the p99 row length so `max_seq_length` can be set from it.
+- `training/models.director.json` holds the fine-tuned models beside their prompted bases for `director-report`.

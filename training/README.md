@@ -137,6 +137,56 @@ The dataset keeps at most 40% Wait among training cases (`--max-wait-share`; val
 student waited in 78% of answers after training on 48% Wait. Commit `training/data/labels/local-gemma4-12b`
 (`items.jsonl`, `labels.jsonl`, `labels-final.jsonl`) and push, as for the pilot.
 
+## D6: train the directors
+
+After the bulk labels (D4b) are checked and committed. One model at a time, in this order: E2B first (smaller and
+faster, so problems show up sooner), then E4B.
+
+**1. Build both datasets (PowerShell):**
+
+```powershell
+cd C:\RimworldMods\RimChronicles\RimChronicles
+git pull
+dotnet run --project harness/RimChronicles.Eval -- director-dataset --tier Minimum
+dotnet run --project harness/RimChronicles.Eval -- director-dataset --tier Recommended
+```
+
+**2. Train E2B (WSL2):** about 2–3 hours. Every 100 steps it answers 100 val cases, prints top-1 and how often it waits,
+logs a row to `~/rimchron-runs/director-e2b/progress.csv`, and keeps the LoRA with the best top-1. It stops early after
+4 checks without improving. Close RimWorld, and run `ollama stop gemma4:12b` (or whichever model is loaded) first.
+
+```bash
+cd /mnt/c/RimworldMods/RimChronicles/RimChronicles/training
+uv run python -m rimchron_train data --config config/director-e2b.yaml
+uv run python -m rimchron_train sft --config config/director-e2b.yaml 2>&1 | tee ~/sft-director-e2b.log
+```
+
+It prints the 99th-percentile row length at the start: if that's far below `max_seq_length`, lowering it saves memory.
+Ctrl+C is not resumable here; a stopped run starts over.
+
+**3. Export (WSL2):** Q4_K_M and Q8_0 GGUFs, each with a Modelfile.
+
+```bash
+uv run python -m rimchron_train export --config config/director-e2b.yaml
+```
+
+**4. Load into Ollama (PowerShell):**
+
+```powershell
+cd C:\RimworldMods\rc-models\director-e2b
+ollama create rimchron-director-e2b -f Modelfile.merged.q4_k_m
+```
+
+**5. Score it against its prompted base (PowerShell):** `training/models.director.json` holds both.
+
+```powershell
+cd C:\RimworldMods\RimChronicles\RimChronicles
+dotnet run --project harness/RimChronicles.Eval -- director-report --config training/models.director.json --models gemma4-e2b,director-e2b --base gemma4-e2b --name director-e2b-v1
+```
+
+Then the same for E4B with `director-e4b` in place of `director-e2b` (`min_free_vram_gb: 9`; the E4B conversion needs
+the WSL memory from D0). Send me `progress.csv`, the end of the `sft` log, and commit the report.
+
 ## D8: the director report
 
 `director-report` scores models on the frozen test set (500 cases, seed 9001, Claude's labels in
