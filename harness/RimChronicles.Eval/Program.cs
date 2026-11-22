@@ -15,6 +15,7 @@ const string usage = """
       judge <run>           Judge a run's prose outputs blind with the config's judge model; rewrites summary.html
       report <run>          Rebuild summary.html; --compare <run> adds deltas against an earlier run
       spotcheck <run>       First time: write a blind 10% sample to score by hand. After filling it in: score agreement
+      director-gen          Generate director training cases (training track D2) into training/data/cases/synthetic
 
     <run> is a run id under --out, a path to a run folder, or "latest".
 
@@ -40,6 +41,11 @@ const string usage = """
       --models a,b             Only these model ids
       --vram-budget <GB>       Warn above this much VRAM per model (default 13, leaving room for RimWorld)
 
+    director-gen options:
+      --seed <n>               Generator seed (default 1); each seed gives a reproducible set
+      --count <n>              Cases to write (default 5000)
+      --out <dir>              Where to write them (default training/data/cases/synthetic/seed-<n>)
+
     spotcheck options:
       --rate <0-1>             Share of judged outputs to sample (default 0.1)
       --seed <n>               Sampling seed (default 1)
@@ -55,7 +61,7 @@ if (args.Length == 0 || args[0] is "-h" or "--help" or "help")
 var root = FindRepoRoot();
 var valueOptions = new HashSet<string>
 {
-    "config", "prompts", "snapshots-dir", "passbars", "models", "tasks", "snapshots", "repeats", "out", "cache", "compare", "rate", "seed", "vram-budget", "temperature",
+    "config", "prompts", "snapshots-dir", "passbars", "models", "tasks", "snapshots", "repeats", "out", "cache", "compare", "rate", "seed", "vram-budget", "temperature", "count",
 };
 var flags = new HashSet<string> { "no-cache", "dry-run", "judge", "resample" };
 
@@ -171,6 +177,14 @@ try
             }
 
             return 0;
+        }
+
+        case "director-gen":
+        {
+            var seed = cli.Int("seed", 1);
+            var dir = cli.Get("out") is { } o ? Path.GetFullPath(o) : Path.Combine(root, "training", "data", "cases", "synthetic", $"seed-{seed}");
+            return RimChronicles.Eval.DirectorCases.DirectorGenCommand.Run(seed, cli.Int("count", 5000), dir,
+                Path.Combine(root, "harness", "schema", "snapshot.schema.json"), Console.Out);
         }
 
         default:

@@ -1,0 +1,32 @@
+{
+  "generator": "director-gen",
+  "generatorVersion": 1,
+  "seed": 1,
+  "count": 5000,
+  "sha256": "97dd6f072e0a633db95c08b3cead6b78d5891892ba57964280ef719aad1a67d8",
+  "scenarios": [
+    "Nemesis:AfterSighting",
+    "Nemesis:SeenTwice",
+    "Nemesis:AfterSighting\u002BEmpire",
+    "Nemesis:AfterRaid",
+    "Nemesis:AfterRaid\u002BEmpire",
+    "LostFamily:AfterLetter",
+    "LostFamily:AfterTwoLetters",
+    "LostFamily:Taken",
+    "Empire:Act2:ally",
+    "Empire:Act2:oppose",
+    "Empire:Act2:neutral",
+    "Empire:Act3:ally",
+    "Empire:Act3:ally\u002Btitle",
+    "Empire:Act3:oppose:ascendant",
+    "Empire:Act3:oppose:broken",
+    "Empire:Act3:neutral:ascendant",
+    "Empire:Act3:neutral:broken"
+  ],
+  "waitExpected": {
+    "true": 2619,
+    "false": 752,
+    "open": 1132,
+    "no Wait offered": 497
+  }
+}
