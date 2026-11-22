@@ -22,6 +22,7 @@ const string usage = """
       director-labels-check Check a pack's labels.jsonl and aggregate it into labels-final.jsonl
       director-label        Label cases with a local model and the teacher rubric (D4, bulk; resumable)
       director-report       Score models on the frozen director test set (D8): harness/reports/<name>.md
+      director-review       Blind review of a director model against the teacher (D9): a page to fill in, then --answers
       director-dataset      Build train/val/test JSONL for fine-tuning from labelled cases (D5)
 
     <run> is a run id under --out, a path to a run folder, or "latest".
@@ -91,6 +92,13 @@ const string usage = """
       --out <dir>              Report folder (default harness/reports)
       --confirm-spend          Allow paid API models (Claude); without it they're refused
 
+    director-review options:
+      --models <id>            The director model to review (one, from --config)
+      --count <n>              Cases, spread over the test set (default 50)
+      --seed <n>               Case order and A/B sides (default 1)
+      --out <dir>              Folder for review.html and key.json (default harness/reports/review-<id>)
+      --answers <file>         Score a downloaded review-answers.json against the key: writes review.md
+
     director-dataset options:
       --labels a,b             Label folders with labels-final.jsonl (default training/data/labels/*)
       --cases a,b              Case folders (default every folder under training/data/cases)
@@ -114,7 +122,7 @@ if (args.Length == 0 || args[0] is "-h" or "--help" or "help")
 var root = FindRepoRoot();
 var valueOptions = new HashSet<string>
 {
-    "config", "prompts", "snapshots-dir", "passbars", "models", "tasks", "snapshots", "repeats", "out", "cache", "compare", "rate", "seed", "vram-budget", "temperature", "count", "from", "cases", "repeat", "pack", "labels", "tier", "test-seeds", "max-wait-share", "recheck", "name", "base",
+    "config", "prompts", "snapshots-dir", "passbars", "models", "tasks", "snapshots", "repeats", "out", "cache", "compare", "rate", "seed", "vram-budget", "temperature", "count", "from", "cases", "repeat", "pack", "labels", "tier", "test-seeds", "max-wait-share", "recheck", "name", "base", "answers",
 };
 var flags = new HashSet<string> { "no-cache", "dry-run", "judge", "resample", "no-wait-rule", "confirm-spend" };
 
@@ -317,6 +325,30 @@ try
                 BaseModel = cli.Get("base"),
                 Count = cli.Has("count") ? cli.Int("count", 0) : null,
             }, models, RimChronicles.Eval.Providers.ProviderFactory.Create, Console.Out, cts.Token);
+        }
+
+        case "director-review":
+        {
+            var config = HarnessConfig.Load(configPath);
+            var id = cli.List("models")?.Single() ?? throw new ArgumentException("director-review needs --models <id>.");
+            var model = config.Models.FirstOrDefault(m => m.Id == id) ?? throw new ArgumentException($"No model '{id}' in {configPath}.");
+            var reviewDir = cli.Get("out") is { } rvo ? Path.GetFullPath(rvo) : Path.Combine(root, "harness", "reports", $"review-{id}");
+            if (cli.Get("answers") is { } answers)
+            {
+                return RimChronicles.Eval.DirectorCases.DirectorReviewCommand.Score(reviewDir, Path.GetFullPath(answers), Console.Out);
+            }
+
+            var data = Path.Combine(root, "training", "data");
+            return await RimChronicles.Eval.DirectorCases.DirectorReviewCommand.PrepareAsync(new RimChronicles.Eval.DirectorCases.ReviewOptions
+            {
+                CasesDir = cli.Get("cases") is { } rvc ? Path.GetFullPath(rvc) : Path.Combine(data, "cases", "synthetic", "seed-9001"),
+                LabelsDir = cli.Get("labels") is { } rvl ? Path.GetFullPath(rvl) : Path.Combine(data, "labels", "test-v1"),
+                PromptsRoot = promptsRoot,
+                CacheDir = cacheDir,
+                OutDir = reviewDir,
+                Count = cli.Int("count", 50),
+                Seed = cli.Int("seed", 1),
+            }, model, RimChronicles.Eval.Providers.ProviderFactory.Create(model), Console.Out, cts.Token);
         }
 
         case "director-dataset":

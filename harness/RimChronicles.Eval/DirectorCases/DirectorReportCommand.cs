@@ -115,7 +115,7 @@ public static partial class DirectorReportCommand
         return new CaseRun(s.Id, on, off, o2, o3, ids, idsChoice, input.AllowedNames, briefing);
     }
 
-    private static async Task<Call> Ask(PromptTemplate prompt, WorldSnapshot s, ModelConfig model, bool grammar,
+    public static async Task<Call> Ask(PromptTemplate prompt, WorldSnapshot s, ModelConfig model, bool grammar,
         Func<ChatRequest, int, Task<ChatResult>> complete, int variant)
     {
         var input = WorldSummarizer.ForDirector(s, model.PromptTier);

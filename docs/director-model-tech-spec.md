@@ -266,3 +266,13 @@ main tier is Off. `ModelSlots` (Llm, unit-tested) picks the model for each job; 
 prompt at the director model's tier, since a fine-tune has only seen prompts at its own tier's budget, and calls it at
 temperature 0.2 (the export's). **Test connection** checks the main model, then the director. Export (merge, Q4_K_M and
 Q8_0, Modelfile with Gemma 4's template) and `training/models.director.json` came with D0 and D6.
+
+## 16. Blind review (D9)
+
+`director-review --models <id>` writes `harness/reports/review-<id>/review.html` and `key.json`: 50 test cases spread
+over the set, each with the briefing (at the model's tier) and two answers, the model's and the teacher's (choice,
+its description, reason), on random sides (seeded). The page keeps picks in the browser and downloads
+`review-answers.json`; `--answers <file>` reveals the key and writes `review.md`. Ship bar (training spec §7): picked or
+tied in at least 40% of cases. The model's answer is `director-report`'s first call, so after a report it's cached.
+The teacher's reasons have a recognisable style, which a careful reviewer could spot; judge the decision, not the
+phrasing.

@@ -22,6 +22,7 @@ dotnet run --project harness/RimChronicles.Eval -- judge latest    # judge an ex
 dotnet run --project harness/RimChronicles.Eval -- report latest --compare <runId>   # rebuild summary.html with deltas
 dotnet run --project harness/RimChronicles.Eval -- spotcheck latest # blind 10% sample to hand-score; run again to score agreement
 dotnet run --project harness/RimChronicles.Eval -- director-report --models gemma4-e2b --count 50   # D8: score models on the frozen director test set
+dotnet run --project harness/RimChronicles.Eval -- director-review --models <id>   # D9: blind review page; then --answers <file> to score it
 ```
 
 The real evaluation runs on the reference PC, not in the codespace: set the PC up with `docs/local-setup.md`, then follow `docs/stage0-runbook.md`.
