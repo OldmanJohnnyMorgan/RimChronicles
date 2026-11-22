@@ -1,0 +1,10 @@
+{
+  "task": "epilogue",
+  "version": "v2",
+  "maxOutputTokens": 420,
+  "tiers": {
+    "Minimum": {
+      "maxOutputTokens": 360
+    }
+  }
+}
