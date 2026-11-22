@@ -24,4 +24,12 @@
     <maxGapDays>10</maxGapDays>
     <inheritanceMutation>the search for the relative passes to the heir</inheritanceMutation>
   </RimChronicles.Game.Plots.PlotTemplateDef>
+  <RimChronicles.Game.Plots.PlotTemplateDef>
+    <defName>AwakenedEmpire</defName>
+    <label>awakened empire</label>
+    <description>The major plot: the Empire wakes, asks the colony's stance, and takes the rim settlement by settlement.</description>
+    <countsTowardCap>false</countsTowardCap>
+    <minGapDays>6</minGapDays>
+    <maxGapDays>12</maxGapDays>
+  </RimChronicles.Game.Plots.PlotTemplateDef>
 </Defs>

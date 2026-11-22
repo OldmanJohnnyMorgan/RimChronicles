@@ -30,6 +30,11 @@ public static class EmpireDriver
 
         var saga = component.Empire;
         var today = GenDate.DaysPassed;
+        if (saga.IsAwake)
+        {
+            EmpireBeats.EnsurePlot(component, today); // a save from before M4 woke the Empire without its plot
+        }
+
         switch (saga.State)
         {
             case EmpireState.Dormant:
@@ -52,7 +57,7 @@ public static class EmpireDriver
                 }
 
                 break;
-            case EmpireState.Awakened when saga.ExpansionDue(today):
+            case EmpireState.Awakened or EmpireState.Ascendant when saga.ExpansionDue(today):
                 ExpandOnce(component, empire, today);
                 break;
             case EmpireState.Stirring:
@@ -101,7 +106,7 @@ public static class EmpireDriver
 
     /// <summary>Settlements the Empire may attack: other humanlike factions' settlements on the same layer as an
     /// Imperial one, never the player's, never one with a map open or a quest on it, and never a faction's last.</summary>
-    private static Dictionary<ExpansionTarget, Settlement> Targets(Faction empire)
+    internal static Dictionary<ExpansionTarget, Settlement> Targets(Faction empire)
     {
         var all = Find.WorldObjects.Settlements;
         var imperial = all.Where(s => s.Faction == empire).ToList();
@@ -139,7 +144,7 @@ public static class EmpireDriver
 
     /// <summary>A settlement caches its world-map materials in its first owner's colour, and <c>SetFaction</c> doesn't
     /// reset them. Clears both caches and redraws the layer, so a conquered settlement shows in Imperial colours.</summary>
-    private static void Repaint(Settlement settlement)
+    internal static void Repaint(Settlement settlement)
     {
         CachedMat?.SetValue(settlement, null);
         ExpandingMat?.SetValue(settlement, null);
@@ -164,6 +169,7 @@ public static class EmpireDriver
         var ev = component.Empire.Awaken(trigger, detail, today,
             Rand.RangeInclusive(EmpireSaga.MinStirringDays, EmpireSaga.MaxStirringDays), Colony);
         Show(component, ev, today, empire);
+        EmpireBeats.EnsurePlot(component, today);
         Record(component, today, $"Awaken:{trigger}", EmpireText.TriggerWhy(trigger, detail, Colony), source, options);
         component.Plots.LastBeatDay = today;
         if (Prefs.DevMode)
@@ -302,7 +308,7 @@ public static class EmpireDriver
     [DebugAction("Rim Chronicles", "Empire: expansion tick", allowedGameStates = AllowedGameStates.Playing)]
     public static void DevExpand()
     {
-        if (RimChroniclesGameComponent.Current is not { } component || EmpireFaction is not { } empire || component.Empire.State != EmpireState.Awakened)
+        if (RimChroniclesGameComponent.Current is not { } component || EmpireFaction is not { } empire || component.Empire.State is not (EmpireState.Awakened or EmpireState.Ascendant))
         {
             Messages.Message("Rim Chronicles: the Empire must be awake to expand (Empire: trigger awakening, then end stirring now).", MessageTypeDefOf.RejectInput, historical: false);
             return;
