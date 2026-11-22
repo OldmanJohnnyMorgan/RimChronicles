@@ -1,6 +1,6 @@
 # Crisis combat and locations: technical spec
 
-**For:** `SPEC-crisis-combat-and-locations.md` (rev. 5, in this folder). **Date:** 2026-11-22. **Status:** reviewed; Q1–Q3 decided 2026-11-22.
+**For:** `SPEC-crisis-combat-and-locations.md` (rev. 5, in this folder). **Date:** 2026-11-22. **Status:** reviewed; Q1–Q3 decided and the C0 API survey done, 2026-11-22.
 **Branch:** `crisis-combat-locations`. It merges into `main` only after the director-model track is done (see `project-plan.md`).
 
 This turns the crisis spec into a design that fits the repo as it is after Stage 5 and the director-model milestones
@@ -15,23 +15,27 @@ a quick read during this review, not yet the full API survey (milestone C0).
 | # | Crisis spec says | Repo or 1.7 reality | Decision |
 | --- | --- | --- | --- |
 | R1 | Code in `Source/RimChronicles/{Pieces,Locations,Commander,Captives,Threat}` | The repo splits story logic (`src/RimChronicles.Core`, no RimWorld) from engine calls (`src/RimChronicles.Game`). Rule 6: story logic never calls RimWorld. Rule 9: Core has unit tests that run without the game | **Split every module in two.** Rules, scoring, planning and validation go in Core under `Crisis/`, on plain data, unit-tested. Engine work (lord jobs, think nodes, stamping, GenSteps, Harmony) goes in Game under `Crisis/`. §2 has the layout |
-| R2 | A custom `PieceDef` with a character-grid layout | 1.7 has **`PrefabDef`** (things, terrain and sub-prefabs at positions, `rotations`) and `PrefabUtility.SpawnPrefab(prefab, map, pos, rot, faction, …, blueprint: bool)`. It can already stamp as **blueprints**, and Dev Mode has prefab tools (`DebugActionsPrefabs`) | **A piece is a vanilla `PrefabDef` plus a `DefModExtension`** (`RimChronicles.PieceExtension`: tags, door sides, needs power, defense value, threat cost, build order). Vanilla does the stamping and the rotation; pieces can be built in game and exported. The character grid stays as an optional authoring shorthand only if the C0 survey shows the prefab export tool is unusable |
+| R2 | A custom `PieceDef` with a character-grid layout | 1.7 has **`PrefabDef`** (things, terrain and sub-prefabs at positions, `rotations`) and `PrefabUtility.SpawnPrefab(prefab, map, pos, rot, faction, …, blueprint: bool)`. It can already stamp as **blueprints**, and Dev Mode → Generation → Create prefab copies a map rectangle's `PrefabDef` XML to the clipboard | **A piece is a vanilla `PrefabDef` plus a `DefModExtension`** (`RimChronicles.PieceExtension`: tags, door sides, needs power, defense value, threat cost, build order). Vanilla does the stamping and the rotation. Pieces are built in game and exported with Create prefab; no character-grid format (C0) |
 | R3 | Partition with BSP, connect, fill | 1.7 has `LayoutDef` / `StructureLayoutDef`, `LayoutRoomDef` and `RoomLayoutGenerator.GenerateRandomLayout` (rooms, doors, corridors), used for ancient ruins and the mechhive | **Core owns the plan** (partition, graph, fill, wrap, budget, validators) on an abstract cell grid, so the site rules are seeded, testable without the game, and identical every time for one site. Game turns the plan into prefab stamps, walls and doors. Vanilla's generator is the reference for the shapes, not a dependency: its randomness and output can't be unit-tested or kept stable across game updates |
 | R4 | Crisis stages named Stirring, Reclamation, War, Finale | `EmpireState` already has `Stirring` (the Empire **before** it wakes), then `Awakened`, `Ascendant`, `Broken`. The Empire plot has acts (Hook, Complication, Choice) and a **stance**: ally, oppose or neutral | **Rename crisis stage 1 to "Probing"** so it can't be confused with `EmpireState.Stirring`. Stages are derived from the saga and the plot (§4.1), not stored as a second copy of the plot state |
 | R5 | The Empire fights the player | The colony may be the Empire's **ally**, or neutral and paying tribute. The Empire is only hostile after the colony opposes it, refuses tribute or refuses the final demand | **The crisis runs only while the Empire is hostile to the colony** (`EmpireStance.Oppose`, or the faction relation is hostile). Allies never see crisis operations; a neutral colony that refuses tribute sees probing raids only, until it opposes the Empire (**decided 2026-11-22, Q3**). A colony that swears fealty mid-crisis ends it: raids in progress retreat |
 | R6 | The director picks an operation from the allowed list | The director decides when a **plot's beat** is due, once a day, through the plot book (beat spacing, waits, pacing gate). The Empire plot runs one job at a time (a quest or a letter) and counts wins and losses towards Act 3 | **Operations get their own plot: `ImperialCrisis`**, a plot-book entry that doesn't count toward the plot cap (`PlotTemplate.CountsTowardCap = false`), with its own arc in Core (`CrisisArc.Transitions`) offering `Operation:*` and `Wait`. It reuses the director, the fallback, the decision log and the pacing gate unchanged, and it doesn't block the Empire plot's quests. The Empire plot's arc is unchanged |
 | R7 | `Site:*` ids appear "when a plot creates a site" | The opposed Empire plot already offers `Empire:SabotageImperial` (a sabotage quest on an Imperial settlement) and `Act3:StormTheCapital` (the capital as a sabotage quest) | **Sites hang off these jobs.** `SabotageImperial` becomes a site job whose archetype the director picks in a second call (`Site:ForwardOutpost`, `Site:PsychicRelay`, `Site:OrbitalUplink`). `StormCapital` generates the **Citadel** on the capital's map. `Site:ReclaimedHolding` is a new opposed Act 2 option, offered when the Empire has conquered a settlement near the colony |
 | R8 | Siege goal picked by the director | The director answers one choice per call | **A second director call** on the same day, only after `Operation:SiegeWithBombardment` is chosen, with `Goal:*` as its options. Same task, same fallback. The site's flavor call (§4.4 of the crisis spec) works the same way |
-| R9 | Vanilla AI casting "if any" must be turned off | It exists. `JobGiver_AIFightEnemy` casts from `Pawn_AbilityTracker.AICastableAbilities(target, offensive)` for any ability with `aiCanUse`, and `JobGiver_NPCCastNonCombatAbilities` casts the non-offensive ones | **A Harmony prefix on `Pawn_AbilityTracker.AICastableAbilities`** returns an empty list for Rim Chronicles units. Both callers are in `Assembly-CSharp`, which is JIT-patchable |
+| R9 | Vanilla AI casting "if any" must be turned off | `JobGiver_AIFightEnemy` and `JobGiver_NPCCastNonCombatAbilities` cast what `Pawn_AbilityTracker.AICastableAbilities` returns, which needs `aiCanUse`. **No Royalty psycast sets it** (C0), so vanilla NPCs never cast psycasts; some Biotech and Odyssey abilities do | **A Harmony prefix on `AICastableAbilities`** still returns an empty list for Rim Chronicles units, as a guard against weapon-trait abilities and other mods' XML patches. Both callers are in `Assembly-CSharp`, which is JIT-patchable |
 | R10 | Strip random psycasts given with the psylink level | `Hediff_Psylink.TryGiveAbilityOfLevel` gives a random psycast of each new level (`DefDatabase<AbilityDef>…RandomElement()`) | After generation, a postfix on our pawn kinds **removes every psycast and grants the kit** (`Pawn_AbilityTracker.RemoveAbility` / `GainAbility`), filtered by psylink level and the ban list. The same check runs on load, so a save never keeps a random or banned psycast |
 | R11 | Confirm psycast defNames in the survey | The codespace has the game DLLs only, no `Data/` XML. `AbilityDefOf` lists only a few Biotech and Anomaly abilities | **C0 needs the Royalty defs from the PC:** copy `Data/Royalty/Defs/` (and `Data/Core/Defs/` for pawn kinds) into `/workspaces/reference/data/`, outside the repo, never committed. The §5.3.1 table is fixed from those files |
 | R12 | Record findings in `docs/1.7-api-notes.md` | The repo already keeps 1.7 findings in `docs/ENGINE_NOTES.md`, with a section per stage | **Add a "Crisis survey" section to `ENGINE_NOTES.md`** instead of a second notes file |
 | R13 | Declare Royalty as a dependency in `About.xml` | Royalty is optional today: the news agent and minor plots work without it, and `About.xml` says the Empire arc "needs Royalty" | **Keep Royalty optional:** crisis defs load with `MayRequire="Ludeon.RimWorld.Royalty"` and the crisis code checks `ModsConfig.RoyaltyActive`; without Royalty the crisis is off. Making it a hard dependency would cut off players without Royalty from the whole mod. **Decided 2026-11-22 (Q1)** |
-| R14 | Interrogate as a new prisoner mode | 1.7 already has Anomaly's `InterrogateIdentity` (`WorkGiver_Warden_InterrogateIdentity`, `JobDriver_InterrogatePrisoner`, `InteractionWorker_InterrogateIdentity`) | **Model ours on it, under its own name** (`RimChronicles_Interrogate`, label "Interrogate"), shown only for Empire prisoners. The C0 survey checks how the prisoner tab filters modes |
-| R15 | "Entropy dump / wait" as a shared scorer | No vanilla psycast dumps neural heat, as far as the source shows (confirm in C0) | **The shared fallback is "hold":** no cast, keep fighting, let heat fall. If C0 finds a heat-dump psycast, it gets a scorer like any other |
+| R14 | Interrogate as a new prisoner mode | 1.7 already has Anomaly's `InterrogateIdentity` (`WorkGiver_Warden_InterrogateIdentity`, `JobDriver_InterrogatePrisoner`, `InteractionWorker_InterrogateIdentity`) | **Model ours on it, under its own name** (`RimChronicles_Interrogate`, label "Interrogate"); see R21 for where it shows |
+| R15 | "Entropy dump / wait" as a shared scorer | `EntropyDump` (level 2) exists, but it targets only colonists (`onlyTargetColonists`) and puts the target in a coma for about a day (C0) | **It joins the ban list.** The shared fallback is "hold": no cast, keep fighting, let heat fall |
 | R16 | Debug overlays, targeting laser | Rule 3: no Unity APIs in new code, except UI code. Overlays and lasers usually draw with Unity types (`Color`, `Material`) | **Telegraphs use XML-defined flecks and things** (no Unity calls). Dev Mode overlays use `GenDraw` helpers that take cells. Dev Mode overlays may use the Unity stub types they need (such as `Color`), under rule 3's UI exception. **Decided 2026-11-22 (Q2)** |
 | R17 | "When these are added, the director model needs retraining" | The director-model track (D0–D11) is training on today's option vocabulary, and the test set (seed 9001) is frozen | **No `Operation:*`, `Goal:*` or `Site:*` id reaches the director until the director model ships** (milestone C11). Until then the crisis picks by weighted random, which rule 7 needs anyway as the fallback. C11 adds the crisis arc to the case generator as a new arc, keeps the seed-9001 cases for the existing arcs, and bumps the test version |
 | R18 | Everything seeded from the site's world-object ID | `System.Random(seed)` is used in the harness; its seeded algorithm isn't guaranteed stable across .NET versions | **Core gets a small `SeededRng` (SplitMix64)** for site generation, so a site's layout never changes with the runtime |
+| R19 | Adept psylink 2–3 at stage 1; Mass Burden in the Control kit | Skip Adepts' first cast is level 3; vanilla has no Mass Burden; level 3–4 casts need 25% psyfocus and level 5–6 need 50% (C0) | Crisis spec §5.3.1 and §6 fixed in C0: stage 1 adepts are psylink 3, Mind Adepts start at stage 3, Chunkskip joins the Ward kit, Mass Burden is dropped |
+| R20 | Psykers obey psyfocus | NPC psyfocus starts at -1 (band 0: level 2 casts at most) until `SetInitialPsyfocusLevel` runs, and only drop pods call it. `Psycast.CanCast` skips the psyfocus check for heat-making casts (C0) | Units set psyfocus at spawn, by stage. `VanillaProvider` checks `Psycast.GizmoDisabled`, which checks everything, not `CanCast` |
+| R21 | Interrogate shown only for Empire prisoners | The prisoner tab's mode filter is a compiler-generated local function in `ITab_Pawn_Visitor` (C0) | Show the mode for every prisoner; the work giver skips, with a reason, prisoners with nothing to tell. Patch the filter only if that reads badly in game |
+| R22 | Lord jobs extend vanilla's | `LordJob_AssaultColony`, `LordJob_Siege` and their toils are public and unsealed; `LordToil_Siege` places its camp with `SiegeBlueprintPlacer` in one go (C0) | Assault and breach operations reuse vanilla toils plus ours; the crisis siege has its own toil, since its camp is built in stages |
 
 ## 2. Architecture
 
@@ -66,7 +70,7 @@ Defs/ (XML, MayRequire Royalty)
 ```
 
 Def files follow the repo's existing pattern (`Defs/<Kind>Defs/RimChronicles_<Name>.xml`, defNames prefixed
-`RimChronicles_` or, for long families, `RC_`; C0 picks one and applies it everywhere).
+`RimChronicles_`, decided in C0).
 
 **The data flow for one decision.** Once a day, `CrisisDriver` reads the colony into `ColonyStrength` and the saga
 into a `CrisisStage`, and `CrisisArc.Transitions` lists the operations that the stage, budget, cooldowns and pacing gap
@@ -124,11 +128,10 @@ plans the same layout.
   `CrisisState.Capabilities` (psykers weakened or strikes off until day N) and marks a Citadel element removed.
 - **The Citadel** replaces the capital's map. `Settlement.MapGeneratorDef` is a virtual getter; a postfix returns
   `RimChronicles_Citadel` for the settlement `EmpireBeats.Capital` returns, while the crisis is active. The map size
-  (default 275, a setting) is set where the attack map is generated; C0 finds that call. The rings are three
+  (default 275, a setting) comes from a prefix on `MapGenerator.GenerateMap` when the parent is the capital (C0). The rings are three
   `SitePlanner` runs, each inside the previous ring's walls, plus a whole-map reachability check to the throne room.
-- **Keep shield:** a map component knows the keep's cells and whether any courtyard relay stands. A prefix on the
-  damage path for buildings (C0 confirms the method; `Thing.PreApplyDamage` is virtual, so overrides must be checked)
-  scales damage to keep walls and doors. Empire psykers inside the keep get a hediff with a psyfocus bonus. Destroying
+- **Keep shield:** a map component knows the keep's cells and whether any courtyard relay stands. A prefix on
+  `Thing.TakeDamage` (non-virtual, so it catches every building type; C0) scales damage to keep walls and doors. Empire psykers inside the keep get a hediff with a psyfocus bonus. Destroying
   the last relay lifts both and sends a letter.
 - **Ring reaction:** a map component tracks which ring each colonist is in; entering a ring sends the next ring's
   defenders (except the honor guard) a reinforce duty. If the performance check fails, the same component spawns a
@@ -166,7 +169,7 @@ tested at the edges. The storyteller's raid points are not used.
 
 Pawn kinds in XML, each with a `UnitExtension`: role (`Praetorian`, `Adept`, `Herald`, `Breacher`, `Stellarch`),
 specialty for adepts, the psycast kit by psylink level, and gear and bionic tiers by stage. Royalty's Empire kinds are
-the parents where they fit (C0 lists them). A postfix after pawn generation applies the stage's gear tier, the kit and
+the parents where they fit (listed in `ENGINE_NOTES.md`, "Crisis survey"). A postfix after pawn generation applies the stage's gear tier, the kit and
 the ban list (R10); `Pawn.ExposeData` on load re-checks the kit.
 
 The **ban list** is one XML def. Kit lists are checked against it at startup: a banned psycast in a kit is removed and
@@ -179,8 +182,8 @@ logged. Fairness rule 9 has a test that generates every unit at every stage.
 - **`ScorerDef`** (XML) maps a scorer class to the psycast defNames it needs. At startup, a scorer whose psycasts are
   missing is disabled and logged ("RC: Check psycasts" shows the list). Psycasts with no scorer are never cast.
 - **`IPsycastProvider`** (Game): lists a pawn's castable psycasts with their range, cost and heat, and casts one.
-  `VanillaProvider` reads `pawn.abilities`, checks `Ability.CanCast` / `GizmoDisabled` (psyfocus, heat and cooldown;
-  C0 confirms these cover all three) and calls `QueueCastingJob`. A later `VpeProvider` implements the same interface.
+  `VanillaProvider` reads `pawn.abilities`, checks `Psycast.GizmoDisabled` (psychic sensitivity, level, psyfocus and
+  its band, heat, cooldown; `CanCast` alone misses psyfocus, R20) and calls `QueueCastingJob`. A later `VpeProvider` implements the same interface.
 - **`ThinkNode_RcPsykerCast`** sits first in the `RimChronicles_PsykerSupport` duty's think tree. Every 250 ticks it
   asks the lord's shared `BattleView` (built once per lord per 250 ticks) for the psyker's best cast, then falls through
   to normal combat. A cast is never forced past heat or psyfocus (fairness rule 2).
@@ -288,7 +291,7 @@ switches for the overlays. All saved in `RimChroniclesSettings`.
 | Risk | Effect | Mitigation |
 | --- | --- | --- |
 | Psycast defNames or levels differ from the spec's table | Kits and scorers are wrong | C0 fixes the table from the real XML before any kit is written; the startup check disables what's missing |
-| Vanilla lord toils don't extend cleanly (sealed classes, private state) | Custom toils from scratch | C0 reads `LordToil_AssaultColony`, `LordToil_Siege` and the breaching toils first; C7 starts with ProbingRaid, the simplest |
+| Vanilla lord toils don't extend cleanly (sealed classes, private state) | Custom toils from scratch | C0 found them public and unsealed (R22); C6 starts with ProbingRaid, the simplest |
 | A 275×275 Citadel with ~60 defenders misses 30 s generation or the tick budget | Finale lags | Measured in C12 on the PC; fallback is lazy ring spawning (crisis spec §4.5), then a smaller default size |
 | Save with crisis lords or things loads after the mod is removed | Errors on load | Same as any content mod; documented. Adding the mod mid-game is supported (rule 5) |
 | Crisis too hard, or dodged by a weak colony | Fun | Budget inputs are clamped and tested; the balance pass (C14) uses a fixed test colony and the playtest bar |

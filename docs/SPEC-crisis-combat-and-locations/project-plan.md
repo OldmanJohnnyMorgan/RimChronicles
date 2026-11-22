@@ -50,7 +50,7 @@ Per the stage pattern, John tests in game once per checkpoint, not per milestone
 the codespace beyond its unit tests and the Game build is folded into the next checkpoint's runbook. Each runbook gives
 exact steps and PowerShell commands, and its results file records what passed, what didn't, and the follow-ups.
 
-## 4. What C0 needs from John
+## 4. What C0 needed from John (done 2026-11-22)
 
 1. On the PC, copy the game's `Data\Royalty\Defs` and `Data\Core\Defs` folders to the codespace, into
    `/workspaces/reference/data/Royalty/Defs` and `/workspaces/reference/data/Core/Defs` (outside the repo; they are
