@@ -19,6 +19,7 @@ const string usage = """
       director-import       Import director cases recorded in game (D3) into training/data/cases/exported
       director-pack         Write a labelling pack for a teacher working by hand (D4)
       director-labels-check Check a pack's labels.jsonl and aggregate it into labels-final.jsonl
+      director-dataset      Build train/val/test JSONL for fine-tuning from labelled cases (D5)
 
     <run> is a run id under --out, a path to a run folder, or "latest".
 
@@ -65,6 +66,13 @@ const string usage = """
       --pack <dir>             Pack folder (default training/data/labels/pilot)
       --cases <dir>            Case folder the pack was made from (default training/data/cases/synthetic/seed-1)
 
+    director-dataset options:
+      --labels a,b             Label folders with labels-final.jsonl (default training/data/labels/*)
+      --cases a,b              Case folders (default every folder under training/data/cases)
+      --tier <tier>            Minimum, Recommended or High: the prompt budget to render for (default Recommended)
+      --test-seeds a,b         Generator seeds that form the test split (default 9001)
+      --out <dir>              Output (default training/data/splits/<tier>)
+
     spotcheck options:
       --rate <0-1>             Share of judged outputs to sample (default 0.1)
       --seed <n>               Sampling seed (default 1)
@@ -80,7 +88,7 @@ if (args.Length == 0 || args[0] is "-h" or "--help" or "help")
 var root = FindRepoRoot();
 var valueOptions = new HashSet<string>
 {
-    "config", "prompts", "snapshots-dir", "passbars", "models", "tasks", "snapshots", "repeats", "out", "cache", "compare", "rate", "seed", "vram-budget", "temperature", "count", "from", "cases", "repeat", "pack",
+    "config", "prompts", "snapshots-dir", "passbars", "models", "tasks", "snapshots", "repeats", "out", "cache", "compare", "rate", "seed", "vram-budget", "temperature", "count", "from", "cases", "repeat", "pack", "labels", "tier", "test-seeds",
 };
 var flags = new HashSet<string> { "no-cache", "dry-run", "judge", "resample" };
 
@@ -220,6 +228,25 @@ try
         case "director-labels-check":
             return RimChronicles.Eval.DirectorCases.DirectorLabels.Check(
                 cli.Get("pack") is { } pk ? Path.GetFullPath(pk) : Path.Combine(root, "training", "data", "labels", "pilot"), CasesDir(), Console.Out) == 0 ? 0 : 1;
+
+        case "director-dataset":
+        {
+            var data = Path.Combine(root, "training", "data");
+            var tier = Enum.Parse<RimChronicles.Llm.ModelTier>(cli.Get("tier") ?? "Recommended", ignoreCase: true);
+            var labelDirs = cli.List("labels")?.Select(Path.GetFullPath).ToList()
+                ?? Directory.GetDirectories(Path.Combine(data, "labels")).Where(d => File.Exists(Path.Combine(d, "labels-final.jsonl"))).Order().ToList();
+            var caseDirs = cli.List("cases")?.Select(Path.GetFullPath).ToList()
+                ?? Directory.GetFiles(Path.Combine(data, "cases"), "manifest.json", SearchOption.AllDirectories).Select(f => Path.GetDirectoryName(f)!).Order().ToList();
+            return RimChronicles.Eval.DirectorCases.DirectorDataset.Build(new RimChronicles.Eval.DirectorCases.DatasetOptions
+            {
+                LabelDirs = labelDirs,
+                CaseDirs = caseDirs,
+                OutDir = cli.Get("out") is { } dso ? Path.GetFullPath(dso) : Path.Combine(data, "splits", tier.ToString().ToLowerInvariant()),
+                PromptsRoot = promptsRoot,
+                Tier = tier,
+                TestSeeds = (cli.List("test-seeds") ?? ["9001"]).Select(int.Parse).ToHashSet(),
+            }, Console.Out);
+        }
 
         default:
             Console.Error.WriteLine($"Unknown command '{args[0]}'.");

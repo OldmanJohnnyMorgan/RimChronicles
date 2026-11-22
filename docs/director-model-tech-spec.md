@@ -151,3 +151,16 @@ from seed 1, round-robin over the 7 arc/beat groups, 10 shown twice with the opt
   duplicate side plots, contradictory background events (generator v2–v3).
 - Base-model gap this targets (director v2 run `20261122-052929`): in a desperate colony just after a raid, every Gemma
   acted where Claude waited.
+
+## 10. Dataset (D5)
+
+`director-dataset` renders each labelled case through the **director prompt** (the student's, `prompts/director/`) at
+a tier's budget and writes `training/data/splits/<tier>/{train,val,test}.jsonl` plus a manifest. Each row has the exact
+`system` and `user` text the game would send, the allowed ids, and the `target` JSON (plain escaping). Python only
+wraps these in the Gemma chat template.
+
+- **Splits:** test = generator seed **9001** (500 cases, test version 1) and 30% of in-game cases; val = 10% of the rest
+  by a hash of the case id; train = the rest. A case and its copies stay in one split.
+- **Augmentation (train only):** the case plus two reshuffled copies; ids renamed to C1, C2… in ~20% of copies; a decoy
+  mention of a not-allowed option in ~5%.
+- **Tiers:** build once per tier trained (`--tier Minimum` for E2B, `Recommended` for E4B).

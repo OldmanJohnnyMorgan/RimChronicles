@@ -1,0 +1,38 @@
+{
+  "builder": "director-dataset",
+  "promptVersion": "director/v2",
+  "tier": "Recommended",
+  "testVersion": 1,
+  "testSeeds": [
+    9001
+  ],
+  "exportedTestShare": 0.3,
+  "valShare": 0.1,
+  "minAgreement": 0.6,
+  "seed": 1,
+  "inputs": [
+    {
+      "labels": "pilot",
+      "sha256": "d2c969dc492549f217a9de3933c89219609a02aaf668ae4da0974d60ced5c3e3"
+    }
+  ],
+  "cases": {
+    "train": 44,
+    "val": 6,
+    "test": 0
+  },
+  "rows": {
+    "train": 132,
+    "val": 6,
+    "test": 0
+  },
+  "sha256": {
+    "train": "eb648fcedbfeaa6a77d91f93e8408ad29ef96d5e862da4b7cec1b9041aec1d37",
+    "val": "0bd9f0969723543d0d7747f981f928e301524a673e47f0b78c296009ca3df146",
+    "test": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "leftOut": {
+    "lowAgreement": 0,
+    "caseMissing": 0
+  }
+}
