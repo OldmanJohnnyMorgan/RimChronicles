@@ -228,7 +228,9 @@ doors) to catch every building type.
 - `Mod.DoSettingsWindowContents(Rect)` still takes `UnityEngine.Rect`, which is now a type in `UnityStubs`.
   **Decided 2026-11-21:** UI code (the settings page, and windows such as the Rim Dispatch tab) may use the Unity stub
   types RimWorld's UI needs (`Rect`, `Listing_Standard`). The Game project references `UnityStubs` with
-  `Private=false` for this alone, and nothing outside UI code uses Unity types.
+  `Private=false` for this, and nothing outside UI code uses Unity types.
+- **Decided 2026-11-22 (crisis Q2):** Dev Mode drawing (debug text over pawns, overlays) may use the stub types it
+  needs too, such as `Pawn.DrawPos` (a `Vector3`) for `MoteMaker.ThrowText`. Only behind a Dev Mode switch.
 - A fight logs one `Wounded` tale per hit, and animals and unnamed raiders have no `name` in their tale data (use
   `kind.label`). Archived letters can carry a whole paragraph as their label (the scenario intro).
 - `WorldGrid.LongLatOf` returns a Unity `Vector2`. The snapshot reader uses `GenLocalDate` instead, to keep Unity types

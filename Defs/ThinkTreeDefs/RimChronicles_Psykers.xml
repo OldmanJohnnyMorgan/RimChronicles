@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The psyker AI (C4): inserted into every humanlike think tree after mental states, before lord duties, so a crisis
+  psyker casts under any duty. It does nothing for anyone else.
+-->
+<Defs>
+  <ThinkTreeDef>
+    <defName>RimChronicles_PsykerCast</defName>
+    <insertTag>Humanlike_PostMentalState</insertTag>
+    <insertPriority>50</insertPriority>
+    <thinkRoot Class="RimChronicles.Game.Crisis.Psykers.JobGiver_RcPsykerCast" />
+  </ThinkTreeDef>
+</Defs>

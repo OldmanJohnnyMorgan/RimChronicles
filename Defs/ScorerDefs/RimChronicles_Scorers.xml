@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Psyker scorers (crisis spec §5.3.1, C4): each turns on one scorer (an IPsycastScorer id in
+  src/RimChronicles.Core/Crisis/Psykers/Scorers.cs) for the psycasts listed. A psycast with no scorer here is never cast by
+  a crisis unit. A scorer whose psycasts are missing is turned off and logged at startup. Farskip has none until C13.
+-->
+<Defs>
+  <RimChronicles.Game.Crisis.Psykers.ScorerDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Scorer_SkipOutOfCover</defName>
+    <scorer>SkipOutOfCover</scorer>
+    <psycasts><li>Skip</li></psycasts>
+  </RimChronicles.Game.Crisis.Psykers.ScorerDef>
+  <RimChronicles.Game.Crisis.Psykers.ScorerDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Scorer_SkipAllyOutOfMelee</defName>
+    <scorer>SkipAllyOutOfMelee</scorer>
+    <psycasts><li>Skip</li></psycasts>
+  </RimChronicles.Game.Crisis.Psykers.ScorerDef>
+  <RimChronicles.Game.Crisis.Psykers.ScorerDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Scorer_ChaosSkipCluster</defName>
+    <scorer>ChaosSkipCluster</scorer>
+    <psycasts><li>ChaosSkip</li><li>MassChaosSkip</li></psycasts>
+  </RimChronicles.Game.Crisis.Psykers.ScorerDef>
+  <RimChronicles.Game.Crisis.Psykers.ScorerDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Scorer_BeckonShooter</defName>
+    <scorer>BeckonShooter</scorer>
+    <psycasts><li>Beckon</li></psycasts>
+  </RimChronicles.Game.Crisis.Psykers.ScorerDef>
+  <RimChronicles.Game.Crisis.Psykers.ScorerDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Scorer_StunShooter</defName>
+    <scorer>StunShooter</scorer>
+    <psycasts><li>Stun</li></psycasts>
+  </RimChronicles.Game.Crisis.Psykers.ScorerDef>
+  <RimChronicles.Game.Crisis.Psykers.ScorerDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Scorer_BurdenCloser</defName>
+    <scorer>BurdenCloser</scorer>
+    <psycasts><li>Burden</li></psycasts>
+  </RimChronicles.Game.Crisis.Psykers.ScorerDef>
+  <RimChronicles.Game.Crisis.Psykers.ScorerDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Scorer_PulseCluster</defName>
+    <scorer>PulseCluster</scorer>
+    <psycasts><li>VertigoPulse</li><li>BlindingPulse</li><li>BerserkPulse</li></psycasts>
+  </RimChronicles.Game.Crisis.Psykers.ScorerDef>
+  <RimChronicles.Game.Crisis.Psykers.ScorerDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Scorer_BerserkInGroup</defName>
+    <scorer>BerserkInGroup</scorer>
+    <psycasts><li>Berserk</li></psycasts>
+  </RimChronicles.Game.Crisis.Psykers.ScorerDef>
+  <RimChronicles.Game.Crisis.Psykers.ScorerDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Scorer_PainblockAlly</defName>
+    <scorer>PainblockAlly</scorer>
+    <psycasts><li>Painblock</li></psycasts>
+  </RimChronicles.Game.Crisis.Psykers.ScorerDef>
+  <RimChronicles.Game.Crisis.Psykers.ScorerDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Scorer_ChunkCover</defName>
+    <scorer>ChunkCover</scorer>
+    <psycasts><li>Chunkskip</li></psycasts>
+  </RimChronicles.Game.Crisis.Psykers.ScorerDef>
+  <RimChronicles.Game.Crisis.Psykers.ScorerDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Scorer_WallraiseLane</defName>
+    <scorer>WallraiseLane</scorer>
+    <psycasts><li>Wallraise</li></psycasts>
+  </RimChronicles.Game.Crisis.Psykers.ScorerDef>
+  <RimChronicles.Game.Crisis.Psykers.ScorerDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Scorer_SmokeAdvance</defName>
+    <scorer>SmokeAdvance</scorer>
+    <psycasts><li>Smokepop</li></psycasts>
+  </RimChronicles.Game.Crisis.Psykers.ScorerDef>
+  <RimChronicles.Game.Crisis.Psykers.ScorerDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Scorer_ShieldGroup</defName>
+    <scorer>ShieldGroup</scorer>
+    <psycasts><li>BulletShield</li></psycasts>
+  </RimChronicles.Game.Crisis.Psykers.ScorerDef>
+  <RimChronicles.Game.Crisis.Psykers.ScorerDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Scorer_InvisibleFlank</defName>
+    <scorer>InvisibleFlank</scorer>
+    <psycasts><li>Invisibility</li></psycasts>
+  </RimChronicles.Game.Crisis.Psykers.ScorerDef>
+</Defs>
