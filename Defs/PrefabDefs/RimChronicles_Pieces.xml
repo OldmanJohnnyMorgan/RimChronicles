@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Crisis pieces (crisis spec §3, tech spec §3.1): vanilla PrefabDefs with a PieceExtension. Positions are (x, y, z) and
+  rects are (minX, minZ, maxX, maxZ), both counted from the south-west corner, unrotated. Stuff is chosen when a piece is
+  stamped, so things made from stuff leave it out. Build new pieces in game with Dev Mode -> Generation -> Create prefab,
+  paste the XML here and add the extension; `dotnet test` checks every piece's size and doors at every rotation.
+-->
+<Defs>
+
+  <PrefabDef>
+    <defName>RimChronicles_Piece_SandbagLine</defName>
+    <size>(5,1)</size>
+    <things>
+      <Sandbags>
+        <rects>
+          <li>(0,0,4,0)</li>
+        </rects>
+      </Sandbags>
+    </things>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <tags><li>Cover</li><li>Line</li></tags>
+        <doorSides><li>North</li><li>South</li></doorSides>
+        <defenseValue>1</defenseValue>
+        <threatCost>20</threatCost>
+        <buildOrder>1</buildOrder>
+      </li>
+    </modExtensions>
+  </PrefabDef>
+
+  <PrefabDef>
+    <defName>RimChronicles_Piece_SandbagCorner</defName>
+    <size>(3,3)</size>
+    <things>
+      <Sandbags>
+        <rects>
+          <li>(0,0,2,0)</li>
+          <li>(0,1,0,2)</li>
+        </rects>
+      </Sandbags>
+    </things>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <tags><li>Cover</li><li>Corner</li></tags>
+        <doorSides><li>North</li><li>East</li></doorSides>
+        <defenseValue>1</defenseValue>
+        <threatCost>20</threatCost>
+        <buildOrder>1</buildOrder>
+      </li>
+    </modExtensions>
+  </PrefabDef>
+
+  <!-- The crisis spec's example: a mortar behind a sandbag ring, open to the south. -->
+  <PrefabDef>
+    <defName>RimChronicles_Piece_MortarPit</defName>
+    <size>(5,5)</size>
+    <things>
+      <Sandbags>
+        <rects>
+          <li>(0,4,4,4)</li>
+          <li>(0,1,0,3)</li>
+          <li>(4,1,4,3)</li>
+          <li>(0,0,1,0)</li>
+          <li>(3,0,4,0)</li>
+        </rects>
+      </Sandbags>
+      <Turret_Mortar>
+        <position>(2, 0, 2)</position>
+      </Turret_Mortar>
+    </things>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <tags><li>Emplacement</li><li>Artillery</li></tags>
+        <doorSides><li>South</li></doorSides>
+        <defenseValue>3</defenseValue>
+        <threatCost>120</threatCost>
+        <buildOrder>2</buildOrder>
+      </li>
+    </modExtensions>
+  </PrefabDef>
+
+  <PrefabDef>
+    <defName>RimChronicles_Piece_TurretNest</defName>
+    <size>(5,5)</size>
+    <things>
+      <Sandbags>
+        <rects>
+          <li>(0,4,4,4)</li>
+          <li>(0,1,0,3)</li>
+          <li>(4,1,4,3)</li>
+          <li>(0,0,1,0)</li>
+          <li>(3,0,4,0)</li>
+        </rects>
+      </Sandbags>
+      <Turret_MiniTurret>
+        <position>(2, 0, 2)</position>
+      </Turret_MiniTurret>
+    </things>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <tags><li>Emplacement</li><li>Turret</li></tags>
+        <doorSides><li>South</li></doorSides>
+        <needsPower>true</needsPower>
+        <defenseValue>3</defenseValue>
+        <threatCost>80</threatCost>
+        <buildOrder>2</buildOrder>
+      </li>
+    </modExtensions>
+  </PrefabDef>
+
+  <!-- A walled room with three beds and a torch, one door to the south. -->
+  <PrefabDef>
+    <defName>RimChronicles_Piece_Barracks</defName>
+    <size>(7,6)</size>
+    <things>
+      <Wall>
+        <rects>
+          <li>(0,0,2,0)</li>
+          <li>(4,0,6,0)</li>
+          <li>(0,5,6,5)</li>
+          <li>(0,1,0,4)</li>
+          <li>(6,1,6,4)</li>
+        </rects>
+      </Wall>
+      <Door>
+        <position>(3, 0, 0)</position>
+      </Door>
+      <Bed>
+        <positions>
+          <li>(1, 0, 3)</li>
+          <li>(3, 0, 3)</li>
+          <li>(5, 0, 3)</li>
+        </positions>
+      </Bed>
+      <TorchLamp>
+        <position>(1, 0, 1)</position>
+      </TorchLamp>
+    </things>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <tags><li>Room</li><li>Barracks</li></tags>
+        <doorSides><li>South</li></doorSides>
+        <buildOrder>1</buildOrder>
+      </li>
+    </modExtensions>
+  </PrefabDef>
+
+</Defs>
