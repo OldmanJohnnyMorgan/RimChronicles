@@ -36,6 +36,9 @@ public sealed class RimChroniclesSettings : ModSettings
     /// <summary>Minimum days between crisis operations.</summary>
     public int CrisisGapDays = Core.Crisis.CrisisArc.DefaultGapDays;
 
+    /// <summary>Seconds between an orbital strike being called and landing (6–10).</summary>
+    public int StrikeDelaySeconds = Core.Crisis.Strikes.StrikeRules.DefaultDelaySeconds;
+
     /// <summary>Arc types turned off: they start no new plots (running ones finish).</summary>
     public List<string> DisabledArcs = [];
 
@@ -100,6 +103,7 @@ public sealed class RimChroniclesSettings : ModSettings
         Crisis = true;
         CrisisDifficulty = 1f;
         CrisisGapDays = Core.Crisis.CrisisArc.DefaultGapDays;
+        StrikeDelaySeconds = Core.Crisis.Strikes.StrikeRules.DefaultDelaySeconds;
         DisabledArcs = [];
         ProseEndpoint = "";
         ProseModel = "";
@@ -123,6 +127,7 @@ public sealed class RimChroniclesSettings : ModSettings
         Scribe_Values.Look(ref Crisis, "crisis", true);
         Scribe_Values.Look(ref CrisisDifficulty, "crisisDifficulty", 1f);
         Scribe_Values.Look(ref CrisisGapDays, "crisisGapDays", Core.Crisis.CrisisArc.DefaultGapDays);
+        Scribe_Values.Look(ref StrikeDelaySeconds, "strikeDelaySeconds", Core.Crisis.Strikes.StrikeRules.DefaultDelaySeconds);
         Scribe_Collections.Look(ref DisabledArcs, "disabledArcs", LookMode.Value);
         Scribe_Values.Look(ref ProseEndpoint, "proseEndpoint", "");
         Scribe_Values.Look(ref ProseModel, "proseModel", "");
