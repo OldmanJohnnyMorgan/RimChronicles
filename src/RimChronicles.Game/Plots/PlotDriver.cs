@@ -77,25 +77,26 @@ public static class PlotDriver
         var provider = ProviderFactory.Create(settings);
         var prompts = PromptStore.Library;
         var fallback = Director.PickWeighted(options, Rand.Value);
-        if (provider is null || prompts is null)
+        var modelReady = provider is not null && prompts is not null;
+
+        // Main thread: read the world into plain data; the model call runs in the background.
+        var snapshot = modelReady || settings.RecordDirectorCases ? Snapshot(plot, options, today) : null;
+        if (settings.RecordDirectorCases)
+        {
+            DirectorRecorder.Save(snapshot!);
+        }
+
+        if (!modelReady)
         {
             return Apply(component, plot, template, arc, fallback, options, today,
                 new DirectorChoice(fallback.Id, "picked by weight: no model is set up"), "Random");
         }
 
-        // Main thread: read the world into plain data; the model call runs in the background.
-        var snapshot = WorldReader.Instance.Read() with
-        {
-            AllowedTransitions = options.Select(o => o.Id).ToList(),
-            Director = new DirectorCase
-            {
-                PlotId = plot.Id,
-                DaysInBeat = Math.Max(0, today - (plot.BeatDay >= 0 ? plot.BeatDay : plot.StartDay)),
-                Descriptions = options.Where(o => o.Desc.Length > 0).GroupBy(o => o.Id).ToDictionary(g => g.Key, g => g.First().Desc),
-            },
-        };
         var tier = settings.Tier == ModelTier.Off ? ModelTier.Recommended : settings.Tier;
         var plotId = plot.Id;
+        var library = prompts!;
+        var chat = provider!;
+        var world = snapshot!;
         var beat = plot.Beat;
         var mainThread = component.MainThread;
         var token = component.GameToken;
@@ -106,9 +107,9 @@ public static class PlotDriver
             string source;
             try
             {
-                var (definition, _) = Director.Build(prompts, snapshot, tier, grammar: true,
+                var (definition, _) = Director.Build(library, world, tier, grammar: true,
                     new DelegateFallback<DirectorChoice>(() => new DirectorChoice(fallback.Id, "picked by weight: no valid answer from the model")));
-                var outcome = await new LlmTaskRunner(provider).RunAsync(definition, token).ConfigureAwait(false);
+                var outcome = await new LlmTaskRunner(chat).RunAsync(definition, token).ConfigureAwait(false);
                 choice = outcome.Value;
                 source = outcome.Source == OutcomeSource.Template ? "Random" : outcome.Source.ToString();
             }
@@ -141,6 +142,24 @@ public static class PlotDriver
             });
         }, token);
         return true;
+    }
+
+    /// <summary>The world as the director sees it for this decision: the snapshot, the plot's options with what each
+    /// would do, and which plot is deciding.</summary>
+    private static WorldSnapshot Snapshot(Plot plot, IReadOnlyList<PlotTransition> options, int today)
+    {
+        var world = WorldReader.Instance.Read();
+        return world with
+        {
+            Id = SnapshotIds.ForDirectorCase(world.Colony.Name, today, plot.Id),
+            AllowedTransitions = options.Select(o => o.Id).ToList(),
+            Director = new DirectorCase
+            {
+                PlotId = plot.Id,
+                DaysInBeat = Math.Max(0, today - (plot.BeatDay >= 0 ? plot.BeatDay : plot.StartDay)),
+                Descriptions = options.Where(o => o.Desc.Length > 0).GroupBy(o => o.Id).ToDictionary(g => g.Key, g => g.First().Desc),
+            },
+        };
     }
 
     private static bool Apply(RimChroniclesGameComponent component, Plot plot, PlotTemplate template, Arc arc, PlotTransition chosen,

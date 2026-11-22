@@ -98,3 +98,35 @@ public class DirectorCaseTests
         }
     }
 }
+
+public class DirectorImportTests
+{
+    [Fact]
+    public void Import_CopiesValidCases_SkipsRepeats_RejectsTheRest()
+    {
+        var root = Path.Combine(Path.GetTempPath(), "rc-dirimp-" + Guid.NewGuid().ToString("N"));
+        var from = Path.Combine(root, "game");
+        var to = Path.Combine(root, "exported");
+        Directory.CreateDirectory(from);
+        try
+        {
+            var game = CaseGenerator.Generate(5, 1).Snapshot with { Id = SnapshotIds.ForDirectorCase("Wren's Hollow", 214, "nemesis-2") };
+            File.WriteAllText(Path.Combine(from, game.Id + ".json"), SnapshotJson.Serialize(game));
+            var noChoice = game with { Id = "dir-game-x-day1-plot", AllowedTransitions = ["Wait"] };
+            File.WriteAllText(Path.Combine(from, noChoice.Id + ".json"), SnapshotJson.Serialize(noChoice));
+
+            Assert.Equal(1, DirectorImportCommand.Run(from, to, Repo.SnapshotSchema, TextWriter.Null)); // one rejected
+            Assert.True(File.Exists(Path.Combine(to, "dir-game-wren-s-hollow-day214-nemesis-2.json")));
+            Assert.Equal(1, JsonNode.Parse(File.ReadAllText(Path.Combine(to, "manifest.json")))!["count"]!.GetValue<int>());
+
+            File.Delete(Path.Combine(from, noChoice.Id + ".json"));
+            var log = new StringWriter();
+            Assert.Equal(0, DirectorImportCommand.Run(from, to, Repo.SnapshotSchema, log));
+            Assert.Contains("Imported 0 new case(s), skipped 1", log.ToString());
+        }
+        finally
+        {
+            Directory.Delete(root, recursive: true);
+        }
+    }
+}

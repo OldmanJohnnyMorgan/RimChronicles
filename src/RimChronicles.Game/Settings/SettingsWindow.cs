@@ -104,6 +104,13 @@ public static class SettingsWindow
             }
         }
 
+        if (Prefs.DevMode)
+        {
+            list.GapLine();
+            list.CheckboxLabeled("Dev: record director decisions for training", ref settings.RecordDirectorCases,
+                $"Saves each director decision with a choice as a case in {Plots.DirectorRecorder.Folder}, for the director-model training track.");
+        }
+
         list.GapLine();
         if (list.ButtonText("Reset to defaults", widthPct: 0.3f))
         {
