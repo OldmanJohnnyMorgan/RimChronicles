@@ -1,0 +1,44 @@
+{
+  "runId": "20261122-143935",
+  "startedUtc": "2026-11-22T14:39:35.1578103\u002B00:00",
+  "finishedUtc": "2026-11-22T14:39:50.2043082\u002B00:00",
+  "gitCommit": "8b16f4a817c23fab822eabb130bbfc71642f914b",
+  "gitDirty": true,
+  "promptVersions": {
+    "director": "v2",
+    "director-teacher": "v1",
+    "epilogue": "v2",
+    "inheritance-handoff": "v3",
+    "judge": "v3",
+    "news-bulletin": "v10",
+    "plot-letter": "v3"
+  },
+  "config": "C:\\RimworldMods\\RimChronicles\\RimChronicles\\training\\models.d0.json",
+  "configSha256": "e8fedf85db36a319740ddcd8b3d32e62bb9f54ee1ab603a3cfd8932cb473f2cd",
+  "models": [
+    "d0-merged"
+  ],
+  "tasks": [
+    "director"
+  ],
+  "snapshots": [
+    "*"
+  ],
+  "repeats": 1,
+  "cells": 46,
+  "cacheHits": 0,
+  "cacheMisses": 46,
+  "environment": {
+    "d0-merged": {
+      "reachable": true,
+      "serverKind": "ollama",
+      "serverVersion": "0.40.17",
+      "modelListed": true,
+      "quantization": "Q4_K_M",
+      "parameterSize": "4.6B",
+      "vramBytes": 1684600257,
+      "sizeBytes": 1684600257,
+      "error": null
+    }
+  }
+}

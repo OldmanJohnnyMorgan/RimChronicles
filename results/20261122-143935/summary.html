@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eval run 20261122-143935</title>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #898781;
+  --grid: #e1e0d9; --axis: #c3c2b7; --border: rgba(11,11,11,0.10);
+  --series: #2a78d6; --pass: #006300; --fail: #d03b3b;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --muted: #898781;
+    --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,0.10);
+    --series: #3987e5; --pass: #0ca30c; --fail: #e05555;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink); font: 14px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 1100px; margin: 0 auto; padding: 24px 16px 64px; }
+h1 { font-size: 22px; margin: 0 0 4px; }
+h2 { font-size: 18px; margin: 32px 0 8px; }
+h3 { font-size: 15px; margin: 20px 0 8px; }
+p { max-width: 75ch; }
+.meta { color: var(--ink-2); margin: 4px 0; }
+.note { color: var(--ink-2); border-left: 3px solid var(--axis); padding-left: 10px; }
+.muted { color: var(--muted); }
+code { font: 12px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.scroll { overflow-x: auto; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; }
+table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+th, td { padding: 6px 10px; text-align: left; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+thead th { color: var(--ink-2); font-weight: 600; font-size: 12px; }
+tbody th { font-weight: 600; }
+tbody tr:last-child > * { border-bottom: none; }
+.num { text-align: right; }
+.icon { font-weight: 700; }
+.icon.pass { color: var(--pass); }
+.icon.fail { color: var(--fail); }
+figure { margin: 12px 0 0; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px; overflow-x: auto; }
+.chart { width: 100%; min-width: 520px; height: auto; display: block; }
+.chart text { fill: var(--ink-2); font-size: 12px; }
+.chart .chart-title { fill: var(--ink); font-weight: 600; font-size: 13px; }
+.chart .tick { fill: var(--muted); font-size: 11px; }
+.chart .grid { stroke: var(--grid); stroke-width: 1; }
+.chart .threshold { stroke: var(--ink-2); stroke-width: 1.5; stroke-dasharray: 4 4; }
+.chart .whisker { stroke: var(--series); stroke-width: 2; stroke-linecap: round; }
+.chart .dot { fill: var(--series); stroke: var(--surface); stroke-width: 2; }
+.chart .hit { fill: transparent; }
+.chart .row:hover .hit { fill: var(--grid); fill-opacity: 0.5; }
+details { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; padding: 8px 12px; }
+summary { cursor: pointer; font-weight: 600; }
+article { border-top: 1px solid var(--grid); padding: 8px 0; }
+pre { white-space: pre-wrap; font: 13px/1.5 system-ui, sans-serif; margin: 4px 0; }
+.judge { color: var(--ink-2); font-size: 13px; margin: 4px 0; }
+a { color: var(--series); }
+</style>
+</head>
+<body>
+<main>
+<header>
+<h1>Rim Chronicles model evaluation</h1>
+<p class="meta">Run <strong>20261122-143935</strong> · 46 outputs · 1 models · commit <code>8b16f4a8</code> (uncommitted changes) · prompts <code>director/v2</code>, <code>director-teacher/v1</code>, <code>epilogue/v2</code>, <code>inheritance-handoff/v3</code>, <code>judge/v3</code>, <code>news-bulletin/v10</code>, <code>plot-letter/v3</code></p>
+<p class="note">Not judged yet: invented facts and prose quality are empty. Run <code>rimchron-eval judge 20261122-143935</code>.</p>
+</header>
+<section>
+<h2>At a glance</h2>
+<p>Whether each model meets every pass bar that applies to it, per task. Failing bars are named; details follow below.</p>
+<div class="scroll"><table>
+<thead><tr><th>Model</th><th>Tier</th><th>Server</th><th>Quantization</th><th class="num">VRAM</th><th>Director decision</th></tr></thead>
+<tbody>
+<tr><th scope="row">d0-merged</th><td>Minimum</td><td>ollama</td><td>Q4_K_M</td><td class="num">1.7 GB</td><td><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> Meets all bars</td></tr>
+</tbody></table></div>
+</section>
+<section>
+<h2>Director decision</h2>
+<p>Pass bars: valid JSON 100% with grammar and 95% without; allowed choice 100%; median latency at most 10 s (Minimum, Recommended, High tiers). Rates use first answers only.</p>
+<div class="scroll"><table>
+<thead><tr><th>Model</th><th>Tier</th><th>Grammar</th><th class="num">Outputs</th><th class="num">Valid JSON</th><th class="num">Allowed choice</th><th class="num">Passed first try</th><th class="num">Fell back</th><th class="num">Median s</th><th class="num">p90 s</th><th class="num">Output tokens</th><th class="num">Reasoning tokens</th></tr></thead>
+<tbody>
+<tr><th scope="row">d0-merged</th><td>Minimum</td><td>on</td><td class="num">23</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num">100%</td><td class="num">0%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 0.2</td><td class="num">0.3</td><td class="num">31</td><td class="num">–</td></tr>
+<tr><th scope="row">d0-merged</th><td>Minimum</td><td>off</td><td class="num">23</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num">100%</td><td class="num">0%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 0.2</td><td class="num">0.2</td><td class="num">32</td><td class="num">–</td></tr>
+</tbody></table></div>
+<figure>
+<svg class="chart" viewBox="0 0 710 132" role="img" aria-label="Director decision latency: median (dot) and 90th percentile (line end), seconds">
+<text class="chart-title" x="0" y="16">Director decision latency: median (dot) and 90th percentile (line end), seconds</text>
+<line class="grid" x1="230" x2="230" y1="34" y2="102"/><text class="tick" x="230" y="120" text-anchor="middle">0</text>
+<line class="grid" x1="450" x2="450" y1="34" y2="102"/><text class="tick" x="450" y="120" text-anchor="middle">5</text>
+<line class="grid" x1="670" x2="670" y1="34" y2="102"/><text class="tick" x="670" y="120" text-anchor="middle">10</text>
+<line class="threshold" x1="670" x2="670" y1="30" y2="102"/><text class="tick" x="666" y="28" text-anchor="end">bar 10 s (local tiers)</text>
+<g class="row"><title>d0-merged &#183; grammar on: median 0.2 s, p90 0.3 s (23 outputs)</title><rect class="hit" x="0" y="40" width="710" height="28"/><text class="label" x="218" y="58" text-anchor="end">d0-merged &#183; grammar on</text><line class="whisker" x1="240.6" x2="241.9" y1="54" y2="54"/><circle class="dot" cx="240.6" cy="54" r="5"/></g>
+<g class="row"><title>d0-merged &#183; grammar off: median 0.2 s, p90 0.2 s (23 outputs)</title><rect class="hit" x="0" y="68" width="710" height="28"/><text class="label" x="218" y="86" text-anchor="end">d0-merged &#183; grammar off</text><line class="whisker" x1="238.8" x2="240.4" y1="82" y2="82"/><circle class="dot" cx="238.8" cy="82" r="5"/></g>
+</svg>
+</figure>
+</section>
+<section>
+<h2>Outputs</h2>
+<p>Every first answer, grouped by task and model. Open the raw file for the full request, retries and timings.</p>
+<h3>Director decision</h3>
+<details>
+<summary>d0-merged · 46 outputs</summary>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-01-early-content__on__r1.json">snap-01-early-content</a> · repeat 1 · grammar on · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;:&quot;Wait&quot;,&quot;reason&quot;:&quot;Ashfall Crossing is starving and just built walls; a new plot would strain it further.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-01-early-content__off__r1.json">snap-01-early-content</a> · repeat 1 · grammar off · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;:&quot;Wait&quot;,&quot;reason&quot;:&quot;Ashfall Crossing is starving and just built walls; a new plot would strain it further.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-02-early-content__on__r1.json">snap-02-early-content</a> · repeat 1 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;:&quot;Wait&quot;,&quot;reason&quot;:&quot;Bramblewick is content and has just had its first harvest; Ilka&#39;s story can wait a few days.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-02-early-content__off__r1.json">snap-02-early-content</a> · repeat 1 · grammar off · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;:&quot;Wait&quot;,&quot;reason&quot;:&quot;Bramblewick is content and has just had its first harvest; a new story can wait.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-03-early-strained__on__r1.json">snap-03-early-strained</a> · repeat 1 · grammar on · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;:&quot;Wait&quot;,&quot;reason&quot;:&quot;Kettle Hollow is starving and just survived a raid; a new story would strain it further.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-03-early-strained__off__r1.json">snap-03-early-strained</a> · repeat 1 · grammar off · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;:&quot;Wait&quot;,&quot;reason&quot;:&quot;Kettle Hollow is starving and just repelled a raid; a new story would strain it further.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-04-early-strained__on__r1.json">snap-04-early-strained</a> · repeat 1 · grammar on · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;:&quot;Wait&quot;,&quot;reason&quot;:&quot;Lowmere is quiet and strained; an envoy or choice would pile pressure on it unnecessarily.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-04-early-strained__off__r1.json">snap-04-early-strained</a> · repeat 1 · grammar off · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;:&quot;Wait&quot;,&quot;reason&quot;:&quot;Teodor shot the reporter 10 days ago and the trader hinted the Dispatch knows; an envoy would pile pressure on Lowmere.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-05-early-desperate__on__r1.json">snap-05-early-desperate</a> · repeat 1 · grammar on · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;:&quot;Wait&quot;,&quot;reason&quot;:&quot;Thornreach is starving and just suffered a cold snap; it needs a pause before new demands.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-05-early-desperate__off__r1.json">snap-05-early-desperate</a> · repeat 1 · grammar off · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;:&quot;Wait&quot;,&quot;reason&quot;:&quot;Thornreach is starving and just survived a raid and a cold snap; it needs a pause before new demands.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-06-early-content__on__r1.json">snap-06-early-content</a> · repeat 1 · grammar on · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;:&quot;Wait&quot;,&quot;reason&quot;:&quot;Saltreed is content and has no immediate crisis; Augustin&#39;s story can wait.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-06-early-content__off__r1.json">snap-06-early-content</a> · repeat 1 · grammar off · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;:&quot;Wait&quot;,&quot;reason&quot;:&quot;Saltreed is content and has no immediate crisis; Augustin&#39;s story can wait.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-07-mid-strained__on__r1.json">snap-07-mid-strained</a> · repeat 1 · grammar on · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;:&quot;Wait&quot;,&quot;reason&quot;:&quot;Mara is grieving Dorin and the choice of action should rest on her, not immediate external pressure.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-07-mid-strained__off__r1.json">snap-07-mid-strained</a> · repeat 1 · grammar off · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;:&quot;Wait&quot;,&quot;reason&quot;:&quot;Mara is grieving Dorin and the raid was yesterday; Vex&#39;s sighting or bounty would pile pressure on her.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-08-mid-content__on__r1.json">snap-08-mid-content</a> · repeat 1 · grammar on · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;:&quot;Wait&quot;,&quot;reason&quot;:&quot;Gladwater is content and has no immediate crisis; a new story can wait.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-08-mid-content__off__r1.json">snap-08-mid-content</a> · repeat 1 · grammar off · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;:&quot;Wait&quot;,&quot;reason&quot;:&quot;Gladwater is content and has no immediate crisis; a new story can wait.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-09-mid-desperate__on__r1.json">snap-09-mid-desperate</a> · repeat 1 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;:&quot;Resolution:InheritToSpouse:p2&quot;,&quot;reason&quot;:&quot;Joska died yesterday; Lene is the most logical choice to inherit his story.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-09-mid-desperate__off__r1.json">snap-09-mid-desperate</a> · repeat 1 · grammar off · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;:&quot;Resolution:InheritToSpouse:p2&quot;,&quot;reason&quot;:&quot;Joska died yesterday and Lene is the only one left; she should inherit the story.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-10-mid-strained__on__r1.json">snap-10-mid-strained</a> · repeat 1 · grammar on · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;:&quot;Wait&quot;,&quot;reason&quot;:&quot;Anouk is starving and has just received a distressing letter; a choice would pile on her.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-10-mid-strained__off__r1.json">snap-10-mid-strained</a> · repeat 1 · grammar off · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;:&quot;Wait&quot;,&quot;reason&quot;:&quot;Anouk is starving and has just received a distressing letter; a choice would pile on her.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-11-mid-content__on__r1.json">snap-11-mid-content</a> · repeat 1 · grammar on · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;:&quot;Complication:CompactPrize&quot;,&quot;reason&quot;:&quot;Rosamund and Ilan have fought three times; a prize would naturally escalate their rivalry.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-11-mid-content__off__r1.json">snap-11-mid-content</a> · repeat 1 · grammar off · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;:&quot;Complication:CompactPrize&quot;,&quot;reason&quot;:&quot;Rosamund and Ilan have fought three times; a prize would escalate their rivalry naturally.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-12-mid-desperate__on__r1.json">snap-12-mid-desperate</a> · repeat 1 · grammar on · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;:&quot;Wait&quot;,&quot;reason&quot;:&quot;Red Furrow is starving and Gideon was just kidnapped; Sabine&#39;s choice should be earned.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-12-mid-desperate__off__r1.json">snap-12-mid-desperate</a> · repeat 1 · grammar off · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;:&quot;Wait&quot;,&quot;reason&quot;:&quot;Red Furrow is starving and Gideon was just kidnapped; Sabine should rest before facing the Gallows Crew.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-13-mid-strained__on__r1.json">snap-13-mid-strained</a> · repeat 1 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;:&quot;Wait&quot;,&quot;reason&quot;:&quot;Corvin&#39;s refusal and the envoy&#39;s departure yesterday left Stonewake reeling; the choice of tribute or submission can wait.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-13-mid-strained__off__r1.json">snap-13-mid-strained</a> · repeat 1 · grammar off · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;:&quot;Wait&quot;,&quot;reason&quot;:&quot;Corvin&#39;s refusal and the envoy&#39;s departure yesterday left Stonewake reeling; the choice of tribute or submission should rest on it.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-14-mid-content__on__r1.json">snap-14-mid-content</a> · repeat 1 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;:&quot;Complication:CorsairMessenger&quot;,&quot;reason&quot;:&quot;Dagny has been content since freeing Teague Holt; a messenger would add tension without immediate threat.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-14-mid-content__off__r1.json">snap-14-mid-content</a> · repeat 1 · grammar off · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;:&quot;Complication:CorsairsCollect&quot;,&quot;reason&quot;:&quot;Quillmarsh is content and stores are full; Dagny&#39;s choice of release of Teague Holt should be collected now.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-15-late-content__on__r1.json">snap-15-late-content</a> · repeat 1 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;:&quot;Complication:ChoirLetter&quot;,&quot;reason&quot;:&quot;Leopold is content and the story has waited since the raid; a letter from the Choir fits naturally now.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-15-late-content__off__r1.json">snap-15-late-content</a> · repeat 1 · grammar off · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;:&quot;Complication:ChoirLetter&quot;,&quot;reason&quot;:&quot;Leopold has been asked about by a pilgrim since the raid; a letter from the Choir would naturally follow.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-16-late-desperate__on__r1.json">snap-16-late-desperate</a> · repeat 1 · grammar on · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;:&quot;Wait&quot;,&quot;reason&quot;:&quot;Bertram was just killed by Dunmore; the colony needs a moment before deciding how to handle the hunt.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-16-late-desperate__off__r1.json">snap-16-late-desperate</a> · repeat 1 · grammar off · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;:&quot;Wait&quot;,&quot;reason&quot;:&quot;Bertram was just killed by Dunmore; the colony needs a moment before deciding how to handle the hunt.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-17-late-strained__on__r1.json">snap-17-late-strained</a> · repeat 1 · grammar on · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;:&quot;Wait&quot;,&quot;reason&quot;:&quot;Ironbloom is starving and Severin is drinking; the Empire&#39;s demands can wait a few days.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-17-late-strained__off__r1.json">snap-17-late-strained</a> · repeat 1 · grammar off · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;:&quot;Wait&quot;,&quot;reason&quot;:&quot;Ironbloom is starving and Severin is drinking; the Empire&#39;s next demand can wait a few days.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-18-late-desperate__on__r1.json">snap-18-late-desperate</a> · repeat 1 · grammar on · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;:&quot;Wait&quot;,&quot;reason&quot;:&quot;Constance died of cold yesterday and Elias is starving; the search for Ada can wait a few days.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-18-late-desperate__off__r1.json">snap-18-late-desperate</a> · repeat 1 · grammar off · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;:&quot;Wait&quot;,&quot;reason&quot;:&quot;Constance died in the blizzard yesterday; Elias should rest before facing the choice about Ada.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-19-late-desperate__on__r1.json">snap-19-late-desperate</a> · repeat 1 · grammar on · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;:&quot;Wait&quot;,&quot;reason&quot;:&quot;Last Lantern is starving and Ysolde is exhausted; an attack on Marrow Hold would strain them further.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-19-late-desperate__off__r1.json">snap-19-late-desperate</a> · repeat 1 · grammar off · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;:&quot;Wait&quot;,&quot;reason&quot;:&quot;Last Lantern is starving and Ysolde is exhausted; an attack from the Sun Throne would break them further.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-20-late-strained__on__r1.json">snap-20-late-strained</a> · repeat 1 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;:&quot;Choice:AcceptOrRefuseGovernorship&quot;,&quot;reason&quot;:&quot;Cassia is the leader and the envoy offered a governorship; the choice of acceptance or refusal is the natural next beat.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-20-late-strained__off__r1.json">snap-20-late-strained</a> · repeat 1 · grammar off · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;:&quot;Choice:AcceptOrRefuseGovernorship&quot;,&quot;reason&quot;:&quot;The envoy offered governorship yesterday and Cassia is already under strain; the choice should be immediate.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-21-real-quiet__on__r1.json">snap-21-real-quiet</a> · repeat 1 · grammar on · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;:&quot;Wait&quot;,&quot;reason&quot;:&quot;The three colonists just woke up to sirens and ripping metal; starting a new plot would pile stress on them.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-21-real-quiet__off__r1.json">snap-21-real-quiet</a> · repeat 1 · grammar off · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;:&quot;Wait&quot;,&quot;reason&quot;:&quot;The three colonists just awoke to sirens and ripping metal; starting a new plot would pile stress on them.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-22-real-conditions__on__r1.json">snap-22-real-conditions</a> · repeat 1 · grammar on · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;:&quot;Wait&quot;,&quot;reason&quot;:&quot;The three survivors are waking to sirens and ripping metal; a choice of plot would pile on without rest.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-22-real-conditions__off__r1.json">snap-22-real-conditions</a> · repeat 1 · grammar off · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;:&quot;Wait&quot;,&quot;reason&quot;:&quot;The three survivors are waking to sirens and ripping metal; a choice of plot would pile on without rest.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-23-real-reporter__on__r1.json">snap-23-real-reporter</a> · repeat 1 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;:&quot;Wait&quot;,&quot;reason&quot;:&quot;Goober is ill and Ye just killed an alpaca; Ithleberium needs a pause before a new choice.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/d0-merged__director__snap-23-real-reporter__off__r1.json">snap-23-real-reporter</a> · repeat 1 · grammar off · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;:&quot;Wait&quot;,&quot;reason&quot;:&quot;Goober is ill and Ye just killed an alpaca; Ithleberium needs a pause before a new choice.&quot;}</pre>
+</article>
+</details>
+</section>
+</main>
+</body>
+</html>

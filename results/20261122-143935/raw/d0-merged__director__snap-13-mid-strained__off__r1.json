@@ -1,0 +1,53 @@
+{
+  "cell": "d0-merged__director__snap-13-mid-strained__off__r1",
+  "model": "d0-merged",
+  "task": "director",
+  "snapshot": "snap-13-mid-strained",
+  "grammar": "off",
+  "repeat": 1,
+  "promptVersion": "director/v2",
+  "outcome": "Model",
+  "value": "{\u0022choice\u0022:\u0022Wait\u0022,\u0022reason\u0022:\u0022Corvin\u0027s refusal and the envoy\u0027s departure yesterday left Stonewake reeling; the choice of tribute or submission should rest on it.\u0022}",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are the plot director for a story told through a RimWorld colony. You decide what happens next in one of the colony\u0027s plots: the one under \u0022Deciding now\u0022.\n\nRules:\n- Choose exactly one option from the allowed list. Copy its id exactly, character for character, without the description.\n- Choose \u0022Wait\u0022 if the colony is in crisis or the story needs a pause.\n- Read what each option would do. Prefer the one that follows most naturally from what has already happened, and keep the pace: a beat that has waited a long time should move; one that just fired, or a colony that just suffered, may need a pause.\n- Give a reason in one or two short sentences. Use only facts from the briefing.\n\nAnswer with JSON only, in this form:\n{\u0022choice\u0022: \u0022\u003Cone allowed option\u003E\u0022, \u0022reason\u0022: \u0022\u003Cone or two sentences\u003E\u0022}\n",
+        "user": "## The world\nDate: day 254 (Aprimay 5504).\nColony: Stonewake, 9 people, wealth 176,000 silver, mood strained.\n\nPeople:\n- Corvin (40); traits: Steadfast, Too smart; backstory: Noble; once held an Imperial title.\n- Liesl (33); traits: Kind; backstory: Archivist.\n- Darro (29); traits: Brawler; backstory: Gladiator.\n- Yusra (36); traits: Industrious; backstory: Smith.\n\nHistory:\n- Day 230: Corvin refused a title from The Sun Throne.\n- Day 249: an envoy of The Sun Throne visited Stonewake.\n\nFactions:\n- The Sun Throne (Empire): goodwill -25, 6 settlements, Empire state: Stirring.\n- The Cobalt Free Towns (Outlanders): goodwill \u002B30, 7 settlements.\n- Rustback Raiders (Pirates): goodwill -80, 3 settlements.\n\nRecent events:\n- Corvin refused an Imperial title day 230\n- Imperial envoy visited day 249 and left unhappy\n- Colonists argue over whether to submit\n\n## Active plots\n- empire-01 (Awakened Empire): beat Stirring, protagonist Stonewake. Corvin refused an Imperial title on day 230. The Sun Throne has woken and sent an envoy demanding tribute from nearby towns.\n\n## Deciding now\nempire-01 (Awakened Empire), in its Stirring beat.\n\n## Allowed options\nEach option is an id, then what it would do.\n- Wait: hold this plot for a few days; nothing happens in it yet\n- Empire:EnvoyReturns: the Imperial envoy returns to press the Empire\u0027s demands\n- Empire:DemandTribute: the Empire demands tribute from the colony\n- Empire:Awaken: the Empire wakes fully and starts taking settlements by force\n\nChoose one allowed option.\n",
+        "maxOutputTokens": 200,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "choice": {
+              "type": "string",
+              "enum": [
+                "Wait",
+                "Empire:EnvoyReturns",
+                "Empire:DemandTribute",
+                "Empire:Awaken"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "choice",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "ok": true,
+      "text": "{\u0022choice\u0022:\u0022Wait\u0022,\u0022reason\u0022:\u0022Corvin\u0027s refusal and the envoy\u0027s departure yesterday left Stonewake reeling; the choice of tribute or submission should rest on it.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 0.2362135,
+      "inputTokens": 636,
+      "outputTokens": 38,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-764\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795358383,\u0022model\u0022:\u0022rimchron-d0-merged\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022{\\\u0022choice\\\u0022:\\\u0022Wait\\\u0022,\\\u0022reason\\\u0022:\\\u0022Corvin\u0027s refusal and the envoy\u0027s departure yesterday left Stonewake reeling; the choice of tribute or submission should rest on it.\\\u0022}\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:636,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:635},\u0022completion_tokens\u0022:38,\u0022total_tokens\u0022:674}}\n"
+    }
+  ]
+}
