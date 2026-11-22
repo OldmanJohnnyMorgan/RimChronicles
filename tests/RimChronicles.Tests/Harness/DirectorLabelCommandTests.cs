@@ -150,7 +150,8 @@ public class DirectorLabelCommandTests
     public void RubricTalk_CatchesScoringLanguage_NotStories()
     {
         Assert.Matches(DirectorLabelCommand.RubricTalk(), "Since the beat is young, Wait is the highest scoring pacing option.");
-        Assert.Matches(DirectorLabelCommand.RubricTalk(), "The colony is reeling from Voud's death.");
+        // "Reeling" is the rubric's word too, but it's ordinary story language (recheck v3 lost 114 answers to banning it).
+        Assert.DoesNotMatch(DirectorLabelCommand.RubricTalk(), "Cinder Rest is reeling from Voud's death; the treaty can wait.");
         Assert.DoesNotMatch(DirectorLabelCommand.RubricTalk(), "Hesper raided Emberfall 25 days ago; Miana should decide how to answer.");
     }
 
