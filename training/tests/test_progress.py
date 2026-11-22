@@ -58,6 +58,17 @@ class ProgressTests(unittest.TestCase):
             self.assertEqual(rows[1][0], "100")
             self.assertEqual(rows[1][progress.LOG_FIELDS.index("val_top1")], "0.5")
 
+    def test_set_aside_keeps_an_earlier_run(self):
+        with tempfile.TemporaryDirectory() as t:
+            run = Path(t) / "director-e2b"
+            self.assertIsNone(progress.set_aside(run))  # nothing there yet
+            (run / "lora").mkdir(parents=True)
+            (run / "progress.csv").write_text("x")
+            self.assertEqual(progress.set_aside(run), Path(t) / "director-e2b-prev-1")
+            (run / "lora").mkdir(parents=True)
+            self.assertEqual(progress.set_aside(run), Path(t) / "director-e2b-prev-2")
+            self.assertFalse(run.exists())
+
     def test_length_report_and_last_loss(self):
         self.assertIn("p99 99, longest 100 of max_seq_length 4096", progress.length_report(list(range(1, 101)), 4096))
         self.assertEqual(progress.last_train_loss([{"loss": 2.0}, {"loss": 1.5}, {"eval": 1}]), 1.5)

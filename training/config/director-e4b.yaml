@@ -22,5 +22,5 @@ quantizations: [q4_k_m, q8_0]
 eval_every_steps: 100                    # generate on the val sample every 100 optimizer steps
 eval_rows: 100
 patience: 4                              # stop after 4 evaluations (400 steps) without a better top-1
-max_new_tokens: 160
+max_new_tokens: 300                      # at least the game's director budget (200 Minimum, 300 above)
 min_free_vram_gb: 9

@@ -22,6 +22,17 @@ public static class TierPresets
         _ => null,
     };
 
+    /// <summary>The tier a fine-tuned director was trained on, from its name (<c>rimchron-director-e2b</c>: Minimum;
+    /// <c>-e4b</c>: Recommended; <c>-12b</c>: High), or null when the name doesn't say.</summary>
+    public static ModelTier? SuggestedDirectorTier(string? model)
+    {
+        var name = (model ?? "").Trim().ToLowerInvariant();
+        return name.Contains("e2b", StringComparison.Ordinal) ? ModelTier.Minimum
+            : name.Contains("e4b", StringComparison.Ordinal) ? ModelTier.Recommended
+            : name.Contains("12b", StringComparison.Ordinal) ? ModelTier.High
+            : null;
+    }
+
     /// <summary>One line for the settings window.</summary>
     public static string Describe(ModelTier tier) => tier switch
     {

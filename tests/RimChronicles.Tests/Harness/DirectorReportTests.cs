@@ -91,4 +91,23 @@ public class DirectorReportTests
         Assert.Equal(s.AllowedTransitions[^1], run.IdsChoice); // C-numbered pick mapped back to the real id
         Assert.Contains("## Deciding now", run.Briefing);
     }
+
+    [Theory]
+    [InlineData(2)]
+    [InlineData(3)]
+    public async Task RunCase_TheOtherOrdersReallyDiffer(int options)
+    {
+        var s = Enumerable.Range(0, 400).Select(i => CaseGenerator.Generate(9001, i).Snapshot).First(c => c.AllowedTransitions.Count == options);
+        var prompt = PromptLibrary.Load(Repo.Prompts).Get(TaskName);
+        var model = new ModelConfig { Id = "fake", Tier = "Minimum", Provider = ProviderKind.Stub };
+        var shown = new Dictionary<int, List<string>>();
+        await RunCase(prompt, s, model, (req, k) =>
+        {
+            shown[k] = req.Schema!.Schema["properties"]!["choice"]!["enum"]!.AsArray().Select(x => x!.GetValue<string>()).ToList();
+            return System.Threading.Tasks.Task.FromResult(new ChatResult { Ok = true, Text = "{\"choice\":\"Wait\",\"reason\":\"x\"}", ModelId = "fake" });
+        });
+        Assert.NotEqual(shown[0], shown[2]);
+        Assert.NotEqual(shown[0], shown[3]);
+        Assert.Equal(shown[0].Order(), shown[2].Order());
+    }
 }

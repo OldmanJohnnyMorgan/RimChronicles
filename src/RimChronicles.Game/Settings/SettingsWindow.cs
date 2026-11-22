@@ -106,7 +106,13 @@ public static class SettingsWindow
 
         list.GapLine();
         list.Label("Separate director model (optional): makes the director's decisions, such as a fine-tuned rimchron-director-e2b, while the main model writes");
+        var directorBefore = settings.DirectorModel;
         settings.DirectorModel = list.TextEntryLabeled("Director model (blank: use the main one)  ", settings.DirectorModel);
+        if (settings.DirectorModel != directorBefore && TierPresets.SuggestedDirectorTier(settings.DirectorModel) is { } suggested)
+        {
+            settings.DirectorTier = suggested; // typing rimchron-director-e4b picks Recommended
+        }
+
         if (settings.DirectorModel.Length > 0)
         {
             settings.DirectorEndpoint = list.TextEntryLabeled("Director address (blank: the main one)  ", settings.DirectorEndpoint);
@@ -123,6 +129,16 @@ public static class SettingsWindow
                 {
                     settings.DirectorTier = tier;
                 }
+            }
+
+            if (TierPresets.SuggestedDirectorTier(settings.DirectorModel) is { } trained && trained != settings.DirectorTier)
+            {
+                list.Label($"<color=#e0a040>The name says this model was trained for {trained}: other tiers send it prompts it never saw.</color>");
+            }
+
+            if (!ModelSlots.DirectorSeparate(settings.Slots) && settings.Tier != ModelTier.Off)
+            {
+                list.Label("<color=#e0a040>The director model isn't usable as set, so the main model makes the decisions.</color>");
             }
 
             if (settings.Tier == ModelTier.Off)
@@ -180,6 +196,10 @@ public static class SettingsWindow
                 _probeStatus = "Testing… (the first call can take a while to load the model)";
                 // A separate director model is tested too, after the main one.
                 var director = ModelSlots.DirectorSeparate(settings.Slots) ? ProviderFactory.CreateDirector(settings, TimeSpan.FromSeconds(120))?.Provider : null;
+                if (director is null && settings.DirectorModel.Length > 0)
+                {
+                    _probeStatus += " The director model isn't usable as set (check its address), so only the main model is tested.";
+                }
                 // Background task: touches no game state, only returns a result the window reads next frame.
                 _probe = Task.Run(() => ProbeAll(provider, director));
             }

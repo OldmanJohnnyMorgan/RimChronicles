@@ -178,7 +178,12 @@ public class DirectorLabelCommandTests
             var label = JsonNode.Parse(File.ReadAllLines(Path.Combine(o.OutDir, "labels.jsonl")).Single())!;
             Assert.Equal("Wait", label["best"]!.GetValue<string>());
             Assert.True(label["forced"]!.GetValue<bool>());
-            Assert.Equal(0, DirectorLabels.Check(o.OutDir, casesDir, TextWriter.Null));
+            var checkLog = new StringWriter();
+            Assert.Equal(0, DirectorLabels.Check(o.OutDir, casesDir, checkLog));
+            Assert.Contains("Forced (the Wait rule in the grammar on the last attempt): 1/1 labels (100.0%)", checkLog.ToString());
+            Assert.Contains("Cases whose every label was forced: 1/1.", checkLog.ToString());
+            var final = JsonNode.Parse(File.ReadAllLines(Path.Combine(o.OutDir, "labels-final.jsonl")).Single())!;
+            Assert.Equal(1, final["forced"]!.GetValue<int>());
 
             // A failed item retried later takes new cache keys (the old answers would only fail again).
             File.Delete(Path.Combine(o.OutDir, "labels.jsonl"));

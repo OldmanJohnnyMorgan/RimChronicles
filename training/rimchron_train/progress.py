@@ -108,6 +108,17 @@ class CsvLog:
             csv.writer(f).writerow([row.get(k, "") for k in LOG_FIELDS])
 
 
+def set_aside(run_dir: Path) -> Path | None:
+    """Moves an earlier run's folder to <run>-prev-N before a new run starts, so its log and best LoRA survive."""
+    if not (run_dir / "progress.csv").exists() and not (run_dir / "lora").exists():
+        return None
+    n = 1
+    while (target := run_dir.with_name(f"{run_dir.name}-prev-{n}")).exists():
+        n += 1
+    run_dir.rename(target)
+    return target
+
+
 def length_report(lengths: list[int], limit: int) -> str:
     """The longest row and the 99th percentile, against max_seq_length (training spec §5.2: set it from the p99)."""
     s = sorted(lengths)

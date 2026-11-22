@@ -47,4 +47,16 @@ public class ModelSlotsTests
         Assert.False(ModelSlots.DirectorSeparate(s));
         Assert.Equal("gemma4:e4b", ModelSlots.Director(s)!.Model);
     }
+
+    [Theory]
+    [InlineData("rimchron-director-e2b", ModelTier.Minimum)]
+    [InlineData("rimchron-director-e4b", ModelTier.Recommended)]
+    [InlineData("RimChron-Director-E4B:latest", ModelTier.Recommended)]
+    [InlineData("gemma4:12b", ModelTier.High)]
+    public void SuggestedDirectorTier_ComesFromTheName(string model, ModelTier tier) =>
+        Assert.Equal(tier, TierPresets.SuggestedDirectorTier(model));
+
+    [Fact]
+    public void SuggestedDirectorTier_IsNullWhenTheNameDoesntSay() =>
+        Assert.Null(TierPresets.SuggestedDirectorTier("my-director"));
 }
