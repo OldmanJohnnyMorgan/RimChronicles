@@ -192,6 +192,9 @@ public static class NemesisBeats
         var parms = StorytellerUtility.DefaultParmsNow(IncidentCategoryDefOf.ThreatBig, map);
         parms.faction = faction;
         parms.forced = true;
+        // The storyteller only picks factions that can field a group at these points; we force the faction, so
+        // lift the points to its minimum (as vanilla's AdjustedRaidPoints does), or no raid strategy fits.
+        parms.points = System.Math.Max(parms.points, faction.def.MinPointsToGeneratePawnGroup(PawnGroupKindDefOf.Combat) * 1.05f);
         if (!IncidentDefOf.RaidEnemy.Worker.TryExecute(parms))
         {
             return false;
