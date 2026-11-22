@@ -23,7 +23,14 @@ public static class ProviderFactory
                 string.IsNullOrWhiteSpace(settings.ProseApiKey) ? settings.ApiKey : settings.ProseApiKey, timeout)
             : Create(settings, timeout);
 
-    private static IChatProvider Make(string endpoint, string model, string apiKey, TimeSpan? timeout)
+    /// <summary>The provider for the director's decisions, and the tier its prompts are rendered for: the separate
+    /// director model when one is set up, else the main one. Null when no model is called.</summary>
+    public static (IChatProvider Provider, ModelTier Tier)? CreateDirector(RimChroniclesSettings settings, TimeSpan? timeout = null) =>
+        ModelSlots.Director(settings.Slots) is { } slot
+            ? (Make(slot.Endpoint, slot.Model, slot.ApiKey, timeout, slot.Temperature), slot.PromptTier)
+            : null;
+
+    private static IChatProvider Make(string endpoint, string model, string apiKey, TimeSpan? timeout, double temperature = TierPresets.Temperature)
     {
         return new OpenAiCompatProvider(Http, new OpenAiCompatOptions
         {
@@ -33,7 +40,7 @@ public static class ProviderFactory
             ApiKey = string.IsNullOrWhiteSpace(apiKey) ? null : apiKey.Trim(),
             Timeout = timeout ?? TimeSpan.FromSeconds(60),
             ThinkingOffBody = new JsonObject { ["reasoning_effort"] = "none" },
-            ExtraBody = new JsonObject { ["temperature"] = TierPresets.Temperature },
+            ExtraBody = new JsonObject { ["temperature"] = temperature },
         });
     }
 }

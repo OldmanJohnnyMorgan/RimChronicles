@@ -33,6 +33,14 @@ public sealed class RimChroniclesSettings : ModSettings
     public string ProseModel = "";
     public string ProseApiKey = "";
 
+    /// <summary>An optional model for the director's decisions only, such as a fine-tuned <c>rimchron-director-e2b</c>
+    /// (director-model track D7). Empty model: the main model decides. <see cref="DirectorTier"/> is the tier its
+    /// prompts are rendered for, which must be the one it was trained on.</summary>
+    public string DirectorEndpoint = "";
+    public string DirectorModel = "";
+    public string DirectorApiKey = "";
+    public ModelTier DirectorTier = ModelTier.Minimum;
+
     /// <summary>Dev Mode: save every director decision as a training case (director-model track D3).</summary>
     public bool RecordDirectorCases;
 
@@ -50,6 +58,13 @@ public sealed class RimChroniclesSettings : ModSettings
     /// <summary>True when a separate prose model is set up and usable.</summary>
     public bool ProseModelEnabled => ModelEnabled && !string.IsNullOrWhiteSpace(ProseModel)
         && TierPresets.EndpointProblem(string.IsNullOrWhiteSpace(ProseEndpoint) ? Endpoint : ProseEndpoint) is null;
+
+    /// <summary>The settings as plain values for <see cref="ModelSlots"/>.</summary>
+    public ModelSlots.Inputs Slots => new()
+    {
+        Tier = Tier, Endpoint = Endpoint, Model = Model, ApiKey = ApiKey,
+        DirectorEndpoint = DirectorEndpoint, DirectorModel = DirectorModel, DirectorApiKey = DirectorApiKey, DirectorTier = DirectorTier,
+    };
 
     /// <summary>True when story features should call a model; false means template text everywhere.</summary>
     public bool ModelEnabled => Tier != ModelTier.Off && TierPresets.EndpointProblem(Endpoint) is null && !string.IsNullOrWhiteSpace(Model);
@@ -74,6 +89,10 @@ public sealed class RimChroniclesSettings : ModSettings
         ProseEndpoint = "";
         ProseModel = "";
         ProseApiKey = "";
+        DirectorEndpoint = "";
+        DirectorModel = "";
+        DirectorApiKey = "";
+        DirectorTier = ModelTier.Minimum;
         RecordDirectorCases = false;
     }
 
@@ -90,6 +109,10 @@ public sealed class RimChroniclesSettings : ModSettings
         Scribe_Values.Look(ref ProseEndpoint, "proseEndpoint", "");
         Scribe_Values.Look(ref ProseModel, "proseModel", "");
         Scribe_Values.Look(ref ProseApiKey, "proseApiKey", "");
+        Scribe_Values.Look(ref DirectorEndpoint, "directorEndpoint", "");
+        Scribe_Values.Look(ref DirectorModel, "directorModel", "");
+        Scribe_Values.Look(ref DirectorApiKey, "directorApiKey", "");
+        Scribe_Values.Look(ref DirectorTier, "directorTier", ModelTier.Minimum);
         Scribe_Values.Look(ref RecordDirectorCases, "recordDirectorCases", false);
 
         Endpoint = string.IsNullOrWhiteSpace(Endpoint) ? TierPresets.DefaultEndpoint : Endpoint.Trim();
@@ -102,5 +125,9 @@ public sealed class RimChroniclesSettings : ModSettings
         ProseEndpoint = ProseEndpoint?.Trim() ?? "";
         ProseModel = ProseModel?.Trim() ?? "";
         ProseApiKey ??= "";
+        DirectorEndpoint = DirectorEndpoint?.Trim() ?? "";
+        DirectorModel = DirectorModel?.Trim() ?? "";
+        DirectorApiKey ??= "";
+        DirectorTier = DirectorTier == ModelTier.Off ? ModelTier.Minimum : DirectorTier;
     }
 }

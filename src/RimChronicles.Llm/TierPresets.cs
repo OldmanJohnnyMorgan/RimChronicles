@@ -9,6 +9,10 @@ public static class TierPresets
     /// <summary>Sampling temperature for every preset; Stage 0 found server defaults invent more.</summary>
     public const double Temperature = 0.4;
 
+    /// <summary>Temperature for a separate director model: a fine-tuned director was exported at 0.2 (training spec §6),
+    /// and a decision wants the model's best pick, not variety.</summary>
+    public const double DirectorTemperature = 0.2;
+
     /// <summary>The preset's model, or null for <see cref="ModelTier.Off"/> (templates only).</summary>
     public static string? ModelFor(ModelTier tier) => tier switch
     {

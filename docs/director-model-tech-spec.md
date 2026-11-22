@@ -257,3 +257,12 @@ only; epochs (3) rather than D0's fixed steps.
 - **Fails early:** too little free VRAM (`min_free_vram_gb`), turn markers missing, or any row over `max_seq_length`;
   prints the p99 row length so `max_seq_length` can be set from it.
 - `training/models.director.json` holds the fine-tuned models beside their prompted bases for `director-report`.
+
+## 15. Director model in the mod (D7)
+
+Settings gain an optional **director model** (model, address, API key, and the **prompt tier** it was trained on,
+Minimum by default), like the prose model: blank fields fall back to the main model's, and nothing is called when the
+main tier is Off. `ModelSlots` (Llm, unit-tested) picks the model for each job; `PlotDriver` renders the director
+prompt at the director model's tier, since a fine-tune has only seen prompts at its own tier's budget, and calls it at
+temperature 0.2 (the export's). **Test connection** checks the main model, then the director. Export (merge, Q4_K_M and
+Q8_0, Modelfile with Gemma 4's template) and `training/models.director.json` came with D0 and D6.
