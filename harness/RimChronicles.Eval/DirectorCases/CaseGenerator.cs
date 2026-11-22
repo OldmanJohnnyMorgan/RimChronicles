@@ -44,14 +44,22 @@ public static class CaseGenerator
         return new Builder(rng, seed, index, scenario, mood, situation).Build();
     }
 
+    /// <summary>Options that bring relief rather than a new burden: offering them to a reeling colony isn't piling on.</summary>
+    public static readonly string[] ReliefOptions = ["Act3:ForceATreaty", "Act3:OfferGovernorship"];
+
     /// <summary>The expected answer about waiting, by construction: wait after a fresh blow or in a desperate colony
     /// (unless the beat has stalled), move on when a beat has stalled in a colony that isn't reeling; open otherwise. Only meaningful
     /// when Wait is offered.</summary>
-    public static bool? WaitExpected(bool waitOffered, string mood, string situation, int daysInBeat)
+    public static bool? WaitExpected(bool waitOffered, string mood, string situation, int daysInBeat, bool reliefOffered = false)
     {
         if (!waitOffered)
         {
             return null;
+        }
+
+        if (reliefOffered)
+        {
+            return null; // a treaty or a governorship isn't piling on: offering it to a reeling colony can be right
         }
 
         var blow = situation is "recent raid" or "recent death";
@@ -146,7 +154,7 @@ public static class CaseGenerator
                     PlotId = plot.Id,
                     DaysInBeat = daysInBeat,
                     Descriptions = options.ToDictionary(o => o.Id, o => o.Desc),
-                    WaitExpected = WaitExpected(waitOffered, mood, situation, daysInBeat),
+                    WaitExpected = WaitExpected(waitOffered, mood, situation, daysInBeat, options.Any(o => ReliefOptions.Contains(o.Id))),
                     Seed = seed,
                 },
             };
@@ -166,7 +174,7 @@ public static class CaseGenerator
             var relation = CasePools.Pick(rng, CasePools.Relations);
             var victim = maimed ? protagonist : AddPawn(status: "dead", relation: $"{relation} of {protagonist.Id}");
             var grudgeDay = _day - rng.Next(20, 120);
-            _tales.Add(new TaleInfo { Day = grudgeDay, Type = maimed ? "Maimed" : "KilledColonist", Actor = raider, Victim = victim.Id, Escaped = true });
+            _tales.Add(new TaleInfo { Day = grudgeDay, Type = maimed ? "MaimedColonist" : "KilledColonist", Actor = raider, Victim = victim.Id, Escaped = true });
 
             var plot = Start(NemesisPlot.TemplateId, protagonist, grudgeDay + 2);
             plot.SetFact(NemesisPlot.NemesisName, raider);
@@ -311,10 +319,11 @@ public static class CaseGenerator
         private List<PlotInfo> OtherPlots(string arc)
         {
             var others = new List<PlotInfo>();
+            var kinds = new[] { "Nemesis", "LostFamily", "SilentPress" }.Where(k => k != arc).OrderBy(_ => rng.Next()).ToList();
             var count = rng.Next(0, 3);
             for (var i = 0; i < count; i++)
             {
-                var kind = CasePools.Pick(rng, new[] { "Nemesis", "LostFamily", "SilentPress" }.Where(k => k != arc).ToList());
+                var kind = kinds[i]; // at most one of each kind
                 var pawn = AddPawn();
                 others.Add(kind switch
                 {
@@ -349,7 +358,9 @@ public static class CaseGenerator
                 {
                     var day = _day - rng.Next(0, 2);
                     var dead = rng.NextDouble() < 0.5 ? AddPawn(status: "dead") : null;
-                    _tales.Add(new TaleInfo { Day = day, Type = "RaidRepelled", Actor = "colony", Victim = CasePools.Pick(rng, _factions).Name + " raiders" });
+                    var hostile = _factions.Where(f => f.Goodwill < 0 && f.Kind != "Empire").Select(f => f.Name).ToList();
+                    var raiders = hostile.Count > 0 ? CasePools.Pick(rng, hostile) : AddFaction("Pirates", rng.Next(-100, -60));
+                    _tales.Add(new TaleInfo { Day = day, Type = "RaidRepelled", Actor = "colony", Victim = raiders + " raiders" });
                     _events.Add(dead is null
                         ? $"Day {day}: raiders attacked {_colony} and were driven off; several colonists were wounded."
                         : $"Day {day}: raiders attacked {_colony}; {dead.Name} died in the fighting.");
@@ -383,10 +394,23 @@ public static class CaseGenerator
 
         private void AddBackground()
         {
-            for (var i = rng.Next(0, 3); i > 0; i--)
+            var living = _pawns.Where(p => p.Status == "alive").ToList();
+            var involved = new HashSet<string>(); // each colonist in at most one background event, so none contradict
+            for (var i = rng.Next(0, 3); i > 0 && living.Count(p => !involved.Contains(p.Id)) >= 2; i--)
             {
-                var pawn = CasePools.Pick(rng, _pawns);
-                _tales.Add(new TaleInfo { Day = _day - rng.Next(5, 200), Type = CasePools.Pick(rng, new[] { "CraftedMasterwork", "Recruited", "MentalBreak", "Wedding" }), Actor = pawn.Id });
+                var free = living.Where(p => !involved.Contains(p.Id)).ToList();
+                var pawn = CasePools.Pick(rng, free);
+                var other = CasePools.Pick(rng, free.Where(p => p != pawn).ToList());
+                involved.Add(pawn.Id);
+                involved.Add(other.Id);
+                var (type, victim) = rng.Next(4) switch
+                {
+                    0 => ("CraftedMasterwork", CasePools.Pick(rng, new[] { "a carved jade statue", "a plasteel longsword", "a marble sculpture", "a duster", "a royal bed" })),
+                    1 => ("Recruited", other.Id),
+                    2 => ("Marriage", other.Id),
+                    _ => ("WentOnBerserk", (string?)null),
+                };
+                _tales.Add(new TaleInfo { Day = _day - rng.Next(5, 200), Type = type, Actor = pawn.Id, Victim = victim });
             }
 
             if (rng.NextDouble() < 0.6)

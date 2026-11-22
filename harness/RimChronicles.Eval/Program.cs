@@ -17,6 +17,8 @@ const string usage = """
       spotcheck <run>       First time: write a blind 10% sample to score by hand. After filling it in: score agreement
       director-gen          Generate director training cases (training track D2) into training/data/cases/synthetic
       director-import       Import director cases recorded in game (D3) into training/data/cases/exported
+      director-pack         Write a labelling pack for a teacher working by hand (D4)
+      director-labels-check Check a pack's labels.jsonl and aggregate it into labels-final.jsonl
 
     <run> is a run id under --out, a path to a run folder, or "latest".
 
@@ -52,6 +54,17 @@ const string usage = """
                                RimWorld by Ludeon Studios\RimChronicles\director-cases)
       --out <dir>              Where to put them (default training/data/cases/exported)
 
+    director-pack options:
+      --cases <dir>            Case folder (default training/data/cases/synthetic/seed-1)
+      --count <n>              Cases in the pack (default 50)
+      --repeat <n>             Cases shown twice, to measure self-agreement (default 10)
+      --seed <n>               Selection and shuffling seed (default 1)
+      --out <dir>              Pack folder (default training/data/labels/pilot)
+
+    director-labels-check options:
+      --pack <dir>             Pack folder (default training/data/labels/pilot)
+      --cases <dir>            Case folder the pack was made from (default training/data/cases/synthetic/seed-1)
+
     spotcheck options:
       --rate <0-1>             Share of judged outputs to sample (default 0.1)
       --seed <n>               Sampling seed (default 1)
@@ -67,7 +80,7 @@ if (args.Length == 0 || args[0] is "-h" or "--help" or "help")
 var root = FindRepoRoot();
 var valueOptions = new HashSet<string>
 {
-    "config", "prompts", "snapshots-dir", "passbars", "models", "tasks", "snapshots", "repeats", "out", "cache", "compare", "rate", "seed", "vram-budget", "temperature", "count", "from",
+    "config", "prompts", "snapshots-dir", "passbars", "models", "tasks", "snapshots", "repeats", "out", "cache", "compare", "rate", "seed", "vram-budget", "temperature", "count", "from", "cases", "repeat", "pack",
 };
 var flags = new HashSet<string> { "no-cache", "dry-run", "judge", "resample" };
 
@@ -199,6 +212,15 @@ try
                 cli.Get("out") is { } io ? Path.GetFullPath(io) : Path.Combine(root, "training", "data", "cases", "exported"),
                 Path.Combine(root, "harness", "schema", "snapshot.schema.json"), Console.Out);
 
+        case "director-pack":
+            return RimChronicles.Eval.DirectorCases.DirectorLabels.Pack(
+                CasesDir(), cli.Int("count", 50), cli.Int("repeat", 10), cli.Int("seed", 1),
+                cli.Get("out") is { } po ? Path.GetFullPath(po) : Path.Combine(root, "training", "data", "labels", "pilot"), promptsRoot, Console.Out);
+
+        case "director-labels-check":
+            return RimChronicles.Eval.DirectorCases.DirectorLabels.Check(
+                cli.Get("pack") is { } pk ? Path.GetFullPath(pk) : Path.Combine(root, "training", "data", "labels", "pilot"), CasesDir(), Console.Out) == 0 ? 0 : 1;
+
         default:
             Console.Error.WriteLine($"Unknown command '{args[0]}'.");
             Console.Error.WriteLine(usage);
@@ -214,6 +236,8 @@ catch (Exception ex) when (ex is ArgumentException or InvalidDataException or In
     Console.Error.WriteLine(ex.Message);
     return 2;
 }
+
+string CasesDir() => cli.Get("cases") is { } c ? Path.GetFullPath(c) : Path.Combine(root, "training", "data", "cases", "synthetic", "seed-1");
 
 async Task<IReadOnlyList<JudgeRow>> JudgeRun(HarnessConfig config, string folder) =>
     await Judge.RunAsync(new JudgeOptions

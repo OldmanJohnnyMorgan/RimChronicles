@@ -12,7 +12,7 @@ namespace RimChronicles.Eval.DirectorCases;
 public static class DirectorGenCommand
 {
     /// <summary>Bump when the generator's output changes for the same seed.</summary>
-    public const int GeneratorVersion = 1;
+    public const int GeneratorVersion = 4; // v4: waitExpected is open when a treaty or governorship is offered
 
     public static int Run(int seed, int count, string outDir, string schemaPath, TextWriter log)
     {

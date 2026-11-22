@@ -27,4 +27,6 @@ reference/
 training/data/**
 !training/data/**/
 !training/data/**/manifest.json
+# Labels cost a teacher's time or money: keep them (cases regenerate from their seed)
+!training/data/labels/**
 training/runs/
