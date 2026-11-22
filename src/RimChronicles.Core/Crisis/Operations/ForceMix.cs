@@ -33,6 +33,27 @@ public static class ForceMix
         new(UnitRole.Adept, Specialty.Control, 1),
     ];
 
+    /// <summary>Breachers (frag grenades to open walls, EMP grenades for turrets) lead; the main force follows.</summary>
+    public static readonly IReadOnlyList<MixEntry> Breach =
+    [
+        new(UnitRole.Praetorian, Specialty.None, 6),
+        new(UnitRole.Breacher, Specialty.None, 3),
+        new(UnitRole.Adept, Specialty.Ward, 1),
+        new(UnitRole.Adept, Specialty.Skip, 1),
+        new(UnitRole.Herald, Specialty.None, 1, CrisisStage.War),
+    ];
+
+    /// <summary>Psykers under a Praetorian escort (crisis spec §5.3.1: "Mind 2, Control 2, Ward 1 per 6 Praetorians").
+    /// Before Mind Adepts appear (stage 3) a Skip Adept takes part of their place.</summary>
+    public static readonly IReadOnlyList<MixEntry> PsychicAssault =
+    [
+        new(UnitRole.Praetorian, Specialty.None, 6),
+        new(UnitRole.Adept, Specialty.Mind, 2),
+        new(UnitRole.Adept, Specialty.Control, 2),
+        new(UnitRole.Adept, Specialty.Ward, 1),
+        new(UnitRole.Adept, Specialty.Skip, 1),
+    ];
+
     /// <summary>A general assault, for operations whose own mix comes in a later milestone.</summary>
     public static readonly IReadOnlyList<MixEntry> Assault =
     [
@@ -47,6 +68,8 @@ public static class ForceMix
     {
         CrisisOperations.ProbingRaid => ProbingRaid,
         CrisisOperations.Decapitation => Decapitation,
+        CrisisOperations.Breach => Breach,
+        CrisisOperations.PsychicAssault => PsychicAssault,
         _ => Assault,
     };
 

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Crisis Breachers with EMP grenades throw them at turrets (C7). Inserted into every humanlike think tree after mental
+  states, like the psyker node, so it works under vanilla's breaching duties. It does nothing for anyone else.
+-->
+<Defs>
+  <ThinkTreeDef>
+    <defName>RimChronicles_BreacherEmp</defName>
+    <insertTag>Humanlike_PostMentalState</insertTag>
+    <insertPriority>45</insertPriority>
+    <thinkRoot Class="RimChronicles.Game.Crisis.Operations.JobGiver_RcEmpTurret" />
+  </ThinkTreeDef>
+</Defs>

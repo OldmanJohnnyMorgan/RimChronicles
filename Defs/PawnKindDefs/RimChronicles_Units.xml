@@ -73,7 +73,7 @@
     </modExtensions>
   </PawnKindDef>
 
-  <!-- EMP grenades and power armor; knocks out turrets and opens walls (C7). -->
+  <!-- Power armor and grenades: frag (a vanilla breacher, it opens walls) or EMP (it knocks out turrets) (C7). -->
   <PawnKindDef ParentName="ImperialFighterBase" MayRequire="Ludeon.RimWorld.Royalty">
     <defName>RimChronicles_Breacher</defName>
     <label>imperial breacher</label>
@@ -83,6 +83,7 @@
     <isGoodBreacher>true</isGoodBreacher>
     <combatPower>110</combatPower>
     <weaponTags>
+      <li>EmpireGrenadeDestructive</li>
       <li>GrenadeEMP</li>
     </weaponTags>
     <apparelMoney>6000~9000</apparelMoney>

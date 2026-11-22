@@ -20,6 +20,8 @@ public static class OperationSpawner
     {
         CrisisDriver.RegisterOperation(CrisisOperations.ProbingRaid, (map, op, stage, budget) => ProbingRaid(map, stage, budget, dev: false));
         CrisisDriver.RegisterOperation(CrisisOperations.Decapitation, (map, op, stage, budget) => Decapitation(map, stage, budget, dev: false));
+        CrisisDriver.RegisterOperation(CrisisOperations.Breach, (map, op, stage, budget) => Assault(map, op.Step, stage, budget, dev: false));
+        CrisisDriver.RegisterOperation(CrisisOperations.PsychicAssault, (map, op, stage, budget) => Assault(map, op.Step, stage, budget, dev: false));
     }
 
     /// <summary>Units for <paramref name="points"/> of an operation's mix at a stage, kitted out, not spawned.</summary>
@@ -59,6 +61,43 @@ public static class OperationSpawner
             $"A small Imperial force of {pawns.Count} is testing {Faction.OfPlayer.Name}'s defenses. It won't stay long: it means to "
             + "learn the colony's layout and report back, and the raids that follow will know where the doors are.",
             LetterDefOf.ThreatBig, new LookTargets(pawns), empire);
+        return true;
+    }
+
+    /// <summary>A standard operation (breach, psychic assault): its share of the budget walks in from the edge and
+    /// attacks; after heavy losses it regroups at its entry point and comes back once with the reserve.</summary>
+    public static bool Assault(Map map, string operation, CrisisStage stage, float budget, bool dev)
+    {
+        if (EmpireDriver.EmpireFaction is not { } empire
+            || !RCellFinder.TryFindRandomPawnEntryCell(out var entry, map, CellFinder.EdgeRoadChance_Hostile))
+        {
+            return false;
+        }
+
+        var profile = OperationProfiles.For(operation);
+        var pawns = Force(operation, stage, budget * profile.ForceShare, empire);
+        if (pawns.Count == 0)
+        {
+            return false;
+        }
+
+        foreach (var pawn in pawns)
+        {
+            GenSpawn.Spawn(pawn, CellFinder.RandomClosewalkCellNear(entry, map, 8), map);
+        }
+
+        LordMaker.MakeNewLord(empire, new LordJob_RcOperation(operation, stage, budget * profile.ReserveShare, entry, null, dev), map, pawns);
+        var (label, text) = operation switch
+        {
+            CrisisOperations.Breach => ("Imperial breach",
+                $"{pawns.Count} Imperial troops are coming for {Faction.OfPlayer.Name}, led by breachers: frag grenades for the walls, EMP for the turrets. "
+                + "The rest will follow them through whatever they open."),
+            CrisisOperations.PsychicAssault => ("Imperial psychic assault",
+                $"{pawns.Count} Imperial troops are coming for {Faction.OfPlayer.Name}, and many of them are psykers, kept behind a Praetorian escort. "
+                + "Spread out against their pulses, and go for the psykers when they run hot."),
+            _ => ("Imperial assault", $"{pawns.Count} Imperial troops are attacking {Faction.OfPlayer.Name}."),
+        };
+        Find.LetterStack.ReceiveLetter(label, text, LetterDefOf.ThreatBig, new LookTargets(pawns), empire);
         return true;
     }
 
@@ -124,6 +163,8 @@ public static class OperationSpawner
         {
             (CrisisOperations.ProbingRaid, ProbingRaid),
             (CrisisOperations.Decapitation, Decapitation),
+            (CrisisOperations.Breach, (m, s, b, d) => Assault(m, CrisisOperations.Breach, s, b, d)),
+            (CrisisOperations.PsychicAssault, (m, s, b, d) => Assault(m, CrisisOperations.PsychicAssault, s, b, d)),
         };
         var nodes = new List<DebugActionNode>();
         foreach (var (step, run) in operations)
