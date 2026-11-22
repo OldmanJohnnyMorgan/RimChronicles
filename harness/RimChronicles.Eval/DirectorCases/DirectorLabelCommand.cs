@@ -58,7 +58,7 @@ public static partial class DirectorLabelCommand
 {
     /// <summary>Words from the rubric's machinery. A reason the student copies should be about the story (D4b recheck v2:
     /// "Since the beat has waited fewer than 25 days, Wait is the highest scoring pacing option").</summary>
-    [System.Text.RegularExpressions.GeneratedRegex(@"\b(pacing|scor(e|es|ed|ing)|step [12]|rubric)\b", System.Text.RegularExpressions.RegexOptions.IgnoreCase)]
+    [System.Text.RegularExpressions.GeneratedRegex(@"\bhighest[- ]scor\w*|\bscor(e|es|ed|ing) (of )?[1-5]\b|\b(top|best|low) scor\w*|\bpacing (option|choice|rule|step)s?\b|\bstep [12]\b|\brubric\b", System.Text.RegularExpressions.RegexOptions.IgnoreCase)]
     public static partial System.Text.RegularExpressions.Regex RubricTalk();
 
     private static readonly JsonSerializerOptions Line = new() { WriteIndented = false };
@@ -84,7 +84,23 @@ public static partial class DirectorLabelCommand
                 + "use another --out, or delete the folder to start over (finished calls stay in the cache).");
         }
 
+        var planPath = Path.Combine(o.OutDir, "plan.json");
+        var plan = new JsonObject
+        {
+            ["cases"] = Path.GetFullPath(o.CasesDir), ["count"] = o.Count, ["samples"] = o.Samples, ["seed"] = o.Seed,
+            ["onlyCases"] = o.OnlyCases is null ? null : o.OnlyCases.Count,
+        }.ToJsonString();
+        if (File.Exists(itemsPath) && File.Exists(planPath) && File.ReadAllText(planPath).Trim() != plan)
+        {
+            throw new ArgumentException($"{o.OutDir} was planned with other settings ({File.ReadAllText(planPath).Trim()}); "
+                + "use another --out, or delete the folder to start over (finished calls stay in the cache).");
+        }
+
         var items = File.Exists(itemsPath) ? LoadItems(itemsPath) : PlanItems(o, prompt.Meta.Version, itemsPath, log);
+        if (!File.Exists(planPath))
+        {
+            File.WriteAllText(planPath, plan + "\n");
+        }
         if (items.Count == 0)
         {
             log.WriteLine("Nothing to label.");
@@ -243,6 +259,16 @@ public static partial class DirectorLabelCommand
                 + "the test set is labelled by Claude only (training spec: never train or tune on it).");
         }
 
+        // In-game cases have no seed: the dataset sends a share of them to test by a hash of the colony, so the same
+        // rule keeps those out of a local teacher's hands.
+        var splitRule = new DatasetOptions { LabelDirs = [], CaseDirs = [], OutDir = "", PromptsRoot = "", TestSeeds = o.TestSeeds };
+        var exportedTest = cases.Where(s => s.Director?.Seed is null && DirectorDataset.Split(s, splitRule) == "test").Select(s => s.Id).ToHashSet();
+        if (exportedTest.Count > 0)
+        {
+            log.WriteLine($"Skipping {exportedTest.Count} in-game cases that belong to the test split.");
+            cases = cases.Where(s => !exportedTest.Contains(s.Id)).ToList();
+        }
+
         var candidates = cases.Where(s => !skip.Contains(s.Id) && (o.OnlyCases?.Contains(s.Id) ?? true)).ToList();
         var rng = new Random(o.Seed);
         var picked = DirectorLabels.PickRoundRobin(candidates, o.Count, rng);
@@ -321,7 +347,7 @@ public static partial class DirectorLabelCommand
 
     /// <summary>The teacher schema narrowed to this item: a score for exactly each shown option, and best one of them.
     /// With <paramref name="waitRule"/> set, the case's Wait rule is in the grammar too: true makes Wait the best with
-    /// a 5 and every other option at most 4; false keeps Wait out of best and scores it at most 2.</summary>
+    /// a 5 and every other option at most 4; false keeps Wait out of best and scores it 1.</summary>
     public static JsonSchemaSpec SchemaFor(IReadOnlyList<string> order, bool? waitRule = null)
     {
         var props = new JsonObject();
@@ -331,7 +357,7 @@ public static partial class DirectorLabelCommand
             {
                 (true, true) => (5, 5),
                 (true, false) => (1, 4),
-                (false, true) => (1, 2),
+                (false, true) => (1, 1), // so whichever option is best ties or beats it
                 _ => (1, 5),
             };
             props[id] = new JsonObject { ["type"] = "integer", ["minimum"] = min, ["maximum"] = max };

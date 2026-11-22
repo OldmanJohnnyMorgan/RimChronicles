@@ -85,6 +85,32 @@ public class DirectorLabelCommandTests
     }
 
     [Fact]
+    public async Task Check_CountsAgreementAgainstPlannedSamples()
+    {
+        var (root, o) = Setup(1, 2, samples: 3);
+        try
+        {
+            await DirectorLabelCommand.RunAsync(o, Model, new FakeTeacher(_ => false), TextWriter.Null, CancellationToken.None);
+            // Drop two of the first case's three labels, as if those samples had failed.
+            var items = File.ReadAllLines(Path.Combine(o.OutDir, "items.jsonl")).Select(l => JsonNode.Parse(l)!).ToList();
+            var firstCase = items[0]["case"]!.GetValue<string>();
+            var dropped = items.Where(i => i["case"]!.GetValue<string>() == firstCase).Skip(1).Select(i => i["item"]!.GetValue<int>()).ToHashSet();
+            var labelsPath = Path.Combine(o.OutDir, "labels.jsonl");
+            File.WriteAllLines(labelsPath, File.ReadAllLines(labelsPath).Where(l => !dropped.Contains(JsonNode.Parse(l)!["item"]!.GetValue<int>())));
+
+            DirectorLabels.Check(o.OutDir, o.CasesDir, TextWriter.Null);
+            var final = File.ReadAllLines(Path.Combine(o.OutDir, "labels-final.jsonl")).Select(l => JsonNode.Parse(l)!).ToDictionary(n => n["case"]!.GetValue<string>());
+            Assert.Equal(0.33, final[firstCase]["agreement"]!.GetValue<double>());
+            Assert.Equal(1, final[firstCase]["samples"]!.GetValue<int>());
+            Assert.Equal(3, final[firstCase]["planned"]!.GetValue<int>());
+        }
+        finally
+        {
+            Directory.Delete(root, recursive: true);
+        }
+    }
+
+    [Fact]
     public async Task InvalidLabel_IsRetried_ThenRecordedAsAFailure()
     {
         var (root, o) = Setup(1, 2, samples: 1);
@@ -177,7 +203,7 @@ public class DirectorLabelCommandTests
 
         var move = DirectorLabelCommand.SchemaFor(["Choice:RescueHun", "Wait"], waitRule: false).Schema["properties"]!;
         Assert.Equal(["Choice:RescueHun"], move["best"]!["enum"]!.AsArray().Select(x => x!.GetValue<string>()));
-        Assert.Equal(2, move["scores"]!["properties"]!["Wait"]!["maximum"]!.GetValue<int>());
+        Assert.Equal(1, move["scores"]!["properties"]!["Wait"]!["maximum"]!.GetValue<int>());
     }
 
     [Fact]
@@ -208,9 +234,11 @@ public class DirectorLabelCommandTests
     public void RubricTalk_CatchesScoringLanguage_NotStories()
     {
         Assert.Matches(DirectorLabelCommand.RubricTalk(), "Since the beat is young, Wait is the highest scoring pacing option.");
+        Assert.Matches(DirectorLabelCommand.RubricTalk(), "Step 1 says the colony needs a pause.");
         // "Reeling" is the rubric's word too, but it's ordinary story language (recheck v3 lost 114 answers to banning it).
         Assert.DoesNotMatch(DirectorLabelCommand.RubricTalk(), "Cinder Rest is reeling from Voud's death; the treaty can wait.");
         Assert.DoesNotMatch(DirectorLabelCommand.RubricTalk(), "Hesper raided Emberfall 25 days ago; Miana should decide how to answer.");
+        Assert.DoesNotMatch(DirectorLabelCommand.RubricTalk(), "Dorin has a score to settle with the Rust Wolves, pacing the walls since Mara died.");
     }
 
     [Fact]

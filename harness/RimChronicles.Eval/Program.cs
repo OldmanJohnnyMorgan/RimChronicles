@@ -289,7 +289,9 @@ try
             var data = Path.Combine(root, "training", "data");
             var tier = Enum.Parse<RimChronicles.Llm.ModelTier>(cli.Get("tier") ?? "Recommended", ignoreCase: true);
             var labelDirs = cli.List("labels")?.Select(Path.GetFullPath).ToList()
-                ?? Directory.GetDirectories(Path.Combine(data, "labels")).Where(d => File.Exists(Path.Combine(d, "labels-final.jsonl"))).Order().ToList();
+                ?? Directory.GetDirectories(Path.Combine(data, "labels")).Where(d => File.Exists(Path.Combine(d, "labels-final.jsonl")))
+                    // Hand (Claude) labels before a local teacher's: where both cover a case, the first accepted label wins.
+                    .OrderBy(d => Path.GetFileName(d).StartsWith("local-", StringComparison.Ordinal) ? 1 : 0).ThenBy(d => d, StringComparer.Ordinal).ToList();
             var caseDirs = cli.List("cases")?.Select(Path.GetFullPath).ToList()
                 ?? Directory.GetFiles(Path.Combine(data, "cases"), "manifest.json", SearchOption.AllDirectories).Select(f => Path.GetDirectoryName(f)!).Order().ToList();
             return RimChronicles.Eval.DirectorCases.DirectorDataset.Build(new RimChronicles.Eval.DirectorCases.DatasetOptions
