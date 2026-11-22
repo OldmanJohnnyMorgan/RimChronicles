@@ -10,6 +10,8 @@ def main() -> int:
     p.add_argument("step", choices=["env", "data", "sft", "export"])
     p.add_argument("--config", default="config/d0.yaml")
     p.add_argument("--base-modelfile", help="export: a saved `ollama show <base> --modelfile`, if ollama isn't callable from WSL")
+    p.add_argument("--modelfiles-only", action="store_true",
+                   help="export: only write the Modelfiles for GGUFs already exported (skips loading and converting)")
     a = p.parse_args()
 
     from . import config
@@ -27,7 +29,7 @@ def main() -> int:
         from . import sft
         return sft.run(cfg)
     from . import export
-    return export.run(cfg, a.base_modelfile)
+    return export.run(cfg, a.base_modelfile, a.modelfiles_only)
 
 
 if __name__ == "__main__":
