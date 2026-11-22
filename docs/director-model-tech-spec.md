@@ -123,3 +123,15 @@ The training spec's rules, adjusted to R1 and R5:
 | Teacher too inconsistent (low self-agreement) | Weak labels | Pilot measures it first; rubric tuned on the pilot before the full run |
 | Option vocabulary changes (new arcs, Stage 5 fixes) | Model learned stale ids | Retrain trigger: any change to arc transitions or the director prompt (training spec §2); descriptions and ID renaming reduce id memorising |
 | API credits | Labelling stalls | Local teacher for the bulk, Claude for the test set (see §4) |
+
+## 8. Recording real decisions (D3)
+
+1. In game, with Development mode on: Options → Mod settings → Rim Chronicles → **Dev: record director decisions for
+   training**. Every director decision with a choice is saved as a case (with or without a model set up), to
+   `%USERPROFILE%\AppData\LocalLow\Ludeon Studios\RimWorld by Ludeon Studios\RimChronicles\director-cases\`.
+2. Play as usual. Each file is one decision, named `dir-game-<colony>-day<N>-<plot>.json`.
+3. Import them on the PC, then push nothing: the cases stay local (git-ignored); only the manifest is committed.
+
+```powershell
+dotnet run --project harness/RimChronicles.Eval -- director-import --from "$env:USERPROFILE\AppData\LocalLow\Ludeon Studios\RimWorld by Ludeon Studios\RimChronicles\director-cases"
+```

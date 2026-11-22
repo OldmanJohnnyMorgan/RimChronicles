@@ -33,6 +33,9 @@ public sealed class RimChroniclesSettings : ModSettings
     public string ProseModel = "";
     public string ProseApiKey = "";
 
+    /// <summary>Dev Mode: save every director decision as a training case (director-model track D3).</summary>
+    public bool RecordDirectorCases;
+
     public bool ArcEnabled(string templateId) => !DisabledArcs.Contains(templateId);
 
     public void SetArcEnabled(string templateId, bool enabled)
@@ -71,6 +74,7 @@ public sealed class RimChroniclesSettings : ModSettings
         ProseEndpoint = "";
         ProseModel = "";
         ProseApiKey = "";
+        RecordDirectorCases = false;
     }
 
     public override void ExposeData()
@@ -86,6 +90,7 @@ public sealed class RimChroniclesSettings : ModSettings
         Scribe_Values.Look(ref ProseEndpoint, "proseEndpoint", "");
         Scribe_Values.Look(ref ProseModel, "proseModel", "");
         Scribe_Values.Look(ref ProseApiKey, "proseApiKey", "");
+        Scribe_Values.Look(ref RecordDirectorCases, "recordDirectorCases", false);
 
         Endpoint = string.IsNullOrWhiteSpace(Endpoint) ? TierPresets.DefaultEndpoint : Endpoint.Trim();
         Model = string.IsNullOrWhiteSpace(Model) ? TierPresets.ModelFor(ModelTier.Recommended)! : Model.Trim();

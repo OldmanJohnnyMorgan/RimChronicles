@@ -16,6 +16,7 @@ const string usage = """
       report <run>          Rebuild summary.html; --compare <run> adds deltas against an earlier run
       spotcheck <run>       First time: write a blind 10% sample to score by hand. After filling it in: score agreement
       director-gen          Generate director training cases (training track D2) into training/data/cases/synthetic
+      director-import       Import director cases recorded in game (D3) into training/data/cases/exported
 
     <run> is a run id under --out, a path to a run folder, or "latest".
 
@@ -46,6 +47,11 @@ const string usage = """
       --count <n>              Cases to write (default 5000)
       --out <dir>              Where to write them (default training/data/cases/synthetic/seed-<n>)
 
+    director-import options:
+      --from <dir>             The game's recorded cases (on Windows: %USERPROFILE%\AppData\LocalLow\Ludeon Studios\
+                               RimWorld by Ludeon Studios\RimChronicles\director-cases)
+      --out <dir>              Where to put them (default training/data/cases/exported)
+
     spotcheck options:
       --rate <0-1>             Share of judged outputs to sample (default 0.1)
       --seed <n>               Sampling seed (default 1)
@@ -61,7 +67,7 @@ if (args.Length == 0 || args[0] is "-h" or "--help" or "help")
 var root = FindRepoRoot();
 var valueOptions = new HashSet<string>
 {
-    "config", "prompts", "snapshots-dir", "passbars", "models", "tasks", "snapshots", "repeats", "out", "cache", "compare", "rate", "seed", "vram-budget", "temperature", "count",
+    "config", "prompts", "snapshots-dir", "passbars", "models", "tasks", "snapshots", "repeats", "out", "cache", "compare", "rate", "seed", "vram-budget", "temperature", "count", "from",
 };
 var flags = new HashSet<string> { "no-cache", "dry-run", "judge", "resample" };
 
@@ -186,6 +192,12 @@ try
             return RimChronicles.Eval.DirectorCases.DirectorGenCommand.Run(seed, cli.Int("count", 5000), dir,
                 Path.Combine(root, "harness", "schema", "snapshot.schema.json"), Console.Out);
         }
+
+        case "director-import":
+            return RimChronicles.Eval.DirectorCases.DirectorImportCommand.Run(
+                cli.Get("from") is { } from ? Path.GetFullPath(from) : throw new ArgumentException("director-import needs --from <folder>."),
+                cli.Get("out") is { } io ? Path.GetFullPath(io) : Path.Combine(root, "training", "data", "cases", "exported"),
+                Path.Combine(root, "harness", "schema", "snapshot.schema.json"), Console.Out);
 
         default:
             Console.Error.WriteLine($"Unknown command '{args[0]}'.");
