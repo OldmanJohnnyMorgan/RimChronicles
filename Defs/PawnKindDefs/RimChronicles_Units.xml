@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Crisis units (crisis spec §5.1, C3). They inherit Royalty's Empire bases, so every def here needs Royalty
+  (MayRequire); without it they don't load and the crisis is off (Q1). Psylink, psycasts, gear quality and bionics are
+  set by stage in code (UnitKit), so they aren't listed here. Only crisis code generates these kinds.
+-->
+<Defs>
+
+  <!-- Line troops: cataphract armor, heavy or spacer guns. -->
+  <PawnKindDef ParentName="CataphractBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Praetorian</defName>
+    <label>praetorian</label>
+    <royalTitleChance>0</royalTitleChance>
+    <combatPower>150</combatPower>
+    <weaponTags>
+      <li>GunHeavy</li>
+      <li>SpacerGun</li>
+    </weaponTags>
+    <apparelColor>(120,24,36)</apparelColor>
+    <apparelRequired>
+      <li>Apparel_ArmorHelmetCataphract</li>
+      <li>Apparel_ArmorCataphract</li>
+    </apparelRequired>
+    <specificApparelRequirements Inherit="False">
+      <li>
+        <bodyPartGroup>Torso</bodyPartGroup>
+        <apparelLayer>OnSkin</apparelLayer>
+        <stuff>Synthread</stuff>
+      </li>
+      <li>
+        <bodyPartGroup>Legs</bodyPartGroup>
+        <apparelLayer>OnSkin</apparelLayer>
+        <stuff>Synthread</stuff>
+      </li>
+    </specificApparelRequirements>
+    <skills>
+      <li>
+        <skill>Shooting</skill>
+        <range>8~13</range>
+      </li>
+    </skills>
+    <disallowedTraits>
+      <li>Brawler</li>
+    </disallowedTraits>
+    <initialWillRange>5~7</initialWillRange>
+    <initialResistanceRange>20~30</initialResistanceRange>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Units.UnitExtension">
+        <role>Praetorian</role>
+      </li>
+    </modExtensions>
+  </PawnKindDef>
+
+  <!-- Calls orbital strikes (C5); light armor and a rifle. Not a psyker. -->
+  <PawnKindDef ParentName="ImperialTrooperBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Herald</defName>
+    <label>imperial herald</label>
+    <royalTitleChance>0</royalTitleChance>
+    <combatPower>90</combatPower>
+    <apparelColor>(200,170,60)</apparelColor>
+    <skills>
+      <li>
+        <skill>Shooting</skill>
+        <range>6~11</range>
+      </li>
+    </skills>
+    <initialWillRange>6~8</initialWillRange>
+    <initialResistanceRange>25~35</initialResistanceRange>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Units.UnitExtension">
+        <role>Herald</role>
+      </li>
+    </modExtensions>
+  </PawnKindDef>
+
+  <!-- EMP grenades and power armor; knocks out turrets and opens walls (C7). -->
+  <PawnKindDef ParentName="ImperialFighterBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Breacher</defName>
+    <label>imperial breacher</label>
+    <royalTitleChance>0</royalTitleChance>
+    <apparelColor>(90,90,110)</apparelColor>
+    <canBeSapper>true</canBeSapper>
+    <isGoodBreacher>true</isGoodBreacher>
+    <combatPower>110</combatPower>
+    <weaponTags>
+      <li>GrenadeEMP</li>
+    </weaponTags>
+    <apparelMoney>6000~9000</apparelMoney>
+    <apparelRequired>
+      <li>Apparel_PowerArmorHelmet</li>
+      <li>Apparel_PowerArmor</li>
+    </apparelRequired>
+    <skills>
+      <li>
+        <skill>Shooting</skill>
+        <range>5~10</range>
+      </li>
+      <li>
+        <skill>Construction</skill>
+        <range>6~12</range>
+      </li>
+    </skills>
+    <initialWillRange>3~5</initialWillRange>
+    <initialResistanceRange>15~24</initialResistanceRange>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Units.UnitExtension">
+        <role>Breacher</role>
+      </li>
+    </modExtensions>
+  </PawnKindDef>
+
+  <!-- Psyker adepts: a psyfocus robe and an eltex skullcap, a gun, psychically hypersensitive (set in code). -->
+  <PawnKindDef Name="RimChronicles_AdeptBase" ParentName="RoyalBase" Abstract="True" MayRequire="Ludeon.RimWorld.Royalty">
+    <titleRequired>Knight</titleRequired>
+    <combatPower>160</combatPower>
+    <weaponTags Inherit="False">
+      <li>IndustrialGunAdvanced</li>
+    </weaponTags>
+    <apparelRequired>
+      <li>Apparel_PsyfocusRobe</li>
+      <li>Apparel_EltexSkullcap</li>
+    </apparelRequired>
+    <specificApparelRequirements Inherit="False" />
+    <apparelColor>(110,40,140)</apparelColor>
+    <initialWillRange>10~13</initialWillRange>
+    <initialResistanceRange>38~58</initialResistanceRange>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="RimChronicles_AdeptBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Adept_Skip</defName>
+    <label>skip adept</label>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Units.UnitExtension">
+        <role>Adept</role>
+        <specialty>Skip</specialty>
+      </li>
+    </modExtensions>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="RimChronicles_AdeptBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Adept_Control</defName>
+    <label>control adept</label>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Units.UnitExtension">
+        <role>Adept</role>
+        <specialty>Control</specialty>
+      </li>
+    </modExtensions>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="RimChronicles_AdeptBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Adept_Mind</defName>
+    <label>mind adept</label>
+    <combatPower>200</combatPower>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Units.UnitExtension">
+        <role>Adept</role>
+        <specialty>Mind</specialty>
+      </li>
+    </modExtensions>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="RimChronicles_AdeptBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Adept_Ward</defName>
+    <label>ward adept</label>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Units.UnitExtension">
+        <role>Adept</role>
+        <specialty>Ward</specialty>
+      </li>
+    </modExtensions>
+  </PawnKindDef>
+
+  <!-- The finale's commander: prestige cataphract armor and a persona weapon. -->
+  <PawnKindDef ParentName="RoyalBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_HighStellarch</defName>
+    <label>high stellarch</label>
+    <titleRequired>Stellarch</titleRequired>
+    <combatPower>400</combatPower>
+    <itemQuality>Legendary</itemQuality>
+    <weaponMoney>9999~9999</weaponMoney>
+    <weaponTags Inherit="False">
+      <li>Bladelink</li>
+    </weaponTags>
+    <apparelMoney>9999999</apparelMoney>
+    <apparelRequired>
+      <li>Apparel_ArmorHelmetCataphractPrestige</li>
+      <li>Apparel_ArmorCataphractPrestige</li>
+    </apparelRequired>
+    <specificApparelRequirements Inherit="False" />
+    <apparelColor>(128,0,32)</apparelColor>
+    <skills>
+      <li>
+        <skill>Melee</skill>
+        <range>12~16</range>
+      </li>
+      <li>
+        <skill>Shooting</skill>
+        <range>10~14</range>
+      </li>
+    </skills>
+    <initialWillRange>18~22</initialWillRange>
+    <initialResistanceRange>50~70</initialResistanceRange>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Units.UnitExtension">
+        <role>Stellarch</role>
+      </li>
+    </modExtensions>
+  </PawnKindDef>
+
+</Defs>
