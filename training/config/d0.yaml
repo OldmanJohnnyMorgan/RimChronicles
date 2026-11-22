@@ -7,10 +7,11 @@ output_dir: ~/rimchron-runs             # keep checkpoints on the WSL disk, not 
 export_dir: /mnt/c/RimworldMods/rc-models   # GGUF + Modelfile land here, where Windows' Ollama can read them
 run_name: d0-e2b
 
-# Chat-template markers for loss masking (train on the model's answer only). Gemma 2/3 use these; `env` and `sft`
-# check they appear in a rendered example and stop with a clear message if Gemma 4 differs.
-instruction_marker: "<start_of_turn>user\n"
-response_marker: "<start_of_turn>model\n"
+# Chat-template markers for loss masking (train on the model's answer only), from Gemma 4's chat_template.jinja
+# (Gemma 2/3 used <start_of_turn>). `env` and `sft`
+# check they appear in a rendered example and stop with a clear message if the template differs.
+instruction_marker: "<|turn>user\n"
+response_marker: "<|turn>model\n"
 
 load_in_4bit: true
 max_seq_length: 4096

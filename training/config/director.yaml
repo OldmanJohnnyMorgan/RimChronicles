@@ -5,8 +5,8 @@ dataset: data/splits/recommended
 output_dir: ~/rimchron-runs
 export_dir: /mnt/c/RimworldMods/rc-models
 run_name: director-e4b
-instruction_marker: "<start_of_turn>user\n"
-response_marker: "<start_of_turn>model\n"
+instruction_marker: "<|turn>user\n"
+response_marker: "<|turn>model\n"
 load_in_4bit: true
 max_seq_length: 4096
 lora_r: 16
