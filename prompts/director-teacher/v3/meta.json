@@ -1,0 +1,6 @@
+{
+  "task": "director-teacher",
+  "version": "v3",
+  "maxOutputTokens": 700,
+  "schema": "schema.json"
+}

@@ -147,6 +147,14 @@ public class DirectorLabelCommandTests
     }
 
     [Fact]
+    public void RubricTalk_CatchesScoringLanguage_NotStories()
+    {
+        Assert.Matches(DirectorLabelCommand.RubricTalk(), "Since the beat is young, Wait is the highest scoring pacing option.");
+        Assert.Matches(DirectorLabelCommand.RubricTalk(), "The colony is reeling from Voud's death.");
+        Assert.DoesNotMatch(DirectorLabelCommand.RubricTalk(), "Hesper raided Emberfall 25 days ago; Miana should decide how to answer.");
+    }
+
+    [Fact]
     public void SchemaFor_AllowsExactlyTheShownOptions()
     {
         var schema = DirectorLabelCommand.SchemaFor(["Wait", "Choice:RescueHun"]).Schema;

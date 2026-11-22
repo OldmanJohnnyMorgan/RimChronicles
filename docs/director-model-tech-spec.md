@@ -211,3 +211,9 @@ another folder are skipped, so Claude's labels are never duplicated or outranked
   beat: Wait 5, harsh options at most 2, relief allowed), and `director-label` **rejects and re-asks** any label that
   contradicts the case's `waitExpected` (the generator's rule, which Claude's labels matched 20/20 and 222/222); open
   cases stay the teacher's call. `--no-wait-rule` turns the check off.
+- **Calibration v2:** 15 of about 150 answers contradicted the Wait rule (asked again), 4 items failed, but the 12B
+  then over-waited (35/50 vs Claude's 23/50; 64% agreement). It skipped relief for reeling colonies, counted cold snaps
+  and old raids as reeling, moved stalled beats with another letter or sighting, and wrote reasons about the scoring.
+  **Rubric v3** defines reeling (desperate, or a raid or death within 3 days), makes relief beat Wait in a reeling
+  colony, names the strong options for a stalled beat, says when to storm a breaking capital, and forbids rubric words
+  in reasons (with an example); `director-label` rejects reasons that use them.
