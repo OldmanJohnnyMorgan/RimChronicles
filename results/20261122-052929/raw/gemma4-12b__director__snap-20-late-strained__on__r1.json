@@ -1,0 +1,53 @@
+{
+  "cell": "gemma4-12b__director__snap-20-late-strained__on__r1",
+  "model": "gemma4-12b",
+  "task": "director",
+  "snapshot": "snap-20-late-strained",
+  "grammar": "on",
+  "repeat": 1,
+  "promptVersion": "director/v2",
+  "outcome": "Model",
+  "value": "{\u0022choice\u0022: \u0022Choice:AcceptOrRefuseGovernorship\u0022, \u0022reason\u0022: \u0022The envoy\u0027s offer has been on the table since day 1040, and the internal conflict regarding the Empire\u0027s influence has reached a boiling point.\u0022}",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are the plot director for a story told through a RimWorld colony. You decide what happens next in one of the colony\u0027s plots: the one under \u0022Deciding now\u0022.\n\nRules:\n- Choose exactly one option from the allowed list. Copy its id exactly, character for character, without the description.\n- Choose \u0022Wait\u0022 if the colony is in crisis or the story needs a pause.\n- Read what each option would do. Prefer the one that follows most naturally from what has already happened, and keep the pace: a beat that has waited a long time should move; one that just fired, or a colony that just suffered, may need a pause.\n- Give a reason in one or two short sentences. Use only facts from the briefing.\n\nAnswer with JSON only, in this form:\n{\u0022choice\u0022: \u0022\u003Cone allowed option\u003E\u0022, \u0022reason\u0022: \u0022\u003Cone or two sentences\u003E\u0022}\n",
+        "user": "## The world\nDate: day 1046 (Jugust 5517).\nColony: Varrowgate, 16 people, wealth 610,000 silver, mood strained.\n\nPeople:\n- Cassia (50); traits: Iron-willed, Too smart; backstory: Noble; role: Leader; holds the Imperial title of Count.\n- Henrik (43); traits: Tough; backstory: Soldier.\n- Mags (36); traits: Industrious; backstory: Smith.\n- Aurel (29); traits: Psychically sensitive; backstory: Psycaster.\n\nHistory:\n- Day 960: The Shattered Empire granted a title to Cassia.\n- Day 1012: The Shattered Empire conquered Brightwater.\n- Day 1040: an envoy of The Shattered Empire visited Varrowgate.\n\nFactions:\n- The Shattered Empire (Empire): goodwill \u002B40, 21 settlements, at war with The Free Coast Alliance, Empire state: Ascendant.\n- The Free Coast Alliance (Outlanders): goodwill -10, 2 settlements, at war with The Shattered Empire.\n- Driftwood Tribe (Tribe): goodwill \u002B15, 3 settlements.\n\nRecent events:\n- Imperial envoy offered a governorship day 1040\n- Henrik and Aurel argue about serving the Empire\n- Two colonists talk of leaving if Cassia accepts\n\n## Active plots\n- empire-04 (Awakened Empire): beat Ascendant, protagonist Varrowgate. Cassia served the Shattered Empire and was made a Count on day 960. The Empire now holds most of the region. On day 1040 its envoy offered Varrowgate a governorship if it helps take the last Free Coast towns.\n\n## Deciding now\nempire-04 (Awakened Empire), in its Ascendant beat.\n\n## Allowed options\nEach option is an id, then what it would do.\n- Wait: hold this plot for a few days; nothing happens in it yet\n- Ending:ImperialGovernorship: Cassia becomes governor; the story ends in Imperial victory\n- Choice:AcceptOrRefuseGovernorship: a letter asks the colony to accept or refuse the governorship\n- Empire:FinalDemand: the Empire\u0027s final demand: submit, or be counted among its enemies\n\nChoose one allowed option.\n",
+        "maxOutputTokens": 300,
+        "useGrammar": true,
+        "thinking": "Off",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "choice": {
+              "type": "string",
+              "enum": [
+                "Wait",
+                "Ending:ImperialGovernorship",
+                "Choice:AcceptOrRefuseGovernorship",
+                "Empire:FinalDemand"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "choice",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "ok": true,
+      "text": "{\u0022choice\u0022: \u0022Choice:AcceptOrRefuseGovernorship\u0022, \u0022reason\u0022: \u0022The envoy\u0027s offer has been on the table since day 1040, and the internal conflict regarding the Empire\u0027s influence has reached a boiling point.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 1.2874781,
+      "inputTokens": 724,
+      "outputTokens": 53,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-913\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795325612,\u0022model\u0022:\u0022gemma4:12b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022{\\\u0022choice\\\u0022: \\\u0022Choice:AcceptOrRefuseGovernorship\\\u0022, \\\u0022reason\\\u0022: \\\u0022The envoy\u0027s offer has been on the table since day 1040, and the internal conflict regarding the Empire\u0027s influence has reached a boiling point.\\\u0022}\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:724,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:53,\u0022total_tokens\u0022:777}}\n"
+    }
+  ]
+}

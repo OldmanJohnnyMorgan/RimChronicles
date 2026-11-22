@@ -1,0 +1,7 @@
+model,tier,task,grammar,n,first_ok_rate,json_valid_rate,choice_allowed_rate,length_ok_rate,grounded_rate,passed_first_rate,fallback_rate,median_latency_s,p90_latency_s,mean_output_tokens,mean_reasoning_tokens
+gemma4-e2b,Minimum,director,on,69,1,1,1,,,1,0,0.301,0.364,44.188,
+gemma4-e2b,Minimum,director,off,69,1,1,0.826,,,0.826,0,0.27,0.34,52.13,
+gemma4-e4b,Recommended,director,on,69,1,1,1,,,1,0,0.372,0.507,42.783,
+gemma4-e4b,Recommended,director,off,69,1,1,0.725,,,0.725,0,0.331,0.39,41.232,
+gemma4-12b,High,director,on,69,1,1,1,,,1,0,0.873,1.181,48.42,
+gemma4-12b,High,director,off,69,1,1,0.826,,,0.826,0,0.798,0.999,55.986,

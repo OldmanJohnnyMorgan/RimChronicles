@@ -1,0 +1,52 @@
+{
+  "cell": "gemma4-e4b__director__snap-15-late-content__off__r1",
+  "model": "gemma4-e4b",
+  "task": "director",
+  "snapshot": "snap-15-late-content",
+  "grammar": "off",
+  "repeat": 1,
+  "promptVersion": "director/v2",
+  "outcome": "Model",
+  "value": "{\u0022choice\u0022: \u0022Complication:ChoirLetter\u0022, \u0022reason\u0022: \u0022The Pilgrim asking about Leopold suggests the Pale Choir is actively seeking him, making a direct letter a natural escalation of the current plot complication.\u0022}",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are the plot director for a story told through a RimWorld colony. You decide what happens next in one of the colony\u0027s plots: the one under \u0022Deciding now\u0022.\n\nRules:\n- Choose exactly one option from the allowed list. Copy its id exactly, character for character, without the description.\n- Choose \u0022Wait\u0022 if the colony is in crisis or the story needs a pause.\n- Read what each option would do. Prefer the one that follows most naturally from what has already happened, and keep the pace: a beat that has waited a long time should move; one that just fired, or a colony that just suffered, may need a pause.\n- Give a reason in one or two short sentences. Use only facts from the briefing.\n\nAnswer with JSON only, in this form:\n{\u0022choice\u0022: \u0022\u003Cone allowed option\u003E\u0022, \u0022reason\u0022: \u0022\u003Cone or two sentences\u003E\u0022}\n",
+        "user": "## The world\nDate: day 563 (Jugust 5509).\nColony: Highmoor, 14 people, wealth 412,000 silver, mood content.\n\nPeople:\n- Leopold (52); traits: Steadfast, Kind; backstory: Cult escapee; fled the Pale Choir as a youth.\n- Imke (35); traits: Industrious, Careful shooter; backstory: Colonial marshal; role: Leader.\n- Ottilie (29); traits: Beautiful; backstory: Singer.\n- Rasmus (61); traits: Great memory; backstory: Archivist.\n- Bo (18); traits: Nimble, Jogger; backstory: Courier.\n\nHistory:\n- Day 420: Imke recruited Leopold.\n- Day 498: Highmoor repelled a raid by Pale Choir zealots.\n- Day 551: Rasmus made a masterwork: a history of Highmoor.\n\nFactions:\n- The Pale Choir (Cult): goodwill -50, 2 settlements.\n- The Greywater Concord (Outlanders): goodwill \u002B70, 10 settlements.\n- The Fox-Lantern Tribe (Tribe): goodwill \u002B55, 6 settlements.\n- Grinning Jack\u0027s Men (Pirates): goodwill -75, 3 settlements.\n\nRecent events:\n- Rasmus finished his history of Highmoor day 551\n- A visiting trader mentioned a pilgrim asking after Leopold day 558\n- Feast day held day 560\n\n## Active plots\n- past-01 (Past Catches Up): beat Complication, protagonist Leopold. The Pale Choir, the cult Leopold fled as a youth, raided Highmoor on day 498. A Choir pilgrim was seen at the Greywater market asking about him by name.\n\n## Deciding now\npast-01 (Past Catches Up), in its Complication beat.\n\n## Allowed options\nEach option is an id, then what it would do.\n- Wait: hold this plot for a few days; nothing happens in it yet\n- Choice:FaceTheChoir: a letter asks whether Leopold faces the Pale Choir or hides\n- Complication:ChoirLetter: a letter from the Pale Choir arrives for Leopold\n\nChoose one allowed option.\n",
+        "maxOutputTokens": 300,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "choice": {
+              "type": "string",
+              "enum": [
+                "Wait",
+                "Choice:FaceTheChoir",
+                "Complication:ChoirLetter"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "choice",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "ok": true,
+      "text": "{\u0022choice\u0022: \u0022Complication:ChoirLetter\u0022, \u0022reason\u0022: \u0022The Pilgrim asking about Leopold suggests the Pale Choir is actively seeking him, making a direct letter a natural escalation of the current plot complication.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 0.379271,
+      "inputTokens": 700,
+      "outputTokens": 44,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-864\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795325470,\u0022model\u0022:\u0022gemma4:e4b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022{\\\u0022choice\\\u0022: \\\u0022Complication:ChoirLetter\\\u0022, \\\u0022reason\\\u0022: \\\u0022The Pilgrim asking about Leopold suggests the Pale Choir is actively seeking him, making a direct letter a natural escalation of the current plot complication.\\\u0022}\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:700,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:699},\u0022completion_tokens\u0022:44,\u0022total_tokens\u0022:744}}\n"
+    }
+  ]
+}

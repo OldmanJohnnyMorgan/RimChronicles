@@ -1,0 +1,1765 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eval run 20261122-052929</title>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #898781;
+  --grid: #e1e0d9; --axis: #c3c2b7; --border: rgba(11,11,11,0.10);
+  --series: #2a78d6; --pass: #006300; --fail: #d03b3b;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --muted: #898781;
+    --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,0.10);
+    --series: #3987e5; --pass: #0ca30c; --fail: #e05555;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink); font: 14px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 1100px; margin: 0 auto; padding: 24px 16px 64px; }
+h1 { font-size: 22px; margin: 0 0 4px; }
+h2 { font-size: 18px; margin: 32px 0 8px; }
+h3 { font-size: 15px; margin: 20px 0 8px; }
+p { max-width: 75ch; }
+.meta { color: var(--ink-2); margin: 4px 0; }
+.note { color: var(--ink-2); border-left: 3px solid var(--axis); padding-left: 10px; }
+.muted { color: var(--muted); }
+code { font: 12px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.scroll { overflow-x: auto; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; }
+table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+th, td { padding: 6px 10px; text-align: left; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+thead th { color: var(--ink-2); font-weight: 600; font-size: 12px; }
+tbody th { font-weight: 600; }
+tbody tr:last-child > * { border-bottom: none; }
+.num { text-align: right; }
+.icon { font-weight: 700; }
+.icon.pass { color: var(--pass); }
+.icon.fail { color: var(--fail); }
+figure { margin: 12px 0 0; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px; overflow-x: auto; }
+.chart { width: 100%; min-width: 520px; height: auto; display: block; }
+.chart text { fill: var(--ink-2); font-size: 12px; }
+.chart .chart-title { fill: var(--ink); font-weight: 600; font-size: 13px; }
+.chart .tick { fill: var(--muted); font-size: 11px; }
+.chart .grid { stroke: var(--grid); stroke-width: 1; }
+.chart .threshold { stroke: var(--ink-2); stroke-width: 1.5; stroke-dasharray: 4 4; }
+.chart .whisker { stroke: var(--series); stroke-width: 2; stroke-linecap: round; }
+.chart .dot { fill: var(--series); stroke: var(--surface); stroke-width: 2; }
+.chart .hit { fill: transparent; }
+.chart .row:hover .hit { fill: var(--grid); fill-opacity: 0.5; }
+details { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; padding: 8px 12px; }
+summary { cursor: pointer; font-weight: 600; }
+article { border-top: 1px solid var(--grid); padding: 8px 0; }
+pre { white-space: pre-wrap; font: 13px/1.5 system-ui, sans-serif; margin: 4px 0; }
+.judge { color: var(--ink-2); font-size: 13px; margin: 4px 0; }
+a { color: var(--series); }
+</style>
+</head>
+<body>
+<main>
+<header>
+<h1>Rim Chronicles model evaluation</h1>
+<p class="meta">Run <strong>20261122-052929</strong> · 414 outputs · 3 models · commit <code>18d76ea9</code> · prompts <code>director/v2</code>, <code>epilogue/v2</code>, <code>inheritance-handoff/v3</code>, <code>judge/v3</code>, <code>news-bulletin/v10</code>, <code>plot-letter/v3</code></p>
+<p class="note">Not judged yet: invented facts and prose quality are empty. Run <code>rimchron-eval judge 20261122-052929</code>.</p>
+</header>
+<section>
+<h2>At a glance</h2>
+<p>Whether each model meets every pass bar that applies to it, per task. Failing bars are named; details follow below.</p>
+<div class="scroll"><table>
+<thead><tr><th>Model</th><th>Tier</th><th>Server</th><th>Quantization</th><th class="num">VRAM</th><th>Director decision</th></tr></thead>
+<tbody>
+<tr><th scope="row">gemma4-e2b</th><td>Minimum</td><td>ollama</td><td>Q4_K_M</td><td class="num">0.4 GB</td><td><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> Fails: allowed choice (grammar off)</td></tr>
+<tr><th scope="row">gemma4-e4b</th><td>Recommended</td><td>ollama</td><td>Q4_K_M</td><td class="num">0.5 GB</td><td><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> Fails: allowed choice (grammar off)</td></tr>
+<tr><th scope="row">gemma4-12b</th><td>High</td><td>ollama</td><td>Q4_K_M</td><td class="num">1.5 GB</td><td><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> Fails: allowed choice (grammar off)</td></tr>
+</tbody></table></div>
+</section>
+<section>
+<h2>Director decision</h2>
+<p>Pass bars: valid JSON 100% with grammar and 95% without; allowed choice 100%; median latency at most 10 s (Minimum, Recommended, High tiers). Rates use first answers only.</p>
+<div class="scroll"><table>
+<thead><tr><th>Model</th><th>Tier</th><th>Grammar</th><th class="num">Outputs</th><th class="num">Valid JSON</th><th class="num">Allowed choice</th><th class="num">Passed first try</th><th class="num">Fell back</th><th class="num">Median s</th><th class="num">p90 s</th><th class="num">Output tokens</th><th class="num">Reasoning tokens</th></tr></thead>
+<tbody>
+<tr><th scope="row">gemma4-e2b</th><td>Minimum</td><td>on</td><td class="num">69</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num">100%</td><td class="num">0%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 0.3</td><td class="num">0.4</td><td class="num">44</td><td class="num">–</td></tr>
+<tr><th scope="row">gemma4-e2b</th><td>Minimum</td><td>off</td><td class="num">69</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num"><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> 83%</td><td class="num">83%</td><td class="num">0%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 0.3</td><td class="num">0.3</td><td class="num">52</td><td class="num">–</td></tr>
+<tr><th scope="row">gemma4-e4b</th><td>Recommended</td><td>on</td><td class="num">69</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num">100%</td><td class="num">0%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 0.4</td><td class="num">0.5</td><td class="num">43</td><td class="num">–</td></tr>
+<tr><th scope="row">gemma4-e4b</th><td>Recommended</td><td>off</td><td class="num">69</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num"><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> 72%</td><td class="num">72%</td><td class="num">0%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 0.3</td><td class="num">0.4</td><td class="num">41</td><td class="num">–</td></tr>
+<tr><th scope="row">gemma4-12b</th><td>High</td><td>on</td><td class="num">69</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num">100%</td><td class="num">0%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 0.9</td><td class="num">1.2</td><td class="num">48</td><td class="num">–</td></tr>
+<tr><th scope="row">gemma4-12b</th><td>High</td><td>off</td><td class="num">69</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num"><span class="icon fail" title="misses the bar" aria-label="fail">✗</span> 83%</td><td class="num">83%</td><td class="num">0%</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 0.8</td><td class="num">1.0</td><td class="num">56</td><td class="num">–</td></tr>
+</tbody></table></div>
+<figure>
+<svg class="chart" viewBox="0 0 710 244" role="img" aria-label="Director decision latency: median (dot) and 90th percentile (line end), seconds">
+<text class="chart-title" x="0" y="16">Director decision latency: median (dot) and 90th percentile (line end), seconds</text>
+<line class="grid" x1="230" x2="230" y1="34" y2="214"/><text class="tick" x="230" y="232" text-anchor="middle">0</text>
+<line class="grid" x1="450" x2="450" y1="34" y2="214"/><text class="tick" x="450" y="232" text-anchor="middle">5</text>
+<line class="grid" x1="670" x2="670" y1="34" y2="214"/><text class="tick" x="670" y="232" text-anchor="middle">10</text>
+<line class="threshold" x1="670" x2="670" y1="30" y2="214"/><text class="tick" x="666" y="28" text-anchor="end">bar 10 s (local tiers)</text>
+<g class="row"><title>gemma4-e2b &#183; grammar on: median 0.3 s, p90 0.4 s (69 outputs)</title><rect class="hit" x="0" y="40" width="710" height="28"/><text class="label" x="218" y="58" text-anchor="end">gemma4-e2b &#183; grammar on</text><line class="whisker" x1="243.2" x2="246" y1="54" y2="54"/><circle class="dot" cx="243.2" cy="54" r="5"/></g>
+<g class="row"><title>gemma4-e2b &#183; grammar off: median 0.3 s, p90 0.3 s (69 outputs)</title><rect class="hit" x="0" y="68" width="710" height="28"/><text class="label" x="218" y="86" text-anchor="end">gemma4-e2b &#183; grammar off</text><line class="whisker" x1="241.9" x2="245" y1="82" y2="82"/><circle class="dot" cx="241.9" cy="82" r="5"/></g>
+<g class="row"><title>gemma4-e4b &#183; grammar on: median 0.4 s, p90 0.5 s (69 outputs)</title><rect class="hit" x="0" y="96" width="710" height="28"/><text class="label" x="218" y="114" text-anchor="end">gemma4-e4b &#183; grammar on</text><line class="whisker" x1="246.4" x2="252.3" y1="110" y2="110"/><circle class="dot" cx="246.4" cy="110" r="5"/></g>
+<g class="row"><title>gemma4-e4b &#183; grammar off: median 0.3 s, p90 0.4 s (69 outputs)</title><rect class="hit" x="0" y="124" width="710" height="28"/><text class="label" x="218" y="142" text-anchor="end">gemma4-e4b &#183; grammar off</text><line class="whisker" x1="244.6" x2="247.2" y1="138" y2="138"/><circle class="dot" cx="244.6" cy="138" r="5"/></g>
+<g class="row"><title>gemma4-12b &#183; grammar on: median 0.9 s, p90 1.2 s (69 outputs)</title><rect class="hit" x="0" y="152" width="710" height="28"/><text class="label" x="218" y="170" text-anchor="end">gemma4-12b &#183; grammar on</text><line class="whisker" x1="268.4" x2="282" y1="166" y2="166"/><circle class="dot" cx="268.4" cy="166" r="5"/></g>
+<g class="row"><title>gemma4-12b &#183; grammar off: median 0.8 s, p90 1.0 s (69 outputs)</title><rect class="hit" x="0" y="180" width="710" height="28"/><text class="label" x="218" y="198" text-anchor="end">gemma4-12b &#183; grammar off</text><line class="whisker" x1="265.1" x2="274" y1="194" y2="194"/><circle class="dot" cx="265.1" cy="194" r="5"/></g>
+</svg>
+</figure>
+</section>
+<section>
+<h2>Outputs</h2>
+<p>Every first answer, grouped by task and model. Open the raw file for the full request, retries and timings.</p>
+<h3>Director decision</h3>
+<details>
+<summary>gemma4-e2b · 138 outputs</summary>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-01-early-content__on__r1.json">snap-01-early-content</a> · repeat 1 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;There are no active plots, so the colony can pause to assess the current situation. This allows for a moment of reflection before initiating new actions.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-01-early-content__on__r2.json">snap-01-early-content</a> · repeat 2 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;There are no active plots, so the colony can pause to assess the current situation. This allows for a moment of reflection before initiating new activities.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-01-early-content__on__r3.json">snap-01-early-content</a> · repeat 3 · grammar on · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;There are no active plots, so the colony can pause to assess the situation before initiating new plans.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-01-early-content__off__r1.json">snap-01-early-content</a> · repeat 1 · grammar off · Model · 0.3 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Wait&quot;,
+&quot;reason&quot;: &quot;There are no active plots, so the colony can pause to assess the current situation. This allows for a moment of reflection before deciding on new actions.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-01-early-content__off__r2.json">snap-01-early-content</a> · repeat 2 · grammar off · Model · 0.3 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Wait&quot;,
+&quot;reason&quot;: &quot;There are no active plots, so the colony can pause to assess the current situation. This allows for a moment of reflection before initiating new actions.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-01-early-content__off__r3.json">snap-01-early-content</a> · repeat 3 · grammar off · Model · 0.3 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Wait&quot;,
+&quot;reason&quot;: &quot;There are no active plots, so the colony can pause to assess the current situation. This allows for a moment of reflection before initiating new activities.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-02-early-content__on__r1.json">snap-02-early-content</a> · repeat 1 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:PastCatchesUp:p3&quot;, &quot;reason&quot;: &quot;Since no plots are active, starting a story about Ilka&#39;s past is a way to introduce new narrative elements.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-02-early-content__on__r2.json">snap-02-early-content</a> · repeat 2 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:PastCatchesUp:p3&quot;, &quot;reason&quot;: &quot;Since no plots are active, starting a story about Ilka&#39;s past is a natural way to introduce new narrative elements.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-02-early-content__on__r3.json">snap-02-early-content</a> · repeat 3 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:PastCatchesUp:p3&quot;, &quot;reason&quot;: &quot;Since no plots are active, starting a story about Ilka&#39;s past provides immediate narrative content.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-02-early-content__off__r1.json">snap-02-early-content</a> · repeat 1 · grammar off · Model · 0.2 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Seed:PastCatchesUp:p3&quot;, &quot;reason&quot;: &quot;Since no plots are active, starting a story about Ilka&#39;s past is a natural way to introduce new narrative elements.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-02-early-content__off__r2.json">snap-02-early-content</a> · repeat 2 · grammar off · Model · 0.2 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Seed:PastCatchesUp:p3&quot;, &quot;reason&quot;: &quot;Since no plots are active, starting a story about Ilka&#39;s past is a natural way to introduce new narrative elements.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-02-early-content__off__r3.json">snap-02-early-content</a> · repeat 3 · grammar off · Model · 0.3 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Seed:PastCatchesUp:p3&quot;,
+&quot;reason&quot;: &quot;Since no plots are active, starting a story about Ilka&#39;s past is a way to introduce some character depth. This can provide a narrative focus for the colony.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-03-early-strained__on__r1.json">snap-03-early-strained</a> · repeat 1 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:Rivalry:p1:p3&quot;, &quot;reason&quot;: &quot;The recent conflict between Marek and Dov over rations suggests a simmering tension that could be formalized into a rivalry plot.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-03-early-strained__on__r2.json">snap-03-early-strained</a> · repeat 2 · grammar on · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:Rivalry:p1:p3&quot;, &quot;reason&quot;: &quot;The strained mood and recent fights between Marek and Dov suggest escalating their conflict is a natural next step.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-03-early-strained__on__r3.json">snap-03-early-strained</a> · repeat 3 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:Rivalry:p1:p3&quot;, &quot;reason&quot;: &quot;The recent conflict between Marek and Dov suggests a simmering tension that could be explored further. Starting a rivalry plot will allow the colony to process this ongoing conflict.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-03-early-strained__off__r1.json">snap-03-early-strained</a> · repeat 1 · grammar off · Model · 0.3 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Seed:Rivalry:p1:p3&quot;,
+&quot;reason&quot;: &quot;The tension between Marek and Dov is high due to past fights over resources. Starting a rivalry plot will address this immediate interpersonal conflict.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-03-early-strained__off__r2.json">snap-03-early-strained</a> · repeat 2 · grammar off · Model · 0.3 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Seed:Rivalry:p1:p3&quot;,
+&quot;reason&quot;: &quot;The tension between Marek and Dov is high due to past fights over resources. Starting a rivalry plot will address this immediate source of conflict.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-03-early-strained__off__r3.json">snap-03-early-strained</a> · repeat 3 · grammar off · Model · 0.3 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Seed:Rivalry:p1:p3&quot;,
+&quot;reason&quot;: &quot;The strained mood and recent fights between Marek and Dov suggest escalating this tension could be productive. Starting a rivalry plot will force them to interact.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-04-early-strained__on__r1.json">snap-04-early-strained</a> · repeat 1 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:VisitorRumour&quot;, &quot;reason&quot;: &quot;Since the situation is tense, allowing a visitor to repeat the rumor will escalate the tension in the plot. This moves the narrative forward by increasing the immediate pressure on the colony.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-04-early-strained__on__r2.json">snap-04-early-strained</a> · repeat 2 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:VisitorRumour&quot;, &quot;reason&quot;: &quot;Since the plot is a complication beat, introducing a rumor will advance the narrative tension. This keeps the focus on the unresolved issue with the Dispatch.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-04-early-strained__on__r3.json">snap-04-early-strained</a> · repeat 3 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:VisitorRumour&quot;, &quot;reason&quot;: &quot;Since the plot is in a complication beat, introducing a rumor will advance the narrative. This builds on the existing tension about the Dispatch&#39;s knowledge of the shooting.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-04-early-strained__off__r1.json">snap-04-early-strained</a> · repeat 1 · grammar off · ModelRetry · 0.3 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;VisitorRumour&quot;,
+&quot;reason&quot;: &quot;The current situation involves a rumour that the Dispatch knows about the shooting. Following this rumour will advance the plot in silent-01.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-04-early-strained__off__r2.json">snap-04-early-strained</a> · repeat 2 · grammar off · ModelRetry · 0.3 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;VisitorRumour&quot;,
+&quot;reason&quot;: &quot;The current situation involves a rumour about the Dispatch knowing about the reporter&#39;s death. Pursuing this rumour moves the plot forward in relation to the active complication.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-04-early-strained__off__r3.json">snap-04-early-strained</a> · repeat 3 · grammar off · ModelRetry · 0.3 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;VisitorRumour&quot;, &quot;reason&quot;: &quot;The current situation involves a rumour about the Dispatch knowing about Tomas Quell&#39;s death. Following up on this rumour will advance the plot in silent-01.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-05-early-desperate__on__r1.json">snap-05-early-desperate</a> · repeat 1 · grammar on · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is in a desperate state with only two days of food left, so a pause is necessary to assess the situation.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-05-early-desperate__on__r2.json">snap-05-early-desperate</a> · repeat 2 · grammar on · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is in a desperate state with only two days of food left, so a pause is necessary to assess the situation.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-05-early-desperate__on__r3.json">snap-05-early-desperate</a> · repeat 3 · grammar on · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is in a desperate state with only two days of food left, so a pause is necessary.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-05-early-desperate__off__r1.json">snap-05-early-desperate</a> · repeat 1 · grammar off · Model · 0.2 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Wait&quot;,
+&quot;reason&quot;: &quot;The colony is in a desperate state with only two days of food left, so a pause is necessary before making major decisions.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-05-early-desperate__off__r2.json">snap-05-early-desperate</a> · repeat 2 · grammar off · Model · 0.2 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Wait&quot;,
+&quot;reason&quot;: &quot;The colony is in a desperate state with only two days of food left, so a pause is necessary to assess the situation.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-05-early-desperate__off__r3.json">snap-05-early-desperate</a> · repeat 3 · grammar off · Model · 0.2 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Wait&quot;,
+&quot;reason&quot;: &quot;The colony is in a desperate state with only two days of food left, so a pause is necessary to assess the situation.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-06-early-content__on__r1.json">snap-06-early-content</a> · repeat 1 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:PastCatchesUp:p1&quot;, &quot;reason&quot;: &quot;Since there are no active plots, starting a story about Augustin&#39;s past is a way to introduce character depth. This can provide some narrative focus for the colony.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-06-early-content__on__r2.json">snap-06-early-content</a> · repeat 2 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:PastCatchesUp:p1&quot;, &quot;reason&quot;: &quot;Since there are no active plots, starting a story about Augustin&#39;s past is a natural way to introduce new narrative elements.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-06-early-content__on__r3.json">snap-06-early-content</a> · repeat 3 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:PastCatchesUp:p1&quot;, &quot;reason&quot;: &quot;Since there are no active plots, starting a story about Augustin&#39;s past is a natural way to introduce some character depth.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-06-early-content__off__r1.json">snap-06-early-content</a> · repeat 1 · grammar off · Model · 0.3 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Seed:PastCatchesUp:p1&quot;,
+&quot;reason&quot;: &quot;Since there are no active plots, starting a story plot allows for new narrative development. This will introduce Augustin&#39;s backstory into the current situation.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-06-early-content__off__r2.json">snap-06-early-content</a> · repeat 2 · grammar off · Model · 0.3 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Seed:PastCatchesUp:p1&quot;, &quot;reason&quot;: &quot;Since there are no active plots, starting a story arc for a colonist might provide some narrative direction.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-06-early-content__off__r3.json">snap-06-early-content</a> · repeat 3 · grammar off · Model · 0.2 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Seed:PastCatchesUp:p1&quot;,
+&quot;reason&quot;: &quot;Since there are no active plots, starting a story about Augustin&#39;s past is a way to introduce new narrative elements.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-07-mid-strained__on__r1.json">snap-07-mid-strained</a> · repeat 1 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:VexSighted&quot;, &quot;reason&quot;: &quot;Since Mara is actively hunting Vex, spotting him nearby will immediately escalate the tension and drive the narrative forward.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-07-mid-strained__on__r2.json">snap-07-mid-strained</a> · repeat 2 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:VexSighted&quot;, &quot;reason&quot;: &quot;Since Mara is actively seeking Vex, seeing him near the colony creates immediate tension and a chance for confrontation.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-07-mid-strained__on__r3.json">snap-07-mid-strained</a> · repeat 3 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:VexSighted&quot;, &quot;reason&quot;: &quot;Since Mara is actively hunting Vex, spotting him near the colony creates immediate tension. This will force the colony to react to the immediate threat.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-07-mid-strained__off__r1.json">snap-07-mid-strained</a> · repeat 1 · grammar off · Model · 0.2 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Complication:VexSighted&quot;, &quot;reason&quot;: &quot;Since Mara is actively hunting Vex, a sighting provides immediate tension and moves the Nemesis plot forward.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-07-mid-strained__off__r2.json">snap-07-mid-strained</a> · repeat 2 · grammar off · Model · 0.2 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Complication:VexSighted&quot;, &quot;reason&quot;: &quot;Since Mara is actively hunting Vex, seeing him near the colony raises immediate tension. This action forces the colony to react to the immediate threat.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-07-mid-strained__off__r3.json">snap-07-mid-strained</a> · repeat 3 · grammar off · Model · 0.2 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Complication:VexSighted&quot;, &quot;reason&quot;: &quot;Since Mara is actively seeking Vex, seeing him nearby will immediately escalate the tension and drive action.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-08-mid-content__on__r1.json">snap-08-mid-content</a> · repeat 1 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:Rivalry:p4:p2&quot;, &quot;reason&quot;: &quot;Starting a rivalry plot could introduce some immediate tension within the colony. This might stir up some internal dynamics.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-08-mid-content__on__r2.json">snap-08-mid-content</a> · repeat 2 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:Rivalry:p4:p2&quot;, &quot;reason&quot;: &quot;Starting a rivalry plot could introduce some immediate tension or character development for the colony members.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-08-mid-content__on__r3.json">snap-08-mid-content</a> · repeat 3 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:Rivalry:p4:p2&quot;, &quot;reason&quot;: &quot;Starting a rivalry plot can introduce new interpersonal dynamics within the colony. This might generate interesting story content for the next phase.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-08-mid-content__off__r1.json">snap-08-mid-content</a> · repeat 1 · grammar off · Model · 0.2 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Seed:Rivalry:p4:p2&quot;, &quot;reason&quot;: &quot;Starting a rivalry plot could introduce some immediate tension or character development within the colony.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-08-mid-content__off__r2.json">snap-08-mid-content</a> · repeat 2 · grammar off · Model · 0.3 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Seed:Rivalry:p4:p2&quot;, &quot;reason&quot;: &quot;Starting a rivalry plot could introduce some internal conflict or character development. This allows the story to move forward without an immediate external threat.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-08-mid-content__off__r3.json">snap-08-mid-content</a> · repeat 3 · grammar off · Model · 0.3 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Seed:Rivalry:p4:p2&quot;, &quot;reason&quot;: &quot;Starting a rivalry plot could introduce some immediate interpersonal drama within the colony. This might help shift the mood or create new story hooks.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-09-mid-desperate__on__r1.json">snap-09-mid-desperate</a> · repeat 1 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Resolution:InheritToKin:p3&quot;, &quot;reason&quot;: &quot;Tamsin is the only remaining kin member, making her the most logical successor to Joska&#39;s story. This keeps the focus on the family line.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-09-mid-desperate__on__r2.json">snap-09-mid-desperate</a> · repeat 2 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Resolution:InheritToKin:p3&quot;, &quot;reason&quot;: &quot;Tamsin is the only remaining kin member, making her the most logical successor to Joska&#39;s story. This keeps the narrative focused on the family line.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-09-mid-desperate__on__r3.json">snap-09-mid-desperate</a> · repeat 3 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Resolution:InheritToKin:p3&quot;, &quot;reason&quot;: &quot;Tamsin is the next available kin to carry on the story of Joska. This keeps the narrative focused on the family line.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-09-mid-desperate__off__r1.json">snap-09-mid-desperate</a> · repeat 1 · grammar off · Model · 0.2 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Resolution:InheritToKin:p3&quot;, &quot;reason&quot;: &quot;Tamsin is the next available kin to carry on the story. This keeps the narrative focused on the family line.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-09-mid-desperate__off__r2.json">snap-09-mid-desperate</a> · repeat 2 · grammar off · Model · 0.3 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Resolution:InheritToKin:p3&quot;, &quot;reason&quot;: &quot;Tamsin is the next available kin to carry on the story of Joska. This keeps the narrative focused on the family line.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-09-mid-desperate__off__r3.json">snap-09-mid-desperate</a> · repeat 3 · grammar off · Model · 0.3 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Resolution:InheritToKin:p3&quot;, &quot;reason&quot;: &quot;Tamsin is the only remaining kin, making her the most logical successor to continue Joska&#39;s story. This keeps the narrative focused on the family line.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-10-mid-strained__on__r1.json">snap-10-mid-strained</a> · repeat 1 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:RescueOrRansom&quot;, &quot;reason&quot;: &quot;The letter indicates a direct action is needed regarding Saskia. Deciding whether to rescue her or pay a ransom is the next logical step.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-10-mid-strained__on__r2.json">snap-10-mid-strained</a> · repeat 2 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:RescueOrRansom&quot;, &quot;reason&quot;: &quot;The letter indicates a direct action is needed regarding Saskia. Deciding whether to rescue her or pay a ransom is the logical next step.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-10-mid-strained__on__r3.json">snap-10-mid-strained</a> · repeat 3 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:RescueOrRansom&quot;, &quot;reason&quot;: &quot;The letter indicates a direct action is needed regarding Saskia&#39;s fate. Deciding whether to rescue her or pay a ransom is the immediate next step.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-10-mid-strained__off__r1.json">snap-10-mid-strained</a> · repeat 1 · grammar off · Model · 0.3 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Choice:RescueOrRansom&quot;,
+&quot;reason&quot;: &quot;The current complication is a lost family, and a direct action is needed regarding Saskia&#39;s situation. Deciding to rescue or ransom moves the plot forward immediately.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-10-mid-strained__off__r2.json">snap-10-mid-strained</a> · repeat 2 · grammar off · Model · 0.3 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Choice:RescueOrRansom&quot;,
+&quot;reason&quot;: &quot;The letter confirms the danger, so the colony must decide whether to attempt a rescue or offer a ransom for Saskia.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-10-mid-strained__off__r3.json">snap-10-mid-strained</a> · repeat 3 · grammar off · Model · 0.2 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Choice:RescueOrRansom&quot;,
+&quot;reason&quot;: &quot;The letter from Saskia indicates a dire situation, so the colony should decide whether to attempt a rescue or pay a ransom.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-11-mid-content__on__r1.json">snap-11-mid-content</a> · repeat 1 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:SabotagedNotes&quot;, &quot;reason&quot;: &quot;Given the history of conflict between Rosamund and Ilan, finding sabotaged notes will naturally escalate the rivalry. This provides a direct catalyst for further conflict.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-11-mid-content__on__r2.json">snap-11-mid-content</a> · repeat 2 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:SabotagedNotes&quot;, &quot;reason&quot;: &quot;Given the history of conflict between Rosamund and Ilan, finding sabotaged notes is a natural escalation. This will directly fuel the existing rivalry plot.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-11-mid-content__on__r3.json">snap-11-mid-content</a> · repeat 3 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:SabotagedNotes&quot;, &quot;reason&quot;: &quot;Given the history of conflict between Rosamund and Ilan, finding sabotaged notes is a natural escalation. This will directly address the rivalry plot by providing a new point of contention.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-11-mid-content__off__r1.json">snap-11-mid-content</a> · repeat 1 · grammar off · Model · 0.3 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Complication:SabotagedNotes&quot;,
+&quot;reason&quot;: &quot;Given the history of conflict between Rosamund and Ilan, finding sabotaged notes will escalate the rivalry. This provides a concrete event to drive the plot forward.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-11-mid-content__off__r2.json">snap-11-mid-content</a> · repeat 2 · grammar off · Model · 0.3 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Complication:SabotagedNotes&quot;,
+&quot;reason&quot;: &quot;Given the history of conflict between Rosamund and Ilan, finding sabotaged notes will escalate the rivalry. This provides a direct catalyst for further conflict.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-11-mid-content__off__r3.json">snap-11-mid-content</a> · repeat 3 · grammar off · Model · 0.3 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Complication:SabotagedNotes&quot;,
+&quot;reason&quot;: &quot;Given the history of conflict between Rosamund and Ilan, finding sabotaged notes will naturally escalate the rivalry. This provides a direct catalyst for further conflict.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-12-mid-desperate__on__r1.json">snap-12-mid-desperate</a> · repeat 1 · grammar on · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:RescueNow&quot;, &quot;reason&quot;: &quot;The colony is desperate, and Gideon&#39;s kidnapping is a major source of distress. A direct rescue attempt is the most immediate action.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-12-mid-desperate__on__r2.json">snap-12-mid-desperate</a> · repeat 2 · grammar on · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:RescueNow&quot;, &quot;reason&quot;: &quot;The colony is desperate, and Gideon&#39;s kidnapping is a major crisis. Rescuing him immediately addresses the most pressing threat.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-12-mid-desperate__on__r3.json">snap-12-mid-desperate</a> · repeat 3 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:RescueNow&quot;, &quot;reason&quot;: &quot;The colony is desperate, and Gideon&#39;s kidnapping is a major source of tension. Rescuing him directly addresses the immediate crisis.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-12-mid-desperate__off__r1.json">snap-12-mid-desperate</a> · repeat 1 · grammar off · Model · 0.3 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Choice:RescueNow&quot;,
+&quot;reason&quot;: &quot;Gideon is a key person, and the colony is in a desperate mood. Attempting an immediate rescue aligns with the current crisis.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-12-mid-desperate__off__r2.json">snap-12-mid-desperate</a> · repeat 2 · grammar off · Model · 0.2 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Choice:RescueNow&quot;,
+&quot;reason&quot;: &quot;The colony is desperate, and Gideon&#39;s kidnapping is a major source of distress. A direct rescue attempt is the most urgent action.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-12-mid-desperate__off__r3.json">snap-12-mid-desperate</a> · repeat 3 · grammar off · Model · 0.3 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Choice:RescueNow&quot;,
+&quot;reason&quot;: &quot;The colony is in a desperate mood, and Gideon&#39;s kidnapping is a major point of tension. Rescuing him directly addresses the immediate crisis.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-13-mid-strained__on__r1.json">snap-13-mid-strained</a> · repeat 1 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Empire:DemandTribute&quot;, &quot;reason&quot;: &quot;Given the envoy left unhappy, demanding tribute is a direct way to address the Empire&#39;s demands. This forces a decision from the colonists regarding submission.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-13-mid-strained__on__r2.json">snap-13-mid-strained</a> · repeat 2 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Empire:DemandTribute&quot;, &quot;reason&quot;: &quot;Since the envoy left unhappy, the Empire is likely to escalate by demanding tribute now. This forces the colonists to confront the Empire&#39;s demands directly.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-13-mid-strained__on__r3.json">snap-13-mid-strained</a> · repeat 3 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Empire:DemandTribute&quot;, &quot;reason&quot;: &quot;Given the envoy left unhappy, the Empire is likely to escalate by demanding tribute now. This moves the plot forward based on the current strained relations.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-13-mid-strained__off__r1.json">snap-13-mid-strained</a> · repeat 1 · grammar off · Model · 0.3 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Empire:DemandTribute&quot;,
+&quot;reason&quot;: &quot;Given the envoy left unhappy, demanding tribute is a direct way to address the Empire&#39;s current demands. This forces a decision on submission.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-13-mid-strained__off__r2.json">snap-13-mid-strained</a> · repeat 2 · grammar off · Model · 0.3 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Empire:DemandTribute&quot;, &quot;reason&quot;: &quot;Given the envoy left unhappy, demanding tribute is a direct next step in the Empire&#39;s demands. This forces the colonists to confront the political situation immediately.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-13-mid-strained__off__r3.json">snap-13-mid-strained</a> · repeat 3 · grammar off · Model · 0.3 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Empire:DemandTribute&quot;,
+&quot;reason&quot;: &quot;Since the envoy left unhappy, demanding tribute is a direct response to the Empire&#39;s current demands. This forces the colonists to decide how to handle the pressure.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-14-mid-content__on__r1.json">snap-14-mid-content</a> · repeat 1 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:CorsairsCollect&quot;, &quot;reason&quot;: &quot;Since the plot is about Dagny&#39;s betrayal, the natural next step is for the Corsairs to come and collect on that action.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-14-mid-content__on__r2.json">snap-14-mid-content</a> · repeat 2 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:CorsairsCollect&quot;, &quot;reason&quot;: &quot;Since the plot is about Dagny&#39;s betrayal, it is logical that the Corsairs would come to collect on that action. This moves the narrative forward in the debt plot.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-14-mid-content__on__r3.json">snap-14-mid-content</a> · repeat 3 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:CorsairsCollect&quot;, &quot;reason&quot;: &quot;Since the plot is about Dagny&#39;s betrayal, it is logical that the Corsairs would come to collect on that action. This advances the tension in the debt plot.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-14-mid-content__off__r1.json">snap-14-mid-content</a> · repeat 1 · grammar off · Model · 0.3 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Complication:CorsairsCollect&quot;,
+&quot;reason&quot;: &quot;Since the debt plot is active, it is time for the Corsairs to come and collect on Dagny&#39;s betrayal. This moves the immediate conflict forward.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-14-mid-content__off__r2.json">snap-14-mid-content</a> · repeat 2 · grammar off · Model · 0.3 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Complication:CorsairsCollect&quot;,
+&quot;reason&quot;: &quot;Since the colony has released a Corsair prisoner, it is likely the Corsairs will now come to collect on Dagny&#39;s betrayal.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-14-mid-content__off__r3.json">snap-14-mid-content</a> · repeat 3 · grammar off · Model · 0.3 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Complication:CorsairsCollect&quot;,
+&quot;reason&quot;: &quot;Since the colony released a Corsair prisoner, it is logical that the Corsairs would now come to collect on Dagny&#39;s betrayal.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-15-late-content__on__r1.json">snap-15-late-content</a> · repeat 1 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:FaceTheChoir&quot;, &quot;reason&quot;: &quot;Since a pilgrim has inquired about Leopold, it is time to decide how Leopold will respond to the Pale Choir&#39;s interest.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-15-late-content__on__r2.json">snap-15-late-content</a> · repeat 2 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:FaceTheChoir&quot;, &quot;reason&quot;: &quot;Since a pilgrim has inquired about Leopold, it is time to decide how the colony will respond to this potential threat. Facing the Choir directly might be necessary for security.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-15-late-content__on__r3.json">snap-15-late-content</a> · repeat 3 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:FaceTheChoir&quot;, &quot;reason&quot;: &quot;Since a pilgrim has been asking about Leopold, it is time to decide how to address the potential threat directly. This moves the plot forward by forcing a decision regarding Leopold&#39;s safety.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-15-late-content__off__r1.json">snap-15-late-content</a> · repeat 1 · grammar off · Model · 0.2 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Choice:FaceTheChoir&quot;, &quot;reason&quot;: &quot;Since a pilgrim has inquired about Leopold, it is time to decide how Leopold will respond to the Pale Choir&#39;s presence.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-15-late-content__off__r2.json">snap-15-late-content</a> · repeat 2 · grammar off · Model · 0.2 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Choice:FaceTheChoir&quot;, &quot;reason&quot;: &quot;Since a pilgrim has been asking about Leopold, it is time to decide how Leopold should respond to the Pale Choir.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-15-late-content__off__r3.json">snap-15-late-content</a> · repeat 3 · grammar off · Model · 0.3 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Complication:ChoirLetter&quot;, &quot;reason&quot;: &quot;A letter from the Pale Choir is the most direct progression from the complication involving Leopold. This will immediately advance the tension in the plot.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-16-late-desperate__on__r1.json">snap-16-late-desperate</a> · repeat 1 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Resolution:InheritToFriend:p2&quot;, &quot;reason&quot;: &quot;Elske is Bertram&#39;s friend and is a capable figure to continue the hunt for Dunmore. This keeps the momentum going with a known ally.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-16-late-desperate__on__r2.json">snap-16-late-desperate</a> · repeat 2 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Resolution:InheritToFriend:p2&quot;, &quot;reason&quot;: &quot;Elske is Bertram&#39;s friend and is capable, making her the logical choice to continue the hunt. This keeps the momentum going in the Nemesis plot.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-16-late-desperate__on__r3.json">snap-16-late-desperate</a> · repeat 3 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Resolution:InheritToFriend:p2&quot;, &quot;reason&quot;: &quot;Elske is Bertram&#39;s friend and is the most capable person to continue the hunt for Dunmore. This keeps the momentum going in the Nemesis plot.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-16-late-desperate__off__r1.json">snap-16-late-desperate</a> · repeat 1 · grammar off · ModelRetry · 0.3 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Resolution:InheritToFriend:p2: Elske, Bertram&#39;s friend, carries the hunt for Dunmore on&quot;,
+&quot;reason&quot;: &quot;Elske is Bertram&#39;s friend and is a capable figure who can continue the hunt. This keeps the momentum going in the Nemesis plot.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-16-late-desperate__off__r2.json">snap-16-late-desperate</a> · repeat 2 · grammar off · ModelRetry · 0.4 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Resolution:InheritToFriend:p2: Elske, Bertram&#39;s friend, carries the hunt for Dunmore on&quot;, &quot;reason&quot;: &quot;Elske is Bertram&#39;s friend and is a capable figure, making her a natural successor for the hunt. This keeps the momentum going against the enemy faction.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-16-late-desperate__off__r3.json">snap-16-late-desperate</a> · repeat 3 · grammar off · ModelRetry · 0.4 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Resolution:InheritToFriend:p2: Elske, Bertram&#39;s friend, carries the hunt for Dunmore on&quot;, &quot;reason&quot;: &quot;Elske is Bertram&#39;s friend and is a capable figure who can continue the hunt. This keeps the momentum going in the Nemesis plot.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-17-late-strained__on__r1.json">snap-17-late-strained</a> · repeat 1 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Empire:DemandSeverin&quot;, &quot;reason&quot;: &quot;The Empire has posted a bounty on Severin, so demanding his surrender is a direct and logical next step.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-17-late-strained__on__r2.json">snap-17-late-strained</a> · repeat 2 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Empire:DemandSeverin&quot;, &quot;reason&quot;: &quot;The Empire has posted a bounty on Severin, so demanding his surrender is a logical next step. This addresses the immediate threat posed by the Imperial bounty.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-17-late-strained__on__r3.json">snap-17-late-strained</a> · repeat 3 · grammar on · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;: &quot;Empire:DemandSeverin&quot;, &quot;reason&quot;: &quot;The Empire has posted a bounty on Severin, making it a logical next step to demand his surrender or compliance.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-17-late-strained__off__r1.json">snap-17-late-strained</a> · repeat 1 · grammar off · Model · 0.3 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Empire:DemandSeverin&quot;, &quot;reason&quot;: &quot;The Empire has posted a bounty on Severin, so demanding his surrender is a direct and logical next step. This forces a confrontation regarding the defector.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-17-late-strained__off__r2.json">snap-17-late-strained</a> · repeat 2 · grammar off · Model · 0.3 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Empire:DemandSeverin&quot;, &quot;reason&quot;: &quot;The Empire has posted a bounty on Severin, making a demand for his surrender a logical next step. This addresses the immediate threat posed by the Imperial bounty.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-17-late-strained__off__r3.json">snap-17-late-strained</a> · repeat 3 · grammar off · Model · 0.2 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Empire:DemandSeverin&quot;, &quot;reason&quot;: &quot;The Empire has posted a bounty on Severin, making it a logical next step to demand his surrender or cooperation.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-18-late-desperate__on__r1.json">snap-18-late-desperate</a> · repeat 1 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Resolution:InheritToKin:p2&quot;, &quot;reason&quot;: &quot;Elias is the logical next person to continue the search for Ada, inheriting his mother&#39;s quest.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-18-late-desperate__on__r2.json">snap-18-late-desperate</a> · repeat 2 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Resolution:InheritToKin:p2&quot;, &quot;reason&quot;: &quot;Elias is the logical successor to his mother&#39;s quest, continuing the search for Ada. This moves the plot forward by assigning the objective to the next available character.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-18-late-desperate__on__r3.json">snap-18-late-desperate</a> · repeat 3 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Resolution:InheritToKin:p2&quot;, &quot;reason&quot;: &quot;Elias is the logical next person to take up the search for Ada, as he is Constance&#39;s kin and the colony needs direction.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-18-late-desperate__off__r1.json">snap-18-late-desperate</a> · repeat 1 · grammar off · ModelRetry · 0.4 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Resolution:InheritToKin:p2: Elias, Constance&#39;s kin, carries the search for Ada on&quot;,
+&quot;reason&quot;: &quot;Elias is the logical next person to take up the search for Ada, inheriting his mother&#39;s quest. This keeps the plot moving forward after Constance&#39;s death.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-18-late-desperate__off__r2.json">snap-18-late-desperate</a> · repeat 2 · grammar off · ModelRetry · 0.3 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Resolution:InheritToKin:p2: Elias, Constance&#39;s kin, carries the search for Ada on&quot;,
+&quot;reason&quot;: &quot;Elias is the logical next person to continue the search for Ada, as he is Constance&#39;s kin.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-18-late-desperate__off__r3.json">snap-18-late-desperate</a> · repeat 3 · grammar off · ModelRetry · 0.4 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Resolution:InheritToKin:p2: Elias, Constance&#39;s kin, carries the search for Ada on&quot;,
+&quot;reason&quot;: &quot;Elias is the surviving kin and is best positioned to continue the search for Ada. This moves the plot forward by assigning the objective to a living character.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-19-late-desperate__on__r1.json">snap-19-late-desperate</a> · repeat 1 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Empire:Expand:Marrow Hold&quot;, &quot;reason&quot;: &quot;Given the colony&#39;s desperate mood and the ongoing conflict, expanding influence or attacking a rival seems like a logical next step. This action directly engages with the Marrow League faction.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-19-late-desperate__on__r2.json">snap-19-late-desperate</a> · repeat 2 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Empire:Expand:Marrow Hold&quot;, &quot;reason&quot;: &quot;Given the colony&#39;s desperate mood and the ongoing conflict, expanding the coalition against the Empire&#39;s holdings seems like a logical next step.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-19-late-desperate__on__r3.json">snap-19-late-desperate</a> · repeat 3 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Empire:Expand:Marrow Hold&quot;, &quot;reason&quot;: &quot;The colony is in a desperate state, so expanding influence with the Marrow League seems like a proactive step. This could potentially offer resources or allies against the Empire.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-19-late-desperate__off__r1.json">snap-19-late-desperate</a> · repeat 1 · grammar off · ModelRetry · 0.3 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Empire:Expand:Marrow Hold: the Empire attacks Marrow Hold&quot;, &quot;reason&quot;: &quot;The colony is at war with the Empire, so an attack on a Marrow League hold is a logical next step in the conflict.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-19-late-desperate__off__r2.json">snap-19-late-desperate</a> · repeat 2 · grammar off · ModelRetry · 0.3 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Empire:Expand:Marrow Hold: the Empire attacks Marrow Hold&quot;, &quot;reason&quot;: &quot;The colony is in a desperate mood and the Empire is at war, so an offensive action is warranted. Attacking Marrow Hold continues the conflict against the Sun Throne.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-19-late-desperate__off__r3.json">snap-19-late-desperate</a> · repeat 3 · grammar off · ModelRetry · 0.3 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Empire:Expand:Marrow Hold: the Empire attacks Marrow Hold&quot;, &quot;reason&quot;: &quot;The colony is currently at war with the Empire, so expanding the conflict seems like a natural next step. This action pushes the ongoing war against the Sun Throne.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-20-late-strained__on__r1.json">snap-20-late-strained</a> · repeat 1 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:AcceptOrRefuseGovernorship&quot;, &quot;reason&quot;: &quot;The envoy has offered a governorship, and the colonists are already discussing whether to accept it. This moves the immediate political tension forward.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-20-late-strained__on__r2.json">snap-20-late-strained</a> · repeat 2 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:AcceptOrRefuseGovernorship&quot;, &quot;reason&quot;: &quot;The envoy offered a governorship, and the colonists are already discussing whether to leave. This option directly addresses the immediate decision facing the colony.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-20-late-strained__on__r3.json">snap-20-late-strained</a> · repeat 3 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:AcceptOrRefuseGovernorship&quot;, &quot;reason&quot;: &quot;The envoy offered a governorship, so the colonists need to decide whether to accept the offer. This moves the plot forward based on the recent event.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-20-late-strained__off__r1.json">snap-20-late-strained</a> · repeat 1 · grammar off · Model · 0.3 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Choice:AcceptOrRefuseGovernorship&quot;,
+&quot;reason&quot;: &quot;The envoy offered a governorship, and the colonists are already discussing whether to accept it. This moves the immediate political tension forward.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-20-late-strained__off__r2.json">snap-20-late-strained</a> · repeat 2 · grammar off · Model · 0.3 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Choice:AcceptOrRefuseGovernorship&quot;,
+&quot;reason&quot;: &quot;The envoy offered a governorship, and the colonists are already discussing whether to accept it. This moves the immediate political tension forward.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-20-late-strained__off__r3.json">snap-20-late-strained</a> · repeat 3 · grammar off · Model · 0.3 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Choice:AcceptOrRefuseGovernorship&quot;,
+&quot;reason&quot;: &quot;The envoy offered a governorship, and the colonists are already discussing whether to leave if Cassia accepts. This option moves the immediate political tension forward.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-21-real-quiet__on__r1.json">snap-21-real-quiet</a> · repeat 1 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;There are no active plots, so the colony can wait for events to trigger a decision.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-21-real-quiet__on__r2.json">snap-21-real-quiet</a> · repeat 2 · grammar on · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;There are no active plots, so the best course of action is to wait for a new event or plot to become active.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-21-real-quiet__on__r3.json">snap-21-real-quiet</a> · repeat 3 · grammar on · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;There are no active plots, so waiting is the appropriate action. The colony is currently stable despite recent events.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-21-real-quiet__off__r1.json">snap-21-real-quiet</a> · repeat 1 · grammar off · Model · 0.2 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;There are no active plots, so waiting is the appropriate action until a new situation arises.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-21-real-quiet__off__r2.json">snap-21-real-quiet</a> · repeat 2 · grammar off · Model · 0.2 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;There are no active plots, so waiting is the appropriate action for now.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-21-real-quiet__off__r3.json">snap-21-real-quiet</a> · repeat 3 · grammar off · Model · 0.2 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;There are no active plots, so waiting is the appropriate action to assess the current situation.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-22-real-conditions__on__r1.json">snap-22-real-conditions</a> · repeat 1 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;There are no active plots, so waiting is the appropriate action. The colony is currently stable after the recent events.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-22-real-conditions__on__r2.json">snap-22-real-conditions</a> · repeat 2 · grammar on · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;There are no active plots, so waiting is the appropriate action. The colony is currently stable after the recent events.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-22-real-conditions__on__r3.json">snap-22-real-conditions</a> · repeat 3 · grammar on · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;There are no active plots, so waiting is the appropriate action until a new situation arises.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-22-real-conditions__off__r1.json">snap-22-real-conditions</a> · repeat 1 · grammar off · Model · 0.2 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;There are no active plots, so the best course of action is to wait for something to become active.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-22-real-conditions__off__r2.json">snap-22-real-conditions</a> · repeat 2 · grammar off · Model · 0.2 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;There are no active plots, so waiting is the appropriate action for now.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-22-real-conditions__off__r3.json">snap-22-real-conditions</a> · repeat 3 · grammar off · Model · 0.2 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;There are no active plots, so waiting is the appropriate action until a new situation arises.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-23-real-reporter__on__r1.json">snap-23-real-reporter</a> · repeat 1 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;There are no active plots, so waiting is the appropriate action. The colony is currently stable despite recent events.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-23-real-reporter__on__r2.json">snap-23-real-reporter</a> · repeat 2 · grammar on · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;There are no active plots, so waiting is the appropriate action until a new event or plot becomes available.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-23-real-reporter__on__r3.json">snap-23-real-reporter</a> · repeat 3 · grammar on · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;There are no active plots, and the colony is currently in a state where no immediate action is dictated.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-23-real-reporter__off__r1.json">snap-23-real-reporter</a> · repeat 1 · grammar off · Model · 0.2 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;There are no active plots, so waiting is the appropriate action until a new situation arises.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-23-real-reporter__off__r2.json">snap-23-real-reporter</a> · repeat 2 · grammar off · Model · 0.2 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;There are no active plots, so waiting is the appropriate action until a new situation arises.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__director__snap-23-real-reporter__off__r3.json">snap-23-real-reporter</a> · repeat 3 · grammar off · Model · 0.2 s</p>
+<pre>```json
+{
+&quot;choice&quot;: &quot;Wait&quot;,
+&quot;reason&quot;: &quot;There are no active plots, so waiting is the appropriate action. The colony is currently in a state of low activity.&quot;
+}
+```</pre>
+</article>
+</details>
+<details>
+<summary>gemma4-e4b · 138 outputs</summary>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-01-early-content__on__r1.json">snap-01-early-content</a> · repeat 1 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony has just finished its first shelter walls and is in a stable state, so waiting allows the initial settlement phase to continue naturally.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-01-early-content__on__r2.json">snap-01-early-content</a> · repeat 2 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony has just finished its first shelter walls and is in a stable state, so waiting allows the initial settling to proceed naturally.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-01-early-content__on__r3.json">snap-01-early-content</a> · repeat 3 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony has just finished its initial construction phase and is stable, so waiting allows the current situation to settle before initiating a new event.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-01-early-content__off__r1.json">snap-01-early-content</a> · repeat 1 · grammar off · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony has just finished its initial shelter construction and is stable. A pause allows the colony to settle in before new events are introduced.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-01-early-content__off__r2.json">snap-01-early-content</a> · repeat 2 · grammar off · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is stable with basic needs met and no immediate threats present. Waiting allows the colony to settle in before initiating new events.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-01-early-content__off__r3.json">snap-01-early-content</a> · repeat 3 · grammar off · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony has just finished its initial construction and is stable. Waiting allows for a natural progression before introducing new events.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-02-early-content__on__r1.json">snap-02-early-content</a> · repeat 1 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is stable with no active plots, so waiting allows time for the current situation to develop naturally.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-02-early-content__on__r2.json">snap-02-early-content</a> · repeat 2 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:PastCatchesUp:p3&quot;, &quot;reason&quot;: &quot;The colony has settled into a stable routine with a successful first harvest. Starting a story about Ilka&#39;s past will introduce immediate narrative tension.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-02-early-content__on__r3.json">snap-02-early-content</a> · repeat 3 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:PastCatchesUp:p3&quot;, &quot;reason&quot;: &quot;The colony has settled into a routine with a recent harvest, making it a good time to introduce a story element like Ilka&#39;s past.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-02-early-content__off__r1.json">snap-02-early-content</a> · repeat 1 · grammar off · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;No plot is currently active, and the colony seems stable after the recent harvest. Waiting allows the colony to continue its current steady state.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-02-early-content__off__r2.json">snap-02-early-content</a> · repeat 2 · grammar off · ModelRetry · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed&quot;, &quot;reason&quot;: &quot;Ilka&#39;s backstory involves fleeing a cult, making a Past Catches Up story a natural narrative progression for her character.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-02-early-content__off__r3.json">snap-02-early-content</a> · repeat 3 · grammar off · ModelRetry · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed&quot;, &quot;reason&quot;: &quot;Ilka&#39;s backstory as a cult escapee suggests a potential for conflict, making the Past Catches Up story a natural next development.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-03-early-strained__on__r1.json">snap-03-early-strained</a> · repeat 1 · grammar on · Model · 0.5 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:Rivalry:p1:p3&quot;, &quot;reason&quot;: &quot;The history shows Marek and Dov have been fighting over rations, making a rivalry plot a natural next step to escalate their conflict.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-03-early-strained__on__r2.json">snap-03-early-strained</a> · repeat 2 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:Rivalry:p1:p3&quot;, &quot;reason&quot;: &quot;Marek and Dov have already fought twice over stolen rations, making a rivalry plot a natural progression of their conflict.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-03-early-strained__on__r3.json">snap-03-early-strained</a> · repeat 3 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:Rivalry:p1:p3&quot;, &quot;reason&quot;: &quot;Marek and Dov have already fought twice over rations, making a rivalry plot a natural progression of their existing conflict.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-03-early-strained__off__r1.json">snap-03-early-strained</a> · repeat 1 · grammar off · ModelRetry · 0.2 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed&quot;, &quot;reason&quot;: &quot;Marek and Dov have been fighting over rations, suggesting underlying conflict that could escalate into a formal rivalry.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-03-early-strained__off__r2.json">snap-03-early-strained</a> · repeat 2 · grammar off · ModelRetry · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed&quot;, &quot;reason&quot;: &quot;Marek and Dov have been fighting repeatedly over rations, making a rivalry plot a natural progression of their conflict.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-03-early-strained__off__r3.json">snap-03-early-strained</a> · repeat 3 · grammar off · ModelRetry · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed&quot;, &quot;reason&quot;: &quot;Marek and Dov have already fought twice over rations, making a rivalry plot a natural progression of their existing conflict.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-04-early-strained__on__r1.json">snap-04-early-strained</a> · repeat 1 · grammar on · Model · 0.5 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:VisitorRumour&quot;, &quot;reason&quot;: &quot;The Dispatch&#39;s goodwill is already low, and a trader hinted they know. A visitor repeating this rumor will escalate the tension in this active plot.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-04-early-strained__on__r2.json">snap-04-early-strained</a> · repeat 2 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:VisitorRumour&quot;, &quot;reason&quot;: &quot;The Dispatch&#39;s goodwill is already low, and the silence since the shooting suggests they are aware. A visitor repeating the rumour will likely escalate the tension.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-04-early-strained__on__r3.json">snap-04-early-strained</a> · repeat 3 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:VisitorRumour&quot;, &quot;reason&quot;: &quot;The Dispatch&#39;s goodwill is already low, and the silence since the shooting suggests they are aware. A visitor repeating the rumor will escalate the tension naturally.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-04-early-strained__off__r1.json">snap-04-early-strained</a> · repeat 1 · grammar off · ModelRetry · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication&quot;, &quot;reason&quot;: &quot;The Dispatch&#39;s goodwill is already low, and the trader hinted they know; a visitor repeating this rumour will escalate the tension naturally.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-04-early-strained__off__r2.json">snap-04-early-strained</a> · repeat 2 · grammar off · ModelRetry · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication&quot;, &quot;reason&quot;: &quot;The Dispatch has already been made aware of the incident, so a visitor repeating this rumor seems the most natural progression for the plot.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-04-early-strained__off__r3.json">snap-04-early-strained</a> · repeat 3 · grammar off · ModelRetry · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;VisitorRumour&quot;, &quot;reason&quot;: &quot;The plot is in a complication beat, and a trader already hinted the Dispatch knows, making a rumour more likely to surface.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-05-early-desperate__on__r1.json">snap-05-early-desperate</a> · repeat 1 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is in a desperate state with low food and low mood, requiring a pause to assess immediate needs.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-05-early-desperate__on__r2.json">snap-05-early-desperate</a> · repeat 2 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is in desperate mood and has only two days of food left, requiring a pause to assess the situation.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-05-early-desperate__on__r3.json">snap-05-early-desperate</a> · repeat 3 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is in a desperate state with low food and a low mood, requiring a moment to assess the immediate dangers before initiating new actions.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-05-early-desperate__off__r1.json">snap-05-early-desperate</a> · repeat 1 · grammar off · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is in a desperate state with low food reserves and low mood, requiring a pause to assess the immediate threats.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-05-early-desperate__off__r2.json">snap-05-early-desperate</a> · repeat 2 · grammar off · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is in a desperate state with low food reserves and low mood, requiring a pause to assess immediate needs.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-05-early-desperate__off__r3.json">snap-05-early-desperate</a> · repeat 3 · grammar off · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is in a desperate state with low food reserves and a low mood. A pause is needed to assess the immediate survival situation.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-06-early-content__on__r1.json">snap-06-early-content</a> · repeat 1 · grammar on · Model · 0.5 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:PastCatchesUp:p1&quot;, &quot;reason&quot;: &quot;The colony is stable and has waited a short time since the last event, making it a good time to introduce a new story element.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-06-early-content__on__r2.json">snap-06-early-content</a> · repeat 2 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:PastCatchesUp:p1&quot;, &quot;reason&quot;: &quot;The colony is stable and has had a quiet start, making it a good time to introduce a major story element like Augustin&#39;s past.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-06-early-content__on__r3.json">snap-06-early-content</a> · repeat 3 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:PastCatchesUp:p1&quot;, &quot;reason&quot;: &quot;The colony is stable and has waited a short time since the wedding, making it a good moment to introduce a new narrative element.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-06-early-content__off__r1.json">snap-06-early-content</a> · repeat 1 · grammar off · ModelRetry · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed&quot;, &quot;reason&quot;: &quot;The colony is stable and has waited a short time since the last event, making it a good time to introduce a new story element.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-06-early-content__off__r2.json">snap-06-early-content</a> · repeat 2 · grammar off · ModelRetry · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed&quot;, &quot;reason&quot;: &quot;The colony has been stable and is ready for new narrative development. Starting a Past Catches Up story will introduce immediate conflict or drama.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-06-early-content__off__r3.json">snap-06-early-content</a> · repeat 3 · grammar off · ModelRetry · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed&quot;, &quot;reason&quot;: &quot;The colony has been stable, and Augustin&#39;s exiled noble status suggests a dramatic past event is ripe for exploration.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-07-mid-strained__on__r1.json">snap-07-mid-strained</a> · repeat 1 · grammar on · Model · 0.5 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:VexSighted&quot;, &quot;reason&quot;: &quot;Mara is actively seeking Vex, and seeing him near the colony would immediately advance the nemesis plot. This keeps the pace moving forward after the recent events.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-07-mid-strained__on__r2.json">snap-07-mid-strained</a> · repeat 2 · grammar on · Model · 0.5 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:VexSighted&quot;, &quot;reason&quot;: &quot;Mara is actively seeking Vex, and seeing him near the colony would immediately advance the nemesis plot. This keeps the tension high after the recent loss of Dorin.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-07-mid-strained__on__r3.json">snap-07-mid-strained</a> · repeat 3 · grammar on · Model · 0.5 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:VexSighted&quot;, &quot;reason&quot;: &quot;Mara is actively seeking Vex, and a sighting would immediately drive the plot forward. This increases the immediate tension surrounding the nemesis plot.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-07-mid-strained__off__r1.json">snap-07-mid-strained</a> · repeat 1 · grammar off · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:VexSighted&quot;, &quot;reason&quot;: &quot;Mara is actively seeking Vex after his murder of Dorin, so a sighting would immediately advance the nemesis plot.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-07-mid-strained__off__r2.json">snap-07-mid-strained</a> · repeat 2 · grammar off · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:VexSighted&quot;, &quot;reason&quot;: &quot;Mara is actively seeking Vex, and seeing him near the colony would immediately advance the nemesis plot.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-07-mid-strained__off__r3.json">snap-07-mid-strained</a> · repeat 3 · grammar off · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:VexSighted&quot;, &quot;reason&quot;: &quot;Mara is actively seeking Vex, and seeing him near the colony would immediately escalate the tension and advance the nemesis plot.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-08-mid-content__on__r1.json">snap-08-mid-content</a> · repeat 1 · grammar on · Model · 0.5 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is stable with no active plots and a positive mood. Waiting allows the current positive momentum to continue without introducing immediate conflict.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-08-mid-content__on__r2.json">snap-08-mid-content</a> · repeat 2 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is in good shape with high mood and no immediate crises, so waiting allows the current positive momentum to continue.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-08-mid-content__on__r3.json">snap-08-mid-content</a> · repeat 3 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is stable with good mood and no immediate crises, so pausing to see what happens next is appropriate.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-08-mid-content__off__r1.json">snap-08-mid-content</a> · repeat 1 · grammar off · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is in good shape with no immediate crises or pending events, so waiting allows the current positive momentum to continue.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-08-mid-content__off__r2.json">snap-08-mid-content</a> · repeat 2 · grammar off · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is currently in good spirits with no immediate crises or pressing events to start a new plot.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-08-mid-content__off__r3.json">snap-08-mid-content</a> · repeat 3 · grammar off · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is stable, with no immediate crises or pressing events. Waiting allows the current positive momentum to continue without forcing a new conflict.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-09-mid-desperate__on__r1.json">snap-09-mid-desperate</a> · repeat 1 · grammar on · Model · 0.5 s</p>
+<pre>{&quot;choice&quot;: &quot;Resolution:InheritToKin:p3&quot;, &quot;reason&quot;: &quot;Joska&#39;s kin, Tamsin, is the most logical person to carry on the narrative after his death. This keeps the focus on the next generation of the colony.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-09-mid-desperate__on__r2.json">snap-09-mid-desperate</a> · repeat 2 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Resolution:InheritToKin:p3&quot;, &quot;reason&quot;: &quot;Joska&#39;s kin, Tamsin, is the logical successor to carry on the story after his death.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-09-mid-desperate__on__r3.json">snap-09-mid-desperate</a> · repeat 3 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Resolution:InheritToKin:p3&quot;, &quot;reason&quot;: &quot;Joska&#39;s kin, Tamsin, is the most direct successor to the conflict initiated by Joska.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-09-mid-desperate__off__r1.json">snap-09-mid-desperate</a> · repeat 1 · grammar off · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Resolution:InheritToKin:p3&quot;, &quot;reason&quot;: &quot;Joska&#39;s kin, Tamsin, is the most natural choice to carry on the story after Joska&#39;s death.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-09-mid-desperate__off__r2.json">snap-09-mid-desperate</a> · repeat 2 · grammar off · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Resolution:InheritToKin:p3&quot;, &quot;reason&quot;: &quot;Joska&#39;s daughter, Tamsin, is the direct kin to carry on the story after her father&#39;s death.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-09-mid-desperate__off__r3.json">snap-09-mid-desperate</a> · repeat 3 · grammar off · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Resolution:InheritToKin:p3&quot;, &quot;reason&quot;: &quot;Joska&#39;s kin, Tamsin, is the most natural successor to carry on the story after Joska&#39;s death.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-10-mid-strained__on__r1.json">snap-10-mid-strained</a> · repeat 1 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:RescueOrRansom&quot;, &quot;reason&quot;: &quot;The plot is in a complication beat, suggesting a decision is imminent. Choosing to engage with the situation now moves the story forward from the waiting period.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-10-mid-strained__on__r2.json">snap-10-mid-strained</a> · repeat 2 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:RescueOrRansom&quot;, &quot;reason&quot;: &quot;The plot is in a complication beat, suggesting a critical decision is imminent. Receiving a letter asking for rescue or ransom moves the plot forward immediately.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-10-mid-strained__on__r3.json">snap-10-mid-strained</a> · repeat 3 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:RescueOrRansom&quot;, &quot;reason&quot;: &quot;The plot is in a complication beat, and the next logical step is receiving the specific demand regarding Saskia&#39;s fate.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-10-mid-strained__off__r1.json">snap-10-mid-strained</a> · repeat 1 · grammar off · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:RescueOrRansom&quot;, &quot;reason&quot;: &quot;The situation is dire with Saskia captured by hostile raiders, and the colony is short on medicine, suggesting immediate action is needed.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-10-mid-strained__off__r2.json">snap-10-mid-strained</a> · repeat 2 · grammar off · ModelRetry · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;RescueOrRansom&quot;, &quot;reason&quot;: &quot;The plot is in a complication beat, and the next logical step is to receive a concrete demand regarding Saskia&#39;s capture.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-10-mid-strained__off__r3.json">snap-10-mid-strained</a> · repeat 3 · grammar off · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:RescueOrRansom&quot;, &quot;reason&quot;: &quot;The plot is in a Complication beat, suggesting a critical decision point is imminent. Moving forward with the rescue or ransom choice advances the immediate conflict with the Ochre Hand.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-11-mid-content__on__r1.json">snap-11-mid-content</a> · repeat 1 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:SabotagedNotes&quot;, &quot;reason&quot;: &quot;Given the established rivalry and Ilan&#39;s suspicious behavior, a sabotage event seems a natural escalation of the existing tension.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-11-mid-content__on__r2.json">snap-11-mid-content</a> · repeat 2 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:SabotagedNotes&quot;, &quot;reason&quot;: &quot;The existing rivalry is intense, and sabotaging notes escalates the conflict directly related to their research competition.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-11-mid-content__on__r3.json">snap-11-mid-content</a> · repeat 3 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:SabotagedNotes&quot;, &quot;reason&quot;: &quot;Given the escalating rivalry and Ilan&#39;s suspicious behavior, a sabotage event would naturally heighten the tension between the two researchers.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-11-mid-content__off__r1.json">snap-11-mid-content</a> · repeat 1 · grammar off · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:SabotagedNotes&quot;, &quot;reason&quot;: &quot;Given the ongoing rivalry and Ilan&#39;s suspicious behavior, a direct complication like sabotaged notes fits the escalating tension naturally.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-11-mid-content__off__r2.json">snap-11-mid-content</a> · repeat 2 · grammar off · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:SabotagedNotes&quot;, &quot;reason&quot;: &quot;Given the ongoing rivalry and Ilan&#39;s suspicious behavior, a sabotage event will naturally escalate the conflict between the two researchers.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-11-mid-content__off__r3.json">snap-11-mid-content</a> · repeat 3 · grammar off · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:SabotagedNotes&quot;, &quot;reason&quot;: &quot;Given the escalating rivalry between Rosamund and Ilan, a direct sabotage event will naturally heighten the tension between them.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-12-mid-desperate__on__r1.json">snap-12-mid-desperate</a> · repeat 1 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:RescueNow&quot;, &quot;reason&quot;: &quot;The colony is desperate and has successfully repelled a recent raid, suggesting they are ready for a direct confrontation to rescue Gideon.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-12-mid-desperate__on__r2.json">snap-12-mid-desperate</a> · repeat 2 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:RescueNow&quot;, &quot;reason&quot;: &quot;The colony is desperate and has just repelled a raid, suggesting a high level of immediate tension. Attempting a rescue now aligns with the urgency of the situation.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-12-mid-desperate__on__r3.json">snap-12-mid-desperate</a> · repeat 3 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:RescueNow&quot;, &quot;reason&quot;: &quot;The colony is desperate and Sabine is actively seeking Imre, making an immediate rescue attempt the most natural next step.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-12-mid-desperate__off__r1.json">snap-12-mid-desperate</a> · repeat 1 · grammar off · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:RescueNow&quot;, &quot;reason&quot;: &quot;The colony is desperate and has recently repelled a raid, suggesting a readiness for action. Rescuing Gideon directly addresses the immediate threat and emotional core of the plot.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-12-mid-desperate__off__r2.json">snap-12-mid-desperate</a> · repeat 2 · grammar off · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:RescueNow&quot;, &quot;reason&quot;: &quot;Sabine has found the Gallows camp, and the colony is desperate, suggesting immediate action is necessary to address the kidnapping.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-12-mid-desperate__off__r3.json">snap-12-mid-desperate</a> · repeat 3 · grammar off · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:RescueNow&quot;, &quot;reason&quot;: &quot;The colony is desperate and has recently repelled a raid, suggesting a willingness to take risks to recover Gideon.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-13-mid-strained__on__r1.json">snap-13-mid-strained</a> · repeat 1 · grammar on · Model · 0.5 s</p>
+<pre>{&quot;choice&quot;: &quot;Empire:DemandTribute&quot;, &quot;reason&quot;: &quot;The envoy already visited and left unhappy, suggesting the Empire is ready to enforce its will. Demanding tribute is the logical next step in this escalating conflict.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-13-mid-strained__on__r2.json">snap-13-mid-strained</a> · repeat 2 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Empire:DemandTribute&quot;, &quot;reason&quot;: &quot;The envoy already visited and left unhappy, making a direct demand for tribute the most logical next step for the Empire.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-13-mid-strained__on__r3.json">snap-13-mid-strained</a> · repeat 3 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Empire:DemandTribute&quot;, &quot;reason&quot;: &quot;The envoy already visited and left unhappy, suggesting the Empire is ready to escalate its demands. Demanding tribute is the logical next step in this escalating conflict.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-13-mid-strained__off__r1.json">snap-13-mid-strained</a> · repeat 1 · grammar off · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Empire:DemandTribute&quot;, &quot;reason&quot;: &quot;The envoy already visited and left unhappy, suggesting the next logical step is a formal demand for tribute from the Empire.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-13-mid-strained__off__r2.json">snap-13-mid-strained</a> · repeat 2 · grammar off · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Empire:DemandTribute&quot;, &quot;reason&quot;: &quot;The envoy already visited and left unhappy, suggesting the Empire is ready to press its demands immediately.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-13-mid-strained__off__r3.json">snap-13-mid-strained</a> · repeat 3 · grammar off · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Empire:DemandTribute&quot;, &quot;reason&quot;: &quot;The envoy already visited and left unhappy; the next logical step is for The Sun Throne to formally demand tribute from Stonewake.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-14-mid-content__on__r1.json">snap-14-mid-content</a> · repeat 1 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:CorsairMessenger&quot;, &quot;reason&quot;: &quot;Since the plot is in its hook beat, receiving a messenger seems like the most natural progression of the brewing conflict.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-14-mid-content__on__r2.json">snap-14-mid-content</a> · repeat 2 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:CorsairMessenger&quot;, &quot;reason&quot;: &quot;The plot is in its hook beat, suggesting an escalation is due. A messenger arrival is a natural next step before direct confrontation.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-14-mid-content__on__r3.json">snap-14-mid-content</a> · repeat 3 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:CorsairMessenger&quot;, &quot;reason&quot;: &quot;The plot is in its Hook beat, suggesting a reaction is due. A messenger arriving feels like a natural next step before direct confrontation.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-14-mid-content__off__r1.json">snap-14-mid-content</a> · repeat 1 · grammar off · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:CorsairMessenger&quot;, &quot;reason&quot;: &quot;The debt plot is in its Hook beat, suggesting an event is due. A messenger arrival fits the narrative tension of Dagny&#39;s past betrayal.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-14-mid-content__off__r2.json">snap-14-mid-content</a> · repeat 2 · grammar off · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:CorsairMessenger&quot;, &quot;reason&quot;: &quot;Since the Corsairs have a low goodwill and Dagny betrayed them, a messenger arrival seems the most natural next step in this ongoing conflict.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-14-mid-content__off__r3.json">snap-14-mid-content</a> · repeat 3 · grammar off · Model · 0.4 s</p>
+<pre>```json
+{
+  &quot;choice&quot;: &quot;Complication:CorsairMessenger&quot;,
+  &quot;reason&quot;: &quot;Since the prisoner&#39;s departure mentioned the Corsairs remembering the betrayal, a messenger arrival seems like the most natural next step to advance this plot.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-15-late-content__on__r1.json">snap-15-late-content</a> · repeat 1 · grammar on · Model · 0.5 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:FaceTheChoir&quot;, &quot;reason&quot;: &quot;The Pale Choir is actively seeking Leopold, and the plot has reached a decision point. Facing them seems like the most active way to move the narrative forward.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-15-late-content__on__r2.json">snap-15-late-content</a> · repeat 2 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:FaceTheChoir&quot;, &quot;reason&quot;: &quot;The Pale Choir is actively seeking Leopold, and the colony has a chance to address this confrontation directly now.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-15-late-content__on__r3.json">snap-15-late-content</a> · repeat 3 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:FaceTheChoir&quot;, &quot;reason&quot;: &quot;A pilgrim was seen asking about Leopold, suggesting the conflict is imminent. Facing the Choir directly seems the most proactive next step.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-15-late-content__off__r1.json">snap-15-late-content</a> · repeat 1 · grammar off · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:ChoirLetter&quot;, &quot;reason&quot;: &quot;The Pilgrim asking about Leopold suggests the Pale Choir is actively seeking him, making a direct letter a natural escalation of the current plot complication.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-15-late-content__off__r2.json">snap-15-late-content</a> · repeat 2 · grammar off · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:FaceTheChoir&quot;, &quot;reason&quot;: &quot;The Pale Choir has already shown interest in Leopold, and a direct confrontation or decision seems appropriate now that the plot has reached a complication beat.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-15-late-content__off__r3.json">snap-15-late-content</a> · repeat 3 · grammar off · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:ChoirLetter&quot;, &quot;reason&quot;: &quot;The plot is in the Complication beat, and a pilgrim has already inquired about Leopold. Receiving a direct letter from the Pale Choir seems the most natural progression.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-16-late-desperate__on__r1.json">snap-16-late-desperate</a> · repeat 1 · grammar on · Model · 0.5 s</p>
+<pre>{&quot;choice&quot;: &quot;Resolution:InheritToFriend:p2&quot;, &quot;reason&quot;: &quot;Elske was Bertram&#39;s best friend, and the plot is currently in a complication beat following his death. Having her take up the hunt seems the most natural progression.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-16-late-desperate__on__r2.json">snap-16-late-desperate</a> · repeat 2 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Resolution:InheritToFriend:p2&quot;, &quot;reason&quot;: &quot;Elske was Bertram&#39;s best friend, making her the most natural person to carry on the hunt for Dunmore.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-16-late-desperate__on__r3.json">snap-16-late-desperate</a> · repeat 3 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Resolution:InheritToFriend:p2&quot;, &quot;reason&quot;: &quot;Elske was Bertram&#39;s best friend, and inheriting the hunt to her seems the most natural progression after his death.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-16-late-desperate__off__r1.json">snap-16-late-desperate</a> · repeat 1 · grammar off · ModelRetry · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Resolution:InheritToFriend:p2: Elske&quot;, &quot;reason&quot;: &quot;Elske was Bertram&#39;s best friend, and the plot is in a complication beat following Bertram&#39;s death. She is the most natural person to take up the hunt.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-16-late-desperate__off__r2.json">snap-16-late-desperate</a> · repeat 2 · grammar off · ModelRetry · 0.5 s</p>
+<pre>{&quot;choice&quot;: &quot;Resolution:InheritToFriend:p2: Elske&quot;, &quot;reason&quot;: &quot;Elske was Bertram&#39;s best friend, making her a natural successor to carry on the hunt for Dunmore. This keeps the personal stakes high for the colony.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-16-late-desperate__off__r3.json">snap-16-late-desperate</a> · repeat 3 · grammar off · ModelRetry · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Resolution:InheritToFriend:p2: Elske&quot;, &quot;reason&quot;: &quot;Elske was Bertram&#39;s best friend and the colony is desperate, suggesting a focused, personal pursuit is warranted.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-17-late-strained__on__r1.json">snap-17-late-strained</a> · repeat 1 · grammar on · Model · 0.5 s</p>
+<pre>{&quot;choice&quot;: &quot;Empire:DemandSeverin&quot;, &quot;reason&quot;: &quot;The Empire has posted a bounty on Severin, and the Empire is currently at war with the Ashford Compact. Demanding him aligns with the ongoing conflict and the Empire&#39;s aggressive posture.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-17-late-strained__on__r2.json">snap-17-late-strained</a> · repeat 2 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Empire:DemandSeverin&quot;, &quot;reason&quot;: &quot;The Empire has an active bounty on Severin, making a direct demand a logical next step in the escalating conflict.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-17-late-strained__on__r3.json">snap-17-late-strained</a> · repeat 3 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Empire:DemandSeverin&quot;, &quot;reason&quot;: &quot;The Empire has an active bounty on Severin, making a direct demand the most logical next step for the plot to advance.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-17-late-strained__off__r1.json">snap-17-late-strained</a> · repeat 1 · grammar off · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Empire:DemandSeverin&quot;, &quot;reason&quot;: &quot;The Empire has posted a bounty on Severin, making a direct demand the most immediate and logical escalation of the current situation.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-17-late-strained__off__r2.json">snap-17-late-strained</a> · repeat 2 · grammar off · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Empire:DemandSeverin&quot;, &quot;reason&quot;: &quot;The Empire has an active bounty on Severin, and the plot is focused on the Empire&#39;s awakening. Directly confronting the demand seems the most immediate progression.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-17-late-strained__off__r3.json">snap-17-late-strained</a> · repeat 3 · grammar off · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Empire:DemandSeverin&quot;, &quot;reason&quot;: &quot;The Empire has an active bounty on Severin, and the plot is focused on the Awakened Empire. Demanding him directly advances the immediate conflict with the Empire.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-18-late-desperate__on__r1.json">snap-18-late-desperate</a> · repeat 1 · grammar on · Model · 0.5 s</p>
+<pre>{&quot;choice&quot;: &quot;Resolution:InheritToKin:p2&quot;, &quot;reason&quot;: &quot;The plot is in a beat choice, and Elias is Constance&#39;s kin, making him the logical successor to continue the search for Ada.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-18-late-desperate__on__r2.json">snap-18-late-desperate</a> · repeat 2 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Resolution:InheritToKin:p2&quot;, &quot;reason&quot;: &quot;Constance&#39;s death leaves her son, Elias, as the next logical person to carry on the search for Ada.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-18-late-desperate__on__r3.json">snap-18-late-desperate</a> · repeat 3 · grammar on · Model · 0.5 s</p>
+<pre>{&quot;choice&quot;: &quot;Resolution:InheritToKin:p2&quot;, &quot;reason&quot;: &quot;Constance&#39;s death concludes her direct involvement in the search for Ada. Elias, her son, is the logical person to take up this quest.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-18-late-desperate__off__r1.json">snap-18-late-desperate</a> · repeat 1 · grammar off · ModelRetry · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;InheritToKin:p2: Elias&quot;, &quot;reason&quot;: &quot;Constance is dead, so the search for Ada must pass to her son, Elias, to continue the plot.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-18-late-desperate__off__r2.json">snap-18-late-desperate</a> · repeat 2 · grammar off · ModelRetry · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Resolution&quot;, &quot;reason&quot;: &quot;Constance, the protagonist of this plot, has died, so the search for Ada must be carried on by her kin, Elias.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-18-late-desperate__off__r3.json">snap-18-late-desperate</a> · repeat 3 · grammar off · ModelRetry · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;InheritToKin:p2: Elias&quot;, &quot;reason&quot;: &quot;Constance&#39;s death leaves Elias, her son, as the logical successor to continue the search for Ada.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-19-late-desperate__on__r1.json">snap-19-late-desperate</a> · repeat 1 · grammar on · Model · 0.5 s</p>
+<pre>{&quot;choice&quot;: &quot;Quest:DefendAlly:Marrow Hold&quot;, &quot;reason&quot;: &quot;The colony is desperate and has recently fought the Empire, making an alliance-focused action like defending an ally a natural next step.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-19-late-desperate__on__r2.json">snap-19-late-desperate</a> · repeat 2 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Quest:DefendAlly:Marrow Hold&quot;, &quot;reason&quot;: &quot;The colony is already at war with the Sun Throne and has a positive relationship with the Marrow League. Assisting an ally seems like a logical next step in the current conflict.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-19-late-desperate__on__r3.json">snap-19-late-desperate</a> · repeat 3 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Quest:DefendAlly:Marrow Hold&quot;, &quot;reason&quot;: &quot;The colony is desperate and at war with the Empire, suggesting a need to solidify alliances with the Marrow League. This quest offers a way to engage with the current conflict.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-19-late-desperate__off__r1.json">snap-19-late-desperate</a> · repeat 1 · grammar off · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Quest:DefendAlly:Marrow Hold&quot;, &quot;reason&quot;: &quot;The colony is currently at war with the Sun Throne, and the Marrow League is an ally. Assisting them aligns with the coalition mentioned in the plot history.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-19-late-desperate__off__r2.json">snap-19-late-desperate</a> · repeat 2 · grammar off · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Quest:DefendAlly:Marrow Hold&quot;, &quot;reason&quot;: &quot;The colony is at war with the Sun Throne and allied with the Marrow League. Assisting an ally seems like a logical next step in the ongoing conflict.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-19-late-desperate__off__r3.json">snap-19-late-desperate</a> · repeat 3 · grammar off · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Quest:DefendAlly:Marrow Hold&quot;, &quot;reason&quot;: &quot;The colony is currently at war with the Sun Throne and allied with the Marrow League, making defense of an ally a natural next step.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-20-late-strained__on__r1.json">snap-20-late-strained</a> · repeat 1 · grammar on · Model · 0.5 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:AcceptOrRefuseGovernorship&quot;, &quot;reason&quot;: &quot;The recent visit and offer from the Imperial envoy necessitate a formal decision before escalating to a final demand or ending.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-20-late-strained__on__r2.json">snap-20-late-strained</a> · repeat 2 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:AcceptOrRefuseGovernorship&quot;, &quot;reason&quot;: &quot;The colony&#39;s mood is strained due to the recent imperial offer and internal conflict. A formal choice will force the issue and move the plot forward.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-20-late-strained__on__r3.json">snap-20-late-strained</a> · repeat 3 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:AcceptOrRefuseGovernorship&quot;, &quot;reason&quot;: &quot;The recent events show internal dissent regarding serving the Empire, so a formal choice needs to be presented to the colony first.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-20-late-strained__off__r1.json">snap-20-late-strained</a> · repeat 1 · grammar off · ModelRetry · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice&quot;, &quot;reason&quot;: &quot;The recent tension regarding the Empire&#39;s offer and the colonists&#39; hesitation suggests a formal decision point is needed before a final commitment is made.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-20-late-strained__off__r2.json">snap-20-late-strained</a> · repeat 2 · grammar off · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:AcceptOrRefuseGovernorship&quot;, &quot;reason&quot;: &quot;The colony is currently in a state of internal conflict regarding the Empire&#39;s offer, so prompting a formal decision is the most natural next step.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-20-late-strained__off__r3.json">snap-20-late-strained</a> · repeat 3 · grammar off · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:AcceptOrRefuseGovernorship&quot;, &quot;reason&quot;: &quot;The recent events show internal division regarding the Empire&#39;s offer, so a formal decision point is needed before a final acceptance or refusal.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-21-real-quiet__on__r1.json">snap-21-real-quiet</a> · repeat 1 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;No immediate crisis or pressing event requires action, so waiting allows the colony to settle into its current state.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-21-real-quiet__on__r2.json">snap-21-real-quiet</a> · repeat 2 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is stable with content mood and no immediate crises, so waiting allows for a natural progression of events.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-21-real-quiet__on__r3.json">snap-21-real-quiet</a> · repeat 3 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is stable with content mood and no immediate threats, so pausing is the best course of action.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-21-real-quiet__off__r1.json">snap-21-real-quiet</a> · repeat 1 · grammar off · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is stable with content mood and no immediate crises, so a pause is appropriate before starting a new plot.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-21-real-quiet__off__r2.json">snap-21-real-quiet</a> · repeat 2 · grammar off · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is stable with content mood and no immediate threats, so pausing is appropriate.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-21-real-quiet__off__r3.json">snap-21-real-quiet</a> · repeat 3 · grammar off · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;No active plots are present, and the colony is currently stable, so pausing to assess the situation is appropriate.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-22-real-conditions__on__r1.json">snap-22-real-conditions</a> · repeat 1 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is stable with no immediate threats or events requiring action.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-22-real-conditions__on__r2.json">snap-22-real-conditions</a> · repeat 2 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;No immediate plot is due, and the colony has recently weathered the toxic fallout and cold snap. A pause allows the colonists to settle into routine.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-22-real-conditions__on__r3.json">snap-22-real-conditions</a> · repeat 3 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony has stabilized after the toxic fallout and cold snap, and no immediate events are pressing the colonists.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-22-real-conditions__off__r1.json">snap-22-real-conditions</a> · repeat 1 · grammar off · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony has settled after recent environmental events and no immediate threats or needs have arisen.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-22-real-conditions__off__r2.json">snap-22-real-conditions</a> · repeat 2 · grammar off · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is stable with no immediate threats or events pending. Waiting allows the colonists to recover from recent environmental issues.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-22-real-conditions__off__r3.json">snap-22-real-conditions</a> · repeat 3 · grammar off · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony has recently weathered a toxic fallout and cold snap, and no immediate threats or opportunities are present.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-23-real-reporter__on__r1.json">snap-23-real-reporter</a> · repeat 1 · grammar on · Model · 0.4 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;Goober&#39;s illness is revealed, and the colony needs time to address the immediate health concern.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-23-real-reporter__on__r2.json">snap-23-real-reporter</a> · repeat 2 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;Goober has an illness revealed, and Malaria is present, so the colony needs a moment to deal with the immediate health concerns.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-23-real-reporter__on__r3.json">snap-23-real-reporter</a> · repeat 3 · grammar on · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;Goober has been diagnosed with Malaria, which requires immediate attention before starting any new plot.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-23-real-reporter__off__r1.json">snap-23-real-reporter</a> · repeat 1 · grammar off · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;Goober&#39;s illness has just been revealed, and the colony needs time to react to this new development.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-23-real-reporter__off__r2.json">snap-23-real-reporter</a> · repeat 2 · grammar off · Model · 0.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;Goober has revealed an illness, and the colony is dealing with a disease outbreak, suggesting a pause is necessary to manage the immediate crisis.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__director__snap-23-real-reporter__off__r3.json">snap-23-real-reporter</a> · repeat 3 · grammar off · Model · 0.2 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;Goober has an illness revealed, and Malaria is present, so the colony needs time to manage the health situation.&quot;}</pre>
+</article>
+</details>
+<details>
+<summary>gemma4-12b · 138 outputs</summary>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-01-early-content__on__r1.json">snap-01-early-content</a> · repeat 1 · grammar on · Model · 0.8 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony has just finished their first shelter walls and is in the very early stages of establishment. It is best to let them settle in before introducing a new plot.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-01-early-content__on__r2.json">snap-01-early-content</a> · repeat 2 · grammar on · Model · 0.6 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony has just finished its first shelter walls and needs a moment to establish basic operations before a new plot begins.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-01-early-content__on__r3.json">snap-01-early-content</a> · repeat 3 · grammar on · Model · 0.6 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony has just finished its first shelter walls and needs a moment to establish basic operations before a new plot begins.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-01-early-content__off__r1.json">snap-01-early-content</a> · repeat 1 · grammar off · Model · 0.7 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony has just finished its first shelter walls and is in the very early stages of establishment. It is best to let the survivors settle in before introducing a new plot.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-01-early-content__off__r2.json">snap-01-early-content</a> · repeat 2 · grammar off · Model · 0.5 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony has just finished its first shelter walls and needs a moment to establish basic infrastructure before a new plot begins.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-01-early-content__off__r3.json">snap-01-early-content</a> · repeat 3 · grammar off · Model · 0.7 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony has just finished its first shelter walls and is in the very early stages of establishment. It is best to let the survivors settle in before introducing a new plot.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-02-early-content__on__r1.json">snap-02-early-content</a> · repeat 1 · grammar on · Model · 1.1 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:PastCatchesUp:p3&quot;, &quot;reason&quot;: &quot;The colony is stable and a new plot should be introduced to provide narrative tension. Ilka&#39;s background as a cult escapee provides a strong hook for a &#39;Past Catches Up&#39; story.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-02-early-content__on__r2.json">snap-02-early-content</a> · repeat 2 · grammar on · Model · 0.8 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:PastCatchesUp:p3&quot;, &quot;reason&quot;: &quot;The colony is stable and has no active plots. Starting Ilka&#39;s backstory plot provides a meaningful narrative arc for a new resident.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-02-early-content__on__r3.json">snap-02-early-content</a> · repeat 3 · grammar on · Model · 0.9 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:PastCatchesUp:p3&quot;, &quot;reason&quot;: &quot;The colony is stable and has no active plots, making it a good time to introduce a narrative arc. Ilka&#39;s backstory as a cult escapee provides a strong foundation for a &#39;Past Catches Up&#39; plot.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-02-early-content__off__r1.json">snap-02-early-content</a> · repeat 1 · grammar off · Model · 0.7 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Seed:PastCatchesUp:p3&quot;, &quot;reason&quot;: &quot;The colony is currently stable and peaceful, making it a good time to introduce a narrative hook regarding Ilka&#39;s past.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-02-early-content__off__r2.json">snap-02-early-content</a> · repeat 2 · grammar off · Model · 0.8 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Seed:PastCatchesUp:p3&quot;, &quot;reason&quot;: &quot;The colony is stable and has just completed its first harvest, making it a good time to introduce a new narrative arc. Ilka&#39;s background as a cult escapee provides a strong foundation for a &#39;Past Catches Up&#39; plot.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-02-early-content__off__r3.json">snap-02-early-content</a> · repeat 3 · grammar off · Model · 0.8 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Seed:PastCatchesUp:p3&quot;, &quot;reason&quot;: &quot;The colony is stable and the first harvest was successful, making it a good time to introduce a narrative complication. Ilka&#39;s background as a cult escapee provides a strong hook for a &#39;Past Catches Up&#39; plot.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-03-early-strained__on__r1.json">snap-03-early-strained</a> · repeat 1 · grammar on · Model · 1.0 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:Rivalry:p1:p3&quot;, &quot;reason&quot;: &quot;Marek and Dov have already fought twice over stolen rations, making a formal rivalry plot the natural progression of their conflict.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-03-early-strained__on__r2.json">snap-03-early-strained</a> · repeat 2 · grammar on · Model · 0.7 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:Rivalry:p1:p3&quot;, &quot;reason&quot;: &quot;Marek and Dov have already fought twice over stolen rations, making a formal Rivalry plot the natural progression of their conflict.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-03-early-strained__on__r3.json">snap-03-early-strained</a> · repeat 3 · grammar on · Model · 0.7 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:Rivalry:p1:p3&quot;, &quot;reason&quot;: &quot;Marek and Dov have already fought twice over stolen rations, making a formal rivalry plot a natural progression of their existing conflict.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-03-early-strained__off__r1.json">snap-03-early-strained</a> · repeat 1 · grammar off · ModelRetry · 0.6 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Seed:Rivalry:p1:p3:&quot;, &quot;reason&quot;: &quot;Marek and Dov have already fought twice over stolen rations, providing a clear foundation for a formal rivalry plot.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-03-early-strained__off__r2.json">snap-03-early-strained</a> · repeat 2 · grammar off · ModelRetry · 0.9 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Seed:Rivalry:p1:p3:&quot;, &quot;reason&quot;: &quot;Marek and Dov have already fought twice over stolen rations, making a formal rivalry plot the natural progression of their conflict.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-03-early-strained__off__r3.json">snap-03-early-strained</a> · repeat 3 · grammar off · ModelRetry · 0.9 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Seed:Rivalry:p1:p3:&quot;, &quot;reason&quot;: &quot;Marek and Dov have already fought twice over stolen rations, making a formal Rivalry plot the natural progression of their conflict.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-04-early-strained__on__r1.json">snap-04-early-strained</a> · repeat 1 · grammar on · Model · 1.1 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:ReparationsEnvoy&quot;, &quot;reason&quot;: &quot;The trader&#39;s comment on day 36 suggests the Dispatch is aware of the crime, making an official envoy the logical escalation of the plot.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-04-early-strained__on__r2.json">snap-04-early-strained</a> · repeat 2 · grammar on · Model · 0.8 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:ReparationsEnvoy&quot;, &quot;reason&quot;: &quot;The trader&#39;s warning on day 36 suggests the Dispatch is aware of the crime, making an official envoy the logical next step in the escalation.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-04-early-strained__on__r3.json">snap-04-early-strained</a> · repeat 3 · grammar on · Model · 0.9 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:ReparationsEnvoy&quot;, &quot;reason&quot;: &quot;The plot has already progressed through the Complication phase and a trader has already confirmed the Dispatch is aware. Sending an envoy provides a direct escalation of the tension caused by Teodor&#39;s actions.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-04-early-strained__off__r1.json">snap-04-early-strained</a> · repeat 1 · grammar off · Model · 0.8 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Choice:ReparationsEnvoy&quot;, &quot;reason&quot;: &quot;The trader&#39;s comment on day 36 suggests the Dispatch is aware of the crime, making an official visit for reparations the logical next step in the escalation.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-04-early-strained__off__r2.json">snap-04-early-strained</a> · repeat 2 · grammar off · Model · 0.8 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Choice:ReparationsEnvoy&quot;, &quot;reason&quot;: &quot;The trader&#39;s warning on day 36 suggests the Dispatch is aware of the crime, making an official visit the most logical escalation of the plot.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-04-early-strained__off__r3.json">snap-04-early-strained</a> · repeat 3 · grammar off · Model · 0.8 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Choice:ReparationsEnvoy&quot;, &quot;reason&quot;: &quot;The plot has already progressed past the initial complication, and the trader&#39;s hint suggests the Dispatch is actively aware of the crime.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-05-early-desperate__on__r1.json">snap-05-early-desperate</a> · repeat 1 · grammar on · Model · 1.0 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is currently in a state of crisis with only two days of food left and a desperate mood. It is best to wait for the immediate survival situation to resolve before starting a new plot.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-05-early-desperate__on__r2.json">snap-05-early-desperate</a> · repeat 2 · grammar on · Model · 0.7 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is currently in a desperate state with only two days of food left and a recent cold snap. A pause is needed to establish the immediate survival situation before a new plot begins.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-05-early-desperate__on__r3.json">snap-05-early-desperate</a> · repeat 3 · grammar on · Model · 0.7 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is currently in a desperate state with only two days of food left and a recent cold snap. A pause is needed to establish the immediate survival crisis before a new plot begins.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-05-early-desperate__off__r1.json">snap-05-early-desperate</a> · repeat 1 · grammar off · Model · 0.7 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is currently in a desperate state with only two days of food left and a recent cold snap. It is best to wait for an immediate crisis or event to develop before starting a new plot.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-05-early-desperate__off__r2.json">snap-05-early-desperate</a> · repeat 2 · grammar off · Model · 0.7 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is currently in a desperate state with only two days of food left and a severe cold snap recently occurred. A pause is needed to establish the immediate survival situation.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-05-early-desperate__off__r3.json">snap-05-early-desperate</a> · repeat 3 · grammar off · Model · 0.7 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is currently in a state of crisis with only two days of food left and a desperate mood. It is best to wait for the immediate survival situation to resolve before starting a new plot.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-06-early-content__on__r1.json">snap-06-early-content</a> · repeat 1 · grammar on · Model · 1.0 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:PastCatchesUp:p1&quot;, &quot;reason&quot;: &quot;The colony is currently stable with no active plots, making it the ideal time to introduce a narrative arc regarding Augustin&#39;s exile.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-06-early-content__on__r2.json">snap-06-early-content</a> · repeat 2 · grammar on · Model · 0.9 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:PastCatchesUp:p1&quot;, &quot;reason&quot;: &quot;The colony is currently stable with no active plots, making it a good time to introduce a narrative arc. Augustin&#39;s noble backstory provides a strong foundation for a &#39;Past Catches Up&#39; plot.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-06-early-content__on__r3.json">snap-06-early-content</a> · repeat 3 · grammar on · Model · 0.8 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:PastCatchesUp:p1&quot;, &quot;reason&quot;: &quot;The colony is currently stable and peaceful, making it a good time to introduce a narrative hook regarding Augustin&#39;s noble exile.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-06-early-content__off__r1.json">snap-06-early-content</a> · repeat 1 · grammar off · ModelRetry · 1.0 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Seed:PastCatchesUp:p1: start a Past Catches Up story: Augustin&#39;s past comes looking for him&quot;, &quot;reason&quot;: &quot;The colony has been stable since the wedding and the alpaca sighting. Starting a plot regarding Augustin&#39;s noble exile provides a necessary narrative hook.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-06-early-content__off__r2.json">snap-06-early-content</a> · repeat 2 · grammar off · ModelRetry · 1.0 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Seed:PastCatchesUp:p1: start a Past Catches Up story: Augustin&#39;s past comes looking for him&quot;, &quot;reason&quot;: &quot;The colony is currently stable with no active plots, making it a good time to introduce a narrative arc regarding Augustin&#39;s noble background.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-06-early-content__off__r3.json">snap-06-early-content</a> · repeat 3 · grammar off · ModelRetry · 1.0 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Seed:PastCatchesUp:p1: start a Past Catches Up story: Augustin&#39;s past comes looking for him&quot;, &quot;reason&quot;: &quot;The colony is currently stable with no active plots, making it the perfect time to introduce a narrative arc involving Augustin&#39;s noble exile.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-07-mid-strained__on__r1.json">snap-07-mid-strained</a> · repeat 1 · grammar on · Model · 1.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:ImperialBounty&quot;, &quot;reason&quot;: &quot;The Empire&#39;s goodwill is low and they are &#39;Stirring&#39;, making a bounty a logical political move to handle a pirate threat. This provides Mara a legal avenue to pursue her nemesis.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-07-mid-strained__on__r2.json">snap-07-mid-strained</a> · repeat 2 · grammar on · Model · 0.7 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:ImperialBounty&quot;, &quot;reason&quot;: &quot;The Empire is currently in a &#39;Stirring&#39; state and Mara is an Imperial deserter, making a bounty a logical progression for the plot.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-07-mid-strained__on__r3.json">snap-07-mid-strained</a> · repeat 3 · grammar on · Model · 0.7 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:ImperialBounty&quot;, &quot;reason&quot;: &quot;The Empire&#39;s goodwill is low, but a bounty provides a logical narrative bridge for Mara to track Vex while acknowledging the Empire&#39;s involvement.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-07-mid-strained__off__r1.json">snap-07-mid-strained</a> · repeat 1 · grammar off · Model · 0.7 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Complication:ImperialBounty&quot;, &quot;reason&quot;: &quot;The Empire is currently in a &#39;Stirring&#39; state and Mara is an Imperial deserter, making a bounty a logical progression for the plot.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-07-mid-strained__off__r2.json">snap-07-mid-strained</a> · repeat 2 · grammar off · Model · 0.7 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Complication:ImperialBounty&quot;, &quot;reason&quot;: &quot;The Empire is currently in a &#39;Stirring&#39; state and has low goodwill with the colony, making a bounty a logical way to involve them in the hunt for Vex.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-07-mid-strained__off__r3.json">snap-07-mid-strained</a> · repeat 3 · grammar off · Model · 0.9 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Complication:ImperialBounty&quot;, &quot;reason&quot;: &quot;The Shattered Empire is currently in a &#39;Stirring&#39; state and has low goodwill with the colony, making a bounty a logical political move. This provides Mara with a structured way to pursue her revenge against Vex.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-08-mid-content__on__r1.json">snap-08-mid-content</a> · repeat 1 · grammar on · Model · 1.0 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:Rivalry:p4:p2&quot;, &quot;reason&quot;: &quot;The colony is currently stable and content with no active plots. Introducing a rivalry between Yara and Esme will provide a new narrative arc for the group.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-08-mid-content__on__r2.json">snap-08-mid-content</a> · repeat 2 · grammar on · Model · 0.7 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:Rivalry:p4:p2&quot;, &quot;reason&quot;: &quot;The colony is currently stable and content with no active plots, making it a good time to introduce a new narrative arc.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-08-mid-content__on__r3.json">snap-08-mid-content</a> · repeat 3 · grammar on · Model · 0.7 s</p>
+<pre>{&quot;choice&quot;: &quot;Seed:Rivalry:p4:p2&quot;, &quot;reason&quot;: &quot;The colony is currently stable and content with no active plots. Introducing a rivalry between Yara and Esme will provide a new narrative arc for the settlers.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-08-mid-content__off__r1.json">snap-08-mid-content</a> · repeat 1 · grammar off · Model · 0.6 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Seed:Rivalry:p4:p2&quot;, &quot;reason&quot;: &quot;The colony is currently stable and content, making it a good time to introduce a personal conflict to drive the narrative.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-08-mid-content__off__r2.json">snap-08-mid-content</a> · repeat 2 · grammar off · Model · 0.8 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Seed:Rivalry:p4:p2&quot;, &quot;reason&quot;: &quot;The colony is currently stable and content, making it a good time to introduce a new narrative arc. A rivalry between Yara and Esme will add interpersonal tension to the settlement.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-08-mid-content__off__r3.json">snap-08-mid-content</a> · repeat 3 · grammar off · Model · 0.7 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Seed:Rivalry:p4:p2&quot;, &quot;reason&quot;: &quot;The colony is currently stable and content with no active plots. Introducing a rivalry between Yara and Esme will provide a new narrative arc for the settlers.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-09-mid-desperate__on__r1.json">snap-09-mid-desperate</a> · repeat 1 · grammar on · Model · 1.2 s</p>
+<pre>{&quot;choice&quot;: &quot;Resolution:InheritToKin:p3&quot;, &quot;reason&quot;: &quot;Tamsin is Joska&#39;s daughter and a primary survivor of the events. Inheriting the story to her allows the narrative to focus on her growth following her father&#39;s death.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-09-mid-desperate__on__r2.json">snap-09-mid-desperate</a> · repeat 2 · grammar on · Model · 0.9 s</p>
+<pre>{&quot;choice&quot;: &quot;Resolution:InheritToKin:p3&quot;, &quot;reason&quot;: &quot;Tamsin is Joska&#39;s daughter and a primary survivor of the conflict. Inheriting the story to her allows the narrative to focus on her growth as a scavenger and the next generation of the colony.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-09-mid-desperate__on__r3.json">snap-09-mid-desperate</a> · repeat 3 · grammar on · Model · 0.9 s</p>
+<pre>{&quot;choice&quot;: &quot;Resolution:InheritToKin:p3&quot;, &quot;reason&quot;: &quot;Tamsin is Joska&#39;s daughter and a primary survivor of the conflict. Inheriting the story to her allows the narrative to focus on her growth as a scavenger following her father&#39;s death.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-09-mid-desperate__off__r1.json">snap-09-mid-desperate</a> · repeat 1 · grammar off · Model · 0.8 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Resolution:InheritToKin:p3&quot;, &quot;reason&quot;: &quot;Tamsin is Joska&#39;s daughter and a primary survivor of the conflict. Inheriting the narrative to her allows the story to continue through the next generation.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-09-mid-desperate__off__r2.json">snap-09-mid-desperate</a> · repeat 2 · grammar off · Model · 0.9 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Resolution:InheritToKin:p3&quot;, &quot;reason&quot;: &quot;Tamsin is Joska&#39;s daughter and a primary survivor of the conflict. Her hot-tempered trait makes her a compelling protagonist to carry on her father&#39;s legacy.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-09-mid-desperate__off__r3.json">snap-09-mid-desperate</a> · repeat 3 · grammar off · Model · 0.9 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Resolution:InheritToKin:p3&quot;, &quot;reason&quot;: &quot;Tamsin is Joska&#39;s daughter and a primary survivor of the conflict. Inheriting the story to her allows her to deal with the fallout of her father&#39;s death and the pirate threat.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-10-mid-strained__on__r1.json">snap-10-mid-strained</a> · repeat 1 · grammar on · Model · 1.1 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:RescueOrRansom&quot;, &quot;reason&quot;: &quot;Anouk has been struggling with the news of Saskia&#39;s capture since the first letter. It is time for the colony to decide on a course of action regarding her rescue or ransom.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-10-mid-strained__on__r2.json">snap-10-mid-strained</a> · repeat 2 · grammar on · Model · 0.7 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:RescueOrRansom&quot;, &quot;reason&quot;: &quot;The plot has already beaten the Complication beat, and the colony needs to decide how to handle the ransom demand regarding Saskia.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-10-mid-strained__on__r3.json">snap-10-mid-strained</a> · repeat 3 · grammar on · Model · 0.8 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:RescueOrRansom&quot;, &quot;reason&quot;: &quot;Anouk has been struggling with the news of Saskia&#39;s capture since the first letter. The colony needs to decide on a concrete course of action regarding her rescue or ransom.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-10-mid-strained__off__r1.json">snap-10-mid-strained</a> · repeat 1 · grammar off · Model · 0.9 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Choice:RescueOrRansom&quot;, &quot;reason&quot;: &quot;Anouk has been struggling with the news of Saskia&#39;s capture since the first letter arrived. The colony needs to decide on a course of action to address the ransom demand.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-10-mid-strained__off__r2.json">snap-10-mid-strained</a> · repeat 2 · grammar off · Model · 1.0 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Choice:RescueOrRansom&quot;, &quot;reason&quot;: &quot;Anouk has been struggling with the news of Saskia&#39;s capture, and the plot has already cleared its complication beat. It is time for the colony to decide how to handle the ransom or rescue mission.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-10-mid-strained__off__r3.json">snap-10-mid-strained</a> · repeat 3 · grammar off · Model · 0.6 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Choice:RescueOrRansom&quot;, &quot;reason&quot;: &quot;The plot has already beaten the Complication beat, and the colony needs to make a decision regarding Saskia&#39;s fate.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-11-mid-content__on__r1.json">snap-11-mid-content</a> · repeat 1 · grammar on · Model · 1.0 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:SabotagedNotes&quot;, &quot;reason&quot;: &quot;Ilan was seen near Rosamund&#39;s notes at night, making a sabotage event a logical progression of their ongoing rivalry.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-11-mid-content__on__r2.json">snap-11-mid-content</a> · repeat 2 · grammar on · Model · 0.8 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:SabotagedNotes&quot;, &quot;reason&quot;: &quot;Ilan was seen near Rosamund&#39;s notes at night, making a sabotage event a natural progression of their ongoing rivalry.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-11-mid-content__on__r3.json">snap-11-mid-content</a> · repeat 3 · grammar on · Model · 0.8 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:SabotagedNotes&quot;, &quot;reason&quot;: &quot;Ilan was seen near Rosamund&#39;s notes at night, making a sabotage event a natural progression of their ongoing rivalry.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-11-mid-content__off__r1.json">snap-11-mid-content</a> · repeat 1 · grammar off · Model · 0.7 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Complication:SabotagedNotes&quot;, &quot;reason&quot;: &quot;Ilan was recently seen near Rosamund&#39;s notes at night, making a sabotage event a natural escalation of their ongoing rivalry.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-11-mid-content__off__r2.json">snap-11-mid-content</a> · repeat 2 · grammar off · Model · 0.8 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Complication:SabotagedNotes&quot;, &quot;reason&quot;: &quot;Ilan was seen near Rosamund&#39;s notes at night, making a sabotage event a natural progression of their ongoing rivalry.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-11-mid-content__off__r3.json">snap-11-mid-content</a> · repeat 3 · grammar off · Model · 0.7 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Complication:SabotagedNotes&quot;, &quot;reason&quot;: &quot;Ilan was seen near Rosamund&#39;s notes at night, making a sabotage event a natural progression of their ongoing rivalry.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-12-mid-desperate__on__r1.json">snap-12-mid-desperate</a> · repeat 1 · grammar on · Model · 1.0 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is currently weak and suffering from toxic fallout and multiple wounded members. It is safer to wait until the colony recovers before attempting a rescue or negotiation.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-12-mid-desperate__on__r2.json">snap-12-mid-desperate</a> · repeat 2 · grammar on · Model · 0.8 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is currently in a desperate state and recovering from a recent raid and toxic fallout. They need time to heal and regroup before attempting a rescue or negotiation.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-12-mid-desperate__on__r3.json">snap-12-mid-desperate</a> · repeat 3 · grammar on · Model · 0.7 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is currently in a desperate mood and recovering from a recent raid and toxic fallout. They need a few days to stabilize before attempting a rescue or negotiation.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-12-mid-desperate__off__r1.json">snap-12-mid-desperate</a> · repeat 1 · grammar off · Model · 0.7 s</p>
+<pre>```json
+{
+  &quot;choice&quot;: &quot;Wait&quot;,
+  &quot;reason&quot;: &quot;The colony is currently weak and suffering from toxic fallout and multiple wounded members. It is safer to wait for the survivors to recover before attempting a rescue.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-12-mid-desperate__off__r2.json">snap-12-mid-desperate</a> · repeat 2 · grammar off · Model · 0.8 s</p>
+<pre>```json
+{
+  &quot;choice&quot;: &quot;Wait&quot;,
+  &quot;reason&quot;: &quot;The colony is currently weak after repelling a raid and suffering from six days of toxic fallout. They need time to recover before attempting a rescue mission.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-12-mid-desperate__off__r3.json">snap-12-mid-desperate</a> · repeat 3 · grammar off · Model · 0.8 s</p>
+<pre>```json
+{
+  &quot;choice&quot;: &quot;Wait&quot;,
+  &quot;reason&quot;: &quot;The colony is currently weak after repelling a raid and suffering from six days of toxic fallout. They need time to recover before attempting a rescue or negotiation.&quot;
+}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-13-mid-strained__on__r1.json">snap-13-mid-strained</a> · repeat 1 · grammar on · Model · 1.1 s</p>
+<pre>{&quot;choice&quot;: &quot;Empire:EnvoyReturns&quot;, &quot;reason&quot;: &quot;The envoy left unhappy after Corvin&#39;s refusal, and it is logical for them to return to press the Empire&#39;s demands on the colony.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-13-mid-strained__on__r2.json">snap-13-mid-strained</a> · repeat 2 · grammar on · Model · 0.7 s</p>
+<pre>{&quot;choice&quot;: &quot;Empire:EnvoyReturns&quot;, &quot;reason&quot;: &quot;The envoy left unhappy after Corvin&#39;s refusal, and a follow-up visit is the logical next step to press the Empire&#39;s demands.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-13-mid-strained__on__r3.json">snap-13-mid-strained</a> · repeat 3 · grammar on · Model · 0.8 s</p>
+<pre>{&quot;choice&quot;: &quot;Empire:EnvoyReturns&quot;, &quot;reason&quot;: &quot;The envoy left unhappy after Corvin&#39;s refusal, so their return to press demands is the most logical next step in the escalating tension.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-13-mid-strained__off__r1.json">snap-13-mid-strained</a> · repeat 1 · grammar off · Model · 0.7 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Empire:EnvoyReturns&quot;, &quot;reason&quot;: &quot;The envoy left unhappy after Corvin&#39;s refusal, and a return visit is the logical next step to press the Empire&#39;s demands.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-13-mid-strained__off__r2.json">snap-13-mid-strained</a> · repeat 2 · grammar off · Model · 0.7 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Empire:EnvoyReturns&quot;, &quot;reason&quot;: &quot;The envoy left unhappy after Corvin&#39;s refusal, and their return provides a logical next step to escalate the tension before full military action.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-13-mid-strained__off__r3.json">snap-13-mid-strained</a> · repeat 3 · grammar off · Model · 0.7 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Empire:EnvoyReturns&quot;, &quot;reason&quot;: &quot;The envoy left unhappy after Corvin&#39;s refusal, and a follow-up visit is the logical next step to press the Empire&#39;s demands.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-14-mid-content__on__r1.json">snap-14-mid-content</a> · repeat 1 · grammar on · Model · 1.1 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:CorsairMessenger&quot;, &quot;reason&quot;: &quot;The colony just released Teague Holt, who explicitly stated the Corsairs would remember the action. A messenger arriving to deliver a message is a natural escalation of that specific event.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-14-mid-content__on__r2.json">snap-14-mid-content</a> · repeat 2 · grammar on · Model · 0.9 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:CorsairMessenger&quot;, &quot;reason&quot;: &quot;Since Teague Holt was released recently and warned the Corsairs of the colony&#39;s actions, a messenger arriving to deliver a message is a natural progression of the tension.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-14-mid-content__on__r3.json">snap-14-mid-content</a> · repeat 3 · grammar on · Model · 0.7 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:CorsairMessenger&quot;, &quot;reason&quot;: &quot;The colony has been stable since releasing Teague Holt, and a messenger provides a natural narrative bridge to the Corsairs&#39; reaction.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-14-mid-content__off__r1.json">snap-14-mid-content</a> · repeat 1 · grammar off · Model · 1.0 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Complication:CorsairMessenger&quot;, &quot;reason&quot;: &quot;The colony just released Teague Holt, who explicitly mentioned the Corsairs would remember the betrayal. A messenger arriving now provides a natural narrative bridge from that event.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-14-mid-content__off__r2.json">snap-14-mid-content</a> · repeat 2 · grammar off · Model · 0.8 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Complication:CorsairMessenger&quot;, &quot;reason&quot;: &quot;Since Teague Holt was released recently and mentioned the Corsairs would remember, a messenger arriving to deliver a message is a natural next step.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-14-mid-content__off__r3.json">snap-14-mid-content</a> · repeat 3 · grammar off · Model · 0.7 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Complication:CorsairMessenger&quot;, &quot;reason&quot;: &quot;The colony has been stable since releasing Teague Holt, and a messenger provides a natural narrative bridge for the Corsairs to initiate contact.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-15-late-content__on__r1.json">snap-15-late-content</a> · repeat 1 · grammar on · Model · 1.2 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:ChoirLetter&quot;, &quot;reason&quot;: &quot;The plot is currently in the Complication beat and a pilgrim was recently seen asking about Leopold. Receiving the letter provides the necessary narrative trigger to move the plot forward.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-15-late-content__on__r2.json">snap-15-late-content</a> · repeat 2 · grammar on · Model · 0.8 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:ChoirLetter&quot;, &quot;reason&quot;: &quot;The plot is currently in the Complication beat, and a direct communication from the cult would naturally advance the tension regarding Leopold&#39;s past.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-15-late-content__on__r3.json">snap-15-late-content</a> · repeat 3 · grammar on · Model · 0.8 s</p>
+<pre>{&quot;choice&quot;: &quot;Complication:ChoirLetter&quot;, &quot;reason&quot;: &quot;A pilgrim was recently seen asking about Leopold, making the arrival of a direct communication from the Pale Choir the most logical next step.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-15-late-content__off__r1.json">snap-15-late-content</a> · repeat 1 · grammar off · Model · 0.8 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Complication:ChoirLetter&quot;, &quot;reason&quot;: &quot;The plot is currently in the Complication beat, and a direct communication from the cult provides the necessary narrative escalation.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-15-late-content__off__r2.json">snap-15-late-content</a> · repeat 2 · grammar off · Model · 0.8 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Complication:ChoirLetter&quot;, &quot;reason&quot;: &quot;The plot is currently in the Complication beat, and a letter from the Pale Choir is the logical next step to escalate the tension regarding Leopold&#39;s past.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-15-late-content__off__r3.json">snap-15-late-content</a> · repeat 3 · grammar off · Model · 0.8 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Complication:ChoirLetter&quot;, &quot;reason&quot;: &quot;The plot is currently in the Complication beat, and a direct communication from the cult would naturally escalate the tension regarding Leopold&#39;s past.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-16-late-desperate__on__r1.json">snap-16-late-desperate</a> · repeat 1 · grammar on · Model · 1.1 s</p>
+<pre>{&quot;choice&quot;: &quot;Resolution:InheritToFriend:p2&quot;, &quot;reason&quot;: &quot;Elske was Bertram&#39;s best friend and a marshal, making her the most natural successor to lead the hunt for Dunmore.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-16-late-desperate__on__r2.json">snap-16-late-desperate</a> · repeat 2 · grammar on · Model · 0.9 s</p>
+<pre>{&quot;choice&quot;: &quot;Resolution:InheritToFriend:p2&quot;, &quot;reason&quot;: &quot;Elske is Bertram&#39;s best friend and a former marshal, making her the most logical and narratively compelling choice to lead the hunt for Dunmore.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-16-late-desperate__on__r3.json">snap-16-late-desperate</a> · repeat 3 · grammar on · Model · 0.8 s</p>
+<pre>{&quot;choice&quot;: &quot;Resolution:InheritToFriend:p2&quot;, &quot;reason&quot;: &quot;Elske was Bertram&#39;s best friend and a colonial marshal, making her the most natural successor to lead the hunt for Dunmore.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-16-late-desperate__off__r1.json">snap-16-late-desperate</a> · repeat 1 · grammar off · ModelRetry · 1.0 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Resolution:InheritToFriend:p2: Elske, Bertram&#39;s friend, carries the hunt for Dunmore on&quot;, &quot;reason&quot;: &quot;Elske was Bertram&#39;s best friend and a colonial marshal, making her the most natural choice to lead the pursuit of the man who killed him.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-16-late-desperate__off__r2.json">snap-16-late-desperate</a> · repeat 2 · grammar off · ModelRetry · 1.2 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Resolution:InheritToFriend:p2: Elske, Bertram&#39;s friend, carries the hunt for Dunmore on&quot;, &quot;reason&quot;: &quot;Elske was Bertram&#39;s best friend and is a skilled shooter, making her the most natural successor to lead the hunt for his killer.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-16-late-desperate__off__r3.json">snap-16-late-desperate</a> · repeat 3 · grammar off · ModelRetry · 1.2 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Resolution:InheritToFriend:p2: Elske, Bertram&#39;s friend, carries the hunt for Dunmore on&quot;, &quot;reason&quot;: &quot;Elske was Bertram&#39;s best friend and is a skilled shooter, making her the most logical candidate to lead the retaliatory hunt.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-17-late-strained__on__r1.json">snap-17-late-strained</a> · repeat 1 · grammar on · Model · 1.2 s</p>
+<pre>{&quot;choice&quot;: &quot;Empire:DemandSeverin&quot;, &quot;reason&quot;: &quot;The Empire is already at war with the Ashford Compact and has a bounty on Severin. Demanding his surrender is a logical escalation of their hostility toward the colony.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-17-late-strained__on__r2.json">snap-17-late-strained</a> · repeat 2 · grammar on · Model · 1.0 s</p>
+<pre>{&quot;choice&quot;: &quot;Empire:DemandSeverin&quot;, &quot;reason&quot;: &quot;The Empire has already been awakened and is actively hostile toward the colony. Since a bounty on Severin was recently posted, a formal demand for his surrender is the logical next step in their escalation.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-17-late-strained__on__r3.json">snap-17-late-strained</a> · repeat 3 · grammar on · Model · 0.9 s</p>
+<pre>{&quot;choice&quot;: &quot;Empire:DemandSeverin&quot;, &quot;reason&quot;: &quot;The Empire is already at war with the Ashford Compact and has a bounty on Severin. Demanding his surrender is a logical escalation of their hostility toward the colony.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-17-late-strained__off__r1.json">snap-17-late-strained</a> · repeat 1 · grammar off · Model · 0.9 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Empire:DemandSeverin&quot;, &quot;reason&quot;: &quot;The Empire has already awakened and is at war with the Ashford Compact. Given the bounty on Severin and his status as a defector, a formal demand for his surrender is a logical escalation.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-17-late-strained__off__r2.json">snap-17-late-strained</a> · repeat 2 · grammar off · Model · 0.8 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Empire:DemandSeverin&quot;, &quot;reason&quot;: &quot;The Empire has already awakened and the colony is at war with them. Since a bounty on Severin was recently posted, a formal demand for his surrender is a logical escalation.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-17-late-strained__off__r3.json">snap-17-late-strained</a> · repeat 3 · grammar off · Model · 1.0 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Empire:DemandSeverin&quot;, &quot;reason&quot;: &quot;The Empire has already awakened and is at war with the Ashford Compact. Given the bounty on Severin and his status as a defector, a formal demand for his surrender is the logical next step in the escalation.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-18-late-desperate__on__r1.json">snap-18-late-desperate</a> · repeat 1 · grammar on · Model · 1.2 s</p>
+<pre>{&quot;choice&quot;: &quot;Resolution:InheritToKin:p2&quot;, &quot;reason&quot;: &quot;Constance has died, and the plot requires a transition to her kin. Elias is her son and the logical successor to her search for Ada.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-18-late-desperate__on__r2.json">snap-18-late-desperate</a> · repeat 2 · grammar on · Model · 0.8 s</p>
+<pre>{&quot;choice&quot;: &quot;Resolution:InheritToKin:p2&quot;, &quot;reason&quot;: &quot;Constance has died, and the plot requires a transition of the search for Ada to her kin, Elias.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-18-late-desperate__on__r3.json">snap-18-late-desperate</a> · repeat 3 · grammar on · Model · 1.0 s</p>
+<pre>{&quot;choice&quot;: &quot;Resolution:InheritToKin:p2&quot;, &quot;reason&quot;: &quot;Constance has died, and the plot requires a transition of the quest to her kin. Elias is her son and the natural successor to her search for Ada.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-18-late-desperate__off__r1.json">snap-18-late-desperate</a> · repeat 1 · grammar off · ModelRetry · 1.1 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Resolution:InheritToKin:p2: Elias, Constance&#39;s kin, carries the search for Ada on&quot;, &quot;reason&quot;: &quot;Constance has died and the plot beat requires the search for Ada to be passed to her kin. Elias is her son and is the natural successor for this quest.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-18-late-desperate__off__r2.json">snap-18-late-desperate</a> · repeat 2 · grammar off · ModelRetry · 1.1 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Resolution:InheritToKin:p2: Elias, Constance&#39;s kin, carries the search for Ada on&quot;, &quot;reason&quot;: &quot;Constance has died, and Elias is her son, making him the natural successor to her quest to find Ada.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-18-late-desperate__off__r3.json">snap-18-late-desperate</a> · repeat 3 · grammar off · ModelRetry · 1.2 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Resolution:InheritToKin:p2: Elias, Constance&#39;s kin, carries the search for Ada on&quot;, &quot;reason&quot;: &quot;Constance has died and the plot is at the Choice beat, making it the natural time for the quest to pass to her son, Elias.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-19-late-desperate__on__r1.json">snap-19-late-desperate</a> · repeat 1 · grammar on · Model · 1.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Quest:DefendAlly:Marrow Hold&quot;, &quot;reason&quot;: &quot;The colony is currently in a coalition with the Marrow League and needs to solidify that alliance after the recent legionary attack. This provides a logical next step for the coalition&#39;s cooperation.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-19-late-desperate__on__r2.json">snap-19-late-desperate</a> · repeat 2 · grammar on · Model · 0.9 s</p>
+<pre>{&quot;choice&quot;: &quot;Quest:DefendAlly:Marrow Hold&quot;, &quot;reason&quot;: &quot;The colony is in a coalition with the Marrow League and needs to bolster their alliance after the recent heavy losses from the Imperial raid.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-19-late-desperate__on__r3.json">snap-19-late-desperate</a> · repeat 3 · grammar on · Model · 1.0 s</p>
+<pre>{&quot;choice&quot;: &quot;Quest:DefendAlly:Marrow Hold&quot;, &quot;reason&quot;: &quot;The colony is currently in a coalition with the Marrow League and needs to solidify that alliance after the recent legionary raid. This provides a logical next step for the coalition&#39;s objectives.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-19-late-desperate__off__r1.json">snap-19-late-desperate</a> · repeat 1 · grammar off · Model · 0.8 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Quest:DefendAlly:Marrow Hold&quot;, &quot;reason&quot;: &quot;The colony is currently in a coalition with the Marrow League and needs to bolster their alliance against the Sun Throne&#39;s expansion.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-19-late-desperate__off__r2.json">snap-19-late-desperate</a> · repeat 2 · grammar off · Model · 0.9 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Quest:DefendAlly:Marrow Hold&quot;, &quot;reason&quot;: &quot;The colony is currently in a coalition with the Marrow League and needs to bolster their alliance after the heavy losses from the recent Imperial raid.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-19-late-desperate__off__r3.json">snap-19-late-desperate</a> · repeat 3 · grammar off · Model · 1.0 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Quest:DefendAlly:Marrow Hold&quot;, &quot;reason&quot;: &quot;The colony is currently in a coalition with the Marrow League, and a defensive quest provides a logical next step for their alliance. This allows the colony to act proactively while they are still recovering from the recent legionary raid.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-20-late-strained__on__r1.json">snap-20-late-strained</a> · repeat 1 · grammar on · Model · 1.3 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:AcceptOrRefuseGovernorship&quot;, &quot;reason&quot;: &quot;The envoy&#39;s offer has been on the table since day 1040, and the internal conflict regarding the Empire&#39;s influence has reached a boiling point.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-20-late-strained__on__r2.json">snap-20-late-strained</a> · repeat 2 · grammar on · Model · 0.9 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:AcceptOrRefuseGovernorship&quot;, &quot;reason&quot;: &quot;The envoy visited recently and the plot is ready to move. This choice directly addresses the internal conflict between those wanting to serve the Empire and those threatening to leave.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-20-late-strained__on__r3.json">snap-20-late-strained</a> · repeat 3 · grammar on · Model · 0.9 s</p>
+<pre>{&quot;choice&quot;: &quot;Choice:AcceptOrRefuseGovernorship&quot;, &quot;reason&quot;: &quot;The envoy visited on day 1040 and the plot is ready to move forward. This choice directly addresses the internal conflict regarding the Empire&#39;s offer.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-20-late-strained__off__r1.json">snap-20-late-strained</a> · repeat 1 · grammar off · Model · 0.9 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Choice:AcceptOrRefuseGovernorship&quot;, &quot;reason&quot;: &quot;The envoy visited on day 1040 and the plot is ready for the decision. This choice addresses the internal conflict between the colonists who want to leave and those who want to serve.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-20-late-strained__off__r2.json">snap-20-late-strained</a> · repeat 2 · grammar off · Model · 0.9 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Choice:AcceptOrRefuseGovernorship&quot;, &quot;reason&quot;: &quot;The envoy&#39;s offer was made on day 1040, and the plot needs to progress toward a decision. This choice directly addresses the internal conflict regarding the Empire&#39;s influence.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-20-late-strained__off__r3.json">snap-20-late-strained</a> · repeat 3 · grammar off · Model · 0.9 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Choice:AcceptOrRefuseGovernorship&quot;, &quot;reason&quot;: &quot;The envoy visited on day 1040 and the plot is ready to move forward. This choice directly addresses the conflict between the colonists who want to leave and the Empire&#39;s offer.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-21-real-quiet__on__r1.json">snap-21-real-quiet</a> · repeat 1 · grammar on · Model · 1.2 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony has just landed and is in its first few days of survival. It is best to let the settlers establish their initial base before introducing a new plot.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-21-real-quiet__on__r2.json">snap-21-real-quiet</a> · repeat 2 · grammar on · Model · 0.7 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony has just landed and is in its first few days of survival. It is best to let them establish their base before introducing a new plot.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-21-real-quiet__on__r3.json">snap-21-real-quiet</a> · repeat 3 · grammar on · Model · 0.8 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony has just landed and established its initial presence. It is best to let the settlers begin their early survival routines before introducing a new plot.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-21-real-quiet__off__r1.json">snap-21-real-quiet</a> · repeat 1 · grammar off · Model · 0.7 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony has just landed and is in its first few days of survival. It is best to let the settlers establish their base before introducing a new plot.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-21-real-quiet__off__r2.json">snap-21-real-quiet</a> · repeat 2 · grammar off · Model · 0.8 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony has just landed and is in the very early stages of establishing their base. It is best to let them settle in before introducing a new plot.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-21-real-quiet__off__r3.json">snap-21-real-quiet</a> · repeat 3 · grammar off · Model · 0.8 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony has just landed and is in the very early stages of establishment. It is best to let the settlers settle in before starting a new plot.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-22-real-conditions__on__r1.json">snap-22-real-conditions</a> · repeat 1 · grammar on · Model · 1.1 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony has just finished enduring a cold snap and toxic fallout. They need a moment to stabilize and establish their base before a new plot begins.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-22-real-conditions__on__r2.json">snap-22-real-conditions</a> · repeat 2 · grammar on · Model · 0.8 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony has just finished surviving a period of toxic fallout and a cold snap. It is best to let the settlers stabilize before introducing a new plot.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-22-real-conditions__on__r3.json">snap-22-real-conditions</a> · repeat 3 · grammar on · Model · 0.8 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony has just finished enduring a series of early-game hazards like toxic fallout and a cold snap. It is best to let the settlers stabilize before introducing a new plot.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-22-real-conditions__off__r1.json">snap-22-real-conditions</a> · repeat 1 · grammar off · Model · 0.7 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony has just finished enduring a cold snap and toxic fallout. They need a moment to stabilize before a new plot begins.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-22-real-conditions__off__r2.json">snap-22-real-conditions</a> · repeat 2 · grammar off · Model · 0.8 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony has just finished enduring a period of toxic fallout and a cold snap. They need a moment to stabilize and establish their base before a new plot begins.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-22-real-conditions__off__r3.json">snap-22-real-conditions</a> · repeat 3 · grammar off · Model · 0.8 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony has just survived a period of toxic fallout and a cold snap. They need a moment to stabilize and establish their base before a new plot begins.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-23-real-reporter__on__r1.json">snap-23-real-reporter</a> · repeat 1 · grammar on · Model · 1.2 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is in the very early stages of settlement and just dealt with a malaria infection. It is best to let the colonists stabilize before introducing a new plot.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-23-real-reporter__on__r2.json">snap-23-real-reporter</a> · repeat 2 · grammar on · Model · 0.8 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is in the early stages of settlement and Goober has just been diagnosed with Malaria, requiring a period of stabilization.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-23-real-reporter__on__r3.json">snap-23-real-reporter</a> · repeat 3 · grammar on · Model · 0.8 s</p>
+<pre>{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is in the very early stages of settlement and Goober has just been diagnosed with Malaria. It is best to wait for the situation to stabilize before starting a new plot.&quot;}</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-23-real-reporter__off__r1.json">snap-23-real-reporter</a> · repeat 1 · grammar off · Model · 0.8 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is in the very early stages of settlement and currently dealing with a malaria outbreak. It is best to let the inhabitants stabilize before introducing a new plot.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-23-real-reporter__off__r2.json">snap-23-real-reporter</a> · repeat 2 · grammar off · Model · 0.8 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is in its early stages and Goober has just been diagnosed with Malaria. It is best to wait for the medical situation to stabilize before starting a new plot.&quot;}
+```</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__director__snap-23-real-reporter__off__r3.json">snap-23-real-reporter</a> · repeat 3 · grammar off · Model · 0.7 s</p>
+<pre>```json
+{&quot;choice&quot;: &quot;Wait&quot;, &quot;reason&quot;: &quot;The colony is in its early stages and Goober has just been diagnosed with Malaria. It is best to let the colony stabilize before starting a new plot.&quot;}
+```</pre>
+</article>
+</details>
+</section>
+</main>
+</body>
+</html>

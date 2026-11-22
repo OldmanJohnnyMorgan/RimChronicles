@@ -1,0 +1,50 @@
+{
+  "cell": "gemma4-e2b__director__snap-21-real-quiet__on__r3",
+  "model": "gemma4-e2b",
+  "task": "director",
+  "snapshot": "snap-21-real-quiet",
+  "grammar": "on",
+  "repeat": 3,
+  "promptVersion": "director/v2",
+  "outcome": "Model",
+  "value": "{\u0022choice\u0022: \u0022Wait\u0022, \u0022reason\u0022: \u0022There are no active plots, so waiting is the appropriate action. The colony is currently stable despite recent events.\u0022}",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are the plot director for a story told through a RimWorld colony. You decide what happens next in one of the colony\u0027s plots: the one under \u0022Deciding now\u0022.\n\nRules:\n- Choose exactly one option from the allowed list. Copy its id exactly, character for character, without the description.\n- Choose \u0022Wait\u0022 if the colony is in crisis or the story needs a pause.\n- Read what each option would do. Prefer the one that follows most naturally from what has already happened, and keep the pace: a beat that has waited a long time should move; one that just fired, or a colony that just suffered, may need a pause.\n- Give a reason in one or two short sentences. Use only facts from the briefing.\n\nAnswer with JSON only, in this form:\n{\u0022choice\u0022: \u0022\u003Cone allowed option\u003E\u0022, \u0022reason\u0022: \u0022\u003Cone or two sentences\u003E\u0022}\n",
+        "user": "## The world\nDate: day 3 (Aprimay 5500).\nColony: New Arrivals, 3 people, wealth 15,596 silver, mood content.\n\nPeople:\n- Goober (40); traits: Fast walker, Tough; backstory: Forester.\n- Ye (13); traits: Ugly, Psychopath; backstory: Apocalypse survivor; brother of Human1033.\n- Fjellsmel (21); traits: Jogger, Kind; backstory: Army scientist; brother of Human1037.\n\nHistory:\n- Day 2: alpaca - wounded - Ye.\n- Day 2: alpaca - downed - Ye.\n- Day 2: Ye - killed long range - alpaca.\n- Day 2: Ye - killed capacity - alpaca.\n- Day 0: Ye: meditated.\n- Day 0: Goober: vomited.\n- Day 0: Fjellsmel: landed in pod.\n- Day 0: Ye: landed in pod.\n- Day 0: Goober: landed in pod.\n\nFactions:\n- Tola (civil outlander union): goodwill 0, 34 settlements.\n- Polpbal (rough pig union): goodwill -80, 32 settlements.\n- Kinship of Comareiro (gentle tribe): goodwill 0, 25 settlements.\n- Wegsul\u0027mouk (fierce neanderthal tribe): goodwill -80, 22 settlements.\n- Nchnoess (savage impid tribe): goodwill -100, 24 settlements.\n- Tribe of Kyshyodo (yttakin pirates): goodwill -100, 25 settlements.\n- Venom Gang (waster pirates): goodwill -100, 32 settlements.\n- The Refugee Dominion (shattered empire): goodwill 0, 31 settlements.\n- Space Consortium (traders guild): goodwill 0, 9 settlements.\n\nRecent events:\n- Visitors from Tola are leaving. (day 2)\n- Gift from Tola (day 2)\n- Visitor (day 2)\n- Quest active: Young Traveler Requests Charity (day 1)\n- Ancient danger (day 1)\n- Torrential rain (day 0)\n- The three of you awake in your cryptosleep sarcophagi to the sound of sirens and ripping metal. (day 0)\n\n## Active plots\nNo active plots.\n\n## Deciding now\nNo plot is due; choose whether anything should start.\n\n## Allowed options\nEach option is an id, then what it would do.\n- Wait\n\nChoose one allowed option.\n",
+        "maxOutputTokens": 200,
+        "useGrammar": true,
+        "thinking": "Off",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "choice": {
+              "type": "string",
+              "enum": [
+                "Wait"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "choice",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "ok": true,
+      "text": "{\u0022choice\u0022: \u0022Wait\u0022, \u0022reason\u0022: \u0022There are no active plots, so waiting is the appropriate action. The colony is currently stable despite recent events.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 0.2198328,
+      "inputTokens": 787,
+      "outputTokens": 34,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-487\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795325419,\u0022model\u0022:\u0022gemma4:e2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022{\\\u0022choice\\\u0022: \\\u0022Wait\\\u0022, \\\u0022reason\\\u0022: \\\u0022There are no active plots, so waiting is the appropriate action. The colony is currently stable despite recent events.\\\u0022}\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:787,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:786},\u0022completion_tokens\u0022:34,\u0022total_tokens\u0022:821}}\n"
+    }
+  ]
+}

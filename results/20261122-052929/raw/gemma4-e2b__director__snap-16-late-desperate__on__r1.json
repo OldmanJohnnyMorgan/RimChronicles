@@ -1,0 +1,52 @@
+{
+  "cell": "gemma4-e2b__director__snap-16-late-desperate__on__r1",
+  "model": "gemma4-e2b",
+  "task": "director",
+  "snapshot": "snap-16-late-desperate",
+  "grammar": "on",
+  "repeat": 1,
+  "promptVersion": "director/v2",
+  "outcome": "Model",
+  "value": "{\u0022choice\u0022: \u0022Resolution:InheritToFriend:p2\u0022, \u0022reason\u0022: \u0022Elske is Bertram\u0027s friend and is a capable figure to continue the hunt for Dunmore. This keeps the momentum going with a known ally.\u0022}",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are the plot director for a story told through a RimWorld colony. You decide what happens next in one of the colony\u0027s plots: the one under \u0022Deciding now\u0022.\n\nRules:\n- Choose exactly one option from the allowed list. Copy its id exactly, character for character, without the description.\n- Choose \u0022Wait\u0022 if the colony is in crisis or the story needs a pause.\n- Read what each option would do. Prefer the one that follows most naturally from what has already happened, and keep the pace: a beat that has waited a long time should move; one that just fired, or a colony that just suffered, may need a pause.\n- Give a reason in one or two short sentences. Use only facts from the briefing.\n\nAnswer with JSON only, in this form:\n{\u0022choice\u0022: \u0022\u003Cone allowed option\u003E\u0022, \u0022reason\u0022: \u0022\u003Cone or two sentences\u003E\u0022}\n",
+        "user": "## The world\nDate: day 640 (Septober 5510).\nColony: Gallowmere, 12 people, wealth 380,000 silver, mood desperate.\n\nPeople:\n- Bertram (47), dead; traits: Bloodlust, Tough; backstory: Mercenary; best friend of Elske.\n- Elske (41); traits: Steadfast, Careful shooter; backstory: Colonial marshal; best friend of Bertram.\n- Noor (33); traits: Kind; backstory: Doctor.\n- Viggo (26); traits: Hot-tempered; backstory: Gladiator.\n- Rook (3); backstory: Dog; bonded to Bertram; Bertram\u0027s bonded warg.\n\nHistory:\n- Day 570: Sergeant Kael Dunmore killed Hester Brightwell and escaped.\n- Day 612: Sergeant Kael Dunmore maimed Viggo and escaped.\n- Day 638: Sergeant Kael Dunmore killed Bertram and escaped.\n\nFactions:\n- Dunmore\u0027s Free Company (Pirates): goodwill -100, 2 settlements.\n- The Lantern Accord (Outlanders): goodwill \u002B35, 9 settlements.\n- The Glass Throne (Empire): goodwill -5, 6 settlements, Empire state: Dormant.\n\nRecent events:\n- Bertram killed in an ambush by Dunmore day 638\n- Rook the warg will not leave Bertram\u0027s grave\n- Heatwave for nine days\n- Viggo cannot walk without a crutch\n\n## Active plots\n- nemesis-04 (Nemesis): beat Complication, protagonist Bertram. Sergeant Kael Dunmore killed Hester Brightwell and maimed Viggo. Bertram led a hunt for him; on day 638 Dunmore ambushed the hunters and killed Bertram, then escaped again.\n\n## Deciding now\nnemesis-04 (Nemesis), in its Complication beat.\n\n## Allowed options\nEach option is an id, then what it would do.\n- Wait: hold this plot for a few days; nothing happens in it yet\n- Resolution:InheritToFriend:p2: Elske, Bertram\u0027s friend, carries the hunt for Dunmore on\n- Resolution:InheritToColony: the whole colony carries the grudge against Dunmore\n\nChoose one allowed option.\n",
+        "maxOutputTokens": 200,
+        "useGrammar": true,
+        "thinking": "Off",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "choice": {
+              "type": "string",
+              "enum": [
+                "Wait",
+                "Resolution:InheritToFriend:p2",
+                "Resolution:InheritToColony"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "choice",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "ok": true,
+      "text": "{\u0022choice\u0022: \u0022Resolution:InheritToFriend:p2\u0022, \u0022reason\u0022: \u0022Elske is Bertram\u0027s friend and is a capable figure to continue the hunt for Dunmore. This keeps the momentum going with a known ally.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 0.4115648,
+      "inputTokens": 704,
+      "outputTokens": 50,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-862\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795325406,\u0022model\u0022:\u0022gemma4:e2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022{\\\u0022choice\\\u0022: \\\u0022Resolution:InheritToFriend:p2\\\u0022, \\\u0022reason\\\u0022: \\\u0022Elske is Bertram\u0027s friend and is a capable figure to continue the hunt for Dunmore. This keeps the momentum going with a known ally.\\\u0022}\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:704,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:50,\u0022total_tokens\u0022:754}}\n"
+    }
+  ]
+}

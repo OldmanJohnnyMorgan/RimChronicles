@@ -1,0 +1,52 @@
+{
+  "cell": "gemma4-e2b__director__snap-11-mid-content__on__r3",
+  "model": "gemma4-e2b",
+  "task": "director",
+  "snapshot": "snap-11-mid-content",
+  "grammar": "on",
+  "repeat": 3,
+  "promptVersion": "director/v2",
+  "outcome": "Model",
+  "value": "{\u0022choice\u0022: \u0022Complication:SabotagedNotes\u0022, \u0022reason\u0022: \u0022Given the history of conflict between Rosamund and Ilan, finding sabotaged notes is a natural escalation. This will directly address the rivalry plot by providing a new point of contention.\u0022}",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are the plot director for a story told through a RimWorld colony. You decide what happens next in one of the colony\u0027s plots: the one under \u0022Deciding now\u0022.\n\nRules:\n- Choose exactly one option from the allowed list. Copy its id exactly, character for character, without the description.\n- Choose \u0022Wait\u0022 if the colony is in crisis or the story needs a pause.\n- Read what each option would do. Prefer the one that follows most naturally from what has already happened, and keep the pace: a beat that has waited a long time should move; one that just fired, or a colony that just suffered, may need a pause.\n- Give a reason in one or two short sentences. Use only facts from the briefing.\n\nAnswer with JSON only, in this form:\n{\u0022choice\u0022: \u0022\u003Cone allowed option\u003E\u0022, \u0022reason\u0022: \u0022\u003Cone or two sentences\u003E\u0022}\n",
+        "user": "## The world\nDate: day 167 (Decembary 5502).\nColony: Dovecote, 8 people, wealth 110,000 silver, mood content.\n\nPeople:\n- Rosamund (28); traits: Too smart, Abrasive; backstory: Researcher.\n- Ilan (30); traits: Too smart, Jealous; backstory: Researcher.\n- Gerda (54); traits: Kind; backstory: Nurse.\n- Wick (22); traits: Sanguine, Nimble; backstory: Courier.\n\nHistory:\n- Day 140: Rosamund fought Ilan.\n- Day 151: Ilan fought Rosamund.\n- Day 162: Rosamund fought Ilan.\n\nFactions:\n- The Hearthguard Compact (Outlanders): goodwill \u002B55, 8 settlements.\n- Mire Rats (Pirates): goodwill -60, 2 settlements.\n- Children of the Green Bell (Tribe): goodwill \u002B20, 4 settlements.\n\nRecent events:\n- Third fight between Rosamund and Ilan day 162\n- Microelectronics research finished day 165\n- Good harvest stored\n\n## Active plots\n- rivalry-01 (Rivalry): beat Hook, protagonist Rosamund. Rosamund and Ilan have fought three times over credit for the colony\u0027s research. Ilan was seen near Rosamund\u0027s notes at night.\n\n## Deciding now\nrivalry-01 (Rivalry), in its Hook beat.\n\n## Allowed options\nEach option is an id, then what it would do.\n- Wait: hold this plot for a few days; nothing happens in it yet\n- Complication:SabotagedNotes: Rosamund finds her research notes sabotaged\n- Complication:CompactPrize: a research prize sets Rosamund and Ilan against each other\n\nChoose one allowed option.\n",
+        "maxOutputTokens": 200,
+        "useGrammar": true,
+        "thinking": "Off",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "choice": {
+              "type": "string",
+              "enum": [
+                "Wait",
+                "Complication:SabotagedNotes",
+                "Complication:CompactPrize"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "choice",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "ok": true,
+      "text": "{\u0022choice\u0022: \u0022Complication:SabotagedNotes\u0022, \u0022reason\u0022: \u0022Given the history of conflict between Rosamund and Ilan, finding sabotaged notes is a natural escalation. This will directly address the rivalry plot by providing a new point of contention.\u0022}",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 0.3255142,
+      "inputTokens": 628,
+      "outputTokens": 55,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-665\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795325398,\u0022model\u0022:\u0022gemma4:e2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022{\\\u0022choice\\\u0022: \\\u0022Complication:SabotagedNotes\\\u0022, \\\u0022reason\\\u0022: \\\u0022Given the history of conflict between Rosamund and Ilan, finding sabotaged notes is a natural escalation. This will directly address the rivalry plot by providing a new point of contention.\\\u0022}\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:628,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:627},\u0022completion_tokens\u0022:55,\u0022total_tokens\u0022:683}}\n"
+    }
+  ]
+}

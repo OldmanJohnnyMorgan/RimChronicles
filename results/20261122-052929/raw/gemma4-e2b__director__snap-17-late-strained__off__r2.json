@@ -1,0 +1,53 @@
+{
+  "cell": "gemma4-e2b__director__snap-17-late-strained__off__r2",
+  "model": "gemma4-e2b",
+  "task": "director",
+  "snapshot": "snap-17-late-strained",
+  "grammar": "off",
+  "repeat": 2,
+  "promptVersion": "director/v2",
+  "outcome": "Model",
+  "value": "\u0060\u0060\u0060json\n{\u0022choice\u0022: \u0022Empire:DemandSeverin\u0022, \u0022reason\u0022: \u0022The Empire has posted a bounty on Severin, making a demand for his surrender a logical next step. This addresses the immediate threat posed by the Imperial bounty.\u0022}\n\u0060\u0060\u0060",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are the plot director for a story told through a RimWorld colony. You decide what happens next in one of the colony\u0027s plots: the one under \u0022Deciding now\u0022.\n\nRules:\n- Choose exactly one option from the allowed list. Copy its id exactly, character for character, without the description.\n- Choose \u0022Wait\u0022 if the colony is in crisis or the story needs a pause.\n- Read what each option would do. Prefer the one that follows most naturally from what has already happened, and keep the pace: a beat that has waited a long time should move; one that just fired, or a colony that just suffered, may need a pause.\n- Give a reason in one or two short sentences. Use only facts from the briefing.\n\nAnswer with JSON only, in this form:\n{\u0022choice\u0022: \u0022\u003Cone allowed option\u003E\u0022, \u0022reason\u0022: \u0022\u003Cone or two sentences\u003E\u0022}\n",
+        "user": "## The world\nDate: day 722 (Aprimay 5512).\nColony: Ironbloom, 13 people, wealth 455,000 silver, mood strained.\n\nPeople:\n- Severin (44); traits: Too smart, Steadfast; backstory: Imperial strategist; defected from the Shattered Empire.\n- Annika (37); traits: Careful shooter; backstory: Colonial marshal; role: Leader.\n- Thane (30); traits: Industrious; backstory: Engineer.\n- Mila (24); traits: Kind; backstory: Nurse.\n\nHistory:\n- Day 655: Ironbloom destroyed an Imperial outpost.\n- Day 701: The Shattered Empire conquered Dunwold.\n\nFactions:\n- The Shattered Empire (Empire): goodwill -70, 9 settlements, at war with The Ashford Compact, Empire state: Awakened.\n- The Ashford Compact (Outlanders): goodwill \u002B50, 5 settlements, at war with The Shattered Empire.\n- Kestrel Tribe (Tribe): goodwill \u002B30, 4 settlements.\n- Bonecutter Gang (Pirates): goodwill -85, 2 settlements.\n\nRecent events:\n- News that Dunwold fell day 701\n- Imperial bounty on Severin posted day 718\n- Severin has been drinking\n\n## Active plots\n- empire-02 (Awakened Empire): beat Awakened, protagonist Ironbloom. The colony destroyed an Imperial outpost on day 655, waking the Shattered Empire. The Empire took the Ashford town of Dunwold on day 701 and is at war with the Ashford Compact. Severin, an Imperial defector, is advising the colony.\n- past-02 (Past Catches Up): beat Hook, protagonist Severin. Severin defected from the Shattered Empire\u0027s general staff. An Imperial bounty on him has just been posted.\n\n## Deciding now\nempire-02 (Awakened Empire), in its Awakened beat.\n\n## Allowed options\nEach option is an id, then what it would do.\n- Wait: hold this plot for a few days; nothing happens in it yet\n- Empire:Expand:Harlow Ford: the Empire attacks Harlow Ford\n- Empire:DemandSeverin: the Empire demands that the colony hand over Severin\n- Promote:past-02: Severin\u0027s story joins the Empire\u0027s: the Empire comes for him\n\nChoose one allowed option.\n",
+        "maxOutputTokens": 200,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "choice": {
+              "type": "string",
+              "enum": [
+                "Wait",
+                "Empire:Expand:Harlow Ford",
+                "Empire:DemandSeverin",
+                "Promote:past-02"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "choice",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "ok": true,
+      "text": "\u0060\u0060\u0060json\n{\u0022choice\u0022: \u0022Empire:DemandSeverin\u0022, \u0022reason\u0022: \u0022The Empire has posted a bounty on Severin, making a demand for his surrender a logical next step. This addresses the immediate threat posed by the Imperial bounty.\u0022}\n\u0060\u0060\u0060",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 0.2670216,
+      "inputTokens": 742,
+      "outputTokens": 53,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-874\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795325410,\u0022model\u0022:\u0022gemma4:e2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022\u0060\u0060\u0060json\\n{\\\u0022choice\\\u0022: \\\u0022Empire:DemandSeverin\\\u0022, \\\u0022reason\\\u0022: \\\u0022The Empire has posted a bounty on Severin, making a demand for his surrender a logical next step. This addresses the immediate threat posed by the Imperial bounty.\\\u0022}\\n\u0060\u0060\u0060\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:742,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:741},\u0022completion_tokens\u0022:53,\u0022total_tokens\u0022:795}}\n"
+    }
+  ]
+}

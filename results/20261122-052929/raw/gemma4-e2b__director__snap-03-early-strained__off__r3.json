@@ -1,0 +1,51 @@
+{
+  "cell": "gemma4-e2b__director__snap-03-early-strained__off__r3",
+  "model": "gemma4-e2b",
+  "task": "director",
+  "snapshot": "snap-03-early-strained",
+  "grammar": "off",
+  "repeat": 3,
+  "promptVersion": "director/v2",
+  "outcome": "Model",
+  "value": "\u0060\u0060\u0060json\n{\n\u0022choice\u0022: \u0022Seed:Rivalry:p1:p3\u0022,\n\u0022reason\u0022: \u0022The strained mood and recent fights between Marek and Dov suggest escalating this tension could be productive. Starting a rivalry plot will force them to interact.\u0022\n}\n\u0060\u0060\u0060",
+  "attempts": [
+    {
+      "request": {
+        "system": "You are the plot director for a story told through a RimWorld colony. You decide what happens next in one of the colony\u0027s plots: the one under \u0022Deciding now\u0022.\n\nRules:\n- Choose exactly one option from the allowed list. Copy its id exactly, character for character, without the description.\n- Choose \u0022Wait\u0022 if the colony is in crisis or the story needs a pause.\n- Read what each option would do. Prefer the one that follows most naturally from what has already happened, and keep the pace: a beat that has waited a long time should move; one that just fired, or a colony that just suffered, may need a pause.\n- Give a reason in one or two short sentences. Use only facts from the briefing.\n\nAnswer with JSON only, in this form:\n{\u0022choice\u0022: \u0022\u003Cone allowed option\u003E\u0022, \u0022reason\u0022: \u0022\u003Cone or two sentences\u003E\u0022}\n",
+        "user": "## The world\nDate: day 23 (Jugust 5500).\nColony: Kettle Hollow, 5 people, wealth 26,800 silver, mood strained.\n\nPeople:\n- Marek (38); traits: Abrasive, Shooting accuracy; backstory: Imperial deserter.\n- Saoirse (27); traits: Nervous, Fast learner; backstory: Medical student.\n- Dov (45); traits: Greedy; backstory: Smuggler.\n- Kit (16); traits: Nimble; backstory: Vatgrown slave; adopted by Saoirse.\n- Agnes (61); traits: Bloodlust; backstory: Caravan guard.\n\nHistory:\n- Day 15: Marek fought Dov.\n- Day 18: Marek fought Dov.\n- Day 21: Kettle Hollow repelled a raid by Ashen Hand raiders.\n\nFactions:\n- The Ashen Hand (Pirates): goodwill -90, 4 settlements.\n- The Merrow Freeholds (Outlanders): goodwill \u002B5, 7 settlements.\n- Kinn of the Long Grass (Tribe): goodwill -15, 3 settlements.\n\nRecent events:\n- Marek and Dov fought twice over stolen rations\n- Ashen Hand raid repelled day 21, Agnes wounded\n- Food stores down to six days\n\n## Active plots\nNo active plots.\n\n## Deciding now\nNo plot is due; choose whether anything should start.\n\n## Allowed options\nEach option is an id, then what it would do.\n- Wait: hold this plot for a few days; nothing happens in it yet\n- Seed:Rivalry:p1:p3: start a Rivalry story between Marek and Dov\n\nChoose one allowed option.\n",
+        "maxOutputTokens": 200,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "choice": {
+              "type": "string",
+              "enum": [
+                "Wait",
+                "Seed:Rivalry:p1:p3"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "choice",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "ok": true,
+      "text": "\u0060\u0060\u0060json\n{\n\u0022choice\u0022: \u0022Seed:Rivalry:p1:p3\u0022,\n\u0022reason\u0022: \u0022The strained mood and recent fights between Marek and Dov suggest escalating this tension could be productive. Starting a rivalry plot will force them to interact.\u0022\n}\n\u0060\u0060\u0060",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 0.324221,
+      "inputTokens": 578,
+      "outputTokens": 59,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-86\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795325384,\u0022model\u0022:\u0022gemma4:e2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022\u0060\u0060\u0060json\\n{\\n\\\u0022choice\\\u0022: \\\u0022Seed:Rivalry:p1:p3\\\u0022,\\n\\\u0022reason\\\u0022: \\\u0022The strained mood and recent fights between Marek and Dov suggest escalating this tension could be productive. Starting a rivalry plot will force them to interact.\\\u0022\\n}\\n\u0060\u0060\u0060\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:578,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:577},\u0022completion_tokens\u0022:59,\u0022total_tokens\u0022:637}}\n"
+    }
+  ]
+}
