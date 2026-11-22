@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eval run 20261122-045112</title>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #898781;
+  --grid: #e1e0d9; --axis: #c3c2b7; --border: rgba(11,11,11,0.10);
+  --series: #2a78d6; --pass: #006300; --fail: #d03b3b;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --muted: #898781;
+    --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,0.10);
+    --series: #3987e5; --pass: #0ca30c; --fail: #e05555;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink); font: 14px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 1100px; margin: 0 auto; padding: 24px 16px 64px; }
+h1 { font-size: 22px; margin: 0 0 4px; }
+h2 { font-size: 18px; margin: 32px 0 8px; }
+h3 { font-size: 15px; margin: 20px 0 8px; }
+p { max-width: 75ch; }
+.meta { color: var(--ink-2); margin: 4px 0; }
+.note { color: var(--ink-2); border-left: 3px solid var(--axis); padding-left: 10px; }
+.muted { color: var(--muted); }
+code { font: 12px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.scroll { overflow-x: auto; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; }
+table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+th, td { padding: 6px 10px; text-align: left; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+thead th { color: var(--ink-2); font-weight: 600; font-size: 12px; }
+tbody th { font-weight: 600; }
+tbody tr:last-child > * { border-bottom: none; }
+.num { text-align: right; }
+.icon { font-weight: 700; }
+.icon.pass { color: var(--pass); }
+.icon.fail { color: var(--fail); }
+figure { margin: 12px 0 0; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px; overflow-x: auto; }
+.chart { width: 100%; min-width: 520px; height: auto; display: block; }
+.chart text { fill: var(--ink-2); font-size: 12px; }
+.chart .chart-title { fill: var(--ink); font-weight: 600; font-size: 13px; }
+.chart .tick { fill: var(--muted); font-size: 11px; }
+.chart .grid { stroke: var(--grid); stroke-width: 1; }
+.chart .threshold { stroke: var(--ink-2); stroke-width: 1.5; stroke-dasharray: 4 4; }
+.chart .whisker { stroke: var(--series); stroke-width: 2; stroke-linecap: round; }
+.chart .dot { fill: var(--series); stroke: var(--surface); stroke-width: 2; }
+.chart .hit { fill: transparent; }
+.chart .row:hover .hit { fill: var(--grid); fill-opacity: 0.5; }
+details { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; padding: 8px 12px; }
+summary { cursor: pointer; font-weight: 600; }
+article { border-top: 1px solid var(--grid); padding: 8px 0; }
+pre { white-space: pre-wrap; font: 13px/1.5 system-ui, sans-serif; margin: 4px 0; }
+.judge { color: var(--ink-2); font-size: 13px; margin: 4px 0; }
+a { color: var(--series); }
+</style>
+</head>
+<body>
+<main>
+<header>
+<h1>Rim Chronicles model evaluation</h1>
+<p class="meta">Run <strong>20261122-045112</strong> · 54 outputs · 3 models · commit <code>7c0c7d5b</code> · prompts <code>director/v1</code>, <code>epilogue/v2</code>, <code>inheritance-handoff/v3</code>, <code>judge/v3</code>, <code>news-bulletin/v10</code>, <code>plot-letter/v3</code></p>
+<p class="note">Not judged yet: invented facts and prose quality are empty. Run <code>rimchron-eval judge 20261122-045112</code>.</p>
+</header>
+<section>
+<h2>At a glance</h2>
+<p>Whether each model meets every pass bar that applies to it, per task. Failing bars are named; details follow below.</p>
+<div class="scroll"><table>
+<thead><tr><th>Model</th><th>Tier</th><th>Server</th><th>Quantization</th><th class="num">VRAM</th><th>Plot letter</th></tr></thead>
+<tbody>
+<tr><th scope="row">gemma4-e2b</th><td>Minimum</td><td>ollama</td><td>Q4_K_M</td><td class="num">0.4 GB</td><td><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> Meets all bars</td></tr>
+<tr><th scope="row">gemma4-e4b</th><td>Recommended</td><td>ollama</td><td>Q4_K_M</td><td class="num">0.5 GB</td><td><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> Meets all bars</td></tr>
+<tr><th scope="row">gemma4-12b</th><td>High</td><td>ollama</td><td>Q4_K_M</td><td class="num">1.5 GB</td><td><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> Meets all bars</td></tr>
+</tbody></table></div>
+</section>
+<section>
+<h2>Plot letter</h2>
+<p>Pass bars: length in range at least 90%; at most 1 invented fact per 10 outputs (a new person, place, number, quote or event, or a contradiction); overall quality at least 3.5 (Recommended tier). Rates use first answers only.</p>
+<div class="scroll"><table>
+<thead><tr><th>Model</th><th>Tier</th><th class="num">Outputs</th><th class="num">Judged</th><th class="num">Length in range</th><th class="num">Invented facts / 10</th><th class="num">Embellishments / 10</th><th class="num">Voice</th><th class="num">Clarity</th><th class="num">Tone</th><th class="num">Overall</th><th class="num">Names grounded</th><th class="num">Passed first try</th><th class="num">Fell back</th><th class="num">Median s</th><th class="num">p90 s</th><th class="num">Output tokens</th><th class="num">Reasoning tokens</th></tr></thead>
+<tbody>
+<tr><th scope="row">gemma4-e2b</th><td>Minimum</td><td class="num">18</td><td class="num">–</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 94%</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">100%</td><td class="num">94%</td><td class="num">0%</td><td class="num">0.3</td><td class="num">0.4</td><td class="num">67</td><td class="num">–</td></tr>
+<tr><th scope="row">gemma4-e4b</th><td>Recommended</td><td class="num">18</td><td class="num">–</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">100%</td><td class="num">100%</td><td class="num">0%</td><td class="num">0.5</td><td class="num">0.6</td><td class="num">71</td><td class="num">–</td></tr>
+<tr><th scope="row">gemma4-12b</th><td>High</td><td class="num">18</td><td class="num">–</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">100%</td><td class="num">100%</td><td class="num">0%</td><td class="num">1.0</td><td class="num">1.2</td><td class="num">72</td><td class="num">–</td></tr>
+</tbody></table></div>
+<figure>
+<svg class="chart" viewBox="0 0 710 160" role="img" aria-label="Plot letter latency: median (dot) and 90th percentile (line end), seconds">
+<text class="chart-title" x="0" y="16">Plot letter latency: median (dot) and 90th percentile (line end), seconds</text>
+<line class="grid" x1="230" x2="230" y1="34" y2="130"/><text class="tick" x="230" y="148" text-anchor="middle">0</text>
+<line class="grid" x1="376.7" x2="376.7" y1="34" y2="130"/><text class="tick" x="376.7" y="148" text-anchor="middle">0.5</text>
+<line class="grid" x1="523.3" x2="523.3" y1="34" y2="130"/><text class="tick" x="523.3" y="148" text-anchor="middle">1</text>
+<line class="grid" x1="670" x2="670" y1="34" y2="130"/><text class="tick" x="670" y="148" text-anchor="middle">1.5</text>
+<g class="row"><title>gemma4-e2b: median 0.3 s, p90 0.4 s (18 outputs)</title><rect class="hit" x="0" y="40" width="710" height="28"/><text class="label" x="218" y="58" text-anchor="end">gemma4-e2b</text><line class="whisker" x1="317.4" x2="344.1" y1="54" y2="54"/><circle class="dot" cx="317.4" cy="54" r="5"/></g>
+<g class="row"><title>gemma4-e4b: median 0.5 s, p90 0.6 s (18 outputs)</title><rect class="hit" x="0" y="68" width="710" height="28"/><text class="label" x="218" y="86" text-anchor="end">gemma4-e4b</text><line class="whisker" x1="382.8" x2="402.5" y1="82" y2="82"/><circle class="dot" cx="382.8" cy="82" r="5"/></g>
+<g class="row"><title>gemma4-12b: median 1.0 s, p90 1.2 s (18 outputs)</title><rect class="hit" x="0" y="96" width="710" height="28"/><text class="label" x="218" y="114" text-anchor="end">gemma4-12b</text><line class="whisker" x1="527.4" x2="594" y1="110" y2="110"/><circle class="dot" cx="527.4" cy="110" r="5"/></g>
+</svg>
+</figure>
+</section>
+<section>
+<h2>Outputs</h2>
+<p>Every first answer, grouped by task and model. Open the raw file for the full request, retries and timings.</p>
+<h3>Plot letter</h3>
+<details>
+<summary>gemma4-e2b · 18 outputs</summary>
+<article><p class="meta"><a href="raw/gemma4-e2b__plot-letter__snap-07-mid-strained__n-a__r1.json">snap-07-mid-strained</a> · repeat 1 · Model · 43 words · 0.4 s</p>
+<pre>Travellers brought news of Vex of Vex&#39;s Crew. He killed Mara&#39;s husband, Dorin. Vex was seen near the gorge road. He was alive and unpunished.
+
+Mara remembers the killing clearly. She knows Vex is out there. She will ensure the walls remain manned.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__plot-letter__snap-07-mid-strained__n-a__r2.json">snap-07-mid-strained</a> · repeat 2 · Model · 43 words · 0.3 s</p>
+<pre>Travellers brought news of Vex of Vex&#39;s Crew. He killed Mara&#39;s husband, Dorin. Vex was seen near the gorge road. He was alive and unpunished.
+
+Mara remembers the killing clearly. She knows Vex is out there. She will ensure the walls remain manned.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__plot-letter__snap-07-mid-strained__n-a__r3.json">snap-07-mid-strained</a> · repeat 3 · Model · 44 words · 0.3 s</p>
+<pre>Travellers brought news of Vex of Vex&#39;s Crew. He killed Mara&#39;s husband, Dorin. Vex was seen near the gorge road. He was alive and unpunished.
+
+Mara remembers the killing clearly. She sees Vex&#39;s crew as a threat. She will ensure the walls remain manned.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__plot-letter__snap-09-mid-desperate__n-a__r1.json">snap-09-mid-desperate</a> · repeat 1 · ModelRetry · 28 words · 0.3 s</p>
+<pre>Rook Malley of Malley&#39;s Lancers is dead. The people of Cinder Rest killed him. This ends the raider&#39;s run.
+
+Lene can finally rest now. The act is done.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__plot-letter__snap-09-mid-desperate__n-a__r2.json">snap-09-mid-desperate</a> · repeat 2 · Model · 33 words · 0.3 s</p>
+<pre>Rook Malley of Malley&#39;s Lancers is dead. The people of Cinder Rest killed him. This ends the raider&#39;s run.
+
+Lene can now rest. The killing is done. She will let the past go.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__plot-letter__snap-09-mid-desperate__n-a__r3.json">snap-09-mid-desperate</a> · repeat 3 · Model · 35 words · 0.3 s</p>
+<pre>Rook Malley of Malley&#39;s Lancers is dead. The people of Cinder Rest killed him. This ends the raider&#39;s run.
+
+Lene can finally rest now. The memory of Joska&#39;s death remains, but the threat is gone.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__plot-letter__snap-10-mid-strained__n-a__r1.json">snap-10-mid-strained</a> · repeat 1 · Model · 57 words · 0.4 s</p>
+<pre>Word reached Wyrmfold. The Stonecutter Raiders have taken captives from the Ochre Hand. Saskia, Anouk&#39;s sister, is among those taken. She is being held at a camp near the colony.
+
+Anouk has not slept since this news arrived. She must find a way to reach Saskia. She will prepare for a dangerous journey to rescue her sister.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__plot-letter__snap-10-mid-strained__n-a__r2.json">snap-10-mid-strained</a> · repeat 2 · Model · 45 words · 0.3 s</p>
+<pre>Word reached Wyrmfold. The Stonecutter Raiders have taken captives from the Ochre Hand. Saskia, Anouk&#39;s sister, is among those taken. She is held at a camp near the colony.
+
+Anouk has not slept since this news arrived. She must act now to find her sister.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__plot-letter__snap-10-mid-strained__n-a__r3.json">snap-10-mid-strained</a> · repeat 3 · Model · 57 words · 0.4 s</p>
+<pre>Word reached Wyrmfold. The Stonecutter Raiders have taken captives from the Ochre Hand. Saskia, Anouk&#39;s sister, is among those taken. She is being held at a camp near the colony.
+
+Anouk has not slept since the news arrived. She must find a way to reach Saskia. She will prepare for a dangerous journey to rescue her sister.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__plot-letter__snap-12-mid-desperate__n-a__r1.json">snap-12-mid-desperate</a> · repeat 1 · Model · 58 words · 0.4 s</p>
+<pre>Imre has escaped from the Gallows camp again. Marta Venn was killed by Imre. The colony must decide how to proceed.
+
+Sabine can hire bounty hunters for 350 silver. They will take the job to kill Imre. Sabine can go after Imre herself at the Gallows camp. The colony can also choose to wait for Imre to return.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__plot-letter__snap-12-mid-desperate__n-a__r2.json">snap-12-mid-desperate</a> · repeat 2 · Model · 52 words · 0.3 s</p>
+<pre>Imre has escaped again. She was seen at the Gallows camp. Marta Venn was killed by her.
+
+Sabine can hire bounty hunters for 350 silver. They will take the job to kill Imre. Sabine can go after Imre herself at the Gallows camp. Or the colony can wait for Imre to return.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__plot-letter__snap-12-mid-desperate__n-a__r3.json">snap-12-mid-desperate</a> · repeat 3 · Model · 54 words · 0.4 s</p>
+<pre>Imre has escaped from the Gallows camp again. Marta Venn was killed by Imre. This event has left the colony unsettled.
+
+Sabine faces a decision. She can hire bounty hunters for 350 silver to hunt Imre. She can go after Imre herself at the Gallows camp. Or she can wait for Imre to return.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__plot-letter__snap-16-late-desperate__n-a__r1.json">snap-16-late-desperate</a> · repeat 1 · Model · 50 words · 0.3 s</p>
+<pre>Kael Dunmore of Dunmore&#39;s Free Company leads a raid on Gallowmere. He is the same raider who maimed Viggo by taking his leg. Kael Dunmore is now at the colony&#39;s door.
+
+Viggo knows Kael Dunmore&#39;s face. This is a chance to end this now. Viggo will prepare for the attack.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__plot-letter__snap-16-late-desperate__n-a__r2.json">snap-16-late-desperate</a> · repeat 2 · Model · 50 words · 0.3 s</p>
+<pre>Kael Dunmore of Dunmore&#39;s Free Company leads a raid on Gallowmere. He is the raider who maimed Viggo by taking his leg. Kael Dunmore is now at the colony&#39;s door.
+
+Viggo knows Kael Dunmore&#39;s face. He sees this as a chance to end the threat. Viggo prepares for the confrontation.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__plot-letter__snap-16-late-desperate__n-a__r3.json">snap-16-late-desperate</a> · repeat 3 · Model · 54 words · 0.3 s</p>
+<pre>Kael Dunmore of Dunmore&#39;s Free Company leads a raid on Gallowmere. He is the same raider who maimed Viggo by taking his leg. Kael Dunmore has arrived at the colony&#39;s door.
+
+Viggo knows Kael Dunmore&#39;s face. This is a chance to end the threat if the colony can hold. Viggo prepares for the confrontation.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__plot-letter__snap-18-late-desperate__n-a__r1.json">snap-18-late-desperate</a> · repeat 1 · Model · 46 words · 0.3 s</p>
+<pre>A letter arrived for Elias. It was carried by a passing trader. The letter was from Ada. Ada lives with the Wailing Moth Tribe.
+
+Ada is alive and well enough to write. Elias reads the letter twice. He then puts it away in a safe place.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__plot-letter__snap-18-late-desperate__n-a__r2.json">snap-18-late-desperate</a> · repeat 2 · Model · 46 words · 0.2 s</p>
+<pre>A letter arrived for Elias. It was carried by a passing trader. The letter was from Ada. Ada lives among the Wailing Moth Tribe.
+
+Ada is alive and well enough to write. Elias reads the letter twice. He then puts it away in a safe place.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__plot-letter__snap-18-late-desperate__n-a__r3.json">snap-18-late-desperate</a> · repeat 3 · Model · 46 words · 0.2 s</p>
+<pre>A letter arrived for Elias. It was carried by a passing trader. The letter was from Ada. Ada lives with the Wailing Moth Tribe.
+
+Ada is alive and well enough to write. Elias reads the letter twice. He then puts it away in a safe place.</pre>
+</article>
+</details>
+<details>
+<summary>gemma4-e4b · 18 outputs</summary>
+<article><p class="meta"><a href="raw/gemma4-e4b__plot-letter__snap-07-mid-strained__n-a__r1.json">snap-07-mid-strained</a> · repeat 1 · Model · 53 words · 0.6 s</p>
+<pre>Travellers have brought news of Vex. He belongs to Vex&#39;s Crew. Vex killed Dorin, Mara&#39;s husband. He was seen near the gorge road. He appeared unhurried and showed no signs of hiding.
+
+Mara has not forgotten the loss of Dorin. Vex seems to share that memory. The colony should keep its walls manned.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__plot-letter__snap-07-mid-strained__n-a__r2.json">snap-07-mid-strained</a> · repeat 2 · Model · 47 words · 0.5 s</p>
+<pre>Travelers brought news to Hearthstead. Vex of Vex&#39;s Crew was seen near the gorge road. He is alive. He killed Dorin, Mara&#39;s husband.
+
+Mara has not forgotten the loss of Dorin. Vex seems aware of what he did. The colony should keep its walls manned against him.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__plot-letter__snap-07-mid-strained__n-a__r3.json">snap-07-mid-strained</a> · repeat 3 · Model · 52 words · 0.5 s</p>
+<pre>Word has reached Hearthstead. Vex of Vex&#39;s Crew was seen. He was spotted near the gorge road. He is alive, and he shows no sign of haste to conceal himself.
+
+Mara remembers what he did. He killed her husband, Dorin. She watches the road, and the colony keeps its walls heavily manned.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__plot-letter__snap-09-mid-desperate__n-a__r1.json">snap-09-mid-desperate</a> · repeat 1 · Model · 41 words · 0.5 s</p>
+<pre>Rook Malley of Malley&#39;s Lancers is dead. He was killed by the people of Cinder Rest. The raider who killed Joska is no longer a threat.
+
+Lene can finally find rest. The violence that took her husband, Joska, has ended here.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__plot-letter__snap-09-mid-desperate__n-a__r2.json">snap-09-mid-desperate</a> · repeat 2 · Model · 38 words · 0.4 s</p>
+<pre>Rook Malley of Malley&#39;s Lancers is dead. He was killed by the people of Cinder Rest. This ends the threat he posed to Cinder Rest.
+
+Lene can finally cease her vigilance. The memory of Joska is finally settled.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__plot-letter__snap-09-mid-desperate__n-a__r3.json">snap-09-mid-desperate</a> · repeat 3 · Model · 41 words · 0.4 s</p>
+<pre>Rook Malley of Malley&#39;s Lancers is dead. He was killed by the people of Cinder Rest. The raider&#39;s path has ended here.
+
+Lene can finally rest now. The death of Rook Malley closes the chapter of loss for her and Joska.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__plot-letter__snap-10-mid-strained__n-a__r1.json">snap-10-mid-strained</a> · repeat 1 · Model · 46 words · 0.5 s</p>
+<pre>News has reached Wyrmfold. The Stonecutter Raiders have taken captives from the Ochre Hand. Saskia, Anouk&#39;s sister, is among those held at a nearby camp.
+
+Anouk has not slept since this news arrived. She now stands watching the perimeter, her gaze fixed on the distant camp.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__plot-letter__snap-10-mid-strained__n-a__r2.json">snap-10-mid-strained</a> · repeat 2 · Model · 54 words · 0.5 s</p>
+<pre>Word has reached Wyrmfold. The Stonecutter Raiders have taken captives from the Ochre Hand. Saskia, Anouk&#39;s sister, is among those taken. She is being held at a camp near Wyrmfold.
+
+Anouk has not slept since this news arrived. She stands by the camp perimeter. She will move toward the location of the Stonecutter Raiders.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__plot-letter__snap-10-mid-strained__n-a__r3.json">snap-10-mid-strained</a> · repeat 3 · Model · 44 words · 0.4 s</p>
+<pre>Word has reached Wyrmfold. The Stonecutter Raiders have taken captives from the Ochre Hand. Saskia, Anouk&#39;s sister, is among those held in a camp near Wyrmfold.
+
+Anouk has not slept since this news arrived. She remains awake, staring at the shadows of the settlement.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__plot-letter__snap-12-mid-desperate__n-a__r1.json">snap-12-mid-desperate</a> · repeat 1 · Model · 59 words · 0.6 s</p>
+<pre>Imre has slipped away once more. She killed Marta Venn before escaping from the Gallows camp. The colony must now decide how to deal with her.
+
+Options exist for Red Furrow. Sabine can hire bounty hunters for 350 silver. Alternatively, Sabine can pursue Imre herself to the camp. The colony can also choose to wait for Imre to return.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__plot-letter__snap-12-mid-desperate__n-a__r2.json">snap-12-mid-desperate</a> · repeat 2 · Model · 66 words · 0.6 s</p>
+<pre>Imre has slipped away from Red Furrow once more. She killed Marta Venn before she fled toward the Gallows camp. The colony must now decide how to handle this fugitive from the Gallows Crew.
+
+Sabine can hire bounty hunters for 350 silver. Alternatively, she can pursue Imre directly to the camp. The colony can also choose to wait, expecting Imre to return on her own terms.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__plot-letter__snap-12-mid-desperate__n-a__r3.json">snap-12-mid-desperate</a> · repeat 3 · Model · 58 words · 0.5 s</p>
+<pre>Imre has slipped away once more. She killed Marta Venn during her last attack. The Gallows Crew member was seen near the Gallows camp.
+
+Sabine must decide how to proceed. She may hire bounty hunters for 350 silver. Alternatively, she can pursue Imre herself toward the Gallows camp. She could also choose to wait for Imre to return.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__plot-letter__snap-16-late-desperate__n-a__r1.json">snap-16-late-desperate</a> · repeat 1 · Model · 57 words · 0.5 s</p>
+<pre>Kael Dunmore of Dunmore&#39;s Free Company is leading a raid on Gallowmere. He is the same raider who maimed Viggo, costing him his leg.
+
+Viggo sees his face at the front of the assault. He knows this may be the chance to end the threat. He will watch to see if the colony can hold against him.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__plot-letter__snap-16-late-desperate__n-a__r2.json">snap-16-late-desperate</a> · repeat 2 · Model · 51 words · 0.5 s</p>
+<pre>Kael Dunmore, of Dunmore&#39;s Free Company, leads the attack on Gallowmere. He is the raider who maimed Viggo, and he has arrived at the colony&#39;s entrance.
+
+Viggo recognizes him. He sees this as a possible chance to end the threat. He must see if the colony can hold against this assault.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__plot-letter__snap-16-late-desperate__n-a__r3.json">snap-16-late-desperate</a> · repeat 3 · Model · 59 words · 0.6 s</p>
+<pre>Kael Dunmore, from Dunmore&#39;s Free Company, leads the current raid. He is the same raider who maimed Viggo, costing him his leg. Now, Kael Dunmore has reached the doors of Gallowmere.
+
+Viggo sees his face in the chaos. He knows this may be the chance to end the threat. He watches the incoming assault, ready to meet Kael Dunmore.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__plot-letter__snap-18-late-desperate__n-a__r1.json">snap-18-late-desperate</a> · repeat 1 · Model · 53 words · 0.6 s</p>
+<pre>A trader brought a letter to Elias. It came from Ada, his aunt. She lives with the Wailing Moth Tribe. Ada is alive, and she was well enough to write to him.
+
+Elias read the message twice. He then tucked the letter away carefully. The news of her existence changes things for him.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__plot-letter__snap-18-late-desperate__n-a__r2.json">snap-18-late-desperate</a> · repeat 2 · Model · 55 words · 0.5 s</p>
+<pre>A trader brought a letter to Elias. It came from Ada, his aunt. She lives with the Wailing Moth Tribe. Ada is alive, and she is well enough to write to him.
+
+Elias read the letter twice. He then placed it somewhere safe within Wren&#39;s Hollow. The connection to his aunt has been unexpectedly reestablished.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__plot-letter__snap-18-late-desperate__n-a__r3.json">snap-18-late-desperate</a> · repeat 3 · Model · 55 words · 0.5 s</p>
+<pre>A trader brought a letter to Elias. It came from Ada, his aunt. She resides with the Wailing Moth Tribe. Ada is alive, and she is well enough to write to him.
+
+Elias read the message twice. He then placed it somewhere safe within Wren&#39;s Hollow. The connection to his aunt has been unexpectedly restored.</pre>
+</article>
+</details>
+<details>
+<summary>gemma4-12b · 18 outputs</summary>
+<article><p class="meta"><a href="raw/gemma4-12b__plot-letter__snap-07-mid-strained__n-a__r1.json">snap-07-mid-strained</a> · repeat 1 · Model · 58 words · 1.2 s</p>
+<pre>Travelers arrived at Hearthstead with news of Vex. The man from Vex&#39;s Crew was spotted near the gorge road. He remains alive and unpunished. He showed no signs of hiding from the colony.
+
+Mara has not forgotten that Vex killed her husband, Dorin. She watches the horizon with a steady gaze. The colony should keep its walls manned.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__plot-letter__snap-07-mid-strained__n-a__r2.json">snap-07-mid-strained</a> · repeat 2 · Model · 66 words · 1.1 s</p>
+<pre>Travelers from the gorge road report a sighting of Vex. He belongs to Vex&#39;s Crew and is the man who killed Dorin. He was seen moving freely and showed no signs of hiding from the law.
+
+Mara has not forgotten the death of her husband. She watches the horizon with a steady gaze. The colony should ensure the walls are manned and the defenses are ready.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__plot-letter__snap-07-mid-strained__n-a__r3.json">snap-07-mid-strained</a> · repeat 3 · Model · 58 words · 1.1 s</p>
+<pre>Travelers arrived at Hearthstead with news of Vex. A member of Vex&#39;s Crew was spotted near the gorge road. He remains alive and unpunished. He showed no signs of hiding from the colony.
+
+Mara has not forgotten that Vex killed her husband, Dorin. She watches the horizon with a heavy gaze. The colony should keep its walls manned.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__plot-letter__snap-09-mid-desperate__n-a__r1.json">snap-09-mid-desperate</a> · repeat 1 · Model · 45 words · 1.0 s</p>
+<pre>Rook Malley of Malley&#39;s Lancers is dead. The people of Cinder Rest killed him. He was the raider who killed Joska.
+
+Lene can finally rest. The weight of the loss is still heavy, but the threat of the man who took her husband is gone.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__plot-letter__snap-09-mid-desperate__n-a__r2.json">snap-09-mid-desperate</a> · repeat 2 · Model · 49 words · 1.0 s</p>
+<pre>Rook Malley of Malley&#39;s Lancers is dead. The people of Cinder Rest killed him. He was the raider who took Joska&#39;s life.
+
+Lene can finally rest. The shadow of his actions no longer hangs over her. Her husband&#39;s memory is no longer tied to the man who took him.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__plot-letter__snap-09-mid-desperate__n-a__r3.json">snap-09-mid-desperate</a> · repeat 3 · Model · 30 words · 0.7 s</p>
+<pre>Rook Malley of Malley&#39;s Lancers is dead. The people of Cinder Rest killed him. He was the man who killed Joska.
+
+Lene can finally rest. The raider&#39;s run ended here.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__plot-letter__snap-10-mid-strained__n-a__r1.json">snap-10-mid-strained</a> · repeat 1 · Model · 46 words · 1.0 s</p>
+<pre>The Stonecutter Raiders have captured several people from the Ochre Hand. Saskia is among the captives. They are being held at a camp near Wyrmfold.
+
+Anouk has not slept since the news arrived. She cannot rest while her sister is in the hands of the raiders.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__plot-letter__snap-10-mid-strained__n-a__r2.json">snap-10-mid-strained</a> · repeat 2 · Model · 41 words · 0.8 s</p>
+<pre>The Stonecutter Raiders have taken captives from the Ochre Hand. Saskia is among those held at a camp near Wyrmfold.
+
+Anouk has not slept since the news arrived. She cannot rest while her sister is in the hands of the raiders.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__plot-letter__snap-10-mid-strained__n-a__r3.json">snap-10-mid-strained</a> · repeat 3 · Model · 48 words · 0.9 s</p>
+<pre>The Stonecutter Raiders have captured several people from the Ochre Hand. Saskia is among those taken. She is being held at a camp located near Wyrmfold.
+
+Anouk has not slept since she received this news. She cannot rest while her sister is in the hands of the raiders.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__plot-letter__snap-12-mid-desperate__n-a__r1.json">snap-12-mid-desperate</a> · repeat 1 · Model · 68 words · 1.4 s</p>
+<pre>Imre escaped from the Gallows camp once again. She remains at large after killing Marta Venn. The colony at Red Furrow must decide how to proceed.
+
+Sabine weighs three paths. She can hire bounty hunters for 350 silver to do the job. She can travel to the camp near the Gallows camp to face Imre in person. She can also wait for Imre to return to the colony.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__plot-letter__snap-12-mid-desperate__n-a__r2.json">snap-12-mid-desperate</a> · repeat 2 · Model · 64 words · 1.1 s</p>
+<pre>Imre escaped from the Gallows camp again. She remains at large after killing Marta Venn. The colony must decide how to proceed.
+
+Sabine weighs three paths. She can hire bounty hunters for 350 silver to do the work. She can go to the camp near the Gallows camp to face Imre in person. Alternatively, she can wait for Imre to return to Red Furrow.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__plot-letter__snap-12-mid-desperate__n-a__r3.json">snap-12-mid-desperate</a> · repeat 3 · Model · 70 words · 1.2 s</p>
+<pre>Imre escaped from the Gallows camp once again. She remains at large after killing Marta Venn. The colony of Red Furrow must now decide how to handle her.
+
+Sabine weighs the options. She can hire bounty hunters for 350 silver, though they will take the kill. She can go to the camp near the Gallows camp to face Imre in person. Alternatively, the colony can wait for Imre to return.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__plot-letter__snap-16-late-desperate__n-a__r1.json">snap-16-late-desperate</a> · repeat 1 · Model · 54 words · 1.2 s</p>
+<pre>Kael Dunmore of Dunmore&#39;s Free Company leads a raid against Gallowmere. He is the same raider who maimed Viggo, causing him to lose a leg. The raiders have arrived at the colony&#39;s door.
+
+Viggo recognizes Kael Dunmore&#39;s face. This is the chance to end the threat. Viggo will act if the colony can hold.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__plot-letter__snap-16-late-desperate__n-a__r2.json">snap-16-late-desperate</a> · repeat 2 · Model · 57 words · 1.0 s</p>
+<pre>Kael Dunmore of Dunmore&#39;s Free Company leads a raid against Gallowmere. He is the same raider who maimed Viggo and cost him his leg. The enemy is at the colony&#39;s door now.
+
+Viggo recognizes the face of his attacker. He sees this as a chance to end the threat. If the colony can hold, he will strike.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__plot-letter__snap-16-late-desperate__n-a__r3.json">snap-16-late-desperate</a> · repeat 3 · Model · 51 words · 1.0 s</p>
+<pre>Kael Dunmore leads a raid against Gallowmere. He is the same raider from Dunmore&#39;s Free Company who maimed Viggo. He has arrived at the colony&#39;s door.
+
+Viggo recognizes the face of his attacker. This is the moment to end the threat. He will act if the colony can hold the line.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__plot-letter__snap-18-late-desperate__n-a__r1.json">snap-18-late-desperate</a> · repeat 1 · Model · 58 words · 1.2 s</p>
+<pre>A trader delivered a letter from the Wailing Moth Tribe to Wren&#39;s Hollow. It arrived from Ada, the aunt of Elias. The letter confirms that she is alive and well enough to write.
+
+Elias read the words twice before hiding the paper in a safe place. This news changes everything for him. He will keep her message close.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__plot-letter__snap-18-late-desperate__n-a__r2.json">snap-18-late-desperate</a> · repeat 2 · Model · 51 words · 0.9 s</p>
+<pre>A trader brought a letter to Wren&#39;s Hollow. It came from Ada, who lives with the Wailing Moth Tribe. The letter confirms that she is alive and well enough to write.
+
+Elias read the words twice. He tucked the paper away in a safe place. He will keep this news close.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__plot-letter__snap-18-late-desperate__n-a__r3.json">snap-18-late-desperate</a> · repeat 3 · Model · 56 words · 1.0 s</p>
+<pre>A trader arrived at Wren&#39;s Hollow carrying a letter from the Wailing Moth Tribe. It was written by Ada, who is living among their people.
+
+Elias read the words twice to ensure he understood them correctly. He tucked the letter away in a secure place. He is relieved to know his aunt is alive and well.</pre>
+</article>
+</details>
+</section>
+</main>
+</body>
+</html>

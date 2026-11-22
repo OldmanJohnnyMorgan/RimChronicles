@@ -1,0 +1,32 @@
+{
+  "cell": "gemma4-e4b__plot-letter__snap-16-late-desperate__n-a__r2",
+  "model": "gemma4-e4b",
+  "task": "plot-letter",
+  "snapshot": "snap-16-late-desperate",
+  "grammar": "n/a",
+  "repeat": 2,
+  "promptVersion": "plot-letter/v3",
+  "outcome": "Model",
+  "value": "Kael Dunmore, of Dunmore\u0027s Free Company, leads the attack on Gallowmere. He is the raider who maimed Viggo, and he has arrived at the colony\u0027s entrance.\n\nViggo recognizes him. He sees this as a possible chance to end the threat. He must see if the colony can hold against this assault.",
+  "attempts": [
+    {
+      "request": {
+        "system": "You write the letters that tell a RimWorld player how a story in their colony is unfolding. Each letter marks one beat of an arc.\n\nWhat to write:\n- Rewrite the plain letter you are given in your own words: 40 to 100 words, in two short paragraphs.\n- Keep every fact in the plain letter. Add none.\n- The first paragraph says what happened. The second gives the protagonist\u0027s side of it: what it means to them, or what they will do.\n- Match the letter\u0027s purpose: a sighting unsettles, a raid is urgent, a choice is fair to both options, an ending feels final.\n\nWhat you know:\n- Use only the facts and names below. Never invent people, places, factions, numbers, quotes, dates or events.\n- Never say what anyone is thinking unless the plain letter does. Show it through what they do or how they hold themselves now.\n- Refer to each person by name, or by the pronoun the facts give for them. Never guess anyone\u0027s gender.\n- Give people no rank, title or role the facts don\u0027t give: no \u0022commander\u0022, \u0022leader\u0022 or \u0022captain\u0022. Bring in no outside powers either: no authorities, law or guards.\n- If the letter is a choice, name every option plainly, with the price in silver exactly as given.\n\nStyle:\n- Write like the game\u0027s own letters: plain, vivid and a little grim. Third person. No poetry, no rhetorical questions.\n- Keep sentences short, mostly under 20 words.\n- Write only the letter: no title, no greeting, no sign-off, no notes.\n",
+        "user": "## The arc\nNemesis: a raider who killed or maimed one of the colonists escaped, and the colony has not forgotten.\n\n## This letter\nThe complication: the raider leads a raid on the colony right now. It should be urgent.\n\n## Facts\n- Colony: Gallowmere\n- Protagonist: Viggo\n- What the raider did: maimed\n- Raider\u0027s faction: Dunmore\u0027s Free Company\n- Raider: Kael Dunmore\n- Raider\u0027s pronoun: he\n- Body part lost: leg\n- Protagonist\u0027s pronoun: he\n- Victim: Viggo\n- Victim\u0027s pronoun: he\n\n## The plain letter\nKael Dunmore of Dunmore\u0027s Free Company rides at the head of this raid: the same raider who cost Viggo his leg. This time Kael Dunmore came to the colony\u0027s door.\n\nViggo knows the face. This may be the chance to end it, if the colony can hold.\n\nWrite the letter now.\n",
+        "maxOutputTokens": 260,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "Kael Dunmore, of Dunmore\u0027s Free Company, leads the attack on Gallowmere. He is the raider who maimed Viggo, and he has arrived at the colony\u0027s entrance.\n\nViggo recognizes him. He sees this as a possible chance to end the threat. He must see if the colony can hold against this assault.",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 0.5415024,
+      "inputTokens": 586,
+      "outputTokens": 75,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-471\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795323107,\u0022model\u0022:\u0022gemma4:e4b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022Kael Dunmore, of Dunmore\u0027s Free Company, leads the attack on Gallowmere. He is the raider who maimed Viggo, and he has arrived at the colony\u0027s entrance.\\n\\nViggo recognizes him. He sees this as a possible chance to end the threat. He must see if the colony can hold against this assault.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:586,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:585},\u0022completion_tokens\u0022:75,\u0022total_tokens\u0022:661}}\n"
+    }
+  ]
+}

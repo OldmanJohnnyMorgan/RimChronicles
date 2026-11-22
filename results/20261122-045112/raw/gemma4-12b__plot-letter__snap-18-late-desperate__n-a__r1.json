@@ -1,0 +1,32 @@
+{
+  "cell": "gemma4-12b__plot-letter__snap-18-late-desperate__n-a__r1",
+  "model": "gemma4-12b",
+  "task": "plot-letter",
+  "snapshot": "snap-18-late-desperate",
+  "grammar": "n/a",
+  "repeat": 1,
+  "promptVersion": "plot-letter/v3",
+  "outcome": "Model",
+  "value": "A trader delivered a letter from the Wailing Moth Tribe to Wren\u0027s Hollow. It arrived from Ada, the aunt of Elias. The letter confirms that she is alive and well enough to write.\n\nElias read the words twice before hiding the paper in a safe place. This news changes everything for him. He will keep her message close.",
+  "attempts": [
+    {
+      "request": {
+        "system": "You write the letters that tell a RimWorld player how a story in their colony is unfolding. Each letter marks one beat of an arc.\n\nWhat to write:\n- Rewrite the plain letter you are given in your own words: 40 to 100 words, in two short paragraphs.\n- Keep every fact in the plain letter. Add none.\n- The first paragraph says what happened. The second gives the protagonist\u0027s side of it: what it means to them, or what they will do.\n- Match the letter\u0027s purpose: a sighting unsettles, a raid is urgent, a choice is fair to both options, an ending feels final.\n\nWhat you know:\n- Use only the facts and names below. Never invent people, places, factions, numbers, quotes, dates or events.\n- Never say what anyone is thinking unless the plain letter does. Show it through what they do or how they hold themselves now.\n- Refer to each person by name, or by the pronoun the facts give for them. Never guess anyone\u0027s gender.\n- Give people no rank, title or role the facts don\u0027t give: no \u0022commander\u0022, \u0022leader\u0022 or \u0022captain\u0022. Bring in no outside powers either: no authorities, law or guards.\n- If the letter is a choice, name every option plainly, with the price in silver exactly as given.\n\nStyle:\n- Write like the game\u0027s own letters: plain, vivid and a little grim. Third person. No poetry, no rhetorical questions.\n- Keep sentences short, mostly under 20 words.\n- Write only the letter: no title, no greeting, no sign-off, no notes.\n",
+        "user": "## The arc\nLost Family: a colonist has a living relative in another faction, far from the colony.\n\n## This letter\nThe hook: the first letter from a relative the protagonist thought they had lost touch with. It should be warm, with a hint of distance.\n\n## Facts\n- Colony: Wren\u0027s Hollow\n- Protagonist: Elias\n- Relative\u0027s faction: the Wailing Moth Tribe\n- Relative: Ada\n- Relative\u0027s pronoun: she\n- Protagonist\u0027s pronoun: he\n- Relative\u0027s relation to the protagonist: aunt\n\n## The plain letter\nA letter has come for Elias, carried by a passing trader. It is from Ada, Elias\u0027s aunt, who lives among the Wailing Moth Tribe.\n\nAda is alive, and well enough to write. Elias reads it twice, then puts it away somewhere safe.\n\nWrite the letter now.\n",
+        "maxOutputTokens": 260,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "A trader delivered a letter from the Wailing Moth Tribe to Wren\u0027s Hollow. It arrived from Ada, the aunt of Elias. The letter confirms that she is alive and well enough to write.\n\nElias read the words twice before hiding the paper in a safe place. This news changes everything for him. He will keep her message close.",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 1.2398596,
+      "inputTokens": 558,
+      "outputTokens": 71,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-907\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795323136,\u0022model\u0022:\u0022gemma4:12b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022A trader delivered a letter from the Wailing Moth Tribe to Wren\u0027s Hollow. It arrived from Ada, the aunt of Elias. The letter confirms that she is alive and well enough to write.\\n\\nElias read the words twice before hiding the paper in a safe place. This news changes everything for him. He will keep her message close.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:558,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:71,\u0022total_tokens\u0022:629}}\n"
+    }
+  ]
+}

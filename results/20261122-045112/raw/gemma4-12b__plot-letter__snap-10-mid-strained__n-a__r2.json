@@ -1,0 +1,32 @@
+{
+  "cell": "gemma4-12b__plot-letter__snap-10-mid-strained__n-a__r2",
+  "model": "gemma4-12b",
+  "task": "plot-letter",
+  "snapshot": "snap-10-mid-strained",
+  "grammar": "n/a",
+  "repeat": 2,
+  "promptVersion": "plot-letter/v3",
+  "outcome": "Model",
+  "value": "The Stonecutter Raiders have taken captives from the Ochre Hand. Saskia is among those held at a camp near Wyrmfold.\n\nAnouk has not slept since the news arrived. She cannot rest while her sister is in the hands of the raiders.",
+  "attempts": [
+    {
+      "request": {
+        "system": "You write the letters that tell a RimWorld player how a story in their colony is unfolding. Each letter marks one beat of an arc.\n\nWhat to write:\n- Rewrite the plain letter you are given in your own words: 40 to 100 words, in two short paragraphs.\n- Keep every fact in the plain letter. Add none.\n- The first paragraph says what happened. The second gives the protagonist\u0027s side of it: what it means to them, or what they will do.\n- Match the letter\u0027s purpose: a sighting unsettles, a raid is urgent, a choice is fair to both options, an ending feels final.\n\nWhat you know:\n- Use only the facts and names below. Never invent people, places, factions, numbers, quotes, dates or events.\n- Never say what anyone is thinking unless the plain letter does. Show it through what they do or how they hold themselves now.\n- Refer to each person by name, or by the pronoun the facts give for them. Never guess anyone\u0027s gender.\n- Give people no rank, title or role the facts don\u0027t give: no \u0022commander\u0022, \u0022leader\u0022 or \u0022captain\u0022. Bring in no outside powers either: no authorities, law or guards.\n- If the letter is a choice, name every option plainly, with the price in silver exactly as given.\n\nStyle:\n- Write like the game\u0027s own letters: plain, vivid and a little grim. Third person. No poetry, no rhetorical questions.\n- Keep sentences short, mostly under 20 words.\n- Write only the letter: no title, no greeting, no sign-off, no notes.\n",
+        "user": "## The arc\nLost Family: a colonist has a living relative in another faction, far from the colony.\n\n## This letter\nThe complication: the relative has been taken captive. It should feel urgent and personal.\n\n## Facts\n- Colony: Wyrmfold\n- Protagonist: Anouk\n- Captors: the Stonecutter Raiders\n- Relative\u0027s faction: the Ochre Hand\n- Relative: Saskia\n- Relative\u0027s pronoun: she\n- Protagonist\u0027s pronoun: she\n- Relative\u0027s relation to the protagonist: sister\n\n## The plain letter\nWord comes that the Stonecutter Raiders have taken captives from the Ochre Hand. Saskia, Anouk\u0027s sister, is among them, held at a camp not far from Wyrmfold.\n\nAnouk has not slept since the news came.\n\nWrite the letter now.\n",
+        "maxOutputTokens": 260,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "The Stonecutter Raiders have taken captives from the Ochre Hand. Saskia is among those held at a camp near Wyrmfold.\n\nAnouk has not slept since the news arrived. She cannot rest while her sister is in the hands of the raiders.",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 0.8014029,
+      "inputTokens": 551,
+      "outputTokens": 54,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-205\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795323127,\u0022model\u0022:\u0022gemma4:12b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022The Stonecutter Raiders have taken captives from the Ochre Hand. Saskia is among those held at a camp near Wyrmfold.\\n\\nAnouk has not slept since the news arrived. She cannot rest while her sister is in the hands of the raiders.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:551,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:546},\u0022completion_tokens\u0022:54,\u0022total_tokens\u0022:605}}\n"
+    }
+  ]
+}

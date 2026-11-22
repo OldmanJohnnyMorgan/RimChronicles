@@ -1,0 +1,32 @@
+{
+  "cell": "gemma4-12b__plot-letter__snap-09-mid-desperate__n-a__r1",
+  "model": "gemma4-12b",
+  "task": "plot-letter",
+  "snapshot": "snap-09-mid-desperate",
+  "grammar": "n/a",
+  "repeat": 1,
+  "promptVersion": "plot-letter/v3",
+  "outcome": "Model",
+  "value": "Rook Malley of Malley\u0027s Lancers is dead. The people of Cinder Rest killed him. He was the raider who killed Joska.\n\nLene can finally rest. The weight of the loss is still heavy, but the threat of the man who took her husband is gone.",
+  "attempts": [
+    {
+      "request": {
+        "system": "You write the letters that tell a RimWorld player how a story in their colony is unfolding. Each letter marks one beat of an arc.\n\nWhat to write:\n- Rewrite the plain letter you are given in your own words: 40 to 100 words, in two short paragraphs.\n- Keep every fact in the plain letter. Add none.\n- The first paragraph says what happened. The second gives the protagonist\u0027s side of it: what it means to them, or what they will do.\n- Match the letter\u0027s purpose: a sighting unsettles, a raid is urgent, a choice is fair to both options, an ending feels final.\n\nWhat you know:\n- Use only the facts and names below. Never invent people, places, factions, numbers, quotes, dates or events.\n- Never say what anyone is thinking unless the plain letter does. Show it through what they do or how they hold themselves now.\n- Refer to each person by name, or by the pronoun the facts give for them. Never guess anyone\u0027s gender.\n- Give people no rank, title or role the facts don\u0027t give: no \u0022commander\u0022, \u0022leader\u0022 or \u0022captain\u0022. Bring in no outside powers either: no authorities, law or guards.\n- If the letter is a choice, name every option plainly, with the price in silver exactly as given.\n\nStyle:\n- Write like the game\u0027s own letters: plain, vivid and a little grim. Third person. No poetry, no rhetorical questions.\n- Keep sentences short, mostly under 20 words.\n- Write only the letter: no title, no greeting, no sign-off, no notes.\n",
+        "user": "## The arc\nNemesis: a raider who killed or maimed one of the colonists escaped, and the colony has not forgotten.\n\n## This letter\nThe end: the raider\u0027s story is over. It should feel like closure for the protagonist.\n\n## Facts\n- Colony: Cinder Rest\n- Protagonist: Lene\n- What the raider did: killed\n- Raider\u0027s faction: Malley\u0027s Lancers\n- Raider: Rook Malley\n- Raider\u0027s pronoun: he\n- Protagonist\u0027s pronoun: she\n- Victim\u0027s relation to the protagonist: husband\n- Victim: Joska\n- Victim\u0027s pronoun: he\n\n## The plain letter\nRook Malley of Malley\u0027s Lancers, who killed Lene\u0027s husband Joska, is dead, killed by the people of Cinder Rest. The raider\u0027s run is over, and it ended here.\n\nLene can finally rest.\n\nWrite the letter now.\n",
+        "maxOutputTokens": 260,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "Rook Malley of Malley\u0027s Lancers is dead. The people of Cinder Rest killed him. He was the raider who killed Joska.\n\nLene can finally rest. The weight of the loss is still heavy, but the threat of the man who took her husband is gone.",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 1.0095857,
+      "inputTokens": 581,
+      "outputTokens": 63,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-181\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795323123,\u0022model\u0022:\u0022gemma4:12b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022Rook Malley of Malley\u0027s Lancers is dead. The people of Cinder Rest killed him. He was the raider who killed Joska.\\n\\nLene can finally rest. The weight of the loss is still heavy, but the threat of the man who took her husband is gone.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:581,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:63,\u0022total_tokens\u0022:644}}\n"
+    }
+  ]
+}
