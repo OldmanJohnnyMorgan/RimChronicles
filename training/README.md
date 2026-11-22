@@ -218,3 +218,25 @@ Once a director has a committed report that passes (D8):
 3. Press **Test connection**: it tests the main model, then the director.
 4. In a Dev Mode game, **Rim Chronicles → Plot: director log** shows each decision; with a model set up the source is
    `Model`. The 200-day check (D11) uses this setup.
+
+## D9: blind review
+
+After a director passes its report (D8), you compare it with the teacher by eye, without knowing which answer is
+which. In **PowerShell**, with Ollama running (after a report the answers come from the cache, so it's quick):
+
+```powershell
+cd C:\RimworldMods\RimChronicles\RimChronicles
+dotnet run --project harness/RimChronicles.Eval -- director-review --config training/models.director.json --models director-e2b
+start harness\reports\review-director-e2b\review.html
+```
+
+The page shows 50 test decisions, spread over arcs and beats. For each one, open the briefing if you like, read the
+two answers (the option picked, what it does, the reason), and click **A is better**, **Same** or **B is better**. Your
+picks stay in the browser if you close the page. When you're done, press **Download answers**, then:
+
+```powershell
+dotnet run --project harness/RimChronicles.Eval -- director-review --config training/models.director.json --models director-e2b --answers $env:USERPROFILE\Downloads\review-answers.json
+```
+
+It reveals which side was which and writes `review.md` (better, same, worse, and per arc and beat). The ship bar: the
+model is picked or tied in at least 40% of cases. Commit the `review-director-e2b` folder with the report.
