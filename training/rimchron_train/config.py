@@ -28,6 +28,14 @@ class Config:
     max_steps: int = -1
     seed: int = 1
     quantizations: list[str] = field(default_factory=lambda: ["q4_k_m"])
+    # Generate-based evaluation and early stopping (training spec §5.2): every eval_every_steps optimizer steps, answer
+    # eval_rows val cases; keep the LoRA with the best top-1; stop after `patience` evaluations without improvement.
+    eval_every_steps: int = 0                 # 0: only at the end
+    eval_rows: int = 100
+    patience: int = 3                         # 0: never stop early
+    min_delta: float = 0.0
+    max_new_tokens: int = 160
+    min_free_vram_gb: float = 6.0             # stop at the start, with a clear message, below this
 
     @property
     def run_dir(self) -> Path:
