@@ -16,7 +16,7 @@ namespace RimChronicles.Eval.Reporting;
 public static class HtmlReport
 {
     private static readonly string[] Tasks =
-        [WorldSummarizer.DirectorTask, WorldSummarizer.NewsBulletinTask, WorldSummarizer.HandoffTask, RimChronicles.Core.Plots.PlotLetterTask.TaskName];
+        [WorldSummarizer.DirectorTask, WorldSummarizer.NewsBulletinTask, WorldSummarizer.HandoffTask, RimChronicles.Core.Plots.PlotLetterTask.TaskName, RimChronicles.Core.Empire.EpilogueTask.TaskName];
 
     private static readonly Dictionary<string, string> TaskTitles = new()
     {
@@ -24,6 +24,7 @@ public static class HtmlReport
         [WorldSummarizer.NewsBulletinTask] = "News bulletin",
         [WorldSummarizer.HandoffTask] = "Inheritance handoff",
         [RimChronicles.Core.Plots.PlotLetterTask.TaskName] = "Plot letter",
+        [RimChronicles.Core.Empire.EpilogueTask.TaskName] = "Epilogue",
     };
 
     public static string Write(RunData run, RunData? compare)

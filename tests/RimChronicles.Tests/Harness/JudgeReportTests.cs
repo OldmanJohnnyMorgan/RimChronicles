@@ -258,7 +258,7 @@ public sealed class JudgePipelineTests : IDisposable
         Assert.Contains("Meets all bars", html);
         Assert.Contains("The stub judge approves of everything.", html);
         Assert.Contains("&quot;choice&quot;", html); // director JSON is shown escaped, never as raw markup
-        Assert.Equal(4, System.Text.RegularExpressions.Regex.Matches(html, "<svg ").Count);
+        Assert.Equal(5, System.Text.RegularExpressions.Regex.Matches(html, "<svg ").Count);
         Assert.DoesNotContain("<script", html);
     }
 

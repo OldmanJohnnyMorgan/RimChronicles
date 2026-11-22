@@ -91,6 +91,18 @@ type up by name on load, which might not resolve nested generic types.
 - A raid with a forced faction skips the storyteller's points check: raise points to
   `faction.def.MinPointsToGeneratePawnGroup(Combat)` or no raid strategy fits.
 
+## Stage 5 notes
+
+- `WorldObject.SetFaction` only sets the field. `Settlement.cachedMat` and `WorldObject.expandingMaterial` keep the
+  old owner's colour, so a conquered settlement clears both and calls `WorldRenderer.SetDirty<WorldDrawLayer_WorldObjects>`.
+- `Faction.SetRelationDirect` refuses two factions that both use goodwill (most NPC pairs), so the Empire's wars with
+  neighbours are news, not relation changes.
+- Royal favor from `GainFavor` doesn't award titles by itself; call `TryUpdateTitle` after it. A renounced title is
+  `SetTitle(faction, null, …)` with `sendLetter: true`; the game's own cleanup passes false.
+- A ship reactor's start is `CompHibernatable.Startup`; the reactor is `ThingDefOf.Ship_Reactor`.
+- `Site.CheckAllEnemiesDefeated` sends the `AllEnemiesDefeated` quest signal; `Thing.Destroy` sends `Destroyed`;
+  `MapParent` sends `MapGenerated` for any tagged settlement, not only sites.
+
 ## Differences that matter later
 
 - `Mod.DoSettingsWindowContents(Rect)` still takes `UnityEngine.Rect`, which is now a type in `UnityStubs`.

@@ -38,3 +38,18 @@ public static class ImperialTitleRenouncedPatch
         }
     }
 }
+
+/// <summary>A ship reactor starts up (<c>CompHibernatable.Startup</c>, which the reactor's start gizmo calls): the
+/// awake Empire reacts (Stage 5 M5).</summary>
+[HarmonyPatch(typeof(CompHibernatable), nameof(CompHibernatable.Startup))]
+public static class ShipReactorStartupPatch
+{
+    public static void Postfix(CompHibernatable __instance)
+    {
+        if (Current.ProgramState == ProgramState.Playing && __instance.parent?.def == ThingDefOf.Ship_Reactor
+            && __instance.State == HibernatableStateDefOf.Starting)
+        {
+            EmpireDriver.Notify_ShipStartup();
+        }
+    }
+}

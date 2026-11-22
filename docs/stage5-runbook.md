@@ -100,3 +100,37 @@ picks its jobs with reasons and its beats keep 2 days from other plots.
 | 6 | **Empire: set stance** → neutral; advance a beat. | A tribute demand; paying takes the silver; refusing sends "At war with the Empire". |
 | 7 | **Empire: expansion tick** until 5 expansions, then let the plot's next beat come. | "The Empire ascendant" or "The Empire breaking"; **Empire: show state** shows `Ascendant` or `Broken`. |
 | 8 | Save and reload in the middle of a job. | No errors; the job's outcome still reaches the plot. |
+
+## M5: endings
+
+Act 3 opens the ending paths, which depend on the stance and on whether the Empire is Ascendant or Broken:
+
+| Stance | Ascendant | Broken |
+| --- | --- | --- |
+| Ally | Keep serving (escorts, "Weaken X"); each success gives 4 royal favor to the colonist with the most. Once a colonist is a **Knight or above**, a **governorship** letter: accept → **Imperial victory**. | Same. |
+| Oppose | **Storm the capital** (the Empire's oldest settlement, 60 days): destroy it → **Resistance victory**. | Storm the capital, or a **treaty** letter: sign → **Independence**. |
+| Keep out | The **final demand**: submit (ally) or refuse (war; ignoring it is refusing). | A **treaty** letter: sign → **Independence**; fight on → opposed. |
+
+An ending shows the epilogue on the victory screen (the game carries on afterwards, as after vanilla's royal ascent),
+and keeps it as a letter. The model writes it with the new **epilogue** prompt, naming up to four colonists who
+mattered: a title holder, protagonists of the colony's stories, then its most skilled hands. With the model off or
+failing its checks, the template epilogue is used.
+
+**Ship launch:** while the Empire is Awakened or Ascendant and the colony isn't its ally, starting a ship reactor means
+war and an Imperial raid at once, then another every 4 days until the reactor is running.
+
+Run the free epilogue harness first (three cases, one per ending), and push it to `rc-results`:
+
+```powershell
+dotnet run --project harness/RimChronicles.Eval -- run --tasks epilogue --models gemma4-e2b,gemma4-e4b,gemma4-12b
+```
+
+| # | Do | Pass when |
+| --- | --- | --- |
+| 1 | With the Empire in Act 3 (M4 check 7), **Empire: reach an ending** → each of the three, from a save. | The victory screen shows "Rim Chronicles: …" and an epilogue naming colonists; the letter stays in the archive; the game continues. |
+| 2 | Opposed, Act 3: let the director offer **Storm X**, accept, and destroy X with a caravan. | Resistance victory. **Empire: show state** says `Broken`, ending `Resistance`. |
+| 3 | Allied, Act 3: Dev Mode → give a colonist the Knight title (vanilla Royalty dev action), wait a day, advance a beat. | The governorship letter; accepting gives the Imperial victory. |
+| 4 | Neutral or opposed against a Broken Empire: advance a beat. | The treaty letter; signing gives Independence, and the Empire is no longer hostile. |
+| 5 | Neutral against an Ascendant Empire: advance a beat, then ignore the letter for 5 days. | The final demand; ignored, it means war. |
+| 6 | Opposed or neutral, Empire awake: build and start a ship reactor (Dev Mode god mode). | "The Empire will not let you leave", a raid at once, another 4 days later while it starts up. |
+| 7 | With the model off (tier Off), reach an ending. | The template epilogue appears. |

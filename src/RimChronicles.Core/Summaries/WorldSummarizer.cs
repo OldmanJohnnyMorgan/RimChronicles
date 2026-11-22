@@ -185,6 +185,31 @@ public static partial class WorldSummarizer
         });
     }
 
+    /// <summary>The epilogue's input (Stage 5 M5): the ending, the colonists who mattered and the story's events.</summary>
+    public static TaskPromptInput ForEpilogue(EpilogueCase c, string colony)
+    {
+        var people = new StringBuilder();
+        foreach (var p in c.People)
+        {
+            people.Append(CultureInfo.InvariantCulture, $"- {p.Name} ({p.Pronoun}{(p.Dead ? ", died before the end" : "")}): {p.Deed}\n");
+        }
+
+        return Build(new()
+        {
+            ["colony"] = colony,
+            ["empire"] = c.Empire,
+            ["ending"] = $"{Empire.EpilogueTask.Headline(c.Ending)}. {Empire.EpilogueTask.Meaning(c, colony)}",
+            ["stance"] = c.Stance switch
+            {
+                "ally" => $"{colony} sided with {c.Empire}.",
+                "oppose" => $"{colony} fought {c.Empire}.",
+                _ => $"{colony} tried to keep out of the Empire's wars.",
+            },
+            ["people"] = people.Length == 0 ? "- (none named)" : people.ToString().TrimEnd(),
+            ["events"] = c.Events.Count == 0 ? "- (none recorded)" : string.Join("\n", c.Events.Select(e => $"- {e}")),
+        });
+    }
+
     private static string FactLabel(string key, string template) => key switch
     {
         "relation" when template == Plots.LostFamily.LostFamilyArc.TemplateId => "Relative's relation to the protagonist",

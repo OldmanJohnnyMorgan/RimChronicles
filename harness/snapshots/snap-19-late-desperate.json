@@ -137,5 +137,39 @@
     "name": "Odile Brask",
     "outlet": "the Rim Dispatch",
     "persona": "sardonic, precise and fond of understatement"
+  },
+  "epilogue": {
+    "ending": "Resistance",
+    "empire": "The Sun Throne",
+    "stance": "oppose",
+    "people": [
+      {
+        "name": "Ysolde",
+        "pronoun": "she",
+        "deed": "led the coalition with the Marrow League"
+      },
+      {
+        "name": "Bram",
+        "pronoun": "he",
+        "deed": "held the gate when the legionaries attacked on day 906",
+        "dead": true
+      },
+      {
+        "name": "Hesper",
+        "pronoun": "she",
+        "deed": "sabotaged the Imperial settlement of Calder Mill"
+      },
+      {
+        "name": "Jory",
+        "pronoun": "he",
+        "deed": "kept the wounded alive through the siege"
+      }
+    ],
+    "events": [
+      "The Sun Throne took Calder Mill and razed Fenwick.",
+      "Last Lantern joined the Marrow League against the Empire.",
+      "Imperial legionaries attacked on day 906 and were driven off.",
+      "Last Lantern and its allies destroyed the Imperial capital of Solace."
+    ]
   }
 }

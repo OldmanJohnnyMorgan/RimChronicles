@@ -145,5 +145,39 @@
     "name": "Ilse Varrow",
     "outlet": "the Rim Dispatch",
     "persona": "dry, wry and slightly cynical"
+  },
+  "epilogue": {
+    "ending": "Independence",
+    "empire": "The Shattered Empire",
+    "stance": "oppose",
+    "people": [
+      {
+        "name": "Severin",
+        "pronoun": "he",
+        "deed": "defected from the Empire's general staff and advised the colony"
+      },
+      {
+        "name": "Annika",
+        "pronoun": "she",
+        "deed": "broke the Imperial siege of Dunwold"
+      },
+      {
+        "name": "Thane",
+        "pronoun": "he",
+        "deed": "rebuilt the walls after every raid"
+      },
+      {
+        "name": "Mila",
+        "pronoun": "she",
+        "deed": "nursed the colony through the war",
+        "dead": true
+      }
+    ],
+    "events": [
+      "Ironbloom destroyed an Imperial outpost on day 655, waking the Shattered Empire.",
+      "The Empire took the Ashford town of Dunwold on day 701.",
+      "Ironbloom broke the Imperial siege of Dunwold.",
+      "The Empire, broken by its losses, signed a treaty recognising Ironbloom as a free state."
+    ]
   }
 }

@@ -31,5 +31,11 @@
     "overall": 3.5,
     "overallTiers": ["Recommended"],
     "lengthOk": 0.9
+  },
+  "epilogue": {
+    "majorInventedPer10": 1.0,
+    "overall": 3.5,
+    "overallTiers": ["Recommended"],
+    "lengthOk": 0.9
   }
 }
