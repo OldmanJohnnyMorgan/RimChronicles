@@ -64,6 +64,7 @@ public sealed class LordJob_RcOperation : LordJob
             {
                 PhaseKind.Regroup => new LordToil_DefendPoint(staging, 8f, 6f),
                 PhaseKind.Retreat => new LordToil_RcRetreat(),
+                PhaseKind.Breach => new LordToil_AssaultColonyBreaching(),
                 _ => new LordToil_RcAssault(),
             };
             toils[phase.Name] = toil;

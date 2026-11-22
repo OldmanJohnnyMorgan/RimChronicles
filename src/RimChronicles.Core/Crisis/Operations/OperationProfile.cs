@@ -12,6 +12,9 @@ public enum PhaseKind
     /// <summary>Go for one pawn (the decapitation target).</summary>
     Hunt,
 
+    /// <summary>Breachers open a way through the walls and the rest follow (vanilla's breaching assault).</summary>
+    Breach,
+
     /// <summary>Fall back to the staging point; reinforcements join at the end if the reserve allows.</summary>
     Regroup,
 
@@ -131,11 +134,11 @@ public static class OperationProfiles
         RetreatPhase,
     ], ForceShare: 0.8f);
 
-    /// <summary>The shape most operations share: attack; regroup once after heavy losses and come back with the
-    /// reserve; leave after heavier losses.</summary>
-    public static OperationProfile Standard(string operation) => new(operation, "assault",
+    /// <summary>The shape most operations share: attack (or breach); regroup once after heavy losses and come back
+    /// with the reserve; leave after heavier losses.</summary>
+    public static OperationProfile Standard(string operation, PhaseKind first = PhaseKind.Assault) => new(operation, "assault",
     [
-        new("assault", PhaseKind.Assault,
+        new("assault", first,
         [
             new(PhaseTrigger.LossesOver, "regroup", 0.4f),
             new(PhaseTrigger.Abandoned, Retreat),
@@ -166,6 +169,7 @@ public static class OperationProfiles
         CrisisOperations.ProbingRaid => ProbingRaid,
         CrisisOperations.Decapitation => Decapitation,
         CrisisOperations.FinalAssault => FinalAssault,
+        CrisisOperations.Breach => Standard(operation, PhaseKind.Breach),
         _ => Standard(operation),
     };
 }

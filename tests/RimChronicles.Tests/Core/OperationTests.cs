@@ -119,6 +119,49 @@ public class OperationTests
         Assert.Equal(a, b);
     }
 
+    [Fact]
+    public void PsychicAssault_NoMindAdeptsBeforeStage3_ThenTheSpecRatio()
+    {
+        var reclamation = ForceMix.Build(ForceMix.PsychicAssault, CrisisStage.Reclamation, 4000, Cost);
+        Assert.DoesNotContain(reclamation, e => e.Specialty == Specialty.Mind);
+        Assert.Contains(reclamation, e => e.Specialty == Specialty.Control);
+        Assert.Contains(reclamation, e => e.Specialty == Specialty.Skip);
+
+        // Stage 3 at about 12 units' budget: 6 Praetorians to 2 Mind, 2 Control, 1 Ward, 1 Skip.
+        var war = ForceMix.Build(ForceMix.PsychicAssault, CrisisStage.War, 12 * 155, Cost);
+        int Count(Specialty s) => war.Count(e => e.Specialty == s);
+        Assert.InRange(war.Count(e => e.Role == UnitRole.Praetorian), 5, 7);
+        Assert.InRange(Count(Specialty.Mind), 1, 2);
+        Assert.InRange(Count(Specialty.Control), 1, 2);
+        Assert.True(war.Count(e => e.Role == UnitRole.Adept) >= war.Count(e => e.Role == UnitRole.Praetorian) - 1); // psyker-heavy
+    }
+
+    [Fact]
+    public void Breach_BreachersLead_AndAHeraldFromStage3()
+    {
+        var reclamation = ForceMix.Build(ForceMix.Breach, CrisisStage.Reclamation, 3000, Cost);
+        Assert.True(reclamation.Count(e => e.Role == UnitRole.Breacher) >= 2);
+        Assert.DoesNotContain(reclamation, e => e.Role == UnitRole.Herald);
+        Assert.Contains(ForceMix.Build(ForceMix.Breach, CrisisStage.War, 3000, Cost), e => e.Role == UnitRole.Herald);
+    }
+
+    [Fact]
+    public void Breach_OpensWithABreachingPhase_ThenTheStandardShape()
+    {
+        var breach = OperationProfiles.For(CrisisOperations.Breach);
+        Assert.Equal(PhaseKind.Breach, breach.Find(breach.Start)!.Kind);
+        Assert.Equal(PhaseKind.Assault, breach.Find("second")!.Kind);
+        Assert.True(breach.RetreatsOnLosses());
+        Assert.Equal(PhaseKind.Assault, OperationProfiles.For(CrisisOperations.PsychicAssault).Find("assault")!.Kind);
+    }
+
+    [Theory]
+    [MemberData(nameof(Operations))]
+    public void EveryOperation_HasAMix_WithPraetorians(string operation)
+    {
+        Assert.Contains(ForceMix.For(operation), e => e.Role == UnitRole.Praetorian);
+    }
+
     // ---- fairness rule 3: drop pods
 
     private static IEnumerable<DropCell> Field(Func<Cell, RoofKind> roof, Func<Cell, bool>? standable = null)
