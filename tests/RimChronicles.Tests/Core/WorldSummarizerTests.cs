@@ -161,7 +161,7 @@ public class PromptContractTests
 
     [Fact]
     public void Library_HasEveryTask() =>
-        Assert.Equal(["director", "inheritance-handoff", "judge", "news-bulletin", "plot-letter"], Library.Tasks.Order());
+        Assert.Equal(["director", "epilogue", "inheritance-handoff", "judge", "news-bulletin", "plot-letter"], Library.Tasks.Order());
 
     [Theory]
     [InlineData(ModelTier.Minimum)]

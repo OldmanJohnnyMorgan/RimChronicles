@@ -51,6 +51,9 @@ public sealed record WorldSnapshot
 
     /// <summary>A plot letter to write (the plot-letter task), or null.</summary>
     public PlotLetterCase? PlotLetter { get; init; }
+
+    /// <summary>An epilogue to write (the epilogue task, Stage 5 M5), or null.</summary>
+    public EpilogueCase? Epilogue { get; init; }
 }
 
 public sealed record ColonyInfo
@@ -169,4 +172,35 @@ public sealed record PlotLetterCase
     /// <summary>The plot's facts by key (nemesisName, nemesisFaction, victimName, relation, grievance, part, place,
     /// bountyCost).</summary>
     public IReadOnlyDictionary<string, string> Facts { get; init; } = new Dictionary<string, string>();
+}
+
+/// <summary>The end of the major plot, for its epilogue (Stage 5 M5): which ending, and the colonists who mattered.</summary>
+public sealed record EpilogueCase
+{
+    /// <summary>"Resistance", "Imperial" or "Independence".</summary>
+    public required string Ending { get; init; }
+
+    public required string Empire { get; init; }
+
+    /// <summary>The colony's last stance toward the Empire: "ally", "oppose" or "neutral".</summary>
+    public string Stance { get; init; } = "neutral";
+
+    /// <summary>Up to four colonists, most important first.</summary>
+    public IReadOnlyList<EpiloguePerson> People { get; init; } = [];
+
+    /// <summary>Plain sentences of what happened in the story, oldest first.</summary>
+    public IReadOnlyList<string> Events { get; init; } = [];
+}
+
+public sealed record EpiloguePerson
+{
+    public required string Name { get; init; }
+
+    /// <summary>"he", "she" or "they".</summary>
+    public string Pronoun { get; init; } = "they";
+
+    /// <summary>What they did in the story, as a plain phrase ("led the defence of Marrow Hold").</summary>
+    public required string Deed { get; init; }
+
+    public bool Dead { get; init; }
 }

@@ -35,6 +35,12 @@ public static class EmpireDriver
             EmpireBeats.EnsurePlot(component, today); // a save from before M4 woke the Empire without its plot
         }
 
+        if (saga.IsAwake)
+        {
+            saga.HighTitleHolder = EmpireBeats.HighTitleHolder(empire);
+            ShipRaids(component, empire, today);
+        }
+
         switch (saga.State)
         {
             case EmpireState.Dormant:
@@ -221,6 +227,75 @@ public static class EmpireDriver
             .Where(f => f != empire && !f.IsPlayer && !f.defeated && f.def.humanlikeFaction && settled.Contains(f))
             .Select(f => f.Name)
             .ToList();
+    }
+
+    /// <summary>Days between Imperial raids while a ship reactor starts up.</summary>
+    public const int ShipRaidGapDays = 4;
+
+    /// <summary>The ship-launch reaction (design spec, Stage 5): an awake Empire that the colony hasn't allied with
+    /// won't let it leave. Starting a ship reactor brings war and an Imperial raid at once, then another every few days
+    /// while the reactor starts up.</summary>
+    public static void Notify_ShipStartup()
+    {
+        if (RimChroniclesGameComponent.Current is not { } component || !Available || EmpireFaction is not { } empire)
+        {
+            return;
+        }
+
+        var saga = component.Empire;
+        var stance = EmpireBeats.Current(component) is { } plot ? EmpireArc.StanceOf(plot) : EmpireStance.Neutral;
+        if (saga.State is not (EmpireState.Awakened or EmpireState.Ascendant) || saga.Ending.Length > 0 || stance == EmpireStance.Ally
+            || saga.NextShipRaidDay >= 0)
+        {
+            return;
+        }
+
+        if (!empire.HostileTo(Faction.OfPlayer))
+        {
+            empire.TryAffectGoodwillWith(Faction.OfPlayer, -100 - empire.PlayerGoodwill, canSendMessage: true, canSendHostilityLetter: true);
+        }
+
+        Find.LetterStack.ReceiveLetter("The Empire will not let you leave",
+            $"Word of the ship has reached {empire.Name}. A colony that could carry its secrets off the rim is not one the Empire can allow.\n\n"
+            + "Imperial troops are on their way, and more will follow while the reactor starts up.", LetterDefOf.ThreatBig);
+        var today = GenDate.DaysPassed;
+        saga.Note(today, "the colony started a ship reactor: the Empire moves to stop it");
+        saga.NextShipRaidDay = today;
+        ShipRaids(component, empire, today);
+    }
+
+    private static void ShipRaids(RimChroniclesGameComponent component, Faction empire, int today)
+    {
+        var saga = component.Empire;
+        if (saga.NextShipRaidDay < 0 || today < saga.NextShipRaidDay)
+        {
+            return;
+        }
+
+        var reactorMap = Find.Maps.FirstOrDefault(m => m.IsPlayerHome && m.listerThings.ThingsOfDef(ThingDefOf.Ship_Reactor)
+            .Any(t => t.TryGetComp<CompHibernatable>() is { } h && h.State == HibernatableStateDefOf.Starting));
+        if (reactorMap is null || saga.Ending.Length > 0 || saga.State == EmpireState.Broken)
+        {
+            saga.NextShipRaidDay = -1; // the reactor is running, gone, or the story is over
+            return;
+        }
+
+        saga.NextShipRaidDay = today + ShipRaidGapDays;
+        if (!ImperialRaid(reactorMap, empire, 1.5f))
+        {
+            Log.Warning("[Rim Chronicles] The Empire's raid against the ship could not start.");
+        }
+    }
+
+    /// <summary>A raid by the Empire on a home map at <paramref name="factor"/> times the storyteller's big-threat
+    /// points, lifted to the Empire's minimum group (see ENGINE_NOTES: a forced faction skips that check).</summary>
+    public static bool ImperialRaid(Map map, Faction empire, float factor)
+    {
+        var parms = StorytellerUtility.DefaultParmsNow(IncidentCategoryDefOf.ThreatBig, map);
+        parms.faction = empire;
+        parms.forced = true;
+        parms.points = Math.Max(parms.points * factor, empire.def.MinPointsToGeneratePawnGroup(PawnGroupKindDefOf.Combat) * 1.05f);
+        return IncidentDefOf.RaidEnemy.Worker.TryExecute(parms);
     }
 
     /// <summary>Called when the player defeats an Imperial settlement.</summary>

@@ -261,11 +261,11 @@ public sealed class RunnerTests : IDisposable
         var (cells, snapshots) = RunPlan.Build(Options());
 
         // 20 hand-written snapshots plus 3 real exports.
-        // stub-min: director x2 grammar modes (46) + news (23) + handoff (3) + plot letter (6);
-        // stub-nogrammar: 23 + 23 + 3 + 6.
+        // stub-min: director x2 grammar modes (46) + news (23) + handoff (3) + plot letter (6) + epilogue (3);
+        // stub-nogrammar: 23 + 23 + 3 + 6 + 3.
         Assert.Equal(23, snapshots.Count);
-        Assert.Equal(78, cells.Count(c => c.Model.Id == "stub-min"));
-        Assert.Equal(55, cells.Count(c => c.Model.Id == "stub-nogrammar"));
+        Assert.Equal(81, cells.Count(c => c.Model.Id == "stub-min"));
+        Assert.Equal(58, cells.Count(c => c.Model.Id == "stub-nogrammar"));
         Assert.DoesNotContain(cells, c => c.Model.Id == "stub-nogrammar" && c.Grammar == "on");
     }
 
@@ -294,9 +294,11 @@ public sealed class RunnerTests : IDisposable
         var first = await Runner.RunAsync(Options() with { Snapshots = ["snap-09*", "snap-17*"] }, TextWriter.Null, CancellationToken.None);
         var second = await Runner.RunAsync(Options() with { Snapshots = ["snap-09*", "snap-17*"] }, TextWriter.Null, CancellationToken.None);
 
-        Assert.All(first.Cells, c => Assert.Equal("Model", c.Outcome));
+        // The stub's filler text can't name the epilogue's colonists, so that cell falls back to its template.
+        Assert.All(first.Cells.Where(c => c.Task != "epilogue"), c => Assert.Equal("Model", c.Outcome));
+        Assert.All(first.Cells.Where(c => c.Task == "epilogue"), c => Assert.Equal("Template", c.Outcome));
         Assert.Equal(0, first.CacheHits);
-        Assert.Equal(first.Cells.Count, second.CacheHits);
+        Assert.Equal(first.CacheMisses, second.CacheHits); // every call, including the epilogue's retry
         Assert.Equal(0, second.CacheMisses);
 
         var csv = File.ReadAllLines(Path.Combine(first.Folder, "results.csv"));

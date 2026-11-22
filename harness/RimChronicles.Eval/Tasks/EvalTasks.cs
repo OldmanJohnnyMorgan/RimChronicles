@@ -1,4 +1,5 @@
 using System.Text.Json.Nodes;
+using RimChronicles.Core.Empire;
 using RimChronicles.Core.News;
 using RimChronicles.Core.Plots;
 using RimChronicles.Core.Snapshots;
@@ -33,7 +34,7 @@ public sealed record OutputMetrics
 public static class EvalTasks
 {
     public static readonly IReadOnlyList<string> All =
-        [WorldSummarizer.DirectorTask, WorldSummarizer.NewsBulletinTask, WorldSummarizer.HandoffTask, PlotLetterTask.TaskName];
+        [WorldSummarizer.DirectorTask, WorldSummarizer.NewsBulletinTask, WorldSummarizer.HandoffTask, PlotLetterTask.TaskName, EpilogueTask.TaskName];
 
     /// <summary>Word ranges from the design spec, except the bulletin minimum: lowered from 80 to 60 (2026-11-21)
     /// because an 80-word floor made models pad thin news weeks with embellishments.</summary>
@@ -42,6 +43,7 @@ public static class EvalTasks
         WorldSummarizer.NewsBulletinTask => WorldSummarizer.BulletinWordRange(s),
         WorldSummarizer.HandoffTask => WorldSummarizer.HandoffWordRange,
         PlotLetterTask.TaskName => PlotLetterTask.WordRange,
+        EpilogueTask.TaskName => EpilogueTask.WordRange,
         _ => throw new ArgumentException($"{task} has no word range."),
     };
 
@@ -51,6 +53,7 @@ public static class EvalTasks
     {
         WorldSummarizer.HandoffTask => s.Handoff is not null,
         PlotLetterTask.TaskName => s.PlotLetter is not null,
+        EpilogueTask.TaskName => s.Epilogue is not null,
         _ => true,
     };
 
@@ -65,6 +68,7 @@ public static class EvalTasks
             WorldSummarizer.NewsBulletinTask => WorldSummarizer.ForNewsBulletin(s, tier),
             WorldSummarizer.HandoffTask => WorldSummarizer.ForHandoff(s),
             PlotLetterTask.TaskName => WorldSummarizer.ForPlotLetter(s.PlotLetter!, s.Colony.Name),
+            EpilogueTask.TaskName => WorldSummarizer.ForEpilogue(s.Epilogue!, s.Colony.Name),
             _ => throw new ArgumentException($"Unknown task '{task}'."),
         };
 
@@ -88,6 +92,7 @@ public static class EvalTasks
             {
                 WorldSummarizer.NewsBulletinTask => BulletinTask.Checks(s, input),
                 PlotLetterTask.TaskName => PlotLetterTask.Checks(s.PlotLetter!, input),
+                EpilogueTask.TaskName => EpilogueTask.Checks(s.Epilogue!, input),
                 WorldSummarizer.HandoffTask => HandoffTask.Checks(input),
                 _ => [new WordCountCheck(min, max), new GroundingCheck(input.AllowedNames), new BannedPhraseCheck()],
             };

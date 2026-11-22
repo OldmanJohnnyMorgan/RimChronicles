@@ -115,6 +115,16 @@ public sealed class EmpireSaga : IArchivable
 
     public bool IsAwake => State != EmpireState.Dormant;
 
+    /// <summary>A colonist holding a high Imperial title (Knight or above), read daily; "" if none. Opens the
+    /// governorship in Act 3 for an allied colony.</summary>
+    public string HighTitleHolder = "";
+
+    /// <summary>The ending reached (an <see cref="EmpireEnding"/>), or "" while the plot runs.</summary>
+    public string Ending = "";
+
+    /// <summary>The ship-launch reaction (Stage 5 M5): the next Imperial raid while a ship reactor starts up, or -1.</summary>
+    public int NextShipRaidDay = -1;
+
     public void Note(int day, string line) => Log.Add($"Day {day}: {line}");
 
     /// <summary>The awakening triggers present today, with their weights: the more pointed the provocation, the heavier.</summary>
@@ -243,6 +253,11 @@ public sealed class EmpireSaga : IArchivable
         archive.Strings(ref Log, "log");
         archive.Value(ref NextExpansionDay, "nextExpansionDay", -1);
         archive.DeepList(ref Expansions, "expansions");
+        archive.Value(ref HighTitleHolder, "highTitleHolder", "");
+        archive.Value(ref Ending, "ending", "");
+        archive.Value(ref NextShipRaidDay, "nextShipRaidDay", -1);
+        HighTitleHolder ??= "";
+        Ending ??= "";
         Trigger ??= "";
         TriggerDetail ??= "";
         SiteDestroyed ??= "";

@@ -248,16 +248,24 @@ public sealed class QuestNode_Root_ChroniclesSabotage : QuestNode_Root_Chronicle
     public const string SettlementVar = "rcTargetSettlement";
     public const string ObjectiveVar = "rcObjective";
 
+    /// <summary>True for the Imperial capital: no objective building, only destroying the settlement succeeds.</summary>
+    public const string NoObjectiveVar = "rcNoObjective";
+
+    /// <summary>The deadline in days; <see cref="QuestTemplates.SabotageDays"/> when unset.</summary>
+    public const string DaysVar = "rcDays";
+
     protected override void Build(Quest quest, Slate slate)
     {
         var settlement = slate.Get<Settlement>(SettlementVar) ?? throw new InvalidOperationException("Sabotage needs a settlement.");
-        var objective = slate.Get<ThingDef>(ObjectiveVar) ?? ThingDefOf.CommsConsole;
         QuestUtility.AddQuestTag(ref settlement.questTags, QuestGenUtility.HardcodedTargetQuestTagWithQuestID("target"));
-        quest.AddPart(new QuestPart_ChroniclesSpawnObjective
+        if (!slate.Get(NoObjectiveVar, false))
         {
-            inSignal = Signal("target.MapGenerated"), mapParent = settlement, thingDef = objective,
-            tag = QuestGenUtility.HardcodedTargetQuestTagWithQuestID("objective"),
-        });
+            quest.AddPart(new QuestPart_ChroniclesSpawnObjective
+            {
+                inSignal = Signal("target.MapGenerated"), mapParent = settlement, thingDef = slate.Get<ThingDef>(ObjectiveVar) ?? ThingDefOf.CommsConsole,
+                tag = QuestGenUtility.HardcodedTargetQuestTagWithQuestID("objective"),
+            });
+        }
 
         var success = Signal("sabotageDone");
         quest.SignalPass(null, Signal("objective.Destroyed"), success);
@@ -271,6 +279,6 @@ public sealed class QuestNode_Root_ChroniclesSabotage : QuestNode_Root_Chronicle
         }
 
         quest.End(QuestEndOutcome.Success, 0, null, success);
-        quest.Delay(QuestTemplates.SabotageDays * GenDate.TicksPerDay, () => QuestGen_End.End(quest, QuestEndOutcome.Fail));
+        quest.Delay(Math.Max(1, slate.Get(DaysVar, QuestTemplates.SabotageDays)) * GenDate.TicksPerDay, () => QuestGen_End.End(quest, QuestEndOutcome.Fail));
     }
 }

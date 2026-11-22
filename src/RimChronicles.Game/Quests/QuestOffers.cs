@@ -66,6 +66,17 @@ public static class QuestOffers
             slate.Set(QuestNode_Root_ChroniclesSite.RewardVar, QuestTemplates.RewardSilver(slate.Get("points", 300f)));
         });
 
+    /// <summary>The Empire's capital as a Sabotage quest with no objective: only destroying the settlement succeeds,
+    /// within <see cref="Core.Empire.EmpireArc.CapitalDays"/> days.</summary>
+    public static Quest? Capital(RimChroniclesGameComponent component, Plot plot, Settlement capital, string name, string description) =>
+        QuestStarter.Offer(component, plot, QuestTemplates.Sabotage, QuestTemplates.ScriptDef(QuestTemplates.Sabotage), name, description, slate =>
+        {
+            slate.Set(QuestNode_Root_ChroniclesSabotage.SettlementVar, capital);
+            slate.Set(QuestNode_Root_ChroniclesSabotage.NoObjectiveVar, true);
+            slate.Set(QuestNode_Root_ChroniclesSabotage.DaysVar, Core.Empire.EmpireArc.CapitalDays);
+            slate.Set(QuestNode_Root_ChroniclesSite.RewardVar, 0);
+        });
+
     /// <summary>The nearest settlement (other than the player's, with no map open) matching <paramref name="filter"/>, or null.</summary>
     public static Settlement? NearestSettlement(Func<Settlement, bool> filter)
     {

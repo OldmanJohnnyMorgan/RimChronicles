@@ -76,7 +76,7 @@ public class EmpireArcTests
         EmpireArc.StartJob(plot, EmpireStep.Tribute, "", 70);
         Assert.Empty(Ids(plot, saga, 71));
 
-        plot.SetFact(EmpireArc.Tribute, answer);
+        plot.SetFact(EmpireArc.Answer, answer);
         Assert.Equal(["Act2:Aftermath:Tribute"], Ids(plot, saga, 71));
         var result = EmpireArc.FinishJob(plot);
         Assert.Equal((success, stance), (result.Success, result.NewStance));
@@ -89,8 +89,8 @@ public class EmpireArcTests
         var (book, plot, saga) = NewPlot();
         book.Advance(plot, PlotBeat.Complication, 60, 6, "marches");
         EmpireArc.StartJob(plot, EmpireStep.Tribute, "", 70);
-        Assert.Empty(Ids(plot, saga, 70 + EmpireArc.TributeTimeoutDays - 1));
-        Assert.Equal(["Act2:Aftermath:Tribute"], Ids(plot, saga, 70 + EmpireArc.TributeTimeoutDays));
+        Assert.Empty(Ids(plot, saga, 70 + EmpireArc.LetterTimeoutDays - 1));
+        Assert.Equal(["Act2:Aftermath:Tribute"], Ids(plot, saga, 70 + EmpireArc.LetterTimeoutDays));
 
         var result = EmpireArc.FinishJob(plot);
         Assert.False(result.Success);
@@ -116,7 +116,7 @@ public class EmpireArcTests
 
         Assert.Equal(["Act3:Reckoning"], Ids(plot, saga));
         book.Advance(plot, PlotBeat.Choice, 90, 6, "reckoning");
-        Assert.Empty(Ids(plot, saga));
+        Assert.Equal(["Act3:FinalDemand", "Wait"], Ids(plot, saga)); // neutral, and the Empire not broken
     }
 
     [Fact]
@@ -136,5 +136,87 @@ public class EmpireArcTests
         saga.Reckon(false, 90);
         Assert.Equal(EmpireState.Broken, saga.State);
         Assert.False(saga.ExpansionDue(500));
+    }
+}
+
+public class EmpireAct3Tests
+{
+    private static readonly PlotTemplate Template = new() { Id = EmpireArc.TemplateId, CountsTowardCap = false };
+
+    private static (PlotBook Book, Plot Plot, EmpireSaga Saga) InAct3(string stance, bool ascendant)
+    {
+        var book = new PlotBook();
+        var plot = book.Start(Template, new ProtagonistSlot { Kind = ProtagonistKind.Colony, PawnId = Inheritance.ColonyId, Name = "Wyrmfold" }, 40, 3, "stirring");
+        var saga = new EmpireSaga();
+        saga.Awaken(AwakeningTrigger.Dev, "", 40, 20, "Wyrmfold");
+        saga.Wake(60, "the Empire");
+        saga.Reckon(ascendant, 100);
+        plot.SetFact(EmpireArc.Stance, stance);
+        book.Advance(plot, PlotBeat.Choice, 100, 6, "reckoning");
+        return (book, plot, saga);
+    }
+
+    private static IEnumerable<string> Ids(Plot plot, EmpireSaga saga, int today = 110) => EmpireArc.Transitions(plot, saga, today).Select(o => o.Id);
+
+    [Theory]
+    [InlineData(EmpireStance.Oppose, true, new[] { "Act3:StormTheCapital", "Wait" })]
+    [InlineData(EmpireStance.Oppose, false, new[] { "Act3:StormTheCapital", "Act3:ForceATreaty", "Wait" })]
+    [InlineData(EmpireStance.Neutral, true, new[] { "Act3:FinalDemand", "Wait" })]
+    [InlineData(EmpireStance.Neutral, false, new[] { "Act3:ForceATreaty", "Wait" })]
+    [InlineData(EmpireStance.Ally, true, new[] { "Empire:EscortEnvoy", "Empire:ConquestJob", "Wait" })]
+    public void Act3_OpensThePathsThatFitTheStanceAndTheEmpire(string stance, bool ascendant, string[] expected)
+    {
+        var (_, plot, saga) = InAct3(stance, ascendant);
+        Assert.Equal(expected, Ids(plot, saga));
+    }
+
+    [Fact]
+    public void Ally_WithAHighTitle_IsOfferedTheGovernorship_AndAcceptingIsTheImperialEnding()
+    {
+        var (_, plot, saga) = InAct3(EmpireStance.Ally, true);
+        saga.HighTitleHolder = "Cassia";
+        Assert.Equal("Act3:OfferGovernorship", Ids(plot, saga).First());
+
+        EmpireArc.StartJob(plot, EmpireStep.Governorship, "Cassia", 110);
+        Assert.Empty(Ids(plot, saga, 111));
+        plot.SetFact(EmpireArc.Answer, EmpireArc.Accept);
+        Assert.Equal(["Act3:Aftermath:Governorship"], Ids(plot, saga, 111));
+
+        Assert.Equal(EmpireEnding.Imperial, EmpireArc.FinishJob(plot).Ending);
+        Assert.Equal(["Ending:Imperial"], Ids(plot, saga, 112));
+    }
+
+    [Fact]
+    public void TakingTheCapital_IsTheResistanceEnding_AndFailingCountsAsALoss()
+    {
+        var (book, plot, saga) = InAct3(EmpireStance.Oppose, true);
+        EmpireArc.StartJob(plot, EmpireStep.StormCapital, "Solace", 110);
+        var link = book.LinkQuest(plot, 3, QuestTemplates.Sabotage, 110);
+        book.QuestEnded(link, QuestOutcome.Fail, 150);
+        var failed = EmpireArc.FinishJob(plot);
+        Assert.Null(failed.Ending);
+        Assert.Equal(1, EmpireArc.Count(plot, EmpireArc.Losses));
+
+        EmpireArc.StartJob(plot, EmpireStep.StormCapital, "Solace", 160);
+        link = book.LinkQuest(plot, 4, QuestTemplates.Sabotage, 160);
+        book.QuestEnded(link, QuestOutcome.Success, 190);
+        Assert.Equal(EmpireEnding.Resistance, EmpireArc.FinishJob(plot).Ending);
+        Assert.Equal(["Ending:Resistance"], Ids(plot, saga, 191));
+    }
+
+    [Theory]
+    [InlineData(EmpireStep.Treaty, EmpireArc.Accept, EmpireEnding.Independence, null)]
+    [InlineData(EmpireStep.Treaty, EmpireArc.Decline, null, EmpireStance.Oppose)]
+    [InlineData(EmpireStep.Treaty, EmpireArc.Ignored, null, null)]
+    [InlineData(EmpireStep.FinalDemand, EmpireArc.Accept, null, EmpireStance.Ally)]
+    [InlineData(EmpireStep.FinalDemand, EmpireArc.Decline, null, EmpireStance.Oppose)]
+    [InlineData(EmpireStep.FinalDemand, EmpireArc.Ignored, null, EmpireStance.Oppose)]
+    public void Letters_LeadToAnEndingOrANewStance(string step, string answer, string? ending, string? stance)
+    {
+        var (_, plot, _) = InAct3(EmpireStance.Neutral, false);
+        EmpireArc.StartJob(plot, step, "", 110);
+        plot.SetFact(EmpireArc.Answer, answer);
+        var result = EmpireArc.FinishJob(plot);
+        Assert.Equal((ending, stance), (result.Ending, result.NewStance));
     }
 }

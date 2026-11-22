@@ -136,5 +136,33 @@
     "name": "Ilse Varrow",
     "outlet": "the Rim Dispatch",
     "persona": "dry, wry and slightly cynical"
+  },
+  "epilogue": {
+    "ending": "Imperial",
+    "empire": "The Shattered Empire",
+    "stance": "ally",
+    "people": [
+      {
+        "name": "Cassia",
+        "pronoun": "she",
+        "deed": "served the Empire and was made a Count on day 960"
+      },
+      {
+        "name": "Henrik",
+        "pronoun": "he",
+        "deed": "escorted Imperial envoys across the region"
+      },
+      {
+        "name": "Mags",
+        "pronoun": "they",
+        "deed": "forged the weapons the colony traded to the Empire"
+      }
+    ],
+    "events": [
+      "Varrowgate swore itself to the Shattered Empire.",
+      "The Empire took Brightwater on day 1012.",
+      "The Empire's envoy offered Varrowgate a governorship on day 1040.",
+      "Cassia accepted the governorship."
+    ]
   }
 }
