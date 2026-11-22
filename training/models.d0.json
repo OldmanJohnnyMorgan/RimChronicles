@@ -1,17 +1,10 @@
 // D0 smoke test: the fine-tuned E2B through the C# client, with grammar, on the director task.
-// Two entries, one per export path; drop the one that `ollama create` refused.
 {
   "repeats": 1,
   "models": [
     {
       "id": "d0-merged", "tier": "Minimum", "provider": "OpenAi",
       "endpoint": "http://localhost:11434", "model": "rimchron-d0-merged",
-      "thinking": "Off", "thinkingOffBody": { "reasoning_effort": "none" },
-      "extraBody": { "temperature": 0.2 }
-    },
-    {
-      "id": "d0-adapter", "tier": "Minimum", "provider": "OpenAi",
-      "endpoint": "http://localhost:11434", "model": "rimchron-d0-adapter",
       "thinking": "Off", "thinkingOffBody": { "reasoning_effort": "none" },
       "extraBody": { "temperature": 0.2 }
     }

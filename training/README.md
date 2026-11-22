@@ -57,18 +57,19 @@ If it stops with "`response_marker` … is not in the rendered chat template", i
 `instruction_marker` and `response_marker` in the config to the turn markers it shows. It ends by generating answers
 for the validation rows: "val answers valid N/M" should be close to M even this early.
 
-**4. Export (WSL2):** two ways, because D0's job is to find out which Ollama accepts.
+**4. Export (WSL2):** merge the LoRA into the model and convert it to GGUF.
 
 ```bash
 uv run python -m rimchron_train export --config config/d0.yaml
 ```
 
-It writes to `C:\RimworldMods\rc-models\d0-e2b\`: `Modelfile.merged.q4_k_m` (path A, merged GGUF, in `merged_gguf\`) and
-`Modelfile.adapter` (path B, the base `gemma4:e2b` plus the LoRA). If it can't call `ollama` from WSL, run
+It writes `C:\RimworldMods\rc-models\d0-e2b\Modelfile.merged.q4_k_m`, pointing at the GGUF in `merged_gguf\`, with
+`gemma4:e2b`'s chat template. (D0 found Ollama refuses LoRA adapters, so there is no adapter route.) If it can't call
+`ollama` from WSL, run
 `ollama show gemma4:e2b --modelfile > C:\RimworldMods\rc-models\base.Modelfile` in PowerShell and add
 `--base-modelfile /mnt/c/RimworldMods/rc-models/base.Modelfile`.
 
-Path A converts the merged model in system RAM (several GB for E2B). If it's killed (SIGKILL), give WSL more memory in
+Conversion holds the merged model in system RAM (several GB for E2B). If it's killed (SIGKILL), give WSL more memory in
 `%USERPROFILE%\.wslconfig` (`[wsl2]`, `memory=24GB`, `swap=32GB`), run `wsl --shutdown` and export again. If the GGUFs
 were written but the Modelfiles weren't, `export --modelfiles-only` writes them without converting again.
 
@@ -77,7 +78,6 @@ were written but the Modelfiles weren't, `export --modelfiles-only` writes them 
 ```powershell
 cd C:\RimworldMods\rc-models\d0-e2b
 ollama create rimchron-d0-merged -f Modelfile.merged.q4_k_m
-ollama create rimchron-d0-adapter -f Modelfile.adapter
 ```
 
 **6. Smoke test through the C# client (PowerShell):** the director task on the 23 snapshots, grammar on and off.
@@ -90,5 +90,6 @@ dotnet run --project harness/RimChronicles.Eval -- run --config training/models.
 
 Then push the run to `rc-results` as usual, and send me the console output of steps 2–5.
 
-**Pass:** at least one path loads in Ollama, answers with 100% valid JSON under grammar, and stays under 3 s median
-latency. The answers needn't be good yet (30 steps on 44 cases); D0 only proves the plumbing.
+**Pass:** the merged model loads in Ollama, answers with 100% valid JSON under grammar, and stays under 3 s median
+latency. The answers needn't be good yet (30 steps on 44 cases); D0 only proves the plumbing. **Passed on
+2026-11-22** (run `20261122-143935`: 100% valid JSON and choices, 0.2 s median, 1.7 GB VRAM); see the training spec §11.

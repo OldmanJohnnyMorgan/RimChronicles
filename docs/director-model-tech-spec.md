@@ -117,7 +117,7 @@ The training spec's rules, adjusted to R1 and R5:
 
 | Risk | Effect | Mitigation |
 | --- | --- | --- |
-| Fine-tuned Gemma 4 E-models don't convert to GGUF or load in Ollama | The track can't ship | D0 spike before any spend; fallback is a LoRA-served path or the prompted base (training stays an upgrade) |
+| Fine-tuned Gemma 4 E-models don't convert to GGUF or load in Ollama | The track can't ship | D0 passed (§11): merged GGUF loads. Ollama refuses LoRA adapters, so merged GGUF is the only route; fallback is the prompted base (training stays an upgrade) |
 | Windows-native Unsloth on Blackwell | Install pain, slow iteration | Recommend WSL2 with CUDA 12.8; document it in `training/README.md` and `docs/local-setup.md` |
 | Synthetic cases unlike real games | Model good on synthetic, worse in play | D3 exported cases in train and test; per-source metrics in the report |
 | Teacher too inconsistent (low self-agreement) | Weak labels | Pilot measures it first; rubric tuned on the pilot before the full run |
@@ -166,3 +166,27 @@ wraps these in the Gemma chat template.
 - **Augmentation (train only):** the case plus two reshuffled copies; ids renamed to C1, C2… in ~20% of copies; a decoy
   mention of a not-allowed option in ~5%.
 - **Tiers:** build once per tier trained (`--tier Minimum` for E2B, `Recommended` for E4B).
+
+## 11. Feasibility spike (D0): passed
+
+Run on the reference PC on 2026-11-22: 30 QLoRA steps on the pilot (44 train / 6 val cases, tier Minimum) on
+`unsloth/gemma-4-E2B-it` (loaded as `unsloth/gemma-4-E2B-it-unsloth-bnb-4bit`), merged, Q4_K_M GGUF, `ollama create`,
+then harness run `20261122-143935` (director task, 23 snapshots, grammar on and off).
+
+| Bar | Result |
+| --- | --- |
+| Loads in Ollama | Merged GGUF: yes. LoRA adapter on `gemma4:e2b`: **refused** (Ollama 0.40.17: "LoRA adapters are no longer supported") |
+| Valid JSON under grammar | 100% (and 100% without grammar) |
+| Valid choice | 100% |
+| Median latency | 0.2 s (p90 0.3 s); first call 8.1 s while the model loads |
+| VRAM | 1.7 GB |
+
+**Go.** Consequences for D6–D7:
+
+- **Merged GGUF is the only export route.** Every trained director is merged, converted and quantised; there is no
+  adapter-on-base option, so each tier ships as a full model file.
+- **Conversion needs host RAM, not VRAM.** Converting E2B was killed with WSL's default memory; it passed with
+  `.wslconfig` `memory=24GB`, `swap=32GB`. E4B will need at least as much.
+- **Gemma 4 specifics:** turn markers are `<|turn>user` / `<|turn>model` (not Gemma 3's `<start_of_turn>`); Unsloth
+  writes GGUFs to `merged_gguf/` plus a vision `mmproj` file the director doesn't need; torchvision must come from the
+  same CUDA index as torch.
