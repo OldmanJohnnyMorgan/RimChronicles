@@ -104,6 +104,33 @@ public static class SettingsWindow
             }
         }
 
+        list.GapLine();
+        list.Label("Separate director model (optional): makes the director's decisions, such as a fine-tuned rimchron-director-e2b, while the main model writes");
+        settings.DirectorModel = list.TextEntryLabeled("Director model (blank: use the main one)  ", settings.DirectorModel);
+        if (settings.DirectorModel.Length > 0)
+        {
+            settings.DirectorEndpoint = list.TextEntryLabeled("Director address (blank: the main one)  ", settings.DirectorEndpoint);
+            if (settings.DirectorEndpoint.Length > 0 && TierPresets.EndpointProblem(settings.DirectorEndpoint) is { } directorProblem)
+            {
+                list.Label($"<color=#e0a040>{directorProblem}</color>");
+            }
+
+            settings.DirectorApiKey = list.TextEntryLabeled("Director API key (blank: the main one)  ", settings.DirectorApiKey);
+            list.Label("Director prompt tier: the tier the director model was trained on (rimchron-director-e2b: Minimum; -e4b: Recommended)");
+            foreach (var tier in new[] { ModelTier.Minimum, ModelTier.Recommended, ModelTier.High })
+            {
+                if (list.RadioButton($"    {tier}", settings.DirectorTier == tier, tabIn: 12f))
+                {
+                    settings.DirectorTier = tier;
+                }
+            }
+
+            if (settings.Tier == ModelTier.Off)
+            {
+                list.Label("<color=#a0a0a0>The tier is Off, so no model is called, this one included.</color>");
+            }
+        }
+
         if (Prefs.DevMode)
         {
             list.GapLine();
@@ -123,6 +150,18 @@ public static class SettingsWindow
         Widgets.EndScrollView();
     }
 
+    private static async Task<ConnectionProbe.Result> ProbeAll(IChatProvider main, IChatProvider? director)
+    {
+        var first = await ConnectionProbe.RunAsync(main, CancellationToken.None).ConfigureAwait(false);
+        if (director is null)
+        {
+            return first;
+        }
+
+        var second = await ConnectionProbe.RunAsync(director, CancellationToken.None).ConfigureAwait(false);
+        return new ConnectionProbe.Result(first.Ok && second.Ok, $"Main: {first.Message} Director: {second.Message}");
+    }
+
     private static void DrawConnectionTest(Listing_Standard list, RimChroniclesSettings settings)
     {
         if (_probe is { IsCompleted: true } done)
@@ -139,8 +178,10 @@ public static class SettingsWindow
             if (ProviderFactory.Create(settings, TimeSpan.FromSeconds(120)) is { } provider)
             {
                 _probeStatus = "Testing… (the first call can take a while to load the model)";
+                // A separate director model is tested too, after the main one.
+                var director = ModelSlots.DirectorSeparate(settings.Slots) ? ProviderFactory.CreateDirector(settings, TimeSpan.FromSeconds(120))?.Provider : null;
                 // Background task: touches no game state, only returns a result the window reads next frame.
-                _probe = Task.Run(() => ConnectionProbe.RunAsync(provider, CancellationToken.None));
+                _probe = Task.Run(() => ProbeAll(provider, director));
             }
             else
             {

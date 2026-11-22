@@ -74,7 +74,8 @@ public static class PlotDriver
         }
 
         var settings = RimChroniclesMod.Settings;
-        var provider = ProviderFactory.Create(settings);
+        var director = ProviderFactory.CreateDirector(settings);
+        var provider = director?.Provider;
         var prompts = PromptStore.Library;
         var fallback = Director.PickWeighted(options, Rand.Value);
         var modelReady = provider is not null && prompts is not null;
@@ -92,7 +93,7 @@ public static class PlotDriver
                 new DirectorChoice(fallback.Id, "picked by weight: no model is set up"), "Random");
         }
 
-        var tier = settings.Tier == ModelTier.Off ? ModelTier.Recommended : settings.Tier;
+        var tier = director!.Value.Tier; // a separate director model gets the tier it was trained on
         var plotId = plot.Id;
         var library = prompts!;
         var chat = provider!;

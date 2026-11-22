@@ -206,3 +206,15 @@ dotnet run --project harness/RimChronicles.Eval -- director-report --models gemm
 (or a config passed with `--config`) and compared with its prompted base: `--models gemma4-e2b,rimchron-director-e2b
 --base gemma4-e2b`. Claude models are refused unless `--confirm-spend` is given. Commit the report under
 `harness/reports/`: a model becomes a preset only after its report is committed.
+
+## D7: use a trained director in the game
+
+Once a director has a committed report that passes (D8):
+
+1. Make sure Ollama has it: `ollama list` shows `rimchron-director-e2b` (D6 step 4).
+2. In game: **Options → Mod settings → Rim Chronicles → Separate director model**. Model `rimchron-director-e2b`;
+   leave the address and key blank to use the main server; **Director prompt tier: Minimum** (the tier it was trained
+   on; Recommended for `rimchron-director-e4b`). The main model keeps writing bulletins, letters and epilogues.
+3. Press **Test connection**: it tests the main model, then the director.
+4. In a Dev Mode game, **Rim Chronicles → Plot: director log** shows each decision; with a model set up the source is
+   `Model`. The 200-day check (D11) uses this setup.

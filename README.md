@@ -67,6 +67,8 @@ The mod is meant to tolerate being added to a running save or removed from one, 
 - **Model tier** and **model server:** any OpenAI-compatible endpoint, with an optional API key.
 - **Separate prose model** (optional): a second model writes bulletins, letters and epilogues, while the main one
   makes the director's decisions.
+- **Separate director model** (optional): a model just for the director's decisions, such as a small fine-tuned
+  director, at the prompt tier it was trained on.
 - **News cadence:** a bulletin every 1–7 days (3 by default).
 - **Story intensity:** how often minor plots start, and how fast the Empire expands.
 - **Story arcs:** turn Nemesis, Lost Family or Silent Press off. Plots already running still finish.
