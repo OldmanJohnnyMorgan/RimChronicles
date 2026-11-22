@@ -1,5 +1,5 @@
-"""`export`: the trained LoRA for Ollama (training spec §6), two ways, since D0 must find which works: merged weights
-in GGUF (Q4_K_M, …) with the base model's chat template, and the base model plus the LoRA as an adapter."""
+"""`export`: the trained LoRA for Ollama (training spec §6): merged weights in GGUF (Q4_K_M, …) with the base model's
+chat template. D0 found this is the only route: Ollama refuses LoRA adapters ("LoRA adapters are no longer supported")."""
 from __future__ import annotations
 
 import shutil
@@ -52,7 +52,7 @@ def run(cfg: Config, base_modelfile_path: str | None, modelfiles_only: bool = Fa
         raise SystemExit(f"No TEMPLATE in {cfg.ollama_base}'s Modelfile; can't build a matching Modelfile.")
     if modelfiles_only:
         ggufs = write_merged_modelfiles(out, tmpl)
-        print(f"path A (merged GGUF): wrote Modelfiles for {[g.name for g in ggufs]} in {out}")
+        print(f"merged GGUF: wrote Modelfiles for {[g.name for g in ggufs]} in {out}")
         return 0 if ggufs else 1
 
     from unsloth import FastModel
@@ -60,23 +60,13 @@ def run(cfg: Config, base_modelfile_path: str | None, modelfiles_only: bool = Fa
     lora = cfg.run_dir / "lora"
     model, tokenizer = FastModel.from_pretrained(model_name=str(lora), max_seq_length=cfg.max_seq_length, load_in_4bit=cfg.load_in_4bit)
 
-    # Path A: merged weights, quantised.
-    try:
-        model.save_pretrained_gguf(str(out / "merged"), tokenizer, quantization_method=cfg.quantizations)
-        ggufs = write_merged_modelfiles(out, tmpl)
-        print(f"path A (merged GGUF): {[g.name for g in ggufs]} in {out}")
-    except Exception as ex:  # noqa: BLE001 - the spike reports, path B may still work
-        print(f"path A (merged GGUF) FAILED: {type(ex).__name__}: {ex}")
+    # Merged weights, quantised. Conversion holds the model in host RAM: give WSL enough (README).
+    model.save_pretrained_gguf(str(out / "merged"), tokenizer, quantization_method=cfg.quantizations)
+    ggufs = write_merged_modelfiles(out, tmpl)
+    print(f"merged GGUF: {[g.name for g in ggufs]} in {out}")
+    if not ggufs:
+        return 1
 
-    # Path B: the base model as Ollama has it, plus the LoRA's safetensors as an adapter (Ollama's documented route
-    # for Gemma adapters; whether it takes Gemma 4 E-models is what the spike finds out).
-    try:
-        shutil.copytree(lora, out / "lora", dirs_exist_ok=True)
-        (out / "Modelfile.adapter").write_text(
-            "\n".join([f"FROM {cfg.ollama_base}", "ADAPTER ./lora", "PARAMETER temperature 0.2", ""]))
-        print(f"path B (LoRA adapter on {cfg.ollama_base}): {out / 'lora'}")
-    except Exception as ex:  # noqa: BLE001
-        print(f"path B (LoRA adapter) FAILED: {type(ex).__name__}: {ex}")
 
-    print(f"Next, in PowerShell: ollama create rimchron-{cfg.run_name} -f <one of the Modelfiles in {out}>")
+    print(f"Next, in PowerShell: cd {out}; ollama create rimchron-{cfg.run_name} -f Modelfile.merged.<quant>")
     return 0
