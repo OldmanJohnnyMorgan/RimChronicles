@@ -217,3 +217,9 @@ another folder are skipped, so Claude's labels are never duplicated or outranked
   **Rubric v3** defines reeling (desperate, or a raid or death within 3 days), makes relief beat Wait in a reeling
   colony, names the strong options for a stalled beat, says when to storm a breaking capital, and forbids rubric words
   in reasons (with an example); `director-label` rejects reasons that use them.
+- **Calibration v3 (accepted):** 45/50 cases labelled, 78% agreement with Claude, Wait 19/45 vs Claude's 18/45,
+  15/15 wait-right and 7/7 wait-wrong; the 10 differences are judgment calls (a letter or a capture, sabotage or an
+  escort, a treaty or the assault). Reasons are factual and about the story. The 5 missing cases were wait-right ones
+  where the 12B acted in all three attempts, so the **last attempt on a case with a Wait rule puts the rule in the
+  grammar** (Wait the best with a 5, others at most 4; or Wait kept out of best and at most 2); the teacher still
+  scores and explains, and the label is marked `forced`. Retrying a failed item takes fresh cache keys.
