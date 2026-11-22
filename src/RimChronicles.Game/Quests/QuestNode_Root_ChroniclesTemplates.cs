@@ -19,7 +19,11 @@ public abstract class QuestNode_Root_ChroniclesSite : QuestNode_Root_Chronicles
         }
 
         var site = QuestGen_Sites.GenerateSite([new SitePartDefWithParams(part, new SitePartParams { threatPoints = points })], tile, faction);
-        quest.SpawnWorldObject(site);
+        quest.SpawnWorldObject(site); // placed on the world map when the quest is accepted, as in vanilla
+        quest.AddPart(new QuestPart_ChroniclesSiteMarker { tile = tile });
+        var slate = QuestGen.slate;
+        slate.Set("resolvedQuestDescription", slate.Get(DescriptionVar, "")
+            + "\n\nThe camp appears on the world map once you accept; until then, the location points to where it will be.");
         QuestUtility.AddQuestTag(ref site.questTags, QuestGenUtility.HardcodedTargetQuestTagWithQuestID("site"));
         return site;
     }
