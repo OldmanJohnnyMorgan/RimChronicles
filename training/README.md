@@ -123,7 +123,7 @@ dotnet run --project harness/RimChronicles.Eval -- director-label
 
 The first run fixes the plan in `items.jsonl` (which cases, which option orders); later runs follow it and ignore
 `--count`. To label fewer, pass `--count 1000` on the first run; to change it later, delete the folder and start over
-(finished calls stay in the cache). Items that fail three times go to `failures.jsonl`; a later run retries them.
+(finished calls stay in the cache). Items that fail three times go to `failures.jsonl`; a later run retries them with fresh attempts. On a case with a Wait rule the third attempt can't pick against it (the label is marked `forced`), so such cases rarely fail.
 
 **3. Check and aggregate, then build the dataset:**
 

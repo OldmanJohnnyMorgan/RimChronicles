@@ -14,19 +14,26 @@ public class DirectorLabelCommandTests
     {
         public int Calls { get; private set; }
 
+        public bool NeverWait { get; init; }
+
         public string ModelId => "fake";
 
         public Task<ChatResult> CompleteAsync(ChatRequest request, CancellationToken cancellationToken)
         {
             Calls++;
-            var order = request.Schema!.Schema["properties"]!["best"]!["enum"]!.AsArray().Select(x => x!.GetValue<string>()).ToList();
+            var props = request.Schema!.Schema["properties"]!;
+            var order = props["scores"]!["properties"]!.AsObject().Select(kv => kv.Key).ToList();
+            var allowedBest = props["best"]!["enum"]!.AsArray().Select(x => x!.GetValue<string>()).ToList();
+            // Pick the first option the grammar allows (or, when told to act, the first that isn't Wait) and score it 5.
+            var pick = NeverWait && allowedBest.Count > 1 ? allowedBest.First(x => x != "Wait") : allowedBest[0];
             var scores = new JsonObject();
-            for (var i = 0; i < order.Count; i++)
+            foreach (var id in order)
             {
-                scores[order[i]] = i == 0 ? 5 : 2;
+                var max = props["scores"]!["properties"]![id]!["maximum"]!.GetValue<int>();
+                scores[id] = id == pick ? 5 : Math.Min(2, max);
             }
 
-            var best = broken(Calls) ? order[^1] : order[0]; // a best that isn't the top score fails the check
+            var best = broken(Calls) ? order.First(x => x != pick) : pick; // a best that isn't the top score fails the check
             var text = new JsonObject { ["scores"] = scores, ["best"] = best, ["reason"] = "The colony needs this now." }.ToJsonString();
             return Task.FromResult(new ChatResult { Ok = true, Text = text, ModelId = ModelId });
         }
@@ -120,6 +127,57 @@ public class DirectorLabelCommandTests
         {
             Directory.Delete(root, recursive: true);
         }
+    }
+
+    [Fact]
+    public async Task ATeacherThatNeverWaits_IsForcedOnTheLastAttempt_AndRetriesAreFresh()
+    {
+        var root = Path.Combine(Path.GetTempPath(), "rc-label-" + Guid.NewGuid().ToString("N"));
+        var casesDir = Path.Combine(root, "cases");
+        Directory.CreateDirectory(casesDir);
+        try
+        {
+            var waitRight = Enumerable.Range(0, 400).Select(i => CaseGenerator.Generate(1, i).Snapshot)
+                .First(s => s.Director!.WaitExpected == true && s.AllowedTransitions.Count > 1);
+            File.WriteAllText(Path.Combine(casesDir, waitRight.Id + ".json"), SnapshotJson.Serialize(waitRight));
+            var o = new LabelOptions
+            {
+                CasesDir = casesDir, OutDir = Path.Combine(root, "out"), PromptsRoot = Repo.Prompts,
+                CacheDir = Path.Combine(root, "cache"), Count = 1, Samples = 1,
+            };
+
+            var teacher = new FakeTeacher(_ => false) { NeverWait = true };
+            await DirectorLabelCommand.RunAsync(o, Model, teacher, TextWriter.Null, CancellationToken.None);
+            Assert.Equal(3, teacher.Calls); // two refusals to wait, then the grammar allows only Wait
+            var label = JsonNode.Parse(File.ReadAllLines(Path.Combine(o.OutDir, "labels.jsonl")).Single())!;
+            Assert.Equal("Wait", label["best"]!.GetValue<string>());
+            Assert.True(label["forced"]!.GetValue<bool>());
+            Assert.Equal(0, DirectorLabels.Check(o.OutDir, casesDir, TextWriter.Null));
+
+            // A failed item retried later takes new cache keys (the old answers would only fail again).
+            File.Delete(Path.Combine(o.OutDir, "labels.jsonl"));
+            File.WriteAllText(Path.Combine(o.OutDir, "failures.jsonl"), "{\"item\":1,\"case\":\"x\",\"errors\":[]}\n");
+            var retry = new FakeTeacher(_ => false) { NeverWait = true };
+            await DirectorLabelCommand.RunAsync(o, Model, retry, TextWriter.Null, CancellationToken.None);
+            Assert.Equal(3, retry.Calls);
+        }
+        finally
+        {
+            Directory.Delete(root, recursive: true);
+        }
+    }
+
+    [Fact]
+    public void SchemaFor_WithTheWaitRule_PutsItInTheGrammar()
+    {
+        var wait = DirectorLabelCommand.SchemaFor(["Choice:RescueHun", "Wait"], waitRule: true).Schema["properties"]!;
+        Assert.Equal(["Wait"], wait["best"]!["enum"]!.AsArray().Select(x => x!.GetValue<string>()));
+        Assert.Equal(5, wait["scores"]!["properties"]!["Wait"]!["minimum"]!.GetValue<int>());
+        Assert.Equal(4, wait["scores"]!["properties"]!["Choice:RescueHun"]!["maximum"]!.GetValue<int>());
+
+        var move = DirectorLabelCommand.SchemaFor(["Choice:RescueHun", "Wait"], waitRule: false).Schema["properties"]!;
+        Assert.Equal(["Choice:RescueHun"], move["best"]!["enum"]!.AsArray().Select(x => x!.GetValue<string>()));
+        Assert.Equal(2, move["scores"]!["properties"]!["Wait"]!["maximum"]!.GetValue<int>());
     }
 
     [Fact]

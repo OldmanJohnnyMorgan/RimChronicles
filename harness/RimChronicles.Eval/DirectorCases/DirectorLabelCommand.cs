@@ -95,13 +95,18 @@ public static partial class DirectorLabelCommand
             ? File.ReadAllLines(labelsPath).Where(l => l.Trim().Length > 0).Select(l => JsonNode.Parse(l)!["item"]!.GetValue<int>()).ToHashSet()
             : [];
         var todo = items.Where(i => !done.Contains(i.Number)).ToList();
+        // Earlier failed runs of an item: a retry takes new attempts, since the cache would replay the old answers.
+        var earlierFailures = File.Exists(failuresPath)
+            ? File.ReadAllLines(failuresPath).Where(l => l.Trim().Length > 0).Select(l => JsonNode.Parse(l)!["item"]!.GetValue<int>())
+                .GroupBy(n => n).ToDictionary(g => g.Key, g => g.Count())
+            : [];
         log.WriteLine($"{model.Id}: {items.Count} items in {o.OutDir}, {done.Count} labelled, {todo.Count} to go "
             + $"({o.Samples} per case, temperature {o.Temperature}).");
 
         var stats = new CacheStats();
         var identity = model.Identity();
         var clock = Stopwatch.StartNew();
-        int ok = 0, failed = 0, waitRejects = 0;
+        int ok = 0, failed = 0, waitRejects = 0, forced = 0;
         foreach (var item in todo)
         {
             ct.ThrowIfCancellationRequested();
@@ -111,15 +116,22 @@ public static partial class DirectorLabelCommand
             var errors = new List<string>();
             JsonObject? label = null;
 
+            var waitRule = o.EnforceWait ? snapshot.Director?.WaitExpected : null;
+            var generation = earlierFailures.GetValueOrDefault(item.Number);
             for (var attempt = 0; attempt < o.MaxAttempts && label is null; attempt++)
             {
-                var cached = new CachingChatProvider(provider, o.CacheDir, identity, item.Sample * 100 + attempt, stats);
+                // The last attempt on a case with a Wait rule puts the rule in the grammar: the teacher still scores
+                // and explains, but can't pick against it. Without this, the wait-right cases it won't wait on would
+                // drop out of training, and they're the lesson the student most needs (recheck v3: 5 of 20).
+                var force = waitRule is not null && attempt == o.MaxAttempts - 1;
+                var repeat = item.Sample * 100 + generation * o.MaxAttempts + attempt;
+                var cached = new CachingChatProvider(provider, o.CacheDir, identity, repeat, stats);
                 var result = await cached.CompleteAsync(new ChatRequest
                 {
                     System = rendered.System,
                     User = rendered.User,
                     MaxOutputTokens = rendered.MaxOutputTokens,
-                    Schema = SchemaFor(item.Order),
+                    Schema = SchemaFor(item.Order, force ? waitRule : null),
                     UseGrammar = true,
                     Thinking = model.ThinkingFor(DirectorLabels.TeacherTask),
                     ExtraBody = new Dictionary<string, JsonNode?> { ["temperature"] = o.Temperature },
@@ -166,6 +178,11 @@ public static partial class DirectorLabelCommand
                     ["reason"] = parsed.Reason,
                     ["attempts"] = attempt + 1,
                 };
+                if (force)
+                {
+                    label["forced"] = true;
+                    forced++;
+                }
             }
 
             if (label is not null)
@@ -194,8 +211,9 @@ public static partial class DirectorLabelCommand
             }
         }
 
-        log.WriteLine($"Answers rejected for contradicting the case's Wait rule: {waitRejects} (they were asked again).");
-        log.WriteLine($"Done: {ok} labelled, {failed} failed{(failed > 0 ? $" (see {failuresPath}; run again to retry them)" : "")}. "
+        log.WriteLine($"Answers rejected for contradicting the case's Wait rule: {waitRejects} (they were asked again); "
+            + $"{forced} labels came from the last attempt, with the rule in the grammar.");
+        log.WriteLine($"Done: {ok} labelled, {failed} failed{(failed > 0 ? $" (see {failuresPath}; run again to retry them with fresh attempts)" : "")}. "
             + $"Next: director-labels-check --pack {o.OutDir} --cases {o.CasesDir}");
         return 0;
     }
@@ -301,14 +319,30 @@ public static partial class DirectorLabelCommand
             n["item"]!.GetValue<int>(), n["case"]!.GetValue<string>(), n["sample"]!.GetValue<int>(),
             n["order"]!.AsArray().Select(x => x!.GetValue<string>()).ToList())).ToList();
 
-    /// <summary>The teacher schema narrowed to this item: a score for exactly each shown option, and best one of them.</summary>
-    public static JsonSchemaSpec SchemaFor(IReadOnlyList<string> order)
+    /// <summary>The teacher schema narrowed to this item: a score for exactly each shown option, and best one of them.
+    /// With <paramref name="waitRule"/> set, the case's Wait rule is in the grammar too: true makes Wait the best with
+    /// a 5 and every other option at most 4; false keeps Wait out of best and scores it at most 2.</summary>
+    public static JsonSchemaSpec SchemaFor(IReadOnlyList<string> order, bool? waitRule = null)
     {
         var props = new JsonObject();
         foreach (var id in order)
         {
-            props[id] = new JsonObject { ["type"] = "integer", ["minimum"] = 1, ["maximum"] = 5 };
+            var (min, max) = (waitRule, id == "Wait") switch
+            {
+                (true, true) => (5, 5),
+                (true, false) => (1, 4),
+                (false, true) => (1, 2),
+                _ => (1, 5),
+            };
+            props[id] = new JsonObject { ["type"] = "integer", ["minimum"] = min, ["maximum"] = max };
         }
+
+        var bestChoices = waitRule switch
+        {
+            true => ["Wait"],
+            false => order.Where(id => id != "Wait").ToList(),
+            _ => order.ToList(),
+        };
 
         return new JsonSchemaSpec("director_label", new JsonObject
         {
@@ -322,7 +356,7 @@ public static partial class DirectorLabelCommand
                     ["required"] = new JsonArray(order.Select(x => (JsonNode?)JsonValue.Create(x)).ToArray()),
                     ["additionalProperties"] = false,
                 },
-                ["best"] = new JsonObject { ["type"] = "string", ["enum"] = new JsonArray(order.Select(x => (JsonNode?)JsonValue.Create(x)).ToArray()) },
+                ["best"] = new JsonObject { ["type"] = "string", ["enum"] = new JsonArray(bestChoices.Select(x => (JsonNode?)JsonValue.Create(x)).ToArray()) },
                 ["reason"] = new JsonObject { ["type"] = "string" },
             },
             ["required"] = new JsonArray("scores", "best", "reason"),
