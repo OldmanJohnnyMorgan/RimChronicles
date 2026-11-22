@@ -101,7 +101,7 @@ public sealed class EmpireSaga : IArchivable
 
     public int Defeats => Expansions.Count(e => e.Result == ExpansionResult.Repelled);
 
-    public bool ExpansionDue(int today) => State == EmpireState.Awakened && NextExpansionDay >= 0 && today >= NextExpansionDay;
+    public bool ExpansionDue(int today) => State is EmpireState.Awakened or EmpireState.Ascendant && NextExpansionDay >= 0 && today >= NextExpansionDay;
 
     /// <summary>Records an attack's result and schedules the next one <paramref name="nextGapDays"/> days on.</summary>
     public EmpireEvent Expanded(ExpansionTarget target, ExpansionResult result, int today, int nextGapDays, string empire)
@@ -192,6 +192,23 @@ public sealed class EmpireSaga : IArchivable
         Note(today, "awakened: expanding by force");
         var (label, text) = EmpireText.AwakenedLetter(empire);
         return new EmpireEvent(EmpireText.AwakenedNews(empire), label, text);
+    }
+
+    /// <summary>A change of territory the colony caused (a sabotaged target falling, a siege broken or lost), recorded
+    /// like an expansion but without moving the expansion timer.</summary>
+    public void RecordAssisted(string settlement, string faction, ExpansionResult result, int today, string why)
+    {
+        Expansions.Add(new ExpansionRecord { Day = today, Settlement = settlement, Faction = faction, Result = result });
+        Note(today, $"colony's doing: {why}");
+    }
+
+    /// <summary>Act 3: Awakened → Ascendant or Broken.</summary>
+    public void Reckon(bool ascendant, int today)
+    {
+        State = ascendant ? EmpireState.Ascendant : EmpireState.Broken;
+        StateDay = today;
+        NextExpansionDay = ascendant ? NextExpansionDay : -1;
+        Note(today, ascendant ? "ascendant: final demands" : "broken: collapsing after its losses");
     }
 
     /// <summary>A rumour of the stirring, if one is due today (and schedules the next). <paramref name="neighbours"/>

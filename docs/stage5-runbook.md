@@ -74,3 +74,29 @@ next day, as in Stage 4.
 | 6 | **Quest: Sabotage (test)**, accept it, and attack the named hostile settlement. | A comms console of that faction stands near the middle of its map. |
 | 7 | Destroy the console. | The quest succeeds and silver drops at home. Leaving and coming back before destroying it finds a new console. |
 | 8 | Save and reload with each quest under way. | No errors, and each still completes. |
+
+## M4: acts and stance
+
+The Empire is now a plot in the plot book (`awakenedempire-N`, not counted toward the 3-plot cap), so the director
+picks its jobs with reasons and its beats keep 2 days from other plots.
+
+- **Act 1 (stirring):** a few days after the Empire wakes, an **Imperial envoy** letter asks the colony's stance: stand
+  with the Empire, against it, or keep out. No answer in 5 days means keeping out.
+- **Act 2 (awakened):** "The Empire marches". Allying raises Imperial goodwill to at least +25; opposing means war
+  (goodwill -100). Then, every 6–12 days, the director picks a job that fits the stance:
+  - **Ally:** escort Imperial envoys to an Imperial settlement (goodwill +12, or -8 on failure), or sabotage a settlement the Empire means to take (it then falls to the Empire).
+  - **Oppose:** break an Imperial siege of a neighbour (success counts as an Imperial defeat; failure, the neighbour falls), or sabotage an Imperial settlement (an Imperial defeat).
+  - **Keep out:** a tribute demand (pay, refuse, which means war, or swear fealty, which means alliance). Ignoring it costs 10 goodwill.
+- **Act 3:** after 5 expansions or 3 finished jobs, the reckoning. The Empire is **Ascendant** (its conquests and the
+  colony's help outweigh its defeats and the colony's resistance) or **Broken**. The endings come in M5.
+
+| # | Do | Pass when |
+| --- | --- | --- |
+| 1 | **Empire: trigger awakening**, then let 2–5 days pass. | The Imperial envoy letter, with three choices. **Plot: director log** has `Act1:ImperialEnvoy`. |
+| 2 | Choose **Stand against it**, then **Empire: end stirring now** and let a few days pass. | "The Empire marches"; the Empire turns hostile. |
+| 3 | Let 6–12 days pass, or **Plot: advance beat** on the Empire plot. | A Break the siege or Sabotage quest, chosen by the director with a reason. |
+| 4 | Finish or ignore that quest. | The next day, the aftermath: the news reports it, and a lost siege turns the neighbour Imperial on the world map. |
+| 5 | **Empire: set stance** → ally; repeat 3–4. | Escort or "Weaken X" quests; finishing "Weaken X" makes X Imperial. |
+| 6 | **Empire: set stance** → neutral; advance a beat. | A tribute demand; paying takes the silver; refusing sends "At war with the Empire". |
+| 7 | **Empire: expansion tick** until 5 expansions, then let the plot's next beat come. | "The Empire ascendant" or "The Empire breaking"; **Empire: show state** shows `Ascendant` or `Broken`. |
+| 8 | Save and reload in the middle of a job. | No errors; the job's outcome still reaches the plot. |

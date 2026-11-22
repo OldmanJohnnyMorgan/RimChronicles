@@ -1,0 +1,287 @@
+using LudeonTK;
+using RimChronicles.Core.Empire;
+using RimChronicles.Core.News;
+using RimChronicles.Core.Plots;
+using RimChronicles.Game.Plots;
+using RimChronicles.Game.Quests;
+using RimWorld;
+using RimWorld.Planet;
+using Verse;
+
+namespace RimChronicles.Game.Empire;
+
+/// <summary>The Empire's acts in game (Stage 5 M4), as a plot the director runs: the Act 1 envoy and the colony's
+/// stance, Act 2 jobs that fit the stance (quests built from the templates) and their aftermath on the world map, and
+/// the Act 3 reckoning. Template letters only. Main thread only.</summary>
+public static class EmpireBeats
+{
+    public static void Register() => PlotDriver.Register(EmpireArc.TemplateId,
+        plot => RimChroniclesGameComponent.Current is { } c ? EmpireArc.Transitions(plot, c.Empire, GenDate.DaysPassed) : [], Fire);
+
+    private static string Colony => Faction.OfPlayer.Name;
+
+    /// <summary>Starts the Empire plot once the Empire is awake, if it hasn't one yet. The envoy comes a few days later.</summary>
+    public static void EnsurePlot(RimChroniclesGameComponent component, int today)
+    {
+        var book = component.Plots;
+        if (book.Active.Concat(book.Finished).Any(p => p.Template == EmpireArc.TemplateId)
+            || PlotTemplateDef.Find(EmpireArc.TemplateId) is not { } template)
+        {
+            return;
+        }
+
+        book.Start(template, new ProtagonistSlot { Kind = ProtagonistKind.Colony, PawnId = Inheritance.ColonyId, Name = Colony },
+            today, Rand.RangeInclusive(2, 5), "the Empire is stirring");
+    }
+
+    public static Plot? Current(RimChroniclesGameComponent component) =>
+        component.Plots.Active.FirstOrDefault(p => p.Template == EmpireArc.TemplateId);
+
+    public static bool Fire(RimChroniclesGameComponent component, Plot plot, PlotTemplate template, int today, PlotTransition transition)
+    {
+        if (EmpireDriver.EmpireFaction is not { } empire)
+        {
+            return false;
+        }
+
+        var gap = Rand.RangeInclusive(template.MinGapDays, template.MaxGapDays);
+        switch (transition.Step)
+        {
+            case EmpireStep.Envoy:
+            {
+                var (label, text) = EmpireLetters.Envoy(empire.Name, Colony);
+                ChoiceLetter_Plot.Send(plot, EmpireArc.Stance, label, text,
+                [
+                    new PlotChoice("Stand with the Empire", EmpireStance.Ally),
+                    new PlotChoice("Stand against it", EmpireStance.Oppose),
+                    new PlotChoice("Keep out of it", EmpireStance.Neutral),
+                ], EmpireArc.EnvoyTimeoutDays);
+                component.Plots.Advance(plot, PlotBeat.Hook, today, EmpireArc.EnvoyTimeoutDays + 1, "Act 1: the envoy asks the colony's stance");
+                return true;
+            }
+
+            case EmpireStep.Expansion:
+            {
+                var stance = EmpireArc.StanceOf(plot);
+                plot.SetFact(EmpireArc.Stance, stance);
+                ApplyStance(empire, stance);
+                Send(EmpireLetters.Marches(stance, empire.Name, Colony), stance == EmpireStance.Oppose ? LetterDefOf.ThreatBig : LetterDefOf.NeutralEvent);
+                component.Plots.Advance(plot, PlotBeat.Complication, today, gap, $"Act 2: the Empire marches; the colony is {stance}");
+                return true;
+            }
+
+            case EmpireStep.EscortEnvoy:
+            {
+                if (empire.HostileTo(Faction.OfPlayer) || QuestOffers.NearestSettlement(s => s.Faction == empire) is not { } destination)
+                {
+                    return false;
+                }
+
+                return StartQuest(component, plot, today, gap, transition.Step, destination.Label, () => QuestOffers.Escort(component, plot, empire, destination,
+                    Rand.RangeInclusive(1, 2), $"Escort Imperial envoys to {destination.Label}",
+                    $"{empire.Name} asks its ally {Colony} to see its envoys safely to {destination.Label}. Take them there by caravan within "
+                    + $"{QuestTemplates.EscortDays} days."));
+            }
+
+            case EmpireStep.ConquestJob:
+            {
+                if (NextImperialTarget(empire, friendlyToPlayer: null) is not { } target)
+                {
+                    return false;
+                }
+
+                return StartQuest(component, plot, today, gap, transition.Step, target.Label, () => QuestOffers.Sabotage(component, plot, target, null,
+                    $"Weaken {target.Label}",
+                    $"{empire.Name} means to take {target.Label}, held by {target.Faction.Name}, and asks its ally {Colony} to destroy the comms "
+                    + $"console there first. Do it within {QuestTemplates.SabotageDays} days, and {target.Label} will fall to the Empire."));
+            }
+
+            case EmpireStep.DefendAlly:
+            {
+                if (!empire.HostileTo(Faction.OfPlayer) || NextImperialTarget(empire, friendlyToPlayer: true) is not { } ally)
+                {
+                    return false;
+                }
+
+                return StartQuest(component, plot, today, gap, transition.Step, ally.Label, () => QuestOffers.DefendAlly(component, plot, ally, empire,
+                    $"Break the siege of {ally.Label}",
+                    $"An Imperial column has camped outside {ally.Label}, held by {ally.Faction.Name}. Clear the camp, or {ally.Label} will fall to the Empire."));
+            }
+
+            case EmpireStep.SabotageImperial:
+            {
+                if (!empire.HostileTo(Faction.OfPlayer) || QuestOffers.NearestSettlement(s => s.Faction == empire) is not { } target)
+                {
+                    return false;
+                }
+
+                return StartQuest(component, plot, today, gap, transition.Step, target.Label, () => QuestOffers.Sabotage(component, plot, target, null,
+                    $"Sabotage {target.Label}",
+                    $"Destroy the comms console in the Imperial settlement of {target.Label} within {QuestTemplates.SabotageDays} days, "
+                    + "and the Empire's advance will falter."));
+            }
+
+            case EmpireStep.Tribute:
+            {
+                var silver = TributeSilver(WealthUtility.PlayerWealth);
+                EmpireArc.StartJob(plot, EmpireStep.Tribute, "", today);
+                var (label, text) = EmpireLetters.TributeDemand(empire.Name, Colony, silver);
+                ChoiceLetter_Plot.Send(plot, EmpireArc.Tribute, label, text,
+                [
+                    new PlotChoice($"Pay {silver} silver", EmpireArc.TributePaid, Silver: silver),
+                    new PlotChoice("Refuse", EmpireArc.TributeRefused),
+                    new PlotChoice("Swear fealty", EmpireArc.TributeFealty),
+                ], EmpireArc.TributeTimeoutDays);
+                component.Plots.Advance(plot, PlotBeat.Complication, today, EmpireArc.TributeTimeoutDays, "the Empire demands tribute");
+                return true;
+            }
+
+            case EmpireStep.Aftermath:
+                Aftermath(component, plot, empire, today);
+                component.Plots.Advance(plot, PlotBeat.Complication, today, gap, "the job's aftermath");
+                return true;
+
+            case EmpireStep.Reckoning:
+            {
+                var ascendant = EmpireArc.ReckoningScore(plot, component.Empire) > 0;
+                component.Empire.Reckon(ascendant, today);
+                Send(EmpireLetters.Reckoning(ascendant, empire.Name, Colony), LetterDefOf.ThreatBig);
+                component.News.Add(new NewsEvent(today, EmpireSaga.NewsKind,
+                    ascendant ? $"{empire.Name} issued final demands to every settlement on the rim" : $"{empire.Name} pulled back its columns after heavy losses",
+                    empire.Name));
+                component.Plots.Advance(plot, PlotBeat.Choice, today, gap, ascendant ? "Act 3: the Empire is ascendant" : "Act 3: the Empire is breaking");
+                return true;
+            }
+
+            default:
+                return false;
+        }
+    }
+
+    /// <summary>Tribute: 1% of colony wealth, rounded to 50, between 200 and 2,000 silver.</summary>
+    public static int TributeSilver(float wealth) => (int)Math.Clamp(Math.Round(wealth * 0.01f / 50f) * 50f, 200f, 2000f);
+
+    private static bool StartQuest(RimChroniclesGameComponent component, Plot plot, int today, int gap, string step, string target, Func<Quest?> offer)
+    {
+        EmpireArc.StartJob(plot, step, target, today);
+        if (offer() is null)
+        {
+            plot.SetFact(EmpireArc.Job, "");
+            return false;
+        }
+
+        component.Plots.Advance(plot, PlotBeat.Complication, today, gap, $"job: {step} at {target}");
+        return true;
+    }
+
+    /// <summary>The settlement the Empire would most likely attack next (nearest to an Imperial one), optionally only
+    /// those of factions friendly (or not) to the colony.</summary>
+    private static Settlement? NextImperialTarget(Faction empire, bool? friendlyToPlayer) =>
+        EmpireDriver.Targets(empire)
+            .Where(t => friendlyToPlayer is not { } friendly || t.Value.Faction.HostileTo(Faction.OfPlayer) != friendly)
+            .OrderBy(t => t.Key.Distance)
+            .Select(t => t.Value)
+            .FirstOrDefault();
+
+    /// <summary>Ally: goodwill up to at least +25. Oppose: war (goodwill down to -100). Neutral: no change.</summary>
+    private static void ApplyStance(Faction empire, string stance)
+    {
+        var goodwill = empire.PlayerGoodwill;
+        var change = stance switch
+        {
+            EmpireStance.Ally => Math.Max(0, 25 - goodwill),
+            EmpireStance.Oppose => -100 - goodwill,
+            _ => 0,
+        };
+        if (change != 0)
+        {
+            empire.TryAffectGoodwillWith(Faction.OfPlayer, change, canSendMessage: true, canSendHostilityLetter: true);
+        }
+    }
+
+    /// <summary>Applies a finished job to the world: settlements change hands, goodwill moves, the stance may change.</summary>
+    private static void Aftermath(RimChroniclesGameComponent component, Plot plot, Faction empire, int today)
+    {
+        var r = EmpireArc.FinishJob(plot);
+        var settlement = Find.WorldObjects.Settlements.FirstOrDefault(s => s.Label == r.Target);
+        switch (r.Job, r.Success)
+        {
+            case (EmpireStep.EscortEnvoy, var ok):
+                empire.TryAffectGoodwillWith(Faction.OfPlayer, ok ? 12 : -8, canSendMessage: true, canSendHostilityLetter: true);
+                break;
+            case (EmpireStep.ConquestJob, true):
+                if (settlement is { HasMap: false } && settlement.Faction != empire && !settlement.Faction.IsPlayer)
+                {
+                    var owner = settlement.Faction.Name;
+                    settlement.SetFaction(empire);
+                    EmpireDriver.Repaint(settlement);
+                    component.Empire.RecordAssisted(r.Target, owner, ExpansionResult.Conquered, today, $"{r.Target} fell after the colony's sabotage");
+                }
+
+                break;
+            case (EmpireStep.DefendAlly, true):
+                component.Empire.RecordAssisted(r.Target, settlement?.Faction.Name ?? "", ExpansionResult.Repelled, today, $"the colony broke the siege of {r.Target}");
+                settlement?.Faction.TryAffectGoodwillWith(Faction.OfPlayer, 10, canSendMessage: true, canSendHostilityLetter: false);
+                break;
+            case (EmpireStep.DefendAlly, false):
+                if (settlement is { HasMap: false } && settlement.Faction != empire && !settlement.Faction.IsPlayer)
+                {
+                    var owner = settlement.Faction.Name;
+                    settlement.SetFaction(empire);
+                    EmpireDriver.Repaint(settlement);
+                    component.Empire.RecordAssisted(r.Target, owner, ExpansionResult.Conquered, today, $"{r.Target} fell after the siege");
+                }
+
+                break;
+            case (EmpireStep.SabotageImperial, true):
+                component.Empire.RecordAssisted(r.Target, empire.Name, ExpansionResult.Repelled, today, $"the colony sabotaged {r.Target}");
+                break;
+            case (EmpireStep.Tribute, _):
+                if (r.NewStance is { } stance)
+                {
+                    ApplyStance(empire, stance);
+                    Send(EmpireLetters.StanceTaken(stance, empire.Name, Colony), stance == EmpireStance.Oppose ? LetterDefOf.ThreatBig : LetterDefOf.NeutralEvent);
+                }
+                else if (!r.Success)
+                {
+                    empire.TryAffectGoodwillWith(Faction.OfPlayer, -10, canSendMessage: true, canSendHostilityLetter: true); // ignored
+                }
+
+                break;
+        }
+
+        if (EmpireLetters.AftermathNews(r, empire.Name, Colony) is { Length: > 0 } news)
+        {
+            component.News.Add(new NewsEvent(today, EmpireSaga.NewsKind, news, empire.Name));
+        }
+
+        if (Prefs.DevMode)
+        {
+            Log.Message($"[Rim Chronicles] Empire job {r.Job} at {r.Target}: {(r.Success ? "success" : "failure")}{(r.NewStance is { } s ? $"; stance now {s}" : "")}.");
+        }
+    }
+
+    private static void Send((string Label, string Text) letter, LetterDef def) => Find.LetterStack.ReceiveLetter(letter.Label, letter.Text, def);
+
+    [DebugAction("Rim Chronicles", "Empire: set stance", allowedGameStates = AllowedGameStates.Playing)]
+    public static void DevStance()
+    {
+        if (RimChroniclesGameComponent.Current is not { } component || Current(component) is not { } plot || EmpireDriver.EmpireFaction is not { } empire)
+        {
+            Messages.Message("Rim Chronicles: no Empire plot yet (Empire: trigger awakening).", MessageTypeDefOf.RejectInput, historical: false);
+            return;
+        }
+
+        Find.WindowStack.Add(new FloatMenu(new[] { EmpireStance.Ally, EmpireStance.Oppose, EmpireStance.Neutral }
+            .Select(stance => new FloatMenuOption(stance, () =>
+            {
+                plot.SetFact(EmpireArc.Stance, stance);
+                plot.Note(GenDate.DaysPassed, $"stance set to {stance} (Dev Mode)");
+                if (plot.Beat != PlotBeat.Hook)
+                {
+                    ApplyStance(empire, stance);
+                }
+            }))
+            .ToList()));
+    }
+}
