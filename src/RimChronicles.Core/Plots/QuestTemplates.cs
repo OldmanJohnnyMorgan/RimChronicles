@@ -1,12 +1,15 @@
 namespace RimChronicles.Core.Plots;
 
-/// <summary>The quest templates (design spec, Stage 4; Escort, Defend ally and Sabotage come with Stage 5) and the
+/// <summary>The quest templates (design spec, Stage 4; Escort, Defend ally and Sabotage from Stage 5) and the
 /// rules that size them. The model never picks these numbers.</summary>
 public static class QuestTemplates
 {
     public const string Hunt = "Hunt";
     public const string Rescue = "Rescue";
     public const string Deliver = "Deliver";
+    public const string Escort = "Escort";
+    public const string DefendAlly = "DefendAlly";
+    public const string Sabotage = "Sabotage";
 
     /// <summary>The QuestScriptDef each template runs.</summary>
     public static string ScriptDef(string template) => $"RimChronicles_{template}";
@@ -19,4 +22,10 @@ public static class QuestTemplates
 
     /// <summary>Days a delivery may take once accepted.</summary>
     public const int DeliverDays = 20;
+
+    /// <summary>Days an escort may take once accepted.</summary>
+    public const int EscortDays = 20;
+
+    /// <summary>Days to destroy a Sabotage objective once accepted.</summary>
+    public const int SabotageDays = 20;
 }
