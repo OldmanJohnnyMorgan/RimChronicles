@@ -1,0 +1,50 @@
+from __future__ import annotations
+
+import os
+from dataclasses import dataclass, field
+from pathlib import Path
+
+
+@dataclass
+class Config:
+    base_model: str
+    ollama_base: str
+    dataset: Path
+    output_dir: Path
+    export_dir: Path
+    run_name: str
+    instruction_marker: str
+    response_marker: str
+    load_in_4bit: bool = True
+    max_seq_length: int = 4096
+    lora_r: int = 16
+    lora_alpha: int = 32
+    lora_dropout: float = 0.05
+    learning_rate: float = 2e-4
+    warmup_ratio: float = 0.03
+    per_device_batch: int = 2
+    grad_accumulation: int = 8
+    epochs: float = 3
+    max_steps: int = -1
+    seed: int = 1
+    quantizations: list[str] = field(default_factory=lambda: ["q4_k_m"])
+
+    @property
+    def run_dir(self) -> Path:
+        return self.output_dir / self.run_name
+
+
+def load(path: str | Path) -> Config:
+    import yaml  # only needed on the training machine
+
+    path = Path(path)
+    raw = yaml.safe_load(path.read_text(encoding="utf-8"))
+    here = path.resolve().parent.parent  # training/
+
+    def resolve(p: str) -> Path:
+        p = os.path.expanduser(p)
+        return Path(p) if os.path.isabs(p) else (here / p).resolve()
+
+    for key in ("dataset", "output_dir", "export_dir"):
+        raw[key] = resolve(raw[key])
+    return Config(**raw)

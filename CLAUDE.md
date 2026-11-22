@@ -44,6 +44,7 @@ The decompiled 1.7 source is in `/workspaces/reference/src/` (Assembly-CSharp, R
 | `harness/` | Stage 0 eval app and snapshots | No |
 | `tests/` | Unit tests for Llm, Core and harness | No |
 | `prompts/` | Versioned prompt templates | No |
+| `training/` | Director-model fine-tuning (Python, WSL2 on the PC; never shipped) | No |
 | `About/`, `1.7/Assemblies/` | Mod metadata; built DLLs (git-ignored) | Loaded by the game |
 
 Package versions are central in `Directory.Packages.props`. Llm, Core and Game must not reference any NuGet package (`LayeringTests` enforces this for Llm and Core).
@@ -63,3 +64,13 @@ Package versions are central in `Directory.Packages.props`. Llm, Core and Game m
 ## Secrets
 
 The judge and Claude reference read `RIMCHRONICLES_ANTHROPIC_API_KEY` (named by `apiKeyEnv` in `harness/models.json`), set as a Codespaces secret. Don't use `ANTHROPIC_API_KEY`: Claude Code reads that too, and it switches Claude Code off the claude.ai sign-in, which removes the claude.ai connectors. Never commit keys or put them in `harness/models.json`.
+
+## Director-model training (training/)
+
+Plan: `docs/director-model-tech-spec.md`; steps: `training/README.md`.
+
+- Python lives only under `training/` and is never a runtime dependency of the mod. Its tests (`cd training && python3 -m unittest discover -s tests`) need no GPU or torch.
+- The director prompt has one source (`prompts/director/`) and one renderer (`WorldSummarizer`, C#). Python never renders prompts: `director-dataset` writes the rendered text.
+- Never train or tune on the test split (generator seed 9001); changing it bumps its test version.
+- All randomness is seeded and recorded in a manifest. Labels in `training/data/labels/` are committed; cases regenerate from their seed.
+- A model becomes a preset only after its report is committed to `harness/reports/`.
