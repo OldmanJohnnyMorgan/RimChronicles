@@ -107,8 +107,10 @@ public sealed class QuestNode_Root_ChroniclesRescue : QuestNode_Root_ChroniclesS
         if (site.parts.FirstOrDefault(p => p.def == prisonPart) is { } part)
         {
             // Swap the random prisoner the site part generated for our captive; the map's gen step spawns it.
+            // Vanilla may reuse an existing world pawn here, with relations to colonists, so pass it back to the
+            // world rather than destroying it: a destroyed pawn left colonists' relations pointing at nothing.
             part.things ??= new ThingOwner<Pawn>(part, oneStackOnly: true);
-            part.things.ClearAndDestroyContents();
+            part.things.ClearAndDestroyContentsOrPassToWorld();
             if (Find.WorldPawns.Contains(captive))
             {
                 Find.WorldPawns.RemovePawn(captive);
