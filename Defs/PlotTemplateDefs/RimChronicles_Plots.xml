@@ -32,4 +32,12 @@
     <minGapDays>6</minGapDays>
     <maxGapDays>12</maxGapDays>
   </RimChronicles.Game.Plots.PlotTemplateDef>
+  <RimChronicles.Game.Plots.PlotTemplateDef>
+    <defName>ImperialCrisis</defName>
+    <label>imperial crisis</label>
+    <description>The Empire's war on the colony: probing raids, breaches, psychic assaults, sieges and the final assault.</description>
+    <countsTowardCap>false</countsTowardCap>
+    <minGapDays>3</minGapDays>
+    <maxGapDays>6</maxGapDays>
+  </RimChronicles.Game.Plots.PlotTemplateDef>
 </Defs>

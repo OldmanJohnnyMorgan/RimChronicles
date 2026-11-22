@@ -93,6 +93,17 @@ public static class EmpireArc
     /// <summary>The ending the plot has reached (an <see cref="EmpireEnding"/>), once it has.</summary>
     public const string EndingFact = "ending";
 
+    /// <summary>What last turned the colony against the Empire, when a letter answer did: <see cref="CauseTribute"/>,
+    /// <see cref="CauseFinalDemand"/> or <see cref="CauseTreaty"/>. The crisis stages read it.</summary>
+    public const string StanceCause = "stanceCause";
+
+    public const string CauseTribute = "tribute";
+    public const string CauseFinalDemand = "finalDemand";
+    public const string CauseTreaty = "treaty";
+
+    /// <summary>Jobs finished (wins and losses) when <see cref="StanceCause"/> was set.</summary>
+    public const string JobsAtStanceChange = "jobsAtStanceChange";
+
     public const int LetterTimeoutDays = 5;
 
     /// <summary>Act 2 ends when this many expansions have happened, or the colony has finished this many jobs.</summary>
@@ -310,6 +321,16 @@ public static class EmpireArc
         if (result.NewStance is { } stance)
         {
             plot.SetFact(Stance, stance);
+            if (stance == EmpireStance.Oppose)
+            {
+                plot.SetFact(StanceCause, job switch
+                {
+                    EmpireStep.Tribute => CauseTribute,
+                    EmpireStep.FinalDemand => CauseFinalDemand,
+                    _ => CauseTreaty,
+                });
+                plot.SetFact(JobsAtStanceChange, (Count(plot, Wins) + Count(plot, Losses)).ToString(System.Globalization.CultureInfo.InvariantCulture));
+            }
         }
 
         if (result.Ending is { } ending)

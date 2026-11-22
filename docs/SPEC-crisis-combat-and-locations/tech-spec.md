@@ -301,3 +301,30 @@ switches for the overlays. All saved in `RimChroniclesSettings`.
 - **Q2 (R16):** Dev Mode overlays may use the Unity stub types they need (such as `Color`), like UI code. Add this to
   rule 3 in `CLAUDE.md` and `docs/ENGINE_NOTES.md` when the first overlay lands (C4).
 - **Q3 (R5):** a neutral colony that refuses tribute gets probing raids only, until it opposes the Empire.
+
+## 11. Crisis core (C1)
+
+Built in `src/RimChronicles.Core/Crisis/` and `src/RimChronicles.Game/Crisis/`; 33 unit tests in `CrisisTests`.
+
+- **Stages** (`CrisisStages.Explain`) follow §4.1: a refused tribute caps the crisis at Probing until the colony finishes
+  a job against the Empire or Act 3 starts (Q3). To know that, `EmpireArc.FinishJob` now records what turned the colony
+  against the Empire (`stanceCause`: tribute, final demand or treaty) and the job count at that moment. These are plot
+  facts, which the director's snapshot doesn't show, so the director's input is unchanged.
+- **Budget** (`ThreatBudget`, `ColonyStrength`): base points by stage 800 / 1,800 / 3,500 / 6,000 at a reference colony
+  (score 1,500: about ten fighters in fair gear and a dozen turrets), strength factor clamped to 0.6–1.8, difficulty =
+  storyteller threat scale × the crisis difficulty setting (0.5–2), ×0.6 for a Broken Empire. 300,000 wealth counts for
+  less than four fighters. All first guesses for C14.
+- **Operations** (`CrisisOperations`): the §5.2 list with the stage each unlocks at, weights and cooldowns. The arc
+  offers only operations the game has **registered** (`CrisisDriver.RegisterOperation`), so in C1 it offers nothing; C6
+  registers the first ones. Retrieval needs a held captive (C10 fills that in).
+- **The `ImperialCrisis` plot** starts when the stage first leaves None and ends with the Empire's story. Each operation
+  is its beat, so the plot book's two-day spacing between any two beats applies to it too.
+- **Kept away from the director (R17):** the arc is registered with `useDirector: false`, so `PlotDriver` always picks by
+  weight (source `Random`), never calls the model and never records a training case for it; `WorldReader` leaves the
+  crisis plot out of `activePlots`. Stage-change **news** does reach the news log, as fairness rule 7 needs.
+- **Settings:** Imperial crisis on/off (default on, under the major plot), crisis difficulty, and the minimum days
+  between operations (default 8, 3–30).
+- **Dev Mode:** "Crisis: show state" shows the stage and why, colony strength, today's budget, the operations allowed
+  (marking those not built yet) and the operation history.
+- **Saved** as `crisis` in the game component; a save without it loads as no crisis.
+- Not checked in game; it joins checkpoint 1.

@@ -24,6 +24,18 @@ public sealed class RimChroniclesSettings : ModSettings
     /// <summary>How often minor plots start and how fast the Empire expands (<see cref="Core.Plots.StoryIntensity"/>).</summary>
     public float StoryIntensity = Core.Plots.StoryIntensity.Default;
 
+    /// <summary>The Imperial crisis: Empire operations against an opposed colony (needs the major plot and Royalty).</summary>
+    public bool Crisis = true;
+
+    public const float MinCrisisDifficulty = 0.5f;
+    public const float MaxCrisisDifficulty = 2f;
+
+    /// <summary>Scales the crisis's threat budget, on top of the storyteller's threat scale.</summary>
+    public float CrisisDifficulty = 1f;
+
+    /// <summary>Minimum days between crisis operations.</summary>
+    public int CrisisGapDays = Core.Crisis.CrisisArc.DefaultGapDays;
+
     /// <summary>Arc types turned off: they start no new plots (running ones finish).</summary>
     public List<string> DisabledArcs = [];
 
@@ -85,6 +97,9 @@ public sealed class RimChroniclesSettings : ModSettings
         NewsCadenceDays = DefaultNewsCadenceDays;
         MajorPlot = true;
         StoryIntensity = Core.Plots.StoryIntensity.Default;
+        Crisis = true;
+        CrisisDifficulty = 1f;
+        CrisisGapDays = Core.Crisis.CrisisArc.DefaultGapDays;
         DisabledArcs = [];
         ProseEndpoint = "";
         ProseModel = "";
@@ -105,6 +120,9 @@ public sealed class RimChroniclesSettings : ModSettings
         Scribe_Values.Look(ref NewsCadenceDays, "newsCadenceDays", DefaultNewsCadenceDays);
         Scribe_Values.Look(ref MajorPlot, "majorPlot", true);
         Scribe_Values.Look(ref StoryIntensity, "storyIntensity", Core.Plots.StoryIntensity.Default);
+        Scribe_Values.Look(ref Crisis, "crisis", true);
+        Scribe_Values.Look(ref CrisisDifficulty, "crisisDifficulty", 1f);
+        Scribe_Values.Look(ref CrisisGapDays, "crisisGapDays", Core.Crisis.CrisisArc.DefaultGapDays);
         Scribe_Collections.Look(ref DisabledArcs, "disabledArcs", LookMode.Value);
         Scribe_Values.Look(ref ProseEndpoint, "proseEndpoint", "");
         Scribe_Values.Look(ref ProseModel, "proseModel", "");
