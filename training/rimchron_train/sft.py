@@ -38,6 +38,18 @@ def check_markers(cfg: Config, tokenizer, row: data.Row) -> None:
                              f"Set {name} in the config to this model's turn markers.")
 
 
+def check_lengths(lengths: list[int], limit: int, ids: list[str]) -> None:
+    """Stops if any row is longer than max_seq_length: the trainer cuts rows from the end, and the end is the answer,
+    the only part with loss, so a long row would train on nothing (or half a JSON) without a word."""
+    over = [(i, n) for i, n in zip(ids, lengths) if n > limit]
+    if over:
+        worst = max(over, key=lambda x: x[1])
+        raise SystemExit(f"{len(over)} training rows are longer than max_seq_length {limit} tokens "
+                         f"(longest: {worst[0]}, {worst[1]} tokens). Raise max_seq_length in the config, "
+                         f"or rebuild the dataset for a smaller tier.")
+    print(f"row lengths: longest {max(lengths)} of {limit} tokens")
+
+
 def run(cfg: Config) -> int:
     # Unsloth first: it patches trl, transformers and peft when imported, and warns (and runs slower) otherwise.
     from unsloth import FastModel
@@ -61,7 +73,9 @@ def run(cfg: Config) -> int:
         finetune_mlp_modules=True, r=cfg.lora_r, lora_alpha=cfg.lora_alpha, lora_dropout=cfg.lora_dropout,
         bias="none", random_state=cfg.seed)
 
-    train = Dataset.from_list([{"text": render(tokenizer, r)} for r in train_rows])
+    texts = [render(tokenizer, r) for r in train_rows]
+    check_lengths([len(tokenizer(text=t)["input_ids"]) for t in texts], cfg.max_seq_length, [r.id for r in train_rows])
+    train = Dataset.from_list([{"text": t} for t in texts])
     # TRL renamed max_seq_length -> max_length and tokenizer -> processing_class; use whichever this version takes.
     length_key = "max_seq_length" if "max_seq_length" in inspect.signature(SFTConfig.__init__).parameters else "max_length"
     args = SFTConfig(

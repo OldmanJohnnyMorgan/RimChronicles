@@ -157,12 +157,20 @@ public static class DirectorLabels
             var reason = label["reason"]!.GetValue<string>();
             var snapshot = SnapshotJson.Load(Path.Combine(casesDir, caseId + ".json"));
             var allowed = WorldSummarizer.ForDirector(snapshot, ModelTier.High).AllowedNames;
-            problems.AddRange(Problems(scores, best, reason, order, allowed).Select(p => $"item {n}: {p}"));
+            var found = Problems(scores, best, reason, order, allowed);
+            if (found.Count > 0)
+            {
+                problems.AddRange(found.Select(p => $"item {n}: {p}"));
+                continue; // reported, and kept out of labels-final, so nothing trains on it
+            }
 
             byCase.TryAdd(caseId, []);
             byCase[caseId].Add((scores, best, reason));
         }
 
+        // Agreement counts against the samples planned for a case, not the ones that came back: a case where two of
+        // three samples failed has one opinion, not a unanimous one.
+        var planned = items.Values.GroupBy(i => i["case"]!.GetValue<string>()).ToDictionary(g => g.Key, g => g.Count());
         var final = new StringBuilder();
         int repeated = 0, agreed = 0, waitRight = 0, waitWrong = 0, waitRightPicked = 0, waitWrongAvoided = 0;
         foreach (var (caseId, samples) in byCase.OrderBy(kv => kv.Key, StringComparer.Ordinal))
@@ -194,10 +202,11 @@ public static class DirectorLabels
                 ["case"] = caseId,
                 ["group"] = Group(snapshot),
                 ["samples"] = samples.Count,
+                ["planned"] = planned[caseId],
                 ["choiceCounts"] = new JsonObject(counts.Select(kv => KeyValuePair.Create(kv.Key, (JsonNode?)JsonValue.Create(kv.Value)))),
                 ["scores"] = new JsonObject(mean.Select(kv => KeyValuePair.Create(kv.Key, (JsonNode?)JsonValue.Create(kv.Value)))),
                 ["best"] = top,
-                ["agreement"] = Math.Round(counts[top] / (double)samples.Count, 2),
+                ["agreement"] = Math.Round(counts[top] / (double)Math.Max(samples.Count, planned[caseId]), 2),
                 ["reason"] = samples.First(s => s.Best == top).Reason,
                 ["waitExpected"] = snapshot.Director?.WaitExpected is { } w ? JsonValue.Create(w) : null,
             }, Line)).Append('\n');

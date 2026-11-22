@@ -47,6 +47,16 @@ class DataTests(unittest.TestCase):
         self.assertFalse(data.is_valid_answer("no json", ["Wait"]))
 
 
+class SftTests(unittest.TestCase):
+    def test_check_lengths_stops_on_a_row_that_would_lose_its_answer(self):
+        from rimchron_train.sft import check_lengths
+        check_lengths([100, 4096], 4096, ["a", "b"])  # fits exactly
+        with self.assertRaises(SystemExit) as cm:
+            check_lengths([100, 4300, 5000], 4096, ["a", "b", "c"])
+        self.assertIn("2 training rows", str(cm.exception))
+        self.assertIn("c, 5000 tokens", str(cm.exception))
+
+
 class ExportTests(unittest.TestCase):
     def test_template_lines_keep_template_and_stops(self):
         from rimchron_train.export import template_lines

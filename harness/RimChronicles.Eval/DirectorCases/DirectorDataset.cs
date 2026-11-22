@@ -93,7 +93,6 @@ public static class DirectorDataset
                     continue;
                 }
 
-                seen[caseId] = Path.GetFileName(dir.TrimEnd('/', '\\'));
                 if (label["agreement"]!.GetValue<double>() < o.MinAgreement)
                 {
                     lowAgreement++;
@@ -117,6 +116,8 @@ public static class DirectorDataset
                     continue;
                 }
 
+                // Only an accepted label claims the case: a dropped one mustn't block another folder's label for it.
+                seen[caseId] = Path.GetFileName(dir.TrimEnd('/', '\\'));
                 accepted.Add((caseId, snapshot, best, label["reason"]!.GetValue<string>(), Split(snapshot, o)));
             }
         }
@@ -276,7 +277,7 @@ public static class DirectorDataset
 
             if (rng.NextDouble() < 0.05)
             {
-                snapshot = Decoy(snapshot, rng);
+                snapshot = Decoy(snapshot, rng, s.AllowedTransitions);
                 tags.Add("decoy");
             }
 
@@ -308,10 +309,12 @@ public static class DirectorDataset
 
     private static readonly string[] DecoyOptions = ["Empire:TributeDemand", "Complication:RaidOnTheColony", "Act3:StormTheCapital", "Choice:RescueTheCaptive"];
 
-    /// <summary>A recent event naming an option id that isn't allowed, to teach that only the listed options count.</summary>
-    public static WorldSnapshot Decoy(WorldSnapshot s, Random rng)
+    /// <summary>A recent event naming an option id that isn't allowed, to teach that only the listed options count.
+    /// <paramref name="original"/> is the case's real option ids: after renaming, the snapshot only shows C1, C2…, and a
+    /// decoy must never be one of the real options under its old name.</summary>
+    public static WorldSnapshot Decoy(WorldSnapshot s, Random rng, IReadOnlyCollection<string>? original = null)
     {
-        var decoy = DecoyOptions.Where(d => !s.AllowedTransitions.Contains(d)).OrderBy(_ => rng.Next()).FirstOrDefault();
+        var decoy = DecoyOptions.Where(d => !s.AllowedTransitions.Contains(d) && !(original?.Contains(d) ?? false)).OrderBy(_ => rng.Next()).FirstOrDefault();
         if (decoy is null)
         {
             return s;
