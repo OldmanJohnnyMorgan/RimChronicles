@@ -4,6 +4,7 @@ RimWorld 1.7 mod adding a story mode narrated by a local LLM.
 
 - Design spec: `docs/Rim Chronicles — Design Spec.md`
 - Technical spec: https://claude.ai/artifact/AMTEFZMpdn9ELPEJd5biXB
+- Crisis combat and locations (branch `crisis-combat-locations`, merges after the director-model track): `docs/SPEC-crisis-combat-and-locations/` (spec, tech spec, project plan)
 
 ## Commands
 
