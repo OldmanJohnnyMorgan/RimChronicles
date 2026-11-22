@@ -319,6 +319,8 @@ A quest's success, failure or expiry is fed back to its plot as a transition tri
 - Every quest template can be spawned from Dev Mode with test parameters.
 - The director's decision log reads like a sensible story outline.
 
+**Status: done (2026-11-22).** All three passed in the 200-day proof run on the reference PC, with Nemesis, Lost Family and Silent Press running together. Results and lessons are in `docs/stage4-results.md`.
+
 ## Stage 5: Awakened Empire (major plot)
 
 The Awakened Empire is the game-long major plot: the Royalty Empire starts dormant, wakes, and starts taking territory, and the player decides whether to stop it, join it or survive it. Vanilla RimWorld has no dormant/awakened state, so the mod adds one. It is built last because it uses every earlier system.
@@ -431,7 +433,7 @@ These go in the repo's `CLAUDE.md` (or equivalent) so every coding session follo
 2. **Stage 1:** 1.7 technical spike and snapshot exporter. Done 2026-11-21.
 3. **Stage 2:** news agent (first playable release). Done 2026-11-21.
 4. **Stage 3:** minor plots, starting with Nemesis. Done 2026-11-21.
-5. **Stage 4:** plot director and quest templates
+5. **Stage 4:** plot director and quest templates. Done 2026-11-22.
 6. **Stage 5:** Awakened Empire and endings
 
 Each stage ends with its exit criteria met and a playable build. Stage 2 is a good point for a first Steam Workshop release.
