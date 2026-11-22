@@ -19,6 +19,7 @@ const string usage = """
       director-import       Import director cases recorded in game (D3) into training/data/cases/exported
       director-pack         Write a labelling pack for a teacher working by hand (D4)
       director-labels-check Check a pack's labels.jsonl and aggregate it into labels-final.jsonl
+      director-label        Label cases with a local model and the teacher rubric (D4, bulk; resumable)
       director-dataset      Build train/val/test JSONL for fine-tuning from labelled cases (D5)
 
     <run> is a run id under --out, a path to a run folder, or "latest".
@@ -66,11 +67,23 @@ const string usage = """
       --pack <dir>             Pack folder (default training/data/labels/pilot)
       --cases <dir>            Case folder the pack was made from (default training/data/cases/synthetic/seed-1)
 
+    director-label options:
+      --models <id>            Teacher model from --config (default gemma4-12b)
+      --cases <dir>            Case folder (default training/data/cases/synthetic/seed-1; test seeds are refused)
+      --count <n>              Cases to label, round-robin over arcs and beats (default 4000)
+      --repeats <n>            Samples per case, each with the options reshuffled (default 3)
+      --temperature <t>        Sampling temperature (default 0.7)
+      --seed <n>               Selection and shuffling seed (default 1)
+      --out <dir>              Pack folder (default training/data/labels/local-<model>); run again to carry on
+      --recheck <dir>          Calibrate instead: label exactly the cases of a labelled folder (e.g. the pilot) into
+                               results/label-check-<model> and report agreement with its labels
+
     director-dataset options:
       --labels a,b             Label folders with labels-final.jsonl (default training/data/labels/*)
       --cases a,b              Case folders (default every folder under training/data/cases)
       --tier <tier>            Minimum, Recommended or High: the prompt budget to render for (default Recommended)
       --test-seeds a,b         Generator seeds that form the test split (default 9001)
+      --max-wait-share <0-1>   Most of the training cases whose best answer is Wait (default 0.4; 1 keeps all)
       --out <dir>              Output (default training/data/splits/<tier>)
 
     spotcheck options:
@@ -88,7 +101,7 @@ if (args.Length == 0 || args[0] is "-h" or "--help" or "help")
 var root = FindRepoRoot();
 var valueOptions = new HashSet<string>
 {
-    "config", "prompts", "snapshots-dir", "passbars", "models", "tasks", "snapshots", "repeats", "out", "cache", "compare", "rate", "seed", "vram-budget", "temperature", "count", "from", "cases", "repeat", "pack", "labels", "tier", "test-seeds",
+    "config", "prompts", "snapshots-dir", "passbars", "models", "tasks", "snapshots", "repeats", "out", "cache", "compare", "rate", "seed", "vram-budget", "temperature", "count", "from", "cases", "repeat", "pack", "labels", "tier", "test-seeds", "max-wait-share", "recheck",
 };
 var flags = new HashSet<string> { "no-cache", "dry-run", "judge", "resample" };
 
@@ -229,6 +242,44 @@ try
             return RimChronicles.Eval.DirectorCases.DirectorLabels.Check(
                 cli.Get("pack") is { } pk ? Path.GetFullPath(pk) : Path.Combine(root, "training", "data", "labels", "pilot"), CasesDir(), Console.Out) == 0 ? 0 : 1;
 
+        case "director-label":
+        {
+            var config = HarnessConfig.Load(configPath);
+            var teacherId = cli.List("models")?.Single() ?? "gemma4-12b";
+            var teacher = config.Models.FirstOrDefault(m => m.Id == teacherId)
+                ?? throw new ArgumentException($"No model '{teacherId}' in {configPath}.");
+            var labelsRoot = Path.Combine(root, "training", "data", "labels");
+            var recheck = cli.Get("recheck") is { } rc ? Path.GetFullPath(rc) : null;
+            // A recheck goes under results/, never training/data/labels/, so calibration labels can't reach a dataset.
+            var outDir = cli.Get("out") is { } lo ? Path.GetFullPath(lo)
+                : recheck is not null ? Path.Combine(outRoot, $"label-check-{teacher.Id}") : Path.Combine(labelsRoot, $"local-{teacher.Id}");
+            var onlyCases = recheck is null ? null
+                : RimChronicles.Eval.DirectorCases.DirectorLabelCommand.LabelledCases(recheck);
+            var labelOptions = new RimChronicles.Eval.DirectorCases.LabelOptions
+            {
+                CasesDir = CasesDir(),
+                OutDir = outDir,
+                PromptsRoot = promptsRoot,
+                CacheDir = cacheDir,
+                SkipLabelDirs = recheck is not null || !Directory.Exists(labelsRoot)
+                    ? [] : Directory.GetDirectories(labelsRoot).Where(d => Path.GetFullPath(d) != outDir).ToList(),
+                OnlyCases = onlyCases,
+                Count = onlyCases?.Count ?? cli.Int("count", 4000),
+                Samples = cli.Int("repeats", 3),
+                Seed = cli.Int("seed", 1),
+                Temperature = cli.Get("temperature") is { } t ? double.Parse(t, System.Globalization.CultureInfo.InvariantCulture) : 0.7,
+            };
+            var labelled = await RimChronicles.Eval.DirectorCases.DirectorLabelCommand.RunAsync(labelOptions, teacher,
+                RimChronicles.Eval.Providers.ProviderFactory.Create(teacher), Console.Out, cts.Token);
+            if (recheck is null || labelled != 0)
+            {
+                return labelled;
+            }
+
+            RimChronicles.Eval.DirectorCases.DirectorLabels.Check(outDir, labelOptions.CasesDir, Console.Out);
+            return RimChronicles.Eval.DirectorCases.DirectorLabelCommand.Compare(recheck, outDir, Console.Out);
+        }
+
         case "director-dataset":
         {
             var data = Path.Combine(root, "training", "data");
@@ -245,6 +296,7 @@ try
                 PromptsRoot = promptsRoot,
                 Tier = tier,
                 TestSeeds = (cli.List("test-seeds") ?? ["9001"]).Select(int.Parse).ToHashSet(),
+                MaxWaitShare = cli.Get("max-wait-share") is { } mw ? double.Parse(mw, System.Globalization.CultureInfo.InvariantCulture) : 0.4,
             }, Console.Out);
         }
 
