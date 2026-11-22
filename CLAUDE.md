@@ -29,7 +29,7 @@ Run output goes to `results/<runId>/` (`results.csv`, `summary.csv`, `run.json`,
 
 Summarizer golden files live in `tests/RimChronicles.Tests/Golden/`. After an intended change to prompt text, run `UPDATE_GOLDEN=1 dotnet test`, then review the diff before committing.
 
-To build the real mod, copy `Directory.Build.props.user.example` to `Directory.Build.props.user` and set the RimWorld and Harmony paths. In the codespace they point at `/workspaces/reference/dlls`, so the Game project builds here too. Stage 1–3 in-game tests: `docs/stage1-runbook.md`, `docs/stage2-runbook.md`, `docs/stage3-runbook.md`; what 1.7 changed: `docs/ENGINE_NOTES.md`.
+To build the real mod, copy `Directory.Build.props.user.example` to `Directory.Build.props.user` and set the RimWorld and Harmony paths. In the codespace they point at `/workspaces/reference/dlls`, so the Game project builds here too. Stage 1–4 in-game tests: `docs/stage1-runbook.md` to `docs/stage4-runbook.md`; what 1.7 changed: `docs/ENGINE_NOTES.md`.
 
 The decompiled 1.7 source is in `/workspaces/reference/src/` (Assembly-CSharp, RimWorld, Waylith, UnityStubs, 0Harmony). The repo is public: never commit game DLLs or decompiled code.
 

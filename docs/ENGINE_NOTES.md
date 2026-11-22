@@ -80,6 +80,17 @@ type up by name on load, which might not resolve nested generic types.
 - A severed part is added as a `Hediff_MissingPart` through `Pawn_HealthTracker.AddHediff(Hediff, …)`, with the damage.
 - `ThoughtDef.thoughtClass` has no default: XML memories set `Thought_Memory`.
 
+## Stage 4 notes
+
+- Vanilla builds 70 quests in C# (`QuestNode_Root_*`); a quest def then only needs `<root Class="…"/>`. A def started
+  from code with `defaultChallengeRating` must set `isRootSpecial`, which also lists it in vanilla's Dev Mode quest menus.
+- A quest's site is placed on the world map only when the quest is accepted. An expired offer never calls `Quest.End`,
+  so plots poll quest states daily.
+- `PrisonerWillingToJoinQuestUtility.GeneratePrisoner` may reuse a world pawn with relations (`forceGenerateNewPawn:
+  false`). Swap it out with `ClearAndDestroyContentsOrPassToWorld`, never destroy it.
+- A raid with a forced faction skips the storyteller's points check: raise points to
+  `faction.def.MinPointsToGeneratePawnGroup(Combat)` or no raid strategy fits.
+
 ## Differences that matter later
 
 - `Mod.DoSettingsWindowContents(Rect)` still takes `UnityEngine.Rect`, which is now a type in `UnityStubs`.
