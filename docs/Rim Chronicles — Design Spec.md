@@ -329,6 +329,8 @@ The Awakened Empire is the game-long major plot: the Royalty Empire starts dorma
 
 Requires the Royalty DLC. Without Royalty, the mod runs minor plots and the news agent only.
 
+**Scope (agreed 2026-11-22):** of the vanilla endings, only the ship launch gets an Empire reaction in Stage 5; Royal ascent, archonexus and Anomaly come later.
+
 ### Empire states
 
 | State | What the Empire does | Moves on when |

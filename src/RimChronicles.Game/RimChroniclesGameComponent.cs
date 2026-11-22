@@ -1,3 +1,4 @@
+using RimChronicles.Core.Empire;
 using RimChronicles.Core.Engine;
 using RimChronicles.Core.News;
 using RimChronicles.Core.Plots;
@@ -21,6 +22,7 @@ public sealed class RimChroniclesGameComponent : GameComponent
     private NewsDesk _desk = new();
     private PlotBook _plots = new();
     private GrudgeLedger _grudges = new();
+    private EmpireSaga _empire = new();
     private List<Pawn> _tracked = [];
     private Pawn? _reporterPawn;
 
@@ -48,6 +50,9 @@ public sealed class RimChroniclesGameComponent : GameComponent
 
     /// <summary>Every minor plot in this save (Stage 3).</summary>
     public PlotBook Plots => _plots;
+
+    /// <summary>The Awakened Empire, the major plot (Stage 5).</summary>
+    public EmpireSaga Empire => _empire;
 
     /// <summary>Raiders who killed or maimed colonists (Stage 3 M2).</summary>
     public GrudgeLedger Grudges => _grudges;
@@ -102,12 +107,14 @@ public sealed class RimChroniclesGameComponent : GameComponent
         ScribeArchive.Instance.Deep(ref _desk, "newsDesk");
         ScribeArchive.Instance.Deep(ref _plots, "plots");
         ScribeArchive.Instance.Deep(ref _grudges, "grudges");
+        ScribeArchive.Instance.Deep(ref _empire, "empire");
         Scribe_Collections.Look(ref _tracked, "trackedPawns", LookMode.Reference);
         Scribe_References.Look(ref _reporterPawn, "reporterPawn");
         _news ??= new NewsLog();
         _desk ??= new NewsDesk();
         _plots ??= new PlotBook();
         _grudges ??= new GrudgeLedger();
+        _empire ??= new EmpireSaga();
         _tracked ??= [];
         _tracked.RemoveAll(p => p is null);
     }
@@ -134,6 +141,7 @@ public sealed class RimChroniclesGameComponent : GameComponent
         Game.Plots.SilentPressBeats.Daily(this);
         Game.Plots.LostFamilyBeats.Daily(this);
         Game.Plots.PlotDriver.Daily(this);
+        Game.Empire.EmpireDriver.Daily(this);
         Game.News.NewsDriver.Tick(this);
     }
 }
