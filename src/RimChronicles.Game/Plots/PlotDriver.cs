@@ -24,11 +24,14 @@ public static class PlotDriver
     /// today; it is chosen again tomorrow.</summary>
     public delegate bool BeatHandler(RimChroniclesGameComponent component, Plot plot, PlotTemplate template, int today, PlotTransition transition);
 
-    private sealed record Arc(TransitionsFor Transitions, BeatHandler Fire);
+    /// <summary><paramref name="UseDirector"/> is false for arcs whose options must not reach the director model yet
+    /// (the Imperial crisis until C11, tech spec R17): they always pick by weight, and are never recorded as training cases.</summary>
+    private sealed record Arc(TransitionsFor Transitions, BeatHandler Fire, bool UseDirector);
 
     private static readonly Dictionary<string, Arc> Arcs = [];
 
-    public static void Register(string templateId, TransitionsFor transitions, BeatHandler fire) => Arcs[templateId] = new(transitions, fire);
+    public static void Register(string templateId, TransitionsFor transitions, BeatHandler fire, bool useDirector = true) =>
+        Arcs[templateId] = new(transitions, fire, useDirector);
 
     /// <summary>Called once per in-game day.</summary>
     public static void Daily(RimChroniclesGameComponent component)
@@ -73,11 +76,17 @@ public static class PlotDriver
             return Apply(component, plot, template, arc, options[0], options, today, new DirectorChoice(options[0].Id, ""), "Only");
         }
 
+        var fallback = Director.PickWeighted(options, Rand.Value);
+        if (!arc.UseDirector)
+        {
+            return Apply(component, plot, template, arc, fallback, options, today,
+                new DirectorChoice(fallback.Id, "picked by weight: this arc doesn't use the director yet"), "Random");
+        }
+
         var settings = RimChroniclesMod.Settings;
         var director = ProviderFactory.CreateDirector(settings);
         var provider = director?.Provider;
         var prompts = PromptStore.Library;
-        var fallback = Director.PickWeighted(options, Rand.Value);
         var modelReady = provider is not null && prompts is not null;
 
         // Main thread: read the world into plain data; the model call runs in the background.

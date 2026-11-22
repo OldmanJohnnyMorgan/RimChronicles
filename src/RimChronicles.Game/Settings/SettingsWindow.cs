@@ -71,6 +71,22 @@ public static class SettingsWindow
             list.Label("<color=#a0a0a0>Royalty isn't active, so the major plot is off.</color>");
         }
 
+        if (settings.MajorPlot)
+        {
+            list.CheckboxLabeled("    Imperial crisis: the Empire attacks a colony that opposes it", ref settings.Crisis,
+                "Probing raids, breaches, psychic assaults, sieges and a final assault, escalating with the plot. Off: the Empire's raids are vanilla raids.");
+            if (settings.Crisis)
+            {
+                var difficulty = list.SliderLabeled($"    Crisis difficulty: {settings.CrisisDifficulty:0.0}×", settings.CrisisDifficulty,
+                    RimChroniclesSettings.MinCrisisDifficulty, RimChroniclesSettings.MaxCrisisDifficulty,
+                    tooltip: "Scales the strength of Imperial operations, on top of the storyteller's threat scale.");
+                settings.CrisisDifficulty = (float)Math.Round(difficulty * 10f) / 10f;
+                var gap = (int)Math.Round(list.SliderLabeled($"    At least {settings.CrisisGapDays} days between Imperial operations", settings.CrisisGapDays,
+                    Core.Crisis.CrisisArc.MinGapDays, Core.Crisis.CrisisArc.MaxGapDays));
+                settings.CrisisGapDays = Math.Clamp(gap, Core.Crisis.CrisisArc.MinGapDays, Core.Crisis.CrisisArc.MaxGapDays);
+            }
+        }
+
         list.GapLine();
         var intensity = list.SliderLabeled(
             $"Story intensity: {Core.Plots.StoryIntensity.Describe(settings.StoryIntensity)} ({settings.StoryIntensity:0.0}×)",

@@ -42,7 +42,9 @@ public sealed class WorldReader : IWorldReader
             Tales = ReadTales(day),
             Factions = ReadFactions(),
             RecentEvents = ReadRecentEvents(),
-            ActivePlots = RimChroniclesGameComponent.Current?.Plots.Active.Select(p => p.ToInfo()).ToList() ?? [],
+            // The crisis plot stays out of the snapshot until it reaches the director (C11, tech spec R17).
+            ActivePlots = RimChroniclesGameComponent.Current?.Plots.Active.Where(p => p.Template != Core.Crisis.CrisisArc.TemplateId)
+                .Select(p => p.ToInfo()).ToList() ?? [],
             PublicEvents = RimChroniclesGameComponent.Current?.News.Since(day - MaxNewsDays).Select(e => e.Text).ToList() ?? [],
         };
     }

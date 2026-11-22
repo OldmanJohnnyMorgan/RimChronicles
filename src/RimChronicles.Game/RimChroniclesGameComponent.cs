@@ -1,3 +1,4 @@
+using RimChronicles.Core.Crisis;
 using RimChronicles.Core.Empire;
 using RimChronicles.Core.Engine;
 using RimChronicles.Core.News;
@@ -23,6 +24,7 @@ public sealed class RimChroniclesGameComponent : GameComponent
     private PlotBook _plots = new();
     private GrudgeLedger _grudges = new();
     private EmpireSaga _empire = new();
+    private CrisisState _crisis = new();
     private List<Pawn> _tracked = [];
     private Pawn? _reporterPawn;
 
@@ -53,6 +55,9 @@ public sealed class RimChroniclesGameComponent : GameComponent
 
     /// <summary>The Awakened Empire, the major plot (Stage 5).</summary>
     public EmpireSaga Empire => _empire;
+
+    /// <summary>The Imperial crisis: operations against the colony (crisis C1).</summary>
+    public CrisisState Crisis => _crisis;
 
     /// <summary>Raiders who killed or maimed colonists (Stage 3 M2).</summary>
     public GrudgeLedger Grudges => _grudges;
@@ -108,6 +113,7 @@ public sealed class RimChroniclesGameComponent : GameComponent
         ScribeArchive.Instance.Deep(ref _plots, "plots");
         ScribeArchive.Instance.Deep(ref _grudges, "grudges");
         ScribeArchive.Instance.Deep(ref _empire, "empire");
+        ScribeArchive.Instance.Deep(ref _crisis, "crisis");
         Scribe_Collections.Look(ref _tracked, "trackedPawns", LookMode.Reference);
         Scribe_References.Look(ref _reporterPawn, "reporterPawn");
         _news ??= new NewsLog();
@@ -115,6 +121,7 @@ public sealed class RimChroniclesGameComponent : GameComponent
         _plots ??= new PlotBook();
         _grudges ??= new GrudgeLedger();
         _empire ??= new EmpireSaga();
+        _crisis ??= new CrisisState();
         _tracked ??= [];
         _tracked.RemoveAll(p => p is null);
     }
@@ -142,6 +149,7 @@ public sealed class RimChroniclesGameComponent : GameComponent
         Game.Plots.LostFamilyBeats.Daily(this);
         Game.Plots.PlotDriver.Daily(this);
         Game.Empire.EmpireDriver.Daily(this);
+        Game.Crisis.CrisisDriver.Daily(this);
         Game.News.NewsDriver.Tick(this);
     }
 }
