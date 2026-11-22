@@ -8,9 +8,16 @@
     <li>1.7</li>
   </supportedVersions>
   <modVersion>0.1.0</modVersion>
-  <description>A story mode for RimWorld, narrated by a local language model.
+  <description>A story mode for RimWorld 1.7: plots with acts, stakes and endings, grown from what actually happened to your colony and narrated by a language model running on your own PC.
 
-Stage 1 technical spike: proves the mod loads on 1.7, patches the daily tick, calls a local model in the background, and saves its state. Not for play yet.</description>
+- The Rim Dispatch: a reporter covers the rim every few days.
+- Minor plots from your colony's history: Nemesis, Lost Family, Silent Press.
+- A plot director that knows when to move a story on and when to let the colony breathe.
+- The Awakened Empire (needs Royalty): a game-long arc with three endings and an epilogue.
+
+Works without a model too: every text has a written template. For narration, run Ollama (or any OpenAI-compatible server) and pick a tier in the mod settings.
+
+Early preview: back up your saves. Source and license (MIT): https://github.com/OldmanJohnnyMorgan/RimChronicles</description>
   <modDependencies>
     <li>
       <packageId>brrainz.harmony</packageId>
