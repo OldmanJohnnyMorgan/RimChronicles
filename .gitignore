@@ -22,3 +22,9 @@ reference/
 .idea/
 *.suo
 *.DotSettings.user
+
+# Director-model training data and runs (manifests are kept)
+training/data/**
+!training/data/**/
+!training/data/**/manifest.json
+training/runs/
