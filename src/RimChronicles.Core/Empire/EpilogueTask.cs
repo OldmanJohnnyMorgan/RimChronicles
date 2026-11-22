@@ -14,8 +14,9 @@ public static class EpilogueTask
 {
     public const string TaskName = "epilogue";
 
-    /// <summary>Allowed length in words. The prompt asks for 120 to 220; the range leaves slack either side.</summary>
-    public static readonly (int Min, int Max) WordRange = (100, 280);
+    /// <summary>Allowed length in words. The prompt asks for 80 to 160; the range leaves slack either side. Lowered
+    /// from 100–280 with v2 (2026-11-22): the cases hold few facts, and small models padded to reach 100.</summary>
+    public static readonly (int Min, int Max) WordRange = (60, 220);
 
     /// <summary>The people the epilogue must name: the first three.</summary>
     public static IReadOnlyList<string> Required(EpilogueCase c) => c.People.Take(3).Select(p => p.Name).ToList();

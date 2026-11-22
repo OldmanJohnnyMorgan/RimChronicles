@@ -154,3 +154,47 @@ Both are noted in the Empire plot's log and **Empire: show state**, and the epil
 | 3 | Without the dev action: let a few Nemesis beats pass with the Empire at war. | **Plot: director log** offers `Promote:…JoinsTheEmpire` among the options (and sometimes picks it). |
 | 4 | **Lost Family: force seed**, let the first letter come. **Empire: promote a minor plot** → the Empire takes a settlement of the relative's faction. | The settlement turns Imperial; "<Kin> caught in the war"; the Rescue quest that follows names the Empire as captor. |
 | 5 | Reach an ending (**Empire: reach an ending**). | The epilogue's facts include the promotions (raw output, or the template's events in Dev Mode). |
+
+## M7: the proof run
+
+One session, and the only in-game round for Stage 5. Royalty on, Development mode on.
+
+**Before you start** (free local runs, no judge; push both to `rc-results`):
+
+```powershell
+cd C:\RimworldMods\RimChronicles\RimChronicles
+git pull
+dotnet build RimChronicles.slnx
+dotnet run --project harness/RimChronicles.Eval -- run --tasks epilogue --models gemma4-e2b,gemma4-e4b,gemma4-12b
+dotnet run --project harness/RimChronicles.Eval -- run --tasks plot-letter --models gemma4-e2b,gemma4-e4b,gemma4-12b
+```
+
+The first checks epilogue v2; the second is the plot-letter v3 run still open from Stage 4. Then restart RimWorld fully
+(new defs: the Empire plot and three quest scripts).
+
+### Part A: the milestone checks
+
+Work through the M1–M6 tables above in one colony. Save before each milestone (`s5-m1`, `s5-m2`, …), so Part B can
+start from them. Note pass or fail per row.
+
+### Part B: the spec's exit test
+
+1. **Each of the three endings, reached in play** (Dev Mode may speed time and seed plots, but not **Empire: reach an
+   ending**). From a save in Act 2 (M4), make three copies:
+   - **Resistance:** stance Oppose; play to Act 3; accept **Storm <capital>**; destroy it with a caravan.
+   - **Imperial:** stance Ally; finish jobs (and, to save time, give a colonist the Knight title with vanilla's
+     Royalty dev action); accept the governorship.
+   - **Independence:** stance Oppose or neutral; push the Empire to **Broken** (win sieges and sabotage; **Empire:
+     expansion tick** helps reach the reckoning); sign the treaty.
+
+   Each passes when the victory screen shows an epilogue naming colonists, and the game carries on.
+2. **Territory on the map and in bulletins:** across the runs, at least three conquests or razings show correctly on
+   the world map (Imperial colours, or ruins), and at least two reach a bulletin.
+3. **A promotion:** at least one minor plot promoted (M6), by the director or the dev action.
+4. **Saves:** save and reload once in each run, mid-act. No red errors.
+
+**Send me:**
+- pass or fail per row (Part A) and per step (Part B);
+- the three epilogue texts (they're kept as letters);
+- **Plot: director log** from one run;
+- any red `[Rim Chronicles]` errors, straight away if something breaks early.

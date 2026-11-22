@@ -198,7 +198,7 @@ public static partial class WorldSummarizer
         {
             ["colony"] = colony,
             ["empire"] = c.Empire,
-            ["ending"] = $"{Empire.EpilogueTask.Headline(c.Ending)}. {Empire.EpilogueTask.Meaning(c, colony)}",
+            ["ending"] = Empire.EpilogueTask.Meaning(c, colony), // no headline: v1 models echoed "Resistance victory." as an opener
             ["stance"] = c.Stance switch
             {
                 "ally" => $"{colony} sided with {c.Empire}.",
