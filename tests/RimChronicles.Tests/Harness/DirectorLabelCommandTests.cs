@@ -48,7 +48,7 @@ public class DirectorLabelCommandTests
         return (root, new LabelOptions
         {
             CasesDir = casesDir, OutDir = Path.Combine(root, "out"), PromptsRoot = Repo.Prompts,
-            CacheDir = Path.Combine(root, "cache"), Count = cases, Samples = samples,
+            CacheDir = Path.Combine(root, "cache"), Count = cases, Samples = samples, EnforceWait = false,
         });
     }
 
@@ -134,6 +134,16 @@ public class DirectorLabelCommandTests
         {
             Directory.Delete(root, recursive: true);
         }
+    }
+
+    [Fact]
+    public void WaitMismatch_FollowsTheCasesWaitRule()
+    {
+        Assert.NotNull(DirectorLabelCommand.WaitMismatch(true, "Complication:XLeadsARaid"));
+        Assert.Null(DirectorLabelCommand.WaitMismatch(true, "Wait"));
+        Assert.NotNull(DirectorLabelCommand.WaitMismatch(false, "Wait"));
+        Assert.Null(DirectorLabelCommand.WaitMismatch(false, "Choice:RescueHun"));
+        Assert.Null(DirectorLabelCommand.WaitMismatch(null, "Wait"));
     }
 
     [Fact]

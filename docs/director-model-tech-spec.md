@@ -204,3 +204,10 @@ another folder are skipped, so Claude's labels are never duplicated or outranked
   reports agreement with Claude, overall and per arc and beat, before the long run.
 - **Wait cap (dataset):** at most 40% of training cases have Wait as the best answer (`--max-wait-share`), chosen by a
   hash of the id. Val and test keep the real mix (test: 65% Wait), so the report can compare against always-Wait.
+- **Calibration v1 (2026-11-22):** 1.4 s per item (about 4.7 h for 4,000 cases × 3), 0 failures, but the 12B picked
+  Wait in 1/50 pilot cases (Claude 23/50) and in 1/20 wait-right ones: it agreed with Claude on 20/27 when Claude
+  acted and 1/23 when Claude waited, picking "high-stakes" beats right after deaths and raids. Its labels would have
+  taught the student never to pause. Two fixes: **rubric v2** puts pacing first as explicit rules (reeling and young
+  beat: Wait 5, harsh options at most 2, relief allowed), and `director-label` **rejects and re-asks** any label that
+  contradicts the case's `waitExpected` (the generator's rule, which Claude's labels matched 20/20 and 222/222); open
+  cases stay the teacher's call. `--no-wait-rule` turns the check off.
