@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Psycasts Empire pawns may never have or cast (crisis spec §5.3, fairness rule 9). The four below are also required in
+  code (PsycastKits.RequiredBans): a list here can add to them, never remove them. Review during balance (C14).
+-->
+<Defs>
+  <RimChronicles.Game.Crisis.Units.AbilityBanListDef>
+    <defName>RimChronicles_EnemyAbilityBanList</defName>
+    <label>enemy psycast ban list</label>
+    <abilities>
+      <li>Neuroquake</li>       <!-- too chaotic for v1 -->
+      <li>ManhunterPulse</li>   <!-- too chaotic for v1 -->
+      <li>Flashstorm</li>       <!-- too hard to counter for v1 -->
+      <li>EntropyDump</li>      <!-- colonist-only target, a day-long coma (C0) -->
+    </abilities>
+  </RimChronicles.Game.Crisis.Units.AbilityBanListDef>
+</Defs>
