@@ -191,7 +191,9 @@ public static partial class WorldSummarizer
         var people = new StringBuilder();
         foreach (var p in c.People)
         {
-            people.Append(CultureInfo.InvariantCulture, $"- {p.Name} ({p.Pronoun}{(p.Dead ? ", died before the end" : "")}): {p.Deed}\n");
+            // The death goes in the deed itself: as a separate note (epilogue v2 run 20261122-044741), small models
+            // dropped it from four of nine epilogues.
+            people.Append(CultureInfo.InvariantCulture, $"- {p.Name} ({p.Pronoun}): {p.Deed}{(p.Dead ? ", and died before the end" : "")}\n");
         }
 
         return Build(new()

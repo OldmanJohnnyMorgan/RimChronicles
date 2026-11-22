@@ -36,7 +36,7 @@ public class EpilogueTaskTests
     public void Input_GivesThePeopleAndEvents_AndTheChecksRequireTheFirstThreeNames()
     {
         var input = WorldSummarizer.ForEpilogue(Case, "Last Lantern");
-        Assert.Contains("- Bram (he, died before the end): held the gate", input.Variables["people"]);
+        Assert.Contains("- Bram (he): held the gate, and died before the end", input.Variables["people"]);
         Assert.Contains("- The Sun Throne took Calder Mill.", input.Variables["events"]);
         Assert.Equal(["Ysolde", "Bram", "Hesper"], EpilogueTask.Required(Case));
 
