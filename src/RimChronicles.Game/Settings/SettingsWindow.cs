@@ -84,6 +84,10 @@ public static class SettingsWindow
                 var gap = (int)Math.Round(list.SliderLabeled($"    At least {settings.CrisisGapDays} days between Imperial operations", settings.CrisisGapDays,
                     Core.Crisis.CrisisArc.MinGapDays, Core.Crisis.CrisisArc.MaxGapDays));
                 settings.CrisisGapDays = Math.Clamp(gap, Core.Crisis.CrisisArc.MinGapDays, Core.Crisis.CrisisArc.MaxGapDays);
+                var delay = (int)Math.Round(list.SliderLabeled($"    Orbital strikes land {settings.StrikeDelaySeconds} seconds after the warning", settings.StrikeDelaySeconds,
+                    Core.Crisis.Strikes.StrikeRules.MinDelaySeconds, Core.Crisis.Strikes.StrikeRules.MaxDelaySeconds,
+                    tooltip: "Game time at normal speed. Every strike is marked and announced first; taking down its herald calls it off."));
+                settings.StrikeDelaySeconds = Math.Clamp(delay, Core.Crisis.Strikes.StrikeRules.MinDelaySeconds, Core.Crisis.Strikes.StrikeRules.MaxDelaySeconds);
             }
         }
 
