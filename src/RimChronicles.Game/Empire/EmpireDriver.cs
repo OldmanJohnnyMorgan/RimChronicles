@@ -4,6 +4,7 @@ using RimChronicles.Core.News;
 using RimChronicles.Core.Plots;
 using RimChronicles.Game.Plots;
 using RimWorld;
+using RimWorld.Planet;
 using Verse;
 
 namespace RimChronicles.Game.Empire;
@@ -51,6 +52,9 @@ public static class EmpireDriver
                 }
 
                 break;
+            case EmpireState.Awakened when saga.ExpansionDue(today):
+                ExpandOnce(component, empire, today);
+                break;
             case EmpireState.Stirring:
                 if (saga.Rumour(today, empire.Name, Neighbours(empire), n => Rand.Range(0, n), Rand.RangeInclusive(EmpireSaga.MinRumourGapDays, EmpireSaga.MaxRumourGapDays)) is { } rumour)
                 {
@@ -59,6 +63,98 @@ public static class EmpireDriver
 
                 break;
         }
+    }
+
+    /// <summary>One expansion attack (M2): pick a target, apply the result to the world map, and report it. Pure C#, no
+    /// model. With no target, it tries again after the usual gap.</summary>
+    private static void ExpandOnce(RimChroniclesGameComponent component, Faction empire, int today)
+    {
+        var gap = Rand.RangeInclusive(EmpireExpansion.MinGapDays, EmpireExpansion.MaxGapDays);
+        var settlements = Targets(empire);
+        var target = EmpireExpansion.PickTarget(settlements.Keys.ToList(), Rand.Value);
+        if (target is null)
+        {
+            component.Empire.NextExpansionDay = today + gap;
+            component.Empire.Note(today, "expansion: no settlement within reach");
+            return;
+        }
+
+        var result = EmpireExpansion.PickResult(target, Rand.Value);
+        var settlement = settlements[target];
+        switch (result)
+        {
+            case ExpansionResult.Conquered:
+                settlement.SetFaction(empire);
+                Repaint(settlement);
+                break;
+            case ExpansionResult.Razed:
+                Raze(settlement);
+                break;
+        }
+
+        Show(component, component.Empire.Expanded(target, result, today, gap, empire.Name), today, empire);
+        if (Prefs.DevMode)
+        {
+            Log.Message($"[Rim Chronicles] Empire expansion: {EmpireExpansion.News(result, empire.Name, target)}.");
+        }
+    }
+
+    /// <summary>Settlements the Empire may attack: other humanlike factions' settlements on the same layer as an
+    /// Imperial one, never the player's, never one with a map open or a quest on it, and never a faction's last.</summary>
+    private static Dictionary<ExpansionTarget, Settlement> Targets(Faction empire)
+    {
+        var all = Find.WorldObjects.Settlements;
+        var imperial = all.Where(s => s.Faction == empire).ToList();
+        var counts = all.Where(s => s.Faction is not null).GroupBy(s => s.Faction).ToDictionary(g => g.Key, g => g.Count());
+        var questTargets = Find.QuestManager.QuestsListForReading
+            .Where(q => q.State is QuestState.Ongoing or QuestState.NotYetAccepted)
+            .SelectMany(q => q.QuestLookTargets)
+            .Where(t => t.HasWorldObject)
+            .Select(t => t.WorldObject)
+            .ToHashSet();
+        var targets = new Dictionary<ExpansionTarget, Settlement>();
+        foreach (var s in all)
+        {
+            if (s.Faction is not { } owner || owner == empire || owner.IsPlayer || owner.Hidden || owner.defeated
+                || !owner.def.humanlikeFaction || s.HasMap || questTargets.Contains(s) || counts[owner] < 2)
+            {
+                continue;
+            }
+
+            var near = imperial.Where(e => e.Tile.Layer == s.Tile.Layer).ToList();
+            if (near.Count == 0)
+            {
+                continue;
+            }
+
+            var distance = near.Min(e => Find.WorldGrid.ApproxDistanceInTiles(e.Tile, s.Tile));
+            targets[new ExpansionTarget(s.ID.ToString(System.Globalization.CultureInfo.InvariantCulture), s.Label, owner.Name, distance, counts[owner])] = s;
+        }
+
+        return targets;
+    }
+
+    private static readonly System.Reflection.FieldInfo? CachedMat = HarmonyLib.AccessTools.Field(typeof(Settlement), "cachedMat");
+    private static readonly System.Reflection.FieldInfo? ExpandingMat = HarmonyLib.AccessTools.Field(typeof(WorldObject), "expandingMaterial");
+
+    /// <summary>A settlement caches its world-map materials in its first owner's colour, and <c>SetFaction</c> doesn't
+    /// reset them. Clears both caches and redraws the layer, so a conquered settlement shows in Imperial colours.</summary>
+    private static void Repaint(Settlement settlement)
+    {
+        CachedMat?.SetValue(settlement, null);
+        ExpandingMat?.SetValue(settlement, null);
+        Find.World.renderer.SetDirty<WorldDrawLayer_WorldObjects>(settlement.Tile.Layer);
+    }
+
+    /// <summary>Destroys a settlement and leaves ruins, as vanilla does when the player defeats one
+    /// (<c>SettlementDefeatUtility.CheckDefeated</c>), without its letter or raids.</summary>
+    private static void Raze(Settlement settlement)
+    {
+        var ruins = (DestroyedSettlement)WorldObjectMaker.MakeWorldObject(settlement.Tile.LayerDef.DestroyedSettlementWorldObjectDef);
+        ruins.Tile = settlement.Tile;
+        ruins.SetFaction(settlement.Faction);
+        Find.WorldObjects.Add(ruins);
+        settlement.Destroy();
     }
 
     /// <summary>Dormant → Stirring, recorded in the director's log. Counts as a beat, so minor plots space around it.</summary>
@@ -162,6 +258,11 @@ public static class EmpireDriver
             "",
             "Log:",
         };
+        if (saga.State == EmpireState.Awakened)
+        {
+            lines.Insert(3, $"Expansion: next attack day {saga.NextExpansionDay}; {saga.Conquests} taken or razed, {saga.Defeats} repelled");
+        }
+
         lines.AddRange(saga.Log.TakeLast(20));
         Find.WindowStack.Add(new Dialog_MessageBox(string.Join("\n", lines)));
     }
@@ -196,5 +297,17 @@ public static class EmpireDriver
         var today = GenDate.DaysPassed;
         Show(component, component.Empire.Wake(today, empire.Name), today, empire);
         Record(component, today, "Empire:Awaken", "forced from Dev Mode", "Dev");
+    }
+
+    [DebugAction("Rim Chronicles", "Empire: expansion tick", allowedGameStates = AllowedGameStates.Playing)]
+    public static void DevExpand()
+    {
+        if (RimChroniclesGameComponent.Current is not { } component || EmpireFaction is not { } empire || component.Empire.State != EmpireState.Awakened)
+        {
+            Messages.Message("Rim Chronicles: the Empire must be awake to expand (Empire: trigger awakening, then end stirring now).", MessageTypeDefOf.RejectInput, historical: false);
+            return;
+        }
+
+        ExpandOnce(component, empire, GenDate.DaysPassed);
     }
 }

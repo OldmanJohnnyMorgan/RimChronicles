@@ -47,7 +47,7 @@ public sealed record EmpireEvent(string NewsText, string? LetterLabel = null, st
 /// <summary>
 /// The Awakened Empire, the game-long major plot (design spec, Stage 5), as plain decisions: the state, what woke
 /// it and when, and the rumours its stirring spreads. Random numbers come in from the caller so the rules are testable.
-/// Saved with the game. M1 covers Dormant → Stirring → Awakened; later milestones add expansion and the acts.
+/// Saved with the game. M1 covers Dormant → Stirring → Awakened, M2 the expansion; the acts come later.
 /// </summary>
 public sealed class EmpireSaga : IArchivable
 {
@@ -90,6 +90,28 @@ public sealed class EmpireSaga : IArchivable
 
     /// <summary>"Day N: what happened", oldest first.</summary>
     public List<string> Log = [];
+
+    /// <summary>The day of the next expansion attack, or -1 while the Empire isn't expanding.</summary>
+    public int NextExpansionDay = -1;
+
+    /// <summary>Every expansion attack, oldest first.</summary>
+    public List<ExpansionRecord> Expansions = [];
+
+    public int Conquests => Expansions.Count(e => e.Result != ExpansionResult.Repelled);
+
+    public int Defeats => Expansions.Count(e => e.Result == ExpansionResult.Repelled);
+
+    public bool ExpansionDue(int today) => State == EmpireState.Awakened && NextExpansionDay >= 0 && today >= NextExpansionDay;
+
+    /// <summary>Records an attack's result and schedules the next one <paramref name="nextGapDays"/> days on.</summary>
+    public EmpireEvent Expanded(ExpansionTarget target, ExpansionResult result, int today, int nextGapDays, string empire)
+    {
+        Expansions.Add(new ExpansionRecord { Day = today, Settlement = target.Name, Faction = target.Faction, Result = result });
+        NextExpansionDay = today + Math.Max(1, nextGapDays);
+        var news = EmpireExpansion.News(result, empire, target);
+        Note(today, $"expansion: {news}");
+        return new EmpireEvent(news);
+    }
 
     public bool IsAwake => State != EmpireState.Dormant;
 
@@ -166,6 +188,7 @@ public sealed class EmpireSaga : IArchivable
         StateDay = today;
         NextStateDay = -1;
         NextRumourDay = -1;
+        NextExpansionDay = today + EmpireExpansion.FirstAttackDays;
         Note(today, "awakened: expanding by force");
         var (label, text) = EmpireText.AwakenedLetter(empire);
         return new EmpireEvent(EmpireText.AwakenedNews(empire), label, text);
@@ -201,6 +224,8 @@ public sealed class EmpireSaga : IArchivable
         archive.Value(ref SiteDestroyed, "siteDestroyed", "");
         archive.Value(ref TitleRefusedBy, "titleRefusedBy", "");
         archive.Strings(ref Log, "log");
+        archive.Value(ref NextExpansionDay, "nextExpansionDay", -1);
+        archive.DeepList(ref Expansions, "expansions");
         Trigger ??= "";
         TriggerDetail ??= "";
         SiteDestroyed ??= "";

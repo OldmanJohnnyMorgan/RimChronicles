@@ -35,3 +35,25 @@ pacing gate and keep 2 days from any minor-plot beat. Expansion (M2) isn't in ye
 | 6 | Save, quit to the menu, and reload. | State, trigger and log are unchanged. No errors. |
 | 7 | In a fresh save past day 30, renounce a colonist's Imperial title (character card), and wait a day. | **Empire: show state** shows the renounced title, and the Empire is `Stirring` by `TitleRefused`. |
 | 8 | Turn the setting off, then **Empire: trigger awakening**. | Refused with a message; the daily tick does nothing. |
+
+## M2: territory expansion
+
+Once **Awakened**, the Empire attacks a settlement 7 days later, then every 15–30 days. Pure C#, no model. It picks
+from other factions' settlements within 60 tiles of an Imperial one (the nearest, if none), favouring near and weak
+targets. It never attacks your settlements, one with a map open, one a quest points at, or a faction's last settlement.
+The result:
+- **Conquered:** the settlement turns Imperial, in the Empire's colour on the world map.
+- **Razed:** it becomes ruins.
+- **Repelled:** nothing changes. Owners with more settlements hold more often (20% to 45%).
+
+Each result goes to the news.
+
+| # | Do | Pass when |
+| --- | --- | --- |
+| 1 | With the Empire awakened (M1 checks 3 and 5), **Empire: expansion tick** a few times. | A dev log line per attack; **Empire: show state** counts them and gives the next attack day. |
+| 2 | Open the world map after a conquest. | That settlement has the Empire's icon and colour, and its inspect pane names the Empire. |
+| 3 | After a razing, look at the world map. | Ruins in its place; no letter and no raid against you. |
+| 4 | Open the Rim Dispatch news log, then wait for a bulletin. | "… took X from Y", "… razed X", "… drove off an Imperial attack on X"; a bulletin reports at least one. |
+| 5 | Visit a conquered settlement by caravan to trade. | It trades as an Imperial settlement, with no errors. |
+| 6 | Save, reload, and **Empire: show state**. | The expansions and the next attack day are unchanged. |
+| 7 | Let 30+ days pass without dev actions. | An attack happens on its own. |
