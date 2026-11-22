@@ -25,6 +25,38 @@ public class DirectorDatasetTests
     }
 
     [Fact]
+    public void Split_InGameCasesFromOneColony_StayTogether()
+    {
+        var o = new DatasetOptions { LabelDirs = [], CaseDirs = [], OutDir = "", PromptsRoot = "" };
+        var s = CaseGenerator.Generate(1, 0).Snapshot;
+        Assert.Equal("game:iron-bloom", DirectorDataset.GroupKey("dir-game-iron-bloom-day12-nemesis-1"));
+        Assert.Equal("dir-s1-00004", DirectorDataset.GroupKey("dir-s1-00004"));
+        for (var colony = 0; colony < 20; colony++)
+        {
+            var splits = Enumerable.Range(1, 30)
+                .Select(day => DirectorDataset.Split(s with { Id = $"dir-game-c{colony}-day{day}-nemesis-1", Director = s.Director! with { Seed = null } }, o))
+                .Distinct();
+            Assert.Single(splits);
+        }
+    }
+
+    [Fact]
+    public void StaleReason_FlagsALabelWhoseCaseChanged()
+    {
+        var s = CaseGenerator.Generate(1, 7).Snapshot;
+        var scores = new JsonObject();
+        foreach (var t in s.AllowedTransitions)
+        {
+            scores[t] = 3;
+        }
+
+        var label = new JsonObject { ["scores"] = scores };
+        Assert.Null(DirectorDataset.StaleReason(label, s.AllowedTransitions[0], s));
+        Assert.NotNull(DirectorDataset.StaleReason(label, "Act3:Gone", s));
+        Assert.NotNull(DirectorDataset.StaleReason(label, s.AllowedTransitions[0], s with { AllowedTransitions = [.. s.AllowedTransitions, "Act3:New"] }));
+    }
+
+    [Fact]
     public void Variants_TrainGetsThreeCopies_OthersOne_AndEveryChoiceIsAllowed()
     {
         var s = CaseGenerator.Generate(1, 7).Snapshot;
@@ -68,10 +100,13 @@ public class DirectorDatasetTests
             }
 
             File.WriteAllLines(Path.Combine(labels, "labels-final.jsonl"), lines);
+            var again = Path.Combine(root, "labels2");
+            Directory.CreateDirectory(again);
+            File.WriteAllLines(Path.Combine(again, "labels-final.jsonl"), lines.Take(1));
             var outDir = Path.Combine(root, "out");
             Assert.Equal(0, DirectorDataset.Build(new DatasetOptions
             {
-                LabelDirs = [labels], CaseDirs = [cases], OutDir = outDir, PromptsRoot = Repo.Prompts, Tier = ModelTier.Minimum,
+                LabelDirs = [labels, again], CaseDirs = [cases], OutDir = outDir, PromptsRoot = Repo.Prompts, Tier = ModelTier.Minimum,
                 TestSeeds = new HashSet<int> { 9001 },
             }, TextWriter.Null));
 
@@ -82,6 +117,7 @@ public class DirectorDatasetTests
             Assert.Contains("It's time.", row["target"]!.GetValue<string>()); // no '
             var manifest = JsonNode.Parse(File.ReadAllText(Path.Combine(outDir, "manifest.json")))!;
             Assert.Equal(1, manifest["cases"]!["test"]!.GetValue<int>());
+            Assert.Equal(1, manifest["leftOut"]!["duplicate"]!.GetValue<int>());
         }
         finally
         {

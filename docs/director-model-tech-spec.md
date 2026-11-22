@@ -159,8 +159,10 @@ a tier's budget and writes `training/data/splits/<tier>/{train,val,test}.jsonl` 
 `system` and `user` text the game would send, the allowed ids, and the `target` JSON (plain escaping). Python only
 wraps these in the Gemma chat template.
 
-- **Splits:** test = generator seed **9001** (500 cases, test version 1) and 30% of in-game cases; val = 10% of the rest
-  by a hash of the case id; train = the rest. A case and its copies stay in one split.
+- **Splits:** test = generator seed **9001** (500 cases, test version 1) and 30% of in-game colonies; val = 10% of the rest
+  by a hash of the case id (in-game cases: of the colony); train = the rest. A case and its copies stay in one split.
+- **Checks:** a label whose case changed since labelling (best not allowed, or different options) is left out and
+  fails the build; a case labelled in two folders keeps its first label.
 - **Augmentation (train only):** the case plus two reshuffled copies; ids renamed to C1, C2… in ~20% of copies; a decoy
   mention of a not-allowed option in ~5%.
 - **Tiers:** build once per tier trained (`--tier Minimum` for E2B, `Recommended` for E4B).
