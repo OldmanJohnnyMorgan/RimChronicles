@@ -33,26 +33,38 @@ def template_lines(modelfile: str) -> list[str]:
     return out
 
 
-def run(cfg: Config, base_modelfile_path: str | None) -> int:
-    from unsloth import FastModel
+def write_merged_modelfiles(out: Path, tmpl: list[str]) -> list[Path]:
+    """One Modelfile.merged.<quant> per text GGUF under out/merged* (Unsloth writes them to merged_gguf/ beside the
+    merged/ checkpoint). The mmproj file is Gemma's vision projector: the director is text-only, so it's skipped."""
+    ggufs = sorted(g for d in sorted(out.glob("merged*")) if d.is_dir() for g in d.rglob("*.gguf") if "mmproj" not in g.name.lower())
+    for gguf in ggufs:
+        quant = gguf.stem.split(".")[-1].lower()
+        (out / f"Modelfile.merged.{quant}").write_text(
+            "\n".join([f"FROM ./{gguf.relative_to(out).as_posix()}", *tmpl, "PARAMETER temperature 0.2", ""]))
+    return ggufs
 
-    lora = cfg.run_dir / "lora"
-    model, tokenizer = FastModel.from_pretrained(model_name=str(lora), max_seq_length=cfg.max_seq_length, load_in_4bit=cfg.load_in_4bit)
+
+def run(cfg: Config, base_modelfile_path: str | None, modelfiles_only: bool = False) -> int:
     out = cfg.export_dir / cfg.run_name
     out.mkdir(parents=True, exist_ok=True)
     tmpl = template_lines(Path(base_modelfile_path).read_text() if base_modelfile_path else base_modelfile(cfg.ollama_base))
     if not any(l.startswith("TEMPLATE") for l in tmpl):
         raise SystemExit(f"No TEMPLATE in {cfg.ollama_base}'s Modelfile; can't build a matching Modelfile.")
+    if modelfiles_only:
+        ggufs = write_merged_modelfiles(out, tmpl)
+        print(f"path A (merged GGUF): wrote Modelfiles for {[g.name for g in ggufs]} in {out}")
+        return 0 if ggufs else 1
+
+    from unsloth import FastModel
+
+    lora = cfg.run_dir / "lora"
+    model, tokenizer = FastModel.from_pretrained(model_name=str(lora), max_seq_length=cfg.max_seq_length, load_in_4bit=cfg.load_in_4bit)
 
     # Path A: merged weights, quantised.
     try:
         model.save_pretrained_gguf(str(out / "merged"), tokenizer, quantization_method=cfg.quantizations)
-        ggufs = sorted((out / "merged").rglob("*.gguf"))
-        for gguf in ggufs:
-            quant = gguf.stem.split(".")[-1].lower()
-            (out / f"Modelfile.merged.{quant}").write_text(
-                "\n".join([f"FROM ./{gguf.relative_to(out).as_posix()}", *tmpl, "PARAMETER temperature 0.2", ""]))
-        print(f"path A (merged GGUF): {len(ggufs)} file(s) in {out / 'merged'}")
+        ggufs = write_merged_modelfiles(out, tmpl)
+        print(f"path A (merged GGUF): {[g.name for g in ggufs]} in {out}")
     except Exception as ex:  # noqa: BLE001 - the spike reports, path B may still work
         print(f"path A (merged GGUF) FAILED: {type(ex).__name__}: {ex}")
 

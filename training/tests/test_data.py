@@ -57,6 +57,22 @@ class ExportTests(unittest.TestCase):
         self.assertNotIn("PARAMETER temperature 1", lines)
         self.assertFalse(any(l.startswith("FROM") or l.startswith("LICENSE") for l in lines))
 
+    def test_merged_modelfiles_find_unsloth_gguf_dir_and_skip_mmproj(self):
+        import tempfile
+        from pathlib import Path
+        from rimchron_train.export import write_merged_modelfiles
+        with tempfile.TemporaryDirectory() as d:
+            out = Path(d)
+            (out / "merged").mkdir()
+            (out / "merged_gguf").mkdir()
+            (out / "merged_gguf" / "gemma-4-E2B-it.Q4_K_M.gguf").write_text("")
+            (out / "merged_gguf" / "gemma-4-E2B-it.BF16-mmproj.gguf").write_text("")
+            ggufs = write_merged_modelfiles(out, ['TEMPLATE """x"""'])
+            self.assertEqual([g.name for g in ggufs], ["gemma-4-E2B-it.Q4_K_M.gguf"])
+            mf = (out / "Modelfile.merged.q4_k_m").read_text()
+            self.assertTrue(mf.startswith("FROM ./merged_gguf/gemma-4-E2B-it.Q4_K_M.gguf\n"))
+            self.assertEqual(sorted(p.name for p in out.glob("Modelfile*")), ["Modelfile.merged.q4_k_m"])
+
 
 if __name__ == "__main__":
     unittest.main()

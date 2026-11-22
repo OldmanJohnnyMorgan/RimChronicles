@@ -63,10 +63,14 @@ for the validation rows: "val answers valid N/M" should be close to M even this 
 uv run python -m rimchron_train export --config config/d0.yaml
 ```
 
-It writes to `C:\RimworldMods\rc-models\d0-e2b\`: `Modelfile.merged.q4_k_m` (path A, merged GGUF) and
+It writes to `C:\RimworldMods\rc-models\d0-e2b\`: `Modelfile.merged.q4_k_m` (path A, merged GGUF, in `merged_gguf\`) and
 `Modelfile.adapter` (path B, the base `gemma4:e2b` plus the LoRA). If it can't call `ollama` from WSL, run
 `ollama show gemma4:e2b --modelfile > C:\RimworldMods\rc-models\base.Modelfile` in PowerShell and add
 `--base-modelfile /mnt/c/RimworldMods/rc-models/base.Modelfile`.
+
+Path A converts the merged model in system RAM (several GB for E2B). If it's killed (SIGKILL), give WSL more memory in
+`%USERPROFILE%\.wslconfig` (`[wsl2]`, `memory=24GB`, `swap=32GB`), run `wsl --shutdown` and export again. If the GGUFs
+were written but the Modelfiles weren't, `export --modelfiles-only` writes them without converting again.
 
 **5. Load into Ollama (PowerShell):**
 
