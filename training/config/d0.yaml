@@ -1,0 +1,26 @@
+# D0 feasibility spike: a tiny LoRA on Gemma 4 E2B from the pilot data, exported to GGUF for Ollama.
+# Check base_model against Hugging Face before the first run: `python -m rimchron_train env` tries to resolve it.
+base_model: unsloth/gemma-4-E2B-it      # VERIFY: the instruct checkpoint Ollama's gemma4:e2b is built from
+ollama_base: gemma4:e2b                 # the Ollama model whose chat template the export copies
+dataset: data/splits/minimum             # built by `director-dataset --tier Minimum` (relative to training/)
+output_dir: ~/rimchron-runs             # keep checkpoints on the WSL disk, not /mnt/c (much faster)
+export_dir: /mnt/c/RimworldMods/rc-models   # GGUF + Modelfile land here, where Windows' Ollama can read them
+run_name: d0-e2b
+
+# Chat-template markers for loss masking (train on the model's answer only). Gemma 2/3 use these; `env` and `sft`
+# check they appear in a rendered example and stop with a clear message if Gemma 4 differs.
+instruction_marker: "<start_of_turn>user\n"
+response_marker: "<start_of_turn>model\n"
+
+load_in_4bit: true
+max_seq_length: 4096
+lora_r: 16
+lora_alpha: 32
+lora_dropout: 0.05
+learning_rate: 2.0e-4
+warmup_ratio: 0.03
+per_device_batch: 2
+grad_accumulation: 8
+max_steps: 30                            # the spike only proves the pipeline; real runs use epochs (director.yaml)
+seed: 1
+quantizations: [q4_k_m]
