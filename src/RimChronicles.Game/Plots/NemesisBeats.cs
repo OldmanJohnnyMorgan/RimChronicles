@@ -107,6 +107,15 @@ public static class NemesisBeats
                 gap = NemesisArc.HuntWaitDays;
                 break;
 
+            case NemesisStep.ImperialOfficer:
+                if (nemesis.Spawned || !Empire.EmpirePromotions.TryMakeOfficer(component, plot, nemesis, today))
+                {
+                    return false;
+                }
+
+                component.Plots.Advance(plot, plot.Beat, today, gap, "promoted: the nemesis joined the Empire");
+                return true;
+
             case NemesisStep.Vanished:
                 if (nemesis.Spawned)
                 {

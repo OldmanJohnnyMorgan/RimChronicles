@@ -35,6 +35,7 @@ public static class EmpireDriver
             EmpireBeats.EnsurePlot(component, today); // a save from before M4 woke the Empire without its plot
         }
 
+        EmpirePromotions.Daily(component);
         if (saga.IsAwake)
         {
             saga.HighTitleHolder = EmpireBeats.HighTitleHolder(empire);
@@ -97,6 +98,7 @@ public static class EmpireDriver
             case ExpansionResult.Conquered:
                 settlement.SetFaction(empire);
                 Repaint(settlement);
+                EmpirePromotions.OnConquest(component, target.Faction, target.Name, empire, today);
                 break;
             case ExpansionResult.Razed:
                 Raze(settlement);
@@ -150,6 +152,22 @@ public static class EmpireDriver
 
     /// <summary>A settlement caches its world-map materials in its first owner's colour, and <c>SetFaction</c> doesn't
     /// reset them. Clears both caches and redraws the layer, so a conquered settlement shows in Imperial colours.</summary>
+    /// <summary>A settlement changes hands outside the expansion timer (a job's aftermath, Dev Mode): recorded as the
+    /// colony's doing, repainted, and checked for promotions.</summary>
+    public static void Conquer(RimChroniclesGameComponent component, Settlement settlement, Faction empire, int today, string why, bool news = true)
+    {
+        var owner = settlement.Faction.Name;
+        settlement.SetFaction(empire);
+        Repaint(settlement);
+        component.Empire.RecordAssisted(settlement.Label, owner, ExpansionResult.Conquered, today, why);
+        if (news)
+        {
+            component.News.Add(new NewsEvent(today, EmpireSaga.NewsKind, $"{empire.Name} took {settlement.Label} from {owner}", empire.Name));
+        }
+
+        EmpirePromotions.OnConquest(component, owner, settlement.Label, empire, today);
+    }
+
     internal static void Repaint(Settlement settlement)
     {
         CachedMat?.SetValue(settlement, null);

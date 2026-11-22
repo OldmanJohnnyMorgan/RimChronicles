@@ -134,3 +134,23 @@ dotnet run --project harness/RimChronicles.Eval -- run --tasks epilogue --models
 | 5 | Neutral against an Ascendant Empire: advance a beat, then ignore the letter for 5 days. | The final demand; ignored, it means war. |
 | 6 | Opposed or neutral, Empire awake: build and start a ship reactor (Dev Mode god mode). | "The Empire will not let you leave", a raid at once, another 4 days later while it starts up. |
 | 7 | With the model off (tier Off), reach an ending. | The template epilogue appears. |
+
+## M6: promotion
+
+Minor plots can join the major one (the spec's "Links to minor plots"):
+- **A nemesis becomes an Imperial officer.** While the Empire is awake and at war with the colony, a Nemesis plot
+  between its sighting and its choice letter gets a director option, `Promote:<Name>JoinsTheEmpire`. If chosen, the
+  nemesis joins the Empire: a letter and news, and the raids they lead from then on are Imperial.
+- **A relative caught in a conquest.** When the Empire takes a settlement of the faction a Lost Family relative lives
+  with (after the first letter, before they're taken), the relative is caught in the fall: the Empire becomes the
+  captor and the Rescue quest is against it.
+
+Both are noted in the Empire plot's log and **Empire: show state**, and the epilogue can mention them.
+
+| # | Do | Pass when |
+| --- | --- | --- |
+| 1 | Empire awake and at war (stance Oppose); **Nemesis: force seed**, let the sighting come. **Empire: promote a minor plot** → the nemesis. | "<Name> in Imperial colours"; the nemesis's faction is the Empire; news reports it. |
+| 2 | Let the nemesis's raid come. | Imperial troops, led by the nemesis. |
+| 3 | Without the dev action: let a few Nemesis beats pass with the Empire at war. | **Plot: director log** offers `Promote:…JoinsTheEmpire` among the options (and sometimes picks it). |
+| 4 | **Lost Family: force seed**, let the first letter come. **Empire: promote a minor plot** → the Empire takes a settlement of the relative's faction. | The settlement turns Imperial; "<Kin> caught in the war"; the Rescue quest that follows names the Empire as captor. |
+| 5 | Reach an ending (**Empire: reach an ending**). | The epilogue's facts include the promotions (raw output, or the template's events in Dev Mode). |

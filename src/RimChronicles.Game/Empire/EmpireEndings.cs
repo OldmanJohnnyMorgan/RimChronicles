@@ -104,6 +104,13 @@ public static class EmpireEndings
             .Select(e => e.Result == ExpansionResult.Conquered ? $"{empire.Name} took {e.Settlement} from {e.Faction}." : $"{empire.Name} razed {e.Settlement}."));
         events.AddRange(saga.Expansions.Where(e => e.Result == ExpansionResult.Repelled).Take(2)
             .Select(e => $"{empire.Name} was thrown back at {e.Settlement}."));
+        // Promotions: "Day 80: promoted nemesis-2: Kael became an Imperial officer" → "Kael became an Imperial officer."
+        events.AddRange(saga.Log.Select(line => line.IndexOf(": promoted ", StringComparison.Ordinal) is var at and >= 0
+                ? line[(at + 2)..] : null)
+            .OfType<string>()
+            .Select(line => line[(line.IndexOf(": ", StringComparison.Ordinal) + 2)..])
+            .Select(line => char.ToUpperInvariant(line[0]) + line[1..] + ".")
+            .Take(2));
         events.Add(EmpireLetters.EndingNews(ending, empire.Name, Colony) + ".");
         return new EpilogueCase
         {

@@ -277,10 +277,7 @@ public static class EmpireBeats
             case (EmpireStep.ConquestJob, true):
                 if (settlement is { HasMap: false } && settlement.Faction != empire && !settlement.Faction.IsPlayer)
                 {
-                    var owner = settlement.Faction.Name;
-                    settlement.SetFaction(empire);
-                    EmpireDriver.Repaint(settlement);
-                    component.Empire.RecordAssisted(r.Target, owner, ExpansionResult.Conquered, today, $"{r.Target} fell after the colony's sabotage");
+                    EmpireDriver.Conquer(component, settlement, empire, today, $"{r.Target} fell after the colony's sabotage", news: false);
                 }
 
                 GrantFavor(empire);
@@ -292,10 +289,7 @@ public static class EmpireBeats
             case (EmpireStep.DefendAlly, false):
                 if (settlement is { HasMap: false } && settlement.Faction != empire && !settlement.Faction.IsPlayer)
                 {
-                    var owner = settlement.Faction.Name;
-                    settlement.SetFaction(empire);
-                    EmpireDriver.Repaint(settlement);
-                    component.Empire.RecordAssisted(r.Target, owner, ExpansionResult.Conquered, today, $"{r.Target} fell after the siege");
+                    EmpireDriver.Conquer(component, settlement, empire, today, $"{r.Target} fell after the siege", news: false);
                 }
 
                 break;
