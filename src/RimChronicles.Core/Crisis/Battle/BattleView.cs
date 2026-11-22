@@ -63,6 +63,9 @@ public sealed record BattleUnit
     /// <summary>Any enemy can see it.</summary>
     public bool Seen { get; init; } = true;
 
+    /// <summary>Tending someone right now (a medic).</summary>
+    public bool Tending { get; init; }
+
     /// <summary>Enemies in melee reach (adjacent, standing).</summary>
     public int MeleeEnemies { get; init; }
 

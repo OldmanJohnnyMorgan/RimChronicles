@@ -56,6 +56,19 @@ public sealed class CapabilityHold : IArchivable
     }
 }
 
+/// <summary>A cell on the colony's map (a door or gap a probe found).</summary>
+public sealed class EntranceCell : IArchivable
+{
+    public int X;
+    public int Z;
+
+    public void Expose(IArchive archive)
+    {
+        archive.Value(ref X, "x");
+        archive.Value(ref Z, "z");
+    }
+}
+
 /// <summary>Capabilities that sites can knock out (crisis spec §4.1).</summary>
 public static class CrisisCapability
 {
@@ -83,6 +96,20 @@ public sealed class CrisisState : IArchivable
     public int AnnouncedDay = -1;
 
     public List<CapabilityHold> Holds = [];
+
+    /// <summary>The colony's entrances a probing raid found (crisis spec §5.2), for later raids and sieges.</summary>
+    public List<EntranceCell> Entrances = [];
+
+    public int EntrancesDay = -1;
+
+    public const int MaxEntrances = 6;
+
+    /// <summary>A probe reports what it found: the newest report replaces the last.</summary>
+    public void Learned(IEnumerable<(int X, int Z)> cells, int today)
+    {
+        Entrances = cells.Take(MaxEntrances).Select(c => new EntranceCell { X = c.X, Z = c.Z }).ToList();
+        EntrancesDay = today;
+    }
 
     public int LastOperationDay => History.Count == 0 ? -1 : History.Max(h => h.Day);
 
@@ -146,7 +173,10 @@ public sealed class CrisisState : IArchivable
         archive.Value(ref AnnouncedStage, "announcedStage", CrisisStage.None);
         archive.Value(ref AnnouncedDay, "announcedDay", -1);
         archive.DeepList(ref Holds, "holds");
+        archive.DeepList(ref Entrances, "entrances");
+        archive.Value(ref EntrancesDay, "entrancesDay", -1);
         History ??= [];
         Holds ??= [];
+        Entrances ??= [];
     }
 }

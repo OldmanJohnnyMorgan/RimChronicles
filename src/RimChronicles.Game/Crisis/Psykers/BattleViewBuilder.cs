@@ -87,6 +87,7 @@ public static class BattleViewBuilder
                 InCover = InCover(pawn.Position, map),
                 UnderFire = ours && shooters.Any(s => s.Position.DistanceTo(pawn.Position) <= Range(s) && GenSight.LineOfSight(s.Position, pawn.Position, map)),
                 Seen = !ours || foes.Any(f => f.Position.DistanceTo(pawn.Position) <= 40 && GenSight.LineOfSight(f.Position, pawn.Position, map)),
+                Tending = pawn.CurJobDef == JobDefOf.TendPatient,
                 MeleeEnemies = foes.OfType<Pawn>().Count(f => !f.Downed && f.Position.AdjacentTo8WayOrInside(pawn.Position)),
                 Value = Value(role),
                 PsychicSensitivity = pawn.GetStatValue(StatDefOf.PsychicSensitivity),
