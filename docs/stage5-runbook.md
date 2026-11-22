@@ -198,3 +198,16 @@ start from them. Note pass or fail per row.
 - the three epilogue texts (they're kept as letters);
 - **Plot: director log** from one run;
 - any red `[Rim Chronicles]` errors, straight away if something breaks early.
+
+## Settings from the spec (after M7 started)
+
+Three settings the design spec lists, added while the proof run was under way. Each defaults to how the mod behaved
+before, so they don't affect the proof run. Check them afterwards:
+
+| # | Do | Pass when |
+| --- | --- | --- |
+| 1 | Open Options → Mod settings → Rim Chronicles. | The page scrolls; **Story intensity**, three **Story arcs** checkboxes, and **Separate prose model** are at the bottom. |
+| 2 | Turn **Nemesis** off; give a raider a grudge (kill a colonist and let them escape). | No Nemesis plot starts on its own; **Nemesis: force seed** still works. |
+| 3 | Set intensity to 2×; seed two plots a few days apart with the dev actions, then watch the daily log. | The "next may start on day N" gap is 8 days, not 15. |
+| 4 | Set a prose model (e.g. the 12B) with the main tier at E4B; force a bulletin. | The bulletin's grey Dev Mode footer shows it came from the model; the Ollama log shows the prose model was called. Director decisions still use the main model. |
+| 5 | Save the settings, restart RimWorld. | All three settings kept. |

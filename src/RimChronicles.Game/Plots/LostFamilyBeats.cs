@@ -22,7 +22,8 @@ public static class LostFamilyBeats
     public static Plot? TrySeed(RimChroniclesGameComponent component, int today, bool force)
     {
         if (PlotTemplateDef.Find(LostFamilyArc.TemplateId) is not { } template
-            || (!force && (today < LostFamilyArc.EarliestDay || component.Plots.CannotStart(template, today, PlotTemplateDef.Find) is not null)))
+            || (!force && (today < LostFamilyArc.EarliestDay || !RimChroniclesMod.Settings.ArcEnabled(LostFamilyArc.TemplateId)
+                           || component.Plots.CannotStart(template, today, PlotTemplateDef.Find, RimChroniclesMod.Settings.StoryIntensity) is not null)))
         {
             return null;
         }

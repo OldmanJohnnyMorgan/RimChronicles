@@ -55,7 +55,7 @@ public static class NewsDriver
         var (snapshot, fresh) = desk.PrepareSnapshot(WorldReader.Instance.Read(), component.News);
         var reporter = new ReporterState { Name = desk.Reporter.Name, Outlet = desk.Reporter.Outlet, Persona = desk.Reporter.Persona };
         var fallback = new DelegateFallback<string>(() => BulletinTemplates.Compose(reporter, fresh, today));
-        var provider = ProviderFactory.Create(settings);
+        var provider = ProviderFactory.CreateProse(settings);
         var tier = settings.Tier == ModelTier.Off ? ModelTier.Recommended : settings.Tier;
         var prompts = PromptStore.Library;
         var mainThread = component.MainThread;

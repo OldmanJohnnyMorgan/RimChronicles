@@ -89,7 +89,9 @@ public static class NemesisTracker
             return null;
         }
 
-        if (!force && component.Plots.CannotStart(template, today, PlotTemplateDef.Find) is not null)
+        var settings = RimChroniclesMod.Settings;
+        if (!force && (!settings.ArcEnabled(NemesisPlot.TemplateId)
+                       || component.Plots.CannotStart(template, today, PlotTemplateDef.Find, settings.StoryIntensity) is not null))
         {
             return null;
         }

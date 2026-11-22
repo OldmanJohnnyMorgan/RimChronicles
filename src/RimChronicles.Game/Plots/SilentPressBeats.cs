@@ -19,7 +19,8 @@ public static class SilentPressBeats
     public static void Daily(RimChroniclesGameComponent component)
     {
         var reporter = component.Desk.Reporter;
-        if (reporter.Status != ReporterStatus.Silenced || PlotTemplateDef.Find(SilentPressArc.TemplateId) is not { } template)
+        if (reporter.Status != ReporterStatus.Silenced || !RimChroniclesMod.Settings.ArcEnabled(SilentPressArc.TemplateId)
+            || PlotTemplateDef.Find(SilentPressArc.TemplateId) is not { } template)
         {
             return;
         }

@@ -81,7 +81,7 @@ public static class EmpireDriver
     /// model. With no target, it tries again after the usual gap.</summary>
     private static void ExpandOnce(RimChroniclesGameComponent component, Faction empire, int today)
     {
-        var gap = Rand.RangeInclusive(EmpireExpansion.MinGapDays, EmpireExpansion.MaxGapDays);
+        var gap = StoryIntensity.Scale(Rand.RangeInclusive(EmpireExpansion.MinGapDays, EmpireExpansion.MaxGapDays), RimChroniclesMod.Settings.StoryIntensity);
         var settlements = Targets(empire);
         var target = EmpireExpansion.PickTarget(settlements.Keys.ToList(), Rand.Value);
         if (target is null)

@@ -21,6 +21,33 @@ public sealed class RimChroniclesSettings : ModSettings
     /// <summary>The Awakened Empire major plot (Stage 5); it also needs Royalty.</summary>
     public bool MajorPlot = true;
 
+    /// <summary>How often minor plots start and how fast the Empire expands (<see cref="Core.Plots.StoryIntensity"/>).</summary>
+    public float StoryIntensity = Core.Plots.StoryIntensity.Default;
+
+    /// <summary>Arc types turned off: they start no new plots (running ones finish).</summary>
+    public List<string> DisabledArcs = [];
+
+    /// <summary>An optional second model for narration (bulletins, plot letters, epilogues); the main one keeps the
+    /// director's decisions. Empty model: narration uses the main model.</summary>
+    public string ProseEndpoint = "";
+    public string ProseModel = "";
+    public string ProseApiKey = "";
+
+    public bool ArcEnabled(string templateId) => !DisabledArcs.Contains(templateId);
+
+    public void SetArcEnabled(string templateId, bool enabled)
+    {
+        DisabledArcs.Remove(templateId);
+        if (!enabled)
+        {
+            DisabledArcs.Add(templateId);
+        }
+    }
+
+    /// <summary>True when a separate prose model is set up and usable.</summary>
+    public bool ProseModelEnabled => ModelEnabled && !string.IsNullOrWhiteSpace(ProseModel)
+        && TierPresets.EndpointProblem(string.IsNullOrWhiteSpace(ProseEndpoint) ? Endpoint : ProseEndpoint) is null;
+
     /// <summary>True when story features should call a model; false means template text everywhere.</summary>
     public bool ModelEnabled => Tier != ModelTier.Off && TierPresets.EndpointProblem(Endpoint) is null && !string.IsNullOrWhiteSpace(Model);
 
@@ -39,6 +66,11 @@ public sealed class RimChroniclesSettings : ModSettings
         ApiKey = "";
         NewsCadenceDays = DefaultNewsCadenceDays;
         MajorPlot = true;
+        StoryIntensity = Core.Plots.StoryIntensity.Default;
+        DisabledArcs = [];
+        ProseEndpoint = "";
+        ProseModel = "";
+        ProseApiKey = "";
     }
 
     public override void ExposeData()
@@ -49,10 +81,21 @@ public sealed class RimChroniclesSettings : ModSettings
         Scribe_Values.Look(ref ApiKey, "apiKey", "");
         Scribe_Values.Look(ref NewsCadenceDays, "newsCadenceDays", DefaultNewsCadenceDays);
         Scribe_Values.Look(ref MajorPlot, "majorPlot", true);
+        Scribe_Values.Look(ref StoryIntensity, "storyIntensity", Core.Plots.StoryIntensity.Default);
+        Scribe_Collections.Look(ref DisabledArcs, "disabledArcs", LookMode.Value);
+        Scribe_Values.Look(ref ProseEndpoint, "proseEndpoint", "");
+        Scribe_Values.Look(ref ProseModel, "proseModel", "");
+        Scribe_Values.Look(ref ProseApiKey, "proseApiKey", "");
 
         Endpoint = string.IsNullOrWhiteSpace(Endpoint) ? TierPresets.DefaultEndpoint : Endpoint.Trim();
         Model = string.IsNullOrWhiteSpace(Model) ? TierPresets.ModelFor(ModelTier.Recommended)! : Model.Trim();
         ApiKey ??= "";
         NewsCadenceDays = Math.Clamp(NewsCadenceDays, MinNewsCadenceDays, MaxNewsCadenceDays);
+        StoryIntensity = Math.Clamp(StoryIntensity, Core.Plots.StoryIntensity.Min, Core.Plots.StoryIntensity.Max);
+        DisabledArcs ??= [];
+        DisabledArcs.RemoveAll(string.IsNullOrEmpty);
+        ProseEndpoint = ProseEndpoint?.Trim() ?? "";
+        ProseModel = ProseModel?.Trim() ?? "";
+        ProseApiKey ??= "";
     }
 }

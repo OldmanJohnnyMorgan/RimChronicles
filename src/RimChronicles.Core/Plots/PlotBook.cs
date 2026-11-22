@@ -91,8 +91,9 @@ public sealed class PlotBook : IArchivable
     public int CountingTowardCap(Func<string, PlotTemplate?> templates) =>
         Active.Count(p => templates(p.Template)?.CountsTowardCap ?? true);
 
-    /// <summary>Null if a plot of this template may start today, else why not.</summary>
-    public string? CannotStart(PlotTemplate template, int today, Func<string, PlotTemplate?> templates)
+    /// <summary>Null if a plot of this template may start today, else why not.
+    /// <paramref name="intensity"/> is the story-intensity setting: it scales the gap between new plots.</summary>
+    public string? CannotStart(PlotTemplate template, int today, Func<string, PlotTemplate?> templates, float intensity = StoryIntensity.Default)
     {
         if (!template.CountsTowardCap)
         {
@@ -104,9 +105,10 @@ public sealed class PlotBook : IArchivable
             return $"{MaxActive} plots are already running";
         }
 
-        if (LastStartDay >= 0 && today - LastStartDay < NewPlotGapDays)
+        var gap = StoryIntensity.Scale(NewPlotGapDays, intensity);
+        if (LastStartDay >= 0 && today - LastStartDay < gap)
         {
-            return $"a plot started on day {LastStartDay}; the next may start on day {LastStartDay + NewPlotGapDays}";
+            return $"a plot started on day {LastStartDay}; the next may start on day {LastStartDay + gap}";
         }
 
         return null;
