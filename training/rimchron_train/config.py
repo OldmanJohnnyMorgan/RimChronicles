@@ -34,7 +34,7 @@ class Config:
     eval_rows: int = 100
     patience: int = 3                         # 0: never stop early
     min_delta: float = 0.0
-    max_new_tokens: int = 160
+    max_new_tokens: int = 300                 # the game's budget (prompts/director/v2: 200 at Minimum, 300 above)
     min_free_vram_gb: float = 6.0             # stop at the start, with a clear message, below this
 
     @property

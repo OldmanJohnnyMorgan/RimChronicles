@@ -97,9 +97,10 @@ public static partial class DirectorReportCommand
     public static async Task<CaseRun> RunCase(PromptTemplate prompt, WorldSnapshot s, ModelConfig model,
         Func<ChatRequest, int, Task<ChatResult>> complete)
     {
-        var rng = new Random(BitConverter.ToInt32(System.Security.Cryptography.SHA256.HashData(Encoding.UTF8.GetBytes(s.Id)), 0));
-        var order2 = s with { AllowedTransitions = s.AllowedTransitions.OrderBy(_ => rng.Next()).ToList() };
-        var order3 = s with { AllowedTransitions = s.AllowedTransitions.OrderBy(_ => rng.Next()).ToList() };
+        // Two orders that really differ from the original (a random shuffle can leave it unchanged): rotated by one,
+        // and reversed. With two options both are the swap, which is the only other order there is.
+        var order2 = s with { AllowedTransitions = [.. s.AllowedTransitions.Skip(1), s.AllowedTransitions[0]] };
+        var order3 = s with { AllowedTransitions = s.AllowedTransitions.Reverse().ToList() };
         var (renamed, map) = Rename(s);
 
         var input = WorldSummarizer.ForDirector(s, model.PromptTier);
@@ -146,13 +147,7 @@ public static partial class DirectorReportCommand
     /// <summary>Option ids become C1, C2, … (Wait stays); returns the renamed case and the map from old to new ids.</summary>
     public static (WorldSnapshot, Dictionary<string, string>) Rename(WorldSnapshot s)
     {
-        var map = new Dictionary<string, string>(StringComparer.Ordinal);
-        var n = 1;
-        foreach (var id in s.AllowedTransitions)
-        {
-            map[id] = id == "Wait" ? "Wait" : $"C{n++}";
-        }
-
+        var map = DirectorDataset.RenameMap(s.AllowedTransitions);
         var (renamed, _) = DirectorDataset.RenameIds(s, s.AllowedTransitions[0]);
         return (renamed, map);
     }

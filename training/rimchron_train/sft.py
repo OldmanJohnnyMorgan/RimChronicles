@@ -47,7 +47,6 @@ def check_lengths(lengths: list[int], limit: int, ids: list[str]) -> None:
         raise SystemExit(f"{len(over)} training rows are longer than max_seq_length {limit} tokens "
                          f"(longest: {worst[0]}, {worst[1]} tokens). Raise max_seq_length in the config, "
                          f"or rebuild the dataset for a smaller tier.")
-    print(f"row lengths: longest {max(lengths)} of {limit} tokens")
 
 
 def run(cfg: Config) -> int:
@@ -98,6 +97,8 @@ def run(cfg: Config) -> int:
     trainer = SFTTrainer(model=model, train_dataset=train, args=args, **{tokenizer_key: tokenizer})
     trainer = train_on_responses_only(trainer, instruction_part=cfg.instruction_marker, response_part=cfg.response_marker)
 
+    if moved := progress.set_aside(cfg.run_dir):
+        print(f"an earlier run of {cfg.run_name} was moved to {moved}")
     lora_dir = cfg.run_dir / "lora"
     log = progress.CsvLog(cfg.run_dir / "progress.csv")
     stopper = progress.EarlyStopper(cfg.patience, cfg.min_delta)
@@ -157,7 +158,11 @@ def back_to_training(model) -> None:
     from unsloth import FastModel
 
     if hasattr(FastModel, "for_training"):
-        FastModel.for_training(model)
+        # Keep the offloaded checkpointing get_peft_model chose: the default could switch it back and raise VRAM use.
+        if "use_gradient_checkpointing" in inspect.signature(FastModel.for_training).parameters:
+            FastModel.for_training(model, use_gradient_checkpointing="unsloth")
+        else:
+            FastModel.for_training(model)
     else:
         model.train()
 

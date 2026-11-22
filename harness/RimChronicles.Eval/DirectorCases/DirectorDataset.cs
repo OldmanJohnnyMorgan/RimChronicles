@@ -288,12 +288,7 @@ public static class DirectorDataset
     /// <summary>Option ids become C1, C2, … (Wait stays "Wait"); descriptions are kept, so the model must read them.</summary>
     public static (WorldSnapshot, string) RenameIds(WorldSnapshot s, string best)
     {
-        var map = new Dictionary<string, string>();
-        var n = 1;
-        foreach (var id in s.AllowedTransitions)
-        {
-            map[id] = id == "Wait" ? "Wait" : $"C{n++}";
-        }
+        var map = RenameMap(s.AllowedTransitions);
 
         var descriptions = s.Director?.Descriptions ?? new Dictionary<string, string>();
         var renamed = s with
@@ -305,6 +300,19 @@ public static class DirectorDataset
             },
         };
         return (renamed, map[best]);
+    }
+
+    /// <summary>The old-to-new ids <see cref="RenameIds"/> uses (shared with the report, which maps picks back).</summary>
+    public static Dictionary<string, string> RenameMap(IReadOnlyList<string> ids)
+    {
+        var map = new Dictionary<string, string>(StringComparer.Ordinal);
+        var n = 1;
+        foreach (var id in ids)
+        {
+            map[id] = id == "Wait" ? "Wait" : $"C{n++}";
+        }
+
+        return map;
     }
 
     private static readonly string[] DecoyOptions = ["Empire:TributeDemand", "Complication:RaidOnTheColony", "Act3:StormTheCapital", "Choice:RescueTheCaptive"];
