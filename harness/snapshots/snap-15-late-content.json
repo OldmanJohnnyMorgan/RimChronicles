@@ -145,5 +145,13 @@
     "name": "Ilse Varrow",
     "outlet": "the Rim Dispatch",
     "persona": "dry, wry and slightly cynical"
+  },
+  "director": {
+    "plotId": "past-01",
+    "descriptions": {
+      "Wait": "hold this plot for a few days; nothing happens in it yet",
+      "Choice:FaceTheChoir": "a letter asks whether Leopold faces the Pale Choir or hides",
+      "Complication:ChoirLetter": "a letter from the Pale Choir arrives for Leopold"
+    }
   }
 }

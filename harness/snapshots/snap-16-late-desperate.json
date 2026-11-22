@@ -169,5 +169,13 @@
       "protagonistPronoun": "he",
       "victimPronoun": "he"
     }
+  },
+  "director": {
+    "plotId": "nemesis-04",
+    "descriptions": {
+      "Wait": "hold this plot for a few days; nothing happens in it yet",
+      "Resolution:InheritToFriend:p2": "Elske, Bertram's friend, carries the hunt for Dunmore on",
+      "Resolution:InheritToColony": "the whole colony carries the grudge against Dunmore"
+    }
   }
 }

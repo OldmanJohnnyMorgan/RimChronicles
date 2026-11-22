@@ -127,5 +127,13 @@
     "name": "Ilse Varrow",
     "outlet": "the Rim Dispatch",
     "persona": "dry, wry and slightly cynical"
+  },
+  "director": {
+    "plotId": "rivalry-01",
+    "descriptions": {
+      "Wait": "hold this plot for a few days; nothing happens in it yet",
+      "Complication:SabotagedNotes": "Rosamund finds her research notes sabotaged",
+      "Complication:CompactPrize": "a research prize sets Rosamund and Ilan against each other"
+    }
   }
 }

@@ -125,5 +125,13 @@
     "name": "Ilse Varrow",
     "outlet": "the Rim Dispatch",
     "persona": "dry, wry and slightly cynical"
+  },
+  "director": {
+    "plotId": "silent-01",
+    "descriptions": {
+      "Wait": "hold this plot for a few days; nothing happens in it yet",
+      "Complication:VisitorRumour": "a visitor repeats the rumour that the Dispatch knows what happened to its reporter",
+      "Choice:ReparationsEnvoy": "an envoy of the Dispatch arrives to demand reparations"
+    }
   }
 }

@@ -179,5 +179,13 @@
       "protagonistPronoun": "she",
       "victimPronoun": "he"
     }
+  },
+  "director": {
+    "plotId": "nemesis-02",
+    "descriptions": {
+      "Wait": "hold this plot for a few days; nothing happens in it yet",
+      "Resolution:InheritToKin:p3": "Tamsin, Joska's kin, carries the story on",
+      "Resolution:InheritToSpouse:p2": "Lene, Joska's spouse, carries the story on"
+    }
   }
 }

@@ -171,5 +171,14 @@
       "Imperial legionaries attacked on day 906 and were driven off.",
       "Last Lantern and its allies destroyed the Imperial capital of Solace."
     ]
+  },
+  "director": {
+    "plotId": "empire-03",
+    "descriptions": {
+      "Wait": "hold this plot for a few days; nothing happens in it yet",
+      "Empire:Expand:Marrow Hold": "the Empire attacks Marrow Hold",
+      "Empire:SiegeColony": "the Empire besieges Last Lantern itself",
+      "Quest:DefendAlly:Marrow Hold": "a quest asks the colony to help defend Marrow Hold"
+    }
   }
 }

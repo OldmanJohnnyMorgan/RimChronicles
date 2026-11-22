@@ -165,5 +165,13 @@
       "protagonistPronoun": "she",
       "victimPronoun": "he"
     }
+  },
+  "director": {
+    "plotId": "nemesis-01",
+    "descriptions": {
+      "Wait": "hold this plot for a few days; nothing happens in it yet",
+      "Complication:VexSighted": "Vex is seen near the colony",
+      "Complication:ImperialBounty": "the Empire posts a bounty on Vex"
+    }
   }
 }

@@ -69,13 +69,29 @@ public static partial class WorldSummarizer
             plots.Append('\n');
         }
 
-        var transitions = string.Join("\n", s.AllowedTransitions.Select(t => $"- {t}"));
+        var descriptions = s.Director?.Descriptions ?? new Dictionary<string, string>();
+        var transitions = string.Join("\n", s.AllowedTransitions.Select(t =>
+            descriptions.TryGetValue(t, out var desc) && desc.Length > 0 ? $"- {t}: {names.Replace(desc)}" : $"- {t}"));
         return Build(new()
         {
             ["worldSummary"] = worldSummary,
             ["plotState"] = plots.ToString().TrimEnd(),
+            ["decidingPlot"] = DecidingPlot(s, names),
             ["allowedTransitions"] = transitions,
         });
+    }
+
+    /// <summary>Which plot the decision is for, and how long its current beat has lasted (director v2).</summary>
+    private static string DecidingPlot(WorldSnapshot s, Names names)
+    {
+        var plot = s.Director?.PlotId is { } id ? s.ActivePlots.FirstOrDefault(p => p.Id == id) : s.ActivePlots.Count == 1 ? s.ActivePlots[0] : null;
+        if (plot is null)
+        {
+            return "No plot is due; choose whether anything should start.";
+        }
+
+        var days = s.Director?.DaysInBeat is { } d ? $", {d} day{(d == 1 ? "" : "s")} into its {plot.Beat} beat" : $", in its {plot.Beat} beat";
+        return $"{plot.Id} ({Words(plot.Template)}){days}.";
     }
 
     /// <summary>A quiet week has at most this many new items; its bulletin is short instead of padded.</summary>

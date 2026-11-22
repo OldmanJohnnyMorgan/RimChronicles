@@ -12,8 +12,9 @@ using RimChronicles.Llm.Validation;
 namespace RimChronicles.Core.Plots;
 
 /// <summary>One thing a plot may do next. <see cref="Id"/> is what the director sees and copies back
-/// ("Complication:VexRaids", "Wait"); <see cref="Step"/> is the arc's own name for it.</summary>
-public sealed record PlotTransition(string Id, string Step, double Weight);
+/// ("Complication:VexRaids", "Wait"); <see cref="Step"/> is the arc's own name for it; <see cref="Desc"/> says what it
+/// would do, in plain words, for the director prompt (v2).</summary>
+public sealed record PlotTransition(string Id, string Step, double Weight, string Desc = "");
 
 /// <summary>A director decision, kept as the plot's story outline and debug log (design spec, Stage 4).</summary>
 public sealed class DirectorDecision : IArchivable
@@ -54,6 +55,12 @@ public sealed record DirectorChoice(string Choice, string Reason);
 public static class Director
 {
     public const string WaitId = "Wait";
+
+    public const string WaitDesc = "hold this plot for a few days; nothing happens in it yet";
+
+    /// <summary>Fills in <see cref="PlotTransition.Desc"/> from <paramref name="describe"/> (by step), and Wait's own.</summary>
+    public static IReadOnlyList<PlotTransition> Described(IReadOnlyList<PlotTransition> options, Func<PlotTransition, string> describe) =>
+        options.Select(o => o with { Desc = o.Id == WaitId ? WaitDesc : describe(o) }).ToList();
 
     /// <summary>Pairs of beats that fired closer together than <paramref name="minDays"/> (the Stage 4 exit test: no
     /// overlapping beats). Waits don't count; they fire nothing.</summary>

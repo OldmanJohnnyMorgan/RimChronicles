@@ -150,5 +150,13 @@
       "protagonistPronoun": "she",
       "victimPronoun": "she"
     }
+  },
+  "director": {
+    "plotId": "nemesis-03",
+    "descriptions": {
+      "Wait": "hold this plot for a few days; nothing happens in it yet",
+      "Choice:RescueNow": "offer a quest to rescue Gideon from the Gallows camp now",
+      "Choice:TradeForBrother": "offer to trade with the Gallows Crew for Gideon's release"
+    }
   }
 }

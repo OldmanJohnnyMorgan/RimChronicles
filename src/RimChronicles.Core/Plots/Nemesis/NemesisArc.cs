@@ -92,7 +92,28 @@ public static class NemesisArc
     /// <summary>What the director may choose from now. One option fires without asking (the first sighting, and the
     /// consequences of the colony's answer); otherwise the director picks, with "Wait" for a quiet stretch at most once
     /// per beat.</summary>
-    public static IReadOnlyList<PlotTransition> Transitions(Plot plot)
+    public static IReadOnlyList<PlotTransition> Transitions(Plot plot) => Director.Described(Options(plot), o => Describe(o.Step, plot));
+
+    /// <summary>What each step would do, for the director.</summary>
+    public static string Describe(string step, Plot plot)
+    {
+        var name = plot.Fact(NemesisPlot.NemesisName) ?? "the raider";
+        return step switch
+        {
+            nameof(NemesisStep.Sighting) when plot.BeatDay < 0 => $"news reaches the colony that {name} has been seen",
+            nameof(NemesisStep.Sighting) => $"{name} is seen again; the threat grows, but nothing happens yet",
+            nameof(NemesisStep.Raid) => $"{name} leads a raid on the colony",
+            nameof(NemesisStep.Choice) => $"a letter asks the colony to post a bounty on {name}, hunt them down, or wait for their return",
+            nameof(NemesisStep.BountyKill) => $"the bounty hunters catch {name}; the story ends",
+            nameof(NemesisStep.SecondRaid) => $"{name} comes back with a second raid",
+            nameof(NemesisStep.Vanished) => $"{name} vanishes for good; the story ends unresolved",
+            nameof(NemesisStep.Hunt) => $"a Hunt quest sends the colony after {name} at a camp",
+            nameof(NemesisStep.ImperialOfficer) => $"{name} joins the Empire as an officer, so later raids are Imperial",
+            _ => step,
+        };
+    }
+
+    private static IReadOnlyList<PlotTransition> Options(Plot plot)
     {
         var name = Compact(plot.Fact(NemesisPlot.NemesisName) ?? "Nemesis");
         var options = new List<PlotTransition>();

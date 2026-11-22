@@ -179,5 +179,14 @@
       "Ironbloom broke the Imperial siege of Dunwold.",
       "The Empire, broken by its losses, signed a treaty recognising Ironbloom as a free state."
     ]
+  },
+  "director": {
+    "plotId": "empire-02",
+    "descriptions": {
+      "Wait": "hold this plot for a few days; nothing happens in it yet",
+      "Empire:Expand:Harlow Ford": "the Empire attacks Harlow Ford",
+      "Empire:DemandSeverin": "the Empire demands that the colony hand over Severin",
+      "Promote:past-02": "Severin's story joins the Empire's: the Empire comes for him"
+    }
   }
 }

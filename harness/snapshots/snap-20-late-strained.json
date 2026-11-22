@@ -164,5 +164,14 @@
       "The Empire's envoy offered Varrowgate a governorship on day 1040.",
       "Cassia accepted the governorship."
     ]
+  },
+  "director": {
+    "plotId": "empire-04",
+    "descriptions": {
+      "Wait": "hold this plot for a few days; nothing happens in it yet",
+      "Ending:ImperialGovernorship": "Cassia becomes governor; the story ends in Imperial victory",
+      "Choice:AcceptOrRefuseGovernorship": "a letter asks the colony to accept or refuse the governorship",
+      "Empire:FinalDemand": "the Empire's final demand: submit, or be counted among its enemies"
+    }
   }
 }

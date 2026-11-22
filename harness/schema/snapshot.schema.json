@@ -405,6 +405,34 @@
         "events"
       ],
       "additionalProperties": false
+    },
+    "director": {
+      "type": "object",
+      "properties": {
+        "plotId": {
+          "type": "string"
+        },
+        "daysInBeat": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "descriptions": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "waitExpected": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "seed": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
     }
   },
   "required": [

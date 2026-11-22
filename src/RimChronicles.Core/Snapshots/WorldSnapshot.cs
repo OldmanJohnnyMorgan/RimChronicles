@@ -54,6 +54,9 @@ public sealed record WorldSnapshot
 
     /// <summary>An epilogue to write (the epilogue task, Stage 5 M5), or null.</summary>
     public EpilogueCase? Epilogue { get; init; }
+
+    /// <summary>The director's decision (prompt v2): which plot decides, and what each allowed option would do.</summary>
+    public DirectorCase? Director { get; init; }
 }
 
 public sealed record ColonyInfo
@@ -203,4 +206,23 @@ public sealed record EpiloguePerson
     public required string Deed { get; init; }
 
     public bool Dead { get; init; }
+}
+
+/// <summary>The director's decision for one plot (director prompt v2; the training cases build on it).</summary>
+public sealed record DirectorCase
+{
+    /// <summary>The plot whose beat is due, as in <see cref="WorldSnapshot.ActivePlots"/>.</summary>
+    public string? PlotId { get; init; }
+
+    /// <summary>Days since the plot's current beat fired (since it started, before its first beat).</summary>
+    public int? DaysInBeat { get; init; }
+
+    /// <summary>What each allowed option would do, by option id. Options missing here are shown as bare ids.</summary>
+    public IReadOnlyDictionary<string, string> Descriptions { get; init; } = new Dictionary<string, string>();
+
+    /// <summary>Training cases only: whether waiting is the right call by construction (true, false), or open (null).</summary>
+    public bool? WaitExpected { get; init; }
+
+    /// <summary>Training cases only: the generator seed this case came from.</summary>
+    public int? Seed { get; init; }
 }

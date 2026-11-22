@@ -1,0 +1,11 @@
+{
+  "task": "director",
+  "version": "v2",
+  "maxOutputTokens": 300,
+  "schema": "schema.json",
+  "tiers": {
+    "Minimum": {
+      "maxOutputTokens": 200
+    }
+  }
+}

@@ -110,5 +110,11 @@
     "name": "Ilse Varrow",
     "outlet": "the Rim Dispatch",
     "persona": "dry, wry and slightly cynical"
+  },
+  "director": {
+    "descriptions": {
+      "Wait": "hold this plot for a few days; nothing happens in it yet",
+      "Seed:PastCatchesUp:p1": "start a Past Catches Up story: Augustin's past comes looking for him"
+    }
   }
 }

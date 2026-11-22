@@ -84,7 +84,16 @@ public static class PlotDriver
         }
 
         // Main thread: read the world into plain data; the model call runs in the background.
-        var snapshot = WorldReader.Instance.Read() with { AllowedTransitions = options.Select(o => o.Id).ToList() };
+        var snapshot = WorldReader.Instance.Read() with
+        {
+            AllowedTransitions = options.Select(o => o.Id).ToList(),
+            Director = new DirectorCase
+            {
+                PlotId = plot.Id,
+                DaysInBeat = Math.Max(0, today - (plot.BeatDay >= 0 ? plot.BeatDay : plot.StartDay)),
+                Descriptions = options.Where(o => o.Desc.Length > 0).GroupBy(o => o.Id).ToDictionary(g => g.Key, g => g.First().Desc),
+            },
+        };
         var tier = settings.Tier == ModelTier.Off ? ModelTier.Recommended : settings.Tier;
         var plotId = plot.Id;
         var beat = plot.Beat;

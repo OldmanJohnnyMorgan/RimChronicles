@@ -306,7 +306,7 @@ public sealed class RunnerTests : IDisposable
         Assert.StartsWith("run_id,model,tier,task", csv[0]);
 
         var run = JsonNode.Parse(File.ReadAllText(Path.Combine(first.Folder, "run.json")))!;
-        Assert.Equal("v1", run["promptVersions"]!["director"]!.GetValue<string>());
+        Assert.Equal("v2", run["promptVersions"]!["director"]!.GetValue<string>());
         Assert.Equal(first.Cells.Count, run["cells"]!.GetValue<int>());
 
         var raw = JsonNode.Parse(File.ReadAllText(Path.Combine(first.Folder, first.Cells[0].RawFile)))!;
