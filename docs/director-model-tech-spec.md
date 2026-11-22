@@ -190,3 +190,17 @@ then harness run `20261122-143935` (director task, 23 snapshots, grammar on and 
 - **Gemma 4 specifics:** turn markers are `<|turn>user` / `<|turn>model` (not Gemma 3's `<start_of_turn>`); Unsloth
   writes GGUFs to `merged_gguf/` plus a vision `mmproj` file the director doesn't need; torchvision must come from the
   same CUDA index as torch.
+
+## 12. Bulk labels from the local teacher (D4b)
+
+`director-label` has a model from `models.json` (default `gemma4-12b`) fill a pack in the hand-labelled format, so
+`director-labels-check` and `director-dataset` treat both alike. Each call is grammar-constrained to a score for
+exactly the shown options and a `best` among them, checked like a hand label (best = top score, ≤30 words, names from
+the briefing), cached, and appended as it finishes; up to 3 attempts per item. Defaults: 4,000 cases round-robin over
+arc and beat, 3 samples per case (not the training spec's 5, for GPU time), temperature 0.7. Cases already labelled in
+another folder are skipped, so Claude's labels are never duplicated or outranked, and test-seed folders are refused.
+
+- **Calibration first:** `--recheck training/data/labels/pilot` labels exactly the pilot's cases into `results/` and
+  reports agreement with Claude, overall and per arc and beat, before the long run.
+- **Wait cap (dataset):** at most 40% of training cases have Wait as the best answer (`--max-wait-share`), chosen by a
+  hash of the id. Val and test keep the real mix (test: 65% Wait), so the report can compare against always-Wait.

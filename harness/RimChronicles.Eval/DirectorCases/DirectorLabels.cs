@@ -29,21 +29,7 @@ public static class DirectorLabels
         var cases = Directory.GetFiles(casesDir, "*.json").Where(f => Path.GetFileName(f) != "manifest.json")
             .Order(StringComparer.Ordinal).Select(SnapshotJson.Load).Where(s => s.Director?.PlotId is not null).ToList();
         var rng = new Random(seed);
-
-        // Round-robin over (arc, beat) groups, cases shuffled within each, so a small pack still covers every group.
-        var groups = cases.GroupBy(Group).OrderBy(g => g.Key, StringComparer.Ordinal)
-            .Select(g => new Queue<WorldSnapshot>(g.OrderBy(_ => rng.Next()))).ToList();
-        var picked = new List<WorldSnapshot>();
-        while (picked.Count < count && groups.Any(g => g.Count > 0))
-        {
-            foreach (var g in groups.Where(g => g.Count > 0))
-            {
-                if (picked.Count < count)
-                {
-                    picked.Add(g.Dequeue());
-                }
-            }
-        }
+        var picked = PickRoundRobin(cases, count, rng);
 
         // The first `repeat` cases are shown twice, in another option order, to measure the teacher's self-agreement.
         var items = picked.Select(s => (Case: s, Sample: 1)).Concat(picked.Take(repeat).Select(s => (Case: s, Sample: 2)))
@@ -76,6 +62,60 @@ public static class DirectorLabels
         log.WriteLine($"Wrote {items.Count} items ({picked.Count} cases, {repeat} shown twice) to {outDir}. "
             + $"Groups: {string.Join(", ", picked.GroupBy(Group).OrderBy(g => g.Key).Select(g => $"{g.Key} {g.Count()}"))}.");
         return 0;
+    }
+
+    /// <summary>Round-robin over (arc, beat) groups, cases shuffled within each, so a small or partial pick still covers
+    /// every group.</summary>
+    public static List<WorldSnapshot> PickRoundRobin(IReadOnlyList<WorldSnapshot> cases, int count, Random rng)
+    {
+        var groups = cases.GroupBy(Group).OrderBy(g => g.Key, StringComparer.Ordinal)
+            .Select(g => new Queue<WorldSnapshot>(g.OrderBy(_ => rng.Next()))).ToList();
+        var picked = new List<WorldSnapshot>();
+        while (picked.Count < count && groups.Any(g => g.Count > 0))
+        {
+            foreach (var g in groups.Where(g => g.Count > 0))
+            {
+                if (picked.Count < count)
+                {
+                    picked.Add(g.Dequeue());
+                }
+            }
+        }
+
+        return picked;
+    }
+
+    /// <summary>What's wrong with one label for an item that showed <paramref name="order"/>; empty when it's fine.</summary>
+    public static List<string> Problems(IReadOnlyDictionary<string, int> scores, string best, string reason,
+        IReadOnlyList<string> order, IReadOnlyCollection<string> allowedNames)
+    {
+        var problems = new List<string>();
+        if (!scores.Keys.Order(StringComparer.Ordinal).SequenceEqual(order.Order(StringComparer.Ordinal)))
+        {
+            problems.Add("scores must cover exactly the shown options");
+        }
+
+        if (scores.Values.Any(v => v is < 1 or > 5))
+        {
+            problems.Add("scores must be 1 to 5");
+        }
+
+        if (!order.Contains(best) || scores.GetValueOrDefault(best) < scores.Values.DefaultIfEmpty(0).Max())
+        {
+            problems.Add("best must be a shown option with the top score");
+        }
+
+        if (WordCountCheck.Count(reason) > MaxReasonWords)
+        {
+            problems.Add($"reason over {MaxReasonWords} words");
+        }
+
+        if (new GroundingCheck(allowedNames).FindUnknownNames(reason) is { Count: > 0 } unknown)
+        {
+            problems.Add($"reason names {string.Join(", ", unknown)}, not in the briefing");
+        }
+
+        return problems;
     }
 
     private static string CultureInfo(int cases, int repeat, string version) =>
@@ -115,32 +155,9 @@ public static class DirectorLabels
             var scores = label["scores"]!.AsObject().ToDictionary(kv => kv.Key, kv => kv.Value!.GetValue<int>());
             var best = label["best"]!.GetValue<string>();
             var reason = label["reason"]!.GetValue<string>();
-            if (!scores.Keys.Order().SequenceEqual(order.Order()))
-            {
-                problems.Add($"item {n}: scores must cover exactly the shown options");
-            }
-
-            if (scores.Values.Any(v => v is < 1 or > 5))
-            {
-                problems.Add($"item {n}: scores must be 1 to 5");
-            }
-
-            if (!order.Contains(best) || scores.GetValueOrDefault(best) < scores.Values.DefaultIfEmpty(0).Max())
-            {
-                problems.Add($"item {n}: best must be a shown option with the top score");
-            }
-
-            if (WordCountCheck.Count(reason) > MaxReasonWords)
-            {
-                problems.Add($"item {n}: reason over {MaxReasonWords} words");
-            }
-
             var snapshot = SnapshotJson.Load(Path.Combine(casesDir, caseId + ".json"));
             var allowed = WorldSummarizer.ForDirector(snapshot, ModelTier.High).AllowedNames;
-            if (new GroundingCheck(allowed).FindUnknownNames(reason) is { Count: > 0 } unknown)
-            {
-                problems.Add($"item {n}: reason names {string.Join(", ", unknown)}, not in the briefing");
-            }
+            problems.AddRange(Problems(scores, best, reason, order, allowed).Select(p => $"item {n}: {p}"));
 
             byCase.TryAdd(caseId, []);
             byCase[caseId].Add((scores, best, reason));

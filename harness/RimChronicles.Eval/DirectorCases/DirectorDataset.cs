@@ -40,6 +40,10 @@ public sealed record DatasetOptions
     public int TestVersion { get; init; } = 1;
 
     public int Seed { get; init; } = 1;
+
+    /// <summary>Most of the training cases whose best answer is Wait. Labels lean on Wait (65% of the test set), and a
+    /// student trained on that learns to wait by default (D0: 48% Wait in training gave 78% Wait answers). Val and test keep the real mix. 1 keeps everything.</summary>
+    public double MaxWaitShare { get; init; } = 0.4;
 }
 
 /// <summary>
@@ -72,6 +76,7 @@ public static class DirectorDataset
         int lowAgreement = 0, missing = 0, stale = 0, duplicate = 0;
         var inputs = new JsonArray();
         var seen = new Dictionary<string, string>();
+        var accepted = new List<(string CaseId, WorldSnapshot Snapshot, string Best, string Reason, string Split)>();
 
         foreach (var dir in o.LabelDirs)
         {
@@ -112,29 +117,38 @@ public static class DirectorDataset
                     continue;
                 }
 
-                var split = Split(snapshot, o);
-                cases[split]++;
-                var reason = label["reason"]!.GetValue<string>();
-                foreach (var (variant, augment) in Variants(snapshot, best, split == "train", rng))
+                accepted.Add((caseId, snapshot, best, label["reason"]!.GetValue<string>(), Split(snapshot, o)));
+            }
+        }
+
+        var waitCapped = CapWait(accepted.Where(a => a.Split == "train").Select(a => (a.CaseId, a.Best)).ToList(), o.MaxWaitShare);
+        foreach (var (caseId, snapshot, best, reason, split) in accepted)
+        {
+            if (split == "train" && waitCapped.Contains(caseId))
+            {
+                continue;
+            }
+
+            cases[split]++;
+            foreach (var (variant, augment) in Variants(snapshot, best, split == "train", rng))
+            {
+                var rendered = prompt.Render(o.Tier, WorldSummarizer.ForDirector(variant.Snapshot, o.Tier).Variables);
+                splits[split].Append(JsonSerializer.Serialize(new JsonObject
                 {
-                    var rendered = prompt.Render(o.Tier, WorldSummarizer.ForDirector(variant.Snapshot, o.Tier).Variables);
-                    splits[split].Append(JsonSerializer.Serialize(new JsonObject
-                    {
-                        ["id"] = $"{caseId}#{augment}",
-                        ["case"] = caseId,
-                        ["seed"] = snapshot.Director?.Seed is { } s ? JsonValue.Create(s) : null,
-                        ["group"] = DirectorLabels.Group(snapshot),
-                        ["waitExpected"] = snapshot.Director?.WaitExpected is { } w ? JsonValue.Create(w) : null,
-                        ["promptVersion"] = $"{DirectorTask}/{prompt.Meta.Version}",
-                        ["tier"] = o.Tier.ToString(),
-                        ["augment"] = augment,
-                        ["system"] = rendered.System,
-                        ["user"] = rendered.User,
-                        ["allowed"] = new JsonArray(variant.Snapshot.AllowedTransitions.Select(t => (JsonNode?)JsonValue.Create(t)).ToArray()),
-                        ["target"] = JsonSerializer.Serialize(new { choice = variant.Choice, reason }, Line),
-                    }, Line)).Append('\n');
-                    counts[split]++;
-                }
+                    ["id"] = $"{caseId}#{augment}",
+                    ["case"] = caseId,
+                    ["seed"] = snapshot.Director?.Seed is { } s ? JsonValue.Create(s) : null,
+                    ["group"] = DirectorLabels.Group(snapshot),
+                    ["waitExpected"] = snapshot.Director?.WaitExpected is { } w ? JsonValue.Create(w) : null,
+                    ["promptVersion"] = $"{DirectorTask}/{prompt.Meta.Version}",
+                    ["tier"] = o.Tier.ToString(),
+                    ["augment"] = augment,
+                    ["system"] = rendered.System,
+                    ["user"] = rendered.User,
+                    ["allowed"] = new JsonArray(variant.Snapshot.AllowedTransitions.Select(t => (JsonNode?)JsonValue.Create(t)).ToArray()),
+                    ["target"] = JsonSerializer.Serialize(new { choice = variant.Choice, reason }, Line),
+                }, Line)).Append('\n');
+                counts[split]++;
             }
         }
 
@@ -156,16 +170,17 @@ public static class DirectorDataset
             ["exportedTestShare"] = o.ExportedTestShare,
             ["valShare"] = o.ValShare,
             ["minAgreement"] = o.MinAgreement,
+            ["maxWaitShare"] = o.MaxWaitShare,
             ["seed"] = o.Seed,
             ["inputs"] = inputs,
             ["cases"] = new JsonObject(cases.Select(kv => KeyValuePair.Create(kv.Key, (JsonNode?)JsonValue.Create(kv.Value)))),
             ["rows"] = new JsonObject(counts.Select(kv => KeyValuePair.Create(kv.Key, (JsonNode?)JsonValue.Create(kv.Value)))),
             ["sha256"] = hashes,
-            ["leftOut"] = new JsonObject { ["lowAgreement"] = lowAgreement, ["caseMissing"] = missing, ["caseChanged"] = stale, ["duplicate"] = duplicate },
+            ["leftOut"] = new JsonObject { ["lowAgreement"] = lowAgreement, ["caseMissing"] = missing, ["caseChanged"] = stale, ["duplicate"] = duplicate, ["waitCapped"] = waitCapped.Count },
         };
         File.WriteAllText(Path.Combine(o.OutDir, "manifest.json"), manifest.ToJsonString(new JsonSerializerOptions { WriteIndented = true }) + "\n");
         log.WriteLine($"Cases: train {cases["train"]}, val {cases["val"]}, test {cases["test"]} (rows {counts["train"]} / {counts["val"]} / {counts["test"]}); "
-            + $"left out: {lowAgreement} low agreement, {missing} missing, {stale} changed since labelling, {duplicate} duplicate. Prompt {DirectorTask}/{prompt.Meta.Version}, tier {o.Tier}. Written to {o.OutDir}.");
+            + $"left out: {lowAgreement} low agreement, {missing} missing, {stale} changed since labelling, {duplicate} duplicate, {waitCapped.Count} Wait cases over the cap. Prompt {DirectorTask}/{prompt.Meta.Version}, tier {o.Tier}. Written to {o.OutDir}.");
         return missing == 0 && stale == 0 ? 0 : 1;
     }
 
@@ -188,6 +203,21 @@ public static class DirectorDataset
         }
 
         return null;
+    }
+
+    /// <summary>The training cases to leave out so at most <paramref name="maxShare"/> of the rest have Wait as the best
+    /// answer. Which Wait cases go is fixed by a hash of the id, so adding labels doesn't reshuffle the ones kept.</summary>
+    public static HashSet<string> CapWait(IReadOnlyList<(string CaseId, string Best)> train, double maxShare)
+    {
+        var waits = train.Where(t => t.Best == "Wait").Select(t => t.CaseId).ToList();
+        var others = train.Count - waits.Count;
+        if (maxShare >= 1 || waits.Count == 0 || waits.Count <= maxShare * train.Count)
+        {
+            return [];
+        }
+
+        var keep = maxShare <= 0 ? 0 : (int)Math.Floor(maxShare * others / (1 - maxShare));
+        return waits.OrderBy(id => Unit(id, "wait")).ThenBy(id => id, StringComparer.Ordinal).Skip(keep).ToHashSet(StringComparer.Ordinal);
     }
 
     /// <summary>The split for a case: test for the test seeds (and a share of in-game cases), then val by hash, else train.</summary>

@@ -93,3 +93,46 @@ Then push the run to `rc-results` as usual, and send me the console output of st
 **Pass:** the merged model loads in Ollama, answers with 100% valid JSON under grammar, and stays under 3 s median
 latency. The answers needn't be good yet (30 steps on 44 cases); D0 only proves the plumbing. **Passed on
 2026-11-22** (run `20261122-143935`: 100% valid JSON and choices, 0.2 s median, 1.7 GB VRAM); see the training spec §11.
+
+## D4b: bulk labels from the local teacher
+
+The local Gemma 12B (`gemma4-12b` in `harness/models.json`) labels the training cases with the same rubric Claude used
+(`prompts/director-teacher/v1`). Everything runs in **PowerShell** and needs the GPU: close RimWorld and any other
+training job. Each call is constrained to the shown options, checked like a hand label, cached and saved as it finishes,
+so **Ctrl+C is safe**: run the same command again and it carries on.
+
+**1. Calibrate on the pilot (about 150 calls):** the 12B re-labels the 50 cases Claude labelled, into
+`results\label-check-gemma4-12b` (outside `training\data\labels`, so it can never be trained on), and reports how often
+it agrees with Claude, plus the time per call.
+
+```powershell
+cd C:\RimworldMods\RimChronicles\RimChronicles
+ollama pull gemma4:12b
+dotnet run --project harness/RimChronicles.Eval -- director-label --recheck training/data/labels/pilot
+```
+
+Send me the agreement lines and the "s per item" figure before step 2: if the 12B disagrees with Claude too often, the
+rubric or the teacher changes first.
+
+**2. Label the training cases:** 4,000 cases from seed 1 (the pilot's 50 are skipped), 3 samples each, round-robin over
+arcs and beats so a partial run is still balanced. It prints progress and the hours left every 25 items.
+
+```powershell
+dotnet run --project harness/RimChronicles.Eval -- director-label
+```
+
+The first run fixes the plan in `items.jsonl` (which cases, which option orders); later runs follow it and ignore
+`--count`. To label fewer, pass `--count 1000` on the first run; to change it later, delete the folder and start over
+(finished calls stay in the cache). Items that fail three times go to `failures.jsonl`; a later run retries them.
+
+**3. Check and aggregate, then build the dataset:**
+
+```powershell
+dotnet run --project harness/RimChronicles.Eval -- director-labels-check --pack training/data/labels/local-gemma4-12b
+dotnet run --project harness/RimChronicles.Eval -- director-dataset --tier Minimum
+dotnet run --project harness/RimChronicles.Eval -- director-dataset --tier Recommended
+```
+
+The dataset keeps at most 40% Wait among training cases (`--max-wait-share`; val and test keep the real mix): D0's
+student waited in 78% of answers after training on 48% Wait. Commit `training/data/labels/local-gemma4-12b`
+(`items.jsonl`, `labels.jsonl`, `labels-final.jsonl`) and push, as for the pilot.
