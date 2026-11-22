@@ -57,3 +57,20 @@ Each result goes to the news.
 | 5 | Visit a conquered settlement by caravan to trade. | It trades as an Imperial settlement, with no errors. |
 | 6 | Save, reload, and **Empire: show state**. | The expansions and the next attack day are unchanged. |
 | 7 | Let 30+ days pass without dev actions. | An attack happens on its own. |
+
+## M3: Escort, Defend ally, Sabotage
+
+The three templates left over from Stage 4. Each Dev Mode test action offers its quest for the oldest active plot
+(seed one first, e.g. **Nemesis: force seed**). **Quest: show links** lists them, and each outcome reaches the plot the
+next day, as in Stage 4.
+
+| # | Do | Pass when |
+| --- | --- | --- |
+| 1 | **Quest: Escort (test)**, accept it. | A traveller of the destination's faction walks in and joins the colony for now. |
+| 2 | Form a caravan with them and travel to the named settlement. | On arrival the quest succeeds, silver drops at home, and the traveller leaves the caravan for their faction. |
+| 3 | Another Escort; let the traveller die, or let 20 days pass. | The quest fails, and a living traveller leaves the colony. |
+| 4 | **Quest: Defend ally (test)**, accept it. | A hostile camp appears 1–4 tiles from the friendly settlement named in the quest; "jump to" points there. |
+| 5 | Send a caravan, attack the camp and kill or drive off every enemy. | The quest succeeds and silver drops at home. Ignoring it until the camp vanishes (15 days) fails. |
+| 6 | **Quest: Sabotage (test)**, accept it, and attack the named hostile settlement. | A comms console of that faction stands near the middle of its map. |
+| 7 | Destroy the console. | The quest succeeds and silver drops at home. Leaving and coming back before destroying it finds a new console. |
+| 8 | Save and reload with each quest under way. | No errors, and each still completes. |

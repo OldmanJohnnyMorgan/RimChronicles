@@ -40,6 +40,46 @@ public static class QuestOffers
             slate.Set(QuestNode_Root_ChroniclesSite.RewardVar, (int)(thing.BaseMarketValue * count * 1.5f));
         });
 
+    public static Quest? Escort(RimChroniclesGameComponent component, Plot plot, Faction faction, Settlement destination, int count,
+        string name, string description) =>
+        QuestStarter.Offer(component, plot, QuestTemplates.Escort, QuestTemplates.ScriptDef(QuestTemplates.Escort), name, description, slate =>
+        {
+            slate.Set(QuestNode_Root_ChroniclesEscort.FactionVar, faction);
+            slate.Set(QuestNode_Root_ChroniclesEscort.DestinationVar, destination);
+            slate.Set(QuestNode_Root_ChroniclesEscort.CountVar, count);
+            slate.Set(QuestNode_Root_ChroniclesSite.RewardVar, QuestTemplates.RewardSilver(slate.Get("points", 300f)) / 2);
+        });
+
+    public static Quest? DefendAlly(RimChroniclesGameComponent component, Plot plot, Settlement ally, Faction attacker, string name, string description) =>
+        QuestStarter.Offer(component, plot, QuestTemplates.DefendAlly, QuestTemplates.ScriptDef(QuestTemplates.DefendAlly), name, description, slate =>
+        {
+            slate.Set(QuestNode_Root_ChroniclesDefendAlly.AllyVar, ally);
+            slate.Set(QuestNode_Root_ChroniclesDefendAlly.AttackerVar, attacker);
+            slate.Set(QuestNode_Root_ChroniclesSite.RewardVar, QuestTemplates.RewardSilver(slate.Get("points", 300f)));
+        });
+
+    public static Quest? Sabotage(RimChroniclesGameComponent component, Plot plot, Settlement target, ThingDef? objective, string name, string description) =>
+        QuestStarter.Offer(component, plot, QuestTemplates.Sabotage, QuestTemplates.ScriptDef(QuestTemplates.Sabotage), name, description, slate =>
+        {
+            slate.Set(QuestNode_Root_ChroniclesSabotage.SettlementVar, target);
+            slate.Set(QuestNode_Root_ChroniclesSabotage.ObjectiveVar, objective ?? ThingDefOf.CommsConsole);
+            slate.Set(QuestNode_Root_ChroniclesSite.RewardVar, QuestTemplates.RewardSilver(slate.Get("points", 300f)));
+        });
+
+    /// <summary>The nearest settlement (other than the player's, with no map open) matching <paramref name="filter"/>, or null.</summary>
+    public static Settlement? NearestSettlement(Func<Settlement, bool> filter)
+    {
+        if (Find.AnyPlayerHomeMap?.Tile is not { } home)
+        {
+            return null;
+        }
+
+        return Find.WorldObjects.Settlements
+            .Where(s => s.Faction is { IsPlayer: false } && !s.HasMap && s.Tile.Layer == home.Layer && filter(s))
+            .OrderBy(s => Find.WorldGrid.ApproxDistanceInTiles(home, s.Tile))
+            .FirstOrDefault();
+    }
+
     /// <summary>The nearest settlement of a faction that isn't hostile and can take trade requests, or null.</summary>
     public static Settlement? NearestFriendlySettlement(Faction? only = null)
     {

@@ -135,4 +135,68 @@ public static class QuestDevActions
             "A test of the Choice letter template. Each option writes its answer to the plot fact choice.Test.",
             [new PlotChoice("Pay 10 silver", "paid", Silver: 10), new PlotChoice("Decline", "declined")], timeoutDays: 3);
     }
+
+    /// <summary>An Escort quest for the oldest plot: one member of a friendly faction to its nearest other settlement.</summary>
+    [DebugAction("Rim Chronicles", "Quest: Escort (test)", allowedGameStates = AllowedGameStates.Playing)]
+    public static void TestEscort()
+    {
+        if (OldestPlot(out var component) is not { } plot)
+        {
+            return;
+        }
+
+        var destination = QuestOffers.NearestSettlement(s => !s.Faction.HostileTo(Faction.OfPlayer) && s.Faction.def.humanlikeFaction);
+        if (destination is null)
+        {
+            Messages.Message("Rim Chronicles: no friendly settlement to escort anyone to.", MessageTypeDefOf.RejectInput, historical: false);
+            return;
+        }
+
+        QuestOffers.Escort(component!, plot, destination.Faction, destination, 1, $"Escort to {destination.Label}",
+            $"A test Escort quest: a traveller of {destination.Faction.Name} needs to reach {destination.Label}. Take them there by caravan within "
+            + $"{Core.Plots.QuestTemplates.EscortDays} days.");
+    }
+
+    /// <summary>A Defend ally quest for the oldest plot: a hostile faction's camp beside the nearest friendly settlement.</summary>
+    [DebugAction("Rim Chronicles", "Quest: Defend ally (test)", allowedGameStates = AllowedGameStates.Playing)]
+    public static void TestDefendAlly()
+    {
+        if (OldestPlot(out var component) is not { } plot)
+        {
+            return;
+        }
+
+        var ally = QuestOffers.NearestSettlement(s => !s.Faction.HostileTo(Faction.OfPlayer) && s.Faction.def.humanlikeFaction);
+        var attacker = Find.FactionManager.AllFactionsListForReading
+            .Where(f => !f.IsPlayer && !f.Hidden && !f.defeated && f.def.humanlikeFaction && f.HostileTo(Faction.OfPlayer) && f != ally?.Faction)
+            .RandomElementWithFallback();
+        if (ally is null || attacker is null)
+        {
+            Messages.Message("Rim Chronicles: needs a friendly settlement and a hostile faction.", MessageTypeDefOf.RejectInput, historical: false);
+            return;
+        }
+
+        QuestOffers.DefendAlly(component!, plot, ally, attacker, $"Defend {ally.Label}",
+            $"A test Defend ally quest: {attacker.Name} have camped outside {ally.Label}. Clear their camp.");
+    }
+
+    /// <summary>A Sabotage quest for the oldest plot: a comms console in the nearest hostile settlement.</summary>
+    [DebugAction("Rim Chronicles", "Quest: Sabotage (test)", allowedGameStates = AllowedGameStates.Playing)]
+    public static void TestSabotage()
+    {
+        if (OldestPlot(out var component) is not { } plot)
+        {
+            return;
+        }
+
+        if (QuestOffers.NearestSettlement(s => s.Faction.HostileTo(Faction.OfPlayer) && s.Faction.def.humanlikeFaction) is not { } target)
+        {
+            Messages.Message("Rim Chronicles: no hostile settlement to sabotage.", MessageTypeDefOf.RejectInput, historical: false);
+            return;
+        }
+
+        QuestOffers.Sabotage(component!, plot, target, null, $"Sabotage {target.Label}",
+            $"A test Sabotage quest: destroy the comms console inside {target.Label}, held by {target.Faction.Name}, within "
+            + $"{Core.Plots.QuestTemplates.SabotageDays} days.");
+    }
 }

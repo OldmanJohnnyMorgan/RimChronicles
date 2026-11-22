@@ -40,4 +40,31 @@
     <defaultChallengeRating>1</defaultChallengeRating>
     <root Class="RimChronicles.Game.Quests.QuestNode_Root_ChroniclesDeliver" />
   </QuestScriptDef>
+  <QuestScriptDef>
+    <defName>RimChronicles_Escort</defName>
+    <randomlySelectable>false</randomlySelectable>
+    <isRootSpecial>true</isRootSpecial>
+    <autoAccept>false</autoAccept>
+    <expireDaysRange>4~4</expireDaysRange>
+    <defaultChallengeRating>1</defaultChallengeRating>
+    <root Class="RimChronicles.Game.Quests.QuestNode_Root_ChroniclesEscort" />
+  </QuestScriptDef>
+  <QuestScriptDef>
+    <defName>RimChronicles_DefendAlly</defName>
+    <randomlySelectable>false</randomlySelectable>
+    <isRootSpecial>true</isRootSpecial>
+    <autoAccept>false</autoAccept>
+    <expireDaysRange>4~4</expireDaysRange>
+    <defaultChallengeRating>2</defaultChallengeRating>
+    <root Class="RimChronicles.Game.Quests.QuestNode_Root_ChroniclesDefendAlly" />
+  </QuestScriptDef>
+  <QuestScriptDef>
+    <defName>RimChronicles_Sabotage</defName>
+    <randomlySelectable>false</randomlySelectable>
+    <isRootSpecial>true</isRootSpecial>
+    <autoAccept>false</autoAccept>
+    <expireDaysRange>4~4</expireDaysRange>
+    <defaultChallengeRating>2</defaultChallengeRating>
+    <root Class="RimChronicles.Game.Quests.QuestNode_Root_ChroniclesSabotage" />
+  </QuestScriptDef>
 </Defs>
