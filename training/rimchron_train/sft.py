@@ -39,11 +39,13 @@ def check_markers(cfg: Config, tokenizer, row: data.Row) -> None:
 
 
 def run(cfg: Config) -> int:
+    # Unsloth first: it patches trl, transformers and peft when imported, and warns (and runs slower) otherwise.
+    from unsloth import FastModel
+    from unsloth.chat_templates import train_on_responses_only
+
     import torch
     from datasets import Dataset
     from trl import SFTConfig, SFTTrainer
-    from unsloth import FastModel
-    from unsloth.chat_templates import train_on_responses_only
 
     manifest = data.check_manifest(cfg.dataset)
     train_rows = data.load_split(cfg.dataset, "train")
