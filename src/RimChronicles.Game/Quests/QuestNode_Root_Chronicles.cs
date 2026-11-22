@@ -16,7 +16,9 @@ public abstract class QuestNode_Root_Chronicles : QuestNode
     public const string DescriptionVar = "rcDescription";
     public const string PlotIdVar = "rcPlotId";
 
-    protected override bool TestRunInt(Slate slate) => true;
+    /// <summary>Only a plot can start these quests: without its id in the slate (e.g. from the vanilla Dev Mode quest
+    /// menus), the quest won't generate.</summary>
+    protected override bool TestRunInt(Slate slate) => !string.IsNullOrEmpty(slate.Get<string>(PlotIdVar));
 
     protected override void RunInt()
     {

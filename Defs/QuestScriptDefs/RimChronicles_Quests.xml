@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <!-- Rim Chronicles quests are started by plots only: randomlySelectable is false and rootSelectionWeight stays 0, so
-       the storyteller never picks them on its own. -->
+       the storyteller never picks them on its own. isRootSpecial marks them as roots started from code, which RimWorld
+       requires for defaultChallengeRating; their roots refuse to run without a plot, so the vanilla Dev Mode quest
+       menus skip them. -->
   <QuestScriptDef>
     <defName>RimChronicles_Test</defName>
     <randomlySelectable>false</randomlySelectable>
+    <isRootSpecial>true</isRootSpecial>
     <autoAccept>false</autoAccept>
     <expireDaysRange>1~1</expireDaysRange>
     <defaultChallengeRating>1</defaultChallengeRating>
@@ -13,6 +16,7 @@
   <QuestScriptDef>
     <defName>RimChronicles_Hunt</defName>
     <randomlySelectable>false</randomlySelectable>
+    <isRootSpecial>true</isRootSpecial>
     <autoAccept>false</autoAccept>
     <expireDaysRange>4~4</expireDaysRange>
     <defaultChallengeRating>2</defaultChallengeRating>
@@ -21,6 +25,7 @@
   <QuestScriptDef>
     <defName>RimChronicles_Rescue</defName>
     <randomlySelectable>false</randomlySelectable>
+    <isRootSpecial>true</isRootSpecial>
     <autoAccept>false</autoAccept>
     <expireDaysRange>4~4</expireDaysRange>
     <defaultChallengeRating>2</defaultChallengeRating>
@@ -29,6 +34,7 @@
   <QuestScriptDef>
     <defName>RimChronicles_Deliver</defName>
     <randomlySelectable>false</randomlySelectable>
+    <isRootSpecial>true</isRootSpecial>
     <autoAccept>false</autoAccept>
     <expireDaysRange>4~4</expireDaysRange>
     <defaultChallengeRating>1</defaultChallengeRating>
