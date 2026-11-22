@@ -139,7 +139,7 @@ public static class DirectorLabels
             .Select(l => JsonNode.Parse(l)!).ToDictionary(n => n["item"]!.GetValue<int>());
         var labels = File.ReadAllLines(Path.Combine(packDir, "labels.jsonl")).Where(l => l.Trim().Length > 0).Select(l => JsonNode.Parse(l)!).ToList();
         var problems = new List<string>();
-        var byCase = new Dictionary<string, List<(Dictionary<string, int> Scores, string Best, string Reason)>>();
+        var byCase = new Dictionary<string, List<(Dictionary<string, int> Scores, string Best, string Reason, bool Forced)>>();
 
         foreach (var label in labels)
         {
@@ -165,7 +165,7 @@ public static class DirectorLabels
             }
 
             byCase.TryAdd(caseId, []);
-            byCase[caseId].Add((scores, best, reason));
+            byCase[caseId].Add((scores, best, reason, label["forced"]?.GetValue<bool>() ?? false));
         }
 
         // Agreement counts against the samples planned for a case, not the ones that came back: a case where two of
@@ -207,7 +207,9 @@ public static class DirectorLabels
                 ["scores"] = new JsonObject(mean.Select(kv => KeyValuePair.Create(kv.Key, (JsonNode?)JsonValue.Create(kv.Value)))),
                 ["best"] = top,
                 ["agreement"] = Math.Round(counts[top] / (double)Math.Max(samples.Count, planned[caseId]), 2),
-                ["reason"] = samples.First(s => s.Best == top).Reason,
+                // Prefer a reason the teacher reached on its own over one from an attempt with the Wait rule in the grammar.
+                ["reason"] = samples.Where(s => s.Best == top).OrderBy(s => s.Forced).First().Reason,
+                ["forced"] = samples.Count(s => s.Forced),
                 ["waitExpected"] = snapshot.Director?.WaitExpected is { } w ? JsonValue.Create(w) : null,
             }, Line)).Append('\n');
         }
@@ -220,6 +222,22 @@ public static class DirectorLabels
 
         log.WriteLine($"{labels.Count} labels for {byCase.Count} cases; {problems.Count} problem(s).");
         log.WriteLine($"Self-agreement: {agreed}/{repeated} repeated cases picked the same option.");
+        var forcedLabels = byCase.SelectMany(kv => kv.Value.Where(x => x.Forced).Select(x => (Case: kv.Key, x.Best, x.Reason))).ToList();
+        if (forcedLabels.Count > 0)
+        {
+            var total = byCase.Sum(kv => kv.Value.Count);
+            var groups = forcedLabels.GroupBy(f => Group(SnapshotJson.Load(Path.Combine(casesDir, f.Case + ".json"))))
+                .OrderByDescending(g => g.Count()).Select(g => $"{g.Key} {g.Count()}");
+            log.WriteLine($"Forced (the Wait rule in the grammar on the last attempt): {forcedLabels.Count}/{total} labels "
+                + $"({100.0 * forcedLabels.Count / total:0.0}%); by group: {string.Join(", ", groups)}.");
+            var allForced = byCase.Count(kv => kv.Value.All(x => x.Forced));
+            log.WriteLine($"Cases whose every label was forced: {allForced}/{byCase.Count}.");
+            foreach (var f in forcedLabels.Where((_, n) => n % Math.Max(1, forcedLabels.Count / 8) == 0).Take(8))
+            {
+                log.WriteLine($"  forced {f.Case}: {f.Best}: {f.Reason}");
+            }
+        }
+
         log.WriteLine($"Wait: picked in {waitRightPicked}/{waitRight} wait-right cases; avoided in {waitWrongAvoided}/{waitWrong} wait-wrong cases.");
         return problems.Count;
     }
