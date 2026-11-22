@@ -1,0 +1,55 @@
+{
+  "cell": "gemma4-e2b__epilogue__snap-19-late-desperate__n-a__r1",
+  "model": "gemma4-e2b",
+  "task": "epilogue",
+  "snapshot": "snap-19-late-desperate",
+  "grammar": "n/a",
+  "repeat": 1,
+  "promptVersion": "epilogue/v1",
+  "outcome": "Template",
+  "value": "(template)",
+  "attempts": [
+    {
+      "request": {
+        "system": "You write the epilogue shown on the victory screen when a RimWorld colony\u0027s long story with the Empire ends.\n\nWhat to write:\n- 120 to 220 words, in three short paragraphs.\n- First paragraph: how it ended, as the ending below describes it.\n- Second paragraph: the colonists who mattered. Name every person listed, in order, and say what each did, in the words of the facts. Say plainly if someone died before the end.\n- Third paragraph: what the colony is now, in a few quiet lines. End on an image, not a moral.\n\nWhat you know:\n- Use only the facts and names below. Never invent people, places, factions, numbers, quotes, dates or events.\n- Refer to each person by name, or by the pronoun given for them. Never guess anyone\u0027s gender.\n- Give people no rank, title or role the facts don\u0027t give.\n\nStyle:\n- Write like the game\u0027s own end screens: plain, warm and a little grim. Third person, past tense. No poetry, no rhetorical questions.\n- Keep sentences short, mostly under 20 words.\n- Write only the epilogue: no title, no heading, no notes.\n",
+        "user": "## The colony\nLast Lantern\n\n## The Empire\nThe Sun Throne\n\n## How it ended\nResistance victory. Last Lantern and its allies destroyed the capital of The Sun Throne, and the Empire fell.\n\n## Where the colony stood\nLast Lantern fought The Sun Throne.\n\n## The colonists who mattered\n- Ysolde (she): led the coalition with the Marrow League\n- Bram (he, died before the end): held the gate when the legionaries attacked on day 906\n- Hesper (she): sabotaged the Imperial settlement of Calder Mill\n- Jory (he): kept the wounded alive through the siege\n\n## What happened\n- The Sun Throne took Calder Mill and razed Fenwick.\n- Last Lantern joined the Marrow League against the Empire.\n- Imperial legionaries attacked on day 906 and were driven off.\n- Last Lantern and its allies destroyed the Imperial capital of Solace.\n\nWrite the epilogue now.\n",
+        "maxOutputTokens": 360,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "Resistance victory. Last Lantern and its allies destroyed the capital of The Sun Throne. The Empire fell. Last Lantern fought The Sun Throne.\n\nYsolde led the coalition with the Marrow League. Bram held the gate when the legionaries attacked on day 906 and died before the end. Hesper sabotaged the Imperial settlement of Calder Mill. Jory kept the wounded alive through the siege.\n\nLast Lantern and its allies destroyed the Imperial capital of Solace. The colony was now a scattered remnant. They survived in the ruins.",
+      "error": null,
+      "failures": [
+        "Too short: 86 words, but at least 100 are needed. Add a sentence or two to each paragraph."
+      ],
+      "latencySeconds": 0.4325812,
+      "inputTokens": 482,
+      "outputTokens": 111,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-706\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795322215,\u0022model\u0022:\u0022gemma4:e2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022Resistance victory. Last Lantern and its allies destroyed the capital of The Sun Throne. The Empire fell. Last Lantern fought The Sun Throne.\\n\\nYsolde led the coalition with the Marrow League. Bram held the gate when the legionaries attacked on day 906 and died before the end. Hesper sabotaged the Imperial settlement of Calder Mill. Jory kept the wounded alive through the siege.\\n\\nLast Lantern and its allies destroyed the Imperial capital of Solace. The colony was now a scattered remnant. They survived in the ruins.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:482,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:111,\u0022total_tokens\u0022:593}}\n"
+    },
+    {
+      "request": {
+        "system": "You write the epilogue shown on the victory screen when a RimWorld colony\u0027s long story with the Empire ends.\n\nWhat to write:\n- 120 to 220 words, in three short paragraphs.\n- First paragraph: how it ended, as the ending below describes it.\n- Second paragraph: the colonists who mattered. Name every person listed, in order, and say what each did, in the words of the facts. Say plainly if someone died before the end.\n- Third paragraph: what the colony is now, in a few quiet lines. End on an image, not a moral.\n\nWhat you know:\n- Use only the facts and names below. Never invent people, places, factions, numbers, quotes, dates or events.\n- Refer to each person by name, or by the pronoun given for them. Never guess anyone\u0027s gender.\n- Give people no rank, title or role the facts don\u0027t give.\n\nStyle:\n- Write like the game\u0027s own end screens: plain, warm and a little grim. Third person, past tense. No poetry, no rhetorical questions.\n- Keep sentences short, mostly under 20 words.\n- Write only the epilogue: no title, no heading, no notes.\n",
+        "user": "## The colony\nLast Lantern\n\n## The Empire\nThe Sun Throne\n\n## How it ended\nResistance victory. Last Lantern and its allies destroyed the capital of The Sun Throne, and the Empire fell.\n\n## Where the colony stood\nLast Lantern fought The Sun Throne.\n\n## The colonists who mattered\n- Ysolde (she): led the coalition with the Marrow League\n- Bram (he, died before the end): held the gate when the legionaries attacked on day 906\n- Hesper (she): sabotaged the Imperial settlement of Calder Mill\n- Jory (he): kept the wounded alive through the siege\n\n## What happened\n- The Sun Throne took Calder Mill and razed Fenwick.\n- Last Lantern joined the Marrow League against the Empire.\n- Imperial legionaries attacked on day 906 and were driven off.\n- Last Lantern and its allies destroyed the Imperial capital of Solace.\n\nWrite the epilogue now.\n\n\nYour previous answer was rejected:\n- Too short: 86 words, but at least 100 are needed. Add a sentence or two to each paragraph.\nAnswer again, following every rule.",
+        "maxOutputTokens": 360,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "Resistance victory. Last Lantern and its allies destroyed the capital of The Sun Throne. The Empire fell as a result of this final confrontation.\n\nYsolde led the coalition with the Marrow League. Bram held the gate when the legionaries attacked on day 906 and died before the end. Hesper sabotaged the Imperial settlement of Calder Mill. Jory kept the wounded alive through the siege.\n\nLast Lantern and its allies destroyed the Imperial capital of Solace. The colony now stood in the ruins of what was once the Empire. A lone figure watched the fading light.",
+      "error": null,
+      "failures": [
+        "Too short: 95 words, but at least 100 are needed. Add a sentence or two to each paragraph."
+      ],
+      "latencySeconds": 0.475433,
+      "inputTokens": 526,
+      "outputTokens": 119,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-254\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795322216,\u0022model\u0022:\u0022gemma4:e2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022Resistance victory. Last Lantern and its allies destroyed the capital of The Sun Throne. The Empire fell as a result of this final confrontation.\\n\\nYsolde led the coalition with the Marrow League. Bram held the gate when the legionaries attacked on day 906 and died before the end. Hesper sabotaged the Imperial settlement of Calder Mill. Jory kept the wounded alive through the siege.\\n\\nLast Lantern and its allies destroyed the Imperial capital of Solace. The colony now stood in the ruins of what was once the Empire. A lone figure watched the fading light.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:526,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:477},\u0022completion_tokens\u0022:119,\u0022total_tokens\u0022:645}}\n"
+    }
+  ]
+}

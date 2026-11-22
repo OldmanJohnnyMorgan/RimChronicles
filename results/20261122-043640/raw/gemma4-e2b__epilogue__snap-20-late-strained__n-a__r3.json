@@ -1,0 +1,55 @@
+{
+  "cell": "gemma4-e2b__epilogue__snap-20-late-strained__n-a__r3",
+  "model": "gemma4-e2b",
+  "task": "epilogue",
+  "snapshot": "snap-20-late-strained",
+  "grammar": "n/a",
+  "repeat": 3,
+  "promptVersion": "epilogue/v1",
+  "outcome": "Template",
+  "value": "(template)",
+  "attempts": [
+    {
+      "request": {
+        "system": "You write the epilogue shown on the victory screen when a RimWorld colony\u0027s long story with the Empire ends.\n\nWhat to write:\n- 120 to 220 words, in three short paragraphs.\n- First paragraph: how it ended, as the ending below describes it.\n- Second paragraph: the colonists who mattered. Name every person listed, in order, and say what each did, in the words of the facts. Say plainly if someone died before the end.\n- Third paragraph: what the colony is now, in a few quiet lines. End on an image, not a moral.\n\nWhat you know:\n- Use only the facts and names below. Never invent people, places, factions, numbers, quotes, dates or events.\n- Refer to each person by name, or by the pronoun given for them. Never guess anyone\u0027s gender.\n- Give people no rank, title or role the facts don\u0027t give.\n\nStyle:\n- Write like the game\u0027s own end screens: plain, warm and a little grim. Third person, past tense. No poetry, no rhetorical questions.\n- Keep sentences short, mostly under 20 words.\n- Write only the epilogue: no title, no heading, no notes.\n",
+        "user": "## The colony\nVarrowgate\n\n## The Empire\nThe Shattered Empire\n\n## How it ended\nImperial victory. Varrowgate served The Shattered Empire and became an Imperial province, governed in the Empire\u0027s name.\n\n## Where the colony stood\nVarrowgate sided with The Shattered Empire.\n\n## The colonists who mattered\n- Cassia (she): served the Empire and was made a Count on day 960\n- Henrik (he): escorted Imperial envoys across the region\n- Mags (they): forged the weapons the colony traded to the Empire\n\n## What happened\n- Varrowgate swore itself to the Shattered Empire.\n- The Empire took Brightwater on day 1012.\n- The Empire\u0027s envoy offered Varrowgate a governorship on day 1040.\n- Cassia accepted the governorship.\n\nWrite the epilogue now.\n",
+        "maxOutputTokens": 360,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "Varrowgate served The Shattered Empire. The colony sided with the Empire. The Empire took Brightwater on day 1012. The Empire\u0027s envoy offered Varrowgate a governorship on day 1040. Cassia accepted the governorship.\n\nCassia served the Empire and was made a Count on day 960. Henrik escorted Imperial envoys across the region. Mags forged the weapons the colony traded to the Empire.\n\nVarrowgate became an Imperial province. The colony remained under the Empire\u0027s name. The settlement stood quiet beneath a distant, cold star.",
+      "error": null,
+      "failures": [
+        "Too short: 82 words, but at least 100 are needed. Add a sentence or two to each paragraph."
+      ],
+      "latencySeconds": 0.464383,
+      "inputTokens": 469,
+      "outputTokens": 124,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-933\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795322220,\u0022model\u0022:\u0022gemma4:e2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022Varrowgate served The Shattered Empire. The colony sided with the Empire. The Empire took Brightwater on day 1012. The Empire\u0027s envoy offered Varrowgate a governorship on day 1040. Cassia accepted the governorship.\\n\\nCassia served the Empire and was made a Count on day 960. Henrik escorted Imperial envoys across the region. Mags forged the weapons the colony traded to the Empire.\\n\\nVarrowgate became an Imperial province. The colony remained under the Empire\u0027s name. The settlement stood quiet beneath a distant, cold star.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:469,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:463},\u0022completion_tokens\u0022:124,\u0022total_tokens\u0022:593}}\n"
+    },
+    {
+      "request": {
+        "system": "You write the epilogue shown on the victory screen when a RimWorld colony\u0027s long story with the Empire ends.\n\nWhat to write:\n- 120 to 220 words, in three short paragraphs.\n- First paragraph: how it ended, as the ending below describes it.\n- Second paragraph: the colonists who mattered. Name every person listed, in order, and say what each did, in the words of the facts. Say plainly if someone died before the end.\n- Third paragraph: what the colony is now, in a few quiet lines. End on an image, not a moral.\n\nWhat you know:\n- Use only the facts and names below. Never invent people, places, factions, numbers, quotes, dates or events.\n- Refer to each person by name, or by the pronoun given for them. Never guess anyone\u0027s gender.\n- Give people no rank, title or role the facts don\u0027t give.\n\nStyle:\n- Write like the game\u0027s own end screens: plain, warm and a little grim. Third person, past tense. No poetry, no rhetorical questions.\n- Keep sentences short, mostly under 20 words.\n- Write only the epilogue: no title, no heading, no notes.\n",
+        "user": "## The colony\nVarrowgate\n\n## The Empire\nThe Shattered Empire\n\n## How it ended\nImperial victory. Varrowgate served The Shattered Empire and became an Imperial province, governed in the Empire\u0027s name.\n\n## Where the colony stood\nVarrowgate sided with The Shattered Empire.\n\n## The colonists who mattered\n- Cassia (she): served the Empire and was made a Count on day 960\n- Henrik (he): escorted Imperial envoys across the region\n- Mags (they): forged the weapons the colony traded to the Empire\n\n## What happened\n- Varrowgate swore itself to the Shattered Empire.\n- The Empire took Brightwater on day 1012.\n- The Empire\u0027s envoy offered Varrowgate a governorship on day 1040.\n- Cassia accepted the governorship.\n\nWrite the epilogue now.\n\n\nYour previous answer was rejected:\n- Too short: 82 words, but at least 100 are needed. Add a sentence or two to each paragraph.\nAnswer again, following every rule.",
+        "maxOutputTokens": 360,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "Varrowgate ended its long story. The colony sided with The Shattered Empire. It became an Imperial province. The Empire took Brightwater on day 1012.\n\nCassia served the Empire and was made a Count on day 960. Henrik escorted Imperial envoys across the region. Mags forged the weapons the colony traded to the Empire.\n\nThe colony swore itself to The Shattered Empire. Cassia accepted the governorship on day 1040. Varrowgate now served the Empire. A quiet settlement under Imperial rule.",
+      "error": null,
+      "failures": [
+        "Too short: 79 words, but at least 100 are needed. Add a sentence or two to each paragraph."
+      ],
+      "latencySeconds": 0.4926553,
+      "inputTokens": 513,
+      "outputTokens": 115,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-511\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795322221,\u0022model\u0022:\u0022gemma4:e2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022Varrowgate ended its long story. The colony sided with The Shattered Empire. It became an Imperial province. The Empire took Brightwater on day 1012.\\n\\nCassia served the Empire and was made a Count on day 960. Henrik escorted Imperial envoys across the region. Mags forged the weapons the colony traded to the Empire.\\n\\nThe colony swore itself to The Shattered Empire. Cassia accepted the governorship on day 1040. Varrowgate now served the Empire. A quiet settlement under Imperial rule.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:513,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:464},\u0022completion_tokens\u0022:115,\u0022total_tokens\u0022:628}}\n"
+    }
+  ]
+}
