@@ -14,10 +14,23 @@ public static class SettingsWindow
     private static Task<ConnectionProbe.Result>? _probe;
     private static string _probeStatus = "";
 
+    private static Vector2 _scroll;
+    private static float _height = 1000f;
+
+    private static readonly (string Id, string Label, string Tip)[] Arcs =
+    [
+        (Core.Plots.Nemesis.NemesisPlot.TemplateId, "Nemesis", "A raider who killed or maimed a colonist and escaped comes back into the story."),
+        (Core.Plots.LostFamily.LostFamilyArc.TemplateId, "Lost Family", "A colonist's relative in another faction writes, is taken captive, and may be rescued."),
+        (Core.Plots.SilentPress.SilentPressArc.TemplateId, "Silent Press", "Killing the reporter has consequences: clues, then an envoy demanding reparations."),
+    ];
+
     public static void Draw(Rect rect, RimChroniclesSettings settings)
     {
+        // The page is taller than the window: a scroll view, sized from the last frame's height.
+        var view = new Rect(0f, 0f, rect.width - 16f, _height);
+        Widgets.BeginScrollView(rect, ref _scroll, view);
         var list = new Listing_Standard();
-        list.Begin(rect);
+        list.Begin(view);
 
         list.Label("Model tier");
         foreach (var tier in Tiers)
@@ -59,13 +72,48 @@ public static class SettingsWindow
         }
 
         list.GapLine();
+        var intensity = list.SliderLabeled(
+            $"Story intensity: {Core.Plots.StoryIntensity.Describe(settings.StoryIntensity)} ({settings.StoryIntensity:0.0}×)",
+            settings.StoryIntensity, Core.Plots.StoryIntensity.Min, Core.Plots.StoryIntensity.Max,
+            tooltip: "How often minor plots start, and how fast the Empire expands. 2× halves the waits; 0.5× doubles them.");
+        settings.StoryIntensity = (float)Math.Round(intensity * 10f) / 10f;
+
+        list.Label("Story arcs (turning one off stops new plots of that kind; running ones finish)");
+        foreach (var (id, label, tip) in Arcs)
+        {
+            var on = settings.ArcEnabled(id);
+            list.CheckboxLabeled($"    {label}", ref on, tip);
+            settings.SetArcEnabled(id, on);
+        }
+
+        list.GapLine();
+        list.Label("Separate prose model (optional): writes bulletins, plot letters and epilogues, while the main model makes the director's decisions");
+        settings.ProseModel = list.TextEntryLabeled("Prose model (blank: use the main one)  ", settings.ProseModel);
+        if (settings.ProseModel.Length > 0)
+        {
+            settings.ProseEndpoint = list.TextEntryLabeled("Prose address (blank: the main one)  ", settings.ProseEndpoint);
+            if (settings.ProseEndpoint.Length > 0 && TierPresets.EndpointProblem(settings.ProseEndpoint) is { } proseProblem)
+            {
+                list.Label($"<color=#e0a040>{proseProblem}</color>");
+            }
+
+            settings.ProseApiKey = list.TextEntryLabeled("Prose API key (blank: the main one)  ", settings.ProseApiKey);
+            if (settings.Tier == ModelTier.Off)
+            {
+                list.Label("<color=#a0a0a0>The tier is Off, so no model is called, this one included.</color>");
+            }
+        }
+
+        list.GapLine();
         if (list.ButtonText("Reset to defaults", widthPct: 0.3f))
         {
             settings.ResetToDefaults();
             _probeStatus = "";
         }
 
+        _height = list.CurHeight + 24f;
         list.End();
+        Widgets.EndScrollView();
     }
 
     private static void DrawConnectionTest(Listing_Standard list, RimChroniclesSettings settings)

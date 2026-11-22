@@ -36,7 +36,7 @@ public static class PlotNarrator
         Func<Llm.Prompts.PromptLibrary, ModelTier, IFallback<string>, TaskDefinition<string>> build)
     {
         var settings = RimChroniclesMod.Settings;
-        var provider = ProviderFactory.Create(settings);
+        var provider = ProviderFactory.CreateProse(settings);
         var prompts = PromptStore.Library;
         if (provider is null || prompts is null)
         {
