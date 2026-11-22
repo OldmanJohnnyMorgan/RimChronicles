@@ -115,6 +115,11 @@ public sealed class WorldReader : IWorldReader
                 Name = f.Name,
                 Kind = f.def.label,
                 Goodwill = f.PlayerGoodwill,
+                // Only once awake: "quiet behind its walls" in every bulletin brief would invite the reporter to recite it.
+                PlotState = Empire.EmpireDriver.Available && f == Empire.EmpireDriver.EmpireFaction
+                    && RimChroniclesGameComponent.Current?.Empire is { IsAwake: true } saga
+                    ? saga.State.ToString()
+                    : null,
                 Settlements = settlements.Count(s => s.Faction == f),
             })
             .ToList();

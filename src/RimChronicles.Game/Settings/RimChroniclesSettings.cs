@@ -18,6 +18,9 @@ public sealed class RimChroniclesSettings : ModSettings
     public string ApiKey = "";
     public int NewsCadenceDays = DefaultNewsCadenceDays;
 
+    /// <summary>The Awakened Empire major plot (Stage 5); it also needs Royalty.</summary>
+    public bool MajorPlot = true;
+
     /// <summary>True when story features should call a model; false means template text everywhere.</summary>
     public bool ModelEnabled => Tier != ModelTier.Off && TierPresets.EndpointProblem(Endpoint) is null && !string.IsNullOrWhiteSpace(Model);
 
@@ -35,6 +38,7 @@ public sealed class RimChroniclesSettings : ModSettings
         Model = TierPresets.ModelFor(ModelTier.Recommended)!;
         ApiKey = "";
         NewsCadenceDays = DefaultNewsCadenceDays;
+        MajorPlot = true;
     }
 
     public override void ExposeData()
@@ -44,6 +48,7 @@ public sealed class RimChroniclesSettings : ModSettings
         Scribe_Values.Look(ref Model, "model", TierPresets.ModelFor(ModelTier.Recommended)!);
         Scribe_Values.Look(ref ApiKey, "apiKey", "");
         Scribe_Values.Look(ref NewsCadenceDays, "newsCadenceDays", DefaultNewsCadenceDays);
+        Scribe_Values.Look(ref MajorPlot, "majorPlot", true);
 
         Endpoint = string.IsNullOrWhiteSpace(Endpoint) ? TierPresets.DefaultEndpoint : Endpoint.Trim();
         Model = string.IsNullOrWhiteSpace(Model) ? TierPresets.ModelFor(ModelTier.Recommended)! : Model.Trim();

@@ -51,6 +51,14 @@ public static class SettingsWindow
         settings.NewsCadenceDays = Math.Clamp(days, RimChroniclesSettings.MinNewsCadenceDays, RimChroniclesSettings.MaxNewsCadenceDays);
 
         list.GapLine();
+        list.CheckboxLabeled("Major plot: the Awakened Empire", ref settings.MajorPlot,
+            "The Empire wakes and starts taking territory. Needs the Royalty DLC; without it, this does nothing.");
+        if (settings.MajorPlot && !ModsConfig.RoyaltyActive)
+        {
+            list.Label("<color=#a0a0a0>Royalty isn't active, so the major plot is off.</color>");
+        }
+
+        list.GapLine();
         if (list.ButtonText("Reset to defaults", widthPct: 0.3f))
         {
             settings.ResetToDefaults();
