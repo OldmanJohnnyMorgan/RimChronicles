@@ -151,5 +151,12 @@
       "kinPronoun": "she",
       "protagonistPronoun": "he"
     }
+  },
+  "director": {
+    "plotId": "family-02",
+    "descriptions": {
+      "Wait": "hold this plot for a few days; nothing happens in it yet",
+      "Resolution:InheritToKin:p2": "Elias, Constance's kin, carries the search for Ada on"
+    }
   }
 }

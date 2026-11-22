@@ -123,5 +123,13 @@
     "name": "Ilse Varrow",
     "outlet": "the Rim Dispatch",
     "persona": "dry, wry and slightly cynical"
+  },
+  "director": {
+    "plotId": "debt-01",
+    "descriptions": {
+      "Wait": "hold this plot for a few days; nothing happens in it yet",
+      "Complication:CorsairMessenger": "a Corsair messenger arrives with word for Dagny",
+      "Complication:CorsairsCollect": "the Brackwater Corsairs come to collect on Dagny's betrayal"
+    }
   }
 }

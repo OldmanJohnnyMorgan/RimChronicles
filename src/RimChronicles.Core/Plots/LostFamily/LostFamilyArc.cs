@@ -44,7 +44,25 @@ public static class LostFamilyArc
 
     public static readonly string RescueQuestFact = QuestLink.FactFor(QuestTemplates.Rescue);
 
-    public static IReadOnlyList<PlotTransition> Transitions(Plot plot)
+    public static IReadOnlyList<PlotTransition> Transitions(Plot plot) => Director.Described(Options(plot), o => Describe(o.Step, plot));
+
+    /// <summary>What each step would do, for the director.</summary>
+    public static string Describe(string step, Plot plot)
+    {
+        var kin = plot.Fact(KinName) ?? "the relative";
+        return step switch
+        {
+            nameof(LostFamilyStep.Letter) when plot.BeatDay < 0 => $"a first letter arrives from {kin}",
+            nameof(LostFamilyStep.Letter) => $"another letter arrives from {kin}; nothing changes yet",
+            nameof(LostFamilyStep.Taken) => $"{kin} is taken captive by a hostile faction",
+            nameof(LostFamilyStep.OfferRescue) => $"a Rescue quest offers to free {kin} from the captors' camp",
+            nameof(LostFamilyStep.Reunited) => $"{kin} joins the colony; the story ends happily",
+            nameof(LostFamilyStep.Lost) => $"the trail to {kin} goes cold; the story ends in loss",
+            _ => step,
+        };
+    }
+
+    private static IReadOnlyList<PlotTransition> Options(Plot plot)
     {
         var kin = NemesisCompact(plot.Fact(KinName) ?? "Kin");
         var options = new List<PlotTransition>();

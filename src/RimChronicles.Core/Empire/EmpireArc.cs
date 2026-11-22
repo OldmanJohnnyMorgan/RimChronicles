@@ -140,7 +140,30 @@ public static class EmpireArc
         return answer is null or "" or "pending" ? "waiting" : "done";
     }
 
-    public static IReadOnlyList<PlotTransition> Transitions(Plot plot, EmpireSaga saga, int today)
+    public static IReadOnlyList<PlotTransition> Transitions(Plot plot, EmpireSaga saga, int today) =>
+        Director.Described(Options(plot, saga, today), o => Describe(o.Step, plot));
+
+    /// <summary>What each step would do, for the director.</summary>
+    public static string Describe(string step, Plot plot) => step switch
+    {
+        EmpireStep.Envoy => "an Imperial envoy asks the colony to stand with the Empire, against it, or aside",
+        EmpireStep.Expansion => "the Empire starts taking settlements by force (Act 2)",
+        EmpireStep.EscortEnvoy => "the Empire asks its ally to escort its envoys to an Imperial settlement",
+        EmpireStep.ConquestJob => "the Empire asks its ally to sabotage a settlement it means to take",
+        EmpireStep.DefendAlly => "a neighbour under Imperial siege asks the colony to break the siege",
+        EmpireStep.SabotageImperial => "the colony is offered a chance to sabotage an Imperial settlement",
+        EmpireStep.Tribute => "the Empire demands tribute: pay, refuse (war), or swear fealty",
+        EmpireStep.Aftermath => "the last job's outcome takes effect",
+        EmpireStep.Reckoning => "Act 3: the Empire becomes ascendant or breaks, and the endings open",
+        EmpireStep.Governorship => "the Empire offers a governorship; accepting ends the story in Imperial victory",
+        EmpireStep.StormCapital => "the colony is offered the assault on the Imperial capital",
+        EmpireStep.FinalDemand => "the Empire's final demand: submit, or be counted among its enemies",
+        EmpireStep.Treaty => "the Empire offers a treaty of independence; signing ends the story",
+        EmpireStep.Ending => "the story reaches its ending",
+        _ => step,
+    };
+
+    private static IReadOnlyList<PlotTransition> Options(Plot plot, EmpireSaga saga, int today)
     {
         switch (plot.Beat)
         {

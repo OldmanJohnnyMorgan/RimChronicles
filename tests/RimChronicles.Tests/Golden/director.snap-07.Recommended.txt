@@ -1,7 +1,10 @@
 === allowedTransitions ===
-- Wait
-- Complication:VexSighted
-- Complication:ImperialBounty
+- Wait: hold this plot for a few days; nothing happens in it yet
+- Complication:VexSighted: Vex is seen near the colony
+- Complication:ImperialBounty: the Empire posts a bounty on Vex
+
+=== decidingPlot ===
+nemesis-01 (Nemesis), in its Hook beat.
 
 === plotState ===
 - nemesis-01 (Nemesis): beat Hook, protagonist Mara. Raider 'Vex' killed Mara's husband Dorin on day 398 and escaped. Mara has sworn to find him.

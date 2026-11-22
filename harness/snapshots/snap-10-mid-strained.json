@@ -138,5 +138,13 @@
       "kinPronoun": "she",
       "protagonistPronoun": "she"
     }
+  },
+  "director": {
+    "plotId": "family-01",
+    "descriptions": {
+      "Wait": "hold this plot for a few days; nothing happens in it yet",
+      "Choice:RescueOrRansom": "a letter asks the colony to rescue Saskia or pay her ransom",
+      "Complication:SecondLetter": "another letter arrives about Saskia; nothing changes yet"
+    }
   }
 }

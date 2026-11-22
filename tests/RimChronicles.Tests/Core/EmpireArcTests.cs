@@ -220,3 +220,30 @@ public class EmpireAct3Tests
         Assert.Equal((ending, stance), (result.Ending, result.NewStance));
     }
 }
+
+public class TransitionDescriptionTests
+{
+    [Fact]
+    public void EveryArcOption_HasADescription_ForDirectorV2()
+    {
+        var book = new PlotBook();
+        var nemesis = book.Start(new PlotTemplate { Id = RimChronicles.Core.Plots.Nemesis.NemesisPlot.TemplateId }, ProtagonistSlot.ForPawn("p1", "Mara"), 10, 0, "grudge");
+        nemesis.SetFact(RimChronicles.Core.Plots.Nemesis.NemesisPlot.NemesisName, "Vex");
+        book.Advance(nemesis, PlotBeat.Hook, 12, 5, "sighting");
+        var options = RimChronicles.Core.Plots.Nemesis.NemesisArc.Transitions(nemesis);
+        Assert.All(options, o => Assert.False(string.IsNullOrEmpty(o.Desc), o.Id));
+        Assert.Equal("Vex leads a raid on the colony", options.Single(o => o.Step == "Raid").Desc);
+        Assert.Equal(Director.WaitDesc, options.Single(o => o.Id == Director.WaitId).Desc);
+
+        var saga = new EmpireSaga();
+        saga.Awaken(AwakeningTrigger.Dev, "", 40, 20, "Wyrmfold");
+        saga.Wake(60, "the Empire");
+        var empire = book.Start(new PlotTemplate { Id = EmpireArc.TemplateId, CountsTowardCap = false }, ProtagonistSlot.ForPawn("colony", "Wyrmfold"), 40, 3, "stirring");
+        foreach (var stance in new[] { EmpireStance.Ally, EmpireStance.Oppose, EmpireStance.Neutral })
+        {
+            empire.SetFact(EmpireArc.Stance, stance);
+            book.Advance(empire, PlotBeat.Complication, 60, 6, "marches");
+            Assert.All(EmpireArc.Transitions(empire, saga, 70), o => Assert.False(string.IsNullOrEmpty(o.Desc), o.Id));
+        }
+    }
+}

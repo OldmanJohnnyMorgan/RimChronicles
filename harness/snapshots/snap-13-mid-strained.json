@@ -124,5 +124,14 @@
     "name": "Ilse Varrow",
     "outlet": "the Rim Dispatch",
     "persona": "dry, wry and slightly cynical"
+  },
+  "director": {
+    "plotId": "empire-01",
+    "descriptions": {
+      "Wait": "hold this plot for a few days; nothing happens in it yet",
+      "Empire:EnvoyReturns": "the Imperial envoy returns to press the Empire's demands",
+      "Empire:DemandTribute": "the Empire demands tribute from the colony",
+      "Empire:Awaken": "the Empire wakes fully and starts taking settlements by force"
+    }
   }
 }

@@ -127,5 +127,11 @@
     "name": "Ilse Varrow",
     "outlet": "the Rim Dispatch",
     "persona": "dry, wry and slightly cynical"
+  },
+  "director": {
+    "descriptions": {
+      "Wait": "hold this plot for a few days; nothing happens in it yet",
+      "Seed:Rivalry:p1:p3": "start a Rivalry story between Marek and Dov"
+    }
   }
 }
