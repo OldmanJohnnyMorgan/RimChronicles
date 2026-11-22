@@ -1,0 +1,4 @@
+model,tier,task,grammar,n,first_ok_rate,json_valid_rate,choice_allowed_rate,length_ok_rate,grounded_rate,passed_first_rate,fallback_rate,median_latency_s,p90_latency_s,mean_output_tokens,mean_reasoning_tokens
+gemma4-e2b,Minimum,epilogue,n/a,9,1,,,1,1,1,0,0.42,0.482,103.333,
+gemma4-e4b,Recommended,epilogue,n/a,9,1,,,1,1,1,0,0.6,0.725,98.889,
+gemma4-12b,High,epilogue,n/a,9,1,,,1,1,1,0,1.584,1.917,116.333,

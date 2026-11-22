@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eval run 20261122-045806</title>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #898781;
+  --grid: #e1e0d9; --axis: #c3c2b7; --border: rgba(11,11,11,0.10);
+  --series: #2a78d6; --pass: #006300; --fail: #d03b3b;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --muted: #898781;
+    --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,0.10);
+    --series: #3987e5; --pass: #0ca30c; --fail: #e05555;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink); font: 14px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 1100px; margin: 0 auto; padding: 24px 16px 64px; }
+h1 { font-size: 22px; margin: 0 0 4px; }
+h2 { font-size: 18px; margin: 32px 0 8px; }
+h3 { font-size: 15px; margin: 20px 0 8px; }
+p { max-width: 75ch; }
+.meta { color: var(--ink-2); margin: 4px 0; }
+.note { color: var(--ink-2); border-left: 3px solid var(--axis); padding-left: 10px; }
+.muted { color: var(--muted); }
+code { font: 12px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.scroll { overflow-x: auto; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; }
+table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+th, td { padding: 6px 10px; text-align: left; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+thead th { color: var(--ink-2); font-weight: 600; font-size: 12px; }
+tbody th { font-weight: 600; }
+tbody tr:last-child > * { border-bottom: none; }
+.num { text-align: right; }
+.icon { font-weight: 700; }
+.icon.pass { color: var(--pass); }
+.icon.fail { color: var(--fail); }
+figure { margin: 12px 0 0; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px; overflow-x: auto; }
+.chart { width: 100%; min-width: 520px; height: auto; display: block; }
+.chart text { fill: var(--ink-2); font-size: 12px; }
+.chart .chart-title { fill: var(--ink); font-weight: 600; font-size: 13px; }
+.chart .tick { fill: var(--muted); font-size: 11px; }
+.chart .grid { stroke: var(--grid); stroke-width: 1; }
+.chart .threshold { stroke: var(--ink-2); stroke-width: 1.5; stroke-dasharray: 4 4; }
+.chart .whisker { stroke: var(--series); stroke-width: 2; stroke-linecap: round; }
+.chart .dot { fill: var(--series); stroke: var(--surface); stroke-width: 2; }
+.chart .hit { fill: transparent; }
+.chart .row:hover .hit { fill: var(--grid); fill-opacity: 0.5; }
+details { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; padding: 8px 12px; }
+summary { cursor: pointer; font-weight: 600; }
+article { border-top: 1px solid var(--grid); padding: 8px 0; }
+pre { white-space: pre-wrap; font: 13px/1.5 system-ui, sans-serif; margin: 4px 0; }
+.judge { color: var(--ink-2); font-size: 13px; margin: 4px 0; }
+a { color: var(--series); }
+</style>
+</head>
+<body>
+<main>
+<header>
+<h1>Rim Chronicles model evaluation</h1>
+<p class="meta">Run <strong>20261122-045806</strong> · 27 outputs · 3 models · commit <code>51c49b9c</code> · prompts <code>director/v1</code>, <code>epilogue/v2</code>, <code>inheritance-handoff/v3</code>, <code>judge/v3</code>, <code>news-bulletin/v10</code>, <code>plot-letter/v3</code></p>
+<p class="note">Not judged yet: invented facts and prose quality are empty. Run <code>rimchron-eval judge 20261122-045806</code>.</p>
+</header>
+<section>
+<h2>At a glance</h2>
+<p>Whether each model meets every pass bar that applies to it, per task. Failing bars are named; details follow below.</p>
+<div class="scroll"><table>
+<thead><tr><th>Model</th><th>Tier</th><th>Server</th><th>Quantization</th><th class="num">VRAM</th><th>Epilogue</th></tr></thead>
+<tbody>
+<tr><th scope="row">gemma4-e2b</th><td>Minimum</td><td>ollama</td><td>Q4_K_M</td><td class="num">0.4 GB</td><td><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> Meets all bars</td></tr>
+<tr><th scope="row">gemma4-e4b</th><td>Recommended</td><td>ollama</td><td>Q4_K_M</td><td class="num">0.5 GB</td><td><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> Meets all bars</td></tr>
+<tr><th scope="row">gemma4-12b</th><td>High</td><td>ollama</td><td>Q4_K_M</td><td class="num">1.5 GB</td><td><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> Meets all bars</td></tr>
+</tbody></table></div>
+</section>
+<section>
+<h2>Epilogue</h2>
+<p>Pass bars: length in range at least 90%; at most 1 invented fact per 10 outputs (a new person, place, number, quote or event, or a contradiction); overall quality at least 3.5 (Recommended tier). Rates use first answers only.</p>
+<div class="scroll"><table>
+<thead><tr><th>Model</th><th>Tier</th><th class="num">Outputs</th><th class="num">Judged</th><th class="num">Length in range</th><th class="num">Invented facts / 10</th><th class="num">Embellishments / 10</th><th class="num">Voice</th><th class="num">Clarity</th><th class="num">Tone</th><th class="num">Overall</th><th class="num">Names grounded</th><th class="num">Passed first try</th><th class="num">Fell back</th><th class="num">Median s</th><th class="num">p90 s</th><th class="num">Output tokens</th><th class="num">Reasoning tokens</th></tr></thead>
+<tbody>
+<tr><th scope="row">gemma4-e2b</th><td>Minimum</td><td class="num">9</td><td class="num">–</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">100%</td><td class="num">100%</td><td class="num">0%</td><td class="num">0.4</td><td class="num">0.5</td><td class="num">103</td><td class="num">–</td></tr>
+<tr><th scope="row">gemma4-e4b</th><td>Recommended</td><td class="num">9</td><td class="num">–</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">100%</td><td class="num">100%</td><td class="num">0%</td><td class="num">0.6</td><td class="num">0.7</td><td class="num">99</td><td class="num">–</td></tr>
+<tr><th scope="row">gemma4-12b</th><td>High</td><td class="num">9</td><td class="num">–</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">100%</td><td class="num">100%</td><td class="num">0%</td><td class="num">1.6</td><td class="num">1.9</td><td class="num">116</td><td class="num">–</td></tr>
+</tbody></table></div>
+<figure>
+<svg class="chart" viewBox="0 0 710 160" role="img" aria-label="Epilogue latency: median (dot) and 90th percentile (line end), seconds">
+<text class="chart-title" x="0" y="16">Epilogue latency: median (dot) and 90th percentile (line end), seconds</text>
+<line class="grid" x1="230" x2="230" y1="34" y2="130"/><text class="tick" x="230" y="148" text-anchor="middle">0</text>
+<line class="grid" x1="340" x2="340" y1="34" y2="130"/><text class="tick" x="340" y="148" text-anchor="middle">0.5</text>
+<line class="grid" x1="450" x2="450" y1="34" y2="130"/><text class="tick" x="450" y="148" text-anchor="middle">1</text>
+<line class="grid" x1="560" x2="560" y1="34" y2="130"/><text class="tick" x="560" y="148" text-anchor="middle">1.5</text>
+<line class="grid" x1="670" x2="670" y1="34" y2="130"/><text class="tick" x="670" y="148" text-anchor="middle">2</text>
+<g class="row"><title>gemma4-e2b: median 0.4 s, p90 0.5 s (9 outputs)</title><rect class="hit" x="0" y="40" width="710" height="28"/><text class="label" x="218" y="58" text-anchor="end">gemma4-e2b</text><line class="whisker" x1="322.4" x2="336" y1="54" y2="54"/><circle class="dot" cx="322.4" cy="54" r="5"/></g>
+<g class="row"><title>gemma4-e4b: median 0.6 s, p90 0.7 s (9 outputs)</title><rect class="hit" x="0" y="68" width="710" height="28"/><text class="label" x="218" y="86" text-anchor="end">gemma4-e4b</text><line class="whisker" x1="362" x2="389.5" y1="82" y2="82"/><circle class="dot" cx="362" cy="82" r="5"/></g>
+<g class="row"><title>gemma4-12b: median 1.6 s, p90 1.9 s (9 outputs)</title><rect class="hit" x="0" y="96" width="710" height="28"/><text class="label" x="218" y="114" text-anchor="end">gemma4-12b</text><line class="whisker" x1="578.5" x2="651.7" y1="110" y2="110"/><circle class="dot" cx="578.5" cy="110" r="5"/></g>
+</svg>
+</figure>
+</section>
+<section>
+<h2>Outputs</h2>
+<p>Every first answer, grouped by task and model. Open the raw file for the full request, retries and timings.</p>
+<h3>Epilogue</h3>
+<details>
+<summary>gemma4-e2b · 9 outputs</summary>
+<article><p class="meta"><a href="raw/gemma4-e2b__epilogue__snap-17-late-strained__n-a__r1.json">snap-17-late-strained</a> · repeat 1 · Model · 79 words · 0.5 s</p>
+<pre>The Shattered Empire signed a treaty. It recognized Ironbloom as a free state, bound to no one. Ironbloom had fought The Shattered Empire.
+
+Severin defected from the Empire&#39;s general staff and advised the colony. Annika broke the Imperial siege of Dunwold. Thane rebuilt the walls after every raid. Mila nursed the colony through the war and died before the end.
+
+Ironbloom remained a free state. The colony stood in quiet solitude. A lone campfire burned under a cold sky.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__epilogue__snap-17-late-strained__n-a__r2.json">snap-17-late-strained</a> · repeat 2 · Model · 72 words · 0.4 s</p>
+<pre>The Shattered Empire signed a treaty. It recognized Ironbloom as a free state, bound to no one. Ironbloom fought the Shattered Empire.
+
+Severin defected from the Empire&#39;s general staff and advised the colony. Annika broke the Imperial siege of Dunwold. Thane rebuilt the walls after every raid. Mila nursed the colony through the war and died before the end.
+
+Ironbloom remained. The colony stood free. A quiet settlement under a new sky.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__epilogue__snap-17-late-strained__n-a__r3.json">snap-17-late-strained</a> · repeat 3 · Model · 73 words · 0.4 s</p>
+<pre>The Shattered Empire signed a treaty. This treaty recognized Ironbloom as a free state. The colony had fought the Empire.
+
+Severin defected from the Empire&#39;s general staff and advised the colony. Annika broke the Imperial siege of Dunwold. Thane rebuilt the walls after every raid. Mila nursed the colony through the war and died before the end.
+
+Ironbloom remained. It was a free state now. The ruins stood silent under the distant sky.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__epilogue__snap-19-late-desperate__n-a__r1.json">snap-19-late-desperate</a> · repeat 1 · Model · 80 words · 0.4 s</p>
+<pre>Last Lantern and its allies destroyed the capital of The Sun Throne. The Empire fell.
+
+Ysolde led the coalition with the Marrow League. Bram held the gate when the legionaries attacked on day 906 and died before the end. Hesper sabotaged the Imperial settlement of Calder Mill. Jory kept the wounded alive through the siege.
+
+Last Lantern and its allies destroyed the Imperial capital of Solace. The colony now rested in the ruins.
+
+A lone lantern flickered in the wreckage.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__epilogue__snap-19-late-desperate__n-a__r2.json">snap-19-late-desperate</a> · repeat 2 · Model · 76 words · 0.4 s</p>
+<pre>Last Lantern and its allies destroyed the capital of The Sun Throne. The Empire fell.
+
+Ysolde led the coalition with the Marrow League. Bram held the gate when the legionaries attacked on day 906 and died before the end. Hesper sabotaged the Imperial settlement of Calder Mill. Jory kept the wounded alive through the siege.
+
+Last Lantern fought The Sun Throne. The colony now stood in the ruins. A quiet stillness settled over the broken lands.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__epilogue__snap-19-late-desperate__n-a__r3.json">snap-19-late-desperate</a> · repeat 3 · Model · 78 words · 0.4 s</p>
+<pre>Last Lantern and its allies destroyed the capital of The Sun Throne. The Empire fell.
+
+Ysolde led the coalition with the Marrow League. Bram held the gate when the legionaries attacked on day 906 and died before the end. Hesper sabotaged the Imperial settlement of Calder Mill. Jory kept the wounded alive through the siege.
+
+Last Lantern fought The Sun Throne. The colony now rests in the ruins of Solace. A quiet silence settled over the broken stones.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__epilogue__snap-20-late-strained__n-a__r1.json">snap-20-late-strained</a> · repeat 1 · Model · 72 words · 0.4 s</p>
+<pre>Varrowgate served The Shattered Empire. The colony became an Imperial province, governed in the Empire&#39;s name. The Empire took Brightwater on day 1012.
+
+Cassia served the Empire and was made a Count on day 960. Henrik escorted Imperial envoys across the region. Mags forged the weapons the colony traded to the Empire.
+
+Varrowgate remained under Imperial rule. The colonists settled into a quiet existence. The walls stood silent under the distant stars.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__epilogue__snap-20-late-strained__n-a__r2.json">snap-20-late-strained</a> · repeat 2 · Model · 79 words · 0.5 s</p>
+<pre>Varrowgate served The Shattered Empire. The colony became an Imperial province. The Empire took Brightwater on day 1012. The Empire&#39;s envoy offered Varrowgate a governorship on day 1040. Cassia accepted the governorship.
+
+Cassia served the Empire and was made a Count on day 960. Henrik escorted Imperial envoys across the region. Mags forged the weapons the colony traded to the Empire.
+
+Varrowgate remained under Imperial rule. The land settled into a new order. A quiet settlement under the Empire.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__epilogue__snap-20-late-strained__n-a__r3.json">snap-20-late-strained</a> · repeat 3 · Model · 72 words · 0.4 s</p>
+<pre>Varrowgate served The Shattered Empire. It became an Imperial province, governed in the Empire&#39;s name. The Empire took Brightwater on day 1012.
+
+Cassia served the Empire and was made a Count on day 960. Henrik escorted Imperial envoys across the region. Mags forged the weapons the colony traded to the Empire.
+
+The colony remained under Imperial rule. Varrowgate became a part of the Shattered Empire. A quiet settlement under the Empire&#39;s banner.</pre>
+</article>
+</details>
+<details>
+<summary>gemma4-e4b · 9 outputs</summary>
+<article><p class="meta"><a href="raw/gemma4-e4b__epilogue__snap-17-late-strained__n-a__r1.json">snap-17-late-strained</a> · repeat 1 · Model · 69 words · 0.6 s</p>
+<pre>The Shattered Empire signed a treaty. It recognized Ironbloom as a free state. The colony had fought the Empire.
+
+Severin advised the colony after defecting from the Empire&#39;s general staff. Annika broke the Imperial siege of Dunwold. Thane rebuilt the walls after every raid. Mila nursed the colony through the war, and died before the end.
+
+Ironbloom stood alone. The walls remained. The sun set over the rebuilt stone.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__epilogue__snap-17-late-strained__n-a__r2.json">snap-17-late-strained</a> · repeat 2 · Model · 68 words · 0.6 s</p>
+<pre>The Shattered Empire signed a treaty. It recognized Ironbloom as a free state. The colony had fought the Empire.
+
+Severin advised the colony after defecting from the Empire&#39;s general staff. Annika broke the Imperial siege of Dunwold. Thane rebuilt the walls after every raid. Mila nursed the colony through the war, and died before the end.
+
+Ironbloom stood free. The walls remained. The sun set over the settlement.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__epilogue__snap-17-late-strained__n-a__r3.json">snap-17-late-strained</a> · repeat 3 · Model · 75 words · 0.6 s</p>
+<pre>Ironbloom fought The Shattered Empire. The Empire, broken by its losses, signed a treaty. This treaty recognised Ironbloom as a free state, bound to no one.
+
+Severin defected from the Empire&#39;s general staff and advised the colony. Annika broke the Imperial siege of Dunwold. Thane rebuilt the walls after every raid. Mila nursed the colony through the war, and she died before the end.
+
+Ironbloom stood free. The walls remained standing against the quiet horizon.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__epilogue__snap-19-late-desperate__n-a__r1.json">snap-19-late-desperate</a> · repeat 1 · Model · 73 words · 0.6 s</p>
+<pre>The Sun Throne fell. Last Lantern and its allies destroyed the Imperial capital of Solace. The Empire was broken.
+
+Ysolde led the coalition with the Marrow League. Bram held the gate when the legionaries attacked on day 906, and died before the end. Hesper sabotaged the Imperial settlement of Calder Mill. Jory kept the wounded alive through the siege.
+
+Last Lantern remained. It stood in the quiet aftermath. Smoke drifted over the plains.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__epilogue__snap-19-late-desperate__n-a__r2.json">snap-19-late-desperate</a> · repeat 2 · Model · 73 words · 0.6 s</p>
+<pre>Last Lantern and its allies destroyed the capital of The Sun Throne. The Empire fell.
+
+Ysolde led the coalition with the Marrow League. Bram held the gate when the legionaries attacked on day 906, and died before the end. Hesper sabotaged the Imperial settlement of Calder Mill. Jory kept the wounded alive through the siege.
+
+Last Lantern stood where it had fought The Sun Throne. The settlement remained, quiet under the new peace.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__epilogue__snap-19-late-desperate__n-a__r3.json">snap-19-late-desperate</a> · repeat 3 · Model · 73 words · 0.5 s</p>
+<pre>Last Lantern and its allies destroyed the Imperial capital of Solace. The Sun Throne fell. The Empire was broken.
+
+Ysolde led the coalition with the Marrow League. Bram held the gate when the legionaries attacked on day 906, and died before the end. Hesper sabotaged the Imperial settlement of Calder Mill. Jory kept the wounded alive through the siege.
+
+Last Lantern remains. It stands in the quiet aftermath. Dust settles over the ruins.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__epilogue__snap-20-late-strained__n-a__r1.json">snap-20-late-strained</a> · repeat 1 · Model · 75 words · 0.7 s</p>
+<pre>Varrowgate swore itself to The Shattered Empire. It became an Imperial province. The Empire took Brightwater on day 1012.
+
+Cassia served the Empire and was made a Count on day 960. Henrik escorted Imperial envoys across the region. Mags forged the weapons the colony traded to the Empire. Cassia accepted the governorship on day 1040.
+
+The colony now served The Shattered Empire. It stood as an Imperial province. The sun set over the provincial lands.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__epilogue__snap-20-late-strained__n-a__r2.json">snap-20-late-strained</a> · repeat 2 · Model · 69 words · 0.6 s</p>
+<pre>Varrowgate swore itself to The Shattered Empire. It became an Imperial province. The Empire took Brightwater on day 1012.
+
+Cassia served the Empire and was made a Count on day 960. Henrik escorted Imperial envoys across the region. Mags forged the weapons the colony traded to the Empire.
+
+The Empire&#39;s envoy offered Varrowgate a governorship on day 1040. Cassia accepted the governorship. The colony stood under the Empire&#39;s rule.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__epilogue__snap-20-late-strained__n-a__r3.json">snap-20-late-strained</a> · repeat 3 · Model · 64 words · 0.5 s</p>
+<pre>Varrowgate swore itself to The Shattered Empire. It became an Imperial province. The Empire took Brightwater on day 1012.
+
+Cassia served the Empire and was made a Count on day 960. Henrik escorted Imperial envoys across the region. Mags forged the weapons the colony traded to the Empire.
+
+Varrowgate now serves the Empire. An envoy offered it a governorship on day 1040. Cassia accepted.</pre>
+</article>
+</details>
+<details>
+<summary>gemma4-12b · 9 outputs</summary>
+<article><p class="meta"><a href="raw/gemma4-12b__epilogue__snap-17-late-strained__n-a__r1.json">snap-17-late-strained</a> · repeat 1 · Model · 94 words · 1.7 s</p>
+<pre>Ironbloom fought The Shattered Empire for a long time. After the colony broke the Imperial siege of Dunwold, the Empire signed a treaty. They recognized Ironbloom as a free state, bound to no one.
+
+Severin defected from the Empire&#39;s general staff and advised the colony. Annika broke the Imperial siege of Dunwold. Thane rebuilt the walls after every raid. Mila nursed the colony through the war and died before the end.
+
+Ironbloom stands alone on the frontier. The smoke from the last battle has cleared. A banner hangs over the gate in the wind.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__epilogue__snap-17-late-strained__n-a__r2.json">snap-17-late-strained</a> · repeat 2 · Model · 93 words · 1.6 s</p>
+<pre>Ironbloom fought The Shattered Empire for a long time. After the colony broke the Imperial siege of Dunwold, the Empire signed a treaty. They recognized Ironbloom as a free state, bound to no one.
+
+Severin defected from the Empire&#39;s general staff and advised the colony. Annika broke the Imperial siege of Dunwold. Thane rebuilt the walls after every raid. Mila nursed the colony through the war and died before the end.
+
+Ironbloom stands alone on the frontier. The dust settles over the repaired walls. A banner hangs over the gate in the silence.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__epilogue__snap-17-late-strained__n-a__r3.json">snap-17-late-strained</a> · repeat 3 · Model · 95 words · 1.5 s</p>
+<pre>Ironbloom fought the Shattered Empire until the conflict reached a turning point. After the colony broke the Imperial siege of Dunwold, the Shattered Empire signed a treaty. They recognized Ironbloom as a free state, bound to no one.
+
+Severin defected from the Empire&#39;s general staff and advised the colony. Annika broke the Imperial siege of Dunwold. Thane rebuilt the walls after every raid. Mila nursed the colony through the war and died before the end.
+
+Ironbloom stands alone on the frontier. The smoke from the siege has cleared. The walls remain standing against the horizon.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__epilogue__snap-19-late-desperate__n-a__r1.json">snap-19-late-desperate</a> · repeat 1 · Model · 94 words · 1.7 s</p>
+<pre>Last Lantern and its allies destroyed the capital of The Sun Throne. The Empire fell as the coalition&#39;s forces struck the heart of the throne.
+
+Ysolde led the coalition with the Marrow League. Bram held the gate when the legionaries attacked on day 906 and died before the end. Hesper sabotaged the Imperial settlement of Calder Mill. Jory kept the wounded alive through the siege.
+
+The colony remains as a survivor of the long conflict. The ruins of the capital stand silent under a heavy sky. Dust settles over the broken stones of Solace.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__epilogue__snap-19-late-desperate__n-a__r2.json">snap-19-late-desperate</a> · repeat 2 · Model · 88 words · 1.4 s</p>
+<pre>Last Lantern and its allies destroyed the capital of The Sun Throne. The Empire fell after the colony joined the Marrow League to fight back.
+
+Ysolde led the coalition with the Marrow League. Bram held the gate when the legionaries attacked on day 906 and died before the end. Hesper sabotaged the Imperial settlement of Calder Mill. Jory kept the wounded alive through the siege.
+
+The colony remains as a testament to the struggle against the throne. The ruins of the capital sit silent under a heavy sky.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__epilogue__snap-19-late-desperate__n-a__r3.json">snap-19-late-desperate</a> · repeat 3 · Model · 95 words · 1.4 s</p>
+<pre>Last Lantern and its allies destroyed the capital of The Sun Throne. The Empire fell as the coalition struck the final blow against the seat of power.
+
+Ysolde led the coalition with the Marrow League. Bram held the gate when the legionaries attacked on day 906 and died before the end. Hesper sabotaged the Imperial settlement of Calder Mill. Jory kept the wounded alive through the siege.
+
+The colony remains as a survivor of the long conflict. The fires of the capital have faded into history. Dust settles over the ruins of the old world.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__epilogue__snap-20-late-strained__n-a__r1.json">snap-20-late-strained</a> · repeat 1 · Model · 87 words · 1.9 s</p>
+<pre>Varrowgate swore its allegiance to The Shattered Empire and became an Imperial province. The Empire took Brightwater and offered the colony a governorship. Cassia accepted the offer, and the settlement began governed in the Empire&#39;s name.
+
+Cassia served the Empire and was made a Count. Henrik escorted Imperial envoys across the region. Mags forged the weapons the colony traded to the Empire.
+
+Varrowgate stands as a seat of Imperial authority. The banners of the Empire fly over the halls. A heavy seal rests upon the governor&#39;s desk.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__epilogue__snap-20-late-strained__n-a__r2.json">snap-20-late-strained</a> · repeat 2 · Model · 91 words · 1.7 s</p>
+<pre>Varrowgate swore its allegiance to The Shattered Empire and became an Imperial province. After the Empire took Brightwater, an envoy offered the colony a governorship. Cassia accepted the offer, and the settlement began its life under Imperial rule.
+
+Cassia served the Empire and was made a Count. Henrik escorted Imperial envoys across the region. Mags forged the weapons the colony traded to the Empire.
+
+Varrowgate is now a governed province of the Empire. The banners of the Shattered Empire fly over the settlement. A heavy seal sits upon the official records.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__epilogue__snap-20-late-strained__n-a__r3.json">snap-20-late-strained</a> · repeat 3 · Model · 79 words · 1.5 s</p>
+<pre>Varrowgate swore its allegiance to the Shattered Empire. The Empire took Brightwater and offered the colony a governorship. Cassia accepted the offer, and Varrowgate became an Imperial province.
+
+Cassia served the Empire and was made a Count. Henrik escorted Imperial envoys across the region. Mags forged the weapons the colony traded to the Empire.
+
+Varrowgate is now governed in the Empire&#39;s name. The colony stands as a permanent province of the Shattered Empire. Imperial banners fly over the settlement.</pre>
+</article>
+</details>
+</section>
+</main>
+</body>
+</html>
