@@ -223,3 +223,22 @@ another folder are skipped, so Claude's labels are never duplicated or outranked
   where the 12B acted in all three attempts, so the **last attempt on a case with a Wait rule puts the rule in the
   grammar** (Wait the best with a 5, others at most 4; or Wait kept out of best and at most 2); the teacher still
   scores and explains, and the label is marked `forced`. Retrying a failed item takes fresh cache keys.
+
+## 13. Director report (D8)
+
+`director-report --models a,b [--base id]` runs each model on the 500 frozen test cases, five calls per case (as
+labelled with grammar on and off, two more option orders, ids renamed to C1, C2…; all cached), and writes
+`harness/reports/<name>.md` and `.json`.
+
+- **Metrics:** JSON and allowed-choice validity (grammar on and off), top-1 and top-2 against Claude's labels, mean
+  regret (Claude's mean score of its best minus that of the pick; an invalid pick costs the worst score), Wait
+  accuracy on wait-right and wait-wrong cases, same choice over three orders, same choice with ids renamed, invented
+  facts per 50 reasons, injection (valid and allowed on the cases with instruction-like names), p50/p95 latency, and
+  how often it picks Wait. Top-1 per arc and beat.
+- **always-Wait baseline:** scored without a model (Wait when offered, else the first option): 65% top-1 on this set.
+  A ship bar column says whether a model beats it.
+- **Invented facts (automatic only):** names not in the briefing, plus claims about food, raids, deaths, cold, disease
+  or mental breaks that the briefing has no word for. The spec's Claude judge pass is skipped to save API credits; the
+  report lists examples to check by eye.
+- **Not here:** lift needs the same-size prompted base in the same report (`--base`). Claude as a model row needs
+  `--confirm-spend`.

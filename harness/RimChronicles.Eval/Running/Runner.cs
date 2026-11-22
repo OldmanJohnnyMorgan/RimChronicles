@@ -239,7 +239,7 @@ public static class Runner
         return id;
     }
 
-    private static (string? Commit, bool? Dirty) GitInfo()
+    internal static (string? Commit, bool? Dirty) GitInfo()
     {
         try
         {

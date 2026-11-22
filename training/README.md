@@ -136,3 +136,23 @@ dotnet run --project harness/RimChronicles.Eval -- director-dataset --tier Recom
 The dataset keeps at most 40% Wait among training cases (`--max-wait-share`; val and test keep the real mix): D0's
 student waited in 78% of answers after training on 48% Wait. Commit `training/data/labels/local-gemma4-12b`
 (`items.jsonl`, `labels.jsonl`, `labels-final.jsonl`) and push, as for the pilot.
+
+## D8: the director report
+
+`director-report` scores models on the frozen test set (500 cases, seed 9001, Claude's labels in
+`training/data/labels/test-v1`) and writes `harness/reports/<name>.md` and `.json`: the training spec §7 metrics, the
+ship bars, and top-1 per arc and beat. Every case runs five ways (grammar on and off, two more option orders, ids
+renamed), so it's 2,500 calls per model, all cached. An **always-Wait** row is scored beside the models: 65% of the
+test answers are Wait, so a model has to beat it. Run it in **PowerShell** with the GPU free.
+
+**The prompted baseline** (about 15 min for E2B, 25 for E4B, an hour for 12B):
+
+```powershell
+cd C:\RimworldMods\RimChronicles\RimChronicles
+dotnet run --project harness/RimChronicles.Eval -- director-report --models gemma4-e2b,gemma4-e4b,gemma4-12b --name base-v1
+```
+
+`--count 50` gives a quick look on 50 cases spread over the set. A fine-tuned model is added to `harness/models.json`
+(or a config passed with `--config`) and compared with its prompted base: `--models gemma4-e2b,rimchron-director-e2b
+--base gemma4-e2b`. Claude models are refused unless `--confirm-spend` is given. Commit the report under
+`harness/reports/`: a model becomes a preset only after its report is committed.
