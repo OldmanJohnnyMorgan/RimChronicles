@@ -4,6 +4,7 @@ using RimChronicles.Eval.Config;
 using RimChronicles.Eval.Judging;
 using RimChronicles.Eval.Reporting;
 using RimChronicles.Eval.Running;
+using RimChronicles.Llm.Prompts;
 
 const string usage = """
     rimchron-eval <command> [options]
@@ -75,8 +76,9 @@ const string usage = """
       --temperature <t>        Sampling temperature (default 0.7)
       --seed <n>               Selection and shuffling seed (default 1)
       --out <dir>              Pack folder (default training/data/labels/local-<model>); run again to carry on
+      --no-wait-rule           Accept labels that contradict a case's waitExpected (default: reject and ask again)
       --recheck <dir>          Calibrate instead: label exactly the cases of a labelled folder (e.g. the pilot) into
-                               results/label-check-<model> and report agreement with its labels
+                               results/label-check-<model>-<rubric> and report agreement with its labels
 
     director-dataset options:
       --labels a,b             Label folders with labels-final.jsonl (default training/data/labels/*)
@@ -103,7 +105,7 @@ var valueOptions = new HashSet<string>
 {
     "config", "prompts", "snapshots-dir", "passbars", "models", "tasks", "snapshots", "repeats", "out", "cache", "compare", "rate", "seed", "vram-budget", "temperature", "count", "from", "cases", "repeat", "pack", "labels", "tier", "test-seeds", "max-wait-share", "recheck",
 };
-var flags = new HashSet<string> { "no-cache", "dry-run", "judge", "resample" };
+var flags = new HashSet<string> { "no-cache", "dry-run", "judge", "resample", "no-wait-rule" };
 
 CliArgs cli;
 try
@@ -252,7 +254,8 @@ try
             var recheck = cli.Get("recheck") is { } rc ? Path.GetFullPath(rc) : null;
             // A recheck goes under results/, never training/data/labels/, so calibration labels can't reach a dataset.
             var outDir = cli.Get("out") is { } lo ? Path.GetFullPath(lo)
-                : recheck is not null ? Path.Combine(outRoot, $"label-check-{teacher.Id}") : Path.Combine(labelsRoot, $"local-{teacher.Id}");
+                : recheck is not null ? Path.Combine(outRoot, $"label-check-{teacher.Id}-{PromptLibrary.Load(promptsRoot).Get("director-teacher").Meta.Version}")
+                : Path.Combine(labelsRoot, $"local-{teacher.Id}");
             var onlyCases = recheck is null ? null
                 : RimChronicles.Eval.DirectorCases.DirectorLabelCommand.LabelledCases(recheck);
             var labelOptions = new RimChronicles.Eval.DirectorCases.LabelOptions
@@ -264,6 +267,7 @@ try
                 SkipLabelDirs = recheck is not null || !Directory.Exists(labelsRoot)
                     ? [] : Directory.GetDirectories(labelsRoot).Where(d => Path.GetFullPath(d) != outDir).ToList(),
                 OnlyCases = onlyCases,
+                EnforceWait = !cli.Has("no-wait-rule"),
                 Count = onlyCases?.Count ?? cli.Int("count", 4000),
                 Samples = cli.Int("repeats", 3),
                 Seed = cli.Int("seed", 1),

@@ -38,6 +38,11 @@ public sealed record LabelOptions
     /// <summary>Generator seeds of the frozen test split: never labelled by a local teacher.</summary>
     public IReadOnlySet<int> TestSeeds { get; init; } = new HashSet<int> { 9001 };
 
+    /// <summary>Reject a label that contradicts the case's <c>waitExpected</c> (set by the generator by construction,
+    /// the same rule the hand labels matched 20/20 and 222/222), so a teacher that never pauses can't teach that.
+    /// Open cases (null) are left to the teacher.</summary>
+    public bool EnforceWait { get; init; } = true;
+
     /// <summary>Attempts per item before it's recorded as a failure (each retry is a new sample, so a new cache key).</summary>
     public int MaxAttempts { get; init; } = 3;
 }
@@ -66,6 +71,14 @@ public static class DirectorLabelCommand
         var labelsPath = Path.Combine(o.OutDir, "labels.jsonl");
         var failuresPath = Path.Combine(o.OutDir, "failures.jsonl");
 
+        var version = $"{DirectorLabels.TeacherTask}/{prompt.Meta.Version}";
+        if (File.Exists(itemsPath) && File.ReadLines(itemsPath).FirstOrDefault(l => l.Trim().Length > 0) is { } first
+            && JsonNode.Parse(first)!["promptVersion"]?.GetValue<string>() is { } planned && planned != version)
+        {
+            throw new ArgumentException($"{o.OutDir} was labelled with {planned}, not {version}: "
+                + "use another --out, or delete the folder to start over (finished calls stay in the cache).");
+        }
+
         var items = File.Exists(itemsPath) ? LoadItems(itemsPath) : PlanItems(o, prompt.Meta.Version, itemsPath, log);
         if (items.Count == 0)
         {
@@ -83,7 +96,7 @@ public static class DirectorLabelCommand
         var stats = new CacheStats();
         var identity = model.Identity();
         var clock = Stopwatch.StartNew();
-        int ok = 0, failed = 0;
+        int ok = 0, failed = 0, waitRejects = 0;
         foreach (var item in todo)
         {
             ct.ThrowIfCancellationRequested();
@@ -126,6 +139,13 @@ public static class DirectorLabelCommand
                     continue;
                 }
 
+                if (WaitMismatch(o.EnforceWait ? snapshot.Director?.WaitExpected : null, parsed.Best) is { } mismatch)
+                {
+                    waitRejects++;
+                    errors.Add(mismatch);
+                    continue;
+                }
+
                 label = new JsonObject
                 {
                     ["item"] = item.Number,
@@ -158,15 +178,24 @@ public static class DirectorLabelCommand
             {
                 var perItem = clock.Elapsed.TotalSeconds / n;
                 var left = TimeSpan.FromSeconds(perItem * (todo.Count - n));
-                log.WriteLine($"[{done.Count + n}/{items.Count}] {ok} labelled, {failed} failed; {perItem:0.0} s per item, "
+                log.WriteLine($"[{done.Count + n}/{items.Count}] {ok} labelled, {failed} failed, {waitRejects} answers against the Wait rule; {perItem:0.0} s per item, "
                     + $"about {left.TotalHours:0.0} h left (cache {stats.Hits} hits)");
             }
         }
 
+        log.WriteLine($"Answers rejected for contradicting the case's Wait rule: {waitRejects} (they were asked again).");
         log.WriteLine($"Done: {ok} labelled, {failed} failed{(failed > 0 ? $" (see {failuresPath}; run again to retry them)" : "")}. "
             + $"Next: director-labels-check --pack {o.OutDir} --cases {o.CasesDir}");
         return 0;
     }
+
+    /// <summary>Why a pick contradicts the case's expected answer about waiting, or null.</summary>
+    public static string? WaitMismatch(bool? waitExpected, string best) => waitExpected switch
+    {
+        true when best != "Wait" => "the colony is reeling and the beat is young: the case calls for Wait",
+        false when best == "Wait" => "the beat has stalled in a colony that isn't reeling: the case calls for moving on",
+        _ => null,
+    };
 
     public sealed record Item(int Number, string Case, int Sample, IReadOnlyList<string> Order);
 

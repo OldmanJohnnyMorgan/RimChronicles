@@ -97,12 +97,12 @@ latency. The answers needn't be good yet (30 steps on 44 cases); D0 only proves 
 ## D4b: bulk labels from the local teacher
 
 The local Gemma 12B (`gemma4-12b` in `harness/models.json`) labels the training cases with the same rubric Claude used
-(`prompts/director-teacher/v1`). Everything runs in **PowerShell** and needs the GPU: close RimWorld and any other
+(`prompts/director-teacher/`, now v2). Everything runs in **PowerShell** and needs the GPU: close RimWorld and any other
 training job. Each call is constrained to the shown options, checked like a hand label, cached and saved as it finishes,
 so **Ctrl+C is safe**: run the same command again and it carries on.
 
 **1. Calibrate on the pilot (about 150 calls):** the 12B re-labels the 50 cases Claude labelled, into
-`results\label-check-gemma4-12b` (outside `training\data\labels`, so it can never be trained on), and reports how often
+`results\label-check-gemma4-12b-v2` (outside `training\data\labels`, so it can never be trained on), and reports how often
 it agrees with Claude, plus the time per call.
 
 ```powershell
