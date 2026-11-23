@@ -3,6 +3,7 @@ using RimChronicles.Core.Crisis.Battle;
 using RimChronicles.Core.Crisis.Operations;
 using RimChronicles.Core.Crisis.Siege;
 using RimChronicles.Core.Crisis.Units;
+using RimChronicles.Game.Crisis.Captives;
 using RimChronicles.Game.Crisis.Psykers;
 using RimChronicles.Game.Crisis.Siege;
 using RimChronicles.Game.Crisis.Units;
@@ -22,6 +23,9 @@ namespace RimChronicles.Game.Crisis.Operations;
 public sealed class LordJob_RcOperation : LordJob
 {
     private const int FocusTicks = 250;
+
+    /// <summary>A soldier this close to a held captive frees them (Retrieval).</summary>
+    public const float FreeReach = 1.9f;
 
     public string operation = "";
     public CrisisStage stage;
@@ -72,6 +76,7 @@ public sealed class LordJob_RcOperation : LordJob
                 PhaseKind.Breach => new LordToil_AssaultColonyBreaching(),
                 PhaseKind.Travel => new LordToil_Travel(siege?.spot ?? staging),
                 PhaseKind.Siege => new LordToil_RcSiege(),
+                PhaseKind.Retrieve => new LordToil_RcRetrieve(),
                 _ => new LordToil_RcAssault(),
             };
             toils[phase.Name] = toil;
@@ -102,7 +107,8 @@ public sealed class LordJob_RcOperation : LordJob
     {
         PhaseTrigger.LossesOver => new Trigger_FractionPawnsLost(link.Value),
         PhaseTrigger.TimeUp => new Trigger_TicksPassed((int)link.Value),
-        PhaseTrigger.TargetDown => new Trigger_TickCondition(() => target is null || target.Dead || target.Downed || !target.Spawned || target.Map != Map, 60),
+        PhaseTrigger.TargetDown => new Trigger_TickCondition(() => target is null || target.Dead || target.Downed || !target.Spawned || target.Map != Map
+            || (lord.faction is { } own && target.Faction == own), 60), // a freed captive is the Empire's again
         PhaseTrigger.Arrived => new Trigger_Memo("TravelArrived"),
         PhaseTrigger.BuildersLost => new Trigger_TickCondition(() => siege is not null && siege.AfterBuilders(lord) == AfterBuilders.Assault, 250),
         _ => new Trigger_TickCondition(() => !dev && Abandoned(), 250),
@@ -143,6 +149,11 @@ public sealed class LordJob_RcOperation : LordJob
     public override void LordJobTick()
     {
         base.LordJobTick();
+        if (operation == CrisisOperations.Retrieval && Find.TickManager.TicksGame % 60 == 0)
+        {
+            TryFree();
+        }
+
         if (siege is not null && Find.TickManager.TicksGame % 250 == 0 && lord.CurLordToil is not LordToil_RcRetreat)
         {
             siege.JobTick(lord, this);
@@ -171,6 +182,25 @@ public sealed class LordJob_RcOperation : LordJob
         {
             Log.Message($"[Rim Chronicles] Crisis {operation}: {outcome}.");
         }
+    }
+
+    /// <summary>Retrieval: a standing soldier beside the held captive frees them; they join the squad and leave with it.</summary>
+    private void TryFree()
+    {
+        if (target is not { IsPrisonerOfColony: true, Dead: false, Spawned: true } captive || lord.faction is not { } faction
+            || !lord.ownedPawns.Any(p => p.Spawned && !p.Downed && p.Map == captive.Map && p.Position.DistanceTo(captive.Position) <= FreeReach))
+        {
+            return;
+        }
+
+        captive.guest.SetGuestStatus(null);
+        if (captive.Faction != faction)
+        {
+            captive.SetFaction(faction);
+        }
+
+        lord.AddPawn(captive);
+        Messages.Message($"The Imperial strike force has freed {captive.LabelShort}.", captive, MessageTypeDefOf.NegativeEvent);
     }
 
     /// <summary>The lord is gone (everyone dead, downed or left): an operation that never ended otherwise was beaten.</summary>
@@ -229,9 +259,9 @@ public sealed class LordJob_RcOperation : LordJob
 
         _focusTick = now;
         _focus = null;
-        if (target is { Dead: false, Downed: false, Spawned: true } hunted && hunted.Map == Map)
+        if (target is { Dead: false, Downed: false, Spawned: true, IsPrisonerOfColony: false } hunted && hunted.Map == Map && hunted.Faction != lord.faction)
         {
-            return _focus = hunted;
+            return _focus = hunted; // never a captive they came to free
         }
 
         if (Map is null || lord.faction is not { } faction || lord.ownedPawns.Count == 0)
@@ -326,7 +356,8 @@ public sealed class LordToil_RcRetreat() : LordToil_ExitMap(LocomotionUrgency.Jo
 
         var (view, _) = BattleViewBuilder.For(map, faction);
         var carriers = lord.ownedPawns.Where(p => p.Spawned && !p.Downed && p.carryTracker?.CarriedThing is null
-            && p.CurJobDef != JobDefOf.CarryDownedPawnToExit).ToList();
+            && p.CurJobDef != JobDefOf.CarryDownedPawnToExit && p.CurJobDef != JobDefOf.Kidnap).ToList();
+        Kidnap(map, carriers);
         foreach (var downed in map.mapPawns.SpawnedPawnsInFaction(faction).Where(p => p.Downed && !p.Dead && UnitKit.Unit(p.kindDef) is not null).ToList())
         {
             if (carriers.Count == 0)
@@ -350,6 +381,28 @@ public sealed class LordToil_RcRetreat() : LordToil_ExitMap(LocomotionUrgency.Jo
             carrier.jobs.StartJob(JobMaker.MakeJob(JobDefOf.CarryDownedPawnToExit, downed, exit), JobCondition.InterruptForced);
             carriers.Remove(carrier);
         }
+    }
+
+    /// <summary>Retrieval: a downed defector it came for is carried off the map, kidnapped as vanilla raiders kidnap.</summary>
+    private void Kidnap(Map map, List<Pawn> carriers)
+    {
+        if (lord.LordJob is not LordJob_RcOperation { operation: CrisisOperations.Retrieval, target: { Downed: true, Dead: false, Spawned: true } defector }
+            || defector.Map != map || defector.Faction != Faction.OfPlayer || carriers.Count == 0
+            || lord.ownedPawns.Any(p => p.CurJobDef == JobDefOf.Kidnap))
+        {
+            return;
+        }
+
+        var carrier = carriers.Where(c => c.CanReserveAndReach(defector, PathEndMode.OnCell, Danger.Deadly)).OrderBy(c => c.Position.DistanceTo(defector.Position)).FirstOrDefault();
+        if (carrier is null || !RCellFinder.TryFindBestExitSpot(carrier, out var exit))
+        {
+            return;
+        }
+
+        var job = JobMaker.MakeJob(JobDefOf.Kidnap, defector, exit);
+        job.count = 1;
+        carrier.jobs.StartJob(job, JobCondition.InterruptForced);
+        carriers.Remove(carrier);
     }
 }
 

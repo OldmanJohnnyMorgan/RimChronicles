@@ -36,6 +36,7 @@ public static class PieceXml
         ["RimChronicles_ImperialShield"] = new(1, 1, false, CellKind.PassThrough),
         ["RimChronicles_PsychicRelay"] = new(2, 2, false, CellKind.PassThrough),
         ["RimChronicles_ImperialDropBeacon"] = new(1, 1, false, CellKind.PassThrough),
+        ["RimChronicles_ImperialRecords"] = new(1, 1, false, CellKind.Floor), // an item: walkable
     };
 
     public static string PiecesFile => Repo.Path("Defs", "PrefabDefs", "RimChronicles_Pieces.xml");

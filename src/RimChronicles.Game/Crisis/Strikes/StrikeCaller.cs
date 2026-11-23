@@ -93,6 +93,14 @@ public sealed class MapComponent_RcStrikes(Map map) : MapComponent(map)
         if (StrikeRules.Pick(Candidates(empire, heralds, uplink, goal), _state, goal) is { } pick)
         {
             var cell = new IntVec3(pick.Target.Cell.X, 0, pick.Target.Cell.Z);
+            if (RimChroniclesGameComponent.Current?.Crisis.TryUseJam() == true)
+            {
+                _state.Struck(pick.Target.Cell, tick); // the codes scrambled it: it counts, and nothing comes down (C10 intel)
+                Messages.Message("An Imperial orbital strike was called, and failed: the colony's stolen uplink codes scrambled it.",
+                    new TargetInfo(cell, map), MessageTypeDefOf.PositiveEvent);
+                return;
+            }
+
             Call(cell, pick.Kind, heralds.Where(h => Sees(h, cell)).OrderBy(h => h.Position.DistanceTo(cell)).FirstOrDefault(), dev: false);
         }
     }

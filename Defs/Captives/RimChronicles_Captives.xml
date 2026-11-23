@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Captives, interrogation and intel (crisis spec §5.6, C10). Interrogate is a non-exclusive prisoner mode (a checkbox
+  beside recruit, convert and the rest), shown for every prisoner; the work giver skips, with a reason, those with
+  nothing to tell (tech spec R21). It needs Royalty, like the rest of the crisis.
+-->
+<Defs>
+
+  <PrisonerInteractionModeDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Interrogate</defName>
+    <label>interrogate (Imperial intel)</label>
+    <description>A warden questions this prisoner about the Empire: its sites, its next moves, its codes. Only Imperial troops know anything; higher ranks know more and give it up more slowly. Each session also wears down their resistance.</description>
+    <listOrder>90</listOrder>
+    <isNonExclusiveInteraction>true</isNonExclusiveInteraction>
+    <allowOnWildMan>false</allowOnWildMan>
+    <mustBeAwake>true</mustBeAwake>
+  </PrisonerInteractionModeDef>
+
+  <WorkGiverDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Interrogate</defName>
+    <label>interrogate Imperial prisoners</label>
+    <giverClass>RimChronicles.Game.Crisis.Captives.WorkGiver_RcInterrogate</giverClass>
+    <workType>Warden</workType>
+    <verb>interrogate</verb>
+    <gerund>interrogating</gerund>
+    <priorityInType>65</priorityInType>
+    <requiredCapacities>
+      <li>Talking</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+
+  <JobDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_InterrogateJob</defName>
+    <driverClass>RimChronicles.Game.Crisis.Captives.JobDriver_RcInterrogate</driverClass>
+    <reportString>interrogating TargetA.</reportString>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+  <InteractionDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_InterrogateInteraction</defName>
+    <label>interrogate</label>
+    <workerClass>RimChronicles.Game.Crisis.Captives.InteractionWorker_RcInterrogate</workerClass>
+    <symbol>Things/Mote/SpeechSymbols/Chitchat</symbol>
+    <initiatorXpGainSkill>Social</initiatorXpGainSkill>
+    <initiatorXpGainAmount>6</initiatorXpGainAmount>
+    <logRulesInitiator>
+      <rulesStrings>
+        <li>r_logentry->[INITIATOR_nameDef] [questioned] [RECIPIENT_nameDef] about [subject].</li>
+        <li>questioned->questioned</li>
+        <li>questioned->pressed</li>
+        <li>questioned->interrogated</li>
+        <li>subject->the Empire's plans</li>
+        <li>subject->Imperial positions</li>
+        <li>subject->their orders</li>
+        <li>subject->their commanders</li>
+      </rulesStrings>
+    </logRulesInitiator>
+  </InteractionDef>
+
+  <!-- Retrieval's soldiers (C10): fight back, close in on the held captive, and dig through walls to reach them. -->
+  <DutyDef>
+    <defName>RimChronicles_Retrieve</defName>
+    <alwaysShowWeapon>true</alwaysShowWeapon>
+    <thinkNode Class="ThinkNode_Priority">
+      <subNodes>
+        <li Class="JobGiver_TakeCombatEnhancingDrug" />
+        <li Class="JobGiver_AIFightEnemies">
+          <targetAcquireRadius>12</targetAcquireRadius>
+          <targetKeepRadius>15</targetKeepRadius>
+        </li>
+        <li Class="RimChronicles.Game.Crisis.Captives.JobGiver_RcReachCaptive" />
+        <li Class="JobGiver_AISapper" />
+        <li Class="JobGiver_AIFightEnemies">
+          <targetAcquireRadius>65</targetAcquireRadius>
+          <targetKeepRadius>72</targetKeepRadius>
+        </li>
+      </subNodes>
+    </thinkNode>
+  </DutyDef>
+
+  <!-- A dispatch found in an Imperial site's records room: reading it gives one intel item (C10). -->
+  <ThingDef ParentName="ResourceBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_ImperialRecords</defName>
+    <label>Imperial dispatch</label>
+    <description>Sealed orders and reports from an Imperial site. A colonist who reads it learns something of the Empire's plans.</description>
+    <thingClass>ThingWithComps</thingClass>
+    <graphicData>
+      <texPath>Things/Item/Book/Schematic/Schematic</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.8</drawSize>
+    </graphicData>
+    <stackLimit>1</stackLimit>
+    <useHitPoints>true</useHitPoints>
+    <statBases>
+      <MaxHitPoints>50</MaxHitPoints>
+      <Mass>0.3</Mass>
+      <MarketValue>200</MarketValue>
+      <Flammability>1</Flammability>
+    </statBases>
+    <thingCategories>
+      <li>ItemsMisc</li>
+    </thingCategories>
+    <tradeability>None</tradeability>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <useJob>UseItem</useJob>
+        <useLabel>Read {0_label}</useLabel>
+        <useDuration>600</useDuration>
+        <showUseGizmo>true</showUseGizmo>
+      </li>
+      <li Class="CompProperties_UseEffect">
+        <compClass>RimChronicles.Game.Crisis.Captives.CompUseEffect_ReadRecords</compClass>
+      </li>
+      <li Class="CompProperties_UseEffectDestroySelf" />
+    </comps>
+  </ThingDef>
+
+  <!-- Intel items (crisis spec §5.6). ranks: who can give it up. effect: what it does (IntelEffects in Core).
+       expiryDays: when the log entry goes stale (0: never). -->
+
+  <RimChronicles.Game.Crisis.Captives.IntelDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Intel_Garrison</defName>
+    <label>patrol routes and garrison size</label>
+    <ranks><li>Soldier</li><li>Breacher</li></ranks>
+    <effect>Garrison</effect>
+    <expiryDays>15</expiryDays>
+  </RimChronicles.Game.Crisis.Captives.IntelDef>
+
+  <RimChronicles.Game.Crisis.Captives.IntelDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Intel_NextOperation</defName>
+    <label>next operation</label>
+    <ranks><li>Breacher</li><li>Soldier</li><li>Herald</li></ranks>
+    <effect>NextOperation</effect>
+    <expiryDays>15</expiryDays>
+    <weight>2</weight>
+  </RimChronicles.Game.Crisis.Captives.IntelDef>
+
+  <RimChronicles.Game.Crisis.Captives.IntelDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Intel_UplinkCodes</defName>
+    <label>uplink codes</label>
+    <ranks><li>Herald</li></ranks>
+    <effect>UplinkCodes</effect>
+    <expiryDays>20</expiryDays>
+    <weight>2</weight>
+  </RimChronicles.Game.Crisis.Captives.IntelDef>
+
+  <RimChronicles.Game.Crisis.Captives.IntelDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Intel_RelayLocation</defName>
+    <label>relay location</label>
+    <ranks><li>Psyker</li></ranks>
+    <effect>RelayLocation</effect>
+    <weight>2</weight>
+  </RimChronicles.Game.Crisis.Captives.IntelDef>
+
+  <RimChronicles.Game.Crisis.Captives.IntelDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Intel_CitadelPlans</defName>
+    <label>Citadel plans</label>
+    <ranks><li>Officer</li></ranks>
+    <effect>CitadelPlans</effect>
+  </RimChronicles.Game.Crisis.Captives.IntelDef>
+
+</Defs>

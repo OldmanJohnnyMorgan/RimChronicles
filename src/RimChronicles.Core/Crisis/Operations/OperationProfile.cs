@@ -28,6 +28,9 @@ public enum PhaseKind
 
     /// <summary>Dig in: build the camp in stages, man its mortars and defend it.</summary>
     Siege,
+
+    /// <summary>Go for one held pawn: free a captive, or bring down a defector.</summary>
+    Retrieve,
 }
 
 /// <summary>What moves an operation from one phase to the next.</summary>
@@ -198,6 +201,21 @@ public static class OperationProfiles
         RetreatPhase,
     ], ForceShare: 0.7f, ReserveShare: 0.3f);
 
+    /// <summary>Retrieval (crisis spec §5.2, §5.6): drop in near a captive or defector the colony holds and go for
+    /// them. A freed captive, or a defector down or dead, ends it (the retreat carries a downed one off); so do heavy
+    /// losses, or running out of time.</summary>
+    public static readonly OperationProfile Retrieval = new(CrisisOperations.Retrieval, "retrieve",
+    [
+        new("retrieve", PhaseKind.Retrieve,
+        [
+            new(PhaseTrigger.TargetDown, Retreat),
+            new(PhaseTrigger.LossesOver, Retreat, 0.5f),
+            new(PhaseTrigger.TimeUp, Retreat, HuntTicks) { Outcome = OperationOutcome.Repelled },
+            new(PhaseTrigger.Abandoned, Retreat),
+        ]),
+        RetreatPhase,
+    ], ForceShare: 0.8f);
+
     /// <summary>The finale's assault fights to the end; it only pulls out if the crisis itself ends.</summary>
     public static readonly OperationProfile FinalAssault = new(CrisisOperations.FinalAssault, "assault",
     [
@@ -212,6 +230,7 @@ public static class OperationProfiles
         CrisisOperations.FinalAssault => FinalAssault,
         CrisisOperations.Breach => Standard(operation, PhaseKind.Breach),
         CrisisOperations.SiegeWithBombardment => Siege,
+        CrisisOperations.Retrieval => Retrieval,
         _ => Standard(operation),
     };
 }

@@ -376,4 +376,39 @@
     </modExtensions>
   </PrefabDef>
 
+  <!-- Records room (C10): a walled office holding one Imperial dispatch; a colonist who reads it gains one intel item. -->
+  <PrefabDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Piece_RecordsRoom</defName>
+    <size>(7,6)</size>
+    <things>
+      <Wall>
+        <rects>
+          <li>(0,0,2,0)</li>
+          <li>(4,0,6,0)</li>
+          <li>(0,5,6,5)</li>
+          <li>(0,1,0,4)</li>
+          <li>(6,1,6,4)</li>
+        </rects>
+      </Wall>
+      <Door>
+        <position>(3, 0, 0)</position>
+      </Door>
+      <Shelf>
+        <position>(4, 0, 4)</position>
+      </Shelf>
+      <RimChronicles_ImperialRecords>
+        <position>(2, 0, 3)</position>
+      </RimChronicles_ImperialRecords>
+      <TorchLamp>
+        <position>(1, 0, 1)</position>
+      </TorchLamp>
+    </things>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <tags><li>Room</li><li>Records</li></tags>
+        <doorSides><li>South</li></doorSides>
+      </li>
+    </modExtensions>
+  </PrefabDef>
+
 </Defs>

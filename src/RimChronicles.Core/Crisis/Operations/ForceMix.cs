@@ -75,6 +75,21 @@ public static class ForceMix
         new(UnitRole.Adept, Specialty.Ward, 1),
     ];
 
+    /// <summary>Retrieval: Praetorians to fight through, a Breacher for the walls of the cell, a Skip Adept to pull the
+    /// captive out, a Ward Adept to cover the way back, and a Herald from stage 3.</summary>
+    public static readonly IReadOnlyList<MixEntry> Retrieval =
+    [
+        new(UnitRole.Praetorian, Specialty.None, 4),
+        new(UnitRole.Breacher, Specialty.None, 1),
+        new(UnitRole.Adept, Specialty.Skip, 1),
+        new(UnitRole.Adept, Specialty.Ward, 1),
+        new(UnitRole.Herald, Specialty.None, 1, CrisisStage.War),
+    ];
+
+    /// <summary>A mix with half as many adepts (relay intel: "the next psychic assault has fewer adepts").</summary>
+    public static IReadOnlyList<MixEntry> ShortOfAdepts(IReadOnlyList<MixEntry> mix) =>
+        mix.Select(e => e.Role == UnitRole.Adept ? e with { Weight = e.Weight / 2 } : e).ToList();
+
     /// <summary>A site's garrison (C9): Praetorians on the walls, with what the site guards. An outpost has a Herald
     /// from stage 3; a relay keeps its psykers; an uplink its Heralds.</summary>
     public static IReadOnlyList<MixEntry> ForSite(string archetype) => archetype switch
@@ -107,6 +122,7 @@ public static class ForceMix
         CrisisOperations.Breach => Breach,
         CrisisOperations.PsychicAssault => PsychicAssault,
         CrisisOperations.SiegeWithBombardment => SiegeWithBombardment,
+        CrisisOperations.Retrieval => Retrieval,
         _ => Assault,
     };
 

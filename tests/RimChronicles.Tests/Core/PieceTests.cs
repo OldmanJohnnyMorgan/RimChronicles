@@ -69,7 +69,7 @@ public class PieceTests
 
         var defs = new Dictionary<string, XElement>();
         var files = Directory.EnumerateFiles(root, "*.xml", SearchOption.AllDirectories)
-            .Concat(Directory.EnumerateFiles(Repo.Path("Defs", "ThingDefs"), "*.xml")); // the mod's own, after the game's
+            .Concat(Directory.EnumerateFiles(Repo.Path("Defs"), "*.xml", SearchOption.AllDirectories)); // the mod's own, after the game's
         foreach (var file in files)
         {
             XDocument doc;
@@ -114,7 +114,8 @@ public class PieceTests
             Assert.Equal($"({fp.SizeX},{fp.SizeZ})", size.Replace(" ", ""));
             Assert.Equal(fp.Rotatable, !string.Equals(Get(def, "rotatable"), "false", StringComparison.OrdinalIgnoreCase));
             var passability = Get(def, "passability");
-            var kind = name == "Door" ? CellKind.Door : passability == "Impassable" ? CellKind.Wall : CellKind.PassThrough;
+            var kind = name == "Door" ? CellKind.Door : passability == "Impassable" ? CellKind.Wall
+                : Get(def, "category") == "Item" ? CellKind.Floor : CellKind.PassThrough;
             Assert.Equal(fp.Kind, kind);
         }
     }
