@@ -41,7 +41,7 @@ dotnet build RimChronicles.slnx
 
 | # | Do | Pass when |
 | --- | --- | --- |
-| 1 | **Crisis: check pieces**. | "14 pieces loaded" (the five starters, C8's three siege pieces, C9's five site rooms and C10's records room), none left out, and a picture of each. |
+| 1 | **Crisis: check pieces**. | "16 pieces loaded" (the five starters, C8's three siege pieces, C9's five site rooms, C10's records room and C12's throne room and vault), none left out, and a picture of each. |
 | 2 | **Crisis: stamp piece** → each piece, click on open ground. | Each spawns; the message says "the footprint matches the planner's". Walls, doors and beds are made of stone blocks or steel; sandbags of cloth. |
 | 3 | **Crisis: turn pieces**, then stamp the mortar pit and the barracks again; repeat for all four facings. | Each facing matches the planner's footprint. The mortar's crew spot (one cell in front of it) is open at every facing. |
 | 4 | Stamp a piece on top of a wall or rock. | Refused: "it doesn't fit there"; nothing spawns. |

@@ -72,7 +72,21 @@ public sealed class CellGrid
         set => _kinds[c.X, c.Z] = value;
     }
 
-    /// <summary>The piece (its index in the plan) whose footprint covers the cell, or -1.</summary>
+    /// <summary>Owner of a cell kept free for something planned elsewhere (the Citadel's inner rings).</summary>
+    public const int Reserved = -2;
+
+    /// <summary>Keeps <paramref name="rect"/> free: no piece, wall, conduit or defender goes there.</summary>
+    public void Reserve(Rect rect)
+    {
+        foreach (var c in rect.Cells().Where(InBounds))
+        {
+            _owner[c.X, c.Z] = Reserved;
+        }
+    }
+
+    public bool IsReserved(Cell c) => _owner[c.X, c.Z] == Reserved;
+
+    /// <summary>The piece (its index in the plan) whose footprint covers the cell, -1 for none, or <see cref="Reserved"/>.</summary>
     public int Owner(Cell c) => _owner[c.X, c.Z];
 
     public bool Conduit(Cell c) => _conduit[c.X, c.Z];
@@ -88,7 +102,7 @@ public sealed class CellGrid
             for (var z = 0; z < spec.SizeZ; z++)
             {
                 var c = new Cell(min.X + x, min.Z + z);
-                if (!area.Contains(c) || !InBounds(c) || _owner[c.X, c.Z] >= 0 || _kinds[c.X, c.Z] != CellKind.Empty)
+                if (!area.Contains(c) || !InBounds(c) || _owner[c.X, c.Z] != -1 || _kinds[c.X, c.Z] != CellKind.Empty)
                 {
                     return false;
                 }

@@ -131,6 +131,16 @@ public sealed class CrisisState : IArchivable
     /// <summary>The next operation's budget is multiplied by this, once (a released captive).</summary>
     public float NextBudgetFactor = 1;
 
+    // ---- sites and the Citadel (C9, C12)
+
+    /// <summary>Relay and uplink sites the colony destroyed: each takes one relay or uplink from the Citadel's courtyard.</summary>
+    public int RelaySitesDestroyed;
+
+    public int UplinkSitesDestroyed;
+
+    /// <summary>The world-object id of the settlement whose map is the Citadel (-1 until it's generated).</summary>
+    public int CitadelSettlementId = -1;
+
     public int Released;
     public int Executed;
     public int Harvested;
@@ -275,6 +285,9 @@ public sealed class CrisisState : IArchivable
         archive.Value(ref AdeptShortfall, "adeptShortfall");
         archive.Value(ref KeepEntranceKnown, "keepEntranceKnown");
         archive.Value(ref NextBudgetFactor, "nextBudgetFactor", 1f);
+        archive.Value(ref RelaySitesDestroyed, "relaySitesDestroyed");
+        archive.Value(ref UplinkSitesDestroyed, "uplinkSitesDestroyed");
+        archive.Value(ref CitadelSettlementId, "citadelSettlementId", -1);
         archive.Value(ref Released, "released");
         archive.Value(ref Executed, "executed");
         archive.Value(ref Harvested, "harvested");

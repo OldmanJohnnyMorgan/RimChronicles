@@ -57,7 +57,7 @@ public static class SiteStamper
         var origin = new IntVec3(
             Math.Clamp(map.Center.x - (plan.Grid.Width / 2), 0, Math.Max(0, map.Size.x - plan.Grid.Width)), 0,
             Math.Clamp(map.Center.z - (plan.Grid.Height / 2), 0, Math.Max(0, map.Size.z - plan.Grid.Height)));
-        var objectives = Stamp(map, plan, origin, archetype, empire);
+        var objectives = Stamp(map, plan, origin, archetype.objectiveThing, archetype.label, empire, roads: true);
         var centre = At(origin, plan.Ring.Centre);
         if (MapComponent_RcSite.For(map) is { } site)
         {
@@ -81,7 +81,9 @@ public static class SiteStamper
 
     /// <summary>Clears the ground, then spawns the walls and gates, the pieces and the conduits, all owned by the
     /// Empire, and returns the objective buildings.</summary>
-    public static List<Thing> Stamp(Map map, SitePlan plan, IntVec3 origin, SiteArchetypeDef archetype, Faction empire)
+    /// <summary>With <paramref name="roads"/>, also clears a road from each gate to the map edge (not for a ring
+    /// inside another: the road would cut through the outer ring).</summary>
+    public static List<Thing> Stamp(Map map, SitePlan plan, IntVec3 origin, ThingDef? objectiveThing, string label, Faction empire, bool roads)
     {
         var palette = StuffPalette.Imperial;
         var rect = new CellRect(origin.x, origin.z, plan.Grid.Width, plan.Grid.Height).ClipInsideMap(map);
@@ -91,7 +93,10 @@ public static class SiteStamper
             Clear(map, cell, clearPlants: true);
         }
 
-        ClearRoads(map, plan, origin);
+        if (roads)
+        {
+            ClearRoads(map, plan, origin);
+        }
         foreach (var wall in plan.Walls)
         {
             Spawn(map, ThingDefOf.Wall, At(origin, wall), empire, palette);
@@ -114,13 +119,13 @@ public static class SiteStamper
             var spawned = new List<Thing>();
             if (!PieceStamper.Instant(prefab, map, At(origin, placement.Min), new Rot4((int)placement.Rotation), empire, palette, spawned))
             {
-                Log.Warning($"[Rim Chronicles] {archetype.label}: {placement.Piece.Name} didn't fit at {At(origin, placement.Min)}.");
+                Log.Warning($"[Rim Chronicles] {label}: {placement.Piece.Name} didn't fit at {At(origin, placement.Min)}.");
                 continue;
             }
 
             if (placement.Role == SiteRole.Objective)
             {
-                objectives.AddRange(spawned.Where(t => t.def == archetype.objectiveThing));
+                objectives.AddRange(spawned.Where(t => t.def == objectiveThing));
             }
         }
 
@@ -286,6 +291,14 @@ public sealed class MapComponent_RcSite(Map map) : MapComponent(map)
         if (archetype.capability is { Length: > 0 } capability && RimChroniclesGameComponent.Current is { } component)
         {
             component.Crisis.Hold(capability, today + archetype.capabilityDays);
+            if (capability == CrisisCapability.Psykers)
+            {
+                component.Crisis.RelaySitesDestroyed++; // one relay fewer in the Citadel's courtyard (C12)
+            }
+            else if (capability == CrisisCapability.Strikes)
+            {
+                component.Crisis.UplinkSitesDestroyed++;
+            }
         }
 
         var (label, text) = archetype.capability switch

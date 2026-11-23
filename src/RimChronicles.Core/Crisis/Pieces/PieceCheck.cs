@@ -22,7 +22,7 @@ public static class PieceCheck
             problems.Add($"{source.Name}: no tags");
         }
 
-        if (meta.DoorSides.Count == 0)
+        if (meta.DoorSides.Count == 0 && !meta.Tags.Contains("Sealed")) // a sealed vault is meant to be breached
         {
             problems.Add($"{source.Name}: no door sides, so nothing can connect to it");
         }

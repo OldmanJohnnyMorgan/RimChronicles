@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The Imperial Citadel (crisis spec §4.5, C12): the Empire capital's map while the crisis is at war or in its finale.
+  A prefix on MapGenerator.GenerateMap swaps this generator in, at the size the settings give (default 275).
+  Terrain and rock as for any faction base, then the three rings instead of vanilla's settlement.
+-->
+<Defs>
+
+  <MapGeneratorDef ParentName="MapCommonBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Citadel</defName>
+    <genSteps>
+      <li>RocksFromGrid</li>
+      <li>RimChronicles_Citadel</li>
+    </genSteps>
+  </MapGeneratorDef>
+
+  <GenStepDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Citadel</defName>
+    <order>400</order>
+    <genStep Class="RimChronicles.Game.Crisis.Sites.GenStep_RcCitadel" />
+  </GenStepDef>
+
+</Defs>

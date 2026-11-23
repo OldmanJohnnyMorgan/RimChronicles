@@ -90,6 +90,33 @@ public static class ForceMix
     public static IReadOnlyList<MixEntry> ShortOfAdepts(IReadOnlyList<MixEntry> mix) =>
         mix.Select(e => e.Role == UnitRole.Adept ? e with { Weight = e.Weight / 2 } : e).ToList();
 
+    /// <summary>The Citadel's garrisons (C12), ring by ring: Praetorians, a Breacher and a Herald on the outer works;
+    /// Control and Ward Adepts and a Herald in the courtyard; the keep's honor guard of Praetorians and Mind, Skip and
+    /// Ward Adepts.</summary>
+    public static IReadOnlyList<MixEntry> Citadel(int ring) => ring switch
+    {
+        0 =>
+        [
+            new(UnitRole.Praetorian, Specialty.None, 6),
+            new(UnitRole.Breacher, Specialty.None, 1),
+            new(UnitRole.Herald, Specialty.None, 1),
+        ],
+        1 =>
+        [
+            new(UnitRole.Praetorian, Specialty.None, 5),
+            new(UnitRole.Adept, Specialty.Control, 1),
+            new(UnitRole.Adept, Specialty.Ward, 1),
+            new(UnitRole.Herald, Specialty.None, 1),
+        ],
+        _ =>
+        [
+            new(UnitRole.Praetorian, Specialty.None, 4),
+            new(UnitRole.Adept, Specialty.Mind, 1),
+            new(UnitRole.Adept, Specialty.Skip, 1),
+            new(UnitRole.Adept, Specialty.Ward, 1),
+        ],
+    };
+
     /// <summary>A site's garrison (C9): Praetorians on the walls, with what the site guards. An outpost has a Herald
     /// from stage 3; a relay keeps its psykers; an uplink its Heralds.</summary>
     public static IReadOnlyList<MixEntry> ForSite(string archetype) => archetype switch
@@ -126,7 +153,7 @@ public static class ForceMix
         _ => Assault,
     };
 
-    public static IReadOnlyList<MixEntry> Build(IReadOnlyList<MixEntry> mix, CrisisStage stage, float points, Func<MixEntry, float> cost)
+    public static IReadOnlyList<MixEntry> Build(IReadOnlyList<MixEntry> mix, CrisisStage stage, float points, Func<MixEntry, float> cost, int maxUnits = MaxUnits)
     {
         var allowed = mix.Where(e => e.Weight > 0 && stage >= e.MinStage && stage >= PsycastKits.FirstStage(e.Role, e.Specialty)).ToList();
         var force = new List<MixEntry>();
@@ -137,7 +164,7 @@ public static class ForceMix
 
         var counts = allowed.ToDictionary(e => e, _ => 0);
         var left = points;
-        while (force.Count < MaxUnits)
+        while (force.Count < Math.Min(maxUnits, MaxUnits))
         {
             var next = allowed
                 .Where(e => cost(e) <= left || force.Count < MinUnits)

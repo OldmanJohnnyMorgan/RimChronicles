@@ -68,7 +68,9 @@ public class PieceTests
         }
 
         var defs = new Dictionary<string, XElement>();
+        var royalty = "/workspaces/reference/data/Royalty/Defs";
         var files = Directory.EnumerateFiles(root, "*.xml", SearchOption.AllDirectories)
+            .Concat(Directory.Exists(royalty) ? Directory.EnumerateFiles(royalty, "*.xml", SearchOption.AllDirectories) : [])
             .Concat(Directory.EnumerateFiles(Repo.Path("Defs"), "*.xml", SearchOption.AllDirectories)); // the mod's own, after the game's
         foreach (var file in files)
         {
