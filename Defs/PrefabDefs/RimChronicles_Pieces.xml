@@ -145,4 +145,84 @@
     </modExtensions>
   </PrefabDef>
 
+  <!-- Siege camp pieces for stages 3-5 (C8). They use the camp's own buildings, so they need Royalty too. -->
+
+  <!-- Stage 3: the uplink behind a sandbag row facing the colony. -->
+  <PrefabDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Piece_SiegeUplink</defName>
+    <size>(5,3)</size>
+    <things>
+      <Sandbags>
+        <rects>
+          <li>(0,2,4,2)</li>
+        </rects>
+      </Sandbags>
+      <RimChronicles_ImperialUplink>
+        <position>(2, 0, 0)</position>
+      </RimChronicles_ImperialUplink>
+    </things>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <tags><li>Uplink</li></tags>
+        <doorSides><li>South</li></doorSides>
+        <defenseValue>1</defenseValue>
+        <threatCost>150</threatCost>
+        <buildOrder>3</buildOrder>
+      </li>
+    </modExtensions>
+  </PrefabDef>
+
+  <!-- Stage 4: shield emitter and psychic relay side by side, behind a sandbag row. -->
+  <PrefabDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Piece_ShieldRelay</defName>
+    <size>(5,3)</size>
+    <things>
+      <Sandbags>
+        <rects>
+          <li>(0,2,4,2)</li>
+        </rects>
+      </Sandbags>
+      <RimChronicles_ImperialShield>
+        <position>(0, 0, 0)</position>
+      </RimChronicles_ImperialShield>
+      <RimChronicles_PsychicRelay>
+        <position>(2, 0, 0)</position>
+      </RimChronicles_PsychicRelay>
+    </things>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <tags><li>Relay</li><li>Shield</li></tags>
+        <doorSides><li>South</li></doorSides>
+        <defenseValue>2</defenseValue>
+        <threatCost>200</threatCost>
+        <buildOrder>4</buildOrder>
+      </li>
+    </modExtensions>
+  </PrefabDef>
+
+  <!-- Stage 5: the drop-pod beacon with a sandbag row in front. -->
+  <PrefabDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Piece_DropBeacon</defName>
+    <size>(3,3)</size>
+    <things>
+      <Sandbags>
+        <rects>
+          <li>(0,2,2,2)</li>
+        </rects>
+      </Sandbags>
+      <RimChronicles_ImperialDropBeacon>
+        <position>(1, 0, 0)</position>
+      </RimChronicles_ImperialDropBeacon>
+    </things>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <tags><li>Beacon</li></tags>
+        <doorSides><li>South</li><li>East</li><li>West</li></doorSides>
+        <defenseValue>1</defenseValue>
+        <threatCost>150</threatCost>
+        <buildOrder>5</buildOrder>
+      </li>
+    </modExtensions>
+  </PrefabDef>
+
 </Defs>

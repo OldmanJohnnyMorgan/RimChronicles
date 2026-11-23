@@ -1,8 +1,10 @@
 using RimChronicles.Core.Crisis;
 using RimChronicles.Core.Crisis.Battle;
 using RimChronicles.Core.Crisis.Operations;
+using RimChronicles.Core.Crisis.Siege;
 using RimChronicles.Core.Crisis.Units;
 using RimChronicles.Game.Crisis.Psykers;
+using RimChronicles.Game.Crisis.Siege;
 using RimChronicles.Game.Crisis.Units;
 using RimChronicles.Game.Empire;
 using RimWorld;
@@ -29,6 +31,9 @@ public sealed class LordJob_RcOperation : LordJob
 
     /// <summary>Fired from Dev Mode: it doesn't pull out when there's no crisis.</summary>
     public bool dev;
+
+    /// <summary>The siege camp, for a siege (C8); null for other operations.</summary>
+    public SiegeCamp? siege;
 
     private bool _ended;
     private bool _reserveSent;
@@ -65,6 +70,8 @@ public sealed class LordJob_RcOperation : LordJob
                 PhaseKind.Regroup => new LordToil_DefendPoint(staging, 8f, 6f),
                 PhaseKind.Retreat => new LordToil_RcRetreat(),
                 PhaseKind.Breach => new LordToil_AssaultColonyBreaching(),
+                PhaseKind.Travel => new LordToil_Travel(siege?.spot ?? staging),
+                PhaseKind.Siege => new LordToil_RcSiege(),
                 _ => new LordToil_RcAssault(),
             };
             toils[phase.Name] = toil;
@@ -96,6 +103,8 @@ public sealed class LordJob_RcOperation : LordJob
         PhaseTrigger.LossesOver => new Trigger_FractionPawnsLost(link.Value),
         PhaseTrigger.TimeUp => new Trigger_TicksPassed((int)link.Value),
         PhaseTrigger.TargetDown => new Trigger_TickCondition(() => target is null || target.Dead || target.Downed || !target.Spawned || target.Map != Map, 60),
+        PhaseTrigger.Arrived => new Trigger_Memo("TravelArrived"),
+        PhaseTrigger.BuildersLost => new Trigger_TickCondition(() => siege is not null && siege.AfterBuilders(lord) == AfterBuilders.Assault, 250),
         _ => new Trigger_TickCondition(() => !dev && Abandoned(), 250),
     };
 
@@ -111,13 +120,32 @@ public sealed class LordJob_RcOperation : LordJob
             ReportEntrances();
         }
 
+        var to = Profile.Find(link.To)?.Kind;
         if (from.Kind == PhaseKind.Regroup && link.Outcome == OperationOutcome.Running)
         {
             SendReserve(); // the regroup is over: back in, with the reserve
         }
-        else if (Profile.Find(link.To)?.Kind == PhaseKind.Retreat)
+        else if (to == PhaseKind.Retreat)
         {
             End(link.Outcome);
+        }
+
+        if (from.Kind == PhaseKind.Siege && to == PhaseKind.Assault && Map is not null && siege is not null)
+        {
+            Messages.Message(link.Trigger == PhaseTrigger.BuildersLost
+                    ? "The Imperial siege has lost most of its builders, but it still has the strength to attack: it's coming in."
+                    : "The Imperial siege is done digging in: it's coming in.",
+                new TargetInfo(siege.spot, Map), MessageTypeDefOf.ThreatBig);
+        }
+    }
+
+    /// <summary>The camp's relay and beacon work while the siege lasts, including its assault, but not in the retreat.</summary>
+    public override void LordJobTick()
+    {
+        base.LordJobTick();
+        if (siege is not null && Find.TickManager.TicksGame % 250 == 0 && lord.CurLordToil is not LordToil_RcRetreat)
+        {
+            siege.JobTick(lord, this);
         }
     }
 
@@ -129,6 +157,11 @@ public sealed class LordJob_RcOperation : LordJob
         }
 
         _ended = true;
+        if (siege is not null && lord?.Map is not null)
+        {
+            siege.Teardown(lord);
+        }
+
         if (RimChroniclesGameComponent.Current is { } component && component.Crisis.Running is { } running && running.Operation == operation)
         {
             component.Crisis.Ended(outcome);
@@ -228,6 +261,7 @@ public sealed class LordJob_RcOperation : LordJob
         Scribe_Values.Look(ref dev, "dev");
         Scribe_Values.Look(ref _ended, "ended");
         Scribe_Values.Look(ref _reserveSent, "reserveSent");
+        Scribe_Deep.Look(ref siege, "siege");
         operation ??= "";
     }
 }

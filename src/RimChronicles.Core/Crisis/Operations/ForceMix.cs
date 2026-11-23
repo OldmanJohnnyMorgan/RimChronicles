@@ -54,6 +54,17 @@ public static class ForceMix
         new(UnitRole.Adept, Specialty.Skip, 1),
     ];
 
+    /// <summary>The siege: Praetorians build and hold the camp, with a breacher for the assault, Control and Ward
+    /// Adepts to hold off sallies, and a Herald to call strikes until the uplink is up.</summary>
+    public static readonly IReadOnlyList<MixEntry> SiegeWithBombardment =
+    [
+        new(UnitRole.Praetorian, Specialty.None, 7),
+        new(UnitRole.Breacher, Specialty.None, 1),
+        new(UnitRole.Adept, Specialty.Control, 1),
+        new(UnitRole.Adept, Specialty.Ward, 1),
+        new(UnitRole.Herald, Specialty.None, 1, CrisisStage.War),
+    ];
+
     /// <summary>A general assault, for operations whose own mix comes in a later milestone.</summary>
     public static readonly IReadOnlyList<MixEntry> Assault =
     [
@@ -70,6 +81,7 @@ public static class ForceMix
         CrisisOperations.Decapitation => Decapitation,
         CrisisOperations.Breach => Breach,
         CrisisOperations.PsychicAssault => PsychicAssault,
+        CrisisOperations.SiegeWithBombardment => SiegeWithBombardment,
         _ => Assault,
     };
 

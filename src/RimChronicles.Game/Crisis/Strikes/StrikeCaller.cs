@@ -2,6 +2,8 @@ using RimChronicles.Core.Crisis;
 using RimChronicles.Core.Crisis.Pieces;
 using RimChronicles.Core.Crisis.Strikes;
 using RimChronicles.Core.Crisis.Units;
+using RimChronicles.Game.Crisis.Operations;
+using RimChronicles.Game.Crisis.Siege;
 using RimChronicles.Game.Crisis.Units;
 using RimChronicles.Game.Empire;
 using RimChronicles.Game.Engine;
@@ -44,8 +46,8 @@ public sealed class MapComponent_RcStrikes(Map map) : MapComponent(map)
     private const int SourceCheckTicks = 30;
     private const float HeraldSight = 60f;
 
-    /// <summary>ThingDefs that count as a standing uplink for the Empire (the siege uplink and Orbital Uplink sites add
-    /// theirs in C8 and C9).</summary>
+    /// <summary>ThingDefs that count as a standing uplink for the Empire (the siege camp's uplink from C8; Orbital
+    /// Uplink sites add theirs in C9).</summary>
     public static readonly HashSet<ThingDef> Uplinks = [];
 
     private StrikeState _state = new();
@@ -87,7 +89,8 @@ public sealed class MapComponent_RcStrikes(Map map) : MapComponent(map)
             return;
         }
 
-        if (StrikeRules.Pick(Candidates(empire, heralds, uplink), _state) is { } pick)
+        var goal = SiegeCamp.On(map)?.goal ?? SiegeGoal.None;
+        if (StrikeRules.Pick(Candidates(empire, heralds, uplink, goal), _state, goal) is { } pick)
         {
             var cell = new IntVec3(pick.Target.Cell.X, 0, pick.Target.Cell.Z);
             Call(cell, pick.Kind, heralds.Where(h => Sees(h, cell)).OrderBy(h => h.Position.DistanceTo(cell)).FirstOrDefault(), dev: false);
@@ -193,7 +196,7 @@ public sealed class MapComponent_RcStrikes(Map map) : MapComponent(map)
     private bool Sees(Pawn herald, IntVec3 cell) =>
         herald.Position.DistanceTo(cell) <= HeraldSight && GenSight.LineOfSight(herald.Position, cell, map);
 
-    private bool UplinkStanding(Faction empire) =>
+    public bool UplinkStanding(Faction empire) =>
         Uplinks.Count > 0 && map.listerBuildings.allBuildingsNonColonist.Any(b => b.Faction == empire && Uplinks.Contains(b.def) && !b.Destroyed);
 
     private static bool StrikesDown() =>
@@ -210,8 +213,9 @@ public sealed class MapComponent_RcStrikes(Map map) : MapComponent(map)
         return CrisisDriver.Budget(component, stage == CrisisStage.None ? CrisisStage.Probing : stage, ColonyStrengthReader.Read());
     }
 
-    /// <summary>Turrets, power buildings and clustered colonists, with who's under each blast and whether a source sees it.</summary>
-    public List<StrikeCandidate> Candidates(Faction empire, IReadOnlyList<Pawn> heralds, bool uplink)
+    /// <summary>Turrets, power buildings and clustered colonists, with who's under each blast and whether a source sees it;
+    /// with a siege goal, also what that goal aims at (walls, fields and food stores, the leader).</summary>
+    public List<StrikeCandidate> Candidates(Faction empire, IReadOnlyList<Pawn> heralds, bool uplink, SiegeGoal goal = SiegeGoal.None)
     {
         var allies = map.mapPawns.SpawnedPawnsInFaction(empire).Where(p => !p.Downed).Select(p => p.Position).ToList();
         var colonists = map.mapPawns.FreeColonistsSpawned.Where(p => !p.Downed).Select(p => p.Position).ToList();
@@ -242,6 +246,36 @@ public sealed class MapComponent_RcStrikes(Map map) : MapComponent(map)
         }
 
         candidates.AddRange(colonists.Select(c => Make(c, StrikeTargetKind.Cluster, 1f)));
+        candidates.AddRange(GoalTargets(goal).Select(t => Make(t.Cell, t.Kind, t.Value)));
         return candidates;
+    }
+
+    private const int MaxGoalTargets = 15;
+
+    /// <summary>What a siege goal adds to the candidates: the colony walls nearest the camp (BreakWalls), each field
+    /// and each room of food (Starve), or the leader (KillLeader).</summary>
+    private IEnumerable<(IntVec3 Cell, StrikeTargetKind Kind, float Value)> GoalTargets(SiegeGoal goal)
+    {
+        switch (goal)
+        {
+            case SiegeGoal.BreakWalls:
+                var camp = SiegeCamp.On(map)?.spot ?? map.Center;
+                return map.listerBuildings.allBuildingsColonist.Where(b => b.def.IsWall)
+                    .OrderBy(b => b.Position.DistanceToSquared(camp)).Take(MaxGoalTargets)
+                    .Select(b => (b.Position, StrikeTargetKind.Wall, 1f)).ToList();
+            case SiegeGoal.Starve:
+                var fields = map.zoneManager.AllZones.OfType<Zone_Growing>().Where(z => z.Cells.Count > 0)
+                    .Select(z => (z.Cells[z.Cells.Count / 2], StrikeTargetKind.Food, 1f + Math.Min(2f, z.Cells.Count / 40f)));
+                var stores = map.listerThings.ThingsInGroup(ThingRequestGroup.FoodSourceNotPlantOrTree)
+                    .Where(t => t.Spawned && t.def.IsNutritionGivingIngestible && map.areaManager.Home[t.Position] && t.GetRoom() is not null)
+                    .GroupBy(t => t.GetRoom())
+                    .Select(g => (g.OrderByDescending(t => t.stackCount).First().Position, StrikeTargetKind.Food,
+                        1f + Math.Min(2f, g.Sum(t => t.GetStatValue(StatDefOf.Nutrition) * t.stackCount) / 50f)));
+                return fields.Concat(stores).OrderByDescending(t => t.Item3).Take(MaxGoalTargets).ToList();
+            case SiegeGoal.KillLeader:
+                return OperationSpawner.Target(map) is { Spawned: true } leader ? [(leader.Position, StrikeTargetKind.Leader, 1.5f)] : [];
+            default:
+                return [];
+        }
     }
 }

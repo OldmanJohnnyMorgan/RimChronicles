@@ -1,6 +1,8 @@
 using LudeonTK;
+using RimChronicles.Core.Crisis.Siege;
 using RimChronicles.Core.Crisis.Strikes;
 using RimChronicles.Core.Crisis.Units;
+using RimChronicles.Game.Crisis.Siege;
 using RimChronicles.Game.Crisis.Units;
 using RimChronicles.Game.Empire;
 using RimWorld;
@@ -30,18 +32,21 @@ public static class StrikeDevActions
         var heralds = Heralds(map, empire);
         var state = strikes.State;
         var tick = Find.TickManager.TicksGame;
-        var candidates = strikes.Candidates(empire, heralds, uplink: false);
+        var uplink = strikes.UplinkStanding(empire);
+        var goal = SiegeCamp.On(map)?.goal ?? SiegeGoal.None;
+        var candidates = strikes.Candidates(empire, heralds, uplink, goal);
         var lines = new List<string>
         {
             $"Heralds up: {heralds.Count}. Strikes this raid: {state.StrikesThisRaid} of {(state.Cap == 0 ? "?" : state.Cap)}; last at tick {state.LastStrikeTick} ({state.LastCell?.ToString() ?? "none"}).",
-            $"Blocked: {StrikeRules.Blocked(state, heralds.Count > 0, false, false, tick) ?? "no"}.",
+            $"Uplink standing: {(uplink ? "yes" : "no")}. Siege goal: {(goal == SiegeGoal.None ? "none" : SiegeGoals.Get(goal).Id)}.",
+            $"Blocked: {StrikeRules.Blocked(state, heralds.Count > 0, uplink, false, tick) ?? "no"}.",
             $"Pending: {string.Join(", ", strikes.Pending.Select(p => $"{p.kind} at {p.cell} in {(p.fireTick - tick) / StrikeRules.TicksPerSecond} s").DefaultIfEmpty("none"))}.",
-            $"Would pick: {(StrikeRules.Pick(candidates, state) is { } pick ? $"{pick.Kind} on {pick.Target.Kind} at {pick.Target.Cell}" : "nothing")}.",
+            $"Would pick: {(StrikeRules.Pick(candidates, state, goal) is { } pick ? $"{pick.Kind} on {pick.Target.Kind} at {pick.Target.Cell}" : "nothing")}.",
             "",
             "Best candidates:",
         };
-        lines.AddRange(candidates.OrderByDescending(c => StrikeRules.Score(c, SiegeGoal.None)).Take(10).Select(c =>
-            $"  {c.Kind} at {c.Cell}: score {StrikeRules.Score(c, SiegeGoal.None):0.0}, {c.Colonists} colonists, {c.Allies} Imperial in blast, "
+        lines.AddRange(candidates.OrderByDescending(c => StrikeRules.Score(c, goal)).Take(10).Select(c =>
+            $"  {c.Kind} at {c.Cell}: score {StrikeRules.Score(c, goal):0.0}, {c.Colonists} colonists, {c.Allies} Imperial in blast, "
             + $"{(c.Sighted ? "sighted" : "not sighted")}{(c.ThickRoof ? ", under mountain" : "")}"));
         Find.WindowStack.Add(new Dialog_MessageBox(string.Join("\n", lines)));
     }

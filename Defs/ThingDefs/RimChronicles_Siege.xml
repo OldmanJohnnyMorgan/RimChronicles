@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The Imperial siege camp's own buildings (crisis spec §5.5, C8). Each has a build-menu category, so vanilla gives it a
+  blueprint and frame (ThingDefGenerator_Buildings needs BuildableByPlayer), and canGenerateDefaultDesignator false, so
+  the player never sees it in the menu. Graphics are vanilla's. They need Royalty, like the rest of the crisis (Q1).
+-->
+<Defs>
+
+  <ThingDef Name="RimChronicles_SiegeBuildingBase" ParentName="BuildingBase" Abstract="True" MayRequire="Ludeon.RimWorld.Royalty">
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+    <fillPercent>0.5</fillPercent>
+    <rotatable>false</rotatable>
+    <tickerType>Never</tickerType>
+    <designationCategory>Misc</designationCategory>
+    <canGenerateDefaultDesignator>false</canGenerateDefaultDesignator>
+    <constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+    <building>
+      <buildingTags>
+        <li>RimChronicles_Siege</li>
+      </buildingTags>
+      <destroySound>BuildingDestroyed_Metal_Small</destroySound>
+    </building>
+    <resourcesFractionWhenDeconstructed>0.5</resourcesFractionWhenDeconstructed>
+  </ThingDef>
+
+  <!-- Stage 3: lets the camp call orbital strikes without a herald in sight (MapComponent_RcStrikes.Uplinks). -->
+  <ThingDef ParentName="RimChronicles_SiegeBuildingBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_ImperialUplink</defName>
+    <label>Imperial uplink</label>
+    <description>A field console tied to the Imperial fleet in orbit. While it stands, the siege camp can call orbital strikes on anything it can target, herald or not. Every strike is still marked and announced before it lands.</description>
+    <graphicData>
+      <texPath>Things/Building/Misc/CommsConsole</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(5,4)</drawSize>
+      <shadowData>
+        <volume>(2.5, 0.75, 1.5)</volume>
+      </shadowData>
+    </graphicData>
+    <size>(3,2)</size>
+    <rotatable>true</rotatable>
+    <statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <WorkToBuild>2500</WorkToBuild>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <costList>
+      <Steel>80</Steel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+  </ThingDef>
+
+  <!-- Stage 4: a mortar shield over the camp, like the mech high-shield but always on. -->
+  <ThingDef ParentName="RimChronicles_SiegeBuildingBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_ImperialShield</defName>
+    <label>Imperial shield emitter</label>
+    <description>A momentum repulsor tuned to high angles: shells and other falling projectiles fired from outside can't land inside its field. EMP knocks it out for a while.</description>
+    <graphicData>
+      <texPath>Things/Building/Mech/ShieldGeneratorMortar</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1,1)</drawSize>
+      <shadowData>
+        <volume>(0.6, 0.4, 0.6)</volume>
+      </shadowData>
+    </graphicData>
+    <size>(1,1)</size>
+    <tickerType>Normal</tickerType>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <statBases>
+      <MaxHitPoints>200</MaxHitPoints>
+      <WorkToBuild>2000</WorkToBuild>
+      <Flammability>0</Flammability>
+    </statBases>
+    <costList>
+      <Plasteel>20</Plasteel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <comps>
+      <li Class="CompProperties_ProjectileInterceptor">
+        <radius>18</radius>
+        <interceptAirProjectiles>true</interceptAirProjectiles>
+        <color>(0.6, 0.6, 0.8)</color>
+        <reactivateEffect>MortarShieldGenerator_Reactivate</reactivateEffect>
+        <activeSound>MortarShield_Ambience</activeSound>
+        <disarmedByEmpForTicks>1080</disarmedByEmpForTicks>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <!-- Stage 4: Imperial psykers near it recover from heat faster and cast harder (RimChronicles_RelayLink). -->
+  <ThingDef ParentName="RimChronicles_SiegeBuildingBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_PsychicRelay</defName>
+    <label>Imperial psychic relay</label>
+    <description>A psychic amplifier the Empire's adepts tune themselves to. Imperial psykers within range shed neural heat faster and their psycasts hit harder. Destroy it to take that away.</description>
+    <graphicData>
+      <texPath>Things/Building/Misc/PsychicDroner</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,2)</drawSize>
+      <shadowData>
+        <volume>(1.6, 0.6, 1.6)</volume>
+      </shadowData>
+    </graphicData>
+    <size>(2,2)</size>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>2000</WorkToBuild>
+      <Flammability>0.3</Flammability>
+    </statBases>
+    <costList>
+      <Steel>60</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+  </ThingDef>
+
+  <!-- Stage 5: reinforcement waves drop in beside it while it stands. -->
+  <ThingDef ParentName="RimChronicles_SiegeBuildingBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_ImperialDropBeacon</defName>
+    <label>Imperial drop-pod beacon</label>
+    <description>A beacon that guides Imperial drop pods. While it stands, reinforcements land beside the siege camp every few hours.</description>
+    <graphicData>
+      <texPath>Things/Building/Mech/MechDropBeacon</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1,1)</drawSize>
+      <shadowData>
+        <volume>(0.5, 0.4, 0.5)</volume>
+      </shadowData>
+    </graphicData>
+    <size>(1,1)</size>
+    <statBases>
+      <MaxHitPoints>200</MaxHitPoints>
+      <WorkToBuild>1500</WorkToBuild>
+      <Flammability>0.3</Flammability>
+    </statBases>
+    <costList>
+      <Steel>40</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+  </ThingDef>
+
+</Defs>
