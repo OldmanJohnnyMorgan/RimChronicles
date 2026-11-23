@@ -125,5 +125,16 @@ class StepTimerTests(unittest.TestCase):
         self.assertIn("warn", self.feed(t, 30, 5))
         self.assertNotIn("stop", self.feed(t, 1000, 5))  # stop_factor 0: never stops
 
+
+class TokenCountTests(unittest.TestCase):
+    def test_a_flat_list_counts_its_ids(self):
+        self.assertEqual(progress.token_count([5, 6, 7]), 3)
+
+    def test_a_batch_of_one_counts_the_row_not_the_batch(self):
+        self.assertEqual(progress.token_count([[5, 6, 7, 8]]), 4)  # Gemma 4's processor wraps one text in a batch
+
+    def test_empty(self):
+        self.assertEqual(progress.token_count([]), 0)
+
 if __name__ == "__main__":
     unittest.main()
