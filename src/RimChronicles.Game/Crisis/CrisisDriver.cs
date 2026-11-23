@@ -74,7 +74,7 @@ public static class CrisisDriver
         Stage = EmpireDriver.EmpireFaction is { } empire ? Stage(component, empire).Stage : CrisisStage.None,
         State = component.Crisis,
         Built = Built,
-        HoldsCaptive = false, // captives come with C10
+        HoldsCaptive = Captives.CaptiveOps.HoldsAny(),
         GapDays = RimChroniclesMod.Settings.CrisisGapDays,
     };
 
@@ -129,7 +129,7 @@ public static class CrisisDriver
         }
 
         var stage = Stage(component, empire).Stage;
-        var budget = Budget(component, stage, ColonyStrengthReader.Read());
+        var budget = Budget(component, stage, ColonyStrengthReader.Read()) * component.Crisis.NextBudgetFactor; // a released captive's discount
         if (!handler(map, operation, stage, budget))
         {
             return false;
@@ -175,6 +175,17 @@ public static class CrisisDriver
         {
             lines.Add("  none yet");
         }
+
+        lines.Add("");
+        lines.Add($"Captives: {(crisis.Captives.Count == 0 ? "none" : string.Join(", ", crisis.Captives.Select(c => $"{c.Name} ({c.Rank}, {c.Interrogations} sessions, told {c.Told.Count})")))}.");
+        lines.Add($"Held now: {string.Join(", ", Captives.CaptiveOps.Held().Select(p => p.LabelShort).DefaultIfEmpty("none"))}. "
+            + $"Defectors: {string.Join(", ", crisis.Defectors.Select(d => d.Name).DefaultIfEmpty("none"))}.");
+        lines.Add($"Forecast: {(crisis.Forecast.Valid(today) ? $"{crisis.Forecast.Operation} from day {crisis.Forecast.EarliestDay} to {crisis.Forecast.ExpiresDay}" : "none")}; "
+            + $"strike jams {crisis.StrikeJams}; adepts short next psychic assault: {(crisis.AdeptShortfall ? "yes" : "no")}; keep entrance known: "
+            + $"{(crisis.KeepEntranceKnown ? "yes" : "no")}; next budget x{crisis.NextBudgetFactor:0.00}.");
+        lines.Add($"Treatment: released {crisis.Released}, executed {crisis.Executed}, harvested {crisis.Harvested}, enslaved {crisis.Enslaved}.");
+        lines.Add("Intel:");
+        lines.AddRange(crisis.Intel.TakeLast(10).Select(i => $"  day {i.Day}{(i.Expired(today) ? " (stale)" : "")}: {i.Text}"));
 
         Find.WindowStack.Add(new Dialog_MessageBox(string.Join("\n", lines)));
     }

@@ -197,6 +197,14 @@ psylink level; the High Stellarch inherits `Empire_Royal_Stellarch`.
   outpost generator and power). C9's site parts inherit vanilla's `Outpost` part (threat points, faction, arrival
   letter) and link our own gen step. Vanilla's outpost adds its rect to the map-gen var `UsedRects` so later steps
   keep out; ours does too.
+- Prisoner modes: `PrisonerInteractionModeDef.isNonExclusiveInteraction` puts a mode in the prisoner tab's checkbox
+  section (`ITab_Pawn_Visitor`), toggled with `Pawn_GuestTracker.ToggleNonExclusiveInteraction`; the tab's filter only
+  hides modes by the def's flags, so a new mode shows for every prisoner. Warden visits share one schedule
+  (`ScheduledForInteraction`: at most two a day, 10,000 ticks apart; `Toils_Interpersonal.SetLastInteractTime` uses it).
+  Anomaly's identity interrogation (`WorkGiver_Warden_InterrogateIdentity`, `JobDriver_InterrogatePrisoner`) is the
+  model; its chance is `SocialImpact × 0.15`.
+- Resistance and will come from the pawn kind's `initialResistanceRange` / `initialWillRange` at capture
+  (`Pawn_GuestTracker.CapturedBy`), plus the royal title's `recruitmentResistanceOffset`.
 - Power: a building wires itself to the nearest power transmitter within 6 cells of its position, walls or not
   (`PowerConnectionMaker.BestTransmitterForConnector`). Plain walls don't transmit power. A conduit isn't an edifice:
   spawned after a building, it sits under it without wiping it (`GenSpawn.SpawningWipes` only wipes an old conduit when

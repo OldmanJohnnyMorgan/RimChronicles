@@ -87,6 +87,18 @@ public static class CrisisArc
             blocked = ignoreBuilt ? "every allowed operation is cooling down" : "no allowed operation is built yet";
         }
 
+        // Intel warned of the next operation (C10): while the warning holds and that operation is allowed, it's the one.
+        if (context.State.Forecast is { } forecast && forecast.Valid(today) && allowed.FirstOrDefault(o => o.Step == forecast.Operation) is { } warned)
+        {
+            if (today < forecast.EarliestDay)
+            {
+                blocked = $"intel says {warned.Id} comes no sooner than day {forecast.EarliestDay}";
+                return [];
+            }
+
+            return [warned];
+        }
+
         return allowed;
     }
 

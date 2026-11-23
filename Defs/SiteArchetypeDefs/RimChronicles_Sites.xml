@@ -23,6 +23,7 @@
     <optional>
       <li><tag>Artillery</tag><weight>1</weight><max>1</max></li>
       <li><tag>Armory</tag><weight>1</weight><max>1</max></li>
+      <li><tag>Records</tag><weight>1</weight><max>1</max></li>
     </optional>
     <gates>1</gates>
     <budget>600~2500</budget>
@@ -48,6 +49,7 @@
       <li><tag>Turret</tag><weight>2</weight><max>3</max></li>
       <li><tag>Artillery</tag><weight>1</weight><max>1</max></li>
       <li><tag>Armory</tag><weight>1</weight><max>1</max></li>
+      <li><tag>Records</tag><weight>1</weight><max>1</max></li>
       <li><tag>Barracks</tag><weight>1</weight><max>1</max></li>
     </optional>
     <gates>2</gates>
@@ -76,6 +78,7 @@
       <li><tag>Turret</tag><weight>3</weight><max>4</max></li>
       <li><tag>Artillery</tag><weight>1</weight><max>2</max></li>
       <li><tag>Armory</tag><weight>1</weight><max>1</max></li>
+      <li><tag>Records</tag><weight>1</weight><max>1</max></li>
     </optional>
     <gates>2</gates>
     <budget>1500~5000</budget>

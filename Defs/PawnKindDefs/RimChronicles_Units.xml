@@ -42,8 +42,8 @@
     <disallowedTraits>
       <li>Brawler</li>
     </disallowedTraits>
-    <initialWillRange>5~7</initialWillRange>
-    <initialResistanceRange>20~30</initialResistanceRange>
+    <initialWillRange>7~9</initialWillRange>
+    <initialResistanceRange>35~50</initialResistanceRange>
     <modExtensions>
       <li Class="RimChronicles.Game.Crisis.Units.UnitExtension">
         <role>Praetorian</role>
@@ -64,8 +64,8 @@
         <range>6~11</range>
       </li>
     </skills>
-    <initialWillRange>6~8</initialWillRange>
-    <initialResistanceRange>25~35</initialResistanceRange>
+    <initialWillRange>8~10</initialWillRange>
+    <initialResistanceRange>45~60</initialResistanceRange>
     <modExtensions>
       <li Class="RimChronicles.Game.Crisis.Units.UnitExtension">
         <role>Herald</role>
@@ -101,8 +101,8 @@
         <range>6~12</range>
       </li>
     </skills>
-    <initialWillRange>3~5</initialWillRange>
-    <initialResistanceRange>15~24</initialResistanceRange>
+    <initialWillRange>6~8</initialWillRange>
+    <initialResistanceRange>30~45</initialResistanceRange>
     <modExtensions>
       <li Class="RimChronicles.Game.Crisis.Units.UnitExtension">
         <role>Breacher</role>
@@ -123,8 +123,8 @@
     </apparelRequired>
     <specificApparelRequirements Inherit="False" />
     <apparelColor>(110,40,140)</apparelColor>
-    <initialWillRange>10~13</initialWillRange>
-    <initialResistanceRange>38~58</initialResistanceRange>
+    <initialWillRange>11~14</initialWillRange>
+    <initialResistanceRange>60~80</initialResistanceRange>
   </PawnKindDef>
 
   <PawnKindDef ParentName="RimChronicles_AdeptBase" MayRequire="Ludeon.RimWorld.Royalty">
@@ -201,7 +201,7 @@
       </li>
     </skills>
     <initialWillRange>18~22</initialWillRange>
-    <initialResistanceRange>50~70</initialResistanceRange>
+    <initialResistanceRange>90~120</initialResistanceRange>
     <modExtensions>
       <li Class="RimChronicles.Game.Crisis.Units.UnitExtension">
         <role>Stellarch</role>

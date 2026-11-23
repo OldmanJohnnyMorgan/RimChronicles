@@ -27,6 +27,7 @@ public static class OperationSpawner
         CrisisDriver.RegisterOperation(CrisisOperations.Breach, (map, op, stage, budget) => Assault(map, op.Step, stage, budget, dev: false));
         CrisisDriver.RegisterOperation(CrisisOperations.PsychicAssault, (map, op, stage, budget) => Assault(map, op.Step, stage, budget, dev: false));
         CrisisDriver.RegisterOperation(CrisisOperations.SiegeWithBombardment, (map, op, stage, budget) => Siege(map, stage, budget, null, dev: false));
+        CrisisDriver.RegisterOperation(CrisisOperations.Retrieval, (map, op, stage, budget) => Retrieval(map, stage, budget, dev: false));
     }
 
     /// <summary>Units for <paramref name="points"/> of an operation's mix at a stage, kitted out, not spawned.</summary>
@@ -84,7 +85,14 @@ public static class OperationSpawner
         }
 
         var profile = OperationProfiles.For(operation);
-        var pawns = Force(operation, stage, budget * profile.ForceShare, empire);
+        var mix = ForceMix.For(operation);
+        if (operation == CrisisOperations.PsychicAssault && RimChroniclesGameComponent.Current is { Crisis.AdeptShortfall: true } component && !dev)
+        {
+            mix = ForceMix.ShortOfAdepts(mix); // relay intel: this one comes short of adepts
+            component.Crisis.AdeptShortfall = false;
+        }
+
+        var pawns = Force(mix, stage, budget * profile.ForceShare, empire);
         if (pawns.Count == 0)
         {
             return false;
@@ -173,6 +181,37 @@ public static class OperationSpawner
             HasFood: map.zoneManager.AllZones.OfType<Zone_Growing>().Any() || map.listerBuildings.allBuildingsColonist.Any(b => b is Building_Storage),
             HasLeader: Target(map) is not null);
         return SiegeGoals.Pick(SiegeGoals.Allowed(targets), Rand.Value);
+    }
+
+    /// <summary>
+    /// Retrieval (crisis C10): drop pods land on open sky near the captive or defector the colony holds (captives first,
+    /// highest rank first). The squad frees a captive and leaves with them, or brings a defector down and carries them off.
+    /// </summary>
+    public static bool Retrieval(Map map, CrisisStage stage, float budget, bool dev)
+    {
+        if (EmpireDriver.EmpireFaction is not { } empire || Captives.CaptiveOps.Held().FirstOrDefault(p => p.Map == map) is not { } held
+            || DropSpot(map, held.Position) is not { } spot)
+        {
+            return false;
+        }
+
+        var profile = OperationProfiles.Retrieval;
+        var pawns = Force(profile.Operation, stage, budget * profile.ForceShare, empire);
+        if (pawns.Count == 0)
+        {
+            return false;
+        }
+
+        LordMaker.MakeNewLord(empire, new LordJob_RcOperation(profile.Operation, stage, 0, spot, held, dev), map, pawns);
+        DropPodUtility.DropThingsNear(spot, map, pawns, canRoofPunch: false, forbid: false, allowFogged: false, faction: empire);
+        var captive = held.IsPrisonerOfColony;
+        Find.LetterStack.ReceiveLetter("Imperial retrieval",
+            captive
+                ? $"Imperial drop pods are falling near {held.LabelShort}. {pawns.Count} troops have come to free them, and they'll dig through walls to do it."
+                : $"Imperial drop pods are falling near {held.LabelShort}, who defected to {Faction.OfPlayer.Name}. {pawns.Count} troops have come to take them back, "
+                  + "or kill them.",
+            LetterDefOf.ThreatBig, new LookTargets(held), empire);
+        return true;
     }
 
     /// <summary>Drop pods land near the colony's leader (or a plot's protagonist), on open sky only, and the squad goes
@@ -269,6 +308,7 @@ public static class OperationSpawner
             (CrisisOperations.Breach, (m, s, b, d) => Assault(m, CrisisOperations.Breach, s, b, d)),
             (CrisisOperations.PsychicAssault, (m, s, b, d) => Assault(m, CrisisOperations.PsychicAssault, s, b, d)),
             (CrisisOperations.SiegeWithBombardment, (m, s, b, d) => Siege(m, s, b, null, d)),
+            (CrisisOperations.Retrieval, Retrieval),
         };
         var nodes = new List<DebugActionNode>();
         foreach (var (step, run) in operations)
@@ -286,7 +326,7 @@ public static class OperationSpawner
                     var budget = CrisisDriver.Budget(component, stage, ColonyStrengthReader.Read());
                     if (!run(map, stage, budget, true))
                     {
-                        Messages.Message($"Rim Chronicles: {step} couldn't start here (no Empire, entry cell, target, open-sky drop spot or siege camp spot).",
+                        Messages.Message($"Rim Chronicles: {step} couldn't start here (no Empire, entry cell, target, held captive, open-sky drop spot or siege camp spot).",
                             MessageTypeDefOf.RejectInput, historical: false);
                         return;
                     }
