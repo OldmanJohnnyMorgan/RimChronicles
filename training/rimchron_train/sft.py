@@ -1,6 +1,7 @@
 """`sft`: QLoRA supervised fine-tuning with Unsloth + TRL (training spec §5.2), loss on the answer only."""
 from __future__ import annotations
 
+import gc
 import inspect
 import json
 import subprocess
@@ -102,6 +103,8 @@ def run(cfg: Config) -> int:
     lora_dir = cfg.run_dir / "lora"
     log = progress.CsvLog(cfg.run_dir / "progress.csv")
     stopper = progress.EarlyStopper(cfg.patience, cfg.min_delta)
+    timer = progress.StepTimer(cfg.slow_warn_factor, cfg.slow_stop_factor)
+    step_started = [0.0]
     started = time.time()
     evals: dict[int, dict] = {}
 
@@ -118,17 +121,39 @@ def run(cfg: Config) -> int:
             save_lora()
         evals[state.global_step] = result.as_dict()
         loss = progress.last_train_loss(state.log_history)
+        pace = timer.recent
+        peak = torch.cuda.max_memory_reserved(0) / 2**30
+        torch.cuda.reset_peak_memory_stats(0)
         log.write(step=state.global_step, epoch=round(state.epoch or 0, 2), train_loss=loss, val_valid=round(result.valid_share, 4),
                   val_top1=round(result.top1, 4), val_wait=round(result.wait_share, 4), best_top1=round(stopper.best, 4),
-                  best_step=stopper.best_step, elapsed_min=round((time.time() - started) / 60, 1))
+                  best_step=stopper.best_step, elapsed_min=round((time.time() - started) / 60, 1),
+                  sec_per_step=round(pace, 2) if pace else "", vram_peak_gb=round(peak, 2))
         print(f"step {state.global_step} (epoch {state.epoch or 0:.2f}): loss {loss}, val valid {result.valid}/{result.total}, "
               f"top-1 {result.agree}/{result.total} ({result.top1:.0%}), Wait {result.wait_share:.0%}; "
-              f"best {stopper.best:.0%} at step {stopper.best_step}{' (saved)' if improved else ''}{'; stopping early' if stop else ''}")
+              f"best {stopper.best:.0%} at step {stopper.best_step}{' (saved)' if improved else ''}{'; stopping early' if stop else ''}; "
+              f"{pace or 0:.1f} s/step, peak VRAM {peak:.1f} of {total / 2**30:.1f} GB")
+        return stop
+
+    def check_pace(state) -> bool:
+        """Times the step that just ended (before any evaluation); returns True to stop a run that has slowed down."""
+        verdict = timer.add(time.time() - step_started[0])
+        if verdict is None:
+            return False
+        stop = verdict == "stop"
+        print(f"{'STOPPING' if stop else 'WARNING'}: steps now take {timer.recent:.1f} s, {timer.ratio:.0f}x the "
+              f"{timer.baseline:.1f} s of the first steps (step {state.global_step}). {progress.SLOWDOWN_HELP}"
+              + (" The best LoRA so far is kept." if stop else ""), flush=True)
         return stop
 
     class GenerateEval(TrainerCallback):
+        def on_step_begin(self, args, state, control, **kwargs):
+            step_started[0] = time.time()
+            return control
+
         def on_step_end(self, args, state, control, **kwargs):
-            if cfg.eval_every_steps and state.global_step % cfg.eval_every_steps == 0 and check(state):
+            if check_pace(state):
+                control.should_training_stop = True
+            elif cfg.eval_every_steps and state.global_step % cfg.eval_every_steps == 0 and check(state):
                 control.should_training_stop = True
             return control
 
@@ -154,8 +179,13 @@ def run(cfg: Config) -> int:
 
 
 def back_to_training(model) -> None:
-    """Undo `for_inference` after an evaluation (Unsloth switches kernels and caching for generation)."""
+    """Undo `for_inference` after an evaluation (Unsloth switches kernels and caching for generation), and give back
+    the memory generation used, so training doesn't resume with less VRAM than it started with."""
+    import torch
     from unsloth import FastModel
+
+    gc.collect()
+    torch.cuda.empty_cache()
 
     if hasattr(FastModel, "for_training"):
         # Keep the offloaded checkpointing get_peft_model chose: the default could switch it back and raise VRAM use.
