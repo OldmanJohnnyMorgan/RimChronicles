@@ -106,6 +106,7 @@ const string usage = """
       --tier <tier>            Minimum, Recommended or High: the prompt budget to render for (default Recommended)
       --test-seeds a,b         Generator seeds that form the test split (default 9001)
       --max-wait-share <0-1>   Most of the training cases whose best answer is Wait (default 0.4; 1 keeps all)
+      --hand-only <arc,...>    Open cases (no Wait rule) in these arcs take only hand labels, not local-* ones
       --out <dir>              Output (default training/data/splits/<tier>)
 
     spotcheck options:
@@ -123,7 +124,7 @@ if (args.Length == 0 || args[0] is "-h" or "--help" or "help")
 var root = FindRepoRoot();
 var valueOptions = new HashSet<string>
 {
-    "config", "prompts", "snapshots-dir", "passbars", "models", "tasks", "snapshots", "repeats", "out", "cache", "compare", "rate", "seed", "vram-budget", "temperature", "count", "from", "cases", "repeat", "pack", "labels", "tier", "test-seeds", "max-wait-share", "recheck", "name", "base", "answers",
+    "config", "prompts", "snapshots-dir", "passbars", "models", "tasks", "snapshots", "repeats", "out", "cache", "compare", "rate", "seed", "vram-budget", "temperature", "count", "from", "cases", "repeat", "pack", "labels", "tier", "test-seeds", "max-wait-share", "hand-only", "recheck", "name", "base", "answers",
 };
 var flags = new HashSet<string> { "no-cache", "dry-run", "judge", "resample", "no-wait-rule", "confirm-spend" };
 
@@ -385,6 +386,7 @@ try
                 Tier = tier,
                 TestSeeds = (cli.List("test-seeds") ?? ["9001"]).Select(int.Parse).ToHashSet(),
                 MaxWaitShare = cli.Get("max-wait-share") is { } mw ? double.Parse(mw, System.Globalization.CultureInfo.InvariantCulture) : 0.4,
+                HandOnlyArcs = (cli.List("hand-only") ?? []).ToHashSet(StringComparer.Ordinal),
             }, Console.Out);
         }
 
