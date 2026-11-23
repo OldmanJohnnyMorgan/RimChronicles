@@ -38,7 +38,7 @@ public sealed class LordToil_RcRetrieve : LordToil
         foreach (var pawn in lord.ownedPawns.Where(p => p.mindState is not null))
         {
             var role = UnitKit.Unit(pawn.kindDef)?.role;
-            if (role is UnitRole.Adept or UnitRole.Herald && praetorians.Count > 0)
+            if (role is UnitRole.Adept or UnitRole.Herald or UnitRole.Stellarch && praetorians.Count > 0)
             {
                 pawn.mindState.duty = new PawnDuty(DutyDefOf.Escort, praetorians[next++ % praetorians.Count], EscortRadius);
             }

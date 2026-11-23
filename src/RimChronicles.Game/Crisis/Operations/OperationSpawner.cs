@@ -28,6 +28,7 @@ public static class OperationSpawner
         CrisisDriver.RegisterOperation(CrisisOperations.PsychicAssault, (map, op, stage, budget) => Assault(map, op.Step, stage, budget, dev: false));
         CrisisDriver.RegisterOperation(CrisisOperations.SiegeWithBombardment, (map, op, stage, budget) => Siege(map, stage, budget, null, dev: false));
         CrisisDriver.RegisterOperation(CrisisOperations.Retrieval, (map, op, stage, budget) => Retrieval(map, stage, budget, dev: false));
+        CrisisDriver.RegisterOperation(CrisisOperations.FinalAssault, (map, op, stage, budget) => Finale.Stellarch.FinalAssault(map, stage, budget, dev: false));
     }
 
     /// <summary>Units for <paramref name="points"/> of an operation's mix at a stage, kitted out, not spawned.</summary>
@@ -309,12 +310,14 @@ public static class OperationSpawner
             (CrisisOperations.PsychicAssault, (m, s, b, d) => Assault(m, CrisisOperations.PsychicAssault, s, b, d)),
             (CrisisOperations.SiegeWithBombardment, (m, s, b, d) => Siege(m, s, b, null, d)),
             (CrisisOperations.Retrieval, Retrieval),
+            (CrisisOperations.FinalAssault, Finale.Stellarch.FinalAssault),
         };
         var nodes = new List<DebugActionNode>();
         foreach (var (step, run) in operations)
         {
             var node = new DebugActionNode(step);
-            foreach (var stage in Stages)
+            var from = CrisisOperations.Find(step)?.MinStage ?? CrisisStage.Probing;
+            foreach (var stage in Stages.Where(s => s >= from)) // each at the stages it's allowed (the final assault only in the finale)
             {
                 node.AddChild(new DebugActionNode($"stage {(int)stage} {CrisisStages.Label(stage)}", DebugActionType.Action, () =>
                 {

@@ -141,6 +141,18 @@ public sealed class CrisisState : IArchivable
     /// <summary>The world-object id of the settlement whose map is the Citadel (-1 until it's generated).</summary>
     public int CitadelSettlementId = -1;
 
+    // ---- the finale (C13)
+
+    /// <summary>The High Stellarch's pawn id, once it has been made.</summary>
+    public string StellarchPawnId = "";
+
+    public string StellarchFate = Crisis.StellarchFate.None;
+
+    /// <summary>The Stellarch has used its one escape.</summary>
+    public bool StellarchEscaped;
+
+    public int StellarchFellDay = -1;
+
     public int Released;
     public int Executed;
     public int Harvested;
@@ -288,6 +300,12 @@ public sealed class CrisisState : IArchivable
         archive.Value(ref RelaySitesDestroyed, "relaySitesDestroyed");
         archive.Value(ref UplinkSitesDestroyed, "uplinkSitesDestroyed");
         archive.Value(ref CitadelSettlementId, "citadelSettlementId", -1);
+        archive.Value(ref StellarchPawnId, "stellarchPawnId", "");
+        archive.Value(ref StellarchFate, "stellarchFate", Crisis.StellarchFate.None);
+        archive.Value(ref StellarchEscaped, "stellarchEscaped");
+        archive.Value(ref StellarchFellDay, "stellarchFellDay", -1);
+        StellarchPawnId ??= "";
+        StellarchFate ??= Crisis.StellarchFate.None;
         archive.Value(ref Released, "released");
         archive.Value(ref Executed, "executed");
         archive.Value(ref Harvested, "harvested");

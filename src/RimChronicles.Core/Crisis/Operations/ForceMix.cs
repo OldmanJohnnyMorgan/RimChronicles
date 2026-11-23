@@ -86,6 +86,19 @@ public static class ForceMix
         new(UnitRole.Herald, Specialty.None, 1, CrisisStage.War),
     ];
 
+    /// <summary>The final assault: every arm of the Empire at once (crisis spec §5.2). The High Stellarch leads it on top
+    /// of the mix, while it hasn't fallen.</summary>
+    public static readonly IReadOnlyList<MixEntry> FinalAssault =
+    [
+        new(UnitRole.Praetorian, Specialty.None, 6),
+        new(UnitRole.Breacher, Specialty.None, 2),
+        new(UnitRole.Herald, Specialty.None, 1),
+        new(UnitRole.Adept, Specialty.Control, 1),
+        new(UnitRole.Adept, Specialty.Mind, 1),
+        new(UnitRole.Adept, Specialty.Ward, 1),
+        new(UnitRole.Adept, Specialty.Skip, 1),
+    ];
+
     /// <summary>A mix with half as many adepts (relay intel: "the next psychic assault has fewer adepts").</summary>
     public static IReadOnlyList<MixEntry> ShortOfAdepts(IReadOnlyList<MixEntry> mix) =>
         mix.Select(e => e.Role == UnitRole.Adept ? e with { Weight = e.Weight / 2 } : e).ToList();
@@ -150,6 +163,7 @@ public static class ForceMix
         CrisisOperations.PsychicAssault => PsychicAssault,
         CrisisOperations.SiegeWithBombardment => SiegeWithBombardment,
         CrisisOperations.Retrieval => Retrieval,
+        CrisisOperations.FinalAssault => FinalAssault,
         _ => Assault,
     };
 
