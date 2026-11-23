@@ -4,6 +4,7 @@ using RimChronicles.Eval.Config;
 using RimChronicles.Eval.Judging;
 using RimChronicles.Eval.Reporting;
 using RimChronicles.Eval.Running;
+using RimChronicles.Eval.Servers;
 using RimChronicles.Llm.Prompts;
 
 const string usage = """
@@ -177,6 +178,13 @@ try
                 config = config.WithLocalTemperature(temperature);
             }
 
+            if (!cli.Has("dry-run"))
+            {
+                var selected = cli.List("models") is { } only ? config.Models.Where(m => only.Contains(m.Id)) : config.Models;
+                var weighed = (await ServerProbe.WithWeightsAsync(selected, Console.Out, cts.Token)).ToDictionary(m => m.Id);
+                config = config with { Models = config.Models.Select(m => weighed.GetValueOrDefault(m.Id, m)).ToList() };
+            }
+
             var result = await Runner.RunAsync(new RunOptions
             {
                 Config = config,
@@ -269,6 +277,7 @@ try
             var teacherId = cli.List("models")?.Single() ?? "gemma4-12b";
             var teacher = config.Models.FirstOrDefault(m => m.Id == teacherId)
                 ?? throw new ArgumentException($"No model '{teacherId}' in {configPath}.");
+            teacher = (await ServerProbe.WithWeightsAsync([teacher], Console.Out, cts.Token))[0];
             var labelsRoot = Path.Combine(root, "training", "data", "labels");
             var recheck = cli.Get("recheck") is { } rc ? Path.GetFullPath(rc) : null;
             // A recheck goes under results/, never training/data/labels/, so calibration labels can't reach a dataset.
@@ -308,6 +317,7 @@ try
             var config = HarnessConfig.Load(configPath);
             var ids = cli.List("models") ?? throw new ArgumentException("director-report needs --models a,b.");
             var models = ids.Select(id => config.Models.FirstOrDefault(m => m.Id == id) ?? throw new ArgumentException($"No model '{id}' in {configPath}.")).ToList();
+            models = (await ServerProbe.WithWeightsAsync(models, Console.Out, cts.Token)).ToList();
             if (models.FirstOrDefault(m => m.Provider == ProviderKind.Anthropic) is { } paid && !cli.Has("confirm-spend"))
             {
                 throw new ArgumentException($"{paid.Id} is a paid API model (5 calls per test case); add --confirm-spend to run it.");
@@ -332,6 +342,11 @@ try
             var config = HarnessConfig.Load(configPath);
             var id = cli.List("models")?.Single() ?? throw new ArgumentException("director-review needs --models <id>.");
             var model = config.Models.FirstOrDefault(m => m.Id == id) ?? throw new ArgumentException($"No model '{id}' in {configPath}.");
+            if (cli.Get("answers") is null)
+            {
+                model = (await ServerProbe.WithWeightsAsync([model], Console.Out, cts.Token))[0];
+            }
+
             var reviewDir = cli.Get("out") is { } rvo ? Path.GetFullPath(rvo) : Path.Combine(root, "harness", "reports", $"review-{id}");
             if (cli.Get("answers") is { } answers)
             {
