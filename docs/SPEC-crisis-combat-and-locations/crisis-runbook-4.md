@@ -30,7 +30,17 @@ C12's done-when is measured here: generation under 30 s and steady speed-1 ticks
 
 ## C13: finale
 
-(Added with C13.)
+| # | Do | Pass when |
+| --- | --- | --- |
+| 1 | **Crisis: fire operation** → FinalAssault. | Only "stage 4 finale" is offered. "The Imperial final assault" letter, led by the High Stellarch: Praetorians, breachers, a herald and one adept of each kind. |
+| 2 | Hurt the attackers badly (more than half). | They keep coming: no retreat. |
+| 3 | Bring the Stellarch below about 40% health (or down it) without killing it. | "The High Stellarch skips away": skip effects, and it leaves the map. **Crisis: Stellarch state**: escape used. |
+| 4 | **Crisis: generate Citadel** → standard; look in the throne room. | The Stellarch (the same one) stands there with the keep's guard. |
+| 5 | Hurt it badly again in the Citadel. | No second escape. Kill or down and capture it. |
+| 6 | Kill it (or capture it). | "The High Stellarch is dead" (or "captured") letter and a news item. **Crisis: Stellarch state**: fate dead (or captured). Firing FinalAssault again: "without a Stellarch to lead them". |
+| 7 | From a save, start the Empire plot's **Act3:StormTheCapital** job, attack the capital (the Citadel), and kill the Stellarch. | The capital quest succeeds when it falls; the Empire plot ends with the Resistance ending. |
+| 8 | From a save, with the escape unused, hurt the Stellarch in the Citadel. | It skips deep into the keep, away from your colonists, and fights on. |
+| 9 | Save with the Stellarch off the map after its escape, reload, and fire FinalAssault. | The same Stellarch leads it, and can't escape again. |
 
 ## C11: director wiring
 

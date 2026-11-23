@@ -17,6 +17,7 @@ public static class CaptiveCapturedPatch
         if (by == Faction.OfPlayer && CrisisDriver.Available && ___pawn is { } pawn)
         {
             CaptiveOps.Captured(pawn);
+            Crisis.Finale.Stellarch.Fell(pawn, Core.Crisis.StellarchFate.Captured); // only acts on the High Stellarch (C13)
         }
     }
 }

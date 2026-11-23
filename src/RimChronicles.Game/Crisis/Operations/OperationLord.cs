@@ -316,7 +316,7 @@ public sealed class LordToil_RcAssault : LordToil
             }
 
             var role = UnitKit.Unit(pawn.kindDef)?.role;
-            if (role is UnitRole.Adept or UnitRole.Herald && praetorians.Count > 0)
+            if (role is UnitRole.Adept or UnitRole.Herald or UnitRole.Stellarch && praetorians.Count > 0)
             {
                 var guard = praetorians[next++ % praetorians.Count];
                 pawn.mindState.duty = new PawnDuty(DutyDefOf.Escort, guard, EscortRadius);

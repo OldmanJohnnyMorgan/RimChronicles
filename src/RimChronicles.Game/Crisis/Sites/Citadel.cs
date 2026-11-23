@@ -136,6 +136,9 @@ public sealed class PendingGarrison : IExposable
     public IntVec3 centre;
     public float radius;
 
+    /// <summary>Where the High Stellarch stands, in the keep's throne room (C13); invalid for other rings.</summary>
+    public IntVec3 leader = IntVec3.Invalid;
+
     public PendingGarrison()
     {
     }
@@ -148,6 +151,16 @@ public sealed class PendingGarrison : IExposable
         var c = r.RingOnMap.Centre;
         centre = new IntVec3(c.X, 0, c.Z);
         radius = Math.Max(r.RingOnMap.W, r.RingOnMap.H) / 2f;
+        if (r.Index == 2 && plan.Throne is { } throne)
+        {
+            var room = throne.Cells().Where(cell => r.Plan.Grid[cell] is Core.Crisis.Pieces.CellKind.Empty or Core.Crisis.Pieces.CellKind.Floor)
+                .OrderBy(cell => Math.Abs(cell.X - throne.Bounds.Centre.X) + Math.Abs(cell.Z - throne.Bounds.Centre.Z)).ToList();
+            if (room.Count > 0)
+            {
+                var at = r.ToMap(room[0]);
+                leader = new IntVec3(at.X, 0, at.Z);
+            }
+        }
     }
 
     public void ExposeData()
@@ -157,6 +170,7 @@ public sealed class PendingGarrison : IExposable
         Scribe_Collections.Look(ref spots, "spots", LookMode.Value);
         Scribe_Values.Look(ref centre, "centre");
         Scribe_Values.Look(ref radius, "radius");
+        Scribe_Values.Look(ref leader, "leader", IntVec3.Invalid);
         spots ??= [];
     }
 }
@@ -264,6 +278,13 @@ public sealed class MapComponent_RcCitadel(Map map) : MapComponent(map)
         for (var i = 0; i < pawns.Count; i++)
         {
             GenSpawn.Spawn(pawns[i], CellFinder.RandomClosewalkCellNear(spots.Count > 0 ? spots[i % spots.Count] : g.centre, map, 2), map);
+        }
+
+        // The keep's honor guard is led by the High Stellarch, in the throne room (C13).
+        if (g.ring == 2 && Finale.Stellarch.Ready(empire) is { } stellarch)
+        {
+            GenSpawn.Spawn(stellarch, g.leader.IsValid && g.leader.InBounds(map) ? g.leader : g.centre, map);
+            pawns.Add(stellarch);
         }
 
         var lord = LordMaker.MakeNewLord(empire, new LordJob_RcGarrison(g.centre, g.radius, g.ring), map, pawns);
