@@ -131,6 +131,45 @@ public static class ServerProbe
         return info;
     }
 
+    /// <summary>
+    /// Ollama's digest of the model's weights, from /api/tags; null for other servers, other providers, an unreachable
+    /// server or a model it doesn't have. <c>ollama create</c> under an existing name gives a new digest.
+    /// </summary>
+    public static async Task<string?> WeightsDigestAsync(ModelConfig m, CancellationToken ct, HttpClient? http = null)
+    {
+        if (m.Provider != ProviderKind.OpenAi || m.Endpoint is null || m.Model is null)
+        {
+            return null;
+        }
+
+        var baseUri = new Uri(m.Endpoint.EndsWith('/') ? m.Endpoint : m.Endpoint + "/");
+        var tags = (await GetJsonAsync(http ?? Http, new Uri(baseUri, "api/tags"), ct).ConfigureAwait(false))?["models"] as JsonArray;
+        var entry = tags?.FirstOrDefault(x => (x?["name"] ?? x?["model"])?.GetValue<string>() is { } name
+                                              && (name == m.Model || name == m.Model + ":latest"));
+        return entry?["digest"]?.GetValue<string>() is { Length: > 0 } digest ? digest : null;
+    }
+
+    /// <summary>
+    /// Fills <see cref="ModelConfig.Weights"/> for every local model, warning on <paramref name="log"/> when an
+    /// OpenAI-compatible model's digest can't be read (its answers are then cached by name only).
+    /// </summary>
+    public static async Task<IReadOnlyList<ModelConfig>> WithWeightsAsync(IEnumerable<ModelConfig> models, TextWriter log, CancellationToken ct, HttpClient? http = null)
+    {
+        var result = new List<ModelConfig>();
+        foreach (var m in models)
+        {
+            var digest = await WeightsDigestAsync(m, ct, http).ConfigureAwait(false);
+            if (digest is null && m.Provider == ProviderKind.OpenAi)
+            {
+                log.WriteLine($"{m.Id}: couldn't read the weights digest (not Ollama, or the model isn't there); cached by name only.");
+            }
+
+            result.Add(m with { Weights = digest });
+        }
+
+        return result;
+    }
+
     /// <summary>Reads a GGUF quantization tag such as Q4_K_M out of a model file name.</summary>
     internal static string? QuantFromFileName(string path)
     {

@@ -134,6 +134,11 @@ public sealed record ModelConfig
     /// <summary>Anthropic only: effort for the Default thinking mode.</summary>
     public string? Effort { get; init; }
 
+    /// <summary>The server's digest of the model weights (Ollama), read at startup and never from models.json. It is in
+    /// the cache key, so a model retrained under the same name doesn't reuse the old model's answers.</summary>
+    [JsonIgnore]
+    public string? Weights { get; init; }
+
     public int TimeoutSeconds { get; init; } = 120;
 
     /// <summary>Requests in flight at once. Keep 1 for a local GPU so latency numbers are clean.</summary>
@@ -176,14 +181,25 @@ public sealed record ModelConfig
     }
 
     /// <summary>The settings that change what the model returns, for the response cache key.</summary>
-    public string Identity() => JsonSerializer.Serialize(new JsonObject
+    public string Identity()
     {
-        ["provider"] = Provider.ToString(),
-        ["endpoint"] = Endpoint,
-        ["model"] = Model,
-        ["effort"] = Effort,
-        ["thinkingOn"] = ThinkingOnBody?.DeepClone(),
-        ["thinkingOff"] = ThinkingOffBody?.DeepClone(),
-        ["extra"] = ExtraBody?.DeepClone(),
-    });
+        var identity = new JsonObject
+        {
+            ["provider"] = Provider.ToString(),
+            ["endpoint"] = Endpoint,
+            ["model"] = Model,
+            ["effort"] = Effort,
+            ["thinkingOn"] = ThinkingOnBody?.DeepClone(),
+            ["thinkingOff"] = ThinkingOffBody?.DeepClone(),
+            ["extra"] = ExtraBody?.DeepClone(),
+        };
+
+        // Only when known, so models without a digest (Anthropic, llama.cpp, stub) keep their existing cache keys.
+        if (Weights is not null)
+        {
+            identity["weights"] = Weights;
+        }
+
+        return JsonSerializer.Serialize(identity);
+    }
 }

@@ -16,7 +16,13 @@ echo 'export UV_PROJECT_ENVIRONMENT=$HOME/.venvs/rimchron-train' >> ~/.bashrc &&
 cd /mnt/c/RimworldMods/RimChronicles/RimChronicles/training
 uv sync            # first time: resolves and writes uv.lock (commit it: it pins every version)
 nvidia-smi         # the RTX 5060 Ti should be listed
+sudo apt update && sudo apt install -y build-essential   # Triton needs a C compiler to build Unsloth's kernels
 ```
+
+On Windows, open the NVIDIA Control Panel → Manage 3D settings → **CUDA - Sysmem Fallback Policy** → **Prefer No
+Sysmem Fallback**. Without it, a run that runs out of VRAM under WSL2 doesn't fail: the driver moves the overflow into
+system RAM and training goes on at a small fraction of its speed. Without a C compiler, Unsloth falls back to a loss
+that builds the whole vocabulary's logits (several GB more VRAM), the likely cause of the first E2B run slowing from 7 s to minutes per step.
 
 ## D0: feasibility spike
 
@@ -43,7 +49,7 @@ uv run python -m rimchron_train env --config config/d0.yaml
 uv run python -m rimchron_train data --config config/d0.yaml
 ```
 
-`env` must end with `OK`: a CUDA 12.8+ torch, the GPU with ~10 GB free, and **the base model found on Hugging Face**.
+`env` must end with `OK`: a CUDA 12.8+ torch, the GPU with ~10 GB free, a C compiler, and **the base model found on Hugging Face**.
 If it says the base model isn't found, find the Gemma 4 E2B *instruct* checkpoint's exact name (Unsloth's copy or
 Google's) and put it in `config/d0.yaml` as `base_model`.
 
@@ -137,6 +143,14 @@ The dataset keeps at most 40% Wait among training cases (`--max-wait-share`; val
 student waited in 78% of answers after training on 48% Wait. Commit `training/data/labels/local-gemma4-12b`
 (`items.jsonl`, `labels.jsonl`, `labels-final.jsonl`) and push, as for the pilot.
 
+**Hand labels for the Empire arc (`hand-empire-v1`, 2026-11-23).** The E2B v1 and v2 reports missed top-1 (75%, 77%)
+on AwakenedEmpire: on its open cases the 12B almost never waits (Broken: 4%), while Claude's test labels wait about
+half the time. Claude Code labelled 250 open Empire training cases from `seed-1` (120 Broken, 80 Ascendant, 50 Act2)
+in session, with the same rubric as `test-v1` (`director-teacher/v1`), without looking at the test labels. They
+agree with the 12B on 43% of those cases and wait on 55% of Broken (the 12B: 4%). Hand labels already win where both
+cover a case; `--hand-only AwakenedEmpire` also leaves out the 12B's labels on the Empire's other open cases (about 870), so
+they don't outvote the hand labels. Cases with a Wait rule keep the 12B's label.
+
 ## D6: train the directors
 
 After the bulk labels (D4b) are checked and committed. One model at a time, in this order: E2B first (smaller and
@@ -163,6 +177,12 @@ uv run python -m rimchron_train sft --config config/director-e2b.yaml 2>&1 | tee
 
 It prints the 99th-percentile row length at the start: if that's far below `max_seq_length`, lowering it saves memory.
 Ctrl+C is not resumable here; a stopped run starts over.
+
+Every check also logs the pace (`sec_per_step`, without the checks) and the peak VRAM since the last check
+(`vram_peak_gb`). Steps should take about 7 s on the 5060 Ti. If the pace reaches 3× the first steps', `sft` prints a
+WARNING; at 10× it stops and keeps the best LoRA so far (`slow_warn_factor` and `slow_stop_factor` in the config; 0
+never stops). That almost always means VRAM is spilling into system RAM: Task Manager → Performance → GPU shows
+**Shared GPU memory** in use. Check the setup steps above, then lower `max_seq_length`.
 
 **3. Export (WSL2):** Q4_K_M and Q8_0 GGUFs, each with a Modelfile.
 

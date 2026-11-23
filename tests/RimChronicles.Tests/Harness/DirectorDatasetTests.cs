@@ -124,4 +124,48 @@ public class DirectorDatasetTests
             Directory.Delete(root, recursive: true);
         }
     }
+
+    [Fact]
+    public void Build_HandOnlyArcs_DropsLocalLabelsOnOpenCasesOnly()
+    {
+        var root = Path.Combine(Path.GetTempPath(), "rc-ds-" + Guid.NewGuid().ToString("N"));
+        var cases = Path.Combine(root, "cases");
+        var local = Path.Combine(root, "local-teacher");
+        var hand = Path.Combine(root, "hand");
+        Directory.CreateDirectory(cases);
+        Directory.CreateDirectory(local);
+        Directory.CreateDirectory(hand);
+        try
+        {
+            var snapshots = Enumerable.Range(0, 60).Select(i => CaseGenerator.Generate(1, i).Snapshot).ToList();
+            string Line(WorldSnapshot s) => new JsonObject { ["case"] = s.Id, ["best"] = s.AllowedTransitions[0], ["agreement"] = 1.0, ["reason"] = "r" }.ToJsonString();
+            foreach (var s in snapshots)
+            {
+                File.WriteAllText(Path.Combine(cases, s.Id + ".json"), SnapshotJson.Serialize(s));
+            }
+
+            bool Open(WorldSnapshot s) => s.Director?.WaitExpected is null && DirectorLabels.Group(s).StartsWith("AwakenedEmpire/", StringComparison.Ordinal);
+            var openEmpire = snapshots.Where(Open).ToList();
+            Assert.True(openEmpire.Count >= 2, "the generator should give some open Empire cases");
+            File.WriteAllLines(Path.Combine(local, "labels-final.jsonl"), snapshots.Select(Line));
+            File.WriteAllLines(Path.Combine(hand, "labels-final.jsonl"), openEmpire.Take(1).Select(Line)); // one hand label
+            var outDir = Path.Combine(root, "out");
+            DirectorDataset.Build(new DatasetOptions
+            {
+                LabelDirs = [hand, local], CaseDirs = [cases], OutDir = outDir, PromptsRoot = Repo.Prompts, Tier = ModelTier.Minimum,
+                MaxWaitShare = 1, HandOnlyArcs = new HashSet<string> { "AwakenedEmpire" },
+            }, TextWriter.Null);
+
+            var manifest = JsonNode.Parse(File.ReadAllText(Path.Combine(outDir, "manifest.json")))!;
+            // The hand-labelled case is claimed by the hand folder first (a duplicate for local); the other open Empire
+            // cases lose their local label; every other case keeps it.
+            Assert.Equal(openEmpire.Count - 1, manifest["leftOut"]!["localOpenHandOnly"]!.GetValue<int>());
+            var kept = manifest["cases"]!["train"]!.GetValue<int>() + manifest["cases"]!["val"]!.GetValue<int>();
+            Assert.Equal(snapshots.Count - openEmpire.Count + 1, kept);
+        }
+        finally
+        {
+            Directory.Delete(root, recursive: true);
+        }
+    }
 }

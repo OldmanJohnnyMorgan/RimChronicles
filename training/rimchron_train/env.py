@@ -2,6 +2,8 @@
 from __future__ import annotations
 
 import importlib.metadata as md
+import os
+import shutil
 import sys
 
 
@@ -32,6 +34,16 @@ def run(base_model: str | None = None) -> int:
             print(f"{pkg} {md.version(pkg)}")
         except md.PackageNotFoundError:
             problems.append(f"{pkg} is not installed.")
+
+    cc = os.environ.get("CC") or next((c for c in ("cc", "gcc", "clang") if shutil.which(c)), None)
+    if cc and shutil.which(cc):
+        print(f"C compiler {shutil.which(cc)}")
+    else:
+        problems.append("No C compiler: Triton can't build Unsloth's kernels, and training falls back to paths that "
+                        "use several GB more VRAM and can run many times slower. Run `sudo apt install build-essential`.")
+    if "microsoft" in os.uname().release.lower():
+        print("WSL2: in the NVIDIA Control Panel set CUDA - Sysmem Fallback Policy to Prefer No Sysmem Fallback, so a "
+              "run that runs out of VRAM stops with an error instead of crawling in system RAM.")
 
     if base_model:
         try:
