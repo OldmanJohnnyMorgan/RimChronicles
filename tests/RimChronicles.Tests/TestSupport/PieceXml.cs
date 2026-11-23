@@ -26,6 +26,11 @@ public static class PieceXml
         ["Bed"] = new(1, 2, true, CellKind.PassThrough, PlacingRot: Side.South),
         ["TorchLamp"] = new(1, 1, false, CellKind.PassThrough),
 
+        ["CommsConsole"] = new(3, 2, true, CellKind.PassThrough, UsesPower: true),
+        ["SolarGenerator"] = new(4, 4, false, CellKind.PassThrough, UsesPower: true),
+        ["Battery"] = new(1, 2, true, CellKind.PassThrough, UsesPower: true),
+        ["Shelf"] = new(2, 1, true, CellKind.PassThrough),
+
         // The siege camp's own buildings (Defs/ThingDefs/RimChronicles_Siege.xml).
         ["RimChronicles_ImperialUplink"] = new(3, 2, true, CellKind.PassThrough),
         ["RimChronicles_ImperialShield"] = new(1, 1, false, CellKind.PassThrough),
