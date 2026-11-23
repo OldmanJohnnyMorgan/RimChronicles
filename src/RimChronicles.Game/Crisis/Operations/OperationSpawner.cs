@@ -30,11 +30,15 @@ public static class OperationSpawner
     }
 
     /// <summary>Units for <paramref name="points"/> of an operation's mix at a stage, kitted out, not spawned.</summary>
-    public static List<Pawn> Force(string operation, CrisisStage stage, float points, Faction faction)
+    public static List<Pawn> Force(string operation, CrisisStage stage, float points, Faction faction) =>
+        Force(ForceMix.For(operation), stage, points, faction);
+
+    /// <summary>Units for <paramref name="points"/> of a mix at a stage, kitted out, not spawned.</summary>
+    public static List<Pawn> Force(IReadOnlyList<MixEntry> entries, CrisisStage stage, float points, Faction faction)
     {
         var kinds = UnitKit.Kinds.ToList();
         PawnKindDef? KindFor(MixEntry e) => kinds.FirstOrDefault(k => UnitKit.Unit(k) is { } u && u.role == e.Role && u.specialty == e.Specialty);
-        var mix = ForceMix.For(operation).Where(e => KindFor(e) is not null).ToList();
+        var mix = entries.Where(e => KindFor(e) is not null).ToList();
         return ForceMix.Build(mix, stage, points, e => KindFor(e)!.combatPower)
             .Select(e => UnitKit.Generate(KindFor(e)!, faction, stage))
             .ToList();

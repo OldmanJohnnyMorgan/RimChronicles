@@ -110,7 +110,22 @@ public static class EmpireBeats
 
             case EmpireStep.SabotageImperial:
             {
-                if (!empire.HostileTo(Faction.OfPlayer) || QuestOffers.NearestSettlement(s => s.Faction == empire) is not { } target)
+                if (!empire.HostileTo(Faction.OfPlayer))
+                {
+                    return false;
+                }
+
+                // While the crisis runs, the sabotage is an Imperial site (C9); otherwise, or with no site defs, a settlement.
+                if (Crisis.Sites.SiteOffers.Pick(component, empire) is { } archetype)
+                {
+                    var near = QuestOffers.NearestSettlement(s => s.Faction == empire)?.Label ?? archetype.label;
+                    return StartQuest(component, plot, today, gap, transition.Step, near, () => QuestOffers.ImperialSite(component, plot, archetype, empire,
+                        $"Destroy the {archetype.label}",
+                        $"{empire.Name} has raised {Find.ActiveLanguageWorker.WithIndefiniteArticle(archetype.label)} near {Colony}: "
+                        + $"{archetype.description}. Destroy its objective before the site is abandoned, and the Empire's advance will falter."));
+                }
+
+                if (QuestOffers.NearestSettlement(s => s.Faction == empire) is not { } target)
                 {
                     return false;
                 }

@@ -37,7 +37,8 @@ public static class PieceCheck
             problems.Add($"{source.Name}: threat cost and defense value can't be negative");
         }
 
-        if (source.Things.Any(t => t.UsesPower) && !meta.NeedsPower)
+        // A generator piece (tagged Power) makes power rather than needing it.
+        if (source.Things.Any(t => t.UsesPower) && !meta.NeedsPower && !meta.Tags.Contains("Power"))
         {
             problems.Add($"{source.Name}: {source.Things.First(t => t.UsesPower).Def} uses power, so needsPower must be true");
         }

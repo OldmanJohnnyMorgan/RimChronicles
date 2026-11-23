@@ -23,8 +23,16 @@ public static class UnitKit
     {
         var pawn = PawnGenerator.GeneratePawn(new PawnGenerationRequest(kind, faction, forceGenerateNewPawn: true, mustBeCapableOfViolence: true));
         Apply(pawn, stage);
+        if (pawn.HasPsylink && RelaySevered is { } severed && RimChroniclesGameComponent.Current is { } component
+            && component.Crisis.IsDown(CrisisCapability.Psykers, GenDate.DaysPassed))
+        {
+            pawn.health.AddHediff(severed); // a destroyed relay site weakens the psykers that come while it's down (C9)
+        }
+
         return pawn;
     }
+
+    private static HediffDef? RelaySevered => DefDatabase<HediffDef>.GetNamedSilentFail("RimChronicles_RelaySevered");
 
     /// <summary>Applies the stage's tier and the kit to a freshly generated unit.</summary>
     public static void Apply(Pawn pawn, CrisisStage stage)

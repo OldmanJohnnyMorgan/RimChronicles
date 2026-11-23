@@ -66,6 +66,17 @@ public static class QuestOffers
             slate.Set(QuestNode_Root_ChroniclesSite.RewardVar, QuestTemplates.RewardSilver(slate.Get("points", 300f)));
         });
 
+    /// <summary>An Imperial site of <paramref name="archetype"/> to destroy (crisis C9). It counts as the Sabotage
+    /// template, so the Empire plot follows it as it did the settlement sabotage.</summary>
+    public static Quest? ImperialSite(RimChroniclesGameComponent component, Plot plot, Crisis.Sites.SiteArchetypeDef archetype, Faction empire,
+        string name, string description) =>
+        QuestStarter.Offer(component, plot, QuestTemplates.Sabotage, "RimChronicles_ImperialSite", name, description, slate =>
+        {
+            slate.Set(Crisis.Sites.QuestNode_Root_ChroniclesImperialSite.ArchetypeVar, archetype);
+            slate.Set(Crisis.Sites.QuestNode_Root_ChroniclesImperialSite.FactionVar, empire);
+            slate.Set(QuestNode_Root_ChroniclesSite.RewardVar, QuestTemplates.RewardSilver(slate.Get("points", 300f)));
+        });
+
     /// <summary>The Empire's capital as a Sabotage quest with no objective: only destroying the settlement succeeds,
     /// within <see cref="Core.Empire.EmpireArc.CapitalDays"/> days.</summary>
     public static Quest? Capital(RimChroniclesGameComponent component, Plot plot, Settlement capital, string name, string description) =>

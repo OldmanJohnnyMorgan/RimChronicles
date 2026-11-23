@@ -98,13 +98,15 @@ public sealed class PieceSpec
 {
     private readonly CellKind[,] _cells;
 
-    private PieceSpec(PieceSource source, Side rotation, CellKind[,] cells, IReadOnlyList<Side> doorSides, IReadOnlyList<string> outside)
+    private PieceSpec(PieceSource source, Side rotation, CellKind[,] cells, IReadOnlyList<Side> doorSides, IReadOnlyList<string> outside,
+        IReadOnlyList<Cell> powerCells)
     {
         Source = source;
         Rotation = rotation;
         _cells = cells;
         DoorSides = doorSides;
         Outside = outside;
+        PowerCells = powerCells;
     }
 
     public PieceSource Source { get; }
@@ -117,6 +119,10 @@ public sealed class PieceSpec
 
     /// <summary>Things whose cells fall outside the footprint at this rotation (a broken piece; empty when it's fine).</summary>
     public IReadOnlyList<string> Outside { get; }
+
+    /// <summary>Cells holding a thing that draws, makes or stores power, in footprint coordinates: where a conduit
+    /// connects it.</summary>
+    public IReadOnlyList<Cell> PowerCells { get; }
 
     public CellKind this[int x, int z] => _cells[x, z];
 
@@ -180,15 +186,20 @@ public sealed class PieceSpec
             Mark(root + PieceRotation.Local(floor, rotation), CellKind.Floor, "floor");
         }
 
+        var power = new List<Cell>();
         foreach (var thing in source.Things)
         {
             foreach (var cell in PieceRotation.Occupied(thing, rotation))
             {
                 Mark(root + cell, thing.Kind, thing.Def);
+                if (thing.UsesPower)
+                {
+                    power.Add(root + cell);
+                }
             }
         }
 
         var doors = source.Meta.DoorSides.Select(s => PieceRotation.Turn(s, rotation)).Distinct().OrderBy(s => s).ToList();
-        return new PieceSpec(source, rotation, cells, doors, outside);
+        return new PieceSpec(source, rotation, cells, doors, outside, power.Distinct().ToList());
     }
 }

@@ -75,6 +75,31 @@ public static class ForceMix
         new(UnitRole.Adept, Specialty.Ward, 1),
     ];
 
+    /// <summary>A site's garrison (C9): Praetorians on the walls, with what the site guards. An outpost has a Herald
+    /// from stage 3; a relay keeps its psykers; an uplink its Heralds.</summary>
+    public static IReadOnlyList<MixEntry> ForSite(string archetype) => archetype switch
+    {
+        "PsychicRelay" =>
+        [
+            new(UnitRole.Praetorian, Specialty.None, 4),
+            new(UnitRole.Adept, Specialty.Control, 1),
+            new(UnitRole.Adept, Specialty.Ward, 1),
+            new(UnitRole.Adept, Specialty.Mind, 1),
+        ],
+        "OrbitalUplink" =>
+        [
+            new(UnitRole.Praetorian, Specialty.None, 5),
+            new(UnitRole.Herald, Specialty.None, 2),
+            new(UnitRole.Adept, Specialty.Ward, 1),
+        ],
+        _ =>
+        [
+            new(UnitRole.Praetorian, Specialty.None, 4),
+            new(UnitRole.Breacher, Specialty.None, 1),
+            new(UnitRole.Herald, Specialty.None, 1, CrisisStage.War),
+        ],
+    };
+
     public static IReadOnlyList<MixEntry> For(string operation) => operation switch
     {
         CrisisOperations.ProbingRaid => ProbingRaid,

@@ -193,6 +193,14 @@ psylink level; the High Stellarch inherits `Empire_Royal_Stellarch`.
   generator** when `parent` is the Empire capital. `Settlement.MapGeneratorDef` (a virtual getter, `Base_Faction` for
   NPC settlements) is the other hook.
 - `SitePartDef.minMapSize` sets a minimum map size for a site part.
+- A site part's map content comes from `GenStepDef`s with `<linkWithSite>` naming the part (`BanditCamp.xml`: the
+  outpost generator and power). C9's site parts inherit vanilla's `Outpost` part (threat points, faction, arrival
+  letter) and link our own gen step. Vanilla's outpost adds its rect to the map-gen var `UsedRects` so later steps
+  keep out; ours does too.
+- Power: a building wires itself to the nearest power transmitter within 6 cells of its position, walls or not
+  (`PowerConnectionMaker.BestTransmitterForConnector`). Plain walls don't transmit power. A conduit isn't an edifice:
+  spawned after a building, it sits under it without wiping it (`GenSpawn.SpawningWipes` only wipes an old conduit when
+  the new thing transmits power).
 
 ### Strikes and drop pods
 

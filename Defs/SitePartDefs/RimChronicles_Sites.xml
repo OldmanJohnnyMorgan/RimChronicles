@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  World-map sites for the crisis archetypes (C9): vanilla's outpost site part (threat points, faction, the arrival
+  letter) with our gen step instead of vanilla's outpost generator. GenStep_RcSite plans and stamps the archetype.
+-->
+<Defs>
+
+  <SitePartDef ParentName="Outpost" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_ImperialOutpost</defName>
+    <label>Imperial forward outpost</label>
+    <description>A small walled Imperial outpost with a comms console.</description>
+    <arrivedLetter>There is an Imperial forward outpost in this area. Its comms console is in the room deepest inside the walls.</arrivedLetter>
+    <tags Inherit="False">
+      <li>RimChronicles_ImperialOutpost</li>
+    </tags>
+  </SitePartDef>
+
+  <GenStepDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_ImperialOutpost</defName>
+    <linkWithSite>RimChronicles_ImperialOutpost</linkWithSite>
+    <order>400</order>
+    <genStep Class="RimChronicles.Game.Crisis.Sites.GenStep_RcSite">
+      <archetype>RimChronicles_Site_ForwardOutpost</archetype>
+    </genStep>
+  </GenStepDef>
+
+  <SitePartDef ParentName="Outpost" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_ImperialRelaySite</defName>
+    <label>Imperial psychic relay</label>
+    <description>A fortified Imperial psychic relay.</description>
+    <arrivedLetter>There is an Imperial psychic relay in this area. Its core is in the chamber deepest inside the walls.</arrivedLetter>
+    <tags Inherit="False">
+      <li>RimChronicles_ImperialRelaySite</li>
+    </tags>
+  </SitePartDef>
+
+  <GenStepDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_ImperialRelaySite</defName>
+    <linkWithSite>RimChronicles_ImperialRelaySite</linkWithSite>
+    <order>400</order>
+    <genStep Class="RimChronicles.Game.Crisis.Sites.GenStep_RcSite">
+      <archetype>RimChronicles_Site_PsychicRelay</archetype>
+    </genStep>
+  </GenStepDef>
+
+  <SitePartDef ParentName="Outpost" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_ImperialUplinkSite</defName>
+    <label>Imperial orbital uplink</label>
+    <description>A fortified Imperial orbital uplink.</description>
+    <arrivedLetter>There is an Imperial orbital uplink in this area. The uplink console is in the station deepest inside the walls.</arrivedLetter>
+    <tags Inherit="False">
+      <li>RimChronicles_ImperialUplinkSite</li>
+    </tags>
+  </SitePartDef>
+
+  <GenStepDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_ImperialUplinkSite</defName>
+    <linkWithSite>RimChronicles_ImperialUplinkSite</linkWithSite>
+    <order>400</order>
+    <genStep Class="RimChronicles.Game.Crisis.Sites.GenStep_RcSite">
+      <archetype>RimChronicles_Site_OrbitalUplink</archetype>
+    </genStep>
+  </GenStepDef>
+
+</Defs>
