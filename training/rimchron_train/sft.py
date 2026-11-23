@@ -82,7 +82,7 @@ def run(cfg: Config) -> int:
         bias="none", random_state=cfg.seed, use_gradient_checkpointing="unsloth")
 
     texts = [render(tokenizer, r) for r in train_rows]
-    lengths = [len(tokenizer(text=t)["input_ids"]) for t in texts]
+    lengths = [progress.token_count(tokenizer(text=t)["input_ids"]) for t in texts]
     check_lengths(lengths, cfg.max_seq_length, [r.id for r in train_rows])
     print(progress.length_report(lengths, cfg.max_seq_length))
     train = Dataset.from_list([{"text": t} for t in texts])

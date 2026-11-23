@@ -121,6 +121,15 @@ def set_aside(run_dir: Path) -> Path | None:
     return target
 
 
+def token_count(input_ids) -> int:
+    """Tokens in one tokenized row. Gemma 4's processor returns a batch (a list holding one list of ids) even for one
+    text, so a plain len() would count the batch: 1."""
+    ids = list(input_ids)
+    if ids and hasattr(ids[0], "__len__"):  # a batch of rows; a token id (int or numpy int) has no length
+        return sum(len(row) for row in ids)
+    return len(ids)
+
+
 def length_report(lengths: list[int], limit: int) -> str:
     """The longest row and the 99th percentile, against max_seq_length (training spec §5.2: set it from the p99)."""
     s = sorted(lengths)
