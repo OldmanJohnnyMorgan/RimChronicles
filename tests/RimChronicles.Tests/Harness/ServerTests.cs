@@ -62,6 +62,42 @@ public class ServerProbeTests
     }
 
     [Fact]
+    public async Task Ollama_WeightsDigest_MatchesTheNameWithOrWithoutLatest()
+    {
+        var http = Server(new()
+        {
+            ["/api/tags"] = """{"models":[{"name":"gemma4:e4b","digest":"aaa"},{"name":"rimchron-director-e2b:latest","digest":"bbb"},{"name":"qwen3.5:4b","digest":"ccc"}]}""",
+        });
+        var director = Qwen with { Id = "director-e2b", Model = "rimchron-director-e2b" };
+
+        Assert.Equal("ccc", await ServerProbe.WeightsDigestAsync(Qwen, CancellationToken.None, http));
+        Assert.Equal("bbb", await ServerProbe.WeightsDigestAsync(director, CancellationToken.None, http));
+        Assert.Null(await ServerProbe.WeightsDigestAsync(Qwen with { Model = "missing" }, CancellationToken.None, http));
+    }
+
+    [Fact]
+    public async Task WeightsDigest_NotOllama_IsNullAndWarned()
+    {
+        var http = Server(new() { ["/v1/models"] = ModelsList });
+        var log = new StringWriter();
+
+        var models = await ServerProbe.WithWeightsAsync([Qwen], log, CancellationToken.None, http);
+
+        Assert.Null(models[0].Weights);
+        Assert.Contains("cached by name only", log.ToString());
+    }
+
+    [Fact]
+    public void Identity_ChangesWithTheWeights_AndIsUnchangedWithoutThem()
+    {
+        var before = Qwen.Identity();
+
+        Assert.DoesNotContain("weights", before);
+        Assert.NotEqual(before, (Qwen with { Weights = "aaa" }).Identity());
+        Assert.NotEqual((Qwen with { Weights = "aaa" }).Identity(), (Qwen with { Weights = "bbb" }).Identity());
+    }
+
+    [Fact]
     public async Task LlamaCpp_ReadsQuantizationFromTheModelFile()
     {
         var raon = Qwen with { Id = "raon", Model = "raon-1-nano", Endpoint = "http://localhost:8081" };
