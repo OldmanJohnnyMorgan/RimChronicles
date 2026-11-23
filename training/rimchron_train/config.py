@@ -36,6 +36,9 @@ class Config:
     min_delta: float = 0.0
     max_new_tokens: int = 300                 # the game's budget (prompts/director/v2: 200 at Minimum, 300 above)
     min_free_vram_gb: float = 6.0             # stop at the start, with a clear message, below this
+    # A step pace this many times the early steps' median warns, or stops the run (the best LoRA is kept; 0: never).
+    slow_warn_factor: float = 3.0
+    slow_stop_factor: float = 10.0
 
     @property
     def run_dir(self) -> Path:

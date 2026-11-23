@@ -5,13 +5,15 @@ from __future__ import annotations
 import csv
 import json
 import math
+import statistics
 from collections import defaultdict
 from dataclasses import dataclass, field
 from pathlib import Path
 
 from . import data
 
-LOG_FIELDS = ["step", "epoch", "train_loss", "val_valid", "val_top1", "val_wait", "best_top1", "best_step", "elapsed_min"]
+LOG_FIELDS = ["step", "epoch", "train_loss", "val_valid", "val_top1", "val_wait", "best_top1", "best_step", "elapsed_min",
+              "sec_per_step", "vram_peak_gb"]
 
 
 def eval_sample(rows: list[data.Row], n: int) -> list[data.Row]:
@@ -119,6 +121,15 @@ def set_aside(run_dir: Path) -> Path | None:
     return target
 
 
+def token_count(input_ids) -> int:
+    """Tokens in one tokenized row. Gemma 4's processor returns a batch (a list holding one list of ids) even for one
+    text, so a plain len() would count the batch: 1."""
+    ids = list(input_ids)
+    if ids and hasattr(ids[0], "__len__"):  # a batch of rows; a token id (int or numpy int) has no length
+        return sum(len(row) for row in ids)
+    return len(ids)
+
+
 def length_report(lengths: list[int], limit: int) -> str:
     """The longest row and the 99th percentile, against max_seq_length (training spec §5.2: set it from the p99)."""
     s = sorted(lengths)
@@ -132,3 +143,52 @@ def last_train_loss(log_history: list[dict]) -> float | None:
         if "loss" in entry:
             return entry["loss"]
     return None
+
+
+class StepTimer:
+    """Spots a run that slows down partway (on WSL2 the driver moves overflowing VRAM into system RAM instead of
+    failing, and training then crawls for hours without an error). Steps are timed without the evaluations. The
+    baseline is the median of the first `baseline_steps` steps (skipping the first, which warms up); each step after
+    that compares the median of the last `window` steps with it. Returns "warn" past warn_factor (once until the
+    pace recovers), "stop" past stop_factor (0: never), else None."""
+
+    def __init__(self, warn_factor: float = 3.0, stop_factor: float = 10.0, baseline_steps: int = 20, window: int = 10):
+        self.warn_factor, self.stop_factor = warn_factor, stop_factor
+        self.baseline_steps, self.window = baseline_steps, window
+        self.times: list[float] = []
+        self.baseline: float | None = None
+        self.warned = False
+
+    @property
+    def recent(self) -> float | None:
+        return statistics.median(self.times[-self.window:]) if self.times else None
+
+    @property
+    def ratio(self) -> float:
+        return self.recent / self.baseline if self.baseline and self.recent else 1.0
+
+    def add(self, seconds: float) -> str | None:
+        self.times.append(seconds)
+        if self.baseline is None:
+            if len(self.times) > self.baseline_steps:
+                self.baseline = statistics.median(self.times[1:])
+                self.times = self.times[-1:]  # the window starts after the baseline
+            return None
+        if len(self.times) < self.window:
+            return None
+        ratio = self.ratio
+        if self.stop_factor and ratio >= self.stop_factor:
+            return "stop"
+        if ratio >= self.warn_factor:
+            if not self.warned:
+                self.warned = True
+                return "warn"
+        elif ratio < self.warn_factor / 2:
+            self.warned = False
+        return None
+
+
+SLOWDOWN_HELP = ("Usually VRAM is full and the driver is moving it into system RAM (Task Manager > GPU > Shared GPU "
+                 "memory). Fixes: `sudo apt install build-essential` in WSL (without a C compiler Unsloth's fused loss "
+                 "kernel falls back to building the whole vocabulary's logits), NVIDIA Control Panel > Manage 3D "
+                 "settings > CUDA - Sysmem Fallback Policy > Prefer No Sysmem Fallback, and a lower max_seq_length.")

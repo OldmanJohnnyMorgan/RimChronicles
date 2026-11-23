@@ -90,5 +90,51 @@ class ConfigFileTests(unittest.TestCase):
             self.assertFalse(required - keys, f"{f.name}: missing {required - keys}")
 
 
+
+class StepTimerTests(unittest.TestCase):
+    def feed(self, timer, seconds, n):
+        return [timer.add(seconds) for _ in range(n)]
+
+    def test_baseline_skips_the_warm_up_step(self):
+        t = progress.StepTimer(baseline_steps=5, window=3)
+        self.assertEqual([t.add(s) for s in (60, 7, 7, 7, 7, 7)], [None] * 6)
+        self.assertEqual(t.baseline, 7)
+
+    def test_a_steady_run_never_warns(self):
+        t = progress.StepTimer(baseline_steps=5, window=3)
+        self.assertEqual(set(self.feed(t, 7, 200)), {None})
+
+    def test_a_slowdown_warns_once_then_stops(self):
+        t = progress.StepTimer(warn_factor=3, stop_factor=10, baseline_steps=5, window=3)
+        self.feed(t, 7, 10)
+        out = self.feed(t, 30, 10)
+        self.assertEqual(out.count("warn"), 1)
+        self.assertNotIn("stop", out)
+        self.assertIn("stop", self.feed(t, 100, 3))
+
+    def test_one_slow_step_is_not_a_slowdown(self):
+        t = progress.StepTimer(baseline_steps=5, window=3)
+        self.feed(t, 7, 10)
+        self.assertEqual([t.add(s) for s in (500, 7, 7)], [None] * 3)
+
+    def test_warns_again_after_the_pace_recovers(self):
+        t = progress.StepTimer(warn_factor=3, stop_factor=0, baseline_steps=5, window=3)
+        self.feed(t, 7, 10)
+        self.assertIn("warn", self.feed(t, 30, 5))
+        self.feed(t, 7, 5)
+        self.assertIn("warn", self.feed(t, 30, 5))
+        self.assertNotIn("stop", self.feed(t, 1000, 5))  # stop_factor 0: never stops
+
+
+class TokenCountTests(unittest.TestCase):
+    def test_a_flat_list_counts_its_ids(self):
+        self.assertEqual(progress.token_count([5, 6, 7]), 3)
+
+    def test_a_batch_of_one_counts_the_row_not_the_batch(self):
+        self.assertEqual(progress.token_count([[5, 6, 7, 8]]), 4)  # Gemma 4's processor wraps one text in a batch
+
+    def test_empty(self):
+        self.assertEqual(progress.token_count([]), 0)
+
 if __name__ == "__main__":
     unittest.main()

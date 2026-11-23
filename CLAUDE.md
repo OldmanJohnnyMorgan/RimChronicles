@@ -28,7 +28,7 @@ dotnet run --project harness/RimChronicles.Eval -- director-review --models <id>
 
 The real evaluation runs on the reference PC, not in the codespace: set the PC up with `docs/local-setup.md`, then follow `docs/stage0-runbook.md`.
 
-Run output goes to `results/<runId>/` (`results.csv`, `summary.csv`, `run.json`, `raw/`, and after judging `judge.csv`, `judgments/`, plus `summary.html`). Pass bars live in `harness/passbars.json`; responses are cached in `results/cache/`, keyed by model settings, the full request and the repeat number. Both are git-ignored.
+Run output goes to `results/<runId>/` (`results.csv`, `summary.csv`, `run.json`, `raw/`, and after judging `judge.csv`, `judgments/`, plus `summary.html`). Pass bars live in `harness/passbars.json`; responses are cached in `results/cache/`, keyed by model settings, the Ollama weights digest (so a retrained model under the same name misses), the full request and the repeat number. Both are git-ignored.
 
 Summarizer golden files live in `tests/RimChronicles.Tests/Golden/`. After an intended change to prompt text, run `UPDATE_GOLDEN=1 dotnet test`, then review the diff before committing.
 

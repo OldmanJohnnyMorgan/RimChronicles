@@ -4,6 +4,7 @@ using RimChronicles.Eval.Config;
 using RimChronicles.Eval.Judging;
 using RimChronicles.Eval.Reporting;
 using RimChronicles.Eval.Running;
+using RimChronicles.Eval.Servers;
 using RimChronicles.Llm.Prompts;
 
 const string usage = """
@@ -105,6 +106,7 @@ const string usage = """
       --tier <tier>            Minimum, Recommended or High: the prompt budget to render for (default Recommended)
       --test-seeds a,b         Generator seeds that form the test split (default 9001)
       --max-wait-share <0-1>   Most of the training cases whose best answer is Wait (default 0.4; 1 keeps all)
+      --hand-only <arc,...>    Open cases (no Wait rule) in these arcs take only hand labels, not local-* ones
       --out <dir>              Output (default training/data/splits/<tier>)
 
     spotcheck options:
@@ -122,7 +124,7 @@ if (args.Length == 0 || args[0] is "-h" or "--help" or "help")
 var root = FindRepoRoot();
 var valueOptions = new HashSet<string>
 {
-    "config", "prompts", "snapshots-dir", "passbars", "models", "tasks", "snapshots", "repeats", "out", "cache", "compare", "rate", "seed", "vram-budget", "temperature", "count", "from", "cases", "repeat", "pack", "labels", "tier", "test-seeds", "max-wait-share", "recheck", "name", "base", "answers",
+    "config", "prompts", "snapshots-dir", "passbars", "models", "tasks", "snapshots", "repeats", "out", "cache", "compare", "rate", "seed", "vram-budget", "temperature", "count", "from", "cases", "repeat", "pack", "labels", "tier", "test-seeds", "max-wait-share", "hand-only", "recheck", "name", "base", "answers",
 };
 var flags = new HashSet<string> { "no-cache", "dry-run", "judge", "resample", "no-wait-rule", "confirm-spend" };
 
@@ -175,6 +177,13 @@ try
             if (cli.Get("temperature") is { } temperature)
             {
                 config = config.WithLocalTemperature(temperature);
+            }
+
+            if (!cli.Has("dry-run"))
+            {
+                var selected = cli.List("models") is { } only ? config.Models.Where(m => only.Contains(m.Id)) : config.Models;
+                var weighed = (await ServerProbe.WithWeightsAsync(selected, Console.Out, cts.Token)).ToDictionary(m => m.Id);
+                config = config with { Models = config.Models.Select(m => weighed.GetValueOrDefault(m.Id, m)).ToList() };
             }
 
             var result = await Runner.RunAsync(new RunOptions
@@ -269,6 +278,7 @@ try
             var teacherId = cli.List("models")?.Single() ?? "gemma4-12b";
             var teacher = config.Models.FirstOrDefault(m => m.Id == teacherId)
                 ?? throw new ArgumentException($"No model '{teacherId}' in {configPath}.");
+            teacher = (await ServerProbe.WithWeightsAsync([teacher], Console.Out, cts.Token))[0];
             var labelsRoot = Path.Combine(root, "training", "data", "labels");
             var recheck = cli.Get("recheck") is { } rc ? Path.GetFullPath(rc) : null;
             // A recheck goes under results/, never training/data/labels/, so calibration labels can't reach a dataset.
@@ -308,6 +318,7 @@ try
             var config = HarnessConfig.Load(configPath);
             var ids = cli.List("models") ?? throw new ArgumentException("director-report needs --models a,b.");
             var models = ids.Select(id => config.Models.FirstOrDefault(m => m.Id == id) ?? throw new ArgumentException($"No model '{id}' in {configPath}.")).ToList();
+            models = (await ServerProbe.WithWeightsAsync(models, Console.Out, cts.Token)).ToList();
             if (models.FirstOrDefault(m => m.Provider == ProviderKind.Anthropic) is { } paid && !cli.Has("confirm-spend"))
             {
                 throw new ArgumentException($"{paid.Id} is a paid API model (5 calls per test case); add --confirm-spend to run it.");
@@ -332,6 +343,11 @@ try
             var config = HarnessConfig.Load(configPath);
             var id = cli.List("models")?.Single() ?? throw new ArgumentException("director-review needs --models <id>.");
             var model = config.Models.FirstOrDefault(m => m.Id == id) ?? throw new ArgumentException($"No model '{id}' in {configPath}.");
+            if (cli.Get("answers") is null)
+            {
+                model = (await ServerProbe.WithWeightsAsync([model], Console.Out, cts.Token))[0];
+            }
+
             var reviewDir = cli.Get("out") is { } rvo ? Path.GetFullPath(rvo) : Path.Combine(root, "harness", "reports", $"review-{id}");
             if (cli.Get("answers") is { } answers)
             {
@@ -370,6 +386,7 @@ try
                 Tier = tier,
                 TestSeeds = (cli.List("test-seeds") ?? ["9001"]).Select(int.Parse).ToHashSet(),
                 MaxWaitShare = cli.Get("max-wait-share") is { } mw ? double.Parse(mw, System.Globalization.CultureInfo.InvariantCulture) : 0.4,
+                HandOnlyArcs = (cli.List("hand-only") ?? []).ToHashSet(StringComparer.Ordinal),
             }, Console.Out);
         }
 
