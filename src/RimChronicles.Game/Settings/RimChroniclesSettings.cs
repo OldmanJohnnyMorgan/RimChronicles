@@ -39,6 +39,12 @@ public sealed class RimChroniclesSettings : ModSettings
     /// <summary>Seconds between an orbital strike being called and landing (6–10).</summary>
     public int StrikeDelaySeconds = Core.Crisis.Strikes.StrikeRules.DefaultDelaySeconds;
 
+    /// <summary>The Citadel's map size (crisis spec §4.5; C12). Smaller is faster on slow PCs.</summary>
+    public int CitadelMapSize = Core.Crisis.Sites.CitadelRings.DefaultMapSize;
+
+    /// <summary>Spawn the Citadel's courtyard and keep garrisons only when the colonists reach the ring before them.</summary>
+    public bool CitadelLazyRings;
+
     /// <summary>Arc types turned off: they start no new plots (running ones finish).</summary>
     public List<string> DisabledArcs = [];
 
@@ -104,6 +110,8 @@ public sealed class RimChroniclesSettings : ModSettings
         CrisisDifficulty = 1f;
         CrisisGapDays = Core.Crisis.CrisisArc.DefaultGapDays;
         StrikeDelaySeconds = Core.Crisis.Strikes.StrikeRules.DefaultDelaySeconds;
+        CitadelMapSize = Core.Crisis.Sites.CitadelRings.DefaultMapSize;
+        CitadelLazyRings = false;
         DisabledArcs = [];
         ProseEndpoint = "";
         ProseModel = "";
@@ -128,6 +136,8 @@ public sealed class RimChroniclesSettings : ModSettings
         Scribe_Values.Look(ref CrisisDifficulty, "crisisDifficulty", 1f);
         Scribe_Values.Look(ref CrisisGapDays, "crisisGapDays", Core.Crisis.CrisisArc.DefaultGapDays);
         Scribe_Values.Look(ref StrikeDelaySeconds, "strikeDelaySeconds", Core.Crisis.Strikes.StrikeRules.DefaultDelaySeconds);
+        Scribe_Values.Look(ref CitadelMapSize, "citadelMapSize", Core.Crisis.Sites.CitadelRings.DefaultMapSize);
+        Scribe_Values.Look(ref CitadelLazyRings, "citadelLazyRings");
         Scribe_Collections.Look(ref DisabledArcs, "disabledArcs", LookMode.Value);
         Scribe_Values.Look(ref ProseEndpoint, "proseEndpoint", "");
         Scribe_Values.Look(ref ProseModel, "proseModel", "");

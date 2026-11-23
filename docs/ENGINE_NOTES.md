@@ -203,6 +203,11 @@ psylink level; the High Stellarch inherits `Empire_Royal_Stellarch`.
   (`ScheduledForInteraction`: at most two a day, 10,000 ticks apart; `Toils_Interpersonal.SetLastInteractTime` uses it).
   Anomaly's identity interrogation (`WorkGiver_Warden_InterrogateIdentity`, `JobDriver_InterrogatePrisoner`) is the
   model; its chance is `SocialImpact × 0.15`.
+- The Citadel (C12) hooks only `MapGenerator.GenerateMap` (a prefix with `ref mapSize` and `ref mapGenerator`); a
+  `MapGeneratorDef` with `ParentName="MapCommonBase"` and `RocksFromGrid` first gets vanilla's terrain and rock.
+  `Thing.TakeDamage(DamageInfo)` is non-virtual, so one prefix with `ref DamageInfo` and `DamageInfo.SetAmount` scales
+  damage to any building. `LordToil_DefendPoint(point, defendRadius, wanderRadius)`; a lord moves on with
+  `Lord.ReceiveMemo` and a `Trigger_Memo`.
 - Resistance and will come from the pawn kind's `initialResistanceRange` / `initialWillRange` at capture
   (`Pawn_GuestTracker.CapturedBy`), plus the royal title's `recruitmentResistanceOffset`.
 - Power: a building wires itself to the nearest power transmitter within 6 cells of its position, walls or not

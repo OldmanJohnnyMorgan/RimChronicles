@@ -411,4 +411,65 @@
     </modExtensions>
   </PrefabDef>
 
+  <!-- Citadel keep (C12): the throne room the assault ends in. -->
+  <PrefabDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Piece_ThroneRoom</defName>
+    <size>(11,9)</size>
+    <things>
+      <Wall>
+        <rects>
+          <li>(0,0,4,0)</li>
+          <li>(6,0,10,0)</li>
+          <li>(0,8,10,8)</li>
+          <li>(0,1,0,7)</li>
+          <li>(10,1,10,7)</li>
+        </rects>
+      </Wall>
+      <Door>
+        <position>(5, 0, 0)</position>
+      </Door>
+      <Throne>
+        <position>(5, 0, 6)</position>
+      </Throne>
+      <Brazier>
+        <positions>
+          <li>(2, 0, 6)</li>
+          <li>(8, 0, 6)</li>
+          <li>(2, 0, 2)</li>
+          <li>(8, 0, 2)</li>
+        </positions>
+      </Brazier>
+    </things>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <tags><li>Room</li><li>Throne</li></tags>
+        <doorSides><li>South</li></doorSides>
+      </li>
+    </modExtensions>
+  </PrefabDef>
+
+  <!-- Citadel keep (C12): a sealed vault with no door; breach it for what's inside. -->
+  <PrefabDef>
+    <defName>RimChronicles_Piece_Vault</defName>
+    <size>(7,6)</size>
+    <things>
+      <Wall>
+        <rects>
+          <li>(0,0,6,0)</li>
+          <li>(0,5,6,5)</li>
+          <li>(0,1,0,4)</li>
+          <li>(6,1,6,4)</li>
+        </rects>
+      </Wall>
+      <AIPersonaCore>
+        <position>(3, 0, 2)</position>
+      </AIPersonaCore>
+    </things>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <tags><li>Room</li><li>Vault</li><li>Sealed</li></tags>
+      </li>
+    </modExtensions>
+  </PrefabDef>
+
 </Defs>

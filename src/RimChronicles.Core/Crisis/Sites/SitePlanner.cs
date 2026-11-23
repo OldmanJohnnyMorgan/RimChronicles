@@ -38,6 +38,9 @@ public sealed class SitePlan
     /// <summary>The wall ring: its perimeter cells are wall, except the gates.</summary>
     public required Rect Ring { get; init; }
 
+    /// <summary>A rectangle left free for an inner ring planned on its own (the Citadel), or null.</summary>
+    public Rect? Hole { get; init; }
+
     /// <summary>The side the gates are on: where the player is expected to come from.</summary>
     public required Side Entry { get; init; }
 
@@ -122,27 +125,34 @@ public static class SitePlanner
         SeededRng.Seed(siteId, archetype) ^ unchecked((ulong)attempt * 0x9E3779B97F4A7C15UL);
 
     /// <summary>The first plan, of up to <see cref="MaxAttempts"/> seeds, that passes the validators; else the fallback.</summary>
-    public static SitePlan PlanValid(SiteArchetype archetype, IReadOnlyList<PieceSource> pieces, float points, long siteId, out int attempts)
+    public static SitePlan PlanValid(SiteArchetype archetype, IReadOnlyList<PieceSource> pieces, float points, long siteId, out int attempts, Rect? hole = null)
     {
         for (attempts = 1; attempts <= MaxAttempts; attempts++)
         {
-            var plan = Plan(archetype, pieces, points, SeedFor(siteId, archetype.Name, attempts - 1));
+            var plan = Plan(archetype, pieces, points, SeedFor(siteId, archetype.Name, attempts - 1), hole);
             if (SiteValidator.Problems(plan).Count == 0)
             {
                 return plan;
             }
         }
 
-        return Fallback(archetype, pieces, points);
+        return Fallback(archetype, pieces, points, hole);
     }
 
-    public static SitePlan Plan(SiteArchetype archetype, IReadOnlyList<PieceSource> pieces, float points, ulong seed)
+    /// <summary>Plans a site. With <paramref name="hole"/>, that rectangle stays free for an inner ring, and slots mostly
+    /// inside it are dropped.</summary>
+    public static SitePlan Plan(SiteArchetype archetype, IReadOnlyList<PieceSource> pieces, float points, ulong seed, Rect? hole = null)
     {
         var rng = new SeededRng(seed);
         var entry = (Side)rng.Next(4);
-        var plan = Start(archetype, points, seed, entry, fallback: false);
+        var plan = Start(archetype, points, seed, entry, fallback: false, hole);
         var area = plan.SlotArea;
         var slots = Partition(area, MinSlot(archetype, pieces), rng);
+        if (hole is { } h)
+        {
+            slots = slots.Where(s => s.Cells().Count(h.Contains) * 2 < s.W * s.H).ToList();
+        }
+
         plan.Slots.AddRange(slots);
         var (parent, depth) = Connect(slots, area, entry, rng);
         plan.SlotDepth.AddRange(depth);
@@ -211,10 +221,10 @@ public static class SitePlanner
     /// The archetype's fixed layout, used when every seeded plan failed (crisis spec §4.2 step 6): one open courtyard,
     /// gates on the south side, the objective as deep as it fits and the rest placed row by row behind it.
     /// </summary>
-    public static SitePlan Fallback(SiteArchetype archetype, IReadOnlyList<PieceSource> pieces, float points)
+    public static SitePlan Fallback(SiteArchetype archetype, IReadOnlyList<PieceSource> pieces, float points, Rect? hole = null)
     {
         var rng = new SeededRng(0);
-        var plan = Start(archetype, points, 0, Side.South, fallback: true);
+        var plan = Start(archetype, points, 0, Side.South, fallback: true, hole);
         var area = plan.SlotArea;
         plan.Slots.Add(area);
         plan.SlotDepth.Add(0);
@@ -231,9 +241,14 @@ public static class SitePlanner
         return plan;
     }
 
-    private static SitePlan Start(SiteArchetype archetype, float points, ulong seed, Side entry, bool fallback)
+    private static SitePlan Start(SiteArchetype archetype, float points, ulong seed, Side entry, bool fallback, Rect? hole)
     {
         var grid = new CellGrid(archetype.Width, archetype.Height);
+        if (hole is { } h)
+        {
+            grid.Reserve(h);
+        }
+
         return new SitePlan
         {
             Archetype = archetype,
@@ -243,6 +258,7 @@ public static class SitePlanner
             Entry = entry,
             Budget = archetype.Budget(points),
             Fallback = fallback,
+            Hole = hole,
         };
     }
 
@@ -500,7 +516,7 @@ public static class SitePlanner
     private static bool Clear(SitePlan plan, PieceSpec spec, Cell min)
     {
         var around = new Rect(min.X - 1, min.Z - 1, spec.SizeX + 2, spec.SizeZ + 2);
-        return around.Cells().Where(plan.Grid.InBounds).All(c => plan.Grid.Owner(c) < 0);
+        return around.Cells().Where(plan.Grid.InBounds).All(c => plan.Grid.Owner(c) == -1);
     }
 
     private static void Add(SitePlan plan, PieceSpec spec, Cell min, string role)
@@ -547,7 +563,8 @@ public static class SitePlanner
                 var spec = PieceSpec.Build(piece, plan.Entry);
                 var target = new Cell(gate.X + (inward.X * CoverDepth), gate.Z + (inward.Z * CoverDepth));
                 var inside = ring.Inset(1);
-                var spot = inside.Cells()
+                var near = new Rect(target.X - 10, target.Z - 10, 21, 21);
+                var spot = near.Cells().Where(inside.Contains)
                     .Where(m => plan.Grid.CanPlace(spec, m, inside) && !InGateLane(spec, m, plan.Gates, inward) && Clear(plan, spec, m))
                     .OrderBy(m => Dist2(new Cell(m.X + (spec.SizeX / 2), m.Z + (spec.SizeZ / 2)), target)).ThenBy(m => m.X).ThenBy(m => m.Z)
                     .Cast<Cell?>().FirstOrDefault();
@@ -632,7 +649,7 @@ public static class SitePlanner
         }
 
         var inside = plan.Ring.Inset(1);
-        bool Open(Cell c) => inside.Contains(c) && plan.Grid[c] is not (CellKind.Wall or CellKind.Door);
+        bool Open(Cell c) => inside.Contains(c) && !plan.Grid.IsReserved(c) && plan.Grid[c] is not (CellKind.Wall or CellKind.Door);
         var starts = SiteValidator.InReach(generator.PowerCells(), plan.Grid).Where(Open).ToHashSet();
         foreach (var consumer in consumers)
         {
@@ -652,16 +669,50 @@ public static class SitePlanner
         }
     }
 
+    /// <summary>The cell nearest <paramref name="from"/> (ring by ring outward, then by position) that <paramref name="ok"/>
+    /// allows, within <paramref name="radius"/> cells either way.</summary>
+    private static Cell? Nearest(Cell from, Func<Cell, bool> ok, int radius)
+    {
+        for (var r = 0; r <= radius; r++)
+        {
+            var ring = new Rect(from.X - r, from.Z - r, (2 * r) + 1, (2 * r) + 1).Cells()
+                .Where(c => Math.Max(Math.Abs(c.X - from.X), Math.Abs(c.Z - from.Z)) == r && ok(c))
+                .OrderBy(c => Dist2(c, from)).ThenBy(c => c.X).ThenBy(c => c.Z).ToList();
+            if (ring.Count > 0)
+            {
+                return ring[0];
+            }
+        }
+
+        return null;
+    }
+
+    /// <summary>Opens a gate in the middle of the ring's <paramref name="side"/> wall (the Citadel keep's side entrance,
+    /// from intel). Returns the gate, or null if that side already has one.</summary>
+    public static Cell? AddGate(SitePlan plan, Side side)
+    {
+        var gate = GatePositions(plan.Ring, side, 1).First();
+        if (plan.Gates.Contains(gate))
+        {
+            return null;
+        }
+
+        plan.Grid[gate] = CellKind.Door;
+        plan.Walls.Remove(gate);
+        plan.Gates.Add(gate);
+        return gate;
+    }
+
     /// <summary>Where the garrison stands: the open cell nearest each slot's centre, a few in front of each gate, and
     /// inside the barracks.</summary>
     private static void Defenders(SitePlan plan)
     {
         var inside = plan.Ring.Inset(1);
-        bool Open(Cell c) => inside.Contains(c) && plan.Grid[c] is CellKind.Empty or CellKind.Floor;
+        bool Open(Cell c) => inside.Contains(c) && !plan.Grid.IsReserved(c) && plan.Grid[c] is CellKind.Empty or CellKind.Floor;
         var spots = new List<Cell>();
         foreach (var slot in plan.Slots)
         {
-            if (inside.Cells().Where(Open).OrderBy(c => Dist2(c, slot.Centre)).ThenBy(c => c.X).ThenBy(c => c.Z).Cast<Cell?>().FirstOrDefault() is { } c)
+            if (Nearest(slot.Centre, Open, 12) is { } c)
             {
                 spots.Add(c);
             }

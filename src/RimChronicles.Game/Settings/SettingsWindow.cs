@@ -88,6 +88,12 @@ public static class SettingsWindow
                     Core.Crisis.Strikes.StrikeRules.MinDelaySeconds, Core.Crisis.Strikes.StrikeRules.MaxDelaySeconds,
                     tooltip: "Game time at normal speed. Every strike is marked and announced first; taking down its herald calls it off."));
                 settings.StrikeDelaySeconds = Math.Clamp(delay, Core.Crisis.Strikes.StrikeRules.MinDelaySeconds, Core.Crisis.Strikes.StrikeRules.MaxDelaySeconds);
+                var citadel = (int)Math.Round(list.SliderLabeled($"    Imperial Citadel map: {settings.CitadelMapSize}×{settings.CitadelMapSize}", settings.CitadelMapSize,
+                    Core.Crisis.Sites.CitadelRings.MinMapSize, Core.Crisis.Sites.CitadelRings.MaxMapSize,
+                    tooltip: "The capital's map for the finale. Smaller generates faster and runs smoother on slower PCs.") / 25f) * 25;
+                settings.CitadelMapSize = Math.Clamp(citadel, Core.Crisis.Sites.CitadelRings.MinMapSize, Core.Crisis.Sites.CitadelRings.MaxMapSize);
+                list.CheckboxLabeled("    Citadel: spawn inner defenders only as you reach them", ref settings.CitadelLazyRings,
+                    "Faster on slower PCs: the courtyard's and keep's defenders appear when your colonists reach the ring before theirs.");
             }
         }
 
