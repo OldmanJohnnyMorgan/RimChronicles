@@ -163,6 +163,16 @@ psylink level; the High Stellarch inherits `Empire_Royal_Stellarch`.
   `LordToil_Siege` are public, unsealed classes. `LordJob_Siege` chains travel → siege → assault (at 40% losses) or exit.
 - `LordToil_Siege` places its camp with `SiegeBlueprintPlacer.PlaceBlueprints(center, map, faction, points)` (camp
   radius 14–25, 25–40% builders). The crisis siege is its own toil, since its camp is built in stages.
+- Siege builders get `DutyDefOf.Build`, whose think tree builds (`JobGiver_Work` with only Construction on), fights
+  fires and mans turrets (`JobGiver_ManTurretsNearPoint`): builders are also the mortar crews. `DutyDefOf.Defend` doesn't
+  man turrets. `GenConstruct.CanConstruct` checks the builder's Construction skill, not research, so any faction can
+  build a blueprint; vanilla raises the skill with `EnsureMinLevelWithMargin`. `Frame.CompleteConstruction` adds the
+  building to the builder's lord (`lord.AddBuilding`); `LordToil_Siege.Cleanup` sets their faction to null.
+- A ThingDef only gets a blueprint and frame when `designationCategory` is set (`ThingDefGenerator_Buildings`,
+  `BuildableByPlayer`). `canGenerateDefaultDesignator: false` keeps it out of the build menu (C8's camp buildings).
+  The mech shields (`ShieldGeneratorMortar`, `ShieldGeneratorBullets`) have no category, so no blueprint.
+- `Turret_Mortar`: `minRange` 29.9, `range` 500. Vanilla's siege resupplies shells (under 4: drop 6), survival meals
+  (under 5: drop 12) and, without classic mortars, reinforced barrels, every 500 ticks within 20 cells.
 
 ### Pieces and layouts
 

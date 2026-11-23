@@ -68,7 +68,9 @@ public class PieceTests
         }
 
         var defs = new Dictionary<string, XElement>();
-        foreach (var file in Directory.EnumerateFiles(root, "*.xml", SearchOption.AllDirectories))
+        var files = Directory.EnumerateFiles(root, "*.xml", SearchOption.AllDirectories)
+            .Concat(Directory.EnumerateFiles(Repo.Path("Defs", "ThingDefs"), "*.xml")); // the mod's own, after the game's
+        foreach (var file in files)
         {
             XDocument doc;
             try

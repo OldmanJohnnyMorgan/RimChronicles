@@ -1,3 +1,5 @@
+using RimChronicles.Core.Crisis.Siege;
+
 namespace RimChronicles.Core.Crisis.Operations;
 
 /// <summary>What a phase of an operation does. The game turns each into a lord toil.</summary>
@@ -20,6 +22,12 @@ public enum PhaseKind
 
     /// <summary>Leave the map, carrying downed allies where it's safe.</summary>
     Retreat,
+
+    /// <summary>Walk to a spot (the siege camp) before the next phase.</summary>
+    Travel,
+
+    /// <summary>Dig in: build the camp in stages, man its mortars and defend it.</summary>
+    Siege,
 }
 
 /// <summary>What moves an operation from one phase to the next.</summary>
@@ -36,6 +44,12 @@ public enum PhaseTrigger
 
     /// <summary>The crisis is over, or the colony made peace: every raid pulls out.</summary>
     Abandoned,
+
+    /// <summary>The force reached the spot it was walking to.</summary>
+    Arrived,
+
+    /// <summary>The siege camp lost most of its builders while the force is still strong (<see cref="SiegeRules.AfterBuildersFall"/>).</summary>
+    BuildersLost,
 }
 
 public sealed record PhaseLink(PhaseTrigger Trigger, string To, float Value = 0)
@@ -157,6 +171,33 @@ public static class OperationProfiles
         RetreatPhase,
     ], ForceShare: 0.75f, ReserveShare: 0.25f);
 
+    /// <summary>The siege (crisis spec §5.5): walk to the camp spot, dig in and build in stages, then attack, either
+    /// when most builders fall while the force is strong, or after <see cref="SiegeRules.SiegeTicks"/>. It leaves after
+    /// heavy losses at any point. Its reserve comes in waves through the camp's drop-pod beacon, not after a regroup.</summary>
+    public static readonly OperationProfile Siege = new(CrisisOperations.SiegeWithBombardment, "travel",
+    [
+        new("travel", PhaseKind.Travel,
+        [
+            new(PhaseTrigger.LossesOver, Retreat, 0.4f),
+            new(PhaseTrigger.Arrived, "siege") { Outcome = OperationOutcome.Running },
+            new(PhaseTrigger.TimeUp, "siege", SiegeRules.TravelTicks) { Outcome = OperationOutcome.Running },
+            new(PhaseTrigger.Abandoned, Retreat),
+        ]),
+        new("siege", PhaseKind.Siege,
+        [
+            new(PhaseTrigger.LossesOver, Retreat, SiegeRules.RetreatLosses),
+            new(PhaseTrigger.BuildersLost, "assault") { Outcome = OperationOutcome.Running },
+            new(PhaseTrigger.TimeUp, "assault", SiegeRules.SiegeTicks) { Outcome = OperationOutcome.Running },
+            new(PhaseTrigger.Abandoned, Retreat),
+        ]),
+        new("assault", PhaseKind.Assault,
+        [
+            new(PhaseTrigger.LossesOver, Retreat, SiegeRules.AssaultRetreatLosses),
+            new(PhaseTrigger.Abandoned, Retreat),
+        ]),
+        RetreatPhase,
+    ], ForceShare: 0.7f, ReserveShare: 0.3f);
+
     /// <summary>The finale's assault fights to the end; it only pulls out if the crisis itself ends.</summary>
     public static readonly OperationProfile FinalAssault = new(CrisisOperations.FinalAssault, "assault",
     [
@@ -170,6 +211,7 @@ public static class OperationProfiles
         CrisisOperations.Decapitation => Decapitation,
         CrisisOperations.FinalAssault => FinalAssault,
         CrisisOperations.Breach => Standard(operation, PhaseKind.Breach),
+        CrisisOperations.SiegeWithBombardment => Siege,
         _ => Standard(operation),
     };
 }

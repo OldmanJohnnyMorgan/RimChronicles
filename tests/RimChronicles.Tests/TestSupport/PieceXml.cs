@@ -13,7 +13,7 @@ public static class PieceXml
 {
     public sealed record Footprint(int SizeX, int SizeZ, bool Rotatable, CellKind Kind, bool UsesPower = false, Side PlacingRot = Side.North);
 
-    /// <summary>From <c>Data/Core/Defs</c> (1.7): size, rotatable, passability, door, power. <see cref="FootprintsMatchTheGame"/>
+    /// <summary>From <c>Data/Core/Defs</c> (1.7) and the repo's <c>Defs/ThingDefs</c>: size, rotatable, passability, door, power. <see cref="FootprintsMatchTheGame"/>
     /// re-checks them when the game's XML is in <c>/workspaces/reference/data</c>.</summary>
     public static readonly IReadOnlyDictionary<string, Footprint> Footprints = new Dictionary<string, Footprint>
     {
@@ -25,6 +25,12 @@ public static class PieceXml
         ["Door"] = new(1, 1, false, CellKind.Door),
         ["Bed"] = new(1, 2, true, CellKind.PassThrough, PlacingRot: Side.South),
         ["TorchLamp"] = new(1, 1, false, CellKind.PassThrough),
+
+        // The siege camp's own buildings (Defs/ThingDefs/RimChronicles_Siege.xml).
+        ["RimChronicles_ImperialUplink"] = new(3, 2, true, CellKind.PassThrough),
+        ["RimChronicles_ImperialShield"] = new(1, 1, false, CellKind.PassThrough),
+        ["RimChronicles_PsychicRelay"] = new(2, 2, false, CellKind.PassThrough),
+        ["RimChronicles_ImperialDropBeacon"] = new(1, 1, false, CellKind.PassThrough),
     };
 
     public static string PiecesFile => Repo.Path("Defs", "PrefabDefs", "RimChronicles_Pieces.xml");
