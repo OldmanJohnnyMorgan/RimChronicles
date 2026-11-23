@@ -143,6 +143,14 @@ The dataset keeps at most 40% Wait among training cases (`--max-wait-share`; val
 student waited in 78% of answers after training on 48% Wait. Commit `training/data/labels/local-gemma4-12b`
 (`items.jsonl`, `labels.jsonl`, `labels-final.jsonl`) and push, as for the pilot.
 
+**Hand labels for the Empire arc (`hand-empire-v1`, 2026-11-23).** The E2B v1 and v2 reports missed top-1 (75%, 77%)
+on AwakenedEmpire: on its open cases the 12B almost never waits (Broken: 4%), while Claude's test labels wait about
+half the time. Claude Code labelled 250 open Empire training cases from `seed-1` (120 Broken, 80 Ascendant, 50 Act2)
+in session, with the same rubric as `test-v1` (`director-teacher/v1`), without looking at the test labels. They
+agree with the 12B on 43% of those cases and wait on 55% of Broken (the 12B: 4%). Hand labels already win where both
+cover a case; `--hand-only AwakenedEmpire` also leaves out the 12B's labels on the Empire's other open cases (about 870), so
+they don't outvote the hand labels. Cases with a Wait rule keep the 12B's label.
+
 ## D6: train the directors
 
 After the bulk labels (D4b) are checked and committed. One model at a time, in this order: E2B first (smaller and

@@ -44,6 +44,11 @@ public sealed record DatasetOptions
     /// <summary>Most of the training cases whose best answer is Wait. Labels lean on Wait (65% of the test set), and a
     /// student trained on that learns to wait by default (D0: 48% Wait in training gave 78% Wait answers). Val and test keep the real mix. 1 keeps everything.</summary>
     public double MaxWaitShare { get; init; } = 0.4;
+
+    /// <summary>Arcs (e.g. "AwakenedEmpire") whose open cases (no Wait rule) take only hand labels: a local teacher's
+    /// (<c>local-*</c> folder) label for one is left out. For an arc where the local teacher is known to disagree with
+    /// the hand labels, so its labels don't outvote them. Cases with a Wait rule keep the local label.</summary>
+    public IReadOnlySet<string> HandOnlyArcs { get; init; } = new HashSet<string>();
 }
 
 /// <summary>
@@ -73,7 +78,7 @@ public static class DirectorDataset
         var splits = new Dictionary<string, StringBuilder> { ["train"] = new(), ["val"] = new(), ["test"] = new() };
         var counts = new Dictionary<string, int> { ["train"] = 0, ["val"] = 0, ["test"] = 0 };
         var cases = new Dictionary<string, int> { ["train"] = 0, ["val"] = 0, ["test"] = 0 };
-        int lowAgreement = 0, missing = 0, stale = 0, duplicate = 0;
+        int lowAgreement = 0, missing = 0, stale = 0, duplicate = 0, handOnly = 0;
         var inputs = new JsonArray();
         var seen = new Dictionary<string, string>();
         var accepted = new List<(string CaseId, WorldSnapshot Snapshot, string Best, string Reason, string Split)>();
@@ -108,6 +113,13 @@ public static class DirectorDataset
                 }
 
                 var snapshot = SnapshotJson.Load(path);
+                if (Path.GetFileName(dir.TrimEnd('/', '\\')).StartsWith("local-", StringComparison.Ordinal)
+                    && snapshot.Director?.WaitExpected is null && o.HandOnlyArcs.Contains(DirectorLabels.Group(snapshot).Split('/')[0]))
+                {
+                    handOnly++;
+                    continue;
+                }
+
                 var best = label["best"]!.GetValue<string>();
                 if (StaleReason(label, best, snapshot) is { } why)
                 {
@@ -172,16 +184,17 @@ public static class DirectorDataset
             ["valShare"] = o.ValShare,
             ["minAgreement"] = o.MinAgreement,
             ["maxWaitShare"] = o.MaxWaitShare,
+            ["handOnlyArcs"] = new JsonArray(o.HandOnlyArcs.Order(StringComparer.Ordinal).Select(a => (JsonNode?)JsonValue.Create(a)).ToArray()),
             ["seed"] = o.Seed,
             ["inputs"] = inputs,
             ["cases"] = new JsonObject(cases.Select(kv => KeyValuePair.Create(kv.Key, (JsonNode?)JsonValue.Create(kv.Value)))),
             ["rows"] = new JsonObject(counts.Select(kv => KeyValuePair.Create(kv.Key, (JsonNode?)JsonValue.Create(kv.Value)))),
             ["sha256"] = hashes,
-            ["leftOut"] = new JsonObject { ["lowAgreement"] = lowAgreement, ["caseMissing"] = missing, ["caseChanged"] = stale, ["duplicate"] = duplicate, ["waitCapped"] = waitCapped.Count },
+            ["leftOut"] = new JsonObject { ["lowAgreement"] = lowAgreement, ["caseMissing"] = missing, ["caseChanged"] = stale, ["duplicate"] = duplicate, ["waitCapped"] = waitCapped.Count, ["localOpenHandOnly"] = handOnly },
         };
         File.WriteAllText(Path.Combine(o.OutDir, "manifest.json"), manifest.ToJsonString(new JsonSerializerOptions { WriteIndented = true }) + "\n");
         log.WriteLine($"Cases: train {cases["train"]}, val {cases["val"]}, test {cases["test"]} (rows {counts["train"]} / {counts["val"]} / {counts["test"]}); "
-            + $"left out: {lowAgreement} low agreement, {missing} missing, {stale} changed since labelling, {duplicate} duplicate, {waitCapped.Count} Wait cases over the cap. Prompt {DirectorTask}/{prompt.Meta.Version}, tier {o.Tier}. Written to {o.OutDir}.");
+            + $"left out: {lowAgreement} low agreement, {missing} missing, {stale} changed since labelling, {duplicate} duplicate, {waitCapped.Count} Wait cases over the cap, {handOnly} local labels on hand-only open cases. Prompt {DirectorTask}/{prompt.Meta.Version}, tier {o.Tier}. Written to {o.OutDir}.");
         return missing == 0 && stale == 0 ? 0 : 1;
     }
 
