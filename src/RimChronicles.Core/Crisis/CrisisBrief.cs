@@ -52,6 +52,24 @@ public static class CrisisBrief
         _ => stage,
     };
 
+    /// <summary>What a stage of the Hollow Choir's crisis means (War in Heaven W12).</summary>
+    public static string ChoirMeaning(string stage) => stage switch
+    {
+        nameof(CrisisStage.Probing) => "the Choir is testing the colony's defenses with small swarms of mechs",
+        nameof(CrisisStage.Reclamation) => "the Choir is striking at the colony with tunnelling mechs, the hum and retrieval squads",
+        nameof(CrisisStage.War) => "open war: cluster sieges, cluster drops and mechs burrowing up beside the colony's leaders",
+        nameof(CrisisStage.Finale) => "the Choir's last stand: the First Voice's final assault can come at any time",
+        _ => stage,
+    };
+
+    /// <summary>A knocked-out capability of the Choir's, as the summary says it.</summary>
+    public static string ChoirHold(CrisisHoldInfo hold) => hold.Capability switch
+    {
+        CrisisCapability.Psykers => $"the Choir's hum is silenced until day {hold.UntilDay} (a resonator was destroyed)",
+        CrisisCapability.Strikes => $"no cluster drops until day {hold.UntilDay} (a signal spire was destroyed)",
+        _ => $"{hold.Capability} knocked out until day {hold.UntilDay}",
+    };
+
     /// <summary>A knocked-out capability, as the summary says it.</summary>
     public static string Hold(CrisisHoldInfo hold) => hold.Capability switch
     {

@@ -61,6 +61,37 @@ public sealed record WorldSnapshot
     /// <summary>The Imperial crisis against the colony (crisis C11), or null when there is none or the director model
     /// wasn't trained on it. Only the director's summary shows it.</summary>
     public CrisisInfo? Crisis { get; init; }
+
+    /// <summary>The Hollow Choir's crisis against the colony (War in Heaven W12), or null when there is none or the director
+    /// model wasn't trained on the War in Heaven. Only the director's summary shows it.</summary>
+    public CrisisInfo? ChoirCrisis { get; init; }
+
+    /// <summary>The War in Heaven and the colony's side (War in Heaven W12), or null before the Hollow Choir exists or when
+    /// the director model wasn't trained on it. Only the director's summary shows it.</summary>
+    public WarInfo? War { get; init; }
+}
+
+/// <summary>The War in Heaven as the director sees it (War in Heaven tech spec §7).</summary>
+public sealed record WarInfo
+{
+    /// <summary>True once the War in Heaven has begun; before, the two powers are at war in name only.</summary>
+    public bool Started { get; init; }
+
+    public int StartDay { get; init; } = -1;
+
+    /// <summary>"empire", "choir", "independent" or "" (undeclared).</summary>
+    public string Side { get; init; } = "";
+
+    /// <summary>The colony's stance toward each power: "ally", "oppose" or "neutral".</summary>
+    public string EmpireStance { get; init; } = "neutral";
+
+    public string ChoirStance { get; init; } = "neutral";
+
+    /// <summary>The colony's side's standing in the war (+ winning, - losing).</summary>
+    public int Front { get; init; }
+
+    /// <summary>Powers destroyed ("empire", "choir").</summary>
+    public IReadOnlyList<string> Destroyed { get; init; } = [];
 }
 
 /// <summary>The Imperial crisis as the director sees it (crisis tech spec §5).</summary>

@@ -56,5 +56,9 @@ public static class ModelSlots
     /// (<see cref="TierPresets.KnowsCrisis"/>). False with no model at all: the crisis then picks by weight anyway.</summary>
     public static bool DirectorKnowsCrisis(Inputs s) => Director(s) is { } slot && TierPresets.KnowsCrisis(slot.Model);
 
+    /// <summary>Whether the deciding model may decide the Hollow Choir's plot, its crisis and the War in Heaven
+    /// (<see cref="TierPresets.KnowsWarInHeaven"/>). False with no model at all.</summary>
+    public static bool DirectorKnowsWarInHeaven(Inputs s) => Director(s) is { } slot && TierPresets.KnowsWarInHeaven(slot.Model);
+
     private static bool Blank(string? text) => string.IsNullOrWhiteSpace(text);
 }

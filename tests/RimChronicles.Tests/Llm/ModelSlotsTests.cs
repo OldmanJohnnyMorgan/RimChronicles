@@ -104,5 +104,5 @@ public class ModelSlotsTests
 
     [Fact]
     public void EveryDirectorPreset_SaysWhetherItKnowsTheCrisis() =>
-        Assert.All(TierPresets.DirectorPresets, p => Assert.Equal(p.KnowsCrisis, TierPresets.KnowsCrisis(p.Model)));
+        Assert.All(TierPresets.DirectorPresets, p => Assert.Equal(p.Vocabulary >= DirectorVocabulary.Crisis, TierPresets.KnowsCrisis(p.Model)));
 }

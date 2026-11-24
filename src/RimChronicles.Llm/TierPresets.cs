@@ -23,13 +23,34 @@ public static class TierPresets
     };
 
     /// <summary>The fine-tuned directors offered as choices in the settings window, each with the tier it was trained on
-    /// and whether its training cases included the Imperial crisis arc (crisis C11). A model joins this list only after
-    /// its report is committed to <c>harness/reports/</c>.</summary>
-    public static readonly IReadOnlyList<(string Model, ModelTier Tier, string Label, bool KnowsCrisis)> DirectorPresets =
+    /// and the vocabulary its training cases covered (War in Heaven tech spec R12). A model joins this list only after its
+    /// report is committed to <c>harness/reports/</c>.</summary>
+    public static readonly IReadOnlyList<(string Model, ModelTier Tier, string Label, DirectorVocabulary Vocabulary)> DirectorPresets =
     [
-        ("rimchron-director-e2b", ModelTier.Minimum, "rimchron-director-e2b: fine-tuned on Gemma 4 E2B (about 2 GB of VRAM), Minimum prompts", false),
-        ("rimchron-director-e4b", ModelTier.Recommended, "rimchron-director-e4b: fine-tuned on Gemma 4 E4B (about 4 GB of VRAM), Recommended prompts", false),
+        ("rimchron-director-e2b", ModelTier.Minimum, "rimchron-director-e2b: fine-tuned on Gemma 4 E2B (about 2 GB of VRAM), Minimum prompts", DirectorVocabulary.Base),
+        ("rimchron-director-e4b", ModelTier.Recommended, "rimchron-director-e4b: fine-tuned on Gemma 4 E4B (about 4 GB of VRAM), Recommended prompts", DirectorVocabulary.Base),
     ];
+
+    /// <summary>
+    /// The plots this model may decide (War in Heaven tech spec R12). A fine-tuned director has only seen the options it
+    /// was trained on: its preset says how far its training went, and an unlisted <c>rimchron-director-*</c> name counts as
+    /// trained on the base arcs only. Any other model is prompted, not fine-tuned, and reads the options' descriptions like
+    /// any others, so it knows everything. What a model doesn't know picks by weight.
+    /// </summary>
+    public static DirectorVocabulary Vocabulary(string? model)
+    {
+        if (DirectorPreset(model) is { } preset)
+        {
+            return preset.Vocabulary;
+        }
+
+        return (model ?? "").Trim().StartsWith(FineTunedDirectorPrefix, StringComparison.OrdinalIgnoreCase)
+            ? DirectorVocabulary.Base
+            : DirectorVocabulary.WarInHeaven;
+    }
+
+    /// <summary>Whether this model may decide the Hollow Choir's plot, its crisis and the War in Heaven.</summary>
+    public static bool KnowsWarInHeaven(string? model) => Vocabulary(model) >= DirectorVocabulary.WarInHeaven;
 
     /// <summary>The name every fine-tuned director starts with (training/README.md, D6).</summary>
     public const string FineTunedDirectorPrefix = "rimchron-director";
@@ -40,18 +61,10 @@ public static class TierPresets
     /// the crisis arc; an unlisted <c>rimchron-director-*</c> name counts as trained before it. Any other model is
     /// prompted, not fine-tuned, and reads the options' descriptions like any others. Otherwise the crisis picks by weight.
     /// </summary>
-    public static bool KnowsCrisis(string? model)
-    {
-        if (DirectorPreset(model) is { } preset)
-        {
-            return preset.KnowsCrisis;
-        }
-
-        return !(model ?? "").Trim().StartsWith(FineTunedDirectorPrefix, StringComparison.OrdinalIgnoreCase);
-    }
+    public static bool KnowsCrisis(string? model) => Vocabulary(model) >= DirectorVocabulary.Crisis;
 
     /// <summary>The preset matching a director model name (trimmed, any case), or null for a custom name or blank.</summary>
-    public static (string Model, ModelTier Tier, string Label, bool KnowsCrisis)? DirectorPreset(string? model)
+    public static (string Model, ModelTier Tier, string Label, DirectorVocabulary Vocabulary)? DirectorPreset(string? model)
     {
         var name = (model ?? "").Trim();
         foreach (var preset in DirectorPresets)
@@ -108,4 +121,18 @@ public static class TierPresets
         var text = endpoint.Trim();
         return new Uri(text.EndsWith('/') ? text : text + "/");
     }
+}
+
+/// <summary>How far a director model's training went (War in Heaven tech spec R12): each level adds plots to the ones
+/// before it.</summary>
+public enum DirectorVocabulary
+{
+    /// <summary>The minor plots and the Awakened Empire (director-model track D0–D11).</summary>
+    Base,
+
+    /// <summary>Plus the Imperial crisis: operations, siege goals and sites (crisis C11).</summary>
+    Crisis,
+
+    /// <summary>Plus the Hollow Choir, its crisis and the War in Heaven (War in Heaven W12).</summary>
+    WarInHeaven,
 }

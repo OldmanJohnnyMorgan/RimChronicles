@@ -207,7 +207,7 @@ public static class PowerArc
         return StanceOf(plot) switch
         {
             PowerStance.Ally => [new($"{saga.Power.OptionPrefix}:EscortEnvoy", PowerStep.EscortEnvoy, 3), new($"{saga.Power.OptionPrefix}:ConquestJob", PowerStep.ConquestJob, 2)],
-            PowerStance.Oppose => [new($"{saga.Power.OptionPrefix}:DefendAlly", PowerStep.DefendAlly, 3), new($"{saga.Power.OptionPrefix}:SabotageImperial", PowerStep.SabotageImperial, 2)],
+            PowerStance.Oppose => [new($"{saga.Power.OptionPrefix}:DefendAlly", PowerStep.DefendAlly, 3), new($"{saga.Power.OptionPrefix}:{saga.Power.Option("SabotageImperial")}", PowerStep.SabotageImperial, 2)],
             _ => [new($"{saga.Power.OptionPrefix}:TributeDemand", PowerStep.Tribute, 2)],
         };
     }
@@ -225,14 +225,14 @@ public static class PowerArc
             case PowerStance.Ally:
                 if (saga.HighTitleHolder.Length > 0)
                 {
-                    options.Add(new("Act3:OfferGovernorship", PowerStep.Governorship, 4));
+                    options.Add(new($"Act3:{saga.Power.Option("OfferGovernorship")}", PowerStep.Governorship, 4));
                 }
 
                 options.Add(new($"{saga.Power.OptionPrefix}:EscortEnvoy", PowerStep.EscortEnvoy, 2));
                 options.Add(new($"{saga.Power.OptionPrefix}:ConquestJob", PowerStep.ConquestJob, 2));
                 break;
             case PowerStance.Oppose:
-                options.Add(new("Act3:StormTheCapital", PowerStep.StormCapital, 3));
+                options.Add(new($"Act3:{saga.Power.Option("StormTheCapital")}", PowerStep.StormCapital, 3));
                 if (broken)
                 {
                     options.Add(new("Act3:ForceATreaty", PowerStep.Treaty, 2));

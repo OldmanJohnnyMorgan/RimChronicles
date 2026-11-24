@@ -17,11 +17,16 @@ public static class DirectorGenCommand
     /// <summary>Bump when the crisis cases' output changes for the same seed (crisis C11).</summary>
     public const int CrisisGeneratorVersion = 3; // v2: Reclaimed Holding in about half the Site cases; v3: a crisis with no operation yet began recently, and past final assaults were repelled
 
-    /// <summary>Writes the cases; with <paramref name="sites"/> (the <c>crisis</c> arc), the crisis cases instead.</summary>
-    public static int Run(int seed, int count, string outDir, string schemaPath, TextWriter log, IReadOnlyList<Core.Crisis.Sites.SiteArchetype>? sites = null)
+    /// <summary>Bump when the War in Heaven cases' output changes for the same seed (War in Heaven W12).</summary>
+    public const int WarGeneratorVersion = 1;
+
+    /// <summary>Writes the cases; with <paramref name="sites"/> (the <c>crisis</c> arc), the crisis cases instead; with
+    /// <paramref name="war"/> (the <c>war</c> arc), the War in Heaven cases, <paramref name="sites"/> being the Choir's.</summary>
+    public static int Run(int seed, int count, string outDir, string schemaPath, TextWriter log, IReadOnlyList<Core.Crisis.Sites.SiteArchetype>? sites = null,
+        bool war = false)
     {
-        var crisis = sites is not null;
-        var scenarios = crisis ? CaseGenerator.CrisisScenarios : CaseGenerator.Scenarios;
+        var crisis = sites is not null && !war;
+        var scenarios = war ? CaseGenerator.WarScenarios : crisis ? CaseGenerator.CrisisScenarios : CaseGenerator.Scenarios;
         var schema = (JsonObject)JsonNode.Parse(File.ReadAllText(schemaPath))!;
         Directory.CreateDirectory(outDir);
         var coverage = new SortedDictionary<string, int>(StringComparer.Ordinal);
@@ -31,7 +36,7 @@ public static class DirectorGenCommand
 
         for (var i = 0; i < count; i++)
         {
-            var result = crisis ? CaseGenerator.GenerateCrisis(seed, i, sites!) : CaseGenerator.Generate(seed, i);
+            var result = war ? CaseGenerator.GenerateWar(seed, i, sites ?? []) : crisis ? CaseGenerator.GenerateCrisis(seed, i, sites!) : CaseGenerator.Generate(seed, i);
             var json = SnapshotJson.Serialize(result.Snapshot);
             var problems = JsonSchemaValidator.Validate(JsonNode.Parse(json), schema);
             if (problems.Count > 0)
@@ -53,16 +58,16 @@ public static class DirectorGenCommand
         var manifest = new JsonObject
         {
             ["generator"] = "director-gen",
-            ["generatorVersion"] = crisis ? CrisisGeneratorVersion : GeneratorVersion,
+            ["generatorVersion"] = war ? WarGeneratorVersion : crisis ? CrisisGeneratorVersion : GeneratorVersion,
             ["seed"] = seed,
             ["count"] = count - errors,
             ["sha256"] = digest,
             ["scenarios"] = new JsonArray(scenarios.Select(s => (JsonNode?)JsonValue.Create(s)).ToArray()),
             ["waitExpected"] = new JsonObject(waits.Select(kv => KeyValuePair.Create(kv.Key, (JsonNode?)JsonValue.Create(kv.Value)))),
         };
-        if (crisis)
+        if (crisis || war)
         {
-            manifest["arc"] = "crisis";
+            manifest["arc"] = war ? "war" : "crisis";
         }
 
         File.WriteAllText(Path.Combine(outDir, "manifest.json"), manifest.ToJsonString(new JsonSerializerOptions { WriteIndented = true }) + "\n");

@@ -44,6 +44,59 @@ public class WorldSummarizerTests
     public void Director_WithTheCrisis_MatchesGolden(ModelTier tier) =>
         Golden.Match($"director.snap-07-crisis.{tier}.txt", Dump(WorldSummarizer.ForDirector(Snap("snap-07-mid-strained") with { Crisis = WarCrisis }, tier)));
 
+    /// <summary>snap-07 in the War in Heaven (W12): the colony stands with the Empire against the Hollow Choir, the war
+    /// has begun, and the Choir's crisis is at Reclamation.</summary>
+    public static readonly WarInfo War = new()
+    {
+        Started = true, StartDay = 395, Side = "empire", EmpireStance = "ally", ChoirStance = "oppose", Front = 2,
+    };
+
+    public static readonly CrisisInfo ChoirCrisis = new()
+    {
+        Stage = "Reclamation",
+        Operations =
+        [
+            new CrisisOperationInfo { Day = 388, Operation = "ProbingSwarm", Outcome = "repelled" },
+            new CrisisOperationInfo { Day = 401, Operation = "TheHum", Outcome = "succeeded" },
+        ],
+        Disabled = [new CrisisHoldInfo { Capability = "psykers", UntilDay = 420 }],
+        Captives = [new CrisisPersonInfo { Name = "Ortan", Rank = "soldier" }],
+    };
+
+    [Theory]
+    [InlineData(ModelTier.Recommended)]
+    [InlineData(ModelTier.Minimum)]
+    public void Director_InTheWarInHeaven_MatchesGolden(ModelTier tier) =>
+        Golden.Match($"director.snap-07-war.{tier}.txt",
+            Dump(WorldSummarizer.ForDirector(Snap("snap-07-mid-strained") with { ChoirCrisis = ChoirCrisis, War = War }, tier)));
+
+    [Fact]
+    public void TheWarBlocks_ShowOnlyInTheDirectorSummary_AndOnlyWhenThere()
+    {
+        var war = Snap("snap-17-late-strained") with { ChoirCrisis = ChoirCrisis, War = War };
+        Assert.Equal(Dump(WorldSummarizer.ForNewsBulletin(Snap("snap-17-late-strained"), ModelTier.Recommended)),
+            Dump(WorldSummarizer.ForNewsBulletin(war, ModelTier.Recommended)));
+        var summary = WorldSummarizer.ForDirector(war, ModelTier.Recommended).Variables["worldSummary"];
+        Assert.Contains("Hollow Choir crisis, stage Reclamation", summary);
+        Assert.Contains("The Choir's hum is silenced until day 420", summary);
+        Assert.Contains("Ortan (Choir soldier)", summary);
+        Assert.Contains("The colony stands with the Empire, and is at war with the Hollow Choir.", summary);
+        Assert.Contains("The front favours the colony's side (+2).", summary);
+        Assert.Equal(Dump(WorldSummarizer.ForDirector(Snap("snap-07-mid-strained"), ModelTier.Recommended)),
+            Dump(WorldSummarizer.ForDirector(Snap("snap-07-mid-strained") with { War = null, ChoirCrisis = null }, ModelTier.Recommended)));
+    }
+
+    [Fact]
+    public void TheChoirsFaction_ReadsAsTheChoir()
+    {
+        var snap = Snap("snap-07-mid-strained");
+        var choir = new FactionInfo { Name = "The Hollow Choir", Kind = "Hollow Choir", Goodwill = -100, PlotState = "Awakened", Settlements = 5 };
+        var withChoir = snap with { Factions = [.. snap.Factions, choir] };
+        Assert.Contains("The Hollow Choir (Hollow Choir): goodwill -100, 5 settlements, Choir state: Awakened.",
+            WorldSummarizer.ForDirector(withChoir, ModelTier.Recommended).Variables["worldSummary"]);
+        Assert.Contains("taking settlements with its mechs", Dump(WorldSummarizer.ForNewsBulletin(withChoir, ModelTier.Recommended)));
+    }
+
     [Fact]
     public void WithoutACrisis_TheDirectorSummaryIsUnchanged() =>
         Assert.Equal(Dump(WorldSummarizer.ForDirector(Snap("snap-07-mid-strained"), ModelTier.Recommended)),

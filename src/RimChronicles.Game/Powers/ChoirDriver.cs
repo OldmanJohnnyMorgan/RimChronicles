@@ -2,6 +2,7 @@ using LudeonTK;
 using RimChronicles.Core.News;
 using RimChronicles.Core.Plots;
 using RimChronicles.Core.Powers;
+using RimChronicles.Llm;
 using RimChronicles.Game.Empire;
 using RimChronicles.Game.Engine;
 using RimChronicles.Game.Patches;
@@ -24,6 +25,10 @@ public static class ChoirDriver
     private static Power Choir => Power.Choir;
 
     public static bool Available => PowerFactions.Runs(Choir);
+
+    /// <summary>True when the deciding model was trained on the War in Heaven (or is prompted): it then decides the
+    /// Choir's plot and sees it, its crisis and the war in the snapshot (W12, tech spec R12). Otherwise they pick by weight.</summary>
+    public static bool DirectorDecides => Available && ModelSlots.DirectorKnowsWarInHeaven(RimChroniclesMod.Settings.Slots);
 
     private static string Colony => Faction.OfPlayer.Name;
 

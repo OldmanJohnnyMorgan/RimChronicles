@@ -38,6 +38,13 @@ public sealed class Power
     /// <summary>The ending when the colony takes the power's capital (the Empire's: Resistance).</summary>
     public string DefeatEnding { get; init; } = global::RimChronicles.Core.Empire.EmpireEnding.Resistance;
 
+    /// <summary>Option names that differ from the Empire's ("SabotageImperial" → "SabotageChoir"), so an id never names
+    /// the wrong power. Empty for the Empire.</summary>
+    public IReadOnlyDictionary<string, string> OptionNames { get; init; } = new Dictionary<string, string>();
+
+    /// <summary>The power's name for an option (the Empire's name unless <see cref="OptionNames"/> says otherwise).</summary>
+    public string Option(string name) => OptionNames.TryGetValue(name, out var own) ? own : name;
+
     /// <summary>How text names it ("the Empire", "the Hollow Choir").</summary>
     public string DisplayName { get; init; } = "the Empire";
 
@@ -69,6 +76,12 @@ public sealed class Power
         MarchOption = "Act2:TheChoirMarches",
         ColonistTrigger = AwakeningTrigger.MechanitorColonist,
         DisplayName = "the Hollow Choir",
+        OptionNames = new Dictionary<string, string>
+        {
+            ["SabotageImperial"] = "SabotageChoir",
+            ["OfferGovernorship"] = "FirstVoiceOffer",
+            ["StormTheCapital"] = "StormTheCathedral",
+        },
         ServiceEnding = global::RimChronicles.Core.Choir.ChoirEnding.Choral,
         DefeatEnding = global::RimChronicles.Core.Choir.ChoirEnding.Silenced,
         Text = new global::RimChronicles.Core.Choir.ChoirPowerText(),

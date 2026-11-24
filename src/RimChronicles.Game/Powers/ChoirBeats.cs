@@ -17,8 +17,9 @@ namespace RimChronicles.Game.Powers;
 /// The Hollow Choir's acts in game (War in Heaven W4b), the mirror of <see cref="EmpireBeats"/>: the Act 1 envoy and
 /// the colony's stance, Act 2 jobs that fit it (quests from the templates), tribute, the Act 3 reckoning, the First
 /// Voice's offer to a colonist of high Chorus rank (spec D13), the assault on the Cathedral, the final demand and the
-/// treaty. The rules are <see cref="PowerArc"/>'s with <see cref="Power.Choir"/>. Until the director is retrained on the
-/// Choir (W12, W13), the plot is decided by weight and kept out of the director's snapshot. Template letters only;
+/// treaty. The rules are <see cref="PowerArc"/>'s with <see cref="Power.Choir"/>. The director decides it only when its
+/// model knows the War in Heaven (<see cref="ChoirDriver.DirectorDecides"/>); otherwise it picks by weight and stays out
+/// of the snapshot. Template letters only;
 /// victory screens and epilogues for its endings come with W11. Main thread only.
 /// </summary>
 public static class ChoirBeats
@@ -27,7 +28,7 @@ public static class ChoirBeats
 
     public static void Register() => PlotDriver.Register(Choir.PlotTemplateId,
         plot => RimChroniclesGameComponent.Current is { } c ? PowerArc.Transitions(plot, c.Choir, GenDate.DaysPassed) : [], Fire,
-        useDirector: () => false);
+        useDirector: () => ChoirDriver.DirectorDecides);
 
     private static string Colony => Faction.OfPlayer.Name;
 

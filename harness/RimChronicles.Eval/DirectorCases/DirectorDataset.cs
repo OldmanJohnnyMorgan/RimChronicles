@@ -37,11 +37,18 @@ public sealed record DatasetOptions
     public double MinAgreement { get; init; } = 0.6;
 
     /// <summary>Bump when the test split's rule changes (training spec: never edit it silently). Version 2 adds the
-    /// crisis arc's cases (crisis C11); the manifest says 2 by itself when the test split holds any.</summary>
+    /// crisis arc's cases (crisis C11), version 3 the War in Heaven's (W12); the manifest says so by itself when the test
+    /// split holds any.</summary>
     public int TestVersion { get; init; } = 1;
 
     /// <summary>The test version the crisis arc's test cases bring (crisis C11).</summary>
     public const int CrisisTestVersion = 2;
+
+    /// <summary>The test version the War in Heaven's test cases bring (War in Heaven W12).</summary>
+    public const int WarTestVersion = 3;
+
+    /// <summary>True for a War in Heaven case id (<c>dir-s{seed}-w{index}</c>).</summary>
+    public static bool IsWarCase(string id) => System.Text.RegularExpressions.Regex.IsMatch(id, $@"^dir-s\d+-{CaseGenerator.WarIdPart}\d+$");
 
     /// <summary>True for a crisis case id (<c>dir-s{seed}-c{index}</c>).</summary>
     public static bool IsCrisisCase(string id) => System.Text.RegularExpressions.Regex.IsMatch(id, $@"^dir-s\d+-{CaseGenerator.CrisisIdPart}\d+$");
@@ -185,7 +192,8 @@ public static class DirectorDataset
             ["builder"] = "director-dataset",
             ["promptVersion"] = $"{DirectorTask}/{prompt.Meta.Version}",
             ["tier"] = o.Tier.ToString(),
-            ["testVersion"] = accepted.Any(x => x.Split == "test" && DatasetOptions.IsCrisisCase(x.CaseId)) ? Math.Max(o.TestVersion, DatasetOptions.CrisisTestVersion) : o.TestVersion,
+            ["testVersion"] = accepted.Any(x => x.Split == "test" && DatasetOptions.IsWarCase(x.CaseId)) ? Math.Max(o.TestVersion, DatasetOptions.WarTestVersion)
+                : accepted.Any(x => x.Split == "test" && DatasetOptions.IsCrisisCase(x.CaseId)) ? Math.Max(o.TestVersion, DatasetOptions.CrisisTestVersion) : o.TestVersion,
             ["testSeeds"] = new JsonArray(o.TestSeeds.Order().Select(s => (JsonNode?)JsonValue.Create(s)).ToArray()),
             ["exportedTestShare"] = o.ExportedTestShare,
             ["valShare"] = o.ValShare,
