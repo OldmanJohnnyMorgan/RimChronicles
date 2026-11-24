@@ -309,13 +309,46 @@ plus the crisis test labels).
    crisis rules (operations by stage, retrieval for prisoners, nothing sent at a knocked-out capability, siege goals,
    sites). Self-agreement 24/24; the Wait rule held in all 112 cases it decides. Best answers: Wait 43%, probe 11%,
    retrieval 11%, forward outpost 9%, walls 7%, the rest spread. If the crisis generator changes, these go stale.
-3. **Training labels:** the local teacher, `director-label --cases training/data/cases/synthetic/seed-1-crisis` (it
-   uses `director-teacher/v4`), then `director-labels-check`. Check the agreement and the forced-label share as for
-   D4b.
-4. **Datasets and training:** `director-dataset` as before (it finds the crisis folders itself; its manifest says test
-   version 2), then retrain E2B and E4B (D6).
+3. **Training labels:** the local teacher labels the 1,200 seed-1 crisis cases with `director-teacher/v4` into its own
+   folder (`local-gemma4-12b` holds the v3 labels, and `director-label` refuses to mix teacher versions or plans in one
+   folder), then `director-labels-check`. Check the agreement and the forced-label share as for D4b.
+
+   ```powershell
+   dotnet run --project harness/RimChronicles.Eval -- director-label --cases training/data/cases/synthetic/seed-1-crisis --out training/data/labels/local-gemma4-12b-crisis --count 1200
+   dotnet run --project harness/RimChronicles.Eval -- director-labels-check --pack training/data/labels/local-gemma4-12b-crisis --cases training/data/cases/synthetic/seed-1-crisis
+   ```
+
+4. **Datasets and training:** `director-dataset` with the same options as E2B v3 and E4B v1 (it finds the crisis folders
+   itself; its manifest says test version 2), then retrain under the `-crisis` names, so the shipped
+   `rimchron-director-e2b` and `-e4b` stay as they are until the new ones pass. Build each tier's dataset just before
+   its training run:
+
+   ```powershell
+   dotnet run --project harness/RimChronicles.Eval -- director-dataset --tier Minimum --max-wait-share 0.6 --hand-only AwakenedEmpire
+   ```
+
+   ```bash
+   cd /mnt/c/RimworldMods/RimChronicles/RimChronicles/training
+   uv run python -m rimchron_train data --config config/director-e2b-crisis.yaml
+   uv run python -m rimchron_train sft --config config/director-e2b-crisis.yaml 2>&1 | tee ~/sft-director-e2b-crisis.log
+   uv run python -m rimchron_train export --config config/director-e2b-crisis.yaml
+   ```
+
+   ```powershell
+   cd C:\RimworldMods\rc-models\director-e2b-crisis
+   ollama create rimchron-director-e2b-crisis -f Modelfile.merged.q4_k_m
+   ```
+
+   E4B is the same with `--tier Recommended` and `director-e4b-crisis` in place of `director-e2b-crisis`.
 5. **Report and review** on both test sets together:
-   `director-report ... --cases training/data/cases/synthetic/seed-9001,training/data/cases/synthetic/seed-9001-crisis --labels training/data/labels/test-v1,training/data/labels/test-crisis-v1`,
-   then `director-review` with the same `--cases` and `--labels`.
-6. **Presets:** once the reports pass and are committed, the presets in `src/RimChronicles.Llm/TierPresets.cs` get
+
+   ```powershell
+   cd C:\RimworldMods\RimChronicles\RimChronicles
+   dotnet run --project harness/RimChronicles.Eval -- director-report --config training/models.director.json --models gemma4-e2b,director-e2b-crisis --base gemma4-e2b --name director-e2b-crisis-v1 --cases training/data/cases/synthetic/seed-9001,training/data/cases/synthetic/seed-9001-crisis --labels training/data/labels/test-v1,training/data/labels/test-crisis-v1
+   ```
+
+   then `director-review` with the same `--config`, `--models director-e2b-crisis`, `--cases` and `--labels`. E4B
+   likewise (`gemma4-e4b,director-e4b-crisis`, `--name director-e4b-crisis-v1`).
+6. **Presets:** once a report passes and is committed, copy the model over the shipped name
+   (`ollama cp rimchron-director-e2b-crisis rimchron-director-e2b`), and the presets in `src/RimChronicles.Llm/TierPresets.cs` get
    `KnowsCrisis = true` and the game hands them the crisis.
