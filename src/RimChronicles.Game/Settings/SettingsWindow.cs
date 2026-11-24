@@ -18,6 +18,9 @@ public static class SettingsWindow
     private static bool _customDirector;
 
     private static Vector2 _scroll;
+
+    /// <summary>Whether the separate-models section is open; starts open when one is set up. Not saved.</summary>
+    private static bool? _advancedOpen;
     private static float _height = 1000f;
 
     private static readonly (string Id, string Label, string Tip)[] Arcs =
@@ -37,6 +40,7 @@ public static class SettingsWindow
         var list = new Listing_Standard { maxOneColumn = true };
         list.Begin(view);
 
+        Heading(list, "Model");
         list.Label("Model tier");
         foreach (var tier in Tiers)
         {
@@ -63,12 +67,12 @@ public static class SettingsWindow
 
         DrawConnectionTest(list, settings);
 
-        list.GapLine();
+        Heading(list, "News");
         var days = (int)Math.Round(list.SliderLabeled($"News bulletin every {settings.NewsCadenceDays} day(s)", settings.NewsCadenceDays,
             RimChroniclesSettings.MinNewsCadenceDays, RimChroniclesSettings.MaxNewsCadenceDays));
         settings.NewsCadenceDays = Math.Clamp(days, RimChroniclesSettings.MinNewsCadenceDays, RimChroniclesSettings.MaxNewsCadenceDays);
 
-        list.GapLine();
+        Heading(list, "Story");
         list.CheckboxLabeled("Major plot: the Awakened Empire", ref settings.MajorPlot,
             "The Empire wakes and starts taking territory. Needs the Royalty DLC; without it, this does nothing.");
         if (settings.MajorPlot && !ModsConfig.RoyaltyActive)
@@ -76,7 +80,7 @@ public static class SettingsWindow
             list.Label("<color=#a0a0a0>Royalty isn't active, so the major plot is off.</color>");
         }
 
-        list.GapLine();
+        list.Gap();
         var intensity = list.SliderLabeled(
             $"Story intensity: {Core.Plots.StoryIntensity.Describe(settings.StoryIntensity)} ({settings.StoryIntensity:0.0}×)",
             settings.StoryIntensity, Core.Plots.StoryIntensity.Min, Core.Plots.StoryIntensity.Max,
@@ -91,7 +95,62 @@ public static class SettingsWindow
             settings.SetArcEnabled(id, on);
         }
 
+        Heading(list, "Advanced: separate models");
+        _advancedOpen ??= settings.ProseModel.Length > 0 || settings.DirectorModel.Length > 0;
+        if (list.ButtonText(_advancedOpen.Value ? "Hide" : "Show a separate prose or director model", widthPct: 0.45f))
+        {
+            _advancedOpen = !_advancedOpen.Value;
+        }
+
+        if (_advancedOpen.Value)
+        {
+            DrawSeparateModels(list, settings);
+        }
+
+        if (Prefs.DevMode)
+        {
+            list.GapLine();
+            list.CheckboxLabeled("Dev: record director decisions for training", ref settings.RecordDirectorCases,
+                $"Saves each director decision with a choice as a case in {Plots.DirectorRecorder.Folder}, for the director-model training track.");
+        }
+
         list.GapLine();
+        if (list.ButtonText("Reset to defaults", widthPct: 0.3f))
+        {
+            Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation(
+                "Reset every Rim Chronicles setting to its default? This clears the model server, any separate prose or director "
+                + "model, and the story settings.",
+                () =>
+                {
+                    settings.ResetToDefaults();
+                    _probeStatus = "";
+                    _advancedOpen = null;
+                    _customDirector = false;
+                },
+                destructive: true));
+        }
+
+        _height = list.CurHeight + 24f;
+        list.End();
+        Widgets.EndScrollView();
+    }
+
+    /// <summary>A section heading: a line, then the title in the medium font.</summary>
+    private static void Heading(Listing_Standard list, string title)
+    {
+        if (list.CurHeight > 0f)
+        {
+            list.GapLine();
+        }
+
+        Text.Font = GameFont.Medium;
+        list.Label(title);
+        Text.Font = GameFont.Small;
+    }
+
+    /// <summary>The optional second and third models: one for narration, one for the director's decisions.</summary>
+    private static void DrawSeparateModels(Listing_Standard list, RimChroniclesSettings settings)
+    {
         list.Label("Separate prose model (optional): writes bulletins, plot letters and epilogues, while the main model makes the director's decisions");
         settings.ProseModel = list.TextEntryLabeled("Prose model (blank: use the main one)  ", settings.ProseModel);
         if (settings.ProseModel.Length > 0)
@@ -109,7 +168,7 @@ public static class SettingsWindow
             }
         }
 
-        list.GapLine();
+        list.Gap();
         list.Label("Director model: makes the director's decisions, while the main model writes");
         var preset = TierPresets.DirectorPreset(settings.DirectorModel);
         var custom = _customDirector || (settings.DirectorModel.Length > 0 && preset is null);
@@ -171,7 +230,6 @@ public static class SettingsWindow
             }
 
             settings.DirectorApiKey = list.TextEntryLabeled("    Director API key (blank: the main one)  ", settings.DirectorApiKey);
-
             if (!ModelSlots.DirectorSeparate(settings.Slots) && settings.Tier != ModelTier.Off)
             {
                 list.Label("<color=#e0a040>The director model isn't usable as set, so the main model makes the decisions.</color>");
@@ -182,32 +240,6 @@ public static class SettingsWindow
                 list.Label("<color=#a0a0a0>The tier is Off, so no model is called, this one included.</color>");
             }
         }
-
-        if (Prefs.DevMode)
-        {
-            list.GapLine();
-            list.CheckboxLabeled("Dev: record director decisions for training", ref settings.RecordDirectorCases,
-                $"Saves each director decision with a choice as a case in {Plots.DirectorRecorder.Folder}, for the director-model training track.");
-        }
-
-        list.GapLine();
-        if (list.ButtonText("Reset to defaults", widthPct: 0.3f))
-        {
-            Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation(
-                "Reset every Rim Chronicles setting to its default? This clears the model server, any separate prose or director "
-                + "model, and the story settings.",
-                () =>
-                {
-                    settings.ResetToDefaults();
-                    _probeStatus = "";
-                    _customDirector = false;
-                },
-                destructive: true));
-        }
-
-        _height = list.CurHeight + 24f;
-        list.End();
-        Widgets.EndScrollView();
     }
 
     private static async Task<ConnectionProbe.Result> ProbeAll(IChatProvider main, IChatProvider? director)

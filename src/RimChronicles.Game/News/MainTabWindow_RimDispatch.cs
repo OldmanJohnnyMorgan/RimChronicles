@@ -1,4 +1,5 @@
 using RimChronicles.Core.News;
+using RimChronicles.Game.Engine;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -10,6 +11,11 @@ public sealed class MainTabWindow_RimDispatch : MainTabWindow
 {
     private const float Gap = 14f;
     private Vector2 _scroll;
+
+    // Text heights, measured once per bulletin list and width rather than every frame (a long game has dozens).
+    private List<float> _heights = [];
+    private int _heightsCount = -1;
+    private float _heightsWidth = -1f;
 
     public override Vector2 RequestedTabSize => new(720f, 640f);
 
@@ -28,7 +34,7 @@ public sealed class MainTabWindow_RimDispatch : MainTabWindow
         Text.Font = GameFont.Small;
         var byline = reporter.Faction.Length > 0 ? $"Correspondent: {reporter.Name} of {reporter.Faction}" : $"Correspondent: {reporter.Name}";
         // No hint when the news has stopped: the player has to work out why (Silent Press).
-        var next = desk.NextDueDay >= 0 && reporter.Status == ReporterStatus.Active ? $"   ·   Next bulletin: day {desk.NextDueDay}" : "";
+        var next = desk.NextDueDay >= 0 && reporter.Status == ReporterStatus.Active ? $"   ·   Next bulletin: {GameDates.DayAndDate(desk.NextDueDay)}" : "";
         Widgets.Label(new Rect(inRect.x, inRect.y + 36f, inRect.width, 24f), byline + next);
 
         var outRect = new Rect(inRect.x, inRect.y + 68f, inRect.width, inRect.height - 68f);
@@ -40,7 +46,14 @@ public sealed class MainTabWindow_RimDispatch : MainTabWindow
         }
 
         var width = outRect.width - 20f;
-        var heights = bulletins.Select(b => Text.CalcHeight(b.Text, width)).ToList();
+        if (bulletins.Count != _heightsCount || width != _heightsWidth)
+        {
+            _heights = bulletins.Select(b => Text.CalcHeight(b.Text, width)).ToList();
+            _heightsCount = bulletins.Count;
+            _heightsWidth = width;
+        }
+
+        var heights = _heights;
         var viewRect = new Rect(0f, 0f, width, heights.Sum() + bulletins.Count * (24f + Gap));
 
         Widgets.BeginScrollView(outRect, ref _scroll, viewRect);
@@ -56,7 +69,7 @@ public sealed class MainTabWindow_RimDispatch : MainTabWindow
     private static void DrawBulletin(Bulletin bulletin, float height, float width, ref float y)
     {
         GUI.color = new Color(0.75f, 0.75f, 0.75f);
-        Widgets.Label(new Rect(0f, y, width, 24f), $"Day {bulletin.DeliveredDay}");
+        Widgets.Label(new Rect(0f, y, width, 24f), GameDates.DayAndDate(bulletin.DeliveredDay));
         GUI.color = Color.white;
         y += 24f;
         Widgets.Label(new Rect(0f, y, width, height), bulletin.Text);
