@@ -137,6 +137,7 @@ public sealed class ChoiceLetter_Plot : ChoiceLetter
 
         var letter = (ChoiceLetter_Plot)LetterMaker.MakeLetter(label, text, PlotLetterDefOf.RimChronicles_PlotChoice);
         Engine.StoryLetters.Point(letter, plot.Id, faction);
+        plot.Tell(GenDate.DaysPassed, label, text);
         letter.plotId = plot.Id;
         letter.factKey = factKey;
         letter.labels = options.Select(o => o.Label).ToList();
@@ -184,7 +185,7 @@ public sealed class ChoiceLetter_Plot : ChoiceLetter
 
             plot.SetFact(factKey, answers[index]);
             plot.Note(GenDate.DaysPassed, $"the colony chose: {labels[index]}");
-            Engine.StoryLetters.Confirm(costs[index] > 0 ? $"{labels[index]}: done, {costs[index]} silver paid." : $"{labels[index]}: the colony has answered.");
+            Engine.StoryLetters.Answered(plot, costs[index] > 0 ? $"{labels[index]}: done, {costs[index]} silver paid." : $"{labels[index]}: the colony has answered.");
             if (actNow[index])
             {
                 plot.NextBeatDay = GenDate.DaysPassed;

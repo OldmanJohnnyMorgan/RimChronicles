@@ -220,6 +220,7 @@ public static class EmpireDriver
         component.News.Add(new NewsEvent(today, EmpireSaga.NewsKind, ev.NewsText, empire.Name));
         if (ev.LetterLabel is { } label && ev.LetterText is { } text)
         {
+            EmpireBeats.Current(component)?.Tell(today, label, text);
             StoryLetters.Send(label, text, LetterDefOf.ThreatBig, faction: empire);
         }
     }
@@ -274,10 +275,12 @@ public static class EmpireDriver
             empire.TryAffectGoodwillWith(Faction.OfPlayer, -100 - empire.PlayerGoodwill, canSendMessage: true, canSendHostilityLetter: true);
         }
 
-        StoryLetters.Send("The Empire will not let you leave",
-            $"Word of the ship has reached {empire.Name}. A colony that could carry its secrets off the rim is not one the Empire can allow.\n\n"
-            + "Imperial troops are on their way, and more will follow while the reactor starts up.", LetterDefOf.ThreatBig, faction: empire);
+        const string shipLabel = "The Empire will not let you leave";
+        var shipText = $"Word of the ship has reached {empire.Name}. A colony that could carry its secrets off the rim is not one the Empire can allow.\n\n"
+            + "Imperial troops are on their way, and more will follow while the reactor starts up.";
         var today = GenDate.DaysPassed;
+        EmpireBeats.Current(component)?.Tell(today, shipLabel, shipText);
+        StoryLetters.Send(shipLabel, shipText, LetterDefOf.ThreatBig, faction: empire);
         saga.Note(today, "the colony started a ship reactor: the Empire moves to stop it");
         saga.NextShipRaidDay = today;
         ShipRaids(component, empire, today);

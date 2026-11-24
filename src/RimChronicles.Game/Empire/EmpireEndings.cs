@@ -46,13 +46,14 @@ public static class EmpireEndings
             Messages.Message($"The story of {colony} is over. The chronicler is writing its epilogue…", MessageTypeDefOf.NeutralEvent, historical: false);
         }
 
-        PlotNarrator.Run(component, "the epilogue", template, text => Show(c.Ending, text),
+        PlotNarrator.Run(component, "the epilogue", template, text => Show(plot, c.Ending, text),
             (prompts, tier, fallback) => EpilogueTask.Build(prompts, c, colony, tier, ThinkingMode.Off, fallback).Definition);
     }
 
-    private static void Show(string ending, string text)
+    private static void Show(Plot plot, string ending, string text)
     {
         var title = $"Rim Chronicles: {EpilogueTask.Headline(ending)}";
+        plot.Tell(GenDate.DaysPassed, title, text); // the plot has ended; its story still shows in the Chronicle tab
         Engine.StoryLetters.Send(title, text, LetterDefOf.PositiveEvent, faction: Engine.StoryLetters.Empire);
         GameVictoryUtility.ShowCredits($"{title}\n\n{text}", SongDefOf.EndCreditsSong, exitToMainMenu: false);
     }

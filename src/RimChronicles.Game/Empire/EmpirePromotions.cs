@@ -47,6 +47,7 @@ public static class EmpirePromotions
         plot.SetFact(NemesisPlot.NemesisFaction, empire.Name);
         var name = plot.Fact(NemesisPlot.NemesisName) ?? nemesis.LabelShort;
         var (label, text) = Promotion.OfficerLetter(name, oldFaction, empire.Name, plot.Protagonist.Name);
+        plot.Tell(today, label, text);
         StoryLetters.Send(label, text, LetterDefOf.ThreatSmall, nemesis.Spawned ? new LookTargets(nemesis) : null, empire);
         plot.PublicHint = Promotion.OfficerNews(name, oldFaction, empire.Name);
         component.News.Add(new NewsEvent(today, "PlotHint", plot.PublicHint, empire.Name));
@@ -66,6 +67,7 @@ public static class EmpirePromotions
             plot.SetFact(Promotion.Fact, Promotion.Conquered);
             plot.SetFact(Promotion.ConqueredAt, settlement);
             var (label, text) = Promotion.CaughtLetter(kin, settlement, empire.Name, plot.Protagonist.Name);
+            plot.Tell(today, label, text);
             StoryLetters.Send(label, text, LetterDefOf.NegativeEvent, StoryLetters.For(component, plot), empire);
             plot.PublicHint = $"{empire.Name} took captives when {settlement} fell";
             var template = PlotTemplateDef.Find(LostFamilyArc.TemplateId);

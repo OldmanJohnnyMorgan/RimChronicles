@@ -119,9 +119,12 @@ public static class SilentPressBeats
         }
     }
 
-    private static void Send(RimChroniclesGameComponent component, Plot plot, (string Label, string Text) letter, LetterDef def) =>
+    private static void Send(RimChroniclesGameComponent component, Plot plot, (string Label, string Text) letter, LetterDef def)
+    {
+        plot.Tell(GenDate.DaysPassed, letter.Label, letter.Text);
         StoryLetters.Send(letter.Label, letter.Text, def, StoryLetters.For(component, plot),
             StoryLetters.FactionNamed(plot.Fact(SilentPressArc.ReporterFaction)) ?? StoryLetters.FactionOf(component, plot));
+    }
 
     [DebugAction("Rim Chronicles", "Silent Press: silence the reporter", allowedGameStates = AllowedGameStates.Playing)]
     public static void DevSilence()
@@ -162,6 +165,7 @@ public sealed class ChoiceLetter_SilentPress : ChoiceLetter
         var letter = (ChoiceLetter_SilentPress)LetterMaker.MakeLetter(label, text, SilentPressLetterDefOf.RimChronicles_SilentPressChoice);
         var reporterFaction = RimChroniclesGameComponent.Current?.Plots.Active.FirstOrDefault(p => p.Id == plotId)?.Fact(SilentPressArc.ReporterFaction);
         StoryLetters.Point(letter, plotId, StoryLetters.FactionNamed(reporterFaction));
+        StoryLetters.Record(plotId, label, text);
         letter.plotId = plotId;
         letter.price = price;
         letter.reoffer = reoffer;
@@ -218,7 +222,7 @@ public sealed class ChoiceLetter_SilentPress : ChoiceLetter
             }
 
             // Refusing a later offer keeps the 30-day wait before the next one.
-            StoryLetters.Confirm(answer == SilentPressArc.AnswerRefuse ? "The colony refused to pay." : $"Reparations paid: {amount} silver.");
+            StoryLetters.Answered(plot, answer == SilentPressArc.AnswerRefuse ? "The colony refused to pay." : $"Reparations paid: {amount} silver.");
         }
 
         Find.LetterStack.RemoveLetter(this);

@@ -12,9 +12,28 @@ public static class StoryLetters
     public static void Send(string label, string text, LetterDef def, LookTargets? targets = null, Faction? faction = null) =>
         Find.LetterStack.ReceiveLetter(label, text, def, targets is { Any: true } ? targets : LookTargets.Invalid, faction);
 
-    /// <summary>A plot letter, pointing at the plot's people.</summary>
-    public static void Send(RimChroniclesGameComponent component, Plot plot, string label, string text, LetterDef def) =>
+    /// <summary>A plot letter, pointing at the plot's people, and kept in the plot's story for the Chronicle tab.</summary>
+    public static void Send(RimChroniclesGameComponent component, Plot plot, string label, string text, LetterDef def)
+    {
+        plot.Tell(GenDate.DaysPassed, label, text);
         Send(label, text, def, For(component, plot), FactionOf(component, plot));
+    }
+
+    /// <summary>Keeps a letter in the story of the plot with this id, if it is still running.</summary>
+    public static void Record(string plotId, string label, string text)
+    {
+        if (RimChroniclesGameComponent.Current?.Plots.Active.FirstOrDefault(p => p.Id == plotId) is { } plot)
+        {
+            plot.Tell(GenDate.DaysPassed, label, text);
+        }
+    }
+
+    /// <summary>The colony answered a choice letter: keeps the answer in the plot's story and confirms it on screen.</summary>
+    public static void Answered(Plot plot, string text)
+    {
+        plot.Answered(GenDate.DaysPassed, text);
+        Confirm(text);
+    }
 
     /// <summary>The plot's pawns the player can jump to, outsiders first (the nemesis or relative is usually the news),
     /// then its colonists. A pawn on a map is targeted directly; one travelling in a caravan, by its caravan. Null if none.</summary>
