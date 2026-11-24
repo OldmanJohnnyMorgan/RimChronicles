@@ -293,3 +293,25 @@ dotnet run --project harness/RimChronicles.Eval -- director-review --config trai
 
 It reveals which side was which and writes `review.md` (better, same, worse, and per arc and beat). The ship bar: the
 model is picked or tied in at least 40% of cases. Commit the `review-director-e2b` folder with the report.
+
+## Crisis retrain (after crisis C11)
+
+C11 (`docs/SPEC-crisis-combat-and-locations/milestones/C11-director-wiring.md`) gives the director the Imperial
+crisis: operations, siege goals (`Goal:*`) and sites (`Site:*`). The shipped directors weren't trained on them, so the
+game keeps the crisis away from them until they're retrained. The crisis cases are a separate set with their own ids
+(`dir-s{seed}-c{n}`), so seed 9001's 500 cases and test-v1 stay as they are; the test set becomes version 2 (test-v1
+plus the crisis test labels).
+
+1. **Cases (PowerShell):** `director-gen --seed 1 --arc crisis` (1,200 training cases) and
+   `director-gen --seed 9001 --arc crisis --count 240` (the crisis test cases).
+2. **Test labels:** Claude Code labels the seed-9001 crisis cases in session (`training/data/labels/test-crisis-v1`),
+   as it did test-v1. No API spend.
+3. **Training labels:** the local teacher, `director-label --cases training/data/cases/synthetic/seed-1-crisis`, then
+   `director-labels-check`. Check the agreement and the forced-label share as for D4b.
+4. **Datasets and training:** `director-dataset` as before (it finds the crisis folders itself; its manifest says test
+   version 2), then retrain E2B and E4B (D6).
+5. **Report and review** on both test sets together:
+   `director-report ... --cases training/data/cases/synthetic/seed-9001,training/data/cases/synthetic/seed-9001-crisis --labels training/data/labels/test-v1,training/data/labels/test-crisis-v1`,
+   then `director-review` with the same `--cases` and `--labels`.
+6. **Presets:** once the reports pass and are committed, the presets in `src/RimChronicles.Llm/TierPresets.cs` get
+   `KnowsCrisis = true` and the game hands them the crisis.

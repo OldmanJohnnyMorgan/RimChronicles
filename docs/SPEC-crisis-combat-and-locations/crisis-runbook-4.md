@@ -44,4 +44,26 @@ C12's done-when is measured here: generation under 30 s and steady speed-1 ticks
 
 ## C11: director wiring
 
-(Added with C11, after the director model ships.)
+What changed: `milestones/C11-director-wiring.md`. Settings → Rim Chronicles. The shipped fine-tunes (E2B, E4B) were
+trained before the crisis, so the crisis keeps picking by weight with them; the main model (no separate director)
+decides it. Turn on **Dev: record director decisions for training** for steps 2–5.
+
+| # | Do | Pass when |
+| --- | --- | --- |
+| 1 | Director model: **rimchron-director-e4b**. **Crisis: show state**; then **Crisis: decide now**. | "Decided by: weighted pick". A message says the crisis picks by weight; **Plot: director log** shows the crisis decision with source `Random`. |
+| 2 | Director model: **None** (main model `gemma4:e4b`). **Crisis: show state**; **Crisis: decide now**. | "Decided by: the director model". The log's crisis decision has source `Model` and a reason about the colony. |
+| 3 | **Crisis: ask director for a siege goal**. | A box with a `Goal:*` pick, a reason and source `Model`; nothing spawns. |
+| 4 | At stage 3 (War), **Crisis: decide now** until the director picks `Operation:SiegeWithBombardment` (or fire it from a save where it's the only operation off cooldown). | The log has two lines that day: the operation, then a `Goal:*` follow-up (source `Model`). The siege letter's aim matches the goal. |
+| 5 | **Crisis: ask director for a site**; then, from a save where the Empire plot offers `Empire:SabotageImperial`, **Plot: advance beat** until it's chosen. | The box shows a `Site:*` pick. When the job is offered, the log has the `Site:*` follow-up and the quest is that site. |
+| 6 | Open the recorded cases folder (`…\RimChronicles\director-cases`). | The crisis decisions and their `-sub` follow-ups are there; their JSON has a `crisis` block. With the E4B director (step 1) there's no crisis case. |
+| 7 | Save and reload mid-crisis; **Crisis: decide now**. | Works as before; no errors. |
+
+Then the free harness run (no `--judge`, no `claude-ref`) in PowerShell:
+
+```powershell
+dotnet run --project harness/RimChronicles.Eval -- validate
+dotnet run --project harness/RimChronicles.Eval -- run --tasks director
+```
+
+Pass: `validate` OK; on snap-01 to snap-23 the director is as valid as before (those prompts didn't change, so
+they're cache hits); snap-24 (the crisis at War) answers valid JSON with one of its operations or Wait.

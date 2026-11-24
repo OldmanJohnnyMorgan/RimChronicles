@@ -22,6 +22,42 @@ public class WorldSummarizerTests
     public void Director_MatchesGolden(ModelTier tier) =>
         Golden.Match($"director.snap-07.{tier}.txt", Dump(WorldSummarizer.ForDirector(Snap("snap-07-mid-strained"), tier)));
 
+    /// <summary>snap-07 at War in the Imperial crisis (crisis C11): the director's summary gains the crisis block.</summary>
+    public static readonly CrisisInfo WarCrisis = new()
+    {
+        Stage = "War",
+        Operations =
+        [
+            new CrisisOperationInfo { Day = 380, Operation = "ProbingRaid", Outcome = "repelled" },
+            new CrisisOperationInfo { Day = 392, Operation = "PsychicAssault", Outcome = "succeeded" },
+            new CrisisOperationInfo { Day = 404, Operation = "Breach", Outcome = "repelled" },
+        ],
+        Disabled = [new CrisisHoldInfo { Capability = "strikes", UntilDay = 430 }],
+        Captives = [new CrisisPersonInfo { Name = "Ortan", Rank = "officer" }],
+        Defectors = [new CrisisPersonInfo { Name = "Sabe", Rank = "psyker" }],
+        Intel = ["The next operation is a siege, no sooner than day 418."],
+    };
+
+    [Theory]
+    [InlineData(ModelTier.Recommended)]
+    [InlineData(ModelTier.Minimum)]
+    public void Director_WithTheCrisis_MatchesGolden(ModelTier tier) =>
+        Golden.Match($"director.snap-07-crisis.{tier}.txt", Dump(WorldSummarizer.ForDirector(Snap("snap-07-mid-strained") with { Crisis = WarCrisis }, tier)));
+
+    [Fact]
+    public void WithoutACrisis_TheDirectorSummaryIsUnchanged() =>
+        Assert.Equal(Dump(WorldSummarizer.ForDirector(Snap("snap-07-mid-strained"), ModelTier.Recommended)),
+            Dump(WorldSummarizer.ForDirector(Snap("snap-07-mid-strained") with { Crisis = null }, ModelTier.Recommended)));
+
+    [Fact]
+    public void TheCrisisBlock_ShowsOnlyInTheDirectorSummary()
+    {
+        var crisis = Snap("snap-17-late-strained") with { Crisis = WarCrisis };
+        Assert.Equal(Dump(WorldSummarizer.ForNewsBulletin(Snap("snap-17-late-strained"), ModelTier.Recommended)),
+            Dump(WorldSummarizer.ForNewsBulletin(crisis, ModelTier.Recommended)));
+        Assert.Contains("Imperial crisis, stage War", WorldSummarizer.ForDirector(crisis, ModelTier.Recommended).Variables["worldSummary"]);
+    }
+
     [Fact]
     public void NewsBulletin_MatchesGolden() =>
         Golden.Match("news-bulletin.snap-17.Recommended.txt", Dump(WorldSummarizer.ForNewsBulletin(Snap("snap-17-late-strained"), ModelTier.Recommended)));

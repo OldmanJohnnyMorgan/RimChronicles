@@ -83,7 +83,7 @@ public partial class SnapshotTests
     [Fact]
     public void SnapshotSet_HasTheCoverageTheSpecRequires()
     {
-        var all = All().Where(s => !IsRealExport(s)).ToList();
+        var all = All().Where(s => !IsRealExport(s) && !IsCrisis(s)).ToList();
         string Phase(WorldSnapshot s) => s.Id.Split('-')[2];
 
         Assert.Equal(20, all.Count);
@@ -101,6 +101,21 @@ public partial class SnapshotTests
 
     /// <summary>Snapshots exported from real games (Stage 2 M6) are named snap-NN-real-*.</summary>
     private static bool IsRealExport(WorldSnapshot s) => s.Id.Split('-')[2] == "real";
+
+    /// <summary>Imperial crisis snapshots (crisis C11) are named snap-NN-crisis-*.</summary>
+    private static bool IsCrisis(WorldSnapshot s) => s.Id.Split('-')[2] == "crisis";
+
+    [Fact]
+    public void CrisisSnapshots_HaveACrisisBlock_AndTheCrisisPlotDecides()
+    {
+        var crisis = All().Where(IsCrisis).ToList();
+        Assert.NotEmpty(crisis);
+        Assert.All(crisis, s =>
+        {
+            Assert.NotNull(s.Crisis);
+            Assert.Equal("ImperialCrisis", s.ActivePlots.Single(p => p.Id == s.Director!.PlotId).Template);
+        });
+    }
 
     [Fact]
     public void RealExports_CoverAQuietWeekAndRealNews()

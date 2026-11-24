@@ -17,7 +17,16 @@ namespace RimChronicles.Game.Empire;
 public static class EmpireBeats
 {
     public static void Register() => PlotDriver.Register(EmpireArc.TemplateId,
-        plot => RimChroniclesGameComponent.Current is { } c ? EmpireArc.Transitions(plot, c.Empire, GenDate.DaysPassed) : [], Fire);
+        plot => RimChroniclesGameComponent.Current is { } c ? EmpireArc.Transitions(plot, c.Empire, GenDate.DaysPassed) : [], Fire,
+        subOptions: SiteOptions);
+
+    /// <summary>The Imperial sites a sabotage job may target (crisis C11, tech spec R7), for the director's second call.
+    /// Empty unless the director may decide the crisis: otherwise the site is picked by weight.</summary>
+    public static IReadOnlyList<PlotTransition> SiteOptions(Plot plot, PlotTransition option) =>
+        option.Step == EmpireStep.SabotageImperial && Crisis.CrisisDriver.DirectorDecides
+            && RimChroniclesGameComponent.Current is { } component && EmpireDriver.EmpireFaction is { } empire
+            ? Crisis.Sites.SiteOffers.Allowed(component, empire).Select(a => new PlotTransition(a.Id, a.Name, a.Weight, a.Desc)).ToList()
+            : [];
 
     private static string Colony => Faction.OfPlayer.Name;
 
@@ -117,7 +126,7 @@ public static class EmpireBeats
                 }
 
                 // While the crisis runs, the sabotage is an Imperial site (C9); otherwise, or with no site defs, a settlement.
-                if (Crisis.Sites.SiteOffers.Pick(component, empire) is { } archetype)
+                if (Crisis.Sites.SiteOffers.Pick(component, empire, transition.Sub) is { } archetype)
                 {
                     var near = QuestOffers.NearestSettlement(s => s.Faction == empire)?.Label ?? archetype.label;
                     return StartQuest(component, plot, today, gap, transition.Step, near, () => QuestOffers.ImperialSite(component, plot, archetype, empire,

@@ -322,8 +322,50 @@ public static partial class WorldSummarizer
 
         AppendList(sb, "History:", s.Tales.TakeLast(limits.Tales).Select(t => TaleLine(t, names)));
         AppendList(sb, "Factions:", s.Factions.Take(limits.Factions).Select(FactionLine));
+        if (s.Crisis is { } crisis)
+        {
+            AppendList(sb, $"Imperial crisis, stage {crisis.Stage}: {Crisis.CrisisBrief.Meaning(crisis.Stage)}.", CrisisLines(crisis));
+        }
+
         AppendList(sb, "Recent events:", s.RecentEvents.TakeLast(limits.Events).Select(names.Replace));
         return sb.ToString().TrimEnd();
+    }
+
+    /// <summary>The crisis block's lines (crisis C11): operations, what's knocked out, prisoners, defectors, intel.</summary>
+    private static IEnumerable<string> CrisisLines(CrisisInfo c)
+    {
+        if (c.Operations.Count == 0)
+        {
+            yield return "No operation against the colony yet.";
+        }
+
+        foreach (var op in c.Operations)
+        {
+            yield return op.Outcome == "running"
+                ? $"Day {op.Day}: {Words(op.Operation).ToLowerInvariant()} under way."
+                : $"Day {op.Day}: {Words(op.Operation).ToLowerInvariant()}, {op.Outcome}.";
+        }
+
+        foreach (var hold in c.Disabled)
+        {
+            var text = Crisis.CrisisBrief.Hold(hold);
+            yield return char.ToUpperInvariant(text[0]) + text[1..] + ".";
+        }
+
+        if (c.Captives.Count > 0)
+        {
+            yield return $"Held prisoner: {string.Join(", ", c.Captives.Select(p => $"{p.Name} (Imperial {p.Rank})"))}.";
+        }
+
+        if (c.Defectors.Count > 0)
+        {
+            yield return $"Defected to the colony: {string.Join(", ", c.Defectors.Select(p => $"{p.Name} (once an Imperial {p.Rank})"))}.";
+        }
+
+        foreach (var intel in c.Intel)
+        {
+            yield return $"Intel: {intel}";
+        }
     }
 
     private static string NewsDigest(WorldSnapshot s, Names names, Limits limits)

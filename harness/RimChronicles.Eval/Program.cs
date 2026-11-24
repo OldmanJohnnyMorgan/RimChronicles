@@ -54,6 +54,8 @@ const string usage = """
       --seed <n>               Generator seed (default 1); each seed gives a reproducible set
       --count <n>              Cases to write (default 5000)
       --out <dir>              Where to write them (default training/data/cases/synthetic/seed-<n>)
+      --arc crisis             The Imperial crisis's cases instead (crisis C11; default count 1200,
+                               default out training/data/cases/synthetic/seed-<n>-crisis)
 
     director-import options:
       --from <dir>             The game's recorded cases (on Windows: %USERPROFILE%\AppData\LocalLow\Ludeon Studios\
@@ -88,8 +90,8 @@ const string usage = """
       --name <name>            Report name (default the model ids joined by '+')
       --base <id>              The prompted base the lift column compares against
       --count <n>              Only n test cases, spread evenly over the set (a quick look)
-      --cases <dir>            Test cases (default training/data/cases/synthetic/seed-9001)
-      --labels <dir>           Test labels (default training/data/labels/test-v1)
+      --cases a,b              Test case folders (default training/data/cases/synthetic/seed-9001)
+      --labels a,b             Test label folders, scored together (default training/data/labels/test-v1)
       --out <dir>              Report folder (default harness/reports)
       --confirm-spend          Allow paid API models (Claude); without it they're refused
 
@@ -124,7 +126,7 @@ if (args.Length == 0 || args[0] is "-h" or "--help" or "help")
 var root = FindRepoRoot();
 var valueOptions = new HashSet<string>
 {
-    "config", "prompts", "snapshots-dir", "passbars", "models", "tasks", "snapshots", "repeats", "out", "cache", "compare", "rate", "seed", "vram-budget", "temperature", "count", "from", "cases", "repeat", "pack", "labels", "tier", "test-seeds", "max-wait-share", "hand-only", "recheck", "name", "base", "answers",
+    "config", "prompts", "snapshots-dir", "passbars", "models", "tasks", "snapshots", "repeats", "out", "cache", "compare", "rate", "seed", "vram-budget", "temperature", "count", "from", "cases", "repeat", "pack", "labels", "tier", "test-seeds", "max-wait-share", "hand-only", "recheck", "name", "base", "answers", "arc",
 };
 var flags = new HashSet<string> { "no-cache", "dry-run", "judge", "resample", "no-wait-rule", "confirm-spend" };
 
@@ -252,9 +254,17 @@ try
         case "director-gen":
         {
             var seed = cli.Int("seed", 1);
-            var dir = cli.Get("out") is { } o ? Path.GetFullPath(o) : Path.Combine(root, "training", "data", "cases", "synthetic", $"seed-{seed}");
-            return RimChronicles.Eval.DirectorCases.DirectorGenCommand.Run(seed, cli.Int("count", 5000), dir,
-                Path.Combine(root, "harness", "schema", "snapshot.schema.json"), Console.Out);
+            var crisisArc = cli.Get("arc") switch
+            {
+                null => false,
+                "crisis" => true,
+                var unknownArc => throw new ArgumentException($"director-gen --arc: unknown arc '{unknownArc}' (only 'crisis')."),
+            };
+            var dir = cli.Get("out") is { } o ? Path.GetFullPath(o)
+                : Path.Combine(root, "training", "data", "cases", "synthetic", crisisArc ? $"seed-{seed}-crisis" : $"seed-{seed}");
+            return RimChronicles.Eval.DirectorCases.DirectorGenCommand.Run(seed, cli.Int("count", crisisArc ? 1200 : 5000), dir,
+                Path.Combine(root, "harness", "schema", "snapshot.schema.json"), Console.Out,
+                crisisArc ? RimChronicles.Eval.DirectorCases.SiteArchetypeXml.Load(Path.Combine(root, "Defs", "SiteArchetypeDefs")) : null);
         }
 
         case "director-import":
@@ -327,8 +337,8 @@ try
             var data = Path.Combine(root, "training", "data");
             return await RimChronicles.Eval.DirectorCases.DirectorReportCommand.RunAsync(new RimChronicles.Eval.DirectorCases.ReportOptions
             {
-                CasesDir = cli.Get("cases") is { } rcd ? Path.GetFullPath(rcd) : Path.Combine(data, "cases", "synthetic", "seed-9001"),
-                LabelsDir = cli.Get("labels") is { } rld ? Path.GetFullPath(rld) : Path.Combine(data, "labels", "test-v1"),
+                CaseDirs = cli.List("cases")?.Select(Path.GetFullPath).ToList() ?? [Path.Combine(data, "cases", "synthetic", "seed-9001")],
+                LabelDirs = cli.List("labels")?.Select(Path.GetFullPath).ToList() ?? [Path.Combine(data, "labels", "test-v1")],
                 PromptsRoot = promptsRoot,
                 CacheDir = cacheDir,
                 OutDir = cli.Get("out") is { } ro ? Path.GetFullPath(ro) : Path.Combine(root, "harness", "reports"),
@@ -357,8 +367,8 @@ try
             var data = Path.Combine(root, "training", "data");
             return await RimChronicles.Eval.DirectorCases.DirectorReviewCommand.PrepareAsync(new RimChronicles.Eval.DirectorCases.ReviewOptions
             {
-                CasesDir = cli.Get("cases") is { } rvc ? Path.GetFullPath(rvc) : Path.Combine(data, "cases", "synthetic", "seed-9001"),
-                LabelsDir = cli.Get("labels") is { } rvl ? Path.GetFullPath(rvl) : Path.Combine(data, "labels", "test-v1"),
+                CaseDirs = cli.List("cases")?.Select(Path.GetFullPath).ToList() ?? [Path.Combine(data, "cases", "synthetic", "seed-9001")],
+                LabelDirs = cli.List("labels")?.Select(Path.GetFullPath).ToList() ?? [Path.Combine(data, "labels", "test-v1")],
                 PromptsRoot = promptsRoot,
                 CacheDir = cacheDir,
                 OutDir = reviewDir,

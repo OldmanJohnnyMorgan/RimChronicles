@@ -6,6 +6,7 @@ using RimChronicles.Core.Plots;
 using RimChronicles.Game.Empire;
 using RimChronicles.Game.Plots;
 using RimChronicles.Game.Engine;
+using RimChronicles.Llm;
 using RimWorld;
 using Verse;
 
@@ -19,8 +20,9 @@ namespace RimChronicles.Game.Crisis;
 /// </summary>
 public static class CrisisDriver
 {
-    /// <summary>Starts an operation on a home map with a budget. Returns false if it couldn't start today.</summary>
-    public delegate bool OperationHandler(Map map, OperationSpec operation, CrisisStage stage, float budget);
+    /// <summary>Starts an operation on a home map with a budget. <paramref name="detail"/> is the follow-up the director
+    /// picked (a siege's <c>Goal:*</c>), or null to pick by weight. Returns false if it couldn't start today.</summary>
+    public delegate bool OperationHandler(Map map, OperationSpec operation, CrisisStage stage, float budget, string? detail);
 
     private static readonly Dictionary<string, OperationHandler> Handlers = [];
 
@@ -33,9 +35,21 @@ public static class CrisisDriver
     /// Royalty the crisis is off).</summary>
     public static bool Available => RimChroniclesMod.Settings.Crisis && EmpireDriver.Available;
 
+    /// <summary>True when the crisis's options may reach the director (crisis C11, tech spec R17): the crisis is on and
+    /// the model making the director's decisions is prompted, or a fine-tune trained with the crisis arc. Otherwise the
+    /// crisis picks by weight, and the snapshot leaves the crisis out, so a director trained before C11 sees what it
+    /// was trained on.</summary>
+    public static bool DirectorDecides => Available && ModelSlots.DirectorKnowsCrisis(RimChroniclesMod.Settings.Slots);
+
     public static void Register() => PlotDriver.Register(CrisisArc.TemplateId,
         plot => RimChroniclesGameComponent.Current is { } c && Available ? CrisisArc.Transitions(plot, Context(c), GenDate.DaysPassed) : [],
-        Fire, useDirector: false);
+        Fire, useDirector: () => DirectorDecides, subOptions: SubOptions);
+
+    /// <summary>A siege's goals, the ones the colony gives a target for (tech spec R8).</summary>
+    public static IReadOnlyList<PlotTransition> SubOptions(Plot plot, PlotTransition option) =>
+        option.Step == CrisisOperations.SiegeWithBombardment && ColonyStrengthReader.HomeMap() is { } map
+            ? Operations.OperationSpawner.AllowedGoals(map).Select(g => new PlotTransition(g.Id, g.Goal.ToString(), g.Weight, g.Desc)).ToList()
+            : [];
 
     public static void Daily(RimChroniclesGameComponent component)
     {
@@ -131,7 +145,7 @@ public static class CrisisDriver
 
         var stage = Stage(component, empire).Stage;
         var budget = Budget(component, stage, ColonyStrengthReader.Read()) * component.Crisis.NextBudgetFactor; // a released captive's discount
-        if (!handler(map, operation, stage, budget))
+        if (!handler(map, operation, stage, budget, transition.Sub))
         {
             return false;
         }
@@ -139,6 +153,52 @@ public static class CrisisDriver
         CrisisArc.OperationStarted(component.Plots, plot, operation, stage, budget, component.Crisis, today,
             Rand.RangeInclusive(template.MinGapDays, template.MaxGapDays));
         return true;
+    }
+
+    /// <summary>Makes the crisis plot decide its next operation now (the director's pick when it may decide the crisis,
+    /// else by weight), ignoring its wait, the spacing and the gate. Its gap and cooldowns still apply.</summary>
+    [DebugAction("Rim Chronicles", "Crisis: decide now", allowedGameStates = AllowedGameStates.Playing)]
+    public static void DevDecideNow()
+    {
+        if (RimChroniclesGameComponent.Current is not { } component || Plot(component) is not { } plot)
+        {
+            Messages.Message("Rim Chronicles: no crisis plot (Crisis: show state says why).", MessageTypeDefOf.RejectInput, historical: false);
+            return;
+        }
+
+        var today = GenDate.DaysPassed;
+        plot.NextBeatDay = today;
+        component.Plots.LastBeatDay = -1;
+        if (!PlotDriver.FireNow(component, plot, today))
+        {
+            Messages.Message("Rim Chronicles: the crisis couldn't decide now (Crisis: show state lists what's allowed).", MessageTypeDefOf.RejectInput, historical: false);
+        }
+        else if (!DirectorDecides)
+        {
+            Messages.Message("Rim Chronicles: the crisis picks by weight: the director model wasn't trained on it.", MessageTypeDefOf.NeutralEvent, historical: false);
+        }
+    }
+
+    /// <summary>Asks the director which goal a siege would have now, without starting one (crisis C11).</summary>
+    [DebugAction("Rim Chronicles", "Crisis: ask director for a siege goal", allowedGameStates = AllowedGameStates.Playing)]
+    public static void DevAskSiegeGoal()
+    {
+        if (RimChroniclesGameComponent.Current is { } component && Plot(component) is { } plot
+            && CrisisOperations.Find(CrisisOperations.SiegeWithBombardment) is { } siege)
+        {
+            PlotDriver.DevAsk(component, plot, SubOptions(plot, new PlotTransition(siege.Id, siege.Step, siege.Weight, siege.Desc)), "siege goal");
+        }
+    }
+
+    /// <summary>Asks the director which Imperial site a sabotage job would target now, without offering one (crisis C11).</summary>
+    [DebugAction("Rim Chronicles", "Crisis: ask director for a site", allowedGameStates = AllowedGameStates.Playing)]
+    public static void DevAskSite()
+    {
+        if (RimChroniclesGameComponent.Current is { } component && EmpireBeats.Current(component) is { } plot)
+        {
+            PlotDriver.DevAsk(component, plot, EmpireBeats.SiteOptions(plot,
+                new PlotTransition("Empire:SabotageImperial", EmpireStep.SabotageImperial, 1)), "site");
+        }
     }
 
     [DebugAction("Rim Chronicles", "Crisis: show state", allowedGameStates = AllowedGameStates.Playing)]
@@ -168,6 +228,7 @@ public static class CrisisDriver
             $"Budget today: {Budget(component, stage, strength):0} (threat scale {Find.Storyteller.difficulty.threatScale:0.00}, crisis difficulty {RimChroniclesMod.Settings.CrisisDifficulty:0.0}).",
             $"Operations allowed today: {(allowed.Count == 0 ? $"none ({blocked})" : string.Join(", ", allowed.Select(o => Built.Contains(o.Step) ? o.Id : $"{o.Id} (not built yet)")))}.",
             $"Plot: {(Plot(component) is { } plot ? $"{plot.Id}, {plot.Beat}, next beat day {plot.NextBeatDay}" : "not started")}.",
+            $"Decided by: {(DirectorDecides ? "the director model" : "weighted pick (the director model wasn't trained on the crisis, or no model is set up)")}.",
             "",
             "Operations:",
         };

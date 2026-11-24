@@ -23,13 +23,13 @@ public static class OperationSpawner
 {
     public static void Register()
     {
-        CrisisDriver.RegisterOperation(CrisisOperations.ProbingRaid, (map, op, stage, budget) => ProbingRaid(map, stage, budget, dev: false));
-        CrisisDriver.RegisterOperation(CrisisOperations.Decapitation, (map, op, stage, budget) => Decapitation(map, stage, budget, dev: false));
-        CrisisDriver.RegisterOperation(CrisisOperations.Breach, (map, op, stage, budget) => Assault(map, op.Step, stage, budget, dev: false));
-        CrisisDriver.RegisterOperation(CrisisOperations.PsychicAssault, (map, op, stage, budget) => Assault(map, op.Step, stage, budget, dev: false));
-        CrisisDriver.RegisterOperation(CrisisOperations.SiegeWithBombardment, (map, op, stage, budget) => Siege(map, stage, budget, null, dev: false));
-        CrisisDriver.RegisterOperation(CrisisOperations.Retrieval, (map, op, stage, budget) => Retrieval(map, stage, budget, dev: false));
-        CrisisDriver.RegisterOperation(CrisisOperations.FinalAssault, (map, op, stage, budget) => Finale.Stellarch.FinalAssault(map, stage, budget, dev: false));
+        CrisisDriver.RegisterOperation(CrisisOperations.ProbingRaid, (map, op, stage, budget, _) => ProbingRaid(map, stage, budget, dev: false));
+        CrisisDriver.RegisterOperation(CrisisOperations.Decapitation, (map, op, stage, budget, _) => Decapitation(map, stage, budget, dev: false));
+        CrisisDriver.RegisterOperation(CrisisOperations.Breach, (map, op, stage, budget, _) => Assault(map, op.Step, stage, budget, dev: false));
+        CrisisDriver.RegisterOperation(CrisisOperations.PsychicAssault, (map, op, stage, budget, _) => Assault(map, op.Step, stage, budget, dev: false));
+        CrisisDriver.RegisterOperation(CrisisOperations.SiegeWithBombardment, (map, op, stage, budget, detail) => Siege(map, stage, budget, Goal(detail), dev: false));
+        CrisisDriver.RegisterOperation(CrisisOperations.Retrieval, (map, op, stage, budget, _) => Retrieval(map, stage, budget, dev: false));
+        CrisisDriver.RegisterOperation(CrisisOperations.FinalAssault, (map, op, stage, budget, _) => Finale.Stellarch.FinalAssault(map, stage, budget, dev: false));
     }
 
     /// <summary>Units for <paramref name="points"/> of an operation's mix at a stage, kitted out, not spawned.</summary>
@@ -122,8 +122,8 @@ public static class OperationSpawner
 
     /// <summary>
     /// A siege (crisis C8): the force walks in from the map edge nearest the best camp spot (<see cref="SiegeSpotSampler"/>),
-    /// digs in there and builds its camp in stages, then attacks. Its goal (<paramref name="goal"/>, else a weighted
-    /// pick until C11) sets what its strikes aim at. The reserve comes in through the camp's beacon.
+    /// digs in there and builds its camp in stages, then attacks. Its goal (<paramref name="goal"/>, the director's pick,
+    /// else a weighted pick) sets what its strikes aim at. The reserve comes in through the camp's beacon.
     /// </summary>
     public static bool Siege(Map map, CrisisStage stage, float budget, SiegeGoal? goal, bool dev)
     {
@@ -175,15 +175,17 @@ public static class OperationSpawner
         return true;
     }
 
-    /// <summary>A weighted pick among the goals the colony gives a target for (the director picks it from C11).</summary>
-    public static SiegeGoal PickGoal(Map map)
-    {
-        var targets = new SiegeTargets(
-            HasWalls: map.listerBuildings.allBuildingsColonist.Any(b => b.def.IsWall),
-            HasFood: map.zoneManager.AllZones.OfType<Zone_Growing>().Any() || map.listerBuildings.allBuildingsColonist.Any(b => b is Building_Storage),
-            HasLeader: Target(map) is not null);
-        return SiegeGoals.Pick(SiegeGoals.Allowed(targets), Rand.Value);
-    }
+    /// <summary>The goals the colony gives a target for: what the director chooses from (C11).</summary>
+    public static IReadOnlyList<GoalSpec> AllowedGoals(Map map) => SiegeGoals.Allowed(new SiegeTargets(
+        HasWalls: map.listerBuildings.allBuildingsColonist.Any(b => b.def.IsWall),
+        HasFood: map.zoneManager.AllZones.OfType<Zone_Growing>().Any() || map.listerBuildings.allBuildingsColonist.Any(b => b is Building_Storage),
+        HasLeader: Target(map) is not null));
+
+    /// <summary>The goal the director picked (<c>Goal:Starve</c>), or null to pick by weight.</summary>
+    private static SiegeGoal? Goal(string? id) => SiegeGoals.Parse(id) is var goal && goal != SiegeGoal.None ? goal : null;
+
+    /// <summary>A weighted pick among the allowed goals, when the director didn't pick one.</summary>
+    public static SiegeGoal PickGoal(Map map) => SiegeGoals.Pick(AllowedGoals(map), Rand.Value);
 
     /// <summary>
     /// Retrieval (crisis C10): drop pods land on open sky near the captive or defector the colony holds (captives first,
