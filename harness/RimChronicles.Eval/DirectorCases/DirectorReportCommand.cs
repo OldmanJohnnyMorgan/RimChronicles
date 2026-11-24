@@ -18,8 +18,20 @@ namespace RimChronicles.Eval.DirectorCases;
 /// <summary>Options for <c>director-report</c>.</summary>
 public sealed record ReportOptions
 {
-    public required string CasesDir { get; init; }
-    public required string LabelsDir { get; init; }
+    /// <summary>Folders the test cases live in, searched by case id (test-v1's and, from crisis C11, the crisis's).</summary>
+    public required IReadOnlyList<string> CaseDirs { get; init; }
+
+    /// <summary>Folders with a <c>labels-final.jsonl</c>; their labels are scored together.</summary>
+    public required IReadOnlyList<string> LabelDirs { get; init; }
+
+    /// <summary>The case file for an id, from the first folder that has it.</summary>
+    public string CasePath(string id) =>
+        CaseDirs.Select(d => Path.Combine(d, id + ".json")).FirstOrDefault(File.Exists)
+        ?? throw new FileNotFoundException($"No case {id} in {string.Join(", ", CaseDirs)}.");
+
+    /// <summary>Every labels-final.jsonl line from the label folders.</summary>
+    public IEnumerable<string> LabelLines() =>
+        LabelDirs.SelectMany(d => File.ReadAllLines(Path.Combine(d, "labels-final.jsonl"))).Where(l => l.Trim().Length > 0);
     public required string PromptsRoot { get; init; }
     public required string CacheDir { get; init; }
     public required string OutDir { get; init; }
@@ -59,7 +71,7 @@ public static partial class DirectorReportCommand
         var library = PromptLibrary.Load(o.PromptsRoot);
         var prompt = library.Get(TaskName);
         var labels = LoadLabels(o);
-        var snapshots = labels.ToDictionary(l => l.Case, l => SnapshotJson.Load(Path.Combine(o.CasesDir, l.Case + ".json")));
+        var snapshots = labels.ToDictionary(l => l.Case, l => SnapshotJson.Load(o.CasePath(l.Case)));
         log.WriteLine($"{labels.Count} test cases, {models.Count} model(s), 5 calls per case. Prompt {TaskName}/{prompt.Meta.Version}.");
 
         var results = new Dictionary<string, List<CaseRun>>(StringComparer.Ordinal);
@@ -161,9 +173,11 @@ public static partial class DirectorReportCommand
 
     // ---------- labels ----------
 
+    private static string Names(IEnumerable<string> dirs) => string.Join(" + ", dirs.Select(d => $"`{Path.GetFileName(d.TrimEnd('/', '\\'))}`"));
+
     public static List<Label> LoadLabels(ReportOptions o)
     {
-        var lines = File.ReadAllLines(Path.Combine(o.LabelsDir, "labels-final.jsonl")).Where(l => l.Trim().Length > 0)
+        var lines = o.LabelLines()
             .Select(l => JsonNode.Parse(l)!).OrderBy(n => n["case"]!.GetValue<string>(), StringComparer.Ordinal).ToList();
         var labels = new List<Label>();
         // A quick look samples evenly: the generator lays situations out in blocks of ids, so the first N would all be alike.
@@ -172,7 +186,7 @@ public static partial class DirectorReportCommand
         foreach (var n in picked)
         {
             var id = n["case"]!.GetValue<string>();
-            var s = SnapshotJson.Load(Path.Combine(o.CasesDir, id + ".json"));
+            var s = SnapshotJson.Load(o.CasePath(id));
             var text = SnapshotJson.Serialize(s);
             labels.Add(new Label(id, DirectorLabels.Group(s), s.Director?.WaitExpected,
                 CasePools.InjectionNames.Any(text.Contains), n["best"]!.GetValue<string>(),
@@ -316,7 +330,7 @@ public static partial class DirectorReportCommand
         var sb = new StringBuilder();
         sb.Append(CultureInfo.InvariantCulture, $"# Director report: {o.Name}\n\n");
         sb.Append(CultureInfo.InvariantCulture,
-            $"{labels.Count} test cases from `{Path.GetFileName(o.CasesDir.TrimEnd('/', '\\'))}`, labels `{Path.GetFileName(o.LabelsDir.TrimEnd('/', '\\'))}`; "
+            $"{labels.Count} test cases from {Names(o.CaseDirs)}, labels {Names(o.LabelDirs)}; "
             + $"prompt `{TaskName}/{promptVersion}`; commit `{commit?[..Math.Min(7, commit.Length)] ?? "?"}`{(dirty == true ? " (uncommitted changes)" : "")}; "
             + $"{DateTime.UtcNow:yyyy-MM-dd}.\n\n");
         sb.Append(CultureInfo.InvariantCulture,

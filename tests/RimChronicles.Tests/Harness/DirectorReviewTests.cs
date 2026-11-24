@@ -48,7 +48,7 @@ public class DirectorReviewTests
             File.WriteAllLines(Path.Combine(labels, "labels-final.jsonl"), lines);
             var o = new ReviewOptions
             {
-                CasesDir = cases, LabelsDir = labels, PromptsRoot = Repo.Prompts, CacheDir = Path.Combine(root, "cache"),
+                CaseDirs = [cases], LabelDirs = [labels], PromptsRoot = Repo.Prompts, CacheDir = Path.Combine(root, "cache"),
                 OutDir = Path.Combine(root, "review"), Count = 8,
             };
             var model = new ModelConfig { Id = "fake", Tier = "Minimum", Provider = ProviderKind.Stub };

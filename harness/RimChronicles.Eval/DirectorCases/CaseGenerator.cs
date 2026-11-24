@@ -1,3 +1,7 @@
+using RimChronicles.Core.Crisis;
+using RimChronicles.Core.Crisis.Captives;
+using RimChronicles.Core.Crisis.Siege;
+using RimChronicles.Core.Crisis.Sites;
 using RimChronicles.Core.Empire;
 using RimChronicles.Core.Plots;
 using RimChronicles.Core.Plots.LostFamily;
@@ -27,6 +31,18 @@ public static class CaseGenerator
         "Empire:Act3:neutral:ascendant", "Empire:Act3:neutral:broken",
     ];
 
+    /// <summary>The Imperial crisis's scenarios (crisis C11), generated apart from <see cref="Scenarios"/> so the
+    /// existing cases of every seed stay as they were: an operation by stage, with or without an Imperial captive held,
+    /// and the two follow-up calls, a siege's goal and a sabotage job's site.</summary>
+    public static readonly string[] CrisisScenarios =
+    [
+        "Crisis:Probing", "Crisis:Reclamation", "Crisis:Reclamation+captive", "Crisis:War", "Crisis:War+captive", "Crisis:Finale",
+        "Crisis:SiegeGoal", "Crisis:Site",
+    ];
+
+    /// <summary>The id prefix of crisis cases: <c>dir-s{seed}-c{index}</c>, never the same as an existing case's.</summary>
+    public const string CrisisIdPart = "c";
+
     public static readonly string[] Moods = ["content", "strained", "desperate"];
 
     /// <summary>What has just happened in the colony, which decides whether waiting is right.</summary>
@@ -42,6 +58,16 @@ public static class CaseGenerator
         var mood = Moods[index / Scenarios.Length % Moods.Length];
         var situation = Situations[index / (Scenarios.Length * Moods.Length) % Situations.Length];
         return new Builder(rng, seed, index, scenario, mood, situation).Build();
+    }
+
+    /// <summary>A crisis case (crisis C11). <paramref name="sites"/> are the site archetypes the game loads from XML.</summary>
+    public static DirectorCaseResult GenerateCrisis(int seed, int index, IReadOnlyList<SiteArchetype> sites)
+    {
+        var rng = new Random(unchecked(seed * 1_000_003 + 7_919 * (index + 1))); // a stream apart from Generate's
+        var scenario = CrisisScenarios[index % CrisisScenarios.Length];
+        var mood = Moods[index / CrisisScenarios.Length % Moods.Length];
+        var situation = Situations[index / (CrisisScenarios.Length * Moods.Length) % Situations.Length];
+        return new Builder(rng, seed, index, scenario, mood, situation) { Sites = sites }.Build();
     }
 
     /// <summary>Options that bring relief rather than a new burden: offering them to a reeling colony isn't piling on.</summary>
@@ -88,6 +114,14 @@ public static class CaseGenerator
         private int _day;
         private string _colony = "";
 
+        /// <summary>Crisis cases only: the site archetypes, the crisis block, other plots the scenario needs (the Empire's
+        /// or the crisis's), and the days in the deciding beat when the scenario sets them itself.</summary>
+        public IReadOnlyList<SiteArchetype> Sites { get; init; } = [];
+
+        private CrisisInfo? _crisis;
+        private readonly List<PlotInfo> _extraPlots = [];
+        private int? _daysInBeat;
+
         public DirectorCaseResult Build()
         {
             _day = rng.Next(220, 900); // room for each arc's back-story before today
@@ -107,8 +141,10 @@ public static class CaseGenerator
             {
                 "Nemesis" => Nemesis(daysInBeat),
                 "LostFamily" => LostFamily(daysInBeat),
+                "Crisis" => Crisis(daysInBeat),
                 _ => Empire(daysInBeat),
             };
+            daysInBeat = _daysInBeat ?? daysInBeat;
             _waited = rng.NextDouble() < 0.2;
             var options = _waited ? transitions() : [];
             if (!_waited || options.Count < 2)
@@ -131,7 +167,7 @@ public static class CaseGenerator
             var waitOffered = options.Any(o => o.Id == Director.WaitId);
             var snapshot = new WorldSnapshot
             {
-                Id = $"dir-s{seed}-{index:D5}",
+                Id = arc == "Crisis" ? $"dir-s{seed}-{CrisisIdPart}{index:D5}" : $"dir-s{seed}-{index:D5}",
                 Day = _day,
                 Season = CasePools.Seasons[_day / 15 % 4],
                 Year = 5500 + _day / 60,
@@ -145,7 +181,7 @@ public static class CaseGenerator
                 Pawns = _pawns,
                 Tales = _tales.OrderBy(t => t.Day).ToList(),
                 Factions = _factions,
-                ActivePlots = [plot, .. others],
+                ActivePlots = [plot, .. _extraPlots, .. others],
                 RecentEvents = _events,
                 PublicEvents = _public,
                 AllowedTransitions = options.Select(o => o.Id).ToList(),
@@ -157,6 +193,7 @@ public static class CaseGenerator
                     WaitExpected = WaitExpected(waitOffered, mood, situation, daysInBeat, options.Any(o => ReliefOptions.Contains(o.Id))),
                     Seed = seed,
                 },
+                Crisis = _crisis,
             };
             return new DirectorCaseResult(snapshot, arc, scenario, mood, situation);
         }
@@ -313,6 +350,181 @@ public static class CaseGenerator
             _public.AddRange(conquests.Take(2));
             return (Info(plot, Inheritance.ColonyId, summary, act3 ? (ascendant ? "Ascendant" : "Broken") : "Act2"),
                 () => EmpireArc.Transitions(plot, saga, _day));
+        }
+
+        /// <summary>
+        /// The Imperial crisis (crisis C11): the colony opposes an awake Empire, whose plot runs beside the crisis plot.
+        /// Past operations are started through <see cref="CrisisArc.OperationStarted"/> as the game does, so the crisis
+        /// plot's summary reads as in game, and the options are what <see cref="CrisisArc.Transitions"/> offers then. The
+        /// follow-up scenarios offer a siege's goals (the crisis plot deciding) or a sabotage job's sites (the Empire plot
+        /// deciding), with no Wait, as the game's second call does.
+        /// </summary>
+        private (PlotInfo, Func<IReadOnlyList<PlotTransition>>) Crisis(int daysInBeat)
+        {
+            var kind = scenario.Split(':')[1];
+            var captive = kind.EndsWith("+captive", StringComparison.Ordinal);
+            kind = kind.Split('+')[0];
+            var stage = kind switch
+            {
+                "Probing" => CrisisStage.Probing,
+                "Reclamation" => CrisisStage.Reclamation,
+                "War" or "SiegeGoal" => CrisisStage.War,
+                "Finale" => CrisisStage.Finale,
+                _ => rng.NextDouble() < 0.5 ? CrisisStage.Reclamation : CrisisStage.War, // Site: two or more archetypes allowed
+            };
+            var broken = stage != CrisisStage.Finale && rng.NextDouble() < 0.15;
+            var empireName = AddEmpire(stage == CrisisStage.Finale ? "Ascendant" : broken ? "Broken" : "Awakened", -100);
+
+            // The Empire plot: at war with the colony, in Act 2 (Act 3 for the finale).
+            var wokeDay = _day - rng.Next(150, 260);
+            var empire = Start(EmpireArc.TemplateId, null, wokeDay);
+            empire.SetFact(EmpireArc.Stance, EmpireStance.Oppose);
+            Advance(empire, PlotBeat.Hook, _day - wokeDay - 20);
+            Advance(empire, PlotBeat.Complication, _day - wokeDay - 40);
+            if (stage == CrisisStage.Finale)
+            {
+                Advance(empire, PlotBeat.Choice, rng.Next(5, 30));
+            }
+
+            var conquests = rng.Next(1, 4);
+            var empireSentences = new List<string>
+            {
+                $"{empireName} woke on day {wokeDay}", $"{_colony} is at war with {empireName}",
+                $"{empireName} has taken {conquests} settlement{(conquests == 1 ? "" : "s")} on the rim",
+            };
+            if (stage == CrisisStage.Finale || broken)
+            {
+                empireSentences.Add(broken ? $"{empireName} is breaking after heavy losses" : $"{empireName} now holds most of the region");
+            }
+
+            var empireSummary = string.Join(" ", empireSentences.Select(x => char.ToUpperInvariant(x[0]) + x[1..] + "."));
+
+            // The crisis plot and its past operations.
+            var state = new CrisisState();
+            var crisisStart = wokeDay + rng.Next(20, 40);
+            var crisisTemplate = new PlotTemplate { Id = CrisisArc.TemplateId, CountsTowardCap = false, MinGapDays = 3, MaxGapDays = 6 };
+            var crisis = _book.Start(crisisTemplate, new ProtagonistSlot { Kind = ProtagonistKind.Colony, PawnId = Inheritance.ColonyId, Name = _colony },
+                crisisStart, 3, $"{empireName} marches against {_colony}");
+            crisis.Note(crisisStart, $"stage {CrisisStages.Label(stage)}: the colony opposes the Empire");
+            var gap = CrisisArc.DefaultGapDays;
+            var sinceLast = Math.Max(daysInBeat, gap); // the gate has passed, so an operation can be offered today
+            var past = rng.Next(stage == CrisisStage.Probing ? 0 : 1, 5);
+            var firstDay = _day - sinceLast - (past - 1) * rng.Next(gap, gap + 8);
+            for (var i = 0; i < past; i++)
+            {
+                var day = i == past - 1 ? _day - sinceLast : firstDay + i * ((_day - sinceLast - firstDay) / Math.Max(1, past - 1));
+                var at = past == 1 || i == past - 1 ? stage : (CrisisStage)Math.Max(1, (int)stage - (past - 1 - i) / 2);
+                var context = Context(at, state, captive);
+                var allowed = CrisisArc.Allowed(context, day, ignoreBuilt: false, out _);
+                if (allowed.Count == 0)
+                {
+                    continue;
+                }
+
+                var op = allowed[rng.Next(allowed.Count)];
+                CrisisArc.OperationStarted(_book, crisis, op, at, rng.Next(6, 40) * 100, state, day, gap);
+                state.Ended(rng.NextDouble() < 0.7 ? OperationOutcome.Repelled : OperationOutcome.Succeeded);
+            }
+
+            FillCrisis(state, stage, captive);
+            _crisis = CrisisBrief.From(state, stage, _day, _ => true);
+            var crisisDays = crisis.BeatDay >= 0 ? _day - crisis.BeatDay : _day - crisis.StartDay;
+            var crisisInfo = crisis.ToInfo();
+            PlotInfo EmpireInfo() => Info(empire, Inheritance.ColonyId, empireSummary,
+                stage == CrisisStage.Finale ? "Ascendant" : "Act2"); // the Empire scenarios' beat names
+
+            switch (kind)
+            {
+                case "SiegeGoal":
+                {
+                    _daysInBeat = crisisDays;
+                    var goals = SiegeGoals.All.Where(_ => rng.NextDouble() < 0.85).ToList();
+                    if (goals.Count < 2)
+                    {
+                        goals = SiegeGoals.All.ToList();
+                    }
+
+                    _extraPlots.Add(EmpireInfo());
+                    MaybeWaited(crisis);
+                    return (crisisInfo, () => goals.Select(g => new PlotTransition(g.Id, g.Goal.ToString(), g.Weight, g.Desc)).ToList());
+                }
+
+                case "Site":
+                {
+                    _daysInBeat = rng.Next(1, CaseGenerator.StallDays);
+                    var allowed = SiteArchetypes.Allowed(Sites, stage);
+                    _extraPlots.Add(crisisInfo);
+                    MaybeWaited(empire);
+                    return (EmpireInfo(),
+                        () => allowed.Select(a => new PlotTransition(a.Id, a.Name, a.Weight, a.Desc)).ToList());
+                }
+
+                default:
+                {
+                    _daysInBeat = crisisDays;
+                    _extraPlots.Add(EmpireInfo());
+                    MaybeWaited(crisis);
+                    var holds = captive || state.Defectors.Count > 0; // Retrieval comes for a captive or a defector
+                    return (crisisInfo, () => CrisisArc.Transitions(crisis, Context(stage, state, holds), _day));
+                }
+            }
+        }
+
+        private static CrisisContext Context(CrisisStage stage, CrisisState state, bool captive) => new()
+        {
+            Stage = stage,
+            State = state,
+            Built = CrisisOperations.All.Select(o => o.Step).ToHashSet(),
+            HoldsCaptive = captive,
+        };
+
+        /// <summary>Prisoners, defectors, knocked-out capabilities and intel, as a crisis at this stage might have.</summary>
+        private void FillCrisis(CrisisState state, CrisisStage stage, bool captive)
+        {
+            var later = stage >= CrisisStage.Reclamation;
+            var ranks = new[] { CaptiveRank.Soldier, CaptiveRank.Soldier, CaptiveRank.Breacher, CaptiveRank.Herald, CaptiveRank.Psyker, CaptiveRank.Officer };
+            if (captive)
+            {
+                for (var i = rng.Next(1, 3); i > 0; i--)
+                {
+                    state.Captured($"cap{i}", UniqueName(), ranks[rng.Next(ranks.Length)], _day - rng.Next(3, 40));
+                }
+            }
+
+            if (later && rng.NextDouble() < 0.2)
+            {
+                var record = state.Captured("def1", UniqueName(), ranks[rng.Next(ranks.Length)], _day - rng.Next(20, 60));
+                record.Interrogations = 1;
+                state.Recruited("def1", _day - rng.Next(5, 19));
+            }
+
+            if (later && rng.NextDouble() < 0.25)
+            {
+                state.Hold(rng.NextDouble() < 0.5 ? CrisisCapability.Psykers : CrisisCapability.Strikes, _day + rng.Next(3, 25));
+            }
+
+            if (later && rng.NextDouble() < 0.3)
+            {
+                state.Intel.Add(new IntelRecord
+                {
+                    Day = _day - rng.Next(1, 10),
+                    Intel = "generated",
+                    Text = CasePools.Pick(rng, CasePools.CrisisIntel),
+                    ExpiresDay = _day + rng.Next(5, 20),
+                });
+            }
+        }
+
+        private string UniqueName()
+        {
+            string name;
+            do
+            {
+                name = CasePools.Name(rng);
+            }
+            while (!_usedNames.Add(name));
+
+            return name;
         }
 
         /// <summary>One or two other running plots, for realism: the decision is about one plot among several.</summary>

@@ -57,6 +57,59 @@ public sealed record WorldSnapshot
 
     /// <summary>The director's decision (prompt v2): which plot decides, and what each allowed option would do.</summary>
     public DirectorCase? Director { get; init; }
+
+    /// <summary>The Imperial crisis against the colony (crisis C11), or null when there is none or the director model
+    /// wasn't trained on it. Only the director's summary shows it.</summary>
+    public CrisisInfo? Crisis { get; init; }
+}
+
+/// <summary>The Imperial crisis as the director sees it (crisis tech spec §5).</summary>
+public sealed record CrisisInfo
+{
+    /// <summary>"Probing", "Reclamation", "War" or "Finale".</summary>
+    public required string Stage { get; init; }
+
+    /// <summary>The latest operations against the colony, oldest first.</summary>
+    public IReadOnlyList<CrisisOperationInfo> Operations { get; init; } = [];
+
+    /// <summary>Imperial capabilities the colony has knocked out for now.</summary>
+    public IReadOnlyList<CrisisHoldInfo> Disabled { get; init; } = [];
+
+    /// <summary>Imperials the colony holds prisoner now.</summary>
+    public IReadOnlyList<CrisisPersonInfo> Captives { get; init; } = [];
+
+    /// <summary>Imperials who joined the colony after interrogation and are still in it.</summary>
+    public IReadOnlyList<CrisisPersonInfo> Defectors { get; init; } = [];
+
+    /// <summary>What the colony has learned that still holds, oldest first.</summary>
+    public IReadOnlyList<string> Intel { get; init; } = [];
+}
+
+public sealed record CrisisOperationInfo
+{
+    public required int Day { get; init; }
+
+    /// <summary>The operation's step, e.g. "Breach".</summary>
+    public required string Operation { get; init; }
+
+    /// <summary>"running", "repelled", "succeeded" or "aborted".</summary>
+    public required string Outcome { get; init; }
+}
+
+public sealed record CrisisHoldInfo
+{
+    /// <summary>"psykers" or "strikes".</summary>
+    public required string Capability { get; init; }
+
+    public required int UntilDay { get; init; }
+}
+
+public sealed record CrisisPersonInfo
+{
+    public required string Name { get; init; }
+
+    /// <summary>"soldier", "breacher", "herald", "psyker" or "officer".</summary>
+    public required string Rank { get; init; }
 }
 
 public sealed record ColonyInfo

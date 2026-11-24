@@ -88,4 +88,21 @@ public class ModelSlotsTests
     [InlineData("my-director")]
     public void DirectorPreset_IsNullForBlankOrCustomNames(string? model) =>
         Assert.Null(TierPresets.DirectorPreset(model));
+
+    [Theory]
+    [InlineData("", true)]                                   // the main (prompted) model decides
+    [InlineData("gemma4:12b", true)]                         // a prompted director reads the options' descriptions
+    [InlineData("rimchron-director-e2b", false)]             // fine-tuned before the crisis arc (C11)
+    [InlineData(" RimChron-Director-E4B ", false)]
+    [InlineData("rimchron-director-e4b-v2", false)]          // an unlisted fine-tune counts as trained before it
+    public void TheCrisisReachesTheDirector_OnlyWhenItsModelKnowsIt(string directorModel, bool knows) =>
+        Assert.Equal(knows, ModelSlots.DirectorKnowsCrisis(Main with { DirectorModel = directorModel, DirectorTier = ModelTier.Minimum }));
+
+    [Fact]
+    public void WithNoModel_TheCrisisDoesntReachTheDirector() =>
+        Assert.False(ModelSlots.DirectorKnowsCrisis(Main with { Tier = ModelTier.Off }));
+
+    [Fact]
+    public void EveryDirectorPreset_SaysWhetherItKnowsTheCrisis() =>
+        Assert.All(TierPresets.DirectorPresets, p => Assert.Equal(p.KnowsCrisis, TierPresets.KnowsCrisis(p.Model)));
 }

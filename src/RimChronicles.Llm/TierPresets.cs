@@ -22,16 +22,36 @@ public static class TierPresets
         _ => null,
     };
 
-    /// <summary>The fine-tuned directors offered as choices in the settings window, each with the tier it was trained on.
-    /// A model joins this list only after its report is committed to <c>harness/reports/</c>.</summary>
-    public static readonly IReadOnlyList<(string Model, ModelTier Tier, string Label)> DirectorPresets =
+    /// <summary>The fine-tuned directors offered as choices in the settings window, each with the tier it was trained on
+    /// and whether its training cases included the Imperial crisis arc (crisis C11). A model joins this list only after
+    /// its report is committed to <c>harness/reports/</c>.</summary>
+    public static readonly IReadOnlyList<(string Model, ModelTier Tier, string Label, bool KnowsCrisis)> DirectorPresets =
     [
-        ("rimchron-director-e2b", ModelTier.Minimum, "rimchron-director-e2b: fine-tuned on Gemma 4 E2B (about 2 GB of VRAM), Minimum prompts"),
-        ("rimchron-director-e4b", ModelTier.Recommended, "rimchron-director-e4b: fine-tuned on Gemma 4 E4B (about 4 GB of VRAM), Recommended prompts"),
+        ("rimchron-director-e2b", ModelTier.Minimum, "rimchron-director-e2b: fine-tuned on Gemma 4 E2B (about 2 GB of VRAM), Minimum prompts", false),
+        ("rimchron-director-e4b", ModelTier.Recommended, "rimchron-director-e4b: fine-tuned on Gemma 4 E4B (about 4 GB of VRAM), Recommended prompts", false),
     ];
 
+    /// <summary>The name every fine-tuned director starts with (training/README.md, D6).</summary>
+    public const string FineTunedDirectorPrefix = "rimchron-director";
+
+    /// <summary>
+    /// Whether this model may make the Imperial crisis's decisions (crisis C11, tech spec R17). A fine-tuned director has
+    /// only seen the options it was trained on, so it decides the crisis only when its preset says its training included
+    /// the crisis arc; an unlisted <c>rimchron-director-*</c> name counts as trained before it. Any other model is
+    /// prompted, not fine-tuned, and reads the options' descriptions like any others. Otherwise the crisis picks by weight.
+    /// </summary>
+    public static bool KnowsCrisis(string? model)
+    {
+        if (DirectorPreset(model) is { } preset)
+        {
+            return preset.KnowsCrisis;
+        }
+
+        return !(model ?? "").Trim().StartsWith(FineTunedDirectorPrefix, StringComparison.OrdinalIgnoreCase);
+    }
+
     /// <summary>The preset matching a director model name (trimmed, any case), or null for a custom name or blank.</summary>
-    public static (string Model, ModelTier Tier, string Label)? DirectorPreset(string? model)
+    public static (string Model, ModelTier Tier, string Label, bool KnowsCrisis)? DirectorPreset(string? model)
     {
         var name = (model ?? "").Trim();
         foreach (var preset in DirectorPresets)

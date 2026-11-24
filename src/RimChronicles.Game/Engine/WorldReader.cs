@@ -23,6 +23,7 @@ public sealed class WorldReader : IWorldReader
         var colonists = PawnsFinder.AllMaps_FreeColonists;
         var day = GenDate.DaysPassed;
 
+        var crisis = Crisis.CrisisDriver.DirectorDecides;
         var moods = colonists.Select(p => p.needs?.mood?.CurLevel).Where(m => m.HasValue).Select(m => m!.Value).ToList();
 
         return new WorldSnapshot
@@ -42,11 +43,28 @@ public sealed class WorldReader : IWorldReader
             Tales = ReadTales(day),
             Factions = ReadFactions(),
             RecentEvents = ReadRecentEvents(),
-            // The crisis plot stays out of the snapshot until it reaches the director (C11, tech spec R17).
-            ActivePlots = RimChroniclesGameComponent.Current?.Plots.Active.Where(p => p.Template != Core.Crisis.CrisisArc.TemplateId)
+            // The crisis shows only when the director may decide it (C11, tech spec R17): a director trained before the
+            // crisis arc sees the world as it was trained on.
+            ActivePlots = RimChroniclesGameComponent.Current?.Plots.Active.Where(p => crisis || p.Template != Core.Crisis.CrisisArc.TemplateId)
                 .Select(p => p.ToInfo()).ToList() ?? [],
+            Crisis = crisis ? ReadCrisis(day) : null,
             PublicEvents = RimChroniclesGameComponent.Current?.News.Since(day - MaxNewsDays).Select(e => e.Text).ToList() ?? [],
         };
+    }
+
+    /// <summary>The crisis brief: stage, recent operations, what's knocked out, and the Imperials still held or defected.</summary>
+    private static CrisisInfo? ReadCrisis(int day)
+    {
+        if (RimChroniclesGameComponent.Current is not { } component || Empire.EmpireDriver.EmpireFaction is not { } empire)
+        {
+            return null;
+        }
+
+        var present = PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive
+            .Where(p => p.IsPrisonerOfColony || p.Faction is { IsPlayer: true })
+            .Select(p => p.ThingID)
+            .ToHashSet();
+        return Core.Crisis.CrisisBrief.From(component.Crisis, Crisis.CrisisDriver.Stage(component, empire).Stage, day, present.Contains);
     }
 
     public static PawnInfo ReadPawn(Pawn pawn, List<Pawn> colonists) => new()

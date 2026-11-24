@@ -214,7 +214,8 @@
               "Rivalry",
               "PastCatchesUp",
               "SilentPress",
-              "AwakenedEmpire"
+              "AwakenedEmpire",
+              "ImperialCrisis"
             ]
           },
           "beat": {
@@ -432,6 +433,139 @@
           "type": "integer"
         }
       },
+      "additionalProperties": false
+    },
+    "crisis": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "stage": {
+          "type": "string",
+          "enum": [
+            "Probing",
+            "Reclamation",
+            "War",
+            "Finale"
+          ]
+        },
+        "operations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "day": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "operation": {
+                "type": "string"
+              },
+              "outcome": {
+                "type": "string",
+                "enum": [
+                  "running",
+                  "repelled",
+                  "succeeded",
+                  "aborted"
+                ]
+              }
+            },
+            "required": [
+              "day",
+              "operation",
+              "outcome"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "disabled": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "capability": {
+                "type": "string",
+                "enum": [
+                  "psykers",
+                  "strikes"
+                ]
+              },
+              "untilDay": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "capability",
+              "untilDay"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "captives": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "rank": {
+                "type": "string",
+                "enum": [
+                  "soldier",
+                  "breacher",
+                  "herald",
+                  "psyker",
+                  "officer"
+                ]
+              }
+            },
+            "required": [
+              "name",
+              "rank"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "defectors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "rank": {
+                "type": "string",
+                "enum": [
+                  "soldier",
+                  "breacher",
+                  "herald",
+                  "psyker",
+                  "officer"
+                ]
+              }
+            },
+            "required": [
+              "name",
+              "rank"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "intel": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "stage"
+      ],
       "additionalProperties": false
     }
   },

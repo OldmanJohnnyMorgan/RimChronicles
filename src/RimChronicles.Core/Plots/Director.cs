@@ -14,7 +14,12 @@ namespace RimChronicles.Core.Plots;
 /// <summary>One thing a plot may do next. <see cref="Id"/> is what the director sees and copies back
 /// ("Complication:VexRaids", "Wait"); <see cref="Step"/> is the arc's own name for it; <see cref="Desc"/> says what it
 /// would do, in plain words, for the director prompt (v2).</summary>
-public sealed record PlotTransition(string Id, string Step, double Weight, string Desc = "");
+public sealed record PlotTransition(string Id, string Step, double Weight, string Desc = "")
+{
+    /// <summary>The follow-up the director picked for this option in a second call (crisis C11: a siege's
+    /// <c>Goal:*</c>, a sabotage job's <c>Site:*</c>), or null when none was picked; the arc then picks by weight.</summary>
+    public string? Sub { get; init; }
+}
 
 /// <summary>A director decision, kept as the plot's story outline and debug log (design spec, Stage 4).</summary>
 public sealed class DirectorDecision : IArchivable

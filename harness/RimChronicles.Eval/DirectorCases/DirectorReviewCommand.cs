@@ -15,8 +15,8 @@ namespace RimChronicles.Eval.DirectorCases;
 /// <summary>Options for <c>director-review</c>.</summary>
 public sealed record ReviewOptions
 {
-    public required string CasesDir { get; init; }
-    public required string LabelsDir { get; init; }
+    public required IReadOnlyList<string> CaseDirs { get; init; }
+    public required IReadOnlyList<string> LabelDirs { get; init; }
     public required string PromptsRoot { get; init; }
     public required string CacheDir { get; init; }
     public required string OutDir { get; init; }
@@ -42,12 +42,13 @@ public static class DirectorReviewCommand
     public static async Task<int> PrepareAsync(ReviewOptions o, ModelConfig model, IChatProvider provider, TextWriter log, CancellationToken ct)
     {
         var prompt = PromptLibrary.Load(o.PromptsRoot).Get(DirectorReportCommand.TaskName);
-        var labels = DirectorReportCommand.LoadLabels(new ReportOptions
+        var report = new ReportOptions
         {
-            CasesDir = o.CasesDir, LabelsDir = o.LabelsDir, PromptsRoot = o.PromptsRoot, CacheDir = o.CacheDir, OutDir = o.OutDir,
+            CaseDirs = o.CaseDirs, LabelDirs = o.LabelDirs, PromptsRoot = o.PromptsRoot, CacheDir = o.CacheDir, OutDir = o.OutDir,
             Name = "review", Count = o.Count,
-        });
-        var reasons = File.ReadAllLines(Path.Combine(o.LabelsDir, "labels-final.jsonl")).Where(l => l.Trim().Length > 0)
+        };
+        var labels = DirectorReportCommand.LoadLabels(report);
+        var reasons = report.LabelLines()
             .Select(l => JsonNode.Parse(l)!).ToDictionary(n => n["case"]!.GetValue<string>(), n => n["reason"]?.GetValue<string>() ?? "");
         var stats = new CacheStats();
         var cached = new CachingChatProvider(provider, o.CacheDir, model.Identity(), 0, stats);
@@ -56,7 +57,7 @@ public static class DirectorReviewCommand
         foreach (var label in labels)
         {
             ct.ThrowIfCancellationRequested();
-            var s = SnapshotJson.Load(Path.Combine(o.CasesDir, label.Case + ".json"));
+            var s = SnapshotJson.Load(report.CasePath(label.Case));
             // Variant 0 is director-report's first call (grammar on, the case as labelled), so a report fills the cache.
             var call = await DirectorReportCommand.Ask(prompt, s, model, grammar: true, (req, _) => cached.CompleteAsync(req, ct), 0).ConfigureAwait(false);
             var mine = new Answer(call.Choice ?? "(no valid answer)", Describe(s, call.Choice), call.Reason ?? "");
@@ -71,7 +72,7 @@ public static class DirectorReviewCommand
         var key = new JsonObject
         {
             ["model"] = model.Id,
-            ["labels"] = Path.GetFileName(o.LabelsDir.TrimEnd('/', '\\')),
+            ["labels"] = string.Join("+", o.LabelDirs.Select(d => Path.GetFileName(d.TrimEnd('/', '\\')))),
             ["seed"] = o.Seed,
             ["items"] = new JsonArray(items.Select(i => (JsonNode?)new JsonObject
             {

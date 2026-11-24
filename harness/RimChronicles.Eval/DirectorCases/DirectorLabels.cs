@@ -122,9 +122,12 @@ public static class DirectorLabels
         $"{cases} cases, {repeat} of them shown twice with the options in another order. Teacher prompt {TeacherTask}/{version}. "
         + "Write one JSON line per item to labels.jsonl: {\"item\": N, \"scores\": {...every option...}, \"best\": \"...\", \"reason\": \"...\"}.";
 
-    /// <summary>"Nemesis/Hook", "AwakenedEmpire/Ascendant".</summary>
+    /// <summary>"Nemesis/Hook", "AwakenedEmpire/Ascendant"; a crisis follow-up call (C11) is "ImperialCrisis/SiegeGoal"
+    /// or "ImperialCrisis/Site", whichever plot decides.</summary>
     public static string Group(WorldSnapshot s) =>
-        s.ActivePlots.FirstOrDefault(p => p.Id == s.Director!.PlotId) is { } p ? $"{p.Template}/{p.Beat}" : "unknown";
+        s.AllowedTransitions.Count > 0 && s.AllowedTransitions.All(o => o.StartsWith(Core.Crisis.Siege.SiegeGoals.Prefix, StringComparison.Ordinal)) ? "ImperialCrisis/SiegeGoal"
+        : s.AllowedTransitions.Count > 0 && s.AllowedTransitions.All(o => o.StartsWith(Core.Crisis.Sites.SiteArchetype.Prefix, StringComparison.Ordinal)) ? "ImperialCrisis/Site"
+        : s.ActivePlots.FirstOrDefault(p => p.Id == s.Director!.PlotId) is { } p ? $"{p.Template}/{p.Beat}" : "unknown";
 
     public static Dictionary<string, string> Variables(WorldSnapshot s, IReadOnlyList<string> order)
     {
