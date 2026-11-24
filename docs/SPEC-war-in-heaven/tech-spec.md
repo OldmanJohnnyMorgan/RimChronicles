@@ -63,6 +63,14 @@ The riskiest step, so it comes first and alone.
 - `Power` record; `Power.Empire` holds every Empire constant that is today in `EmpireSaga`, `EmpireArc`,
   `EmpireExpansion`, `CrisisStages` and the crisis operation tables.
 - Saga, arc, expansion and crisis take a `Power`; Game's drivers run once per power (only the Empire in W1).
+- **As built (W1):** `EmpireSaga`, `EmpireArc`, `EmpireStep`, `EmpireStance`, `EmpireState`, `EmpireSigns`,
+  `EmpireEvent` and `EmpireExpansion` became `Power*` types in `Core/Powers/`. `Power` holds the ids and a `PowerText`;
+  the saga holds its `Power` (not saved; the Empire by default), and the arc reads option ids and descriptions from it.
+  The Empire's texts stay in `Core/Empire/` (`EmpireText`, `EmpireLetters`, `EmpireIds`, `EmpirePowerText`). The
+  crisis already reads the saga, so it needed only the renames; its template id is on `Power.CrisisTemplateId`. Game's
+  faction lookup is `PowerFactions.Of(power)`. **The drivers' loop over powers moves to W4**, where a second power
+  exists to test it. Proof: `PowerNoChangeTests` (case hashes, saved labels) was committed before the rework and passes
+  unchanged after it; `PowerTests` shows a second power getting its own ids and texts.
 - **Proof of no change:** all existing tests pass unchanged; the Golden files don't move; `director-gen --seed 9001`,
   `--seed 1` and `--arc crisis` are byte-identical (a test compares hashes against the committed manifests); a save
   from `main` loads, plays a day and saves the same `empire` and `crisis` nodes.

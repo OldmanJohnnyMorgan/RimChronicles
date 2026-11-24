@@ -1,3 +1,4 @@
+using RimChronicles.Core.Powers;
 using RimChronicles.Core.Crisis;
 using RimChronicles.Core.Crisis.Sites;
 using RimChronicles.Game.Crisis.Pieces;
@@ -39,7 +40,7 @@ public static class SiteOffers
         var questTargets = Find.QuestManager.QuestsListForReading
             .Where(q => q.State is QuestState.Ongoing or QuestState.NotYetAccepted)
             .SelectMany(q => q.QuestLookTargets).Where(t => t.HasWorldObject).Select(t => t.WorldObject).ToHashSet();
-        var conquered = component.Empire.Expansions.Where(e => e.Result == Core.Empire.ExpansionResult.Conquered)
+        var conquered = component.Empire.Expansions.Where(e => e.Result == Core.Powers.ExpansionResult.Conquered)
             .GroupBy(e => e.Settlement).ToDictionary(g => g.Key, g => g.OrderBy(e => e.Day).Last().Faction);
         return Find.WorldObjects.Settlements
             .Where(s => s.Faction == empire && !s.HasMap && !questTargets.Contains(s) && s.Tile.Layer == home.Layer

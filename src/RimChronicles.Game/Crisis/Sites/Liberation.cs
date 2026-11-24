@@ -1,4 +1,5 @@
 using RimChronicles.Core.Empire;
+using RimChronicles.Core.Powers;
 using RimChronicles.Core.News;
 using RimChronicles.Game.Empire;
 using RimChronicles.Game.Engine;
@@ -33,7 +34,7 @@ public static class Liberation
         EmpireDriver.Repaint(settlement);
         former.TryAffectGoodwillWith(Faction.OfPlayer, Goodwill, canSendMessage: true, canSendHostilityLetter: false);
         component.Empire.Note(today, $"{settlement.Label} liberated by {colony}, back to {former.Name}");
-        component.News.Add(new NewsEvent(today, EmpireSaga.NewsKind, $"{colony} drove the Imperial garrison out of {settlement.Label}; it is {former.Name}'s again", empire.Name));
+        component.News.Add(new NewsEvent(today, Power.Empire.NewsKind, $"{colony} drove the Imperial garrison out of {settlement.Label}; it is {former.Name}'s again", empire.Name));
         StoryLetters.Crisis($"{settlement.Label} liberated",
             $"The Imperial garrison holding {settlement.Label} is broken. The settlement is {former.Name}'s again, and they won't forget who freed it.",
             LetterDefOf.PositiveEvent, new LookTargets(settlement), former);

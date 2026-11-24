@@ -1,0 +1,58 @@
+
+empire:
+  state: Awakened
+  stateDay: 120
+  nextStateDay: -1
+  nextRumourDay: -1
+  trigger: "Wealth"
+  triggerDetail: "160000"
+  siteDestroyed: ""
+  titleRefusedBy: ""
+  log:
+    [0] "Day 90: stirring"
+    [1] "Day 120: awakened"
+  nextExpansionDay: 140
+  expansions:
+    [0]
+      day: 125
+      settlement: "Ashgrove"
+      faction: "The Free Rim"
+      result: Conquered
+  highTitleHolder: "Ada"
+  ending: ""
+  nextShipRaidDay: -1
+crisis:
+  history:
+    [0]
+      day: 130
+      operation: "Operation:ProbingRaid"
+      stage: Probing
+      outcome: "repelled"
+      budget: 800
+  announcedStage: Probing
+  announcedDay: 128
+  holds: []
+  entrances: []
+  entrancesDay: -1
+  captives: []
+  defectors: []
+  intel: []
+  forecast:
+    operation: ""
+    earliestDay: 0
+    expiresDay: 0
+  strikeJams: 0
+  adeptShortfall: False
+  keepEntranceKnown: False
+  nextBudgetFactor: 1
+  relaySitesDestroyed: 0
+  uplinkSitesDestroyed: 0
+  citadelSettlementId: -1
+  stellarchPawnId: ""
+  stellarchFate: ""
+  stellarchEscaped: False
+  stellarchFellDay: -1
+  released: 0
+  executed: 0
+  harvested: 0
+  enslaved: 0

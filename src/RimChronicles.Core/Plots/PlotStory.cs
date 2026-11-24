@@ -1,3 +1,4 @@
+using RimChronicles.Core.Powers;
 using RimChronicles.Core.Persistence;
 
 namespace RimChronicles.Core.Plots;
@@ -41,7 +42,7 @@ public static class PlotChronicle
             Nemesis.NemesisPlot.TemplateId => ("Nemesis", plot.Fact(Nemesis.NemesisPlot.NemesisName)),
             LostFamily.LostFamilyArc.TemplateId => ("Lost Family", plot.Fact(LostFamily.LostFamilyArc.KinName)),
             SilentPress.SilentPressArc.TemplateId => ("The Silent Press", null),
-            Empire.EmpireArc.TemplateId => ("The Awakened Empire", null),
+            Empire.EmpireIds.TemplateId => ("The Awakened Empire", null),
             _ => (Humanize(plot.Template), null),
         };
         return subject is { Length: > 0 } ? $"{kind}: {subject}" : kind;

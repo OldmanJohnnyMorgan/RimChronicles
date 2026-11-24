@@ -1,5 +1,6 @@
 using LudeonTK;
 using RimChronicles.Core.Empire;
+using RimChronicles.Core.Powers;
 using RimChronicles.Core.News;
 using RimChronicles.Core.Plots;
 using RimChronicles.Core.Plots.LostFamily;
@@ -24,7 +25,7 @@ public static class EmpirePromotions
     {
         var empire = EmpireDriver.Available ? EmpireDriver.EmpireFaction : null;
         var saga = component.Empire;
-        var open = empire is not null && saga.State is EmpireState.Awakened or EmpireState.Ascendant && saga.Ending.Length == 0
+        var open = empire is not null && saga.State is PowerState.Awakened or PowerState.Ascendant && saga.Ending.Length == 0
                    && empire.HostileTo(Faction.OfPlayer);
         foreach (var plot in component.Plots.Active.Where(p => p.Template == NemesisPlot.TemplateId))
         {

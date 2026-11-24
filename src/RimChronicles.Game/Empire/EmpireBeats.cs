@@ -1,5 +1,6 @@
 using LudeonTK;
 using RimChronicles.Core.Empire;
+using RimChronicles.Core.Powers;
 using RimChronicles.Core.News;
 using RimChronicles.Core.Plots;
 using RimChronicles.Game.Plots;
@@ -16,14 +17,14 @@ namespace RimChronicles.Game.Empire;
 /// the Act 3 reckoning. Template letters only. Main thread only.</summary>
 public static class EmpireBeats
 {
-    public static void Register() => PlotDriver.Register(EmpireArc.TemplateId,
-        plot => RimChroniclesGameComponent.Current is { } c ? EmpireArc.Transitions(plot, c.Empire, GenDate.DaysPassed) : [], Fire,
+    public static void Register() => PlotDriver.Register(Power.Empire.PlotTemplateId,
+        plot => RimChroniclesGameComponent.Current is { } c ? PowerArc.Transitions(plot, c.Empire, GenDate.DaysPassed) : [], Fire,
         subOptions: SiteOptions);
 
     /// <summary>The Imperial sites a sabotage job may target (crisis C11, tech spec R7), for the director's second call.
     /// Empty unless the director may decide the crisis: otherwise the site is picked by weight.</summary>
     public static IReadOnlyList<PlotTransition> SiteOptions(Plot plot, PlotTransition option) =>
-        option.Step == EmpireStep.SabotageImperial && Crisis.CrisisDriver.DirectorDecides
+        option.Step == PowerStep.SabotageImperial && Crisis.CrisisDriver.DirectorDecides
             && RimChroniclesGameComponent.Current is { } component && EmpireDriver.EmpireFaction is { } empire
             ? Crisis.Sites.SiteOffers.Allowed(component, empire).Select(a => new PlotTransition(a.Id, a.Name, a.Weight, a.Desc)).ToList()
             : [];
@@ -34,8 +35,8 @@ public static class EmpireBeats
     public static void EnsurePlot(RimChroniclesGameComponent component, int today)
     {
         var book = component.Plots;
-        if (book.Active.Concat(book.Finished).Any(p => p.Template == EmpireArc.TemplateId)
-            || PlotTemplateDef.Find(EmpireArc.TemplateId) is not { } template)
+        if (book.Active.Concat(book.Finished).Any(p => p.Template == Power.Empire.PlotTemplateId)
+            || PlotTemplateDef.Find(Power.Empire.PlotTemplateId) is not { } template)
         {
             return;
         }
@@ -45,7 +46,7 @@ public static class EmpireBeats
     }
 
     public static Plot? Current(RimChroniclesGameComponent component) =>
-        component.Plots.Active.FirstOrDefault(p => p.Template == EmpireArc.TemplateId);
+        component.Plots.Active.FirstOrDefault(p => p.Template == Power.Empire.PlotTemplateId);
 
     public static bool Fire(RimChroniclesGameComponent component, Plot plot, PlotTemplate template, int today, PlotTransition transition)
     {
@@ -57,30 +58,30 @@ public static class EmpireBeats
         var gap = Rand.RangeInclusive(template.MinGapDays, template.MaxGapDays);
         switch (transition.Step)
         {
-            case EmpireStep.Envoy:
+            case PowerStep.Envoy:
             {
                 var (label, text) = EmpireLetters.Envoy(empire.Name, Colony);
-                ChoiceLetter_Plot.Send(plot, EmpireArc.Stance, label, text,
+                ChoiceLetter_Plot.Send(plot, PowerArc.Stance, label, text,
                 [
-                    new PlotChoice("Stand with the Empire", EmpireStance.Ally),
-                    new PlotChoice("Stand against it", EmpireStance.Oppose),
-                    new PlotChoice("Keep out of it", EmpireStance.Neutral),
-                ], EmpireArc.EnvoyTimeoutDays, "the colony keeps out of it", empire);
-                component.Plots.Advance(plot, PlotBeat.Hook, today, EmpireArc.EnvoyTimeoutDays + 1, "Act 1: the envoy asks the colony's stance");
+                    new PlotChoice("Stand with the Empire", PowerStance.Ally),
+                    new PlotChoice("Stand against it", PowerStance.Oppose),
+                    new PlotChoice("Keep out of it", PowerStance.Neutral),
+                ], PowerArc.EnvoyTimeoutDays, "the colony keeps out of it", empire);
+                component.Plots.Advance(plot, PlotBeat.Hook, today, PowerArc.EnvoyTimeoutDays + 1, "Act 1: the envoy asks the colony's stance");
                 return true;
             }
 
-            case EmpireStep.Expansion:
+            case PowerStep.Expansion:
             {
-                var stance = EmpireArc.StanceOf(plot);
-                plot.SetFact(EmpireArc.Stance, stance);
+                var stance = PowerArc.StanceOf(plot);
+                plot.SetFact(PowerArc.Stance, stance);
                 ApplyStance(empire, stance);
-                Send(plot, EmpireLetters.Marches(stance, empire.Name, Colony), stance == EmpireStance.Oppose ? LetterDefOf.ThreatBig : LetterDefOf.NeutralEvent);
+                Send(plot, EmpireLetters.Marches(stance, empire.Name, Colony), stance == PowerStance.Oppose ? LetterDefOf.ThreatBig : LetterDefOf.NeutralEvent);
                 component.Plots.Advance(plot, PlotBeat.Complication, today, gap, $"Act 2: the Empire marches; the colony is {stance}");
                 return true;
             }
 
-            case EmpireStep.EscortEnvoy:
+            case PowerStep.EscortEnvoy:
             {
                 if (empire.HostileTo(Faction.OfPlayer) || QuestOffers.NearestSettlement(s => s.Faction == empire) is not { } destination)
                 {
@@ -93,7 +94,7 @@ public static class EmpireBeats
                     + $"{QuestTemplates.EscortDays} days."));
             }
 
-            case EmpireStep.ConquestJob:
+            case PowerStep.ConquestJob:
             {
                 if (NextImperialTarget(empire, friendlyToPlayer: null) is not { } target)
                 {
@@ -106,7 +107,7 @@ public static class EmpireBeats
                     + $"console there first. Do it within {QuestTemplates.SabotageDays} days, and {target.Label} will fall to the Empire."));
             }
 
-            case EmpireStep.DefendAlly:
+            case PowerStep.DefendAlly:
             {
                 if (!empire.HostileTo(Faction.OfPlayer) || NextImperialTarget(empire, friendlyToPlayer: true) is not { } ally)
                 {
@@ -118,7 +119,7 @@ public static class EmpireBeats
                     $"An Imperial column has camped outside {ally.Label}, held by {ally.Faction.Name}. Clear the camp, or {ally.Label} will fall to the Empire."));
             }
 
-            case EmpireStep.SabotageImperial:
+            case PowerStep.SabotageImperial:
             {
                 if (!empire.HostileTo(Faction.OfPlayer))
                 {
@@ -160,39 +161,39 @@ public static class EmpireBeats
                     + "and the Empire's advance will falter."));
             }
 
-            case EmpireStep.Tribute:
+            case PowerStep.Tribute:
             {
                 var silver = TributeSilver(WealthUtility.PlayerWealth);
-                EmpireArc.StartJob(plot, EmpireStep.Tribute, "", today);
+                PowerArc.StartJob(plot, PowerStep.Tribute, "", today);
                 var (label, text) = EmpireLetters.TributeDemand(empire.Name, Colony, silver);
-                ChoiceLetter_Plot.Send(plot, EmpireArc.Answer, label, text,
+                ChoiceLetter_Plot.Send(plot, PowerArc.Answer, label, text,
                 [
-                    new PlotChoice($"Pay {silver} silver", EmpireArc.TributePaid, Silver: silver),
-                    new PlotChoice("Refuse", EmpireArc.TributeRefused),
-                    new PlotChoice("Swear fealty", EmpireArc.TributeFealty),
-                ], EmpireArc.LetterTimeoutDays, "the tribute goes unpaid, though the Empire doesn't go to war over it", empire);
-                component.Plots.Advance(plot, plot.Beat, today, EmpireArc.LetterTimeoutDays, "the Empire demands tribute");
+                    new PlotChoice($"Pay {silver} silver", PowerArc.TributePaid, Silver: silver),
+                    new PlotChoice("Refuse", PowerArc.TributeRefused),
+                    new PlotChoice("Swear fealty", PowerArc.TributeFealty),
+                ], PowerArc.LetterTimeoutDays, "the tribute goes unpaid, though the Empire doesn't go to war over it", empire);
+                component.Plots.Advance(plot, plot.Beat, today, PowerArc.LetterTimeoutDays, "the Empire demands tribute");
                 return true;
             }
 
-            case EmpireStep.Aftermath:
+            case PowerStep.Aftermath:
                 Aftermath(component, plot, empire, today);
-                component.Plots.Advance(plot, plot.Beat, today, plot.Fact(EmpireArc.EndingFact) is { Length: > 0 } ? 1 : gap, "the job's aftermath");
+                component.Plots.Advance(plot, plot.Beat, today, plot.Fact(PowerArc.EndingFact) is { Length: > 0 } ? 1 : gap, "the job's aftermath");
                 return true;
 
-            case EmpireStep.Reckoning:
+            case PowerStep.Reckoning:
             {
-                var ascendant = EmpireArc.ReckoningScore(plot, component.Empire) > 0;
+                var ascendant = PowerArc.ReckoningScore(plot, component.Empire) > 0;
                 component.Empire.Reckon(ascendant, today);
                 Send(plot, EmpireLetters.Reckoning(ascendant, empire.Name, Colony), LetterDefOf.ThreatBig);
-                component.News.Add(new NewsEvent(today, EmpireSaga.NewsKind,
+                component.News.Add(new NewsEvent(today, Power.Empire.NewsKind,
                     ascendant ? $"{empire.Name} issued final demands to every settlement on the rim" : $"{empire.Name} pulled back its columns after heavy losses",
                     empire.Name));
                 component.Plots.Advance(plot, PlotBeat.Choice, today, gap, ascendant ? "Act 3: the Empire is ascendant" : "Act 3: the Empire is breaking");
                 return true;
             }
 
-            case EmpireStep.Governorship:
+            case PowerStep.Governorship:
             {
                 var holder = component.Empire.HighTitleHolder;
                 if (holder.Length == 0)
@@ -200,30 +201,30 @@ public static class EmpireBeats
                     return false;
                 }
 
-                EmpireArc.StartJob(plot, transition.Step, holder, today);
+                PowerArc.StartJob(plot, transition.Step, holder, today);
                 var (label, text) = EmpireLetters.Governorship(empire.Name, Colony, holder);
-                ChoiceLetter_Plot.Send(plot, EmpireArc.Answer, label, text,
-                    [new PlotChoice("Accept the governorship", EmpireArc.Accept), new PlotChoice("Not yet", EmpireArc.Decline)], EmpireArc.LetterTimeoutDays,
+                ChoiceLetter_Plot.Send(plot, PowerArc.Answer, label, text,
+                    [new PlotChoice("Accept the governorship", PowerArc.Accept), new PlotChoice("Not yet", PowerArc.Decline)], PowerArc.LetterTimeoutDays,
                     "it counts as not yet", empire);
-                component.Plots.Advance(plot, PlotBeat.Choice, today, EmpireArc.LetterTimeoutDays, "Act 3: the Empire offers a governorship");
+                component.Plots.Advance(plot, PlotBeat.Choice, today, PowerArc.LetterTimeoutDays, "Act 3: the Empire offers a governorship");
                 return true;
             }
 
-            case EmpireStep.FinalDemand:
-            case EmpireStep.Treaty:
+            case PowerStep.FinalDemand:
+            case PowerStep.Treaty:
             {
-                EmpireArc.StartJob(plot, transition.Step, "", today);
-                var final = transition.Step == EmpireStep.FinalDemand;
+                PowerArc.StartJob(plot, transition.Step, "", today);
+                var final = transition.Step == PowerStep.FinalDemand;
                 var (label, text) = final ? EmpireLetters.FinalDemand(empire.Name, Colony) : EmpireLetters.Treaty(empire.Name, Colony);
-                ChoiceLetter_Plot.Send(plot, EmpireArc.Answer, label, text, final
-                    ? [new PlotChoice("Submit to the Empire", EmpireArc.Accept), new PlotChoice("Refuse", EmpireArc.Decline)]
-                    : [new PlotChoice("Sign the treaty", EmpireArc.Accept), new PlotChoice("Fight on", EmpireArc.Decline)],
-                    EmpireArc.LetterTimeoutDays, final ? "it counts as a refusal: war" : "no treaty is signed", empire);
-                component.Plots.Advance(plot, PlotBeat.Choice, today, EmpireArc.LetterTimeoutDays, final ? "Act 3: the final demand" : "Act 3: a treaty is offered");
+                ChoiceLetter_Plot.Send(plot, PowerArc.Answer, label, text, final
+                    ? [new PlotChoice("Submit to the Empire", PowerArc.Accept), new PlotChoice("Refuse", PowerArc.Decline)]
+                    : [new PlotChoice("Sign the treaty", PowerArc.Accept), new PlotChoice("Fight on", PowerArc.Decline)],
+                    PowerArc.LetterTimeoutDays, final ? "it counts as a refusal: war" : "no treaty is signed", empire);
+                component.Plots.Advance(plot, PlotBeat.Choice, today, PowerArc.LetterTimeoutDays, final ? "Act 3: the final demand" : "Act 3: a treaty is offered");
                 return true;
             }
 
-            case EmpireStep.StormCapital:
+            case PowerStep.StormCapital:
             {
                 if (!empire.HostileTo(Faction.OfPlayer) || Capital(empire) is not { } capital)
                 {
@@ -234,10 +235,10 @@ public static class EmpireBeats
                     .Where(f => f != empire && !f.IsPlayer && !f.defeated && f.RelationKindWith(Faction.OfPlayer) == FactionRelationKind.Ally)
                     .Select(f => f.Name).Take(3));
                 var (name, description) = EmpireLetters.CapitalQuest(empire.Name, capital.Label, allies);
-                EmpireArc.StartJob(plot, transition.Step, capital.Label, today);
+                PowerArc.StartJob(plot, transition.Step, capital.Label, today);
                 if (QuestOffers.Capital(component, plot, capital, name, description) is null)
                 {
-                    plot.SetFact(EmpireArc.Job, "");
+                    plot.SetFact(PowerArc.Job, "");
                     return false;
                 }
 
@@ -245,8 +246,8 @@ public static class EmpireBeats
                 return true;
             }
 
-            case EmpireStep.Ending:
-                EmpireEndings.Finish(component, plot, plot.Fact(EmpireArc.EndingFact) ?? EmpireEnding.Independence, empire, today);
+            case PowerStep.Ending:
+                EmpireEndings.Finish(component, plot, plot.Fact(PowerArc.EndingFact) ?? EmpireEnding.Independence, empire, today);
                 return true;
 
             default:
@@ -263,10 +264,10 @@ public static class EmpireBeats
 
     private static bool StartQuest(RimChroniclesGameComponent component, Plot plot, int today, int gap, string step, string target, Func<Quest?> offer)
     {
-        EmpireArc.StartJob(plot, step, target, today);
+        PowerArc.StartJob(plot, step, target, today);
         if (offer() is null)
         {
-            plot.SetFact(EmpireArc.Job, "");
+            plot.SetFact(PowerArc.Job, "");
             return false;
         }
 
@@ -289,8 +290,8 @@ public static class EmpireBeats
         var goodwill = empire.PlayerGoodwill;
         var change = stance switch
         {
-            EmpireStance.Ally => Math.Max(0, 25 - goodwill),
-            EmpireStance.Oppose => -100 - goodwill,
+            PowerStance.Ally => Math.Max(0, 25 - goodwill),
+            PowerStance.Oppose => -100 - goodwill,
             _ => 0,
         };
         if (change != 0)
@@ -302,11 +303,11 @@ public static class EmpireBeats
     /// <summary>Applies a finished job to the world: settlements change hands, goodwill moves, the stance may change.</summary>
     private static void Aftermath(RimChroniclesGameComponent component, Plot plot, Faction empire, int today)
     {
-        var r = EmpireArc.FinishJob(plot);
+        var r = PowerArc.FinishJob(plot);
         var settlement = Find.WorldObjects.Settlements.FirstOrDefault(s => s.Label == r.Target);
         switch (r.Job, r.Success)
         {
-            case (EmpireStep.EscortEnvoy, var ok):
+            case (PowerStep.EscortEnvoy, var ok):
                 empire.TryAffectGoodwillWith(Faction.OfPlayer, ok ? 12 : -8, canSendMessage: true, canSendHostilityLetter: true);
                 if (ok)
                 {
@@ -314,7 +315,7 @@ public static class EmpireBeats
                 }
 
                 break;
-            case (EmpireStep.ConquestJob, true):
+            case (PowerStep.ConquestJob, true):
                 if (settlement is { HasMap: false } && settlement.Faction != empire && !settlement.Faction.IsPlayer)
                 {
                     EmpireDriver.Conquer(component, settlement, empire, today, $"{r.Target} fell after the colony's sabotage", news: false);
@@ -322,27 +323,27 @@ public static class EmpireBeats
 
                 GrantFavor(empire);
                 break;
-            case (EmpireStep.DefendAlly, true):
+            case (PowerStep.DefendAlly, true):
                 component.Empire.RecordAssisted(r.Target, settlement?.Faction.Name ?? "", ExpansionResult.Repelled, today, $"the colony broke the siege of {r.Target}");
                 settlement?.Faction.TryAffectGoodwillWith(Faction.OfPlayer, 10, canSendMessage: true, canSendHostilityLetter: false);
                 break;
-            case (EmpireStep.DefendAlly, false):
+            case (PowerStep.DefendAlly, false):
                 if (settlement is { HasMap: false } && settlement.Faction != empire && !settlement.Faction.IsPlayer)
                 {
                     EmpireDriver.Conquer(component, settlement, empire, today, $"{r.Target} fell after the siege", news: false);
                 }
 
                 break;
-            case (EmpireStep.SabotageImperial, true):
+            case (PowerStep.SabotageImperial, true):
                 component.Empire.RecordAssisted(r.Target, empire.Name, ExpansionResult.Repelled, today, $"the colony sabotaged {r.Target}");
                 break;
-            case (EmpireStep.Tribute or EmpireStep.FinalDemand or EmpireStep.Treaty, _):
+            case (PowerStep.Tribute or PowerStep.FinalDemand or PowerStep.Treaty, _):
                 if (r.NewStance is { } stance)
                 {
                     ApplyStance(empire, stance);
-                    Send(plot, EmpireLetters.StanceTaken(stance, empire.Name, Colony), stance == EmpireStance.Oppose ? LetterDefOf.ThreatBig : LetterDefOf.NeutralEvent);
+                    Send(plot, EmpireLetters.StanceTaken(stance, empire.Name, Colony), stance == PowerStance.Oppose ? LetterDefOf.ThreatBig : LetterDefOf.NeutralEvent);
                 }
-                else if (r.Job == EmpireStep.Tribute && !r.Success)
+                else if (r.Job == PowerStep.Tribute && !r.Success)
                 {
                     empire.TryAffectGoodwillWith(Faction.OfPlayer, -10, canSendMessage: true, canSendHostilityLetter: true); // ignored
                 }
@@ -352,7 +353,7 @@ public static class EmpireBeats
 
         if (EmpireLetters.AftermathNews(r, empire.Name, Colony) is { Length: > 0 } news)
         {
-            component.News.Add(new NewsEvent(today, EmpireSaga.NewsKind, news, empire.Name));
+            component.News.Add(new NewsEvent(today, Power.Empire.NewsKind, news, empire.Name));
         }
 
         if (Prefs.DevMode)
@@ -402,10 +403,10 @@ public static class EmpireBeats
             return;
         }
 
-        Find.WindowStack.Add(new FloatMenu(new[] { EmpireStance.Ally, EmpireStance.Oppose, EmpireStance.Neutral }
+        Find.WindowStack.Add(new FloatMenu(new[] { PowerStance.Ally, PowerStance.Oppose, PowerStance.Neutral }
             .Select(stance => new FloatMenuOption(stance, () =>
             {
-                plot.SetFact(EmpireArc.Stance, stance);
+                plot.SetFact(PowerArc.Stance, stance);
                 plot.Note(GenDate.DaysPassed, $"stance set to {stance} (Dev Mode)");
                 if (plot.Beat != PlotBeat.Hook)
                 {

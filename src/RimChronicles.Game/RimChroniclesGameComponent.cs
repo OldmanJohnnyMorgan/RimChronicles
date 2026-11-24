@@ -1,5 +1,6 @@
 using RimChronicles.Core.Crisis;
 using RimChronicles.Core.Empire;
+using RimChronicles.Core.Powers;
 using RimChronicles.Core.Engine;
 using RimChronicles.Core.News;
 using RimChronicles.Core.Plots;
@@ -23,7 +24,7 @@ public sealed class RimChroniclesGameComponent : GameComponent
     private NewsDesk _desk = new();
     private PlotBook _plots = new();
     private GrudgeLedger _grudges = new();
-    private EmpireSaga _empire = new();
+    private PowerSaga _empire = new();
     private CrisisState _crisis = new();
     private List<Pawn> _tracked = [];
     private Pawn? _reporterPawn;
@@ -54,7 +55,7 @@ public sealed class RimChroniclesGameComponent : GameComponent
     public PlotBook Plots => _plots;
 
     /// <summary>The Awakened Empire, the major plot (Stage 5).</summary>
-    public EmpireSaga Empire => _empire;
+    public PowerSaga Empire => _empire;
 
     /// <summary>The Imperial crisis: operations against the colony (crisis C1).</summary>
     public CrisisState Crisis => _crisis;
@@ -120,7 +121,7 @@ public sealed class RimChroniclesGameComponent : GameComponent
         _desk ??= new NewsDesk();
         _plots ??= new PlotBook();
         _grudges ??= new GrudgeLedger();
-        _empire ??= new EmpireSaga();
+        _empire ??= new PowerSaga();
         _crisis ??= new CrisisState();
         _tracked ??= [];
         _tracked.RemoveAll(p => p is null);

@@ -1,3 +1,4 @@
+using RimChronicles.Core.Powers;
 using RimChronicles.Core.Plots;
 using RimWorld;
 using RimWorld.Planet;
@@ -84,13 +85,13 @@ public static class QuestOffers
         });
 
     /// <summary>The Empire's capital as a Sabotage quest with no objective: only destroying the settlement succeeds,
-    /// within <see cref="Core.Empire.EmpireArc.CapitalDays"/> days.</summary>
+    /// within <see cref="Core.Powers.PowerArc.CapitalDays"/> days.</summary>
     public static Quest? Capital(RimChroniclesGameComponent component, Plot plot, Settlement capital, string name, string description) =>
         QuestStarter.Offer(component, plot, QuestTemplates.Sabotage, QuestTemplates.ScriptDef(QuestTemplates.Sabotage), name, description, slate =>
         {
             slate.Set(QuestNode_Root_ChroniclesSabotage.SettlementVar, capital);
             slate.Set(QuestNode_Root_ChroniclesSabotage.NoObjectiveVar, true);
-            slate.Set(QuestNode_Root_ChroniclesSabotage.DaysVar, Core.Empire.EmpireArc.CapitalDays);
+            slate.Set(QuestNode_Root_ChroniclesSabotage.DaysVar, Core.Powers.PowerArc.CapitalDays);
             slate.Set(QuestNode_Root_ChroniclesSite.RewardVar, 0);
         });
 

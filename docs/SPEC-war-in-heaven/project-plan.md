@@ -11,10 +11,10 @@ first, then `main` is merged into `war-in-heaven`.
 | # | Milestone | Where | Done when |
 | --- | --- | --- | --- |
 | W0 | API survey (**done 2026-11-24**) | Codespace (in-game checks at checkpoint 1) | `ENGINE_NOTES.md` gets a "War in Heaven survey" section: creating a faction mid-game, mechlink and psylink add/remove, bandwidth without band nodes, deactivating mechs vs feral, the dismantle job, the shuttle pickup and return parts, `Quest.Accept` for the Royal Ascent, mixed mech and mechanitor groups under vanilla lords. Tech spec §1 corrected from it |
-| W1 | Generalise to `Power` (no behaviour change) | Codespace | Tech spec §3's proof: tests and Golden files unchanged, case manifests byte-identical, save round-trip |
+| W1 | Generalise to `Power` (no behaviour change; **done 2026-11-24**) | Codespace | Tech spec §3's proof: tests and Golden files unchanged, case manifests byte-identical, save round-trip |
 | W2 | `Allegiance` and sides | Codespace | Stance read from the allegiance; old saves derive it; siding with one power sets the other hostile; Dev Mode "set side" |
 | W3 | Choir faction and units | Codespace | Faction def, mechanitor kinds, group makers by stage; created on waking with its settlements; Dev Mode spawns a Choir group |
-| W4 | Choir saga and plot | Codespace | `HollowChoir` arc with `Choir:*` jobs, the hum, triggers and day 300; Dev Mode wakes it |
+| W4 | Choir saga and plot | Codespace | Drivers loop over `Power.All`; `HollowChoir` arc with `Choir:*` jobs, the hum, triggers and day 300; Dev Mode wakes it |
 | W5 | Cross-waking, ship launch and Royal Ascent | Codespace | Waking rules of spec §4–§5 unit-tested; `Quest.Accept` patch; Dev Mode for each |
 | **Checkpoint 1** | `war-runbook-1.md` | PC | Choir wakes (each way), faction and settlements appear, sides set relations, the hum shows in bulletins |
 | W6 | Summons, conversion, shut-down and dismantle | Codespace | Both quest scripts; conversion at every level (unit); shut-down mechs never go feral; dismantle yields parts; refusal sets independence |

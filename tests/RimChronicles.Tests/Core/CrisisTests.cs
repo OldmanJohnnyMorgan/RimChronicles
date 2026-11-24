@@ -1,5 +1,6 @@
 using RimChronicles.Core.Crisis;
 using RimChronicles.Core.Empire;
+using RimChronicles.Core.Powers;
 using RimChronicles.Core.Persistence;
 using RimChronicles.Core.Plots;
 using RimChronicles.Tests.TestSupport;
@@ -8,22 +9,22 @@ namespace RimChronicles.Tests.Core;
 
 public class CrisisTests
 {
-    private static readonly PlotTemplate EmpireTemplate = new() { Id = EmpireArc.TemplateId, CountsTowardCap = false };
+    private static readonly PlotTemplate EmpireTemplate = new() { Id = Power.Empire.PlotTemplateId, CountsTowardCap = false };
     private static readonly PlotTemplate CrisisTemplate = new() { Id = CrisisArc.TemplateId, CountsTowardCap = false, MinGapDays = 3, MaxGapDays = 6 };
     private static readonly ProtagonistSlot Colony = new() { Kind = ProtagonistKind.Colony, PawnId = Inheritance.ColonyId, Name = "Wyrmfold" };
 
     /// <summary>An awake Empire whose plot is in Act 2 with the given stance.</summary>
-    private static (PlotBook Book, Plot Plot, EmpireSaga Saga) Act2(string stance)
+    private static (PlotBook Book, Plot Plot, PowerSaga Saga) Act2(string stance)
     {
         var book = new PlotBook();
         var plot = book.Start(EmpireTemplate, Colony, 40, 3, "stirring");
-        var saga = new EmpireSaga { State = EmpireState.Awakened };
-        plot.SetFact(EmpireArc.Stance, stance);
+        var saga = new PowerSaga { State = PowerState.Awakened };
+        plot.SetFact(PowerArc.Stance, stance);
         book.Advance(plot, PlotBeat.Complication, 60, 6, "marches");
         return (book, plot, saga);
     }
 
-    private static void Expansions(EmpireSaga saga, int count)
+    private static void Expansions(PowerSaga saga, int count)
     {
         for (var i = 0; i < count; i++)
         {
@@ -31,7 +32,7 @@ public class CrisisTests
         }
     }
 
-    private static CrisisStage StageOf(Plot? plot, EmpireSaga saga, bool hostile = false, int survived = 0) =>
+    private static CrisisStage StageOf(Plot? plot, PowerSaga saga, bool hostile = false, int survived = 0) =>
         CrisisStages.Of(new CrisisInputs { EmpirePlot = plot, Saga = saga, EmpireHostile = hostile, OperationsSurvived = survived });
 
     // ---- stages
@@ -41,19 +42,19 @@ public class CrisisTests
     {
         var book = new PlotBook();
         var plot = book.Start(EmpireTemplate, Colony, 40, 3, "stirring");
-        plot.SetFact(EmpireArc.Stance, EmpireStance.Oppose);
-        Assert.Equal(CrisisStage.None, StageOf(plot, new EmpireSaga { State = EmpireState.Stirring }));
-        Assert.Equal(CrisisStage.None, StageOf(plot, new EmpireSaga { State = EmpireState.Awakened })); // still Act 1
-        Assert.Equal(CrisisStage.None, StageOf(null, new EmpireSaga { State = EmpireState.Awakened }));
+        plot.SetFact(PowerArc.Stance, PowerStance.Oppose);
+        Assert.Equal(CrisisStage.None, StageOf(plot, new PowerSaga { State = PowerState.Stirring }));
+        Assert.Equal(CrisisStage.None, StageOf(plot, new PowerSaga { State = PowerState.Awakened })); // still Act 1
+        Assert.Equal(CrisisStage.None, StageOf(null, new PowerSaga { State = PowerState.Awakened }));
     }
 
     [Fact]
     public void Stage_NoneForAnAlly_EvenIfHostile_AndForANeutralColonyAtPeace()
     {
-        var (_, ally, saga) = Act2(EmpireStance.Ally);
+        var (_, ally, saga) = Act2(PowerStance.Ally);
         Assert.Equal(CrisisStage.None, StageOf(ally, saga, hostile: true));
 
-        var (_, neutral, saga2) = Act2(EmpireStance.Neutral);
+        var (_, neutral, saga2) = Act2(PowerStance.Neutral);
         Assert.Equal(CrisisStage.None, StageOf(neutral, saga2));
         Assert.Equal(CrisisStage.Probing, StageOf(neutral, saga2, hostile: true)); // e.g. the Empire turned on it over a ship
     }
@@ -61,75 +62,75 @@ public class CrisisTests
     [Fact]
     public void Stage_Act2EscalatesWithExpansionsAndSurvivedOperations()
     {
-        var (_, plot, saga) = Act2(EmpireStance.Oppose);
+        var (_, plot, saga) = Act2(PowerStance.Oppose);
         Assert.Equal(CrisisStage.Probing, StageOf(plot, saga));
         Assert.Equal(CrisisStage.Reclamation, StageOf(plot, saga, survived: CrisisStages.ReclamationAfter));
 
         Expansions(saga, CrisisStages.ReclamationAfter);
         Assert.Equal(CrisisStage.Reclamation, StageOf(plot, saga));
 
-        Expansions(saga, EmpireArc.ExpansionsForReckoning - CrisisStages.WarBeforeReckoning - CrisisStages.ReclamationAfter);
+        Expansions(saga, PowerArc.ExpansionsForReckoning - CrisisStages.WarBeforeReckoning - CrisisStages.ReclamationAfter);
         Assert.Equal(CrisisStage.War, StageOf(plot, saga));
     }
 
     [Fact]
     public void Stage_Act3IsWarAgainstAnAscendantEmpire_AndCappedAtReclamationWhenBroken()
     {
-        var (book, plot, saga) = Act2(EmpireStance.Oppose);
+        var (book, plot, saga) = Act2(PowerStance.Oppose);
         book.Advance(plot, PlotBeat.Choice, 90, 6, "reckoning");
-        saga.State = EmpireState.Ascendant;
+        saga.State = PowerState.Ascendant;
         Assert.Equal(CrisisStage.War, StageOf(plot, saga));
 
-        saga.State = EmpireState.Broken;
+        saga.State = PowerState.Broken;
         Assert.Equal(CrisisStage.Reclamation, StageOf(plot, saga));
 
-        EmpireArc.StartJob(plot, EmpireStep.StormCapital, "Capital");
+        PowerArc.StartJob(plot, PowerStep.StormCapital, "Capital");
         Assert.Equal(CrisisStage.Reclamation, StageOf(plot, saga)); // a broken Empire never reaches the finale
-        saga.State = EmpireState.Ascendant;
+        saga.State = PowerState.Ascendant;
         Assert.Equal(CrisisStage.Finale, StageOf(plot, saga));
     }
 
     [Fact]
     public void Stage_FinaleOnAShipLaunch_OrARefusedFinalDemand()
     {
-        var (_, plot, saga) = Act2(EmpireStance.Oppose);
+        var (_, plot, saga) = Act2(PowerStance.Oppose);
         saga.NextShipRaidDay = 70;
         Assert.Equal(CrisisStage.Finale, StageOf(plot, saga));
 
-        var (book, neutral, saga2) = Act2(EmpireStance.Neutral);
+        var (book, neutral, saga2) = Act2(PowerStance.Neutral);
         book.Advance(neutral, PlotBeat.Choice, 90, 6, "reckoning");
-        saga2.State = EmpireState.Ascendant;
-        EmpireArc.StartJob(neutral, EmpireStep.FinalDemand, "", 90);
-        neutral.SetFact(EmpireArc.Answer, EmpireArc.Decline);
-        EmpireArc.FinishJob(neutral);
-        Assert.Equal(EmpireArc.CauseFinalDemand, neutral.Fact(EmpireArc.StanceCause));
+        saga2.State = PowerState.Ascendant;
+        PowerArc.StartJob(neutral, PowerStep.FinalDemand, "", 90);
+        neutral.SetFact(PowerArc.Answer, PowerArc.Decline);
+        PowerArc.FinishJob(neutral);
+        Assert.Equal(PowerArc.CauseFinalDemand, neutral.Fact(PowerArc.StanceCause));
         Assert.Equal(CrisisStage.Finale, StageOf(neutral, saga2));
     }
 
     [Fact]
     public void Stage_ARefusedTributeOnlyBringsProbing_UntilTheColonyFinishesAJobAgainstTheEmpire()
     {
-        var (_, plot, saga) = Act2(EmpireStance.Neutral);
-        Expansions(saga, EmpireArc.ExpansionsForReckoning - CrisisStages.WarBeforeReckoning); // War for an opposed colony
-        EmpireArc.StartJob(plot, EmpireStep.Tribute, "", 70);
-        plot.SetFact(EmpireArc.Answer, EmpireArc.TributeRefused);
-        EmpireArc.FinishJob(plot);
-        Assert.Equal(EmpireStance.Oppose, EmpireArc.StanceOf(plot));
+        var (_, plot, saga) = Act2(PowerStance.Neutral);
+        Expansions(saga, PowerArc.ExpansionsForReckoning - CrisisStages.WarBeforeReckoning); // War for an opposed colony
+        PowerArc.StartJob(plot, PowerStep.Tribute, "", 70);
+        plot.SetFact(PowerArc.Answer, PowerArc.TributeRefused);
+        PowerArc.FinishJob(plot);
+        Assert.Equal(PowerStance.Oppose, PowerArc.StanceOf(plot));
         Assert.Equal(CrisisStage.Probing, StageOf(plot, saga, hostile: true));
 
-        EmpireArc.StartJob(plot, EmpireStep.DefendAlly, "Marrow Hold", 80);
-        plot.SetFact(EmpireArc.JobQuestFact(plot)!, QuestOutcome.Success);
-        EmpireArc.FinishJob(plot);
+        PowerArc.StartJob(plot, PowerStep.DefendAlly, "Marrow Hold", 80);
+        plot.SetFact(PowerArc.JobQuestFact(plot)!, QuestOutcome.Success);
+        PowerArc.FinishJob(plot);
         Assert.Equal(CrisisStage.War, StageOf(plot, saga, hostile: true));
     }
 
     [Fact]
     public void Stage_NoneOnceTheStoryEnds()
     {
-        var (_, plot, saga) = Act2(EmpireStance.Oppose);
-        plot.SetFact(EmpireArc.EndingFact, EmpireEnding.Resistance);
+        var (_, plot, saga) = Act2(PowerStance.Oppose);
+        plot.SetFact(PowerArc.EndingFact, EmpireEnding.Resistance);
         Assert.Equal(CrisisStage.None, StageOf(plot, saga));
-        plot.SetFact(EmpireArc.EndingFact, "");
+        plot.SetFact(PowerArc.EndingFact, "");
         saga.Ending = EmpireEnding.Independence;
         Assert.Equal(CrisisStage.None, StageOf(plot, saga));
     }

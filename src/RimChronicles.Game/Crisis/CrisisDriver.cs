@@ -1,6 +1,7 @@
 using LudeonTK;
 using RimChronicles.Core.Crisis;
 using RimChronicles.Core.Empire;
+using RimChronicles.Core.Powers;
 using RimChronicles.Core.News;
 using RimChronicles.Core.Plots;
 using RimChronicles.Game.Empire;
@@ -96,7 +97,7 @@ public static class CrisisDriver
     /// <summary>Today's budget for a stage: the storyteller's threat scale times the crisis difficulty setting.</summary>
     public static float Budget(RimChroniclesGameComponent component, CrisisStage stage, ColonyStrength strength) =>
         ThreatBudget.Compute(stage, Find.Storyteller.difficulty.threatScale * RimChroniclesMod.Settings.CrisisDifficulty, strength,
-            component.Empire.State == EmpireState.Broken);
+            component.Empire.State == PowerState.Broken);
 
     private static void Start(RimChroniclesGameComponent component, int today, string why)
     {
@@ -120,7 +121,7 @@ public static class CrisisDriver
         var colony = Faction.OfPlayer.Name;
         if (CrisisText.StageNews(stage, before, empire.Name, colony) is { Length: > 0 } news)
         {
-            component.News.Add(new NewsEvent(today, EmpireSaga.NewsKind, news, empire.Name));
+            component.News.Add(new NewsEvent(today, Power.Empire.NewsKind, news, empire.Name));
         }
 
         if (CrisisText.StageLetter(stage, before, empire.Name, colony) is { } letter)
@@ -197,7 +198,7 @@ public static class CrisisDriver
         if (RimChroniclesGameComponent.Current is { } component && EmpireBeats.Current(component) is { } plot)
         {
             PlotDriver.DevAsk(component, plot, EmpireBeats.SiteOptions(plot,
-                new PlotTransition("Empire:SabotageImperial", EmpireStep.SabotageImperial, 1)), "site");
+                new PlotTransition("Empire:SabotageImperial", PowerStep.SabotageImperial, 1)), "site");
         }
     }
 
