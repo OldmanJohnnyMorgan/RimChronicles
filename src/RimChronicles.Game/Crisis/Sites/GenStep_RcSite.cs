@@ -302,6 +302,11 @@ public sealed class MapComponent_RcSite(Map map) : MapComponent(map)
             }
         }
 
+        if (archetype.needsHolding)
+        {
+            return; // a Reclaimed Holding's quest frees the settlement and sends its own letter (Liberation)
+        }
+
         var (label, text) = archetype.capability switch
         {
             CrisisCapability.Psykers => ("Psychic relay destroyed",

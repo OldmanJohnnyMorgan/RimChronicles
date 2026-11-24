@@ -22,7 +22,8 @@ public class CrisisCaseTests
     [Fact]
     public void TheSiteArchetypes_LoadFromTheGamesXml()
     {
-        Assert.Equal(["ForwardOutpost", "OrbitalUplink", "PsychicRelay"], Sites.Select(s => s.Name).Order());
+        Assert.Equal(["ForwardOutpost", "OrbitalUplink", "PsychicRelay", "ReclaimedHolding"], Sites.Select(s => s.Name).Order());
+        Assert.True(Sites.Single(s => s.Name == "ReclaimedHolding").NeedsHolding);
         Assert.All(Sites, s => Assert.False(string.IsNullOrWhiteSpace(s.Desc)));
     }
 
@@ -67,6 +68,9 @@ public class CrisisCaseTests
                 case "Crisis:Site":
                     Assert.All(options, o => Assert.StartsWith("Site:", o));
                     Assert.Equal("ImperialCrisis/Site", group);
+                    // Reclaimed Holding only when the Empire holds a conquered settlement near the colony.
+                    var held = c.Snapshot.ActivePlots.Any(p => p.Summary?.Contains("holds it with a garrison", StringComparison.Ordinal) == true);
+                    Assert.Equal(held, options.Contains("Site:ReclaimedHolding"));
                     break;
                 default:
                     Assert.All(options, o => Assert.True(o == "Wait" || o.StartsWith(CrisisOperations.Prefix, StringComparison.Ordinal), o));
@@ -75,6 +79,14 @@ public class CrisisCaseTests
                     break;
             }
         }
+    }
+
+    [Fact]
+    public void SomeSiteCases_OfferAReclaimedHolding_AndSomeDont()
+    {
+        var sites = OneCycle().Where(c => c.Scenario == "Crisis:Site").Select(c => c.Snapshot.AllowedTransitions.Contains("Site:ReclaimedHolding")).ToList();
+        Assert.Contains(true, sites);
+        Assert.Contains(false, sites);
     }
 
     [Fact]

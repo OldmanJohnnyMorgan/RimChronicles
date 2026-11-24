@@ -62,4 +62,23 @@
     </genStep>
   </GenStepDef>
 
+  <SitePartDef ParentName="Outpost" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_ImperialHolding</defName>
+    <label>Imperial-held settlement</label>
+    <description>An Imperial garrison holding a conquered settlement.</description>
+    <arrivedLetter>An Imperial garrison holds this place. Its comms console is in the room deepest inside the walls: destroy it and the garrison's hold is broken.</arrivedLetter>
+    <tags Inherit="False">
+      <li>RimChronicles_ImperialHolding</li>
+    </tags>
+  </SitePartDef>
+
+  <GenStepDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_ImperialHolding</defName>
+    <linkWithSite>RimChronicles_ImperialHolding</linkWithSite>
+    <order>400</order>
+    <genStep Class="RimChronicles.Game.Crisis.Sites.GenStep_RcSite">
+      <archetype>RimChronicles_Site_ReclaimedHolding</archetype>
+    </genStep>
+  </GenStepDef>
+
 </Defs>

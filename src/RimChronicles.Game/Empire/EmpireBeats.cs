@@ -128,6 +128,20 @@ public static class EmpireBeats
                 // While the crisis runs, the sabotage is an Imperial site (C9); otherwise, or with no site defs, a settlement.
                 if (Crisis.Sites.SiteOffers.Pick(component, empire, transition.Sub) is { } archetype)
                 {
+                    if (archetype.needsHolding)
+                    {
+                        if (Crisis.Sites.SiteOffers.Holding(component, empire) is not { } held)
+                        {
+                            return false; // the holding changed hands since the options were read; it decides again later
+                        }
+
+                        var town = held.Settlement.Label;
+                        return StartQuest(component, plot, today, gap, transition.Step, town, () => QuestOffers.ImperialSite(component, plot, archetype, empire,
+                            $"Liberate {town}",
+                            $"{empire.Name} took {town} from {held.Former.Name}, and an Imperial garrison holds it near {Colony}. Destroy the comms "
+                            + $"console deepest inside the garrison's walls, and {town} goes back to {held.Former.Name}.", held));
+                    }
+
                     var near = QuestOffers.NearestSettlement(s => s.Faction == empire)?.Label ?? archetype.label;
                     return StartQuest(component, plot, today, gap, transition.Step, near, () => QuestOffers.ImperialSite(component, plot, archetype, empire,
                         $"Destroy the {archetype.label}",

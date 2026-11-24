@@ -18,6 +18,7 @@ public static class SiteArchetypeXml
                 Desc = ((string?)e.Element("description") ?? "").Trim(),
                 ObjectiveTag = (string?)e.Element("objectiveTag") ?? "",
                 MinStage = Enum.TryParse<CrisisStage>((string?)e.Element("minStage"), out var stage) ? stage : CrisisStage.Probing,
+                NeedsHolding = (string?)e.Element("needsHolding") == "true",
                 Weight = double.TryParse((string?)e.Element("weight"), NumberStyles.Float, CultureInfo.InvariantCulture, out var w) ? w : 1,
             })
             .ToList();

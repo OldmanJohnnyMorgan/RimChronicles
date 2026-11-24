@@ -366,6 +366,8 @@ Built 2026-11-24 (`milestones/C11-director-wiring.md`). Steps: `crisis-runbook-4
 - [ ] 6. Recorded cases include the crisis and its follow-ups (none with the E4B director).
 - [ ] 7. Save, reload, decide again: no errors.
 - [ ] 8. `validate` and a free `run --tasks director`: snap-01–23 unchanged, snap-24 valid.
+- [ ] 9. Reclaimed Holding (runbook steps 8–10): offered once the Empire holds a nearby town; destroying the
+      garrison's console hands the town back, with a letter, news and goodwill.
 
 Then the crisis retrain (training/README.md, "Crisis retrain"): crisis test labels (Claude Code, in session), local
 labels, E2B and E4B retrained, reports and reviews, and the presets marked as knowing the crisis.

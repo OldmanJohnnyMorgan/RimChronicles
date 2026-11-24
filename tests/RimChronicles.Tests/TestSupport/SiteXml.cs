@@ -43,6 +43,7 @@ public static class SiteXml
             Weight = F(Text("weight"), 1),
             Capability = Text("capability"),
             CapabilityDays = I(Text("capabilityDays"), 0),
+            NeedsHolding = Text("needsHolding") == "true",
         };
     }
 }

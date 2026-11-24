@@ -387,11 +387,18 @@ public static class CaseGenerator
             }
 
             var conquests = rng.Next(1, 4);
+            var holding = kind == "Site" && rng.NextDouble() < 0.5 ? CasePools.Pick(rng, CasePools.Settlements) : null; // Reclaimed Holding
             var empireSentences = new List<string>
             {
                 $"{empireName} woke on day {wokeDay}", $"{_colony} is at war with {empireName}",
                 $"{empireName} has taken {conquests} settlement{(conquests == 1 ? "" : "s")} on the rim",
             };
+            if (holding is not null)
+            {
+                var owner = AddFaction("Outlanders", rng.Next(0, 60));
+                empireSentences.Add($"{empireName} took {holding} from {owner}, {rng.Next(5, 25)} tiles from {_colony}, and holds it with a garrison");
+            }
+
             if (stage == CrisisStage.Finale || broken)
             {
                 empireSentences.Add(broken ? $"{empireName} is breaking after heavy losses" : $"{empireName} now holds most of the region");
@@ -452,7 +459,7 @@ public static class CaseGenerator
                 case "Site":
                 {
                     _daysInBeat = rng.Next(1, CaseGenerator.StallDays);
-                    var allowed = SiteArchetypes.Allowed(Sites, stage);
+                    var allowed = SiteArchetypes.Allowed(Sites, stage, holdingNear: holding is not null);
                     _extraPlots.Add(crisisInfo);
                     MaybeWaited(empire);
                     return (EmpireInfo(),

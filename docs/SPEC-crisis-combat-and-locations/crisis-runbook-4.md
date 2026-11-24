@@ -57,6 +57,9 @@ decides it. Turn on **Dev: record director decisions for training** for steps 2â
 | 5 | **Crisis: ask director for a site**; then, from a save where the Empire plot offers `Empire:SabotageImperial`, **Plot: advance beat** until it's chosen. | The box shows a `Site:*` pick. When the job is offered, the log has the `Site:*` follow-up and the quest is that site. |
 | 6 | Open the recorded cases folder (`â€¦\RimChronicles\director-cases`). | The crisis decisions and their `-sub` follow-ups are there; their JSON has a `crisis` block. With the E4B director (step 1) there's no crisis case. |
 | 7 | Save and reload mid-crisis; **Crisis: decide now**. | Works as before; no errors. |
+| 8 | At stage 2 or later, opposed: **Crisis: Empire takes the nearest settlement**, then **Crisis: ask director for a site**. | The options include `Site:ReclaimedHolding`. |
+| 9 | **Crisis: offer Reclaimed Holding**; accept the "Liberate {town}" quest. | The site appears next to the town (Imperial colours); its map is a walled garrison with the comms console deepest inside. |
+| 10 | Destroy the comms console. | The quest succeeds; a "{town} liberated" letter (in the Chronicle tab under the Empire story); news; the town is in its old faction's colours and owner again; +15 goodwill with them. No "Outpost comms destroyed" letter. |
 
 Then the free harness run (no `--judge`, no `claude-ref`) in PowerShell:
 

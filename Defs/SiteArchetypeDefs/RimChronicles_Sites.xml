@@ -89,4 +89,34 @@
     <capabilityDays>15</capabilityDays>
   </RimChronicles.Game.Crisis.Sites.SiteArchetypeDef>
 
+  <!-- Reclaimed Holding (crisis C11): a settlement the Empire conquered near the colony, held by an Imperial garrison.
+       Offered only while there is one. Destroying the garrison's comms console breaks its hold: the settlement goes
+       back to the faction the Empire took it from (QuestPart_ChroniclesLiberate). -->
+  <RimChronicles.Game.Crisis.Sites.SiteArchetypeDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Site_ReclaimedHolding</defName>
+    <label>Imperial-held settlement</label>
+    <description>the Imperial garrison holding a settlement the Empire conquered nearby; breaking it frees the settlement and hands it back to its people</description>
+    <archetype>ReclaimedHolding</archetype>
+    <sitePart>RimChronicles_ImperialHolding</sitePart>
+    <objectiveThing>CommsConsole</objectiveThing>
+    <objectiveTag>CommsRoom</objectiveTag>
+    <size>(52,52)</size>
+    <required>
+      <li><tag>Barracks</tag><count>2</count></li>
+      <li><tag>Power</tag></li>
+    </required>
+    <optional>
+      <li><tag>Turret</tag><weight>2</weight><max>3</max></li>
+      <li><tag>Armory</tag><weight>1</weight><max>1</max></li>
+      <li><tag>Records</tag><weight>1</weight><max>1</max></li>
+      <li><tag>Artillery</tag><weight>1</weight><max>1</max></li>
+    </optional>
+    <gates>2</gates>
+    <budget>1200~4500</budget>
+    <pieceShare>0.4</pieceShare>
+    <minStage>Reclamation</minStage>
+    <weight>3</weight>
+    <needsHolding>true</needsHolding>
+  </RimChronicles.Game.Crisis.Sites.SiteArchetypeDef>
+
 </Defs>
