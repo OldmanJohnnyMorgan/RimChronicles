@@ -38,6 +38,9 @@ public sealed class Power
     /// <summary>The ending when the colony takes the power's capital (the Empire's: Resistance).</summary>
     public string DefeatEnding { get; init; } = global::RimChronicles.Core.Empire.EmpireEnding.Resistance;
 
+    /// <summary>How text names it ("the Empire", "the Hollow Choir").</summary>
+    public string DisplayName { get; init; } = "the Empire";
+
     public required PowerText Text { get; init; }
 
     public override string ToString() => Id;
@@ -65,6 +68,7 @@ public sealed class Power
         EnvoyOption = "Act1:ChoirEnvoy",
         MarchOption = "Act2:TheChoirMarches",
         ColonistTrigger = AwakeningTrigger.MechanitorColonist,
+        DisplayName = "the Hollow Choir",
         ServiceEnding = global::RimChronicles.Core.Choir.ChoirEnding.Choral,
         DefeatEnding = global::RimChronicles.Core.Choir.ChoirEnding.Silenced,
         Text = new global::RimChronicles.Core.Choir.ChoirPowerText(),

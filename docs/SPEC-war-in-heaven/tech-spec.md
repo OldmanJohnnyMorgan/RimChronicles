@@ -153,6 +153,16 @@ The Empire's crisis code, run with `Power.Choir`. What differs:
 
 Captives, interrogation, intel and defectors work as today, with Choir intel items.
 
+**As built (W7–W8, the director's vocabulary first, so the retrain can go ahead):** `CrisisOperations.Choir` lists
+`ProbingSwarm`, `TunnelBreach`, `TheHum`, `Retrieval`, `ClusterSiege`, `Burrowing` and `FinalChorus` (stages,
+weights and cooldowns as the Empire's), `For(power)` picks the list, `IsSiege(step)` marks the sieges that take a
+`Goal:*` (the goals are shared), and `CrisisContext.Power` (the Empire by default) selects them in `CrisisArc`. Site
+defs carry a `power` (`empire` by default); `RimChronicles_ChoirSites.xml` adds `ClusterOutpost`, `Resonator`
+(capability: psykers, the hum), `SignalSpire` (capability: strikes, the cluster drops) and `ChoirHolding`, on the
+Imperial site parts until W8 builds the Choir's pieces. The game offers only the Empire's sites; `director-gen`'s site
+loader takes a power. The Empire's operations, sites and cases are unchanged. The game side (units, the commander AI,
+spawning, sites in game, the Cathedral) is still to do.
+
 ## 5. Allegiance and the summons
 
 - **Allegiance** (R8). Siding with a power makes the colony hostile to the other (faction relation set, the other
@@ -191,6 +201,17 @@ Captives, interrogation, intel and defectors work as today, with Choir intel ite
 
 The epilogue task gets the two new endings (prompt change, rule 8). A refused treaty sends a letter and the war goes
 on.
+
+**As built (W10–W11 Core):** `WarInHeaven` (Core/War, saved): state, start day and cause, the front score, destroyed
+powers and a log. `Odds(warDays)`: 0 for 30 days of war, then rising to 3% a day at 180 days, capped at 10%;
+`StartsToday` is certain from day 600; `CanStart` needs both powers awake (story not over) and the colony at war
+(`Allegiance.WarSince()` gives the war's first day). `WarArc` (template `WarInHeaven`, options `War:*`): on a power's
+side `DefendFront`, `StrikeRival`, `EscortConvoy`, `SabotageRival`, and `FinalPush` from front 4 (success destroys the
+rival); once the rival is destroyed, `VictoryOffer` (the side's `ServiceEnding`: Imperial or Choral). Independent:
+`StrikeEmpire`/`StrikeChoir`, `SabotageEmpire`/`SabotageChoir`; after one power falls, `TreatyOffer` (refusable,
+Independence); after both, `Ending:IndependenceTotal`. Jobs move the front by ±1. `Power.DisplayName` names the
+powers in descriptions. The game side (the daily roll, the War plot's quests, the rival weighting in expansion,
+destruction instead of the Resistance ending, victory screens and the epilogue's new endings) is still to do.
 
 ## 7. Director, snapshot and prompts
 

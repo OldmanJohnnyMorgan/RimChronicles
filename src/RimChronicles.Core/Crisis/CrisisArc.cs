@@ -16,6 +16,9 @@ public sealed record CrisisContext
 
     /// <summary>Days between crisis operations (the pacing gate, a setting).</summary>
     public int GapDays { get; init; } = CrisisArc.DefaultGapDays;
+
+    /// <summary>Whose crisis this is (War in Heaven W7): the Empire's unless said otherwise.</summary>
+    public Powers.Power Power { get; init; } = Powers.Power.Empire;
 }
 
 /// <summary>
@@ -75,7 +78,7 @@ public static class CrisisArc
             return [];
         }
 
-        var allowed = CrisisOperations.All.Where(o =>
+        var allowed = CrisisOperations.For(context.Power).Where(o =>
                 o.MinStage <= context.Stage
                 && (!o.FinaleOnly || context.Stage == CrisisStage.Finale)
                 && (!o.NeedsCaptive || context.HoldsCaptive)

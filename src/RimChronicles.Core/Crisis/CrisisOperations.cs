@@ -39,4 +39,33 @@ public static class CrisisOperations
     ];
 
     public static OperationSpec? Find(string step) => All.FirstOrDefault(o => o.Step == step);
+
+    // The Hollow Choir's operations (War in Heaven spec §4.3, tech spec §4.3): the mirror of the Empire's, with mechs
+    // and mechanitors. Retrieval keeps its name; the rest are the Choir's own.
+    public const string ProbingSwarm = "ProbingSwarm";
+    public const string TunnelBreach = "TunnelBreach";
+    public const string TheHum = "TheHum";
+    public const string ClusterSiege = "ClusterSiege";
+    public const string Burrowing = "Burrowing";
+    public const string FinalChorus = "FinalChorus";
+
+    public static readonly IReadOnlyList<OperationSpec> Choir =
+    [
+        new(ProbingSwarm, CrisisStage.Probing, 3, 0, "a small swarm of Choir mechs tests the colony's defenses, then pulls back to report"),
+        new(TunnelBreach, CrisisStage.Reclamation, 2, 10, "tunnelling mechs come up under the walls and turrets; the main force follows"),
+        new(TheHum, CrisisStage.Reclamation, 2, 10, "Choir resonators fill the air with the hum, and its mechanitors attack while the colony reels"),
+        new(Retrieval, CrisisStage.Reclamation, 3, 12, "a strike force comes for a Choir captive or defector the colony holds") { NeedsCaptive = true },
+        new(ClusterSiege, CrisisStage.War, 2, 20, "the Choir drops a mech cluster near the colony and grows it into a siege"),
+        new(Burrowing, CrisisStage.War, 1, 20, "mechs burrow up near the colony's leader"),
+        new(FinalChorus, CrisisStage.Finale, 4, 15, "the First Voice leads every mech of the Choir against the colony") { FinaleOnly = true },
+    ];
+
+    /// <summary>True for a siege, which a second director call gives a <c>Goal:*</c> (crisis tech spec R8): the Empire's
+    /// siege with bombardment, or the Choir's cluster siege.</summary>
+    public static bool IsSiege(string step) => step is SiegeWithBombardment or ClusterSiege;
+
+    /// <summary>The operations of <paramref name="power"/>'s crisis.</summary>
+    public static IReadOnlyList<OperationSpec> For(Powers.Power power) => power == Powers.Power.Choir ? Choir : All;
+
+    public static OperationSpec? Find(string step, Powers.Power power) => For(power).FirstOrDefault(o => o.Step == step);
 }

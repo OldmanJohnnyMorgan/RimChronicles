@@ -104,7 +104,12 @@ public sealed class Allegiance : IArchivable
     public IReadOnlyList<(Power Power, string Stance)> DeclareIndependence(IReadOnlyList<Power> powers, int day, string cause) =>
         powers.Where(p => Change(p, PowerStance.Oppose, day, cause)).Select(p => (p, PowerStance.Oppose)).ToList();
 
-    private bool Change(Power power, string stance, int day, string cause)
+    /// <summary>The day the colony's current war began: the earliest day it turned against a power it still opposes, or
+    /// -1 while it opposes none.</summary>
+    public int WarSince() =>
+        Stances.Where(e => e.Stance == PowerStance.Oppose).Select(e => e.Day).DefaultIfEmpty(-1).Min();
+
+        private bool Change(Power power, string stance, int day, string cause)
     {
         var entry = Entry(power.Id);
         if ((entry?.Stance ?? PowerStance.Neutral) == stance && entry is not null)
