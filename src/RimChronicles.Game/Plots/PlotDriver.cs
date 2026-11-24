@@ -111,6 +111,7 @@ public static class PlotDriver
                 var (definition, _) = Director.Build(library, world, tier, grammar: true,
                     new DelegateFallback<DirectorChoice>(() => new DirectorChoice(fallback.Id, "picked by weight: no valid answer from the model")));
                 var outcome = await new LlmTaskRunner(chat).RunAsync(definition, token).ConfigureAwait(false);
+                ModelNotices.Post(mainThread, outcome.Attempts, "director");
                 choice = outcome.Value;
                 source = outcome.Source == OutcomeSource.Template ? "Random" : outcome.Source.ToString();
             }

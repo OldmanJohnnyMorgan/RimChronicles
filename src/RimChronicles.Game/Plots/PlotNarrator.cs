@@ -54,6 +54,7 @@ public static class PlotNarrator
             {
                 var definition = build(prompts, tier, new DelegateFallback<string>(() => templateText));
                 var outcome = await new LlmTaskRunner(provider).RunAsync(definition, token).ConfigureAwait(false);
+                ModelNotices.Post(mainThread, outcome.Attempts, "narration");
                 text = outcome.Value + Footer(outcome.Source.ToString(), outcome.Source == OutcomeSource.Template ? "" : outcome.PromptVersion);
                 if (outcome.Source == OutcomeSource.Template && Prefs.DevMode)
                 {

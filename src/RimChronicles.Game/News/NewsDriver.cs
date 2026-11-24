@@ -75,6 +75,7 @@ public static class NewsDriver
                 {
                     var (definition, _) = BulletinTask.Build(prompts, snapshot, tier, ThinkingMode.Off, fallback);
                     var outcome = await new LlmTaskRunner(provider).RunAsync(definition, token).ConfigureAwait(false);
+                    ModelNotices.Post(mainThread, outcome.Attempts, "narration");
                     bulletin = new Bulletin
                     {
                         Text = outcome.Value,

@@ -51,9 +51,9 @@ public static class ReporterKeeper
 
         desk.NewReporter(DisplayName(pawn), faction.Name, today, Rand.RangeInclusive(NewsDesk.MinVisitGapDays, NewsDesk.MaxVisitGapDays));
         var reporter = desk.Reporter;
-        LetterSink.Instance.Send($"{reporter.Outlet.CapitalizeFirst()}: new correspondent",
+        StoryLetters.Send($"{reporter.Outlet.CapitalizeFirst()}: new correspondent",
             $"{reporter.Name} of {faction.Name} will be reporting for {reporter.Outlet}, with a bulletin every "
-            + $"{RimChroniclesMod.Settings.NewsCadenceDays} days. Past bulletins are kept in the Dispatch tab.");
+            + $"{RimChroniclesMod.Settings.NewsCadenceDays} days. Past bulletins are kept in the Dispatch tab.", LetterDefOf.NeutralEvent, faction: faction);
     }
 
     /// <summary>The youngest a reporter may be. In 1.7 the adult life stage starts at 13, so the developmental stage

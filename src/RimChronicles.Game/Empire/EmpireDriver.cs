@@ -3,6 +3,7 @@ using RimChronicles.Core.Empire;
 using RimChronicles.Core.News;
 using RimChronicles.Core.Plots;
 using RimChronicles.Game.Plots;
+using RimChronicles.Game.Engine;
 using RimWorld;
 using RimWorld.Planet;
 using Verse;
@@ -219,7 +220,7 @@ public static class EmpireDriver
         component.News.Add(new NewsEvent(today, EmpireSaga.NewsKind, ev.NewsText, empire.Name));
         if (ev.LetterLabel is { } label && ev.LetterText is { } text)
         {
-            Find.LetterStack.ReceiveLetter(label, text, LetterDefOf.ThreatBig);
+            StoryLetters.Send(label, text, LetterDefOf.ThreatBig, faction: empire);
         }
     }
 
@@ -273,9 +274,9 @@ public static class EmpireDriver
             empire.TryAffectGoodwillWith(Faction.OfPlayer, -100 - empire.PlayerGoodwill, canSendMessage: true, canSendHostilityLetter: true);
         }
 
-        Find.LetterStack.ReceiveLetter("The Empire will not let you leave",
+        StoryLetters.Send("The Empire will not let you leave",
             $"Word of the ship has reached {empire.Name}. A colony that could carry its secrets off the rim is not one the Empire can allow.\n\n"
-            + "Imperial troops are on their way, and more will follow while the reactor starts up.", LetterDefOf.ThreatBig);
+            + "Imperial troops are on their way, and more will follow while the reactor starts up.", LetterDefOf.ThreatBig, faction: empire);
         var today = GenDate.DaysPassed;
         saga.Note(today, "the colony started a ship reactor: the Empire moves to stop it");
         saga.NextShipRaidDay = today;

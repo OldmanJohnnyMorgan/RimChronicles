@@ -2,6 +2,7 @@ using LudeonTK;
 using RimChronicles.Core.News;
 using RimChronicles.Core.Plots;
 using RimChronicles.Core.Plots.LostFamily;
+using RimChronicles.Game.Engine;
 using RimWorld;
 using RimWorld.Planet;
 using Verse;
@@ -160,7 +161,7 @@ public static class LostFamilyBeats
 
     private static void Narrate(RimChroniclesGameComponent component, Plot plot, string step, (string Label, string Text) template, LetterDef def) =>
         PlotNarrator.Write(component, PlotNarrator.CaseFor(plot, step), Colony, template.Text,
-            text => Find.LetterStack.ReceiveLetter(template.Label, text, def));
+            text => StoryLetters.Send(component, plot, template.Label, text, def));
 
     [DebugAction("Rim Chronicles", "Lost Family: force seed", allowedGameStates = AllowedGameStates.Playing)]
     public static void DevSeed()

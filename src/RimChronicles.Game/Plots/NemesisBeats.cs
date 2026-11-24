@@ -229,7 +229,7 @@ public static class NemesisBeats
     /// <summary>Sends a beat's letter: written by the model when one is set up, else the template. The label is fixed.</summary>
     private static void Narrate(RimChroniclesGameComponent component, Plot plot, string step, (string Label, string Text) template, LetterDef def) =>
         PlotNarrator.Write(component, PlotNarrator.CaseFor(plot, step), Colony, template.Text,
-            text => Find.LetterStack.ReceiveLetter(template.Label, text, def));
+            text => StoryLetters.Send(component, plot, template.Label, text, def));
 }
 
 /// <summary>The payoff memories, defined in Defs/ThoughtDefs/RimChronicles_Thoughts.xml.</summary>
