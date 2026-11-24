@@ -153,6 +153,16 @@ The Empire's crisis code, run with `Power.Choir`. What differs:
 
 Captives, interrogation, intel and defectors work as today, with Choir intel items.
 
+**As built (W7–W8, the director's vocabulary first, so the retrain can go ahead):** `CrisisOperations.Choir` lists
+`ProbingSwarm`, `TunnelBreach`, `TheHum`, `Retrieval`, `ClusterSiege`, `Burrowing` and `FinalChorus` (stages,
+weights and cooldowns as the Empire's), `For(power)` picks the list, `IsSiege(step)` marks the sieges that take a
+`Goal:*` (the goals are shared), and `CrisisContext.Power` (the Empire by default) selects them in `CrisisArc`. Site
+defs carry a `power` (`empire` by default); `RimChronicles_ChoirSites.xml` adds `ClusterOutpost`, `Resonator`
+(capability: psykers, the hum), `SignalSpire` (capability: strikes, the cluster drops) and `ChoirHolding`, on the
+Imperial site parts until W8 builds the Choir's pieces. The game offers only the Empire's sites; `director-gen`'s site
+loader takes a power. The Empire's operations, sites and cases are unchanged. The game side (units, the commander AI,
+spawning, sites in game, the Cathedral) is still to do.
+
 ## 5. Allegiance and the summons
 
 - **Allegiance** (R8). Siding with a power makes the colony hostile to the other (faction relation set, the other

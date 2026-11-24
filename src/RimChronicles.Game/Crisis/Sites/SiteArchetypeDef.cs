@@ -26,6 +26,9 @@ public sealed class SiteArchetypeDef : Def
     /// <summary>The archetype's name ("PsychicRelay"): its id is <c>Site:PsychicRelay</c>.</summary>
     public string archetype = "";
 
+    /// <summary>Whose site it is (War in Heaven W7): a power id, the Empire's by default.</summary>
+    public string power = Core.Powers.Power.Empire.Id;
+
     public SitePartDef? sitePart;
     public ThingDef? objectiveThing;
     public string objectiveTag = "";
@@ -51,6 +54,7 @@ public sealed class SiteArchetypeDef : Def
 
     public SiteArchetype ToCore() => new()
     {
+        Power = power,
         Name = archetype,
         Desc = description ?? "",
         Width = size.x,
