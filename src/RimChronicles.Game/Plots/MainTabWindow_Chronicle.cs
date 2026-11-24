@@ -1,4 +1,5 @@
 using RimChronicles.Core.Plots;
+using RimChronicles.Game.Engine;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -17,6 +18,10 @@ public sealed class MainTabWindow_Chronicle : MainTabWindow
     private string _selected = "";
     private Vector2 _listScroll;
     private Vector2 _storyScroll;
+
+    // Text heights for the shown story, measured again only when the story, its length or the width changes.
+    private List<float> _heights = [];
+    private (string Id, int Count, float Width) _heightsKey;
 
     public override Vector2 RequestedTabSize => new(960f, 680f);
 
@@ -99,7 +104,13 @@ public sealed class MainTabWindow_Chronicle : MainTabWindow
 
         var outRect = new Rect(rect.x, rect.y + 62f, rect.width, rect.height - 62f);
         var width = outRect.width - 20f;
-        var heights = plot.Story.Select(e => Text.CalcHeight(e.Text, e.Answer ? width - 16f : width)).ToList();
+        if (_heightsKey != (plot.Id, plot.Story.Count, width))
+        {
+            _heights = plot.Story.Select(e => Text.CalcHeight(e.Text, e.Answer ? width - 16f : width)).ToList();
+            _heightsKey = (plot.Id, plot.Story.Count, width);
+        }
+
+        var heights = _heights;
         var total = plot.Story.Select((e, i) => heights[i] + (e.Answer ? 0f : 24f) + Gap).Sum();
         var view = new Rect(0f, 0f, width, total);
 
@@ -119,7 +130,7 @@ public sealed class MainTabWindow_Chronicle : MainTabWindow
             }
 
             GUI.color = new Color(0.75f, 0.75f, 0.75f);
-            Widgets.Label(new Rect(0f, y, width, 24f), $"Day {entry.Day}   ·   {entry.Label}");
+            Widgets.Label(new Rect(0f, y, width, 24f), $"{GameDates.DayAndDate(entry.Day)}   ·   {entry.Label}");
             GUI.color = Color.white;
             y += 24f;
             Widgets.Label(new Rect(0f, y, width, heights[i]), entry.Text);
