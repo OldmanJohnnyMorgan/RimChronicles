@@ -254,6 +254,82 @@ doors) to catch every building type.
 - Crisis defNames use the existing `RimChronicles_` prefix (as `RimChronicles_Dispatch`), not `RC_`.
 - Odyssey already has `AncientOrbitalUplink` and its layouts. Our site defs stay prefixed, so the names never clash.
 
+## War in Heaven survey (W0)
+
+Read from the decompiled 1.7 source and Defs on 2026-11-24 for `docs/SPEC-war-in-heaven/`. Items marked *in game* are
+checked at War in Heaven checkpoint 1.
+
+### Factions
+
+- `FactionGenerator.NewGeneratedFaction(layer, FactionGeneratorParms)` works mid-game: it chooses or generates an
+  ideo for a humanlike faction, names it, calls `TryMakeInitialRelationsWith` for every faction, places **one**
+  settlement (`TileFinder.RandomSettlementTileFor`) unless hidden, and generates a leader. Vanilla adds factions
+  mid-game this way (`QuestNode_Root_Beggars`, `QuestNode_Root_SanguophageMeetingHost`) and then calls
+  `Find.FactionManager.Add`, which recaches and notifies every map.
+- `NewGeneratedFactionWithRelations(layer, parms, relations)` sets the given relations after generation.
+- `Faction.hidden` is a saved per-faction `bool?` override (`Hidden => hidden ?? def.hidden`), so a faction can be
+  revealed later. The Choir is still created on waking (tech spec T2), which also covers old saves.
+- More settlements: `WorldObjectMaker.MakeWorldObject(WorldObjectDefOf.Settlement)`, `SetFaction`, a tile from
+  `TileFinder.TryFindNewSiteTile(out tile, near, min, max)`, `Find.WorldObjects.Add`, as `Crisis/Sites/Citadel.cs`
+  already does.
+
+### Mechlinks and bandwidth
+
+- The implant item is `Mechlink`; the **hediff is `MechlinkImplant`** (`HediffDefOf.MechlinkImplant`,
+  `Hediff_Mechlink`, +6 `MechBandwidth`). Installing needs a psychically sensitive pawn
+  (`requiresPsychicallySensitive`). `PostAdd` creates `pawn.mechanitor` (`AddAndRemoveDynamicComponents`) and sends a
+  letter if spawned; `PostRemoved` calls `Pawn_MechanitorTracker.Notify_MechlinkRemoved`, which drops every overseer
+  relation.
+- `Pawn_MechanitorTracker.TotalBandwidth` is the `MechBandwidth` stat. **Band nodes** add a `Hediff_BandNode` on the
+  mechanitor with a +1 offset per tuned node; the pawn's own bandwidth is `TotalBandwidth` minus that hediff's offset.
+- `MechanitorUtility.IsMechanitor(pawn)`, `pawn.mechanitor.OverseenPawns`, `ControlledPawns`.
+
+### Psylinks
+
+- `pawn.GetPsylinkLevel()`, `pawn.GetMainPsylinkSource()`; `pawn.ChangePsylinkLevel(offset, sendLetter)` adds a
+  `PsychicAmplifier` psylink at level 1 when the pawn has none. `Hediff_Level.SetLevelTo(n)` sets a level.
+- **Removing the psylink hediff doesn't remove its psycasts** (`Hediff_Psylink.PostRemoved` only refreshes needs). The
+  conversion removes every `Psycast` from `pawn.abilities` itself.
+
+### Shutting mechs down
+
+- Uncontrolled colony mechs go feral (`CompOverseerSubject.TryMakeFeral`, MTB after a delay), but only while
+  `CanGoFeral`: spawned, `Awake()` and `IsColonyMechRequiringMechanitor`.
+- **`CompMechanoid.Deactivate()`** (vanilla, on every mech) sets a saved `deactivated` flag, puts the mech to sleep,
+  ends its job and tells its lord it was lost (`PawnLostCondition.Incapped`). `CanBeAwake` is false for a deactivated
+  pawn (`PawnCapacitiesHandler.CanBeAwake` checks `IsDeactivated()`), so it never goes feral. This replaces the custom
+  shut-down hediff in the tech spec. Don't zero consciousness instead: it is `lethalMechanoids`.
+- **Dismantling:** `JobDriver_DisassembleMech` (`JobDefOf.DisassembleMech`) has no overseer check; only the float menu
+  (`FloatMenuOptionProvider_Mechanitor`) requires the overseer. A float menu option of ours can queue the vanilla job
+  for any colonist on a deactivated mech. It yields `MechanitorUtility.IngredientsFromDisassembly(def)`.
+- `Need_MechEnergy` is `playerMechsOnly`, so non-player mechs (the Choir's) never run out of energy.
+
+### Summons (shuttles)
+
+- Royalty's `PawnLend` quest script is the model: a shuttle (`QuestGen_Shuttle.GenerateShuttle`, `requiredPawns`)
+  collects colonists, and **`QuestPart_LendColonistsToFaction`** keeps them in a saved list and, after
+  `returnLentColonistsInTicks`, returns them: by Imperial shuttle when lent to `Faction.OfEmpire`, otherwise by drop
+  pods. Its `Complete(SignalArgs)` is `protected override`-able: a subclass converts the pawns, then calls
+  `base.Complete`. A pawn that dies while lent comes back as a corpse (`Notify_PawnKilled`).
+- `QuestPart_ShuttleLeaveDelay` makes the shuttle leave after a delay; leaving without the pawn is the refusal.
+
+### The Royal Ascent and other endings
+
+- The Royal Ascent is `QuestScriptDef EndGame_RoyalAscent` (Royalty, `isRootSpecial`), with **no `QuestScriptDefOf`
+  field**: match `quest.root?.defName`. `Quest.Accept(Pawn by)` only acts when the state is `NotYetAccepted`, so the
+  hook is a prefix that records the state and a postfix that fires on the change.
+- The ship launch is already hooked (`ShipReactorStartupPatch`, Stage 5).
+
+### Mixed groups (*in game*)
+
+- No vanilla humanlike faction lists mech kinds in its `pawnGroupMakers` (only the hidden mechanoid hive does), so a
+  Choir group of mechanitors and mechs has no vanilla precedent. Checkpoint 1 spawns one under
+  `LordJob_AssaultColony` before any custom AI.
+- Mech kinds for the roster: Core `Mech_Scyther`, `Mech_Lancer`, `Mech_Pikeman`, `Mech_CentipedeBlaster`; Biotech
+  `Mech_Militor` (light), `Mech_Tesseron`, `Mech_Legionary` (medium), `Mech_Centurion`, `Mech_Tunneler` (heavy),
+  `Mech_Warqueen`, `Mech_Diabolus`, `Mech_Apocriton` (superheavy). Biotech's `Mechanitor` and `Mechanitor_Basic` pawn
+  kinds carry a mechlink.
+
 ## Differences that matter later
 
 - `Mod.DoSettingsWindowContents(Rect)` still takes `UnityEngine.Rect`, which is now a type in `UnityStubs`.

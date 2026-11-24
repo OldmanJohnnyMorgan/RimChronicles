@@ -10,7 +10,7 @@ first, then `main` is merged into `war-in-heaven`.
 
 | # | Milestone | Where | Done when |
 | --- | --- | --- | --- |
-| W0 | API survey | Codespace (dev save checks on the PC at checkpoint 1) | `ENGINE_NOTES.md` gets a "War in Heaven survey" section: creating a faction mid-game, mechlink and psylink add/remove, bandwidth without band nodes, the shut-down hediff vs feral, the dismantle job, the shuttle pickup and return parts, `Quest.Accept` for the Royal Ascent, mixed mech and mechanitor groups under vanilla lords. Tech spec §1 corrected from it |
+| W0 | API survey (**done 2026-11-24**) | Codespace (in-game checks at checkpoint 1) | `ENGINE_NOTES.md` gets a "War in Heaven survey" section: creating a faction mid-game, mechlink and psylink add/remove, bandwidth without band nodes, deactivating mechs vs feral, the dismantle job, the shuttle pickup and return parts, `Quest.Accept` for the Royal Ascent, mixed mech and mechanitor groups under vanilla lords. Tech spec §1 corrected from it |
 | W1 | Generalise to `Power` (no behaviour change) | Codespace | Tech spec §3's proof: tests and Golden files unchanged, case manifests byte-identical, save round-trip |
 | W2 | `Allegiance` and sides | Codespace | Stance read from the allegiance; old saves derive it; siding with one power sets the other hostile; Dev Mode "set side" |
 | W3 | Choir faction and units | Codespace | Faction def, mechanitor kinds, group makers by stage; created on waking with its settlements; Dev Mode spawns a Choir group |
