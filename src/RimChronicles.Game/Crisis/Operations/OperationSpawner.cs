@@ -7,6 +7,7 @@ using RimChronicles.Core.Crisis.Strikes;
 using RimChronicles.Game.Crisis.Siege;
 using RimChronicles.Game.Crisis.Units;
 using RimChronicles.Game.Empire;
+using RimChronicles.Game.Engine;
 using RimWorld;
 using Verse;
 using Verse.AI;
@@ -68,7 +69,7 @@ public static class OperationSpawner
         }
 
         LordMaker.MakeNewLord(empire, new LordJob_RcOperation(profile.Operation, stage, budget * profile.ReserveShare, entry, null, dev), map, pawns);
-        Find.LetterStack.ReceiveLetter("Imperial probe",
+        StoryLetters.Crisis("Imperial probe",
             $"A small Imperial force of {pawns.Count} is testing {Faction.OfPlayer.Name}'s defenses. It won't stay long: it means to "
             + "learn the colony's layout and report back, and the raids that follow will know where the doors are.",
             LetterDefOf.ThreatBig, new LookTargets(pawns), empire);
@@ -115,7 +116,7 @@ public static class OperationSpawner
                 + "Spread out against their pulses, and go for the psykers when they run hot."),
             _ => ("Imperial assault", $"{pawns.Count} Imperial troops are attacking {Faction.OfPlayer.Name}."),
         };
-        Find.LetterStack.ReceiveLetter(label, text, LetterDefOf.ThreatBig, new LookTargets(pawns), empire);
+        StoryLetters.Crisis(label, text, LetterDefOf.ThreatBig, new LookTargets(pawns), empire);
         return true;
     }
 
@@ -165,7 +166,7 @@ public static class OperationSpawner
             SiegeGoal.KillLeader => "Its strikes will go for the colony's leader whenever they're in the open.",
             _ => "",
         };
-        Find.LetterStack.ReceiveLetter("Imperial siege",
+        StoryLetters.Crisis("Imperial siege",
             $"{pawns.Count} Imperial troops are marching on {Faction.OfPlayer.Name} to lay siege. They'll dig in at a camp "
             + "out of the turrets' reach and build it up in stages: sandbags and tents, then mortar pits, an orbital uplink, a shield and "
             + $"psychic relay, and last a drop-pod beacon for reinforcements. {aim}\n\nStrike the camp early, while it's weak, "
@@ -206,7 +207,7 @@ public static class OperationSpawner
         LordMaker.MakeNewLord(empire, new LordJob_RcOperation(profile.Operation, stage, 0, spot, held, dev), map, pawns);
         DropPodUtility.DropThingsNear(spot, map, pawns, canRoofPunch: false, forbid: false, allowFogged: false, faction: empire);
         var captive = held.IsPrisonerOfColony;
-        Find.LetterStack.ReceiveLetter("Imperial retrieval",
+        StoryLetters.Crisis("Imperial retrieval",
             captive
                 ? $"Imperial drop pods are falling near {held.LabelShort}. {pawns.Count} troops have come to free them, and they'll dig through walls to do it."
                 : $"Imperial drop pods are falling near {held.LabelShort}, who defected to {Faction.OfPlayer.Name}. {pawns.Count} troops have come to take them back, "
@@ -233,7 +234,7 @@ public static class OperationSpawner
 
         LordMaker.MakeNewLord(empire, new LordJob_RcOperation(profile.Operation, stage, 0, spot, target, dev), map, pawns);
         DropPodUtility.DropThingsNear(spot, map, pawns, canRoofPunch: false, forbid: false, allowFogged: false, faction: empire);
-        Find.LetterStack.ReceiveLetter("Imperial drop pods",
+        StoryLetters.Crisis("Imperial drop pods",
             $"Imperial drop pods are falling near {target.LabelShort}. {pawns.Count} soldiers and psykers are coming for them, "
             + $"and they'll pull out once {target.LabelShort} is down.\n\nGet {target.LabelShort} under a roof or behind the guns.",
             LetterDefOf.ThreatBig, new LookTargets(target), empire);

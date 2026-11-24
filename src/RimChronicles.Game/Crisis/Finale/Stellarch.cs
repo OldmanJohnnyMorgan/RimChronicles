@@ -8,6 +8,7 @@ using RimChronicles.Core.Plots;
 using RimChronicles.Game.Crisis.Operations;
 using RimChronicles.Game.Crisis.Units;
 using RimChronicles.Game.Empire;
+using RimChronicles.Game.Engine;
 using RimWorld;
 using Verse;
 using Verse.AI.Group;
@@ -75,14 +76,14 @@ public static class Stellarch
             pawn.Position = refuge; // as vanilla's Skip moves a pawn: it keeps its lord and job state
             pawn.Notify_Teleported();
             map.effecterMaintainer.AddEffecterToMaintain(EffecterDefOf.Skip_Exit.Spawn(refuge, map), refuge, 60);
-            Find.LetterStack.ReceiveLetter("The High Stellarch skips away",
+            StoryLetters.Crisis("The High Stellarch skips away",
                 $"{pawn.LabelShort}, badly hurt, has farskipped deep into the keep. It won't be able to do that again.",
                 LetterDefOf.ThreatBig, pawn, pawn.Faction);
             return;
         }
 
         pawn.ExitMap(allowedToJoinOrCreateCaravan: false, Rot4.Invalid);
-        Find.LetterStack.ReceiveLetter("The High Stellarch skips away",
+        StoryLetters.Crisis("The High Stellarch skips away",
             $"{pawn.LabelShort}, badly hurt, has farskipped off the field. It will be waiting in the Citadel, and it can't escape that way again.",
             LetterDefOf.ThreatBig, new LookTargets(new TargetInfo(from, map)), EmpireDriver.EmpireFaction);
     }
@@ -110,7 +111,7 @@ public static class Stellarch
         var empire = EmpireDriver.EmpireFaction;
         var how = fate == StellarchFate.Captured ? "taken prisoner" : "killed";
         var carried = CarryTheAssault(component);
-        Find.LetterStack.ReceiveLetter($"The High Stellarch is {(fate == StellarchFate.Captured ? "captured" : "dead")}",
+        StoryLetters.Crisis($"The High Stellarch is {(fate == StellarchFate.Captured ? "captured" : "dead")}",
             $"{pawn.LabelShort}, the Empire's High Stellarch, has been {how}. The Empire has lost its last commander."
             + (carried ? "\n\nWith the Stellarch fallen, the assault on the capital has won." : ""),
             LetterDefOf.PositiveEvent, pawn, empire);
@@ -170,7 +171,7 @@ public static class Stellarch
         }
 
         LordMaker.MakeNewLord(empire, new LordJob_RcOperation(profile.Operation, CrisisStage.Finale, 0, entry, null, dev), map, pawns);
-        Find.LetterStack.ReceiveLetter("The Imperial final assault",
+        StoryLetters.Crisis("The Imperial final assault",
             $"{empire.Name} is throwing everything it has left at {Faction.OfPlayer.Name}: {pawns.Count} troops"
             + (leader is null ? ", without a Stellarch to lead them." : $", led by the High Stellarch {leader.LabelShort}.")
             + " They won't retreat this time.",

@@ -14,7 +14,13 @@ public static class SettingsWindow
     private static Task<ConnectionProbe.Result>? _probe;
     private static string _probeStatus = "";
 
+    /// <summary>"Other" is picked for the director model while its name is still blank; the name alone can't say so.</summary>
+    private static bool _customDirector;
+
     private static Vector2 _scroll;
+
+    /// <summary>Whether the separate-models section is open; starts open when one is set up. Not saved.</summary>
+    private static bool? _advancedOpen;
     private static float _height = 1000f;
 
     private static readonly (string Id, string Label, string Tip)[] Arcs =
@@ -29,9 +35,12 @@ public static class SettingsWindow
         // The page is taller than the window: a scroll view, sized from the last frame's height.
         var view = new Rect(0f, 0f, rect.width - 16f, _height);
         Widgets.BeginScrollView(rect, ref _scroll, view);
-        var list = new Listing_Standard();
+        // One column: without this, rows that pass last frame's height (when an option shows more fields) wrap into a
+        // second column off to the right, and the page's measured height shrinks so it never comes back.
+        var list = new Listing_Standard { maxOneColumn = true };
         list.Begin(view);
 
+        Heading(list, "Model");
         list.Label("Model tier");
         foreach (var tier in Tiers)
         {
@@ -58,12 +67,12 @@ public static class SettingsWindow
 
         DrawConnectionTest(list, settings);
 
-        list.GapLine();
+        Heading(list, "News");
         var days = (int)Math.Round(list.SliderLabeled($"News bulletin every {settings.NewsCadenceDays} day(s)", settings.NewsCadenceDays,
             RimChroniclesSettings.MinNewsCadenceDays, RimChroniclesSettings.MaxNewsCadenceDays));
         settings.NewsCadenceDays = Math.Clamp(days, RimChroniclesSettings.MinNewsCadenceDays, RimChroniclesSettings.MaxNewsCadenceDays);
 
-        list.GapLine();
+        Heading(list, "Story");
         list.CheckboxLabeled("Major plot: the Awakened Empire", ref settings.MajorPlot,
             "The Empire wakes and starts taking territory. Needs the Royalty DLC; without it, this does nothing.");
         if (settings.MajorPlot && !ModsConfig.RoyaltyActive)
@@ -97,7 +106,7 @@ public static class SettingsWindow
             }
         }
 
-        list.GapLine();
+        list.Gap();
         var intensity = list.SliderLabeled(
             $"Story intensity: {Core.Plots.StoryIntensity.Describe(settings.StoryIntensity)} ({settings.StoryIntensity:0.0}×)",
             settings.StoryIntensity, Core.Plots.StoryIntensity.Min, Core.Plots.StoryIntensity.Max,
@@ -112,7 +121,62 @@ public static class SettingsWindow
             settings.SetArcEnabled(id, on);
         }
 
+        Heading(list, "Advanced: separate models");
+        _advancedOpen ??= settings.ProseModel.Length > 0 || settings.DirectorModel.Length > 0;
+        if (list.ButtonText(_advancedOpen.Value ? "Hide" : "Show a separate prose or director model", widthPct: 0.45f))
+        {
+            _advancedOpen = !_advancedOpen.Value;
+        }
+
+        if (_advancedOpen.Value)
+        {
+            DrawSeparateModels(list, settings);
+        }
+
+        if (Prefs.DevMode)
+        {
+            list.GapLine();
+            list.CheckboxLabeled("Dev: record director decisions for training", ref settings.RecordDirectorCases,
+                $"Saves each director decision with a choice as a case in {Plots.DirectorRecorder.Folder}, for the director-model training track.");
+        }
+
         list.GapLine();
+        if (list.ButtonText("Reset to defaults", widthPct: 0.3f))
+        {
+            Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation(
+                "Reset every Rim Chronicles setting to its default? This clears the model server, any separate prose or director "
+                + "model, and the story settings.",
+                () =>
+                {
+                    settings.ResetToDefaults();
+                    _probeStatus = "";
+                    _advancedOpen = null;
+                    _customDirector = false;
+                },
+                destructive: true));
+        }
+
+        _height = list.CurHeight + 24f;
+        list.End();
+        Widgets.EndScrollView();
+    }
+
+    /// <summary>A section heading: a line, then the title in the medium font.</summary>
+    private static void Heading(Listing_Standard list, string title)
+    {
+        if (list.CurHeight > 0f)
+        {
+            list.GapLine();
+        }
+
+        Text.Font = GameFont.Medium;
+        list.Label(title);
+        Text.Font = GameFont.Small;
+    }
+
+    /// <summary>The optional second and third models: one for narration, one for the director's decisions.</summary>
+    private static void DrawSeparateModels(Listing_Standard list, RimChroniclesSettings settings)
+    {
         list.Label("Separate prose model (optional): writes bulletins, plot letters and epilogues, while the main model makes the director's decisions");
         settings.ProseModel = list.TextEntryLabeled("Prose model (blank: use the main one)  ", settings.ProseModel);
         if (settings.ProseModel.Length > 0)
@@ -130,28 +194,48 @@ public static class SettingsWindow
             }
         }
 
-        list.GapLine();
-        list.Label("Separate director model (optional): makes the director's decisions, such as a fine-tuned rimchron-director-e2b, while the main model writes");
-        var directorBefore = settings.DirectorModel;
-        settings.DirectorModel = list.TextEntryLabeled("Director model (blank: use the main one)  ", settings.DirectorModel);
-        if (settings.DirectorModel != directorBefore && TierPresets.SuggestedDirectorTier(settings.DirectorModel) is { } suggested)
+        list.Gap();
+        list.Label("Director model: makes the director's decisions, while the main model writes");
+        var preset = TierPresets.DirectorPreset(settings.DirectorModel);
+        var custom = _customDirector || (settings.DirectorModel.Length > 0 && preset is null);
+        if (list.RadioButton("    None: the main model decides", settings.DirectorModel.Length == 0 && !custom, tabIn: 12f))
         {
-            settings.DirectorTier = suggested; // typing rimchron-director-e4b picks Recommended
+            settings.DirectorModel = "";
+            _customDirector = false;
         }
 
-        if (settings.DirectorModel.Length > 0)
+        foreach (var choice in TierPresets.DirectorPresets)
         {
-            settings.DirectorEndpoint = list.TextEntryLabeled("Director address (blank: the main one)  ", settings.DirectorEndpoint);
-            if (settings.DirectorEndpoint.Length > 0 && TierPresets.EndpointProblem(settings.DirectorEndpoint) is { } directorProblem)
+            if (list.RadioButton($"    {choice.Label}", !custom && preset?.Model == choice.Model, tabIn: 12f))
             {
-                list.Label($"<color=#e0a040>{directorProblem}</color>");
+                settings.DirectorModel = choice.Model;
+                settings.DirectorTier = choice.Tier; // the tier it was trained on
+                _customDirector = false;
+            }
+        }
+
+        if (list.RadioButton("    Other: a model you name", custom, tabIn: 12f))
+        {
+            if (!custom)
+            {
+                settings.DirectorModel = "";
             }
 
-            settings.DirectorApiKey = list.TextEntryLabeled("Director API key (blank: the main one)  ", settings.DirectorApiKey);
-            list.Label("Director prompt tier: the tier the director model was trained on (rimchron-director-e2b: Minimum; -e4b: Recommended)");
+            _customDirector = true;
+        }
+
+        if (custom)
+        {
+            settings.DirectorModel = list.TextEntryLabeled("        Director model name  ", settings.DirectorModel).Trim();
+            if (settings.DirectorModel.Length == 0)
+            {
+                list.Label("<color=#a0a0a0>        Enter the model's name as the server knows it (e.g. from ollama list). Blank: the main model decides.</color>");
+            }
+
+            list.Label("        Director prompt tier: the tier the model was trained on");
             foreach (var tier in new[] { ModelTier.Minimum, ModelTier.Recommended, ModelTier.High })
             {
-                if (list.RadioButton($"    {tier}", settings.DirectorTier == tier, tabIn: 12f))
+                if (list.RadioButton($"            {tier}", settings.DirectorTier == tier, tabIn: 12f))
                 {
                     settings.DirectorTier = tier;
                 }
@@ -161,7 +245,17 @@ public static class SettingsWindow
             {
                 list.Label($"<color=#e0a040>The name says this model was trained for {trained}: other tiers send it prompts it never saw.</color>");
             }
+        }
 
+        if (settings.DirectorModel.Length > 0)
+        {
+            settings.DirectorEndpoint = list.TextEntryLabeled("    Director address (blank: the main one)  ", settings.DirectorEndpoint);
+            if (settings.DirectorEndpoint.Length > 0 && TierPresets.EndpointProblem(settings.DirectorEndpoint) is { } directorProblem)
+            {
+                list.Label($"<color=#e0a040>{directorProblem}</color>");
+            }
+
+            settings.DirectorApiKey = list.TextEntryLabeled("    Director API key (blank: the main one)  ", settings.DirectorApiKey);
             if (!ModelSlots.DirectorSeparate(settings.Slots) && settings.Tier != ModelTier.Off)
             {
                 list.Label("<color=#e0a040>The director model isn't usable as set, so the main model makes the decisions.</color>");
@@ -172,24 +266,6 @@ public static class SettingsWindow
                 list.Label("<color=#a0a0a0>The tier is Off, so no model is called, this one included.</color>");
             }
         }
-
-        if (Prefs.DevMode)
-        {
-            list.GapLine();
-            list.CheckboxLabeled("Dev: record director decisions for training", ref settings.RecordDirectorCases,
-                $"Saves each director decision with a choice as a case in {Plots.DirectorRecorder.Folder}, for the director-model training track.");
-        }
-
-        list.GapLine();
-        if (list.ButtonText("Reset to defaults", widthPct: 0.3f))
-        {
-            settings.ResetToDefaults();
-            _probeStatus = "";
-        }
-
-        _height = list.CurHeight + 24f;
-        list.End();
-        Widgets.EndScrollView();
     }
 
     private static async Task<ConnectionProbe.Result> ProbeAll(IChatProvider main, IChatProvider? director)

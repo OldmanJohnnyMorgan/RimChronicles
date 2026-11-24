@@ -1,0 +1,2346 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Director review</title>
+<style>:root { --bg: #fbfaf7; --fg: #1d1c1a; --muted: #6b6760; --card: #ffffff; --line: #e3dfd6; --accent: #8a5a2b; --picked: #f1e4d3; }
+@media (prefers-color-scheme: dark) { :root { --bg: #171614; --fg: #ece9e3; --muted: #a39e94; --card: #211f1c; --line: #34312c; --accent: #e0a96d; --picked: #3a2e22; } }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+header { position: sticky; top: 0; background: var(--bg); border-bottom: 1px solid var(--line); padding: 12px 16px; z-index: 1; }
+h1 { margin: 0 0 4px; font-size: 1.3rem; } header p { margin: 4px 0; color: var(--muted); max-width: 60rem; }
+.bar { display: flex; gap: 12px; align-items: center; }
+main { max-width: 64rem; margin: 0 auto; padding: 16px; }
+.item { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 12px 16px; margin: 0 0 16px; }
+.item.done { border-color: var(--accent); }
+h2 { font-size: 1rem; margin: 0 0 8px; color: var(--muted); }
+pre { white-space: pre-wrap; font: 13px/1.45 ui-monospace, Consolas, monospace; background: var(--bg); padding: 8px; border-radius: 6px; overflow-x: auto; }
+.answers { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+@media (max-width: 640px) { .answers { grid-template-columns: 1fr; } }
+.answer { border: 1px solid var(--line); border-radius: 6px; padding: 8px 12px; }
+.answer h3 { margin: 0; font-size: 0.9rem; color: var(--muted); }
+.choice { font-weight: 600; margin: 4px 0; word-break: break-word; } .desc { color: var(--muted); margin: 0 0 6px; font-size: 0.9rem; }
+.reason { margin: 0; }
+.pick { display: flex; gap: 8px; flex-wrap: wrap; }
+button { font: inherit; padding: 6px 14px; border-radius: 6px; border: 1px solid var(--line); background: var(--card); color: var(--fg); cursor: pointer; }
+button.on { background: var(--picked); border-color: var(--accent); font-weight: 600; }
+#download { border-color: var(--accent); }</style></head><body>
+<header><h1>Director review</h1><p>50 decisions. For each, read the briefing, then pick the better answer, or <b>Same</b> if neither is better. You don't know which answer is which model. Your picks are kept in this browser until you download them.</p><p class="bar"><span id="done">0</span> of 50 answered <button id="download">Download answers</button></p></header>
+<main>
+<section class="item" id="item-1" data-item="1">
+<h2>1. Nemesis/Hook</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 698 (Septober 5511).
+Colony: Emberfall, 6 people, wealth 123,000 silver, mood content.
+
+People:
+- Rosamund (38); traits: Night owl, Ascetic; backstory: Cave child.
+- Alilen (40); traits: Optimist, Careful shooter; backstory: Medieval farmhand.
+- Nell (69); traits: Ascetic; backstory: Urbworld urchin.
+- Oskar (40); traits: Kind, Bloodlust; backstory: Tribal hunter.
+- Bros (61); traits: Kind, Pessimist; backstory: Psycaster.
+- Zinnia (22), dead; traits: Jealous; backstory: Mercenary; husband of Rosamund.
+- Seiwyn (46); traits: Greedy; backstory: Vatgrown soldier.
+
+History:
+- Day 603: Rhea killed Zinnia and escaped.
+
+Factions:
+- the Wailing Moth Tribe (Tribe): goodwill +55, 1 settlement.
+- the Marrow League (Outlanders): goodwill +4, 7 settlements.
+- the Bonecutter Gang (Pirates): goodwill -82, 4 settlements.
+
+Recent events:
+- Day 697: a wanderer joined.
+
+## Active plots
+- nemesis-1 (Nemesis): beat Hook, protagonist Rosamund. Rhea of the Bonecutter Gang killed Rosamund&#39;s husband Zinnia on day 603 and escaped. Rhea was seen near Woyo on day 685.
+- silentpress-90 (Silent Press): beat Complication, protagonist Emberfall. The colony killed the Rim Dispatch&#39;s reporter; the bulletins stopped.
+- lostfamily-91 (Lost Family): beat Hook, protagonist Alilen. Alilen has had a letter from a cousin, Dora.
+
+## Deciding now
+nemesis-1 (Nemesis), 13 days into its Hook beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Complication:RheaLeadsARaid: Rhea leads a raid on the colony
+- Hook:RheaSightedAgain: Rhea is seen again; the threat grows, but nothing happens yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Hook:RheaSightedAgain</p><p class="desc">Rhea is seen again; the threat grows, but nothing happens yet</p><p class="reason">Rhea was recently seen near Woyo; another sighting builds tension before she strikes Emberfall.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Complication:RheaLeadsARaid</p><p class="desc">Rhea leads a raid on the colony</p><p class="reason">Rhea was sighted 13 days ago and Emberfall is content; Rosamund should face her husband&#39;s killer.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-2" data-item="2">
+<h2>2. AwakenedEmpire/Act2</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 850 (Aprimay 5514).
+Colony: Thornwick, 4 people, wealth 120,000 silver, mood content.
+
+People:
+- Lyna (39); traits: Night owl; backstory: Settler.
+- Saoirse (40); traits: Pyromaniac; backstory: Noble.
+- Briamir (29); traits: Tough, Trigger-happy; backstory: Rebel commander.
+- Nolen (39); traits: Brawler; backstory: Soldier.
+
+Factions:
+- the Fox-Lantern Tribe (Tribe): goodwill +42, 2 settlements.
+- the Greywater Concord (Outlanders): goodwill +14, 7 settlements.
+- the Sun Throne (Empire): goodwill -11, 7 settlements, Empire state: Awakened.
+
+Recent events:
+- Day 849: a cold snap began.
+
+## Active plots
+- awakenedempire-1 (Awakened Empire): beat Act2, protagonist Thornwick. The Sun Throne woke on day 795. Thornwick has kept out of the Empire&#39;s way. The Sun Throne razed Brightwater, a settlement of the Greywater Concord. The Sun Throne took Dunwold from the Greywater Concord. The Fox-Lantern Tribe drove off an Imperial attack on Calder Mill.
+- lostfamily-90 (Lost Family): beat Hook, protagonist Lyna. Lyna has had a letter from a cousin, Lutz.
+
+## Deciding now
+awakenedempire-1 (Awakened Empire), 18 days into its Act2 beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Empire:TributeDemand: the Empire demands tribute: pay, refuse (war), or swear fealty
+- Wait: hold this plot for a few days; nothing happens in it yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">The colony is stable and the Empire&#39;s pressure can wait while the settlers prepare for the coming cold snap.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">Thornwick has four people in a cold snap; the Sun Throne&#39;s tribute demand can come once it passes.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-3" data-item="3">
+<h2>3. Nemesis/Complication</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 323 (Jugust 5505).
+Colony: Wren&#39;s Hollow, 5 people, wealth 62,000 silver, mood strained.
+
+People:
+- Orrin (29); traits: Too smart, Ugly; backstory: Urbworld urchin.
+- Severin (66); traits: Iron-willed; backstory: Imperial strategist.
+- Oreimir (42); traits: Jealous, Ascetic; backstory: Psycaster.
+- Harrow (60); traits: Pyromaniac, Undergrounder; backstory: Glitterworld surgeon.
+- Ines (19), dead; traits: Steadfast; backstory: Nurse; husband of Orrin.
+- Linnea (44); traits: Great memory; backstory: Nurse.
+
+History:
+- Day 245: Orrin recruited Harrow.
+- Day 267: Baem killed Ines and escaped.
+- Day 299: Linnea made a masterwork: a duster.
+- Day 314: Wren&#39;s Hollow repelled a raid by Baem&#39;s raiders.
+
+Factions:
+- the Kestrel Tribe (Tribe): goodwill -16, 3 settlements.
+- the Free Coast Alliance (Outlanders): goodwill +7, 7 settlements.
+- Vex&#39;s Crew (Pirates): goodwill -100, 7 settlements.
+
+Recent events:
+- Day 319: the colony finished a new workshop.
+
+## Active plots
+- nemesis-1 (Nemesis): beat Complication, protagonist Orrin. Baem of Vex&#39;s Crew killed Orrin&#39;s husband Ines on day 267 and escaped. Baem was seen near the north ridge, then led a raid on Wren&#39;s Hollow on day 314 and got away.
+- silentpress-90 (Silent Press): beat Complication, protagonist Wren&#39;s Hollow. The colony killed the Rim Dispatch&#39;s reporter; the bulletins stopped.
+
+## Deciding now
+nemesis-1 (Nemesis), 9 days into its Complication beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Choice:BountyOrWaitForBaem: a letter asks the colony to post a bounty on Baem, hunt them down, or wait for their return
+- Wait: hold this plot for a few days; nothing happens in it yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">The colony is reeling from the recent raid by Baem&#39;s raiders; waiting allows the survivors to recover before pursuing their nemesis.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Choice:BountyOrWaitForBaem</p><p class="desc">a letter asks the colony to post a bounty on Baem, hunt them down, or wait for their return</p><p class="reason">Baem raided Wren&#39;s Hollow nine days ago and the colony is steady; a bounty letter lets Orrin answer his husband&#39;s killer.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-4" data-item="4">
+<h2>4. AwakenedEmpire/Ascendant</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 475 (Decembary 5507).
+Colony: Highmoor, 3 people, wealth 43,000 silver, mood strained.
+
+People:
+- Hanne (38); traits: Trigger-happy; backstory: Glitterworld surgeon.
+- Henrik (18); traits: Optimist, Iron-willed; backstory: Noble.
+- Cato (54); traits: Careful shooter; backstory: Psycaster.
+
+Factions:
+- the Starling Tribe (Tribe): goodwill +26, 3 settlements.
+- the Marrow League (Outlanders): goodwill -2, 7 settlements.
+- the Empire of Kaseur (Empire): goodwill -100, 9 settlements, Empire state: Ascendant.
+
+Recent events:
+- Day 471: the colony finished a new workshop.
+
+## Active plots
+- awakenedempire-1 (Awakened Empire): beat Ascendant, protagonist Highmoor. The Empire of Kaseur woke on day 392. Highmoor is at war with the Empire of Kaseur. The Empire of Kaseur razed Brightwater, a settlement of the Starling Tribe. The Empire of Kaseur razed Harlow Ford, a settlement of the Marrow League. The Empire of Kaseur razed Fenwick, a settlement of the Marrow League. The Empire of Kaseur now holds most of the region.
+
+## Deciding now
+awakenedempire-1 (Awakened Empire), 6 days into its Ascendant beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Act3:StormTheCapital: the colony is offered the assault on the Imperial capital
+- Wait: hold this plot for a few days; nothing happens in it yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">Highmoor has only three people; offering them the assault on the Empire of Kaseur&#39;s capital now would be absurd.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">The colony is not yet ready for a direct assault on the Imperial capital; the war with the Empire of Kaseur is still in its early stages.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-5" data-item="5">
+<h2>5. LostFamily/Hook</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 628 (Jugust 5510).
+Colony: Varrowgate, 10 people, wealth 57,000 silver, mood desperate.
+
+People:
+- Raewyn (34); traits: Tough; backstory: Urbworld urchin.
+- Calla (64); traits: Jealous; backstory: Soldier.
+- Severin (29); traits: Undergrounder, Careful shooter; backstory: Space marine.
+- Quill (24); traits: Sanguine, Beautiful; backstory: Noble.
+
+History:
+- Day 497: Calla went berserk.
+
+Factions:
+- the Wailing Moth Tribe (Tribe): goodwill +19, 2 settlements.
+- the Free Coast Alliance (Outlanders): goodwill +58, 2 settlements.
+- the Marrow League (Outlanders): goodwill +41, 5 settlements.
+
+Recent events:
+- Day 627: a cold snap began.
+- Day 627: food is running low and two colonists had mental breaks.
+
+## Active plots
+- lostfamily-1 (Lost Family): beat Hook, protagonist Raewyn. Raewyn&#39;s son Odette is alive among the Marrow League. Raewyn has had two letters from Odette.
+
+## Deciding now
+lostfamily-1 (Lost Family), 2 days into its Hook beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Complication:OdetteTakenCaptive: Odette is taken captive by a hostile faction
+- Wait: hold this plot for a few days; nothing happens in it yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">Varrowgate is starving in a cold snap; Odette&#39;s capture would be too much for Raewyn now.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">The colony is reeling from food shortages and mental breaks; Raewyn should wait before further complicating the situation with Odette.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-6" data-item="6">
+<h2>6. AwakenedEmpire/Broken</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 780 (Aprimay 5513).
+Colony: Last Lantern, 10 people, wealth 39,000 silver, mood desperate.
+
+People:
+- Bastian (36); traits: Sanguine; backstory: Pirate defector.
+- Dagny (40); traits: Lazy, Psychopath; backstory: Tribal hunter.
+- Annika (49); traits: Careful shooter, Beautiful; backstory: Tribal hunter.
+- Ziv (26); traits: Careful shooter; backstory: Shipwrecked engineer.
+- Oramir (19); traits: Psychopath, Sanguine; backstory: Pirate defector.
+
+Factions:
+- the Driftwood Tribe (Tribe): goodwill +58, 4 settlements.
+- the Marrow League (Outlanders): goodwill +9, 5 settlements.
+- the Sun Throne (Empire): goodwill -24, 8 settlements, Empire state: Broken.
+
+Recent events:
+- Day 779: the colony finished a new workshop.
+- Day 779: food is running low and two colonists had mental breaks.
+
+## Active plots
+- awakenedempire-1 (Awakened Empire): beat Broken, protagonist Last Lantern. The Sun Throne woke on day 688. Last Lantern has kept out of the Empire&#39;s way. The Sun Throne took Harlow Ford from the Marrow League. The Sun Throne razed Marrow Hold, a settlement of the Driftwood Tribe. The Sun Throne took Brightwater from the Marrow League. The Sun Throne is breaking after heavy losses.
+
+## Deciding now
+awakenedempire-1 (Awakened Empire), 15 days into its Broken beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Act3:ForceATreaty: the Empire offers a treaty of independence; signing ends the story
+- Wait: hold this plot for a few days; nothing happens in it yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">The colony is reeling from food shortages and mental breaks; the situation requires a moment of stability before dealing with the Sun Throne&#39;s demands.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">Last Lantern is starving and colonists are breaking; the Sun Throne&#39;s treaty can wait until the colony can think beyond food.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-7" data-item="7">
+<h2>7. AwakenedEmpire/Act2</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 253 (Aprimay 5504).
+Colony: Ironbloom, 10 people, wealth 143,000 silver, mood content.
+
+People:
+- Hesper (20); traits: Trigger-happy, Abrasive; backstory: Herbalist.
+- Bo (62); traits: Abrasive; backstory: Mercenary.
+- Kiamir (41); traits: Tough, Ugly; backstory: Mercenary.
+- Bertram (59); traits: Ascetic, Tough; backstory: Doctor.
+- Dagny (61); traits: Greedy; backstory: Rebel commander.
+- Oraev (61); traits: Careful shooter, Too smart; backstory: Cave child.
+
+History:
+- Day 102: Hesper went berserk.
+- Day 253: Ironbloom repelled a raid by the Kestrel Tribe raiders.
+
+Factions:
+- the Kestrel Tribe (Tribe): goodwill -8, 6 settlements.
+- the Calder Combine (Outlanders): goodwill +36, 5 settlements.
+- the Empire of Kaseur (Empire): goodwill -100, 13 settlements, Empire state: Awakened.
+
+Recent events:
+- Day 253: raiders attacked Ironbloom and were driven off; several colonists were wounded.
+
+## Active plots
+- awakenedempire-1 (Awakened Empire): beat Act2, protagonist Ironbloom. The Empire of Kaseur woke on day 220. Ironbloom is at war with the Empire of Kaseur. The Empire of Kaseur took Harlow Ford from the Kestrel Tribe.
+- silentpress-90 (Silent Press): beat Complication, protagonist Ironbloom. The colony killed the Rim Dispatch&#39;s reporter; the bulletins stopped.
+- nemesis-91 (Nemesis): beat Hook, protagonist Hesper. &#39;Ash&#39; Mags wounded Hesper in a raid and escaped.
+
+## Deciding now
+awakenedempire-1 (Awakened Empire), 6 days into its Act2 beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Empire:DefendAlly: a neighbour under Imperial siege asks the colony to break the siege
+- Empire:SabotageImperial: the colony is offered a chance to sabotage an Imperial settlement
+- Wait: hold this plot for a few days; nothing happens in it yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">The colony is reeling from the recent raid by the Kestrel Tribe; waiting allows the survivors to recover before committing to further Imperial conflict.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">Raiders wounded Ironbloom&#39;s people yesterday; its war with the Empire of Kaseur can pause while they heal.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-8" data-item="8">
+<h2>8. Nemesis/Hook</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 405 (Decembary 5506).
+Colony: Gallowmere, 10 people, wealth 89,000 silver, mood strained.
+
+People:
+- Mira (21); traits: Beautiful, Ascetic; backstory: Smith.
+- Dov (53); traits: Bloodlust, Iron-willed; backstory: Cave child.
+- Quill (34); traits: Too smart; backstory: Doctor.
+- Leimir (55); traits: Jealous, Night owl; backstory: Urbworld urchin.
+- Mara (31); traits: Abrasive, Undergrounder; backstory: Urbworld urchin.
+- Ludo (41); traits: Sanguine; backstory: Shipwrecked engineer.
+- Marguerite (41); traits: Nimble; backstory: Herbalist.
+- Vash (17); traits: Pyromaniac; backstory: Pirate defector.
+- Pim (66), dead; traits: Bloodlust, Depressive; backstory: Shipwrecked engineer; brother of Mira.
+- Elias (25); traits: Bloodlust; backstory: Space marine.
+- Mila (31), dead; traits: Nervous, Ascetic; backstory: Imperial strategist.
+
+History:
+- Day 210: Quill married Mara.
+- Day 352: Vos killed Pim and escaped.
+- Day 404: Gallowmere repelled a raid by the Starling Tribe raiders.
+
+Factions:
+- the Starling Tribe (Tribe): goodwill -10, 1 settlement.
+- the Ashford Compact (Outlanders): goodwill +49, 5 settlements.
+- the Sun Throne (Empire): goodwill -100, 6 settlements, Empire state: Awakened.
+- the Rust Wolves (Pirates): goodwill -90, 7 settlements.
+
+Recent events:
+- Day 404: raiders attacked Gallowmere; Mila died in the fighting.
+
+## Active plots
+- nemesis-1 (Nemesis): beat Hook, protagonist Mira. Vos of the Rust Wolves killed Mira&#39;s brother Pim on day 352 and escaped. Vos was seen near the salt flats on day 384.
+- silentpress-90 (Silent Press): beat Complication, protagonist Gallowmere. The colony killed the Rim Dispatch&#39;s reporter; the bulletins stopped.
+- lostfamily-91 (Lost Family): beat Hook, protagonist Dov. Dov has had a letter from a cousin, Eluv.
+
+## Deciding now
+nemesis-1 (Nemesis), 21 days into its Hook beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Complication:VosLeadsARaid: Vos leads a raid on the colony
+- Hook:VosSightedAgain: Vos is seen again; the threat grows, but nothing happens yet
+- Promote:VosJoinsTheEmpire: Vos joins the Empire as an officer, so later raids are Imperial
+- Wait: hold this plot for a few days; nothing happens in it yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">Mila died in yesterday&#39;s raid on Gallowmere; Vos&#39;s thread can rest while the colony mourns.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">The colony is reeling from Mila&#39;s death in yesterday&#39;s raid; the pursuit of Vos can wait while the survivors recover from the loss.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-9" data-item="9">
+<h2>9. AwakenedEmpire/Ascendant</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 558 (Jugust 5509).
+Colony: Cinder Rest, 10 people, wealth 27,000 silver, mood strained.
+
+People:
+- Braeric (22); traits: Too smart, Jogger; backstory: Smith.
+- Kreik (44); traits: Industrious, Bloodlust; backstory: Rebel commander.
+- Lelen (28); traits: Trigger-happy, Undergrounder; backstory: Psycaster.
+- Jory (46); traits: Iron-willed; backstory: Herbalist.
+- Severin (19); traits: Undergrounder, Great memory; backstory: Urbworld urchin.
+- Ilka (32); traits: Volatile, Careful shooter; backstory: Pirate defector; holds the Imperial title of Knight.
+- Alav (31); traits: Great memory; backstory: Herbalist.
+
+History:
+- Day 557: Cinder Rest repelled a raid by the Bonecutter Gang raiders.
+
+Factions:
+- the Wailing Moth Tribe (Tribe): goodwill +54, 2 settlements.
+- the Ashford Compact (Outlanders): goodwill +44, 2 settlements.
+- the Sun Throne (Empire): goodwill +35, 10 settlements, Empire state: Ascendant.
+- the Bonecutter Gang (Pirates): goodwill -62, 4 settlements.
+
+Recent events:
+- Day 557: raiders attacked Cinder Rest and were driven off; several colonists were wounded.
+
+## Active plots
+- awakenedempire-1 (Awakened Empire): beat Ascendant, protagonist Cinder Rest. The Sun Throne woke on day 514. Cinder Rest stands with the Sun Throne. The Sun Throne razed Marrow Hold, a settlement of the Wailing Moth Tribe. The Sun Throne took Dunwold from the Wailing Moth Tribe. The Sun Throne took Kettle Rock from the Ashford Compact. The Sun Throne now holds most of the region. Ilka has risen in the Empire&#39;s service.
+- lostfamily-90 (Lost Family): beat Hook, protagonist Braeric. Braeric has had a letter from a cousin, Arne.
+- silentpress-91 (Silent Press): beat Complication, protagonist Cinder Rest. The colony killed the Rim Dispatch&#39;s reporter; the bulletins stopped.
+
+## Deciding now
+awakenedempire-1 (Awakened Empire), 21 days into its Ascendant beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Act3:OfferGovernorship: the Empire offers a governorship; accepting ends the story in Imperial victory
+- Empire:EscortEnvoy: the Empire asks its ally to escort its envoys to an Imperial settlement
+- Empire:ConquestJob: the Empire asks its ally to sabotage a settlement it means to take
+- Wait: hold this plot for a few days; nothing happens in it yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">Cinder Rest is reeling from the Bonecutter Gang raid and the colony&#39;s mood is strained; the situation requires a moment of respite before further imperial demands.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">Raiders wounded Cinder Rest&#39;s people today; Ilka&#39;s rise and the Sun Throne&#39;s offers can wait.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-10" data-item="10">
+<h2>10. LostFamily/Hook</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 710 (Decembary 5511).
+Colony: Red Furrow, 10 people, wealth 40,000 silver, mood desperate.
+
+People:
+- Harrow (52); traits: Trigger-happy, Nimble; backstory: Settler.
+- Noor (66); traits: Brawler, Nimble; backstory: Space marine.
+- Aiko (32); traits: Optimist; backstory: Colonial marshal.
+- Brannock (30); traits: Industrious, Careful shooter; backstory: Space marine.
+- Isum (31); traits: Pyromaniac, Volatile; backstory: Pirate defector.
+- Bo (55); traits: Careful shooter; backstory: Midworld trader.
+- Sela (55); traits: Careful shooter, Sanguine; backstory: Urbworld urchin.
+
+History:
+- Day 710: Red Furrow repelled a raid by the Ashen Elk raiders.
+
+Factions:
+- the Ashen Elk (Tribe): goodwill -20, 7 settlements.
+- the Calder Combine (Outlanders): goodwill +39, 7 settlements.
+- the Free Coast Alliance (Outlanders): goodwill +37, 2 settlements.
+
+Recent events:
+- Day 710: raiders attacked Red Furrow and were driven off; several colonists were wounded.
+- Day 709: food is running low and two colonists had mental breaks.
+
+## Active plots
+- lostfamily-1 (Lost Family): beat Hook, protagonist Harrow. Harrow&#39;s father Rasmus is alive among the Free Coast Alliance. A letter from Rasmus reached Harrow on day 700.
+- nemesis-90 (Nemesis): beat Hook, protagonist Noor. &#39;Ash&#39; Darro wounded Noor in a raid and escaped.
+- silentpress-91 (Silent Press): beat Complication, protagonist Red Furrow. The colony killed the Rim Dispatch&#39;s reporter; the bulletins stopped.
+
+## Deciding now
+lostfamily-1 (Lost Family), 10 days into its Hook beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Complication:RasmusTakenCaptive: Rasmus is taken captive by a hostile faction
+- Hook:AnotherLetterFromRasmus: another letter arrives from Rasmus; nothing changes yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Hook:AnotherLetterFromRasmus</p><p class="desc">another letter arrives from Rasmus; nothing changes yet</p><p class="reason">Red Furrow was raided today and is starving; a gentle letter from Rasmus fits better than his capture.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Hook:AnotherLetterFromRasmus</p><p class="desc">another letter arrives from Rasmus; nothing changes yet</p><p class="reason">The colony is reeling from the recent raid and food shortages; another letter from Rasmus provides a gentle progression for Harrow&#39;s search.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-11" data-item="11">
+<h2>11. AwakenedEmpire/Ascendant</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 863 (Jugust 5514).
+Colony: Wyrmfold, 10 people, wealth 37,000 silver, mood desperate.
+
+People:
+- Henrik (28); traits: Optimist; backstory: Smith.
+- Souk (16); traits: Night owl, Iron-willed; backstory: Cave child.
+- Thaes (57); traits: Kind, Pyromaniac; backstory: Urbworld urchin.
+- Noor (57); traits: Beautiful, Bloodlust; backstory: Medieval farmhand.
+- Harrow (58); traits: Too smart, Ugly; backstory: Cave child.
+- Petra (43); traits: Nimble, Steadfast; backstory: Imperial strategist.
+
+History:
+- Day 697: Thaes went berserk.
+- Day 751: Noor married Souk.
+- Day 862: Wyrmfold repelled a raid by Malley&#39;s Lancers raiders.
+
+Factions:
+- the Driftwood Tribe (Tribe): goodwill +16, 1 settlement.
+- the Calder Combine (Outlanders): goodwill +29, 4 settlements.
+- the Shattered Empire (Empire): goodwill -3, 14 settlements, Empire state: Ascendant.
+- Malley&#39;s Lancers (Pirates): goodwill -95, 3 settlements.
+
+Recent events:
+- Day 862: raiders attacked Wyrmfold and were driven off; several colonists were wounded.
+- Day 862: food is running low and two colonists had mental breaks.
+
+## Active plots
+- awakenedempire-1 (Awakened Empire): beat Ascendant, protagonist Wyrmfold. The Shattered Empire woke on day 747. Wyrmfold has kept out of the Empire&#39;s way. The Driftwood Tribe drove off an Imperial attack on Harlow Ford. The Calder Combine drove off an Imperial attack on Dunwold. The Calder Combine drove off an Imperial attack on Fenwick. The Shattered Empire now holds most of the region.
+- lostfamily-90 (Lost Family): beat Hook, protagonist Henrik. Henrik has had a letter from a cousin, Doth.
+- silentpress-91 (Silent Press): beat Complication, protagonist Wyrmfold. The colony killed the Rim Dispatch&#39;s reporter; the bulletins stopped.
+
+## Deciding now
+awakenedempire-1 (Awakened Empire), 24 days into its Ascendant beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Act3:FinalDemand: the Empire&#39;s final demand: submit, or be counted among its enemies
+- Wait: hold this plot for a few days; nothing happens in it yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">Wyrmfold is reeling from the recent raid and food shortages; the colony needs time to recover before facing the Shattered Empire&#39;s final demand.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">Raiders wounded Wyrmfold&#39;s people today and food is short; the Shattered Empire&#39;s final demand would crush it.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-12" data-item="12">
+<h2>12. AwakenedEmpire/Act2</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 335 (Septober 5505).
+Colony: Hearthstead, 10 people, wealth 155,000 silver, mood content.
+
+People:
+- Kin (20); traits: Sanguine; backstory: Pirate defector.
+- Mara (30); traits: Lazy; backstory: Cave child.
+- Thiamir (54); traits: Tough, Abrasive; backstory: Smith.
+- Tamsin (30); traits: Optimist, Trigger-happy; backstory: Doctor.
+- Halvard (16); traits: Sanguine; backstory: Midworld trader.
+- Elias (19), dead; traits: Steadfast, Beautiful; backstory: Imperial strategist; son of Mara.
+
+History:
+- Day 178: Tamsin married Thiamir.
+- Day 187: Mara recruited Kin.
+- Day 333: Elias died.
+
+Factions:
+- the Fox-Lantern Tribe (Tribe): goodwill +25, 3 settlements.
+- the Marrow League (Outlanders): goodwill +67, 4 settlements.
+- the Sun Throne (Empire): goodwill +59, 8 settlements, Empire state: Awakened.
+
+Recent events:
+- Day 333: Elias died of plague; Mara is grieving.
+
+## Active plots
+- awakenedempire-1 (Awakened Empire): beat Act2, protagonist Hearthstead. The Sun Throne woke on day 274. Hearthstead stands with the Sun Throne. The Sun Throne razed Fenwick, a settlement of the Marrow League. The Sun Throne razed Solace, a settlement of the Fox-Lantern Tribe. The Fox-Lantern Tribe drove off an Imperial attack on Calder Mill.
+- nemesis-90 (Nemesis): beat Hook, protagonist Kin. Ora wounded Kin in a raid and escaped.
+
+## Deciding now
+awakenedempire-1 (Awakened Empire), 21 days into its Act2 beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Empire:EscortEnvoy: the Empire asks its ally to escort its envoys to an Imperial settlement
+- Empire:ConquestJob: the Empire asks its ally to sabotage a settlement it means to take
+- Wait: hold this plot for a few days; nothing happens in it yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">Mara is still grieving the recent death of Elias; the colony should remain stable before committing to further Imperial demands.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">Elias died of plague two days ago and Mara is grieving; the Sun Throne&#39;s errands can wait a few days.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-13" data-item="13">
+<h2>13. Nemesis/Hook</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 488 (Aprimay 5508).
+Colony: Stonegarden, 10 people, wealth 92,000 silver, mood strained.
+
+People:
+- Petra (60); traits: Bloodlust; backstory: Midworld trader.
+- Broum (41); traits: Ugly; backstory: Psycaster.
+- Nymir (46); traits: Jogger; backstory: Nurse.
+- Lene (43); traits: Night owl; backstory: Urbworld urchin.
+- Vash (52); traits: Pyromaniac; backstory: Vatgrown soldier.
+- Hanne (25), dead; traits: Ascetic; backstory: Settler; brother of Broum.
+
+History:
+- Day 408: Nymir married Broum.
+- Day 431: Zira maimed Petra and escaped.
+- Day 488: Hanne died.
+
+Factions:
+- the Kestrel Tribe (Tribe): goodwill +27, 5 settlements.
+- the Marrow League (Outlanders): goodwill +24, 6 settlements.
+- the Gallows Crew (Pirates): goodwill -66, 1 settlement.
+
+Recent events:
+- Day 488: Hanne died of heatstroke; Broum is grieving.
+
+## Active plots
+- nemesis-1 (Nemesis): beat Hook, protagonist Petra. Zira of the Gallows Crew maimed Petra on day 431 and escaped. Zira has been seen twice near the salt flats.
+- silentpress-90 (Silent Press): beat Complication, protagonist Stonegarden. The colony killed the Rim Dispatch&#39;s reporter; the bulletins stopped.
+
+## Deciding now
+nemesis-1 (Nemesis), 17 days into its Hook beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Complication:ZiraLeadsARaid: Zira leads a raid on the colony
+- Wait: hold this plot for a few days; nothing happens in it yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">Broum is still grieving Hanne&#39;s recent death; the tension of Zira&#39;s pursuit can simmer before the next confrontation.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">Hanne died today and Broum is grieving; Zira&#39;s raid would hit Stonegarden at its lowest.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-14" data-item="14">
+<h2>14. AwakenedEmpire/Ascendant</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 640 (Septober 5510).
+Colony: Duskmere, 10 people, wealth 65,000 silver, mood strained.
+
+People:
+- Corvin (39); traits: Abrasive, Nervous; backstory: Doctor.
+- Henrik (28); traits: Great memory; backstory: Space marine.
+- Ansel (20); traits: Volatile, Nervous; backstory: Noble.
+- Linnea (29); traits: Lazy; backstory: Pirate defector.
+- Leopold (66); traits: Steadfast, Too smart; backstory: Pirate defector.
+- Hyth (48); traits: Nimble, Jealous; backstory: Vatgrown soldier.
+- Aiko (49), dead; traits: Night owl; backstory: Rebel commander; wife of Henrik.
+
+History:
+- Day 639: Aiko died.
+
+Factions:
+- the Wailing Moth Tribe (Tribe): goodwill +1, 1 settlement.
+- the Calder Combine (Outlanders): goodwill +1, 3 settlements.
+- the Shattered Empire (Empire): goodwill +28, 14 settlements, Empire state: Ascendant.
+
+Recent events:
+- Day 639: Aiko died of wounds; Henrik is grieving.
+
+## Active plots
+- awakenedempire-1 (Awakened Empire): beat Ascendant, protagonist Duskmere. The Shattered Empire woke on day 566. Duskmere stands with the Shattered Empire. The Wailing Moth Tribe drove off an Imperial attack on Kettle Rock. The Calder Combine drove off an Imperial attack on Marrow Hold. The Calder Combine drove off an Imperial attack on Fenwick. The Shattered Empire now holds most of the region.
+- silentpress-90 (Silent Press): beat Complication, protagonist Duskmere. The colony killed the Rim Dispatch&#39;s reporter; the bulletins stopped.
+- lostfamily-91 (Lost Family): beat Hook, protagonist Corvin. Corvin has had a letter from a cousin, Henrik.
+
+## Deciding now
+awakenedempire-1 (Awakened Empire), 12 days into its Ascendant beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Empire:EscortEnvoy: the Empire asks its ally to escort its envoys to an Imperial settlement
+- Empire:ConquestJob: the Empire asks its ally to sabotage a settlement it means to take
+- Wait: hold this plot for a few days; nothing happens in it yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">Aiko died of wounds yesterday and Henrik is grieving; the Shattered Empire&#39;s errands can wait.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">Aiko&#39;s death has left the colony reeling; the Shattered Empire&#39;s request can wait while Henrik mourns his wife.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-15" data-item="15">
+<h2>15. Nemesis/Complication</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 793 (Aprimay 5513).
+Colony: Coldwater, 10 people, wealth 56,000 silver, mood desperate.
+
+People:
+- Ludo (51); traits: Lazy; backstory: Psycaster.
+- Roux (67); traits: Nimble, Trigger-happy; backstory: Glitterworld surgeon.
+- Groka (62); traits: Careful shooter; backstory: Psycaster.
+- Thal (40); traits: Ugly, Pessimist; backstory: Doctor.
+- Tamsin (46); traits: Night owl; backstory: Pirate defector.
+- Talia (16); traits: Ugly; backstory: Soldier.
+- Sela (24), dead; traits: Steadfast, Ascetic; backstory: Doctor; father of Roux.
+
+History:
+- Day 722: &#39;Hatchet&#39; Hesper maimed Ludo and escaped.
+- Day 778: Coldwater repelled a raid by &#39;Hatchet&#39; Hesper&#39;s raiders.
+- Day 782: Tamsin recruited Thal.
+- Day 791: Sela died.
+
+Factions:
+- the Ashen Elk (Tribe): goodwill -7, 1 settlement.
+- the Tola Union (Outlanders): goodwill -9, 5 settlements.
+- the Sun Throne (Empire): goodwill -100, 8 settlements, Empire state: Awakened.
+- the Bonecutter Gang (Pirates): goodwill -95, 2 settlements.
+
+Recent events:
+- Day 791: Sela died of plague; Roux is grieving.
+- Day 792: food is running low and two colonists had mental breaks.
+
+## Active plots
+- nemesis-1 (Nemesis): beat Complication, protagonist Ludo. &#39;Hatchet&#39; Hesper of the Bonecutter Gang maimed Ludo on day 722 and escaped. &#39;Hatchet&#39; Hesper was seen near the north ridge, then led a raid on Coldwater on day 778 and got away.
+- silentpress-90 (Silent Press): beat Complication, protagonist Coldwater. The colony killed the Rim Dispatch&#39;s reporter; the bulletins stopped.
+
+## Deciding now
+nemesis-1 (Nemesis), 15 days into its Complication beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Choice:BountyOrWaitForHatchetHesper: a letter asks the colony to post a bounty on &#39;Hatchet&#39; Hesper, hunt them down, or wait for their return
+- Promote:HatchetHesperJoinsTheEmpire: &#39;Hatchet&#39; Hesper joins the Empire as an officer, so later raids are Imperial
+- Wait: hold this plot for a few days; nothing happens in it yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">Sela just died and Coldwater is starving; Ludo&#39;s choice about &#39;Hatchet&#39; Hesper can wait.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">The colony is reeling from Sela&#39;s death and food shortages; waiting allows the survivors to stabilize before pursuing &#39;Hatchet&#39; Hesper.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-16" data-item="16">
+<h2>16. AwakenedEmpire/Broken</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 265 (Jugust 5504).
+Colony: Emberfall, 10 people, wealth 42,000 silver, mood desperate.
+
+People:
+- Linnea (68); traits: Lazy, Kind; backstory: Nurse.
+- Amaru (26); traits: Volatile; backstory: Herbalist.
+- Sefa (42); traits: Ugly, Greedy; backstory: Tribal hunter.
+- Augustin (24); traits: Lazy, Jogger; backstory: Pirate defector.
+- Thoud (45); traits: Sanguine, Lazy; backstory: Medieval farmhand.
+- Miador (49); traits: Nervous, Volatile; backstory: Settler.
+- Mira (31), dead; traits: Night owl; backstory: Rebel commander; son of Amaru.
+
+History:
+- Day 264: Mira died.
+
+Factions:
+- the Starling Tribe (Tribe): goodwill +3, 4 settlements.
+- the Free Coast Alliance (Outlanders): goodwill +52, 2 settlements.
+- the Sun Throne (Empire): goodwill -100, 15 settlements, Empire state: Broken.
+
+Recent events:
+- Day 264: Mira died of wounds; Amaru is grieving.
+- Day 264: food is running low and two colonists had mental breaks.
+
+## Active plots
+- awakenedempire-1 (Awakened Empire): beat Broken, protagonist Emberfall. The Sun Throne woke on day 226. Emberfall is at war with the Sun Throne. The Sun Throne took Marrow Hold from the Starling Tribe. The Free Coast Alliance drove off an Imperial attack on Fenwick. The Sun Throne took Ashgrove from the Free Coast Alliance. The Sun Throne is breaking after heavy losses.
+- nemesis-90 (Nemesis): beat Hook, protagonist Linnea. Tamsin wounded Linnea in a raid and escaped.
+
+## Deciding now
+awakenedempire-1 (Awakened Empire), 12 days into its Broken beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Act3:StormTheCapital: the colony is offered the assault on the Imperial capital
+- Act3:ForceATreaty: the Empire offers a treaty of independence; signing ends the story
+- Wait: hold this plot for a few days; nothing happens in it yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Act3:ForceATreaty</p><p class="desc">the Empire offers a treaty of independence; signing ends the story</p><p class="reason">Emberfall is starving and grieving Mira; a treaty with the breaking Sun Throne would bring relief.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">With Mira&#39;s recent death and the colony&#39;s desperate mood, the survivors need time to stabilize before attempting an assault on the Sun Throne&#39;s capital.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-17" data-item="17">
+<h2>17. LostFamily/Complication</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 418 (Decembary 5506).
+Colony: Thornwick, 9 people, wealth 136,000 silver, mood content.
+
+People:
+- Aiko (24); traits: Bloodlust, Nervous; backstory: Colonial marshal.
+- Isiax (39); traits: Nervous; backstory: Vatgrown soldier.
+- Nylen (36); traits: Brawler; backstory: Space marine.
+- Brannock (38); traits: Trigger-happy, Depressive; backstory: Mercenary.
+- Lutz (44); traits: Optimist; backstory: Imperial strategist.
+- Silas (35); traits: Nimble, Jogger; backstory: Midworld trader.
+
+Factions:
+- the Kestrel Tribe (Tribe): goodwill +5, 4 settlements.
+- the Calder Combine (Outlanders): goodwill +9, 7 settlements.
+- the Tola Union (Outlanders): goodwill +20, 2 settlements.
+- the Rust Wolves (Pirates): goodwill -83, 2 settlements.
+
+Recent events:
+- Day 399: a quiet stretch; the harvest came in.
+
+## Active plots
+- lostfamily-1 (Lost Family): beat Complication, protagonist Aiko. Aiko&#39;s father Hyx is alive among the Tola Union. On day 390, the Rust Wolves took Hyx captive; Hyx is held at a camp nearby.
+
+## Deciding now
+lostfamily-1 (Lost Family), 28 days into its Complication beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Choice:RescueHyx: a Rescue quest offers to free Hyx from the captors&#39; camp
+- Wait: hold this plot for a few days; nothing happens in it yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Choice:RescueHyx</p><p class="desc">a Rescue quest offers to free Hyx from the captors&#39; camp</p><p class="reason">Aiko has waited long enough for news of her father; the opportunity to rescue him from the Rust Wolves is a perfect opportunity to advance the plot.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Choice:RescueHyx</p><p class="desc">a Rescue quest offers to free Hyx from the captors&#39; camp</p><p class="reason">Thornwick is content after the harvest and Hyx has been held by the Rust Wolves for 28 days; Aiko should go get him.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-18" data-item="18">
+<h2>18. Nemesis/Hook</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 570 (Septober 5509).
+Colony: Saltreach, 9 people, wealth 75,000 silver, mood strained.
+
+People:
+- Brannock (22); traits: Ascetic, Industrious; backstory: Glitterworld surgeon.
+- Ines (42); traits: Jogger; backstory: Soldier.
+- Ysolde (24); traits: Beautiful; backstory: Noble.
+- Breimir (25); traits: Jealous, Ugly; backstory: Soldier.
+- Matthias (28); traits: Trigger-happy; backstory: Vatgrown soldier.
+
+History:
+- Day 469: &#39;Hatchet&#39; Arne maimed Brannock and escaped.
+
+Factions:
+- the Ashen Elk (Tribe): goodwill +58, 6 settlements.
+- the Free Coast Alliance (Outlanders): goodwill +54, 3 settlements.
+- the Gallows Crew (Pirates): goodwill -66, 3 settlements.
+
+Recent events:
+- Day 554: a quiet stretch; the harvest came in.
+
+## Active plots
+- nemesis-1 (Nemesis): beat Hook, protagonist Brannock. &#39;Hatchet&#39; Arne of the Gallows Crew maimed Brannock on day 469 and escaped. &#39;Hatchet&#39; Arne was seen near Lukewoog on day 541.
+- lostfamily-90 (Lost Family): beat Hook, protagonist Ines. Ines has had a letter from a cousin, Brix.
+
+## Deciding now
+nemesis-1 (Nemesis), 29 days into its Hook beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Complication:HatchetArneLeadsARaid: &#39;Hatchet&#39; Arne leads a raid on the colony
+- Hook:HatchetArneSightedAgain: &#39;Hatchet&#39; Arne is seen again; the threat grows, but nothing happens yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Complication:HatchetArneLeadsARaid</p><p class="desc">&#39;Hatchet&#39; Arne leads a raid on the colony</p><p class="reason">&#39;Hatchet&#39; Arne was sighted 29 days ago and Saltreach is steady; Brannock should face the raider who maimed him.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Complication:HatchetArneLeadsARaid</p><p class="desc">&#39;Hatchet&#39; Arne leads a raid on the colony</p><p class="reason">The colony has been stable for a long time; &#39;Hatchet&#39; Arne&#39;s return as a direct threat provides a necessary escalation to the ongoing nemesis plot.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-19" data-item="19">
+<h2>19. AwakenedEmpire/Act2</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 723 (Aprimay 5512).
+Colony: Wren&#39;s Hollow, 9 people, wealth 59,000 silver, mood strained.
+
+People:
+- Oskar (66); traits: Industrious; backstory: Soldier.
+- Miad (64); traits: Pyromaniac; backstory: Smith.
+- Silas (38); traits: Pessimist; backstory: Vatgrown soldier.
+- Elaeric (36); traits: Greedy, Lazy; backstory: Noble.
+- Bram (46); traits: Great memory, Careful shooter; backstory: Smith.
+
+History:
+- Day 593: Bram recruited Miad.
+
+Factions:
+- the Driftwood Tribe (Tribe): goodwill +4, 7 settlements.
+- the Tola Union (Outlanders): goodwill +66, 4 settlements.
+- the Sun Throne (Empire): goodwill +21, 13 settlements, Empire state: Awakened.
+
+Recent events:
+- Day 709: a quiet stretch; the harvest came in.
+
+## Active plots
+- awakenedempire-1 (Awakened Empire): beat Act2, protagonist Wren&#39;s Hollow. The Sun Throne woke on day 675. Wren&#39;s Hollow has kept out of the Empire&#39;s way. The Sun Throne razed Fenwick, a settlement of the Tola Union. The Driftwood Tribe drove off an Imperial attack on Ashgrove.
+- lostfamily-90 (Lost Family): beat Hook, protagonist Oskar. Oskar has had a letter from a cousin, Oraric.
+
+## Deciding now
+awakenedempire-1 (Awakened Empire), 25 days into its Act2 beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Empire:TributeDemand: the Empire demands tribute: pay, refuse (war), or swear fealty
+- Wait: hold this plot for a few days; nothing happens in it yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Empire:TributeDemand</p><p class="desc">the Empire demands tribute: pay, refuse (war), or swear fealty</p><p class="reason">Wren&#39;s Hollow has kept out of the Sun Throne&#39;s way for 25 quiet days; its tribute demand should now force a choice.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Empire:TributeDemand</p><p class="desc">the Empire demands tribute: pay, refuse (war), or swear fealty</p><p class="reason">The colony has remained out of the Sun Throne&#39;s way for a long time; the Empire&#39;s demand for tribute forces a decision regarding their status.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-20" data-item="20">
+<h2>20. Nemesis/Complication</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 875 (Septober 5514).
+Colony: Highmoor, 9 people, wealth 39,000 silver, mood desperate.
+
+People:
+- Isilen (49); traits: Volatile, Optimist; backstory: Imperial strategist.
+- Freya (22); traits: Nervous; backstory: Glitterworld surgeon.
+- Cassia (31); traits: Beautiful, Trigger-happy; backstory: Space marine.
+- Sefa (68); traits: Industrious; backstory: Herbalist.
+- Myth (49), dead; traits: Abrasive, Pessimist; backstory: Nurse; sister of Isilen.
+
+History:
+- Day 677: Cassia went berserk.
+- Day 688: Freya married Sefa.
+- Day 758: Bax killed Myth and escaped.
+- Day 839: Highmoor repelled a raid by Bax&#39;s raiders.
+
+Factions:
+- the Kestrel Tribe (Tribe): goodwill -9, 4 settlements.
+- the Ashford Compact (Outlanders): goodwill +67, 1 settlement.
+- Vex&#39;s Crew (Pirates): goodwill -68, 6 settlements.
+
+Recent events:
+- Day 864: a quiet stretch; the harvest came in.
+- Day 874: food is running low and two colonists had mental breaks.
+
+## Active plots
+- nemesis-1 (Nemesis): beat Complication, protagonist Isilen. Bax of Vex&#39;s Crew killed Isilen&#39;s sister Myth on day 758 and escaped. Bax was seen near the salt flats, then led a raid on Highmoor on day 839 and got away.
+
+## Deciding now
+nemesis-1 (Nemesis), 36 days into its Complication beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Choice:BountyOrWaitForBax: a letter asks the colony to post a bounty on Bax, hunt them down, or wait for their return
+- Wait: hold this plot for a few days; nothing happens in it yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">Highmoor is starving and colonists are breaking; Isilen&#39;s choice about Bax can wait.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">The colony is reeling from recent mental breaks and food shortages; Isilen should wait for the right moment to pursue Bax.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-21" data-item="21">
+<h2>21. AwakenedEmpire/Ascendant</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 348 (Decembary 5505).
+Colony: Varrowgate, 9 people, wealth 55,000 silver, mood desperate.
+
+People:
+- Isaed (36); traits: Ascetic, Volatile; backstory: Shipwrecked engineer.
+- Haes (42); traits: Too smart; backstory: Imperial strategist.
+- Tialen (50); traits: Kind; backstory: Vatgrown soldier.
+- Dous (22); traits: Optimist, Steadfast; backstory: Colonial marshal.
+- Emeric (45); traits: Kind, Steadfast; backstory: Tribal hunter.
+
+History:
+- Day 149: Emeric went berserk.
+- Day 288: Haes recruited Isaed.
+
+Factions:
+- the Starling Tribe (Tribe): goodwill +27, 5 settlements.
+- the Ashford Compact (Outlanders): goodwill +44, 6 settlements.
+- the Sun Throne (Empire): goodwill -100, 14 settlements, Empire state: Ascendant.
+
+Recent events:
+- Day 329: a quiet stretch; the harvest came in.
+- Day 347: food is running low and two colonists had mental breaks.
+
+## Active plots
+- awakenedempire-1 (Awakened Empire): beat Ascendant, protagonist Varrowgate. The Sun Throne woke on day 296. Varrowgate is at war with the Sun Throne. The Ashford Compact drove off an Imperial attack on Calder Mill. The Sun Throne razed Solace, a settlement of the Starling Tribe. The Starling Tribe drove off an Imperial attack on Fenwick. The Sun Throne now holds most of the region.
+
+## Deciding now
+awakenedempire-1 (Awakened Empire), 34 days into its Ascendant beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Act3:StormTheCapital: the colony is offered the assault on the Imperial capital
+- Wait: hold this plot for a few days; nothing happens in it yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">Varrowgate is starving and colonists are breaking; storming the Sun Throne&#39;s capital now would be ruin.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">The colony is reeling from recent mental breaks and food shortages; the assault on the capital should wait until the colonists are more stable.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-22" data-item="22">
+<h2>22. LostFamily/Hook</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 500 (Jugust 5508).
+Colony: Ironbloom, 9 people, wealth 114,000 silver, mood content.
+
+People:
+- Tuth (23); traits: Optimist; backstory: Psycaster.
+- Matthias (42); traits: Optimist; backstory: Glitterworld surgeon.
+- Constance (20); traits: Ascetic, Psychopath; backstory: Space marine.
+- Halvard (63); traits: Pessimist; backstory: Herbalist.
+- Dov (63); traits: Industrious, Careful shooter; backstory: Urbworld urchin.
+- Bana (34); traits: Careful shooter, Industrious; backstory: Cave child.
+
+History:
+- Day 433: Constance married Tuth.
+
+Factions:
+- the Kestrel Tribe (Tribe): goodwill +32, 6 settlements.
+- the Ashford Compact (Outlanders): goodwill +62, 1 settlement.
+- the Marrow League (Outlanders): goodwill +42, 4 settlements.
+
+Recent events:
+- Day 498: a wanderer joined.
+
+## Active plots
+- lostfamily-1 (Lost Family): beat Hook, protagonist Tuth. Tuth&#39;s husband Orath is alive among the Marrow League. Tuth has had two letters from Orath.
+- nemesis-90 (Nemesis): beat Hook, protagonist Matthias. Bom wounded Matthias in a raid and escaped.
+
+## Deciding now
+lostfamily-1 (Lost Family), 23 days into its Hook beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Complication:OrathTakenCaptive: Orath is taken captive by a hostile faction
+- Wait: hold this plot for a few days; nothing happens in it yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Complication:OrathTakenCaptive</p><p class="desc">Orath is taken captive by a hostile faction</p><p class="reason">Tuth&#39;s search for Orath has stalled; the news of his capture by a hostile faction provides a necessary escalation to move the plot forward.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Complication:OrathTakenCaptive</p><p class="desc">Orath is taken captive by a hostile faction</p><p class="reason">Tuth has had two letters from Orath and Ironbloom is content; Orath&#39;s capture should now raise the stakes.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-23" data-item="23">
+<h2>23. AwakenedEmpire/Broken</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 653 (Decembary 5510).
+Colony: Gallowmere, 9 people, wealth 128,000 silver, mood content.
+
+People:
+- Breim (23); traits: Industrious, Depressive; backstory: Psycaster.
+- Kaev (61); traits: Trigger-happy; backstory: Soldier.
+- Nuka (46); traits: Nervous; backstory: Space marine.
+- Halvard (32); traits: Night owl, Kind; backstory: Soldier.
+
+Factions:
+- the Ashen Elk (Tribe): goodwill +4, 5 settlements.
+- the Calder Combine (Outlanders): goodwill +35, 1 settlement.
+- the Sun Throne (Empire): goodwill -4, 10 settlements, Empire state: Broken.
+
+Recent events:
+- Day 648: the colony finished a new workshop.
+
+## Active plots
+- awakenedempire-1 (Awakened Empire): beat Broken, protagonist Gallowmere. The Sun Throne woke on day 579. Gallowmere has kept out of the Empire&#39;s way. The Sun Throne took Calder Mill from the Ashen Elk. The Sun Throne took Fenwick from the Calder Combine. The Ashen Elk drove off an Imperial attack on Solace. The Sun Throne is breaking after heavy losses.
+- nemesis-90 (Nemesis): beat Hook, protagonist Breim. Fidelma wounded Breim in a raid and escaped.
+
+## Deciding now
+awakenedempire-1 (Awakened Empire), 17 days into its Broken beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Act3:ForceATreaty: the Empire offers a treaty of independence; signing ends the story
+- Wait: hold this plot for a few days; nothing happens in it yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">Gallowmere&#39;s situation is stable and the Empire&#39;s collapse is still developing; the colony can wait for the right moment to address the treaty.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Act3:ForceATreaty</p><p class="desc">the Empire offers a treaty of independence; signing ends the story</p><p class="reason">The Sun Throne has been breaking 17 days and Gallowmere is content; a treaty of independence fits.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-24" data-item="24">
+<h2>24. AwakenedEmpire/Act2</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 805 (Jugust 5513).
+Colony: Cinder Rest, 9 people, wealth 63,000 silver, mood strained.
+
+People:
+- Constance (34); traits: Undergrounder, Brawler; backstory: Doctor.
+- Nell (17); traits: Steadfast, Pyromaniac; backstory: Noble.
+- Keina (25); traits: Too smart, Kind; backstory: Midworld trader.
+- Corvin (31); traits: Greedy, Industrious; backstory: Smith.
+
+History:
+- Day 764: Corvin went berserk.
+
+Factions:
+- the Fox-Lantern Tribe (Tribe): goodwill +59, 5 settlements.
+- the Ashford Compact (Outlanders): goodwill +55, 4 settlements.
+- the Shattered Empire (Empire): goodwill -100, 14 settlements, Empire state: Awakened.
+
+Recent events:
+- Day 804: a wanderer joined.
+
+## Active plots
+- awakenedempire-1 (Awakened Empire): beat Act2, protagonist Cinder Rest. The Shattered Empire woke on day 767. Cinder Rest is at war with the Shattered Empire. The Fox-Lantern Tribe drove off an Imperial attack on Kettle Rock.
+- lostfamily-90 (Lost Family): beat Hook, protagonist Constance. Constance has had a letter from a cousin, Zinnia.
+
+## Deciding now
+awakenedempire-1 (Awakened Empire), 24 days into its Act2 beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Empire:DefendAlly: a neighbour under Imperial siege asks the colony to break the siege
+- Empire:SabotageImperial: the colony is offered a chance to sabotage an Imperial settlement
+- Wait: hold this plot for a few days; nothing happens in it yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">Cinder Rest is reeling from Corvin&#39;s recent outburst and the colony&#39;s mood is strained; the situation requires a moment of stability before further action.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Empire:SabotageImperial</p><p class="desc">the colony is offered a chance to sabotage an Imperial settlement</p><p class="reason">Cinder Rest has been at war with the Shattered Empire 24 days and is steady; it is time to strike back.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-25" data-item="25">
+<h2>25. Nemesis/Hook</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 278 (Septober 5504).
+Colony: Red Furrow, 9 people, wealth 22,000 silver, mood desperate.
+
+People:
+- Brouna (68); traits: Too smart, Tough; backstory: Soldier.
+- Zul (50); traits: Careful shooter; backstory: Rebel commander.
+- Oraera (33); traits: Steadfast, Nimble; backstory: Rebel commander.
+- Noka (46); traits: Ascetic, Industrious; backstory: Noble.
+- Thane (23); traits: Careful shooter; backstory: Colonial marshal.
+- Halvard (19); traits: Brawler, Lazy; backstory: Glitterworld surgeon.
+- Hias (33); traits: Optimist, Ascetic; backstory: Psycaster.
+- Constance (18), dead; traits: Optimist; backstory: Imperial strategist; friend of Brouna.
+- Petra (18); traits: Steadfast; backstory: Psycaster.
+
+History:
+- Day 223: Pim killed Constance and escaped.
+- Day 265: Zul went berserk.
+- Day 265: Oraera married Petra.
+
+Factions:
+- the Starling Tribe (Tribe): goodwill +8, 2 settlements.
+- the Calder Combine (Outlanders): goodwill +44, 2 settlements.
+- the Shattered Empire (Empire): goodwill -100, 7 settlements, Empire state: Awakened.
+- Malley&#39;s Lancers (Pirates): goodwill -82, 4 settlements.
+
+Recent events:
+- Day 273: a wanderer joined.
+- Day 277: food is running low and two colonists had mental breaks.
+
+## Active plots
+- nemesis-1 (Nemesis): beat Hook, protagonist Brouna. Pim of Malley&#39;s Lancers killed Brouna&#39;s friend Constance on day 223 and escaped. Pim was seen near Mogon on day 257.
+- lostfamily-90 (Lost Family): beat Hook, protagonist Zul. Zul has had a letter from a cousin, Wick.
+- silentpress-91 (Silent Press): beat Complication, protagonist Red Furrow. The colony killed the Rim Dispatch&#39;s reporter; the bulletins stopped.
+
+## Deciding now
+nemesis-1 (Nemesis), 21 days into its Hook beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Complication:PimLeadsARaid: Pim leads a raid on the colony
+- Hook:PimSightedAgain: Pim is seen again; the threat grows, but nothing happens yet
+- Promote:PimJoinsTheEmpire: Pim joins the Empire as an officer, so later raids are Imperial
+- Wait: hold this plot for a few days; nothing happens in it yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">Red Furrow is starving and colonists are breaking; Pim&#39;s thread can rest until the colony steadies.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">The colony is reeling from food shortages and mental breaks; the pursuit of Pim can wait while the survivors stabilize their situation.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-26" data-item="26">
+<h2>26. AwakenedEmpire/Ascendant</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 430 (Aprimay 5507).
+Colony: Wyrmfold, 9 people, wealth 42,000 silver, mood desperate.
+
+People:
+- Matthias (52); traits: Careful shooter, Steadfast; backstory: Cave child.
+- Severin (69); traits: Greedy, Lazy; backstory: Pirate defector.
+- Eleil (47); traits: Depressive; backstory: Soldier.
+- Greth (59); traits: Ascetic, Steadfast; backstory: Midworld trader.
+- Bros (34); traits: Brawler, Too smart; backstory: Pirate defector.
+- Corentin (41); traits: Jealous, Kind; backstory: Rebel commander.
+- Alodor (50); traits: Depressive, Nervous; backstory: Smith; holds the Imperial title of Baron.
+- Brannock (62); traits: Great memory, Beautiful; backstory: Doctor.
+
+History:
+- Day 298: Greth married Eleil.
+- Day 406: Matthias went berserk.
+
+Factions:
+- the Kestrel Tribe (Tribe): goodwill +34, 6 settlements.
+- the Tola Union (Outlanders): goodwill +66, 2 settlements.
+- the Lantern Throne (Empire): goodwill +62, 12 settlements, Empire state: Ascendant.
+
+Recent events:
+- Day 426: a cold snap began.
+- Day 429: food is running low and two colonists had mental breaks.
+
+## Active plots
+- awakenedempire-1 (Awakened Empire): beat Ascendant, protagonist Wyrmfold. The Lantern Throne woke on day 360. Wyrmfold stands with the Lantern Throne. The Lantern Throne razed Fenwick, a settlement of the Tola Union. The Lantern Throne razed Ashgrove, a settlement of the Tola Union. The Lantern Throne razed Marrow Hold, a settlement of the Kestrel Tribe. The Lantern Throne now holds most of the region. Alodor has risen in the Empire&#39;s service.
+- lostfamily-90 (Lost Family): beat Hook, protagonist Matthias. Matthias has had a letter from a cousin, Mags.
+- silentpress-91 (Silent Press): beat Complication, protagonist Wyrmfold. The colony killed the Rim Dispatch&#39;s reporter; the bulletins stopped.
+
+## Deciding now
+awakenedempire-1 (Awakened Empire), 15 days into its Ascendant beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Act3:OfferGovernorship: the Empire offers a governorship; accepting ends the story in Imperial victory
+- Empire:EscortEnvoy: the Empire asks its ally to escort its envoys to an Imperial settlement
+- Empire:ConquestJob: the Empire asks its ally to sabotage a settlement it means to take
+- Wait: hold this plot for a few days; nothing happens in it yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">Wyrmfold is reeling from food shortages and mental breaks; the colony needs time to stabilize before committing to further Imperial demands.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">Wyrmfold is starving through a cold snap; Alodor&#39;s rise and the Lantern Throne&#39;s offers can wait.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-27" data-item="27">
+<h2>27. LostFamily/Hook</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 583 (Septober 5509).
+Colony: Hearthstead, 9 people, wealth 101,000 silver, mood content.
+
+People:
+- Alis (64); traits: Tough; backstory: Vatgrown soldier.
+- Annika (68); traits: Steadfast; backstory: Pirate defector.
+- Dura (59); traits: Sanguine, Kind; backstory: Cave child.
+- Voum (21); traits: Too smart, Nervous; backstory: Glitterworld surgeon.
+- Dagny (33); traits: Depressive, Trigger-happy; backstory: Urbworld urchin.
+- Alialen (60); traits: Kind, Nervous; backstory: Midworld trader.
+
+History:
+- Day 583: Hearthstead repelled a raid by the Brackwater Corsairs raiders.
+
+Factions:
+- the Fox-Lantern Tribe (Tribe): goodwill +33, 2 settlements.
+- the Greywater Concord (Outlanders): goodwill +20, 1 settlement.
+- the Driftwood Tribe (Tribe): goodwill +46, 6 settlements.
+- the Brackwater Corsairs (Pirates): goodwill -67, 6 settlements.
+
+Recent events:
+- Day 583: raiders attacked Hearthstead and were driven off; several colonists were wounded.
+
+## Active plots
+- lostfamily-1 (Lost Family): beat Hook, protagonist Alis. Alis&#39;s brother Krudor is alive among the Driftwood Tribe. A letter from Krudor reached Alis on day 582.
+- nemesis-90 (Nemesis): beat Hook, protagonist Annika. Henrik wounded Annika in a raid and escaped.
+
+## Deciding now
+lostfamily-1 (Lost Family), 1 day into its Hook beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Complication:KrudorTakenCaptive: Krudor is taken captive by a hostile faction
+- Hook:AnotherLetterFromKrudor: another letter arrives from Krudor; nothing changes yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Hook:AnotherLetterFromKrudor</p><p class="desc">another letter arrives from Krudor; nothing changes yet</p><p class="reason">Raiders wounded Hearthstead&#39;s people yesterday and Krudor&#39;s first letter just arrived; another letter fits better than a capture.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Hook:AnotherLetterFromKrudor</p><p class="desc">another letter arrives from Krudor; nothing changes yet</p><p class="reason">Hearthstead is reeling from the recent raid; Alis should wait for more information from Krudor before further complicating the situation.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-28" data-item="28">
+<h2>28. AwakenedEmpire/Ascendant</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 735 (Jugust 5512).
+Colony: Stonegarden, 9 people, wealth 56,000 silver, mood content.
+
+People:
+- Idris (67); traits: Abrasive, Ascetic; backstory: Mercenary.
+- Freya (63); traits: Undergrounder, Jealous; backstory: Herbalist.
+- Aleil (27); traits: Brawler, Kind; backstory: Cave child.
+- Mouwyn (24); traits: Iron-willed; backstory: Smith.
+- Lym (55); traits: Volatile; backstory: Rebel commander.
+- Ziaka (17), dead; traits: Ascetic, Undergrounder; backstory: Vatgrown soldier.
+
+History:
+- Day 549: Lym went berserk.
+- Day 669: Aleil made a masterwork: a marble sculpture.
+- Day 734: Stonegarden repelled a raid by the Rust Wolves raiders.
+
+Factions:
+- the Starling Tribe (Tribe): goodwill +59, 6 settlements.
+- the Greywater Concord (Outlanders): goodwill +49, 7 settlements.
+- the Sun Throne (Empire): goodwill -21, 11 settlements, Empire state: Ascendant.
+- the Rust Wolves (Pirates): goodwill -100, 6 settlements.
+
+Recent events:
+- Day 734: raiders attacked Stonegarden; Ziaka died in the fighting.
+
+## Active plots
+- awakenedempire-1 (Awakened Empire): beat Ascendant, protagonist Stonegarden. The Sun Throne woke on day 642. Stonegarden has kept out of the Empire&#39;s way. The Sun Throne razed Fenwick, a settlement of the Greywater Concord. The Starling Tribe drove off an Imperial attack on Brightwater. The Sun Throne razed Solace, a settlement of the Greywater Concord. The Sun Throne now holds most of the region.
+
+## Deciding now
+awakenedempire-1 (Awakened Empire), 5 days into its Ascendant beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Act3:FinalDemand: the Empire&#39;s final demand: submit, or be counted among its enemies
+- Wait: hold this plot for a few days; nothing happens in it yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">The colony is reeling from the recent raid and the death of Ziaka; the Empire&#39;s final demand can wait while the survivors recover.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">Ziaka died in yesterday&#39;s raid on Stonegarden; the Sun Throne&#39;s final demand should wait.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-29" data-item="29">
+<h2>29. AwakenedEmpire/Act2</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 888 (Decembary 5514).
+Colony: Duskmere, 9 people, wealth 20,000 silver, mood strained.
+
+People:
+- Gideon (56); traits: Night owl; backstory: Cave child.
+- Yara (46); traits: Kind; backstory: Soldier.
+- Aluna (30); traits: Greedy; backstory: Nurse.
+- Silas (63); traits: Pessimist; backstory: Nurse.
+- Buna (26); traits: Psychopath; backstory: Mercenary.
+- Hesper (58); traits: Steadfast, Beautiful; backstory: Nurse.
+- Ottilie (69), dead; traits: Iron-willed, Night owl; backstory: Rebel commander.
+
+History:
+- Day 689: Hesper went berserk.
+- Day 700: Yara went berserk.
+- Day 888: Duskmere repelled a raid by Vex&#39;s Crew raiders.
+
+Factions:
+- the Kestrel Tribe (Tribe): goodwill +9, 4 settlements.
+- the Calder Combine (Outlanders): goodwill +41, 1 settlement.
+- the Empire of Kaseur (Empire): goodwill +65, 8 settlements, Empire state: Awakened.
+- Vex&#39;s Crew (Pirates): goodwill -72, 1 settlement.
+
+Recent events:
+- Day 888: raiders attacked Duskmere; Ottilie died in the fighting.
+
+## Active plots
+- awakenedempire-1 (Awakened Empire): beat Act2, protagonist Duskmere. The Empire of Kaseur woke on day 833. Duskmere stands with the Empire of Kaseur. The Kestrel Tribe drove off an Imperial attack on Kettle Rock. The Empire of Kaseur took Brightwater from the Kestrel Tribe. The Kestrel Tribe drove off an Imperial attack on Fenwick.
+- lostfamily-90 (Lost Family): beat Hook, protagonist Gideon. Gideon has had a letter from a cousin, Meis.
+- nemesis-91 (Nemesis): beat Hook, protagonist Yara. Brik wounded Yara in a raid and escaped.
+
+## Deciding now
+awakenedempire-1 (Awakened Empire), 21 days into its Act2 beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Empire:EscortEnvoy: the Empire asks its ally to escort its envoys to an Imperial settlement
+- Empire:ConquestJob: the Empire asks its ally to sabotage a settlement it means to take
+- Wait: hold this plot for a few days; nothing happens in it yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">Ottilie died in today&#39;s raid on Duskmere; the Empire of Kaseur&#39;s requests can wait while the colony mourns.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">The colony is reeling from the death of Ottilie in today&#39;s raid; the Empire&#39;s request can wait until the survivors have stabilized their situation.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-30" data-item="30">
+<h2>30. Nemesis/Hook</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 360 (Aprimay 5506).
+Colony: Coldwater, 8 people, wealth 48,000 silver, mood desperate.
+
+People:
+- Lalen (17); traits: Volatile; backstory: Psycaster.
+- Idris (56); traits: Optimist, Ugly; backstory: Mercenary.
+- Bo (65); traits: Psychopath, Kind; backstory: Vatgrown soldier.
+- Bertram (63); traits: Tough; backstory: Space marine.
+- Marguerite (42); traits: Nervous; backstory: Tribal hunter.
+- Elias (22); traits: Nervous, Nimble; backstory: Soldier.
+- Ines (25), dead; traits: Psychopath, Kind; backstory: Rebel commander; daughter of Lalen.
+
+History:
+- Day 289: Petra killed Ines and escaped.
+- Day 359: Coldwater repelled a raid by the Wailing Moth Tribe raiders.
+
+Factions:
+- the Wailing Moth Tribe (Tribe): goodwill -9, 5 settlements.
+- the Marrow League (Outlanders): goodwill +4, 2 settlements.
+- the Brackwater Corsairs (Pirates): goodwill -80, 7 settlements.
+
+Recent events:
+- Day 359: raiders attacked Coldwater and were driven off; several colonists were wounded.
+- Day 359: food is running low and two colonists had mental breaks.
+
+## Active plots
+- nemesis-1 (Nemesis): beat Hook, protagonist Lalen. Petra of the Brackwater Corsairs killed Lalen&#39;s daughter Ines on day 289 and escaped. Petra has been seen twice near the river ford.
+- lostfamily-90 (Lost Family): beat Hook, protagonist Idris. Idris has had a letter from a cousin, Annika.
+
+## Deciding now
+nemesis-1 (Nemesis), 8 days into its Hook beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Complication:PetraLeadsARaid: Petra leads a raid on the colony
+- Wait: hold this plot for a few days; nothing happens in it yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">Raiders wounded Coldwater&#39;s people today and food is short; Petra&#39;s raid would be too much now.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">The colony is reeling from the recent raid and food shortages; waiting allows the survivors to stabilize before Petra strikes again.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-31" data-item="31">
+<h2>31. AwakenedEmpire/Ascendant</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 513 (Septober 5508).
+Colony: Emberfall, 8 people, wealth 53,000 silver, mood desperate.
+
+People:
+- Bona (56); traits: Too smart, Lazy; backstory: Glitterworld surgeon.
+- Vias (26); traits: Jealous; backstory: Vatgrown soldier.
+- Kyric (48); traits: Greedy, Depressive; backstory: Urbworld urchin.
+- Dov (43); traits: Undergrounder, Depressive; backstory: Rebel commander.
+- Juno (22); traits: Ascetic; backstory: Medieval farmhand.
+- Krol (48); traits: Ascetic, Pyromaniac; backstory: Settler.
+
+History:
+- Day 513: Emberfall repelled a raid by the Gallows Crew raiders.
+
+Factions:
+- the Starling Tribe (Tribe): goodwill +53, 2 settlements.
+- the Ashford Compact (Outlanders): goodwill +11, 1 settlement.
+- the Empire of Kaseur (Empire): goodwill +51, 6 settlements, Empire state: Ascendant.
+- the Gallows Crew (Pirates): goodwill -86, 1 settlement.
+
+Recent events:
+- Day 513: raiders attacked Emberfall and were driven off; several colonists were wounded.
+- Day 512: food is running low and two colonists had mental breaks.
+
+## Active plots
+- awakenedempire-1 (Awakened Empire): beat Ascendant, protagonist Emberfall. The Empire of Kaseur woke on day 468. Emberfall stands with the Empire of Kaseur. The Empire of Kaseur razed Dunwold, a settlement of the Starling Tribe. The Empire of Kaseur took Brightwater from the Ashford Compact. The Empire of Kaseur took Marrow Hold from the Starling Tribe. The Empire of Kaseur now holds most of the region.
+- silentpress-90 (Silent Press): beat Complication, protagonist Emberfall. The colony killed the Rim Dispatch&#39;s reporter; the bulletins stopped.
+
+## Deciding now
+awakenedempire-1 (Awakened Empire), 5 days into its Ascendant beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Empire:EscortEnvoy: the Empire asks its ally to escort its envoys to an Imperial settlement
+- Empire:ConquestJob: the Empire asks its ally to sabotage a settlement it means to take
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Empire:EscortEnvoy</p><p class="desc">the Empire asks its ally to escort its envoys to an Imperial settlement</p><p class="reason">Emberfall was raided today and is starving; a quiet escort for the Empire of Kaseur asks far less than sabotage.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Empire:EscortEnvoy</p><p class="desc">the Empire asks its ally to escort its envoys to an Imperial settlement</p><p class="reason">Emberfall is reeling from the recent raid and food shortages; escorting the Empire of Kaseur&#39;s envoys is a gentler task for the colony to manage.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-32" data-item="32">
+<h2>32. Nemesis/Complication</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 665 (Aprimay 5511).
+Colony: Thornwick, 8 people, wealth 105,000 silver, mood content.
+
+People:
+- Arne (36); traits: Undergrounder, Industrious; backstory: Tribal hunter.
+- Vash (63); traits: Undergrounder, Tough; backstory: Nurse.
+- Breira (59); traits: Jogger; backstory: Medieval farmhand.
+- Odette (23); traits: Tough; backstory: Shipwrecked engineer.
+- Oraeric (61); traits: Iron-willed, Night owl; backstory: Colonial marshal.
+- Aiko (52); traits: Too smart; backstory: Colonial marshal.
+- Linnea (59), dead; traits: Careful shooter, Depressive; backstory: Glitterworld surgeon; friend of Arne.
+- Lene (49), dead; traits: Pessimist, Beautiful; backstory: Colonial marshal; father of Vash.
+
+History:
+- Day 615: Juno killed Linnea and escaped.
+- Day 646: Thornwick repelled a raid by Juno&#39;s raiders.
+- Day 665: Lene died.
+
+Factions:
+- the Kestrel Tribe (Tribe): goodwill +12, 6 settlements.
+- the Free Coast Alliance (Outlanders): goodwill +62, 3 settlements.
+- the Lantern Throne (Empire): goodwill -100, 6 settlements, Empire state: Awakened.
+- the Gallows Crew (Pirates): goodwill -93, 2 settlements.
+
+Recent events:
+- Day 665: Lene died of a fall; Vash is grieving.
+
+## Active plots
+- nemesis-1 (Nemesis): beat Complication, protagonist Arne. Juno of the Gallows Crew killed Arne&#39;s friend Linnea on day 615 and escaped. Juno was seen near Lukewoog, then led a raid on Thornwick on day 646 and got away.
+
+## Deciding now
+nemesis-1 (Nemesis), 19 days into its Complication beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Choice:BountyOrWaitForJuno: a letter asks the colony to post a bounty on Juno, hunt them down, or wait for their return
+- Promote:JunoJoinsTheEmpire: Juno joins the Empire as an officer, so later raids are Imperial
+- Wait: hold this plot for a few days; nothing happens in it yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">Lene died today and Vash is grieving; Arne&#39;s choice about Juno can wait a few days.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">The colony is reeling from Lene&#39;s death today, and the pursuit of Juno can wait while the survivors process their recent losses.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-33" data-item="33">
+<h2>33. AwakenedEmpire/Broken</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 818 (Septober 5513).
+Colony: Saltreach, 8 people, wealth 199,000 silver, mood content.
+
+People:
+- Eloric (27); traits: Abrasive; backstory: Doctor.
+- Nein (46); traits: Pyromaniac, Lazy; backstory: Rebel commander.
+- Keimir (69); traits: Beautiful; backstory: Mercenary.
+- Diam (44); traits: Too smart, Industrious; backstory: Shipwrecked engineer.
+- Veis (61); traits: Pyromaniac, Brawler; backstory: Settler.
+- Naeka (39), dead; traits: Nervous, Ascetic; backstory: Space marine; son of Eloric.
+
+History:
+- Day 689: Keimir made a masterwork: a carved jade statue.
+- Day 816: Naeka died.
+
+Factions:
+- the Wailing Moth Tribe (Tribe): goodwill +46, 2 settlements.
+- the Greywater Concord (Outlanders): goodwill -9, 1 settlement.
+- the Sun Throne (Empire): goodwill -100, 12 settlements, Empire state: Broken.
+
+Recent events:
+- Day 816: Naeka died of a fall; Eloric is grieving.
+
+## Active plots
+- awakenedempire-1 (Awakened Empire): beat Broken, protagonist Saltreach. The Sun Throne woke on day 763. Saltreach is at war with the Sun Throne. The Sun Throne razed Dunwold, a settlement of the Wailing Moth Tribe. The Sun Throne razed Brightwater, a settlement of the Greywater Concord. The Greywater Concord drove off an Imperial attack on Ashgrove. The Sun Throne is breaking after heavy losses.
+
+## Deciding now
+awakenedempire-1 (Awakened Empire), 17 days into its Broken beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Act3:StormTheCapital: the colony is offered the assault on the Imperial capital
+- Act3:ForceATreaty: the Empire offers a treaty of independence; signing ends the story
+- Wait: hold this plot for a few days; nothing happens in it yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">Naeka&#39;s death two days ago has Eloric grieving; the end of Saltreach&#39;s war with the Sun Throne can wait a few days.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">Naeka died just yesterday and Saltreach is mourning; the assault on the Sun Throne&#39;s capital can wait until the colony stabilizes.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-34" data-item="34">
+<h2>34. LostFamily/Complication</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 290 (Decembary 5504).
+Colony: Wren&#39;s Hollow, 8 people, wealth 33,000 silver, mood strained.
+
+People:
+- Riawyn (21); traits: Volatile; backstory: Soldier.
+- Leopold (61); traits: Jogger, Optimist; backstory: Herbalist.
+- Keir (27); traits: Kind, Optimist; backstory: Smith.
+- Kath (43); traits: Volatile; backstory: Psycaster.
+- Nor (59); traits: Jogger, Undergrounder; backstory: Doctor.
+- Sorrel (17), dead; traits: Kind; backstory: Herbalist; friend of Leopold.
+
+History:
+- Day 145: Leopold went berserk.
+- Day 171: Kath made a masterwork: a plasteel longsword.
+- Day 288: Sorrel died.
+
+Factions:
+- the Driftwood Tribe (Tribe): goodwill +30, 4 settlements.
+- the Marrow League (Outlanders): goodwill -3, 2 settlements.
+- the Tola Union (Outlanders): goodwill +34, 2 settlements.
+- Malley&#39;s Lancers (Pirates): goodwill -69, 1 settlement.
+
+Recent events:
+- Day 288: Sorrel died of infection; Leopold is grieving.
+
+## Active plots
+- lostfamily-1 (Lost Family): beat Complication, protagonist Riawyn. Riawyn&#39;s father Isaelen is alive among the Tola Union. On day 287, Malley&#39;s Lancers took Isaelen captive; Isaelen is held at a camp nearby.
+
+## Deciding now
+lostfamily-1 (Lost Family), 3 days into its Complication beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Choice:RescueIsaelen: a Rescue quest offers to free Isaelen from the captors&#39; camp
+- Wait: hold this plot for a few days; nothing happens in it yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">Riawyn&#39;s search for Isaelen can continue for a few more days while the colony stabilizes after Sorrel&#39;s death.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">Sorrel died two days ago and Isaelen was taken only three days ago; Riawyn&#39;s rescue can wait.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-35" data-item="35">
+<h2>35. Nemesis/Hook</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 443 (Jugust 5507).
+Colony: Highmoor, 8 people, wealth 9,000 silver, mood desperate.
+
+People:
+- Silas (19); traits: Careful shooter; backstory: Doctor.
+- Ansel (54); traits: Abrasive; backstory: Shipwrecked engineer.
+- Mara (33); traits: Ugly, Jogger; backstory: Noble.
+- Noor (63); traits: Nimble; backstory: Space marine.
+- Houna (49); traits: Ugly; backstory: Glitterworld surgeon.
+- Kriara (64); traits: Jealous, Lazy; backstory: Glitterworld surgeon.
+- Zera (17), dead; traits: Beautiful, Lazy; backstory: Tribal hunter; mother of Silas.
+- Dagny (18); traits: Greedy, Trigger-happy; backstory: Vatgrown soldier.
+- Oraewyn (25), dead; traits: Ascetic; backstory: Settler; father of Mara.
+
+History:
+- Day 397: &#39;Crow&#39; Aleik killed Zera and escaped.
+- Day 442: Oraewyn died.
+
+Factions:
+- the Fox-Lantern Tribe (Tribe): goodwill +36, 5 settlements.
+- the Greywater Concord (Outlanders): goodwill +22, 5 settlements.
+- Dunmore&#39;s Free Company (Pirates): goodwill -67, 2 settlements.
+
+Recent events:
+- Day 442: Oraewyn died of plague; Mara is grieving.
+- Day 442: food is running low and two colonists had mental breaks.
+
+## Active plots
+- nemesis-1 (Nemesis): beat Hook, protagonist Silas. &#39;Crow&#39; Aleik of Dunmore&#39;s Free Company killed Silas&#39;s mother Zera on day 397 and escaped. &#39;Crow&#39; Aleik was seen near the river ford on day 434.
+- silentpress-90 (Silent Press): beat Complication, protagonist Highmoor. The colony killed the Rim Dispatch&#39;s reporter; the bulletins stopped.
+- lostfamily-91 (Lost Family): beat Hook, protagonist Ansel. Ansel has had a letter from a cousin, Pim.
+
+## Deciding now
+nemesis-1 (Nemesis), 9 days into its Hook beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Complication:CrowAleikLeadsARaid: &#39;Crow&#39; Aleik leads a raid on the colony
+- Hook:CrowAleikSightedAgain: &#39;Crow&#39; Aleik is seen again; the threat grows, but nothing happens yet
+- Wait: hold this plot for a few days; nothing happens in it yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">Oraewyn just died of plague and Highmoor is starving; &#39;Crow&#39; Aleik should stay away for now.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">The colony is reeling from the recent deaths and food shortages; waiting allows the survivors to stabilize before facing &#39;Crow&#39; Aleik again.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-36" data-item="36">
+<h2>36. AwakenedEmpire/Act2</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 595 (Decembary 5509).
+Colony: Varrowgate, 8 people, wealth 9,000 silver, mood desperate.
+
+People:
+- Brannock (59); traits: Brawler, Iron-willed; backstory: Glitterworld surgeon.
+- Lisbet (63); traits: Ascetic, Volatile; backstory: Settler.
+- Yusra (33); traits: Abrasive; backstory: Glitterworld surgeon.
+- Halvard (60); traits: Industrious; backstory: Vatgrown soldier.
+- Tobiah (36); traits: Nimble; backstory: Colonial marshal.
+- Juno (41), dead; traits: Steadfast; backstory: Midworld trader; husband of Brannock.
+
+History:
+- Day 434: Yusra married Halvard.
+- Day 456: Tobiah married Lisbet.
+- Day 595: Juno died.
+
+Factions:
+- the Wailing Moth Tribe (Tribe): goodwill -5, 6 settlements.
+- the Free Coast Alliance (Outlanders): goodwill +40, 1 settlement.
+- the Empire of Kaseur (Empire): goodwill +14, 6 settlements, Empire state: Awakened.
+
+Recent events:
+- Day 595: Juno died of heatstroke; Brannock is grieving.
+- Day 594: food is running low and two colonists had mental breaks.
+
+## Active plots
+- awakenedempire-1 (Awakened Empire): beat Act2, protagonist Varrowgate. The Empire of Kaseur woke on day 507. Varrowgate has kept out of the Empire&#39;s way. The Empire of Kaseur took Ashgrove from the Wailing Moth Tribe. The Free Coast Alliance drove off an Imperial attack on Dunwold. The Empire of Kaseur razed Brightwater, a settlement of the Wailing Moth Tribe.
+
+## Deciding now
+awakenedempire-1 (Awakened Empire), 11 days into its Act2 beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Empire:TributeDemand: the Empire demands tribute: pay, refuse (war), or swear fealty
+- Wait: hold this plot for a few days; nothing happens in it yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">Juno just died and Varrowgate is starving; a tribute demand from the Empire of Kaseur now would only crush them.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">Juno&#39;s death has left the colony reeling, and the colony is in a desperate state following the recent mental breaks and food shortages.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-37" data-item="37">
+<h2>37. Nemesis/Complication</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 748 (Jugust 5512).
+Colony: Last Lantern, 8 people, wealth 179,000 silver, mood content.
+
+People:
+- Ines (30); traits: Iron-willed; backstory: Herbalist.
+- Leopold (24); traits: Volatile, Night owl; backstory: Colonial marshal.
+- Cassia (31); traits: Volatile, Sanguine; backstory: Settler.
+- Brannock (63); traits: Sanguine, Tough; backstory: Soldier.
+- Tobiah (16); traits: Kind, Greedy; backstory: Midworld trader.
+- Nell (69); traits: Night owl, Steadfast; backstory: Smith.
+
+History:
+- Day 551: Nell married Cassia.
+- Day 556: Brannock married Leopold.
+- Day 681: &#39;Hatchet&#39; Ilka maimed Ines and escaped.
+- Day 706: Last Lantern repelled a raid by &#39;Hatchet&#39; Ilka&#39;s raiders.
+
+Factions:
+- the Ashen Elk (Tribe): goodwill +32, 1 settlement.
+- the Marrow League (Outlanders): goodwill +63, 7 settlements.
+- the Rust Wolves (Pirates): goodwill -64, 4 settlements.
+
+Recent events:
+- Day 737: a quiet stretch; the harvest came in.
+
+## Active plots
+- nemesis-1 (Nemesis): beat Complication, protagonist Ines. &#39;Hatchet&#39; Ilka of the Rust Wolves maimed Ines on day 681 and escaped. &#39;Hatchet&#39; Ilka was seen near the salt flats, then led a raid on Last Lantern on day 706 and got away.
+- lostfamily-90 (Lost Family): beat Hook, protagonist Leopold. Leopold has had a letter from a cousin, Taewyn.
+
+## Deciding now
+nemesis-1 (Nemesis), 42 days into its Complication beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Choice:BountyOrWaitForHatchetIlka: a letter asks the colony to post a bounty on &#39;Hatchet&#39; Ilka, hunt them down, or wait for their return
+- Wait: hold this plot for a few days; nothing happens in it yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Choice:BountyOrWaitForHatchetIlka</p><p class="desc">a letter asks the colony to post a bounty on &#39;Hatchet&#39; Ilka, hunt them down, or wait for their return</p><p class="reason">&#39;Hatchet&#39; Ilka raided Last Lantern 42 days ago and the colony is content; Ines should decide how to answer.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Choice:BountyOrWaitForHatchetIlka</p><p class="desc">a letter asks the colony to post a bounty on &#39;Hatchet&#39; Ilka, hunt them down, or wait for their return</p><p class="reason">The colony has been stable for a long time since the raid; now is the time to act on the bounty for &#39;Hatchet&#39; Ilka.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-38" data-item="38">
+<h2>38. AwakenedEmpire/Ascendant</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 220 (Septober 5503).
+Colony: Ironbloom, 8 people, wealth 69,000 silver, mood content.
+
+People:
+- Yusra (57); traits: Nimble, Psychopath; backstory: Doctor.
+- Zinnia (63); traits: Kind; backstory: Smith.
+- Silas (22); traits: Steadfast, Kind; backstory: Space marine.
+- Ryric (42); traits: Careful shooter, Steadfast; backstory: Settler.
+- Zaelen (56); traits: Abrasive, Volatile; backstory: Colonial marshal.
+- Kraem (60); traits: Careful shooter; backstory: Mercenary.
+
+Factions:
+- the Fox-Lantern Tribe (Tribe): goodwill +29, 4 settlements.
+- the Ashford Compact (Outlanders): goodwill +34, 6 settlements.
+- the Shattered Empire (Empire): goodwill -100, 14 settlements, Empire state: Ascendant.
+
+Recent events:
+- Day 208: a quiet stretch; the harvest came in.
+
+## Active plots
+- awakenedempire-1 (Awakened Empire): beat Ascendant, protagonist Ironbloom. The Shattered Empire woke on day 145. Ironbloom is at war with the Shattered Empire. The Shattered Empire razed Dunwold, a settlement of the Ashford Compact. The Ashford Compact drove off an Imperial attack on Kettle Rock. The Shattered Empire took Harlow Ford from the Fox-Lantern Tribe. The Shattered Empire now holds most of the region.
+
+## Deciding now
+awakenedempire-1 (Awakened Empire), 36 days into its Ascendant beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Act3:StormTheCapital: the colony is offered the assault on the Imperial capital
+- Wait: hold this plot for a few days; nothing happens in it yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Act3:StormTheCapital</p><p class="desc">the colony is offered the assault on the Imperial capital</p><p class="reason">Ironbloom has been at war with the Shattered Empire for a long time; the opportunity to assault the capital provides a significant turning point for the colony.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Act3:StormTheCapital</p><p class="desc">the colony is offered the assault on the Imperial capital</p><p class="reason">Ironbloom has been at war with the Shattered Empire 36 days and is content; the assault on its capital should come.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-39" data-item="39">
+<h2>39. LostFamily/Hook</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 373 (Aprimay 5506).
+Colony: Gallowmere, 8 people, wealth 36,000 silver, mood strained.
+
+People:
+- Elox (34); traits: Beautiful; backstory: Rebel commander.
+- Hilde (29); traits: Beautiful, Volatile; backstory: Colonial marshal.
+- Sabine (63); traits: Industrious; backstory: Noble.
+- Yusra (47); traits: Jealous; backstory: Space marine.
+- Ora (69); traits: Tough, Iron-willed; backstory: Space marine.
+- Sefa (28); traits: Greedy, Too smart; backstory: Imperial strategist.
+- Dous (20); traits: Ugly, Lazy; backstory: Mercenary.
+
+History:
+- Day 244: Ora married Hilde.
+- Day 344: Sabine recruited Sefa.
+
+Factions:
+- the Starling Tribe (Tribe): goodwill +5, 4 settlements.
+- the Ashford Compact (Outlanders): goodwill -6, 7 settlements.
+- the Driftwood Tribe (Tribe): goodwill +37, 4 settlements.
+
+Recent events:
+- Day 362: a quiet stretch; the harvest came in.
+
+## Active plots
+- lostfamily-1 (Lost Family): beat Hook, protagonist Elox. Elox&#39;s daughter Wren is alive among the Driftwood Tribe. Elox has had two letters from Wren.
+- silentpress-90 (Silent Press): beat Complication, protagonist Gallowmere. The colony killed the Rim Dispatch&#39;s reporter; the bulletins stopped.
+
+## Deciding now
+lostfamily-1 (Lost Family), 39 days into its Hook beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Complication:WrenTakenCaptive: Wren is taken captive by a hostile faction
+- Wait: hold this plot for a few days; nothing happens in it yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Complication:WrenTakenCaptive</p><p class="desc">Wren is taken captive by a hostile faction</p><p class="reason">Elox has had two letters from Wren over 39 quiet days; her capture should finally raise the stakes.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Complication:WrenTakenCaptive</p><p class="desc">Wren is taken captive by a hostile faction</p><p class="reason">Elox has already waited a long time for news from Wren; her capture by a hostile faction provides a necessary escalation to the search for her.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-40" data-item="40">
+<h2>40. AwakenedEmpire/Broken</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 525 (Decembary 5508).
+Colony: Cinder Rest, 8 people, wealth 50,000 silver, mood strained.
+
+People:
+- Iseith (69); traits: Trigger-happy, Iron-willed; backstory: Mercenary.
+- Halvard (55); traits: Pyromaniac; backstory: Cave child.
+- Teira (39); traits: Ascetic, Undergrounder; backstory: Settler.
+- Biel (68); traits: Steadfast, Trigger-happy; backstory: Noble.
+- Zael (31); traits: Abrasive; backstory: Glitterworld surgeon.
+
+History:
+- Day 400: Teira married Halvard.
+
+Factions:
+- the Driftwood Tribe (Tribe): goodwill -15, 1 settlement.
+- the Marrow League (Outlanders): goodwill +56, 3 settlements.
+- the Shattered Empire (Empire): goodwill -12, 15 settlements, Empire state: Broken.
+
+Recent events:
+- Day 510: a quiet stretch; the harvest came in.
+
+## Active plots
+- awakenedempire-1 (Awakened Empire): beat Broken, protagonist Cinder Rest. The Shattered Empire woke on day 477. Cinder Rest has kept out of the Empire&#39;s way. The Marrow League drove off an Imperial attack on Marrow Hold. The Shattered Empire took Brightwater from the Driftwood Tribe. The Shattered Empire took Ashgrove from the Driftwood Tribe. The Shattered Empire is breaking after heavy losses.
+- silentpress-90 (Silent Press): beat Complication, protagonist Cinder Rest. The colony killed the Rim Dispatch&#39;s reporter; the bulletins stopped.
+- lostfamily-91 (Lost Family): beat Hook, protagonist Iseith. Iseith has had a letter from a cousin, Agnes.
+
+## Deciding now
+awakenedempire-1 (Awakened Empire), 35 days into its Broken beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Act3:ForceATreaty: the Empire offers a treaty of independence; signing ends the story
+- Wait: hold this plot for a few days; nothing happens in it yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Act3:ForceATreaty</p><p class="desc">the Empire offers a treaty of independence; signing ends the story</p><p class="reason">The Shattered Empire has been breaking 35 days and Cinder Rest is steady; its treaty offer should come now.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Act3:ForceATreaty</p><p class="desc">the Empire offers a treaty of independence; signing ends the story</p><p class="reason">The Shattered Empire has been breaking for over a month and Cinder Rest is steady after a good harvest; the treaty of independence can come now.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-41" data-item="41">
+<h2>41. AwakenedEmpire/Act2</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 678 (Jugust 5511).
+Colony: Wyrmfold, 8 people, wealth 19,000 silver, mood desperate.
+
+People:
+- Ysolde (27); traits: Iron-willed, Greedy; backstory: Space marine.
+- Eleiwyn (50); traits: Pyromaniac; backstory: Rebel commander.
+- Orrin (47); traits: Too smart, Ugly; backstory: Smith.
+- Lene (37); traits: Steadfast; backstory: Smith.
+- Kyna (57); traits: Optimist; backstory: Imperial strategist.
+- Diric (43); traits: Trigger-happy, Undergrounder; backstory: Imperial strategist.
+
+History:
+- Day 578: Lene recruited Diric.
+
+Factions:
+- the Kestrel Tribe (Tribe): goodwill -5, 1 settlement.
+- the Calder Combine (Outlanders): goodwill +64, 6 settlements.
+- the Shattered Empire (Empire): goodwill -100, 6 settlements, Empire state: Awakened.
+
+Recent events:
+- Day 664: a quiet stretch; the harvest came in.
+- Day 677: food is running low and two colonists had mental breaks.
+
+## Active plots
+- awakenedempire-1 (Awakened Empire): beat Act2, protagonist Wyrmfold. The Shattered Empire woke on day 564. Wyrmfold is at war with the Shattered Empire. The Calder Combine drove off an Imperial attack on Harlow Ford. The Shattered Empire razed Dunwold, a settlement of the Kestrel Tribe.
+
+## Deciding now
+awakenedempire-1 (Awakened Empire), 37 days into its Act2 beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Empire:DefendAlly: a neighbour under Imperial siege asks the colony to break the siege
+- Empire:SabotageImperial: the colony is offered a chance to sabotage an Imperial settlement
+- Wait: hold this plot for a few days; nothing happens in it yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">The colony is reeling from food shortages and mental breaks; waiting allows the survivors to stabilize before committing to further military actions against the Shattered Empire.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">Wyrmfold is starving and colonists are breaking; its war with the Shattered Empire must pause.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-42" data-item="42">
+<h2>42. Nemesis/Hook</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 830 (Decembary 5513).
+Colony: Hearthstead, 7 people, wealth 166,000 silver, mood content.
+
+People:
+- Annika (52); traits: Undergrounder, Depressive; backstory: Colonial marshal.
+- Niador (31); traits: Jogger; backstory: Doctor.
+- Miador (35); traits: Trigger-happy; backstory: Glitterworld surgeon.
+- Nador (36); traits: Great memory; backstory: Mercenary.
+- Saskia (66); traits: Too smart, Optimist; backstory: Colonial marshal.
+- Alaer (64), dead; traits: Brawler, Jealous; backstory: Mercenary; wife of Annika.
+
+History:
+- Day 730: Odette killed Alaer and escaped.
+
+Factions:
+- the Wailing Moth Tribe (Tribe): goodwill +15, 1 settlement.
+- the Marrow League (Outlanders): goodwill +16, 2 settlements.
+- the Empire of Kaseur (Empire): goodwill -100, 12 settlements, Empire state: Awakened.
+- Malley&#39;s Lancers (Pirates): goodwill -88, 7 settlements.
+
+Recent events:
+- Day 829: a cold snap began.
+
+## Active plots
+- nemesis-1 (Nemesis): beat Hook, protagonist Annika. Odette of Malley&#39;s Lancers killed Annika&#39;s wife Alaer on day 730 and escaped. Odette was seen near the old quarry on day 828.
+- lostfamily-90 (Lost Family): beat Hook, protagonist Niador. Niador has had a letter from a cousin, Thimir.
+
+## Deciding now
+nemesis-1 (Nemesis), 2 days into its Hook beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Complication:OdetteLeadsARaid: Odette leads a raid on the colony
+- Hook:OdetteSightedAgain: Odette is seen again; the threat grows, but nothing happens yet
+- Promote:OdetteJoinsTheEmpire: Odette joins the Empire as an officer, so later raids are Imperial
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Promote:OdetteJoinsTheEmpire</p><p class="desc">Odette joins the Empire as an officer, so later raids are Imperial</p><p class="reason">Odette was sighted two days ago; her joining the hostile Empire of Kaseur raises the threat to Annika without repeating the sighting.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Hook:OdetteSightedAgain</p><p class="desc">Odette is seen again; the threat grows, but nothing happens yet</p><p class="reason">Odette was recently seen near the quarry; another sighting builds tension before she strikes at Hearthstead.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-43" data-item="43">
+<h2>43. AwakenedEmpire/Ascendant</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 303 (Aprimay 5505).
+Colony: Stonegarden, 7 people, wealth 184,000 silver, mood content.
+
+People:
+- Ora (40); traits: Pyromaniac; backstory: Mercenary.
+- Freya (24); traits: Jealous, Night owl; backstory: Psycaster.
+- Hilde (63); traits: Abrasive; backstory: Smith.
+- Lisbet (37); traits: Greedy; backstory: Doctor.
+- Yusra (60); traits: Pessimist; backstory: Urbworld urchin; holds the Imperial title of Baron.
+- Silas (18); traits: Nervous, Jealous; backstory: Shipwrecked engineer.
+
+Factions:
+- the Ashen Elk (Tribe): goodwill +51, 1 settlement.
+- the Marrow League (Outlanders): goodwill +5, 5 settlements.
+- the Lantern Throne (Empire): goodwill +56, 13 settlements, Empire state: Ascendant.
+
+Recent events:
+- Day 298: a wanderer joined.
+
+## Active plots
+- awakenedempire-1 (Awakened Empire): beat Ascendant, protagonist Stonegarden. The Lantern Throne woke on day 264. Stonegarden stands with the Lantern Throne. The Lantern Throne razed Fenwick, a settlement of the Marrow League. The Lantern Throne took Harlow Ford from the Ashen Elk. The Lantern Throne razed Ashgrove, a settlement of the Ashen Elk. The Lantern Throne now holds most of the region. Yusra has risen in the Empire&#39;s service.
+- nemesis-90 (Nemesis): beat Hook, protagonist Ora. &#39;Crow&#39; Sela wounded Ora in a raid and escaped.
+- silentpress-91 (Silent Press): beat Complication, protagonist Stonegarden. The colony killed the Rim Dispatch&#39;s reporter; the bulletins stopped.
+
+## Deciding now
+awakenedempire-1 (Awakened Empire), 2 days into its Ascendant beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Act3:OfferGovernorship: the Empire offers a governorship; accepting ends the story in Imperial victory
+- Empire:EscortEnvoy: the Empire asks its ally to escort its envoys to an Imperial settlement
+- Empire:ConquestJob: the Empire asks its ally to sabotage a settlement it means to take
+- Wait: hold this plot for a few days; nothing happens in it yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Empire:EscortEnvoy</p><p class="desc">the Empire asks its ally to escort its envoys to an Imperial settlement</p><p class="reason">The Lantern Throne&#39;s rise is only two days old; escorting its envoys is a gentler step for Stonegarden than a governorship.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">Stonegarden is content and the Lantern Throne&#39;s rise is only two days old; the colony can settle its new wanderer before taking on more tasks.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-44" data-item="44">
+<h2>44. LostFamily/Hook</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 455 (Septober 5507).
+Colony: Duskmere, 7 people, wealth 72,000 silver, mood strained.
+
+People:
+- Tobiah (49); traits: Careful shooter; backstory: Rebel commander.
+- Isiador (60); traits: Steadfast, Optimist; backstory: Pirate defector.
+- Alilen (54); traits: Depressive; backstory: Rebel commander.
+- Silas (47); traits: Nervous; backstory: Soldier.
+- Sawyn (17); traits: Beautiful; backstory: Smith.
+- Kriana (23); traits: Brawler, Beautiful; backstory: Nurse.
+
+History:
+- Day 389: Kriana made a masterwork: a duster.
+
+Factions:
+- the Driftwood Tribe (Tribe): goodwill +33, 3 settlements.
+- the Calder Combine (Outlanders): goodwill +64, 6 settlements.
+- the Ashford Compact (Outlanders): goodwill +32, 4 settlements.
+
+Recent events:
+- Day 454: the colony finished a new workshop.
+
+## Active plots
+- lostfamily-1 (Lost Family): beat Hook, protagonist Tobiah. Tobiah&#39;s sister Juno is alive among the Ashford Compact. A letter from Juno reached Tobiah on day 452.
+- silentpress-90 (Silent Press): beat Complication, protagonist Duskmere. The colony killed the Rim Dispatch&#39;s reporter; the bulletins stopped.
+
+## Deciding now
+lostfamily-1 (Lost Family), 3 days into its Hook beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Complication:JunoTakenCaptive: Juno is taken captive by a hostile faction
+- Hook:AnotherLetterFromJuno: another letter arrives from Juno; nothing changes yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Hook:AnotherLetterFromJuno</p><p class="desc">another letter arrives from Juno; nothing changes yet</p><p class="reason">Tobiah&#39;s search for Juno continues as he receives further correspondence from her within the Ashford Compact.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Hook:AnotherLetterFromJuno</p><p class="desc">another letter arrives from Juno; nothing changes yet</p><p class="reason">Juno&#39;s first letter reached Tobiah only three days ago; another letter deepens the bond before anything goes wrong.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-45" data-item="45">
+<h2>45. AwakenedEmpire/Ascendant</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 608 (Aprimay 5510).
+Colony: Coldwater, 7 people, wealth 105,000 silver, mood strained.
+
+People:
+- Constance (22); traits: Steadfast, Careful shooter; backstory: Imperial strategist.
+- Severin (63); traits: Jogger, Undergrounder; backstory: Space marine.
+- Rasmus (44); traits: Depressive, Kind; backstory: Urbworld urchin.
+- Bo (44); traits: Iron-willed, Steadfast; backstory: Settler.
+- Greim (41); traits: Beautiful; backstory: Space marine.
+- Tilen (57); traits: Nervous, Pyromaniac; backstory: Settler.
+
+Factions:
+- the Driftwood Tribe (Tribe): goodwill +51, 6 settlements.
+- the Calder Combine (Outlanders): goodwill +38, 4 settlements.
+- the Lantern Throne (Empire): goodwill -28, 8 settlements, Empire state: Ascendant.
+
+Recent events:
+- Day 603: a trade caravan visited.
+
+## Active plots
+- awakenedempire-1 (Awakened Empire): beat Ascendant, protagonist Coldwater. The Lantern Throne woke on day 570. Coldwater has kept out of the Empire&#39;s way. The Lantern Throne took Marrow Hold from the Driftwood Tribe. The Lantern Throne took Fenwick from the Calder Combine. The Lantern Throne took Dunwold from the Calder Combine. The Lantern Throne now holds most of the region.
+- silentpress-90 (Silent Press): beat Complication, protagonist Coldwater. The colony killed the Rim Dispatch&#39;s reporter; the bulletins stopped.
+
+## Deciding now
+awakenedempire-1 (Awakened Empire), 9 days into its Ascendant beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Act3:FinalDemand: the Empire&#39;s final demand: submit, or be counted among its enemies
+- Wait: hold this plot for a few days; nothing happens in it yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">The colony is not reeling and the plot has not reached a critical point; waiting allows for more preparation before the Lantern Throne&#39;s final demand.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">The Lantern Throne&#39;s rise is only nine days old; Coldwater can wait before its final demand.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-46" data-item="46">
+<h2>46. AwakenedEmpire/Act2</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 760 (Septober 5512).
+Colony: Emberfall, 7 people, wealth 30,000 silver, mood desperate.
+
+People:
+- Kiamir (32); traits: Sanguine; backstory: Shipwrecked engineer.
+- Silas (18); traits: Volatile, Lazy; backstory: Mercenary.
+- Rador (40); traits: Greedy, Careful shooter; backstory: Shipwrecked engineer.
+
+History:
+- Day 584: Rador made a masterwork: a plasteel longsword.
+
+Factions:
+- the Wailing Moth Tribe (Tribe): goodwill +25, 3 settlements.
+- the Marrow League (Outlanders): goodwill -10, 2 settlements.
+- the Sun Throne (Empire): goodwill +55, 7 settlements, Empire state: Awakened.
+
+Recent events:
+- Day 757: a trade caravan visited.
+- Day 759: food is running low and two colonists had mental breaks.
+
+## Active plots
+- awakenedempire-1 (Awakened Empire): beat Act2, protagonist Emberfall. The Sun Throne woke on day 662. Emberfall stands with the Sun Throne. The Sun Throne razed Dunwold, a settlement of the Wailing Moth Tribe.
+
+## Deciding now
+awakenedempire-1 (Awakened Empire), 6 days into its Act2 beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Empire:EscortEnvoy: the Empire asks its ally to escort its envoys to an Imperial settlement
+- Empire:ConquestJob: the Empire asks its ally to sabotage a settlement it means to take
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Empire:EscortEnvoy</p><p class="desc">the Empire asks its ally to escort its envoys to an Imperial settlement</p><p class="reason">Emberfall is starving, so a quiet escort for its ally the Sun Throne asks less of it than sabotage.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Empire:EscortEnvoy</p><p class="desc">the Empire asks its ally to escort its envoys to an Imperial settlement</p><p class="reason">Emberfall is starving after a long wait; escorting the Sun Throne&#39;s envoys is a gentler task than a sabotage job.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-47" data-item="47">
+<h2>47. Nemesis/Hook</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 233 (Decembary 5503).
+Colony: Thornwick, 7 people, wealth 195,000 silver, mood content.
+
+People:
+- Vaena (28); traits: Sanguine, Kind; backstory: Rebel commander.
+- Lutz (51); traits: Psychopath, Ascetic; backstory: Settler.
+- Oskar (20); traits: Greedy, Ugly; backstory: Tribal hunter.
+- Tamsin (63); traits: Depressive; backstory: Herbalist.
+- Rune (27); traits: Greedy, Sanguine; backstory: Doctor.
+- Dumir (26); traits: Jealous; backstory: Pirate defector.
+- Talia (22), dead; traits: Undergrounder, Kind; backstory: Settler; daughter of Vaena.
+- Hanne (22); traits: Brawler, Careful shooter; backstory: Herbalist.
+- Hilde (22), dead; traits: Pyromaniac; backstory: Space marine.
+
+History:
+- Day 187: Sabine killed Talia and escaped.
+- Day 206: Dumir went berserk.
+- Day 232: Thornwick repelled a raid by Dunmore&#39;s Free Company raiders.
+
+Factions:
+- the Wailing Moth Tribe (Tribe): goodwill +19, 2 settlements.
+- the Calder Combine (Outlanders): goodwill +45, 6 settlements.
+- Dunmore&#39;s Free Company (Pirates): goodwill -91, 4 settlements.
+
+Recent events:
+- Day 232: raiders attacked Thornwick; Hilde died in the fighting.
+
+## Active plots
+- nemesis-1 (Nemesis): beat Hook, protagonist Vaena. Sabine of Dunmore&#39;s Free Company killed Vaena&#39;s daughter Talia on day 187 and escaped. Sabine has been seen twice near Woyo.
+- silentpress-90 (Silent Press): beat Complication, protagonist Thornwick. The colony killed the Rim Dispatch&#39;s reporter; the bulletins stopped.
+- lostfamily-91 (Lost Family): beat Hook, protagonist Lutz. Lutz has had a letter from a cousin, Rhea.
+
+## Deciding now
+nemesis-1 (Nemesis), 3 days into its Hook beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Complication:SabineLeadsARaid: Sabine leads a raid on the colony
+- Wait: hold this plot for a few days; nothing happens in it yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">Hilde died in yesterday&#39;s raid on Thornwick; Sabine&#39;s raid must wait while the colony mourns.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">The colony is reeling from the recent raid and the death of Hilde; Vaena&#39;s pursuit of Sabine can wait while the colony stabilizes.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-48" data-item="48">
+<h2>48. AwakenedEmpire/Ascendant</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 385 (Jugust 5506).
+Colony: Saltreach, 7 people, wealth 124,000 silver, mood content.
+
+People:
+- Oraeka (58); traits: Greedy; backstory: Space marine.
+- Naer (46); traits: Night owl, Volatile; backstory: Nurse.
+- Emeric (32); traits: Brawler, Depressive; backstory: Pirate defector.
+- Meika (63); traits: Depressive, Undergrounder; backstory: Herbalist.
+- Wren (35); traits: Careful shooter, Pyromaniac; backstory: Midworld trader.
+- Lura (37); traits: Lazy, Depressive; backstory: Smith.
+
+History:
+- Day 384: Saltreach repelled a raid by the Bonecutter Gang raiders.
+
+Factions:
+- the Ashen Elk (Tribe): goodwill +40, 7 settlements.
+- the Calder Combine (Outlanders): goodwill +57, 2 settlements.
+- the Lantern Throne (Empire): goodwill +28, 6 settlements, Empire state: Ascendant.
+- the Bonecutter Gang (Pirates): goodwill -84, 5 settlements.
+
+Recent events:
+- Day 384: raiders attacked Saltreach and were driven off; several colonists were wounded.
+
+## Active plots
+- awakenedempire-1 (Awakened Empire): beat Ascendant, protagonist Saltreach. The Lantern Throne woke on day 331. Saltreach stands with the Lantern Throne. The Lantern Throne took Kettle Rock from the Calder Combine. The Lantern Throne razed Calder Mill, a settlement of the Calder Combine. The Lantern Throne razed Solace, a settlement of the Ashen Elk. The Lantern Throne now holds most of the region.
+- silentpress-90 (Silent Press): beat Complication, protagonist Saltreach. The colony killed the Rim Dispatch&#39;s reporter; the bulletins stopped.
+
+## Deciding now
+awakenedempire-1 (Awakened Empire), 15 days into its Ascendant beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Empire:EscortEnvoy: the Empire asks its ally to escort its envoys to an Imperial settlement
+- Empire:ConquestJob: the Empire asks its ally to sabotage a settlement it means to take
+- Wait: hold this plot for a few days; nothing happens in it yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">The colony is reeling from the Bonecutter Gang raid on day 384; waiting allows the survivors to recover before committing to further Imperial tasks.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">Raiders wounded Saltreach&#39;s people yesterday; the Lantern Throne&#39;s errands can wait until they heal.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-49" data-item="49">
+<h2>49. Nemesis/Complication</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 538 (Decembary 5508).
+Colony: Wren&#39;s Hollow, 7 people, wealth 69,000 silver, mood strained.
+
+People:
+- Severin (32); traits: Volatile; backstory: Pirate defector.
+- Viggo (18); traits: Kind, Abrasive; backstory: Vatgrown soldier.
+- Meilen (30); traits: Abrasive, Sanguine; backstory: Settler.
+- Aiko (58); traits: Bloodlust, Iron-willed; backstory: Cave child.
+- Jory (26); traits: Bloodlust; backstory: Midworld trader.
+- Mags (57), dead; traits: Jealous; backstory: Noble; friend of Severin.
+- Bastian (59); traits: Ugly; backstory: Pirate defector.
+
+History:
+- Day 367: Bastian recruited Meilen.
+- Day 450: &#39;Smiler&#39; Gerda killed Mags and escaped.
+- Day 526: Wren&#39;s Hollow repelled a raid by &#39;Smiler&#39; Gerda&#39;s raiders.
+- Day 538: Wren&#39;s Hollow repelled a raid by Malley&#39;s Lancers raiders.
+
+Factions:
+- the Driftwood Tribe (Tribe): goodwill +33, 1 settlement.
+- the Ashford Compact (Outlanders): goodwill +4, 4 settlements.
+- the Sun Throne (Empire): goodwill -100, 7 settlements, Empire state: Awakened.
+- Malley&#39;s Lancers (Pirates): goodwill -89, 4 settlements.
+
+Recent events:
+- Day 538: raiders attacked Wren&#39;s Hollow and were driven off; several colonists were wounded.
+
+## Active plots
+- nemesis-1 (Nemesis): beat Complication, protagonist Severin. &#39;Smiler&#39; Gerda of Malley&#39;s Lancers killed Severin&#39;s friend Mags on day 450 and escaped. &#39;Smiler&#39; Gerda was seen near Lukewoog, then led a raid on Wren&#39;s Hollow on day 526 and got away.
+- silentpress-90 (Silent Press): beat Complication, protagonist Wren&#39;s Hollow. The colony killed the Rim Dispatch&#39;s reporter; the bulletins stopped.
+
+## Deciding now
+nemesis-1 (Nemesis), 12 days into its Complication beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Choice:BountyOrWaitForSmilerGerda: a letter asks the colony to post a bounty on &#39;Smiler&#39; Gerda, hunt them down, or wait for their return
+- Promote:SmilerGerdaJoinsTheEmpire: &#39;Smiler&#39; Gerda joins the Empire as an officer, so later raids are Imperial
+- Wait: hold this plot for a few days; nothing happens in it yet
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">The colony is reeling from the recent raid by Malley&#39;s Lancers; waiting allows the survivors to recover before pursuing &#39;Smiler&#39; Gerda.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Wait</p><p class="desc">hold this plot for a few days; nothing happens in it yet</p><p class="reason">Raiders wounded Wren&#39;s Hollow&#39;s people today; Severin&#39;s choice about &#39;Smiler&#39; Gerda can come once they heal.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+<section class="item" id="item-50" data-item="50">
+<h2>50. AwakenedEmpire/Broken</h2>
+<details><summary>Briefing</summary><pre>## The world
+Date: day 690 (Septober 5511).
+Colony: Highmoor, 8 people, wealth 103,000 silver, mood strained.
+
+People:
+- Talia (30); traits: Careful shooter, Industrious; backstory: Shipwrecked engineer.
+- Daeka (29); traits: Too smart, Jealous; backstory: Psycaster.
+- Buka (33); traits: Sanguine, Greedy; backstory: Space marine.
+- Mak (35); traits: Undergrounder, Steadfast; backstory: Mercenary.
+- Brod (37); traits: Depressive, Steadfast; backstory: Colonial marshal.
+- Ludo (52); traits: Bloodlust, Tough; backstory: Midworld trader.
+- Lene (28); traits: Greedy; backstory: Settler.
+- Idris (24); traits: Great memory, Beautiful; backstory: Pirate defector.
+- Myd (19), dead; traits: Tough, Beautiful; backstory: Herbalist.
+
+History:
+- Day 689: Highmoor repelled a raid by Malley&#39;s Lancers raiders.
+
+Factions:
+- the Wailing Moth Tribe (Tribe): goodwill +24, 2 settlements.
+- the Calder Combine (Outlanders): goodwill +39, 6 settlements.
+- the Shattered Empire (Empire): goodwill -100, 9 settlements, Empire state: Broken.
+- Malley&#39;s Lancers (Pirates): goodwill -73, 7 settlements.
+
+Recent events:
+- Day 689: raiders attacked Highmoor; Myd died in the fighting.
+
+## Active plots
+- awakenedempire-1 (Awakened Empire): beat Broken, protagonist Highmoor. The Shattered Empire woke on day 645. Highmoor is at war with the Shattered Empire. The Shattered Empire razed Solace, a settlement of the Calder Combine. The Wailing Moth Tribe drove off an Imperial attack on Ashgrove. The Shattered Empire took Kettle Rock from the Calder Combine. The Shattered Empire is breaking after heavy losses.
+- silentpress-90 (Silent Press): beat Complication, protagonist Highmoor. The colony killed the Rim Dispatch&#39;s reporter; the bulletins stopped.
+- lostfamily-91 (Lost Family): beat Hook, protagonist Talia. Talia has had a letter from a cousin, Solen.
+
+## Deciding now
+awakenedempire-1 (Awakened Empire), 5 days into its Broken beat.
+
+## Allowed options
+Each option is an id, then what it would do.
+- Act3:StormTheCapital: the colony is offered the assault on the Imperial capital
+- Act3:ForceATreaty: the Empire offers a treaty of independence; signing ends the story
+
+Choose one allowed option.</pre></details>
+<div class="answers">
+<div class="answer"><h3>A</h3><p class="choice">Act3:ForceATreaty</p><p class="desc">the Empire offers a treaty of independence; signing ends the story</p><p class="reason">Myd died fighting Malley&#39;s Lancers yesterday and Highmoor is starving; a treaty with the Shattered Empire is the kindest mercy on offer.</p></div>
+<div class="answer"><h3>B</h3><p class="choice">Act3:ForceATreaty</p><p class="desc">the Empire offers a treaty of independence; signing ends the story</p><p class="reason">Myd died in today&#39;s raid; a treaty with the breaking Shattered Empire offers Highmoor relief instead of another assault.</p></div>
+</div>
+<div class="pick"><button data-pick="A">A is better</button><button data-pick="same">Same</button><button data-pick="B">B is better</button></div>
+</section>
+</main>
+<script>
+const NAME = "review-director-e2b";
+const KEY = "director-review:" + NAME;
+let picks = {};
+try { picks = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) { picks = {}; }
+function save() { try { localStorage.setItem(KEY, JSON.stringify(picks)); } catch (e) {} }
+function show() {
+  document.querySelectorAll(".item").forEach(sec => {
+    const v = picks[sec.dataset.item];
+    sec.classList.toggle("done", !!v);
+    sec.querySelectorAll("button[data-pick]").forEach(b => b.classList.toggle("on", b.dataset.pick === v));
+  });
+  document.getElementById("done").textContent = Object.keys(picks).length;
+}
+document.querySelectorAll("button[data-pick]").forEach(b => b.addEventListener("click", () => {
+  const sec = b.closest(".item");
+  picks[sec.dataset.item] = b.dataset.pick;
+  save(); show();
+  const next = sec.nextElementSibling;
+  if (next) next.scrollIntoView({ behavior: "smooth", block: "start" });
+}));
+document.getElementById("download").addEventListener("click", () => {
+  const blob = new Blob([JSON.stringify({ review: NAME, picks }, null, 2)], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "review-answers.json";
+  a.click();
+});
+show();</script>
+</body></html>

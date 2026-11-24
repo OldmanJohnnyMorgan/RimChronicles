@@ -162,5 +162,10 @@ public sealed class RimChroniclesSettings : ModSettings
         DirectorModel = DirectorModel?.Trim() ?? "";
         DirectorApiKey ??= "";
         DirectorTier = DirectorTier == ModelTier.Off ? ModelTier.Minimum : DirectorTier;
+        if (TierPresets.DirectorPreset(DirectorModel) is { } preset)
+        {
+            DirectorModel = preset.Model;
+            DirectorTier = preset.Tier; // a preset always runs at the tier it was trained on
+        }
     }
 }

@@ -103,12 +103,12 @@ Same as A1, A3 and A4 with `e4b`. The E4B conversion needs the WSL memory settin
 
 - [ ] `git pull`, `dotnet build RimChronicles.slnx`, then start RimWorld with Development mode on.
 - [ ] **Options → Mod settings → Rim Chronicles → Separate director model**:
-  - [ ] Model `rimchron-director-e2b`, address and key blank, **Director prompt tier: Minimum**.
+  - [ ] **Director model**: pick `rimchron-director-e2b` (it sets the Minimum prompt tier itself); address and key blank.
   - [ ] Pass when no orange warning shows.
 - [ ] **Test connection**: it tests the main model, then the director, and both answer.
 - [ ] In a Dev Mode game, **Rim Chronicles → Plot: advance beat** on a plot, then **Plot: director log**. The
       decision's source is `Model`, and its reason reads sensibly.
-- [ ] Switch to `rimchron-director-e4b` with tier **Recommended**, and repeat the test connection and one decision.
+- [ ] Pick **Other**, name `rimchron-director-e4b`, tier **Recommended**, and repeat the test connection and one decision.
 
 ### A7. The 200-day check (D11), recording real decisions (D3)
 
@@ -125,6 +125,12 @@ One long Dev Mode game, run at speed 3 or 4 in the background. Keep the director
   - [ ] waits after a raid or a death;
   - [ ] no repeated beats back to back;
   - [ ] reasons that match the colony.
+- [ ] Along the way, check the player-facing polish (PRs #123 and #124):
+  - [ ] a plot letter's **Jump to** goes to the nemesis, relative or colonist it names;
+  - [ ] choice letters end with what happens if no one answers, and answering shows a short message;
+  - [ ] the **Chronicle** tab lists each story once its first letter arrives (Silent Press stays hidden until its
+        first clue), with its letters and answers in order, and finished stories below running ones;
+  - [ ] with Ollama stopped for a moment, one "model not answering" letter arrives, not one per bulletin.
 - [ ] At the end, import the recorded cases:
       ```powershell
       dotnet run --project harness/RimChronicles.Eval -- director-import --from "$env:USERPROFILE\AppData\LocalLow\Ludeon Studios\RimWorld by Ludeon Studios\RimChronicles\director-cases"
