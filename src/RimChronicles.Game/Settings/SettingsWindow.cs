@@ -32,7 +32,9 @@ public static class SettingsWindow
         // The page is taller than the window: a scroll view, sized from the last frame's height.
         var view = new Rect(0f, 0f, rect.width - 16f, _height);
         Widgets.BeginScrollView(rect, ref _scroll, view);
-        var list = new Listing_Standard();
+        // One column: without this, rows that pass last frame's height (when an option shows more fields) wrap into a
+        // second column off to the right, and the page's measured height shrinks so it never comes back.
+        var list = new Listing_Standard { maxOneColumn = true };
         list.Begin(view);
 
         list.Label("Model tier");
