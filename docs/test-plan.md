@@ -372,6 +372,18 @@ Built 2026-11-24 (`milestones/C11-director-wiring.md`). Steps: `crisis-runbook-4
 Then the crisis retrain (training/README.md, "Crisis retrain"): crisis test labels (Claude Code, in session), local
 labels, E2B and E4B retrained, reports and reviews, and the presets marked as knowing the crisis.
 
+## Part C: the War in Heaven (`war-in-heaven`)
+
+The War in Heaven is built on the `war-in-heaven` branch (`docs/SPEC-war-in-heaven/`). Its in-game checks are batched
+into three checkpoints; each runbook grows as its milestones land.
+
+### C1. Checkpoint 1: sides, the Hollow Choir, waking (W2–W5)
+
+Run `docs/SPEC-war-in-heaven/war-runbook-1.md` once W5 is merged. Needs Royalty and Biotech.
+
+- [ ] W2: allegiance (steps W2.1–W2.5): an old save picks up the Empire stance; setting a side updates the plots and
+      the Empire's goodwill; it survives a reload.
+
 ---
 
 ## After all of it

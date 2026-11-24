@@ -121,6 +121,13 @@ Captives, interrogation, intel and defectors work as today, with Choir intel ite
 - **Allegiance** (R8). Siding with a power makes the colony hostile to the other (faction relation set, the other
   plot's stance to oppose). Independence opposes both. Before the Choir exists, an Imperial side is stored and applied
   when the Choir wakes.
+- **As built (W2):** `Allegiance` (Core, saved as `allegiance`) keeps a stance per power and a log; siding with one
+  power sets the others to oppose, and `SideAmong(powers)` gives the side. Each plot still reads its own `stance` fact,
+  so `PowerArc` and the director's cases are unchanged; `AllegianceDriver` (Game) syncs them daily: a stance the plot
+  set comes into the allegiance, and the rivals' stances it changes go out to their plots and goodwill
+  (`PowerFactions.ApplyStance`, shared with the Empire plot). An old save has no allegiance, so its first sync reads the
+  Empire plot's stance. A power without a plot yet takes its stance from the allegiance when its plot starts (W4).
+  Dev Mode: **War in Heaven: set side**, **War in Heaven: show allegiance**.
 - **The summons** (spec §6.1). A daily rule, not a director choice: while the side is Empire (or Choir) and the colony
   has a pawn of the other kind not already summoned, a summons quest starts for that pawn. A refusal sets the side to
   independent (cause `Summons`). Each pawn is summoned once per side change.
