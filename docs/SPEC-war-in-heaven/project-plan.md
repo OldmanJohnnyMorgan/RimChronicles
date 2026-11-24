@@ -18,7 +18,7 @@ first, then `main` is merged into `war-in-heaven`.
 | W4b | Choir plot and ranks (**built 2026-11-24**; in game at checkpoint 1) | Codespace | `HollowChoir` plot template and beats (envoy, Act 2 jobs, tribute, Act 3), the Choir rank ladder from service (spec D13) opening the First Voice's offer; Empire and Choir drivers share one loop over `PowerFactions.Running` |
 | W5 | Cross-waking, ship launch and Royal Ascent (**built 2026-11-24**; in game at checkpoint 1) | Codespace | Waking rules of spec §4–§5 unit-tested; `Quest.Accept` patch; Dev Mode for each |
 | **Checkpoint 1** | `war-runbook-1.md` | PC | Choir wakes (each way), faction and settlements appear, sides set relations, the hum shows in bulletins |
-| W6 | Summons, conversion, shut-down and dismantle | Codespace | Both quest scripts; conversion at every level (unit); shut-down mechs never go feral; dismantle yields parts; refusal sets independence |
+| W6 | Summons, conversion, shut-down and dismantle (**built 2026-11-24**; in game at checkpoint 2) | Codespace | Both quest scripts; conversion at every level (unit); shut-down mechs never go feral; dismantle yields parts; refusal sets independence |
 | W7 | Choir crisis: commander AI, operations, cluster drop, burrowing strike, the Hum (**director vocabulary built 2026-11-24**; game work to do) | Codespace | Tech spec §4.3 rows 1–5; fairness tests as for the crisis |
 | W8 | Choir sites and cluster siege (**site defs built 2026-11-24** on Imperial placeholders; Choir pieces and game work to do) | Codespace | Cluster outpost, Resonator, Signal spire, reclaimed holding; siege planner with cluster pieces |
 | W9 | The Cathedral and the First Voice | Codespace | Three-ring generator with resonators as the shield's relays; bossgroup guard |

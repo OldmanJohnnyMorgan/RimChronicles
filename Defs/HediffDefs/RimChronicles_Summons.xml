@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- The bandwidth a psycaster the Hollow Choir converted keeps on top of the mechlink's 6 (War in Heaven W6, D7):
+       4 per psylink level they had above the first. Severity is the level (1-6). -->
+  <HediffDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>RimChronicles_ChoirBandwidth</defName>
+    <label>Chorus tuning</label>
+    <description>The Hollow Choir retuned this mind to the mech band when it took their psylink away. They command more mechs than a new mechanitor could.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <everCurableByItem>false</everCurableByItem>
+    <defaultLabelColor>(0.62, 0.70, 0.72)</defaultLabelColor>
+    <initialSeverity>1</initialSeverity>
+    <minSeverity>1</minSeverity>
+    <maxSeverity>6</maxSeverity>
+    <stages>
+      <li><minSeverity>1</minSeverity><label>first voice</label></li>
+      <li><minSeverity>2</minSeverity><label>second voice</label><statOffsets><MechBandwidth>4</MechBandwidth></statOffsets></li>
+      <li><minSeverity>3</minSeverity><label>third voice</label><statOffsets><MechBandwidth>8</MechBandwidth></statOffsets></li>
+      <li><minSeverity>4</minSeverity><label>fourth voice</label><statOffsets><MechBandwidth>12</MechBandwidth></statOffsets></li>
+      <li><minSeverity>5</minSeverity><label>fifth voice</label><statOffsets><MechBandwidth>16</MechBandwidth></statOffsets></li>
+      <li><minSeverity>6</minSeverity><label>sixth voice</label><statOffsets><MechBandwidth>20</MechBandwidth></statOffsets></li>
+    </stages>
+  </HediffDef>
+
+</Defs>

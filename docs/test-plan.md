@@ -394,6 +394,14 @@ Run `docs/SPEC-war-in-heaven/war-runbook-1.md` once W5 is merged. Needs Royalty 
 - [ ] W5: waking (steps W5.1–W5.5): either power's attack wakes the other at once; the ship launch wakes the Empire;
       the Royal Ascent wakes the Choir and brings its raids.
 
+### C2. Checkpoint 2: summons, the Choir's crisis, its sites and the Cathedral (W6–W9)
+
+Run `docs/SPEC-war-in-heaven/war-runbook-2.md` once W9 is merged. Needs Royalty and Biotech.
+
+- [ ] W6: the summons (steps W6.1–W6.10): each side summons the kind it can't keep and returns it converted at the
+      matching level; mechs are deactivated, never feral, and any colonist can dismantle them; refusing makes the colony
+      stand alone.
+
 ---
 
 ## After all of it

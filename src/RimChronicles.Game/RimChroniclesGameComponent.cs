@@ -30,6 +30,7 @@ public sealed class RimChroniclesGameComponent : GameComponent
     private Allegiance _allegiance = new();
     private Core.Choir.ChoirRanks _choirRanks = new();
     private Core.War.WarInHeaven _war = new();
+    private SummonsBook _summons = new();
     private List<Pawn> _tracked = [];
     private Pawn? _reporterPawn;
 
@@ -66,6 +67,9 @@ public sealed class RimChroniclesGameComponent : GameComponent
 
     /// <summary>Colonists' standing in the Chorus (War in Heaven W4b, spec D13).</summary>
     public Core.Choir.ChoirRanks ChoirRanks => _choirRanks;
+
+    /// <summary>The summons (War in Heaven W6).</summary>
+    public SummonsBook Summons => _summons;
 
     /// <summary>The War in Heaven (W10).</summary>
     public Core.War.WarInHeaven War => _war;
@@ -138,6 +142,7 @@ public sealed class RimChroniclesGameComponent : GameComponent
         ScribeArchive.Instance.Deep(ref _allegiance, "allegiance");
         ScribeArchive.Instance.Deep(ref _choirRanks, "choirRanks");
         ScribeArchive.Instance.Deep(ref _war, Core.War.WarInHeaven.PlotId);
+        ScribeArchive.Instance.Deep(ref _summons, "summons");
         Scribe_Collections.Look(ref _tracked, "trackedPawns", LookMode.Reference);
         Scribe_References.Look(ref _reporterPawn, "reporterPawn");
         _news ??= new NewsLog();
@@ -151,6 +156,7 @@ public sealed class RimChroniclesGameComponent : GameComponent
         _allegiance ??= new Allegiance();
         _choirRanks ??= new Core.Choir.ChoirRanks();
         _war ??= new Core.War.WarInHeaven();
+        _summons ??= new SummonsBook();
         _tracked ??= [];
         _tracked.RemoveAll(p => p is null);
     }

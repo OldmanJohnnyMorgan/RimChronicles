@@ -24,6 +24,7 @@ public static class PowerDrivers
 
         CrossWake(component);
         AllegianceDriver.Daily(component);
+        Summons.SummonsDriver.Daily(component);
     }
 
     /// <summary>War in Heaven spec §4: once one power is awake and has attacked, a rival still asleep wakes at once.</summary>

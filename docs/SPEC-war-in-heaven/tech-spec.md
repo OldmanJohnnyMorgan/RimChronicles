@@ -182,6 +182,17 @@ spawning, sites in game, the Cathedral) is still to do.
   the psylink goes on (or the psylink and its psycasts come off and the mechlink goes on). The pawn's backstory and skills don't change. A letter names what they became.
 - The LLM writes the summons letter and the return letter, with template fallbacks (rule 7).
 
+- **As built (W6):** `SummonsBook` (Core, saved as `summons`) picks the next colonist of the kind the side can't keep
+  (one pending per power, each colonist once per side) and records how each summons ended. `SummonsDriver` (Game,
+  daily after the allegiance sync) offers `RimChronicles_Summons` (`QuestNode_Root_ChroniclesSummons`: the side's
+  shuttle with the colonist required, a day to board) through the side's plot. `QuestPart_RcSummons` subclasses
+  `QuestPart_LendColonistsToFaction` and converts in `Complete` (`SummonsConversion`): mechs deactivated, mechlink off,
+  psylink set to the formula's level; or psylink and psycasts off, `MechlinkImplant` on, `RimChronicles_ChoirBandwidth`
+  (six stages, +4 each above the first) at the level. A shuttle leaving empty (`QuestPart_RcSummonsRefused`) or an
+  offer declined or lapsed sets the colony independent (cause `summons`). `FloatMenuOptionProvider_RcDismantle` lets
+  any colonist queue vanilla `DisassembleMech` on a deactivated mech. Template letters only. Dev Mode: **War in
+  Heaven: send a summons now**, **return the summoned colonist now**, **convert the selected colonist**.
+
 ## 6. The War in Heaven and the endings
 
 - **Start** (R9). The daily roll begins once both powers are Awakened (or beyond) and the colony is at war with at
