@@ -77,4 +77,16 @@
     <defaultChallengeRating>3</defaultChallengeRating>
     <root Class="RimChronicles.Game.Crisis.Sites.QuestNode_Root_ChroniclesImperialSite" />
   </QuestScriptDef>
+  <!-- A summons (War in Heaven W6, spec §6.1): the colony's side sends a shuttle for a colonist of the kind it can't keep,
+       holds them 5 days and returns them converted. Started by the summons driver, never by the storyteller. Needs
+       Royalty (the shuttle) and Biotech (mechlinks). -->
+  <QuestScriptDef MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Biotech">
+    <defName>RimChronicles_Summons</defName>
+    <randomlySelectable>false</randomlySelectable>
+    <isRootSpecial>true</isRootSpecial>
+    <autoAccept>false</autoAccept>
+    <expireDaysRange>3~3</expireDaysRange>
+    <root Class="RimChronicles.Game.Powers.QuestNode_Root_ChroniclesSummons" />
+  </QuestScriptDef>
+
 </Defs>
