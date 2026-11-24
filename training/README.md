@@ -294,32 +294,57 @@ dotnet run --project harness/RimChronicles.Eval -- director-review --config trai
 It reveals which side was which and writes `review.md` (better, same, worse, and per arc and beat). The ship bar: the
 model is picked or tied in at least 40% of cases. Commit the `review-director-e2b` folder with the report.
 
-## Crisis retrain (after crisis C11)
+## Retrain for the crisis and the War in Heaven (one retrain)
 
-C11 (`docs/SPEC-crisis-combat-and-locations/milestones/C11-director-wiring.md`) gives the director the Imperial
-crisis: operations, siege goals (`Goal:*`) and sites (`Site:*`). The shipped directors weren't trained on them, so the
-game keeps the crisis away from them until they're retrained. The crisis cases are a separate set with their own ids
-(`dir-s{seed}-c{n}`), so seed 9001's 500 cases and test-v1 stay as they are; the test set becomes version 2 (test-v1
-plus the crisis test labels).
+Crisis C11 gave the director the Imperial crisis (operations, siege goals `Goal:*`, sites `Site:*`), and War in Heaven
+W12 (`docs/SPEC-war-in-heaven/tech-spec.md`, §7) the Hollow Choir's plot, its crisis and the War in Heaven's own plot
+(`War:*`). The shipped directors know neither, so the game keeps both away from them (`DirectorVocabulary.Base`). They
+are retrained **once** on everything (spec D5). The crisis and war cases are separate sets with their own ids
+(`dir-s{seed}-c{n}`, `dir-s{seed}-w{n}`), so seed 9001's 500 cases and test-v1 stay as they are; the test set becomes
+version 3 (test-v1, test-crisis-v1 and test-war-v1).
 
-1. **Cases (PowerShell):** `director-gen --seed 1 --arc crisis` (1,200 training cases) and
-   `director-gen --seed 9001 --arc crisis --count 240` (the crisis test cases).
-2. **Test labels: done** (2026-11-24). `training/data/labels/test-crisis-v1`: 240 seed-9001 crisis cases (crisis
-   generator v3) labelled by Claude Code in session with teacher prompt `director-teacher/v4`, the v3 rubric plus
-   crisis rules (operations by stage, retrieval for prisoners, nothing sent at a knocked-out capability, siege goals,
-   sites). Self-agreement 24/24; the Wait rule held in all 112 cases it decides. Best answers: Wait 43%, probe 11%,
-   retrieval 11%, forward outpost 9%, walls 7%, the rest spread. If the crisis generator changes, these go stale.
-3. **Training labels:** the local teacher labels the 1,200 seed-1 crisis cases with `director-teacher/v4` into its own
-   folder (`local-gemma4-12b` holds the v3 labels, and `director-label` refuses to mix teacher versions or plans in one
-   folder), then `director-labels-check`. Check the agreement and the forced-label share as for D4b.
+Work from the `war-in-heaven` branch until it merges into `main`.
+
+1. **Cases (PowerShell):**
+
+   ```powershell
+   cd C:\RimworldMods\RimChronicles\RimChronicles
+   git checkout war-in-heaven
+   git pull
+   dotnet run --project harness/RimChronicles.Eval -- director-gen --seed 1 --arc crisis
+   dotnet run --project harness/RimChronicles.Eval -- director-gen --seed 9001 --arc crisis --count 240
+   dotnet run --project harness/RimChronicles.Eval -- director-gen --seed 1 --arc war
+   dotnet run --project harness/RimChronicles.Eval -- director-gen --seed 9001 --arc war --count 300
+   ```
+
+   That's 1,200 crisis and 1,500 war training cases, and 240 and 300 test cases. The test manifests are committed:
+   check the sha256 the commands print against `seed-9001-crisis/manifest.json` (`97b1b792…`) and
+   `seed-9001-war/manifest.json` (`5bdd7752…`). Windows line endings change the hash of the files but not the cases.
+2. **Test labels: done.**
+   - `training/data/labels/test-crisis-v1` (2026-11-24): 240 seed-9001 crisis cases, labelled by Claude Code in
+     session with `director-teacher/v4`. Self-agreement 24/24; the Wait rule held in all 112 cases it decides.
+   - `training/data/labels/test-war-v1` (2026-11-24): 300 seed-9001 War in Heaven cases (war generator v1), labelled
+     by Claude Code in session with `director-teacher/v5` (v4 plus rules for the Choir's plot and crisis and the War
+     in Heaven). A script drafted every pick from the v5 rubric and a reason from the case's own facts; Claude Code
+     reviewed them by group and fixed the wording. Self-agreement 30/30; the Wait rule held in all 129 cases it decides.
+     Best answers: Wait 40%, a treaty 10% (the Choir's 7%, the survivor's 3%), the victory offer 8%, probing swarm 5%,
+     the First Voice's offer 4%, the rest spread.
+   - If a generator changes, its labels go stale.
+3. **Training labels:** the local teacher labels both sets with the current teacher prompt (`director-teacher/v5`),
+   each into its own folder (`director-label` refuses to mix teacher versions or plans in one folder), then
+   `director-labels-check`. Check the agreement and the forced-label share as for D4b.
 
    ```powershell
    dotnet run --project harness/RimChronicles.Eval -- director-label --cases training/data/cases/synthetic/seed-1-crisis --out training/data/labels/local-gemma4-12b-crisis --count 1200
    dotnet run --project harness/RimChronicles.Eval -- director-labels-check --pack training/data/labels/local-gemma4-12b-crisis --cases training/data/cases/synthetic/seed-1-crisis
+   dotnet run --project harness/RimChronicles.Eval -- director-label --cases training/data/cases/synthetic/seed-1-war --out training/data/labels/local-gemma4-12b-war --count 1500
+   dotnet run --project harness/RimChronicles.Eval -- director-labels-check --pack training/data/labels/local-gemma4-12b-war --cases training/data/cases/synthetic/seed-1-war
    ```
 
-4. **Datasets and training:** `director-dataset` with the same options as E2B v3 and E4B v1 (it finds the crisis folders
-   itself; its manifest says test version 2), then retrain under the `-crisis` names, so the shipped
+   About 3,600 + 4,500 calls: roughly 1.5 and 2 hours at D4b's pace. Ctrl+C is safe; run the same command to go on.
+   Send Claude Code the two checks' output before training.
+4. **Datasets and training:** `director-dataset` with the same options as E2B v3 and E4B v1 (it finds the crisis and
+   war folders itself; its manifest says test version 3), then retrain under the `-war` names, so the shipped
    `rimchron-director-e2b` and `-e4b` stay as they are until the new ones pass. Build each tier's dataset just before
    its training run:
 
@@ -329,26 +354,26 @@ plus the crisis test labels).
 
    ```bash
    cd /mnt/c/RimworldMods/RimChronicles/RimChronicles/training
-   uv run python -m rimchron_train data --config config/director-e2b-crisis.yaml
-   uv run python -m rimchron_train sft --config config/director-e2b-crisis.yaml 2>&1 | tee ~/sft-director-e2b-crisis.log
-   uv run python -m rimchron_train export --config config/director-e2b-crisis.yaml
+   uv run python -m rimchron_train data --config config/director-e2b-war.yaml
+   uv run python -m rimchron_train sft --config config/director-e2b-war.yaml 2>&1 | tee ~/sft-director-e2b-war.log
+   uv run python -m rimchron_train export --config config/director-e2b-war.yaml
    ```
 
    ```powershell
-   cd C:\RimworldMods\rc-models\director-e2b-crisis
-   ollama create rimchron-director-e2b-crisis -f Modelfile.merged.q4_k_m
+   cd C:\RimworldMods\rc-models\director-e2b-war
+   ollama create rimchron-director-e2b-war -f Modelfile.merged.q4_k_m
    ```
 
-   E4B is the same with `--tier Recommended` and `director-e4b-crisis` in place of `director-e2b-crisis`.
-5. **Report and review** on both test sets together:
+   E4B is the same with `--tier Recommended` and `director-e4b-war` in place of `director-e2b-war`.
+5. **Report and review** on the three test sets together:
 
    ```powershell
    cd C:\RimworldMods\RimChronicles\RimChronicles
-   dotnet run --project harness/RimChronicles.Eval -- director-report --config training/models.director.json --models gemma4-e2b,director-e2b-crisis --base gemma4-e2b --name director-e2b-crisis-v1 --cases training/data/cases/synthetic/seed-9001,training/data/cases/synthetic/seed-9001-crisis --labels training/data/labels/test-v1,training/data/labels/test-crisis-v1
+   dotnet run --project harness/RimChronicles.Eval -- director-report --config training/models.director.json --models gemma4-e2b,director-e2b-war --base gemma4-e2b --name director-e2b-war-v1 --cases training/data/cases/synthetic/seed-9001,training/data/cases/synthetic/seed-9001-crisis,training/data/cases/synthetic/seed-9001-war --labels training/data/labels/test-v1,training/data/labels/test-crisis-v1,training/data/labels/test-war-v1
    ```
 
-   then `director-review` with the same `--config`, `--models director-e2b-crisis`, `--cases` and `--labels`. E4B
-   likewise (`gemma4-e4b,director-e4b-crisis`, `--name director-e4b-crisis-v1`).
+   then `director-review` with the same `--config`, `--models director-e2b-war`, `--cases` and `--labels`. E4B
+   likewise (`gemma4-e4b,director-e4b-war`, `--name director-e4b-war-v1`).
 6. **Presets:** once a report passes and is committed, copy the model over the shipped name
-   (`ollama cp rimchron-director-e2b-crisis rimchron-director-e2b`), and the presets in `src/RimChronicles.Llm/TierPresets.cs` get
-   `KnowsCrisis = true` and the game hands them the crisis.
+   (`ollama cp rimchron-director-e2b-war rimchron-director-e2b`), and its preset in `src/RimChronicles.Llm/TierPresets.cs`
+   becomes `DirectorVocabulary.WarInHeaven`: the game then hands it the crisis, the Hollow Choir and the War in Heaven.

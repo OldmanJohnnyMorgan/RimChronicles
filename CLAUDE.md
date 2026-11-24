@@ -24,6 +24,7 @@ dotnet run --project harness/RimChronicles.Eval -- judge latest    # judge an ex
 dotnet run --project harness/RimChronicles.Eval -- report latest --compare <runId>   # rebuild summary.html with deltas
 dotnet run --project harness/RimChronicles.Eval -- spotcheck latest # blind 10% sample to hand-score; run again to score agreement
 dotnet run --project harness/RimChronicles.Eval -- director-gen --seed 1 --arc crisis   # crisis C11: the Imperial crisis's director cases (seed-1-crisis)
+dotnet run --project harness/RimChronicles.Eval -- director-gen --seed 1 --arc war   # War in Heaven W12: the Choir, its crisis and the War in Heaven (seed-1-war)
 dotnet run --project harness/RimChronicles.Eval -- director-report --models gemma4-e2b --count 50   # D8: score models on the frozen director test set
 dotnet run --project harness/RimChronicles.Eval -- director-review --models <id>   # D9: blind review page; then --answers <file> to score it
 ```
