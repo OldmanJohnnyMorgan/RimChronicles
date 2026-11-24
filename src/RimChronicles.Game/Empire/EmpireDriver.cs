@@ -1,5 +1,6 @@
 using LudeonTK;
 using RimChronicles.Core.Empire;
+using RimChronicles.Core.Powers;
 using RimChronicles.Core.News;
 using RimChronicles.Core.Plots;
 using RimChronicles.Game.Plots;
@@ -15,7 +16,7 @@ namespace RimChronicles.Game.Empire;
 /// settings, it does nothing. Main thread only.</summary>
 public static class EmpireDriver
 {
-    public static Faction? EmpireFaction => ModsConfig.RoyaltyActive && Faction.OfEmpire is { defeated: false } f ? f : null;
+    public static Faction? EmpireFaction => Powers.PowerFactions.Of(Power.Empire);
 
     /// <summary>True when the major plot can run in this game.</summary>
     public static bool Available => RimChroniclesMod.Settings.MajorPlot && EmpireFaction is not null;
@@ -45,7 +46,7 @@ public static class EmpireDriver
 
         switch (saga.State)
         {
-            case EmpireState.Dormant:
+            case PowerState.Dormant:
                 var signs = ReadSigns();
                 var options = saga.Triggers(signs, today);
                 if (options.Count > 0 && BeatBlocked(component, today) is null)
@@ -56,7 +57,7 @@ public static class EmpireDriver
                 }
 
                 break;
-            case EmpireState.Stirring when saga.StirringOver(today):
+            case PowerState.Stirring when saga.StirringOver(today):
                 if (BeatBlocked(component, today) is null)
                 {
                     Show(component, saga.Wake(today, empire.Name), today, empire);
@@ -65,11 +66,11 @@ public static class EmpireDriver
                 }
 
                 break;
-            case EmpireState.Awakened or EmpireState.Ascendant when saga.ExpansionDue(today):
+            case PowerState.Awakened or PowerState.Ascendant when saga.ExpansionDue(today):
                 ExpandOnce(component, empire, today);
                 break;
-            case EmpireState.Stirring:
-                if (saga.Rumour(today, empire.Name, Neighbours(empire), n => Rand.Range(0, n), Rand.RangeInclusive(EmpireSaga.MinRumourGapDays, EmpireSaga.MaxRumourGapDays)) is { } rumour)
+            case PowerState.Stirring:
+                if (saga.Rumour(today, empire.Name, Neighbours(empire), n => Rand.Range(0, n), Rand.RangeInclusive(PowerSaga.MinRumourGapDays, PowerSaga.MaxRumourGapDays)) is { } rumour)
                 {
                     Show(component, rumour, today, empire);
                 }
@@ -82,9 +83,9 @@ public static class EmpireDriver
     /// model. With no target, it tries again after the usual gap.</summary>
     private static void ExpandOnce(RimChroniclesGameComponent component, Faction empire, int today)
     {
-        var gap = StoryIntensity.Scale(Rand.RangeInclusive(EmpireExpansion.MinGapDays, EmpireExpansion.MaxGapDays), RimChroniclesMod.Settings.StoryIntensity);
+        var gap = StoryIntensity.Scale(Rand.RangeInclusive(PowerExpansion.MinGapDays, PowerExpansion.MaxGapDays), RimChroniclesMod.Settings.StoryIntensity);
         var settlements = Targets(empire);
-        var target = EmpireExpansion.PickTarget(settlements.Keys.ToList(), Rand.Value);
+        var target = PowerExpansion.PickTarget(settlements.Keys.ToList(), Rand.Value);
         if (target is null)
         {
             component.Empire.NextExpansionDay = today + gap;
@@ -92,7 +93,7 @@ public static class EmpireDriver
             return;
         }
 
-        var result = EmpireExpansion.PickResult(target, Rand.Value);
+        var result = PowerExpansion.PickResult(target, Rand.Value);
         var settlement = settlements[target];
         switch (result)
         {
@@ -109,7 +110,7 @@ public static class EmpireDriver
         Show(component, component.Empire.Expanded(target, result, today, gap, empire.Name), today, empire);
         if (Prefs.DevMode)
         {
-            Log.Message($"[Rim Chronicles] Empire expansion: {EmpireExpansion.News(result, empire.Name, target)}.");
+            Log.Message($"[Rim Chronicles] Empire expansion: {Power.Empire.Text.ExpansionNews(result, empire.Name, target)}.");
         }
     }
 
@@ -163,7 +164,7 @@ public static class EmpireDriver
         component.Empire.RecordAssisted(settlement.Label, owner, ExpansionResult.Conquered, today, why);
         if (news)
         {
-            component.News.Add(new NewsEvent(today, EmpireSaga.NewsKind, $"{empire.Name} took {settlement.Label} from {owner}", empire.Name));
+            component.News.Add(new NewsEvent(today, Power.Empire.NewsKind, $"{empire.Name} took {settlement.Label} from {owner}", empire.Name));
         }
 
         EmpirePromotions.OnConquest(component, owner, settlement.Label, empire, today);
@@ -192,7 +193,7 @@ public static class EmpireDriver
     {
         var empire = EmpireFaction!;
         var ev = component.Empire.Awaken(trigger, detail, today,
-            Rand.RangeInclusive(EmpireSaga.MinStirringDays, EmpireSaga.MaxStirringDays), Colony);
+            Rand.RangeInclusive(PowerSaga.MinStirringDays, PowerSaga.MaxStirringDays), Colony);
         Show(component, ev, today, empire);
         EmpireBeats.EnsurePlot(component, today);
         Record(component, today, $"Awaken:{trigger}", EmpireText.TriggerWhy(trigger, detail, Colony), source, options);
@@ -206,7 +207,7 @@ public static class EmpireDriver
     private static void Record(RimChroniclesGameComponent component, int today, string choice, string reason, string source, string? options = null) =>
         component.Plots.Record(new DirectorDecision
         {
-            Day = today, PlotId = EmpireSaga.PlotId, Options = options ?? choice, Choice = choice, Reason = reason, Source = source,
+            Day = today, PlotId = Power.Empire.Id, Options = options ?? choice, Choice = choice, Reason = reason, Source = source,
         });
 
     /// <summary>Null if a major-plot beat may fire today, else why not: the same spacing and gate as minor beats.</summary>
@@ -215,9 +216,9 @@ public static class EmpireDriver
             ? $"a beat fired on day {component.Plots.LastBeatDay}"
             : ColonyPacingGate.Instance.BlockReason();
 
-    private static void Show(RimChroniclesGameComponent component, EmpireEvent ev, int today, Faction empire)
+    private static void Show(RimChroniclesGameComponent component, PowerEvent ev, int today, Faction empire)
     {
-        component.News.Add(new NewsEvent(today, EmpireSaga.NewsKind, ev.NewsText, empire.Name));
+        component.News.Add(new NewsEvent(today, Power.Empire.NewsKind, ev.NewsText, empire.Name));
         if (ev.LetterLabel is { } label && ev.LetterText is { } text)
         {
             EmpireBeats.Current(component)?.Tell(today, label, text);
@@ -226,14 +227,14 @@ public static class EmpireDriver
     }
 
     /// <summary>Today's colony wealth and any colonist with an Imperial backstory.</summary>
-    private static EmpireSigns ReadSigns()
+    private static PowerSigns ReadSigns()
     {
         var wealth = Find.Maps.Where(m => m.IsPlayerHome).Sum(m => m.wealthWatcher.WealthTotal);
         var imperial = PawnsFinder.AllMaps_FreeColonists
             .Where(p => IsImperial(p.story?.Childhood) || IsImperial(p.story?.Adulthood))
             .OrderBy(p => p.ThingID, StringComparer.Ordinal)
             .FirstOrDefault();
-        return new EmpireSigns(wealth, imperial?.LabelShort);
+        return new PowerSigns(wealth, imperial?.LabelShort);
     }
 
     private static bool IsImperial(BackstoryDef? backstory) =>
@@ -263,8 +264,8 @@ public static class EmpireDriver
         }
 
         var saga = component.Empire;
-        var stance = EmpireBeats.Current(component) is { } plot ? EmpireArc.StanceOf(plot) : EmpireStance.Neutral;
-        if (saga.State is not (EmpireState.Awakened or EmpireState.Ascendant) || saga.Ending.Length > 0 || stance == EmpireStance.Ally
+        var stance = EmpireBeats.Current(component) is { } plot ? PowerArc.StanceOf(plot) : PowerStance.Neutral;
+        if (saga.State is not (PowerState.Awakened or PowerState.Ascendant) || saga.Ending.Length > 0 || stance == PowerStance.Ally
             || saga.NextShipRaidDay >= 0)
         {
             return;
@@ -296,7 +297,7 @@ public static class EmpireDriver
 
         var reactorMap = Find.Maps.FirstOrDefault(m => m.IsPlayerHome && m.listerThings.ThingsOfDef(ThingDefOf.Ship_Reactor)
             .Any(t => t.TryGetComp<CompHibernatable>() is { } h && h.State == HibernatableStateDefOf.Starting));
-        if (reactorMap is null || saga.Ending.Length > 0 || saga.State == EmpireState.Broken)
+        if (reactorMap is null || saga.Ending.Length > 0 || saga.State == PowerState.Broken)
         {
             saga.NextShipRaidDay = -1; // the reactor is running, gone, or the story is over
             return;
@@ -349,19 +350,19 @@ public static class EmpireDriver
         }
 
         var saga = component.Empire;
-        var signs = EmpireFaction is null ? EmpireSigns.None : ReadSigns();
+        var signs = EmpireFaction is null ? PowerSigns.None : ReadSigns();
         var lines = new List<string>
         {
             Available ? $"Empire: {EmpireFaction!.Name}" : "The major plot is off: it needs Royalty, the Empire faction, and the setting on.",
             $"State: {saga.State} since day {saga.StateDay}; next change day {saga.NextStateDay}; next rumour day {saga.NextRumourDay}",
             $"Woken by: {(saga.Trigger.Length > 0 ? EmpireText.TriggerWhy(saga.Trigger, saga.TriggerDetail, Colony) : "not yet")}",
-            $"Signs today: wealth {(int)signs.ColonyWealth} (threshold {(int)EmpireSaga.WealthThreshold}); Imperial colonist {signs.ImperialColonist ?? "none"}; "
+            $"Signs today: wealth {(int)signs.ColonyWealth} (threshold {(int)PowerSaga.WealthThreshold}); Imperial colonist {signs.ImperialColonist ?? "none"}; "
             + $"site destroyed {(saga.SiteDestroyed.Length > 0 ? saga.SiteDestroyed : "no")}; title renounced by {(saga.TitleRefusedBy.Length > 0 ? saga.TitleRefusedBy : "no one")}",
             $"Triggers that would fire today: {string.Join(", ", saga.Triggers(signs, GenDate.DaysPassed).Select(o => o.Id).DefaultIfEmpty("none"))}",
             "",
             "Log:",
         };
-        if (saga.State == EmpireState.Awakened)
+        if (saga.State == PowerState.Awakened)
         {
             lines.Insert(3, $"Expansion: next attack day {saga.NextExpansionDay}; {saga.Conquests} taken or razed, {saga.Defeats} repelled");
         }
@@ -379,7 +380,7 @@ public static class EmpireDriver
             return;
         }
 
-        if (component.Empire.State != EmpireState.Dormant)
+        if (component.Empire.State != PowerState.Dormant)
         {
             Messages.Message($"Rim Chronicles: the Empire is already {component.Empire.State}.", MessageTypeDefOf.RejectInput, historical: false);
             return;
@@ -391,7 +392,7 @@ public static class EmpireDriver
     [DebugAction("Rim Chronicles", "Empire: end stirring now", allowedGameStates = AllowedGameStates.Playing)]
     public static void DevWake()
     {
-        if (RimChroniclesGameComponent.Current is not { } component || EmpireFaction is not { } empire || component.Empire.State != EmpireState.Stirring)
+        if (RimChroniclesGameComponent.Current is not { } component || EmpireFaction is not { } empire || component.Empire.State != PowerState.Stirring)
         {
             Messages.Message("Rim Chronicles: the Empire isn't stirring.", MessageTypeDefOf.RejectInput, historical: false);
             return;
@@ -405,7 +406,7 @@ public static class EmpireDriver
     [DebugAction("Rim Chronicles", "Empire: expansion tick", allowedGameStates = AllowedGameStates.Playing)]
     public static void DevExpand()
     {
-        if (RimChroniclesGameComponent.Current is not { } component || EmpireFaction is not { } empire || component.Empire.State is not (EmpireState.Awakened or EmpireState.Ascendant))
+        if (RimChroniclesGameComponent.Current is not { } component || EmpireFaction is not { } empire || component.Empire.State is not (PowerState.Awakened or PowerState.Ascendant))
         {
             Messages.Message("Rim Chronicles: the Empire must be awake to expand (Empire: trigger awakening, then end stirring now).", MessageTypeDefOf.RejectInput, historical: false);
             return;

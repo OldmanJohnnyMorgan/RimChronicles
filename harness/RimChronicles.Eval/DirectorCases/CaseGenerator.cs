@@ -3,6 +3,7 @@ using RimChronicles.Core.Crisis.Captives;
 using RimChronicles.Core.Crisis.Siege;
 using RimChronicles.Core.Crisis.Sites;
 using RimChronicles.Core.Empire;
+using RimChronicles.Core.Powers;
 using RimChronicles.Core.Plots;
 using RimChronicles.Core.Plots.LostFamily;
 using RimChronicles.Core.Plots.Nemesis;
@@ -16,7 +17,7 @@ public sealed record DirectorCaseResult(WorldSnapshot Snapshot, string Arc, stri
 /// <summary>
 /// The director case generator (training track D2): synthetic Stage 0 snapshots, each with one plot whose beat is due
 /// and the options the real arc code offers in that state (<see cref="NemesisArc"/>, <see cref="LostFamilyArc"/>,
-/// <see cref="EmpireArc"/>). Scenarios and colony moods are spread evenly by index; everything else is drawn from a
+/// <see cref="PowerArc"/>). Scenarios and colony moods are spread evenly by index; everything else is drawn from a
 /// <see cref="Random"/> seeded by (seed, index), so a case is reproducible on its own.
 /// </summary>
 public static class CaseGenerator
@@ -284,14 +285,14 @@ public static class CaseGenerator
             var titled = parts[2].EndsWith("+title", StringComparison.Ordinal);
             var ascendant = parts.Length < 4 || parts[3] == "ascendant";
             var empireName = AddEmpire(act3 ? (ascendant ? "Ascendant" : "Broken") : "Awakened",
-                stance switch { EmpireStance.Ally => rng.Next(25, 80), EmpireStance.Oppose => -100, _ => rng.Next(-30, 25) });
+                stance switch { PowerStance.Ally => rng.Next(25, 80), PowerStance.Oppose => -100, _ => rng.Next(-30, 25) });
 
-            var saga = new EmpireSaga();
+            var saga = new PowerSaga();
             var wokeDay = _day - daysInBeat - rng.Next(30, 120);
             saga.Awaken(AwakeningTrigger.Wealth, "150000", wokeDay, 25, _colony);
             saga.Wake(wokeDay + 25, empireName);
             var conquests = new List<string>();
-            var expansions = act3 ? rng.Next(3, 7) : rng.Next(0, EmpireArc.ExpansionsForReckoning);
+            var expansions = act3 ? rng.Next(3, 7) : rng.Next(0, PowerArc.ExpansionsForReckoning);
             var settlements = CasePools.Settlements.OrderBy(_ => rng.Next()).ToList(); // each settlement attacked at most once
             for (var i = 0; i < expansions; i++)
             {
@@ -299,7 +300,7 @@ public static class CaseGenerator
                 var owner = CasePools.Pick(rng, _factions.Where(f => f.Kind != "Empire").Select(f => f.Name).ToList());
                 var result = (ExpansionResult)rng.Next(3);
                 saga.Expanded(new ExpansionTarget(settlement, settlement, owner, 10, 3), result, wokeDay + 30 + i * 15, 15, empireName);
-                conquests.Add(EmpireExpansion.News(result, empireName, new ExpansionTarget(settlement, settlement, owner, 10, 3)));
+                conquests.Add(Power.Empire.Text.ExpansionNews(result, empireName, new ExpansionTarget(settlement, settlement, owner, 10, 3)));
             }
 
             if (act3)
@@ -308,10 +309,10 @@ public static class CaseGenerator
             }
 
             saga.HighTitleHolder = "";
-            var plot = Start(EmpireArc.TemplateId, null, wokeDay);
-            plot.SetFact(EmpireArc.Stance, stance);
+            var plot = Start(Power.Empire.PlotTemplateId, null, wokeDay);
+            plot.SetFact(PowerArc.Stance, stance);
             var wins = act3 ? 0 : rng.Next(0, 2);
-            plot.SetFact(EmpireArc.Wins, wins.ToString(System.Globalization.CultureInfo.InvariantCulture));
+            plot.SetFact(PowerArc.Wins, wins.ToString(System.Globalization.CultureInfo.InvariantCulture));
             Advance(plot, PlotBeat.Hook, daysInBeat + 40);
             Advance(plot, PlotBeat.Complication, act3 ? daysInBeat + 20 : daysInBeat);
             if (act3)
@@ -330,8 +331,8 @@ public static class CaseGenerator
             MaybeWaited(plot);
             var stanceText = stance switch
             {
-                EmpireStance.Ally => $"{_colony} stands with {empireName}",
-                EmpireStance.Oppose => $"{_colony} is at war with {empireName}",
+                PowerStance.Ally => $"{_colony} stands with {empireName}",
+                PowerStance.Oppose => $"{_colony} is at war with {empireName}",
                 _ => $"{_colony} has kept out of the Empire's way",
             };
             var sentences = new List<string> { $"{empireName} woke on day {wokeDay + 25}", stanceText };
@@ -349,7 +350,7 @@ public static class CaseGenerator
             var summary = string.Join(" ", sentences.Select(x => char.ToUpperInvariant(x[0]) + x[1..] + "."));
             _public.AddRange(conquests.Take(2));
             return (Info(plot, Inheritance.ColonyId, summary, act3 ? (ascendant ? "Ascendant" : "Broken") : "Act2"),
-                () => EmpireArc.Transitions(plot, saga, _day));
+                () => PowerArc.Transitions(plot, saga, _day));
         }
 
         /// <summary>
@@ -377,8 +378,8 @@ public static class CaseGenerator
 
             // The Empire plot: at war with the colony, in Act 2 (Act 3 for the finale).
             var wokeDay = _day - rng.Next(150, 260);
-            var empire = Start(EmpireArc.TemplateId, null, wokeDay);
-            empire.SetFact(EmpireArc.Stance, EmpireStance.Oppose);
+            var empire = Start(Power.Empire.PlotTemplateId, null, wokeDay);
+            empire.SetFact(PowerArc.Stance, PowerStance.Oppose);
             Advance(empire, PlotBeat.Hook, _day - wokeDay - 20);
             Advance(empire, PlotBeat.Complication, _day - wokeDay - 40);
             if (stage == CrisisStage.Finale)
@@ -687,7 +688,7 @@ public static class CaseGenerator
         }
 
         private Plot Start(string template, PawnInfo? protagonist, int startDay) =>
-            _book.Start(new PlotTemplate { Id = template, CountsTowardCap = template != EmpireArc.TemplateId }, protagonist is null
+            _book.Start(new PlotTemplate { Id = template, CountsTowardCap = template != Power.Empire.PlotTemplateId }, protagonist is null
                 ? new ProtagonistSlot { Kind = ProtagonistKind.Colony, PawnId = Inheritance.ColonyId, Name = _colony }
                 : ProtagonistSlot.ForPawn(protagonist.Id, protagonist.Name), startDay, 0, "generated");
 

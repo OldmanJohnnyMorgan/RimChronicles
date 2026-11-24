@@ -5,7 +5,7 @@ using System.Text.Json.Nodes;
 using RimChronicles.Core.Crisis;
 using RimChronicles.Core.Persistence;
 using RimChronicles.Core.Plots;
-using RimChronicles.Core.Empire;
+using RimChronicles.Core.Powers;
 using RimChronicles.Eval.DirectorCases;
 using RimChronicles.Tests.TestSupport;
 
@@ -51,9 +51,9 @@ public class PowerNoChangeTests
     [Fact]
     public void TheSagaAndCrisisSaves_KeepTheirLabels()
     {
-        var saga = new EmpireSaga
+        var saga = new PowerSaga
         {
-            State = EmpireState.Awakened,
+            State = PowerState.Awakened,
             StateDay = 120,
             NextStateDay = -1,
             Trigger = AwakeningTrigger.Wealth,

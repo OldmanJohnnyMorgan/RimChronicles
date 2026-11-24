@@ -1,6 +1,6 @@
 using RimChronicles.Core.Persistence;
 
-namespace RimChronicles.Core.Empire;
+namespace RimChronicles.Core.Powers;
 
 /// <summary>A settlement the Empire could attack. <see cref="Distance"/> is in world tiles from the nearest Imperial
 /// settlement; <see cref="FactionSettlements"/> is how many its owner holds, a stand-in for the owner's strength.</summary>
@@ -42,7 +42,7 @@ public sealed class ExpansionRecord : IArchivable
 /// <summary>Territory expansion (design spec, Stage 5): pure rules, no model. The Empire picks a settlement in range,
 /// weighted towards near and weak targets, and the attack ends in conquest, razing or failure, with stronger owners
 /// more likely to hold. Random numbers come in from the caller.</summary>
-public static class EmpireExpansion
+public static class PowerExpansion
 {
     /// <summary>Targets within this many tiles of an Imperial settlement are in range. With none in range, the
     /// nearest is.</summary>
@@ -94,11 +94,4 @@ public static class EmpireExpansion
         var repel = RepelChance(t);
         return roll < repel ? ExpansionResult.Repelled : roll < repel + RazeChance ? ExpansionResult.Razed : ExpansionResult.Conquered;
     }
-
-    public static string News(ExpansionResult result, string empire, ExpansionTarget t) => result switch
-    {
-        ExpansionResult.Conquered => $"{empire} took {t.Name} from {t.Faction}",
-        ExpansionResult.Razed => $"{empire} razed {t.Name}, a settlement of {t.Faction}",
-        _ => $"{t.Faction} drove off an Imperial attack on {t.Name}",
-    };
 }

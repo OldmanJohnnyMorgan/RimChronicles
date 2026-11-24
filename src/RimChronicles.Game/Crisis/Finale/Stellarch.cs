@@ -3,6 +3,7 @@ using RimChronicles.Core.Crisis;
 using RimChronicles.Core.Crisis.Operations;
 using RimChronicles.Core.Crisis.Units;
 using RimChronicles.Core.Empire;
+using RimChronicles.Core.Powers;
 using RimChronicles.Core.News;
 using RimChronicles.Core.Plots;
 using RimChronicles.Game.Crisis.Operations;
@@ -115,14 +116,14 @@ public static class Stellarch
             $"{pawn.LabelShort}, the Empire's High Stellarch, has been {how}. The Empire has lost its last commander."
             + (carried ? "\n\nWith the Stellarch fallen, the assault on the capital has won." : ""),
             LetterDefOf.PositiveEvent, pawn, empire);
-        component.News.Add(new NewsEvent(GenDate.DaysPassed, EmpireSaga.NewsKind,
+        component.News.Add(new NewsEvent(GenDate.DaysPassed, Power.Empire.NewsKind,
             $"The Imperial High Stellarch was {how} by {Faction.OfPlayer.Name}", empire?.Name ?? ""));
     }
 
     /// <summary>Ends the Empire plot's pending capital assault in success, if there is one.</summary>
     private static bool CarryTheAssault(RimChroniclesGameComponent component)
     {
-        var plot = component.Plots.Active.FirstOrDefault(p => p.Fact(EmpireArc.Job) == EmpireStep.StormCapital);
+        var plot = component.Plots.Active.FirstOrDefault(p => p.Fact(PowerArc.Job) == PowerStep.StormCapital);
         if (plot is null)
         {
             return false;

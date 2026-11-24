@@ -1,5 +1,6 @@
 using LudeonTK;
 using RimChronicles.Core.Empire;
+using RimChronicles.Core.Powers;
 using RimChronicles.Core.News;
 using RimChronicles.Core.Plots;
 using RimChronicles.Core.Plots.LostFamily;
@@ -34,7 +35,7 @@ public static class EmpireEndings
             empire.TryAffectGoodwillWith(Faction.OfPlayer, -empire.PlayerGoodwill, canSendMessage: true, canSendHostilityLetter: false);
         }
 
-        component.News.Add(new NewsEvent(today, EmpireSaga.NewsKind, EmpireLetters.EndingNews(ending, empire.Name, Colony), empire.Name));
+        component.News.Add(new NewsEvent(today, Power.Empire.NewsKind, EmpireLetters.EndingNews(ending, empire.Name, Colony), empire.Name));
         var c = CaseFor(component, plot, ending, empire);
         component.Plots.End(plot, today, ending);
 
@@ -121,7 +122,7 @@ public static class EmpireEndings
         events.Add(EmpireLetters.EndingNews(ending, empire.Name, Colony) + ".");
         return new EpilogueCase
         {
-            Ending = ending, Empire = empire.Name, Stance = EmpireArc.StanceOf(plot), People = people, Events = events,
+            Ending = ending, Empire = empire.Name, Stance = PowerArc.StanceOf(plot), People = people, Events = events,
         };
     }
 
