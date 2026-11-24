@@ -1,7 +1,7 @@
 namespace RimChronicles.Core.Powers;
 
 /// <summary>
-/// One of the major plot's powers (War in Heaven tech spec §2): the Empire, and from W3 the Hollow Choir. A power's saga,
+/// One of the major plot's powers (War in Heaven tech spec §2): the Empire and the Hollow Choir. A power's saga,
 /// plot and crisis run the same rules; what differs is here: its ids, how its plot and options are named, and its texts.
 /// The Empire's values are the ones the mod used before the War in Heaven, so its saves and director cases don't change.
 /// </summary>
@@ -28,6 +28,10 @@ public sealed class Power
     /// <summary>Act 2's opening option: the power marches ("Act2:TheEmpireMarches").</summary>
     public required string MarchOption { get; init; }
 
+    /// <summary>The awakening trigger for a colonist who draws it (<see cref="AwakeningTrigger.ImperialColonist"/> for the
+    /// Empire).</summary>
+    public string ColonistTrigger { get; init; } = AwakeningTrigger.ImperialColonist;
+
     public required PowerText Text { get; init; }
 
     public override string ToString() => Id;
@@ -44,8 +48,22 @@ public sealed class Power
         Text = new global::RimChronicles.Core.Empire.EmpirePowerText(),
     };
 
-    /// <summary>Every power the mod knows, in the order their drivers run.</summary>
-    public static IReadOnlyList<Power> All { get; } = [Empire];
+    /// <summary>The Hollow Choir (War in Heaven spec §3), the Empire's old enemy. Needs Biotech.</summary>
+    public static readonly Power Choir = new()
+    {
+        Id = global::RimChronicles.Core.Choir.ChoirIds.PlotId,
+        NewsKind = global::RimChronicles.Core.Choir.ChoirIds.NewsKind,
+        PlotTemplateId = global::RimChronicles.Core.Choir.ChoirIds.TemplateId,
+        CrisisTemplateId = global::RimChronicles.Core.Choir.ChoirIds.CrisisTemplateId,
+        OptionPrefix = "Choir",
+        EnvoyOption = "Act1:ChoirEnvoy",
+        MarchOption = "Act2:TheChoirMarches",
+        ColonistTrigger = AwakeningTrigger.MechanitorColonist,
+        Text = new global::RimChronicles.Core.Choir.ChoirPowerText(),
+    };
+
+    /// <summary>Every power the mod knows, in the order their drivers run. The game runs only those its DLCs allow.</summary>
+    public static IReadOnlyList<Power> All { get; } = [Empire, Choir];
 }
 
 /// <summary>A power's texts: template news, rumours and letters, and what each plot step does, for the director.</summary>

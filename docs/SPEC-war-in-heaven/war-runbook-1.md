@@ -29,3 +29,27 @@ with the Empire plot under way for step W2.1. Every Dev Mode tool below is in th
 | W2.3 | **War in Heaven: set side** → Independent; **show allegiance**; open the Factions tab | `empire: oppose`, side `independent`, cause `dev`. Once the Empire plot is past the envoy, the Empire is hostile |
 | W2.4 | **Empire: set stance** → ally; let a day pass; **show allegiance** | The allegiance follows the plot back to `empire: ally` |
 | W2.5 | Save, reload, **show allegiance** | The same stances and log as before saving |
+
+## W3: the Hollow Choir's faction
+
+| # | Do | Pass when |
+| --- | --- | --- |
+| W3.1 | New colony with Royalty and Biotech: open the Factions tab and the world map before anything else | No Hollow Choir anywhere: it is never made at world creation |
+| W3.2 | **Hollow Choir: create faction**; open the Factions tab and the world map | **The Hollow Choir** is listed, its leader titled First Voice, hostile to the Empire. About four of its settlements sit 8–30 tiles from the colony, plus one elsewhere |
+| W3.3 | **Hollow Choir: raid (1,500 points)** while the Choir isn't hostile to you | A group of mechanitors and mechs arrives and holds its ground; the message counts both |
+| W3.4 | Make the Choir hostile (Factions tab, Dev Mode goodwill buttons, down to -100), then raid again and fight it for a day | Mechanitors and mechs attack together under the vanilla assault: no errors, no mech stops for lack of power, no mech goes feral. (Killing a mechanitor doesn't stop its mechs yet; that comes with W7) |
+| W3.5 | Save, reload; **Hollow Choir: create faction** again | The faction and its settlements are still there, and no second Choir appears |
+
+## W4a: the Choir's saga
+
+| # | Do | Pass when |
+| --- | --- | --- |
+| W4a.1 | Mod settings → Story | **The Hollow Choir** checkbox sits under the major plot, on by default |
+| W4a.2 | New colony: **Hollow Choir: show** | Running: yes; State: Dormant; no faction |
+| W4a.3 | **Hollow Choir: trigger stirring**; let 10–20 days pass (Dev Mode time skip) | A news line about a hum at night; later rumours of the hum and of mechlink strangers in the news. No faction yet |
+| W4a.4 | **Hollow Choir: wake now** | A "The Hollow Choir awakens" letter; the faction appears with settlements near the colony (as W3.2); **show**: Awakened, next expansion about a week on |
+| W4a.5 | Before W4a.4, in another colony: side with the Empire (**War in Heaven: set side**), then wake the Choir | The Choir starts hostile to the colony |
+| W4a.6 | **Hollow Choir: expand now** a few times; open the world map | Settlements change hands or burn, in the Choir's colour, with news lines |
+| W4a.7 | New colony with a mechanitor colonist (or install a mechlink), wait for day 30+ | The Choir stirs on its own; **show** says a mechanitor drew it |
+| W4a.8 | Turn the Hollow Choir setting off, or play without Biotech | **show** says it isn't running; nothing happens |
+| W4a.9 | Save and reload in each state | The state, log and faction survive |

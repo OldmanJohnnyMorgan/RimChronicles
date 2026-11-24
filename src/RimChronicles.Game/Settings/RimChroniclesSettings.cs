@@ -27,6 +27,9 @@ public sealed class RimChroniclesSettings : ModSettings
     /// <summary>The Imperial crisis: Empire operations against an opposed colony (needs the major plot and Royalty).</summary>
     public bool Crisis = true;
 
+    /// <summary>The Hollow Choir, the Empire's old enemy (War in Heaven; needs the major plot and Biotech).</summary>
+    public bool HollowChoir = true;
+
     public const float MinCrisisDifficulty = 0.5f;
     public const float MaxCrisisDifficulty = 2f;
 
@@ -107,6 +110,7 @@ public sealed class RimChroniclesSettings : ModSettings
         MajorPlot = true;
         StoryIntensity = Core.Plots.StoryIntensity.Default;
         Crisis = true;
+        HollowChoir = true;
         CrisisDifficulty = 1f;
         CrisisGapDays = Core.Crisis.CrisisArc.DefaultGapDays;
         StrikeDelaySeconds = Core.Crisis.Strikes.StrikeRules.DefaultDelaySeconds;
@@ -133,6 +137,7 @@ public sealed class RimChroniclesSettings : ModSettings
         Scribe_Values.Look(ref MajorPlot, "majorPlot", true);
         Scribe_Values.Look(ref StoryIntensity, "storyIntensity", Core.Plots.StoryIntensity.Default);
         Scribe_Values.Look(ref Crisis, "crisis", true);
+        Scribe_Values.Look(ref HollowChoir, "hollowChoir", true);
         Scribe_Values.Look(ref CrisisDifficulty, "crisisDifficulty", 1f);
         Scribe_Values.Look(ref CrisisGapDays, "crisisGapDays", Core.Crisis.CrisisArc.DefaultGapDays);
         Scribe_Values.Look(ref StrikeDelaySeconds, "strikeDelaySeconds", Core.Crisis.Strikes.StrikeRules.DefaultDelaySeconds);

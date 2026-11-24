@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The Hollow Choir (War in Heaven spec §3, W3): the Empire's old enemy, a power of mechanitors and their mechs. It needs
+  Biotech (MayRequire). It is never made at world creation (no requiredCountAtGameStart, not configurable): the game
+  creates it when it wakes (tech spec R2), with its settlements near the colony.
+-->
+<Defs>
+
+  <FactionDef ParentName="FactionBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>RimChronicles_HollowChoir</defName>
+    <label>Hollow Choir</label>
+    <fixedName>The Hollow Choir</fixedName>
+    <description>An old power that was here before the Empire, and that the Empire believed it had destroyed. Its people call themselves the Chorus. They are mechanitors, and their armies are mechs that move as one, humming in a single voice that carries for miles.\n\nThe Chorus believe that a people is never finished until war has broken it and made it again. They work in the dark, through agents and rumours, and only come into the open when they mean to fight.</description>
+    <pawnSingular>chorister</pawnSingular>
+    <pawnsPlural>the Chorus</pawnsPlural>
+    <categoryTag>HollowChoir</categoryTag>
+    <listOrderPriority>35</listOrderPriority>
+    <techLevel>Ultra</techLevel>
+    <leaderTitle>First Voice</leaderTitle>
+    <basicMemberKind>RimChronicles_Chorister</basicMemberKind>
+    <fixedLeaderKinds>
+      <li>RimChronicles_FirstVoice</li>
+    </fixedLeaderKinds>
+    <factionIconPath>World/WorldObjects/Expanding/Mechanoids</factionIconPath>
+    <settlementTexturePath>World/WorldObjects/DefaultSettlement</settlementTexturePath>
+    <factionNameMaker>NamerFactionOutlander</factionNameMaker>
+    <settlementNameMaker>NamerSettlementOutlander</settlementNameMaker>
+    <allowedCultures><li>Astropolitan</li></allowedCultures>
+    <requiredMemes>
+      <li MayRequire="Ludeon.RimWorld.Ideology">Transhumanist</li>
+    </requiredMemes>
+    <colorSpectrum>
+      <li>(0.42, 0.47, 0.50)</li>
+      <li>(0.62, 0.70, 0.72)</li>
+    </colorSpectrum>
+    <backstoryFilters>
+      <li>
+        <categories>
+          <li>Offworld</li>
+        </categories>
+      </li>
+    </backstoryFilters>
+    <canSiege>false</canSiege>
+    <canStageAttacks>true</canStageAttacks>
+    <autoFlee>false</autoFlee>
+    <raidLootMaker>OutlanderRaidLootMaker</raidLootMaker>
+    <allowedArrivalTemperatureRange>-100~200</allowedArrivalTemperatureRange>
+    <maxPawnCostPerTotalPointsCurve>
+      <points>
+        <li>(400, 200)</li>
+        <li>(900, 300)</li>
+        <li>(100000, 10000)</li>
+      </points>
+    </maxPawnCostPerTotalPointsCurve>
+    <pawnGroupMakers>
+      <li>
+        <!-- Ordinary raids and the expansion's fights: a few mechanitors behind a screen of mechs. The crisis (W7) brings
+             its own rosters by stage. -->
+        <kindDef>Combat</kindDef>
+        <options>
+          <RimChronicles_Chorister>6</RimChronicles_Chorister>
+          <RimChronicles_Choirmaster>2</RimChronicles_Choirmaster>
+          <Mech_Militor>10</Mech_Militor>
+          <Mech_Scyther>8</Mech_Scyther>
+          <Mech_Lancer>8</Mech_Lancer>
+          <Mech_Pikeman>6</Mech_Pikeman>
+          <Mech_Legionary>4</Mech_Legionary>
+          <Mech_Tesseron>3</Mech_Tesseron>
+          <Mech_CentipedeBlaster>3</Mech_CentipedeBlaster>
+          <Mech_Centurion>1</Mech_Centurion>
+        </options>
+      </li>
+      <li>
+        <kindDef>Peaceful</kindDef>
+        <options>
+          <RimChronicles_Chorister>10</RimChronicles_Chorister>
+          <RimChronicles_Choirmaster>2</RimChronicles_Choirmaster>
+          <Mech_Militor>6</Mech_Militor>
+        </options>
+      </li>
+      <li>
+        <kindDef>Settlement</kindDef>
+        <options>
+          <RimChronicles_Chorister>8</RimChronicles_Chorister>
+          <RimChronicles_Choirmaster>3</RimChronicles_Choirmaster>
+          <Mech_Militor>10</Mech_Militor>
+          <Mech_Scyther>6</Mech_Scyther>
+          <Mech_Lancer>6</Mech_Lancer>
+          <Mech_Legionary>3</Mech_Legionary>
+          <Mech_CentipedeBlaster>2</Mech_CentipedeBlaster>
+        </options>
+      </li>
+    </pawnGroupMakers>
+  </FactionDef>
+
+</Defs>

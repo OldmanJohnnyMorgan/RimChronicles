@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The Hollow Choir's people (War in Heaven spec §4.1, W3): mechanitors, on Biotech's mechanitor kind (MayRequire
+  Biotech). Their mechs are vanilla mech kinds, listed in the faction's group makers. The crisis roles (the Cantor
+  and the commander AI) come with W7.
+-->
+<Defs>
+
+  <!-- The ordinary member: a mechanitor in combat gear. -->
+  <PawnKindDef ParentName="MechanitorBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>RimChronicles_Chorister</defName>
+    <label>chorister</label>
+    <defaultFactionDef>RimChronicles_HollowChoir</defaultFactionDef>
+    <combatPower>85</combatPower>
+    <apparelMoney>1500~3000</apparelMoney>
+    <apparelRequired Inherit="False" />
+    <apparelTags Inherit="False">
+      <li>IndustrialAdvanced</li>
+      <li>SpacerMilitary</li>
+    </apparelTags>
+    <weaponMoney>500~1200</weaponMoney>
+    <weaponTags Inherit="False">
+      <li>SpacerGun</li>
+      <li>IndustrialGunAdvanced</li>
+    </weaponTags>
+  </PawnKindDef>
+
+  <!-- A senior mechanitor: better gear and implants, more bandwidth. -->
+  <PawnKindDef ParentName="MechanitorBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>RimChronicles_Choirmaster</defName>
+    <label>choirmaster</label>
+    <defaultFactionDef>RimChronicles_HollowChoir</defaultFactionDef>
+    <combatPower>140</combatPower>
+    <apparelMoney>3000~6000</apparelMoney>
+    <apparelRequired Inherit="False" />
+    <apparelTags Inherit="False">
+      <li>SpacerMilitary</li>
+    </apparelTags>
+    <weaponMoney>1200~2500</weaponMoney>
+    <weaponTags Inherit="False">
+      <li>SpacerGun</li>
+    </weaponTags>
+    <techHediffsMoney>2000~4000</techHediffsMoney>
+  </PawnKindDef>
+
+  <!-- The leader. -->
+  <PawnKindDef ParentName="MechanitorBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>RimChronicles_FirstVoice</defName>
+    <label>First Voice</label>
+    <defaultFactionDef>RimChronicles_HollowChoir</defaultFactionDef>
+    <factionLeader>true</factionLeader>
+    <combatPower>250</combatPower>
+    <apparelMoney>6000~9000</apparelMoney>
+    <apparelRequired Inherit="False" />
+    <apparelTags Inherit="False">
+      <li>SpacerMilitary</li>
+    </apparelTags>
+    <weaponMoney>2500~4000</weaponMoney>
+    <weaponTags Inherit="False">
+      <li>SpacerGun</li>
+    </weaponTags>
+    <techHediffsMoney>4000~6000</techHediffsMoney>
+    <forceWeaponQuality>Legendary</forceWeaponQuality>
+  </PawnKindDef>
+
+</Defs>

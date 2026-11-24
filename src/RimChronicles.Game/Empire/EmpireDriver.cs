@@ -179,7 +179,7 @@ public static class EmpireDriver
 
     /// <summary>Destroys a settlement and leaves ruins, as vanilla does when the player defeats one
     /// (<c>SettlementDefeatUtility.CheckDefeated</c>), without its letter or raids.</summary>
-    private static void Raze(Settlement settlement)
+    internal static void Raze(Settlement settlement)
     {
         var ruins = (DestroyedSettlement)WorldObjectMaker.MakeWorldObject(settlement.Tile.LayerDef.DestroyedSettlementWorldObjectDef);
         ruins.Tile = settlement.Tile;

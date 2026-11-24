@@ -22,7 +22,7 @@ public static class AllegianceDriver
     public static void Daily(RimChroniclesGameComponent component)
     {
         var today = GenDate.DaysPassed;
-        foreach (var power in Power.All)
+        foreach (var power in PowerFactions.Running)
         {
             if (PlotOf(component, power) is not { } plot
                 || plot.Fact(PowerArc.Stance) is not { Length: > 0 } stance
@@ -32,20 +32,27 @@ public static class AllegianceDriver
             }
 
             // The power's own plot set this stance and its driver moved the goodwill; only the rivals need updating.
-            var changes = component.Allegiance.Set(power, stance, Power.All, today, AllegianceCause.Plot);
+            var changes = component.Allegiance.Set(power, stance, PowerFactions.Running, today, AllegianceCause.Plot);
             Apply(component, changes.Where(c => c.Power != power), today);
         }
     }
 
     /// <summary>Writes each changed stance into that power's plot and, once the plot is past its envoy, moves the
-    /// faction's goodwill to match (as the Empire plot does for its own stance).</summary>
+    /// faction's goodwill to match (as the Empire plot does for its own stance). A power with a faction but no plot yet
+    /// (the Choir awake before its plot starts) has its goodwill moved at once.</summary>
     public static void Apply(RimChroniclesGameComponent component, IEnumerable<(Power Power, string Stance)> changes, int today)
     {
         foreach (var (power, stance) in changes)
         {
             if (PlotOf(component, power) is not { } plot)
             {
-                continue; // no plot yet: it reads the allegiance when it starts (W4)
+                // No plot yet (it reads the allegiance when it starts); a faction that already exists turns now.
+                if (PowerFactions.Of(power) is { } existing)
+                {
+                    PowerFactions.ApplyStance(existing, stance);
+                }
+
+                continue;
             }
 
             plot.SetFact(PowerArc.Stance, stance);
@@ -66,11 +73,12 @@ public static class AllegianceDriver
         }
 
         var today = GenDate.DaysPassed;
-        var options = Power.All
+        var running = PowerFactions.Running;
+        var options = running
             .Select(power => new FloatMenuOption($"Side with {power.Id}", () =>
-                Apply(component, component.Allegiance.Set(power, PowerStance.Ally, Power.All, today, AllegianceCause.Dev), today)))
+                Apply(component, component.Allegiance.Set(power, PowerStance.Ally, running, today, AllegianceCause.Dev), today)))
             .Append(new FloatMenuOption("Independent (against every power)", () =>
-                Apply(component, component.Allegiance.DeclareIndependence(Power.All, today, AllegianceCause.Dev), today)))
+                Apply(component, component.Allegiance.DeclareIndependence(running, today, AllegianceCause.Dev), today)))
             .ToList();
         Find.WindowStack.Add(new FloatMenu(options));
     }
@@ -84,8 +92,9 @@ public static class AllegianceDriver
         }
 
         var a = component.Allegiance;
-        var side = a.SideAmong(Power.All) is { Length: > 0 } s ? s : "undeclared";
-        var lines = Power.All.Select(p => $"{p.Id}: {a.StanceToward(p)}")
+        var running = PowerFactions.Running;
+        var side = a.SideAmong(running) is { Length: > 0 } s ? s : "undeclared";
+        var lines = running.Select(p => $"{p.Id}: {a.StanceToward(p)}")
             .Prepend($"Side: {side}")
             .Concat(a.Log.Count > 0 ? a.Log.Prepend("") : ["", "(no changes yet)"]);
         Find.WindowStack.Add(new Dialog_MessageBox(string.Join("\n", lines)));
