@@ -17,4 +17,21 @@ public static class PowerFactions
 
         return null;
     }
+
+    /// <summary>Moves the faction's goodwill to fit the colony's stance: an ally gets at least 25, an enemy -100
+    /// (hostile), neutral leaves it alone.</summary>
+    public static void ApplyStance(Faction faction, string stance)
+    {
+        var goodwill = faction.PlayerGoodwill;
+        var change = stance switch
+        {
+            PowerStance.Ally => Math.Max(0, 25 - goodwill),
+            PowerStance.Oppose => -100 - goodwill,
+            _ => 0,
+        };
+        if (change != 0)
+        {
+            faction.TryAffectGoodwillWith(Faction.OfPlayer, change, canSendMessage: true, canSendHostilityLetter: true);
+        }
+    }
 }

@@ -26,6 +26,7 @@ public sealed class RimChroniclesGameComponent : GameComponent
     private GrudgeLedger _grudges = new();
     private PowerSaga _empire = new();
     private CrisisState _crisis = new();
+    private Allegiance _allegiance = new();
     private List<Pawn> _tracked = [];
     private Pawn? _reporterPawn;
 
@@ -59,6 +60,9 @@ public sealed class RimChroniclesGameComponent : GameComponent
 
     /// <summary>The Imperial crisis: operations against the colony (crisis C1).</summary>
     public CrisisState Crisis => _crisis;
+
+    /// <summary>The colony's side toward every power (War in Heaven W2).</summary>
+    public Allegiance Allegiance => _allegiance;
 
     /// <summary>Raiders who killed or maimed colonists (Stage 3 M2).</summary>
     public GrudgeLedger Grudges => _grudges;
@@ -115,6 +119,7 @@ public sealed class RimChroniclesGameComponent : GameComponent
         ScribeArchive.Instance.Deep(ref _grudges, "grudges");
         ScribeArchive.Instance.Deep(ref _empire, "empire");
         ScribeArchive.Instance.Deep(ref _crisis, "crisis");
+        ScribeArchive.Instance.Deep(ref _allegiance, "allegiance");
         Scribe_Collections.Look(ref _tracked, "trackedPawns", LookMode.Reference);
         Scribe_References.Look(ref _reporterPawn, "reporterPawn");
         _news ??= new NewsLog();
@@ -123,6 +128,7 @@ public sealed class RimChroniclesGameComponent : GameComponent
         _grudges ??= new GrudgeLedger();
         _empire ??= new PowerSaga();
         _crisis ??= new CrisisState();
+        _allegiance ??= new Allegiance();
         _tracked ??= [];
         _tracked.RemoveAll(p => p is null);
     }
@@ -150,6 +156,7 @@ public sealed class RimChroniclesGameComponent : GameComponent
         Game.Plots.LostFamilyBeats.Daily(this);
         Game.Plots.PlotDriver.Daily(this);
         Game.Empire.EmpireDriver.Daily(this);
+        Game.Powers.AllegianceDriver.Daily(this);
         Game.Crisis.CrisisDriver.Daily(this);
         Game.News.NewsDriver.Tick(this);
     }

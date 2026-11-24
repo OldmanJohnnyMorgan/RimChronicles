@@ -285,20 +285,7 @@ public static class EmpireBeats
             .FirstOrDefault();
 
     /// <summary>Ally: goodwill up to at least +25. Oppose: war (goodwill down to -100). Neutral: no change.</summary>
-    private static void ApplyStance(Faction empire, string stance)
-    {
-        var goodwill = empire.PlayerGoodwill;
-        var change = stance switch
-        {
-            PowerStance.Ally => Math.Max(0, 25 - goodwill),
-            PowerStance.Oppose => -100 - goodwill,
-            _ => 0,
-        };
-        if (change != 0)
-        {
-            empire.TryAffectGoodwillWith(Faction.OfPlayer, change, canSendMessage: true, canSendHostilityLetter: true);
-        }
-    }
+    private static void ApplyStance(Faction empire, string stance) => Powers.PowerFactions.ApplyStance(empire, stance);
 
     /// <summary>Applies a finished job to the world: settlements change hands, goodwill moves, the stance may change.</summary>
     private static void Aftermath(RimChroniclesGameComponent component, Plot plot, Faction empire, int today)
