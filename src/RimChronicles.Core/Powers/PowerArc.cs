@@ -271,8 +271,9 @@ public static class PowerArc
 
     /// <summary>Reads the finished job, tallies it, and clears it. Quests succeed only on "success". Letter answers may
     /// change the stance or reach an ending; see <see cref="Act3Options"/>.</summary>
-    public static JobResult FinishJob(Plot plot)
+    public static JobResult FinishJob(Plot plot, Power? power = null)
     {
+        power ??= Power.Empire;
         var job = plot.Fact(Job) ?? "";
         var target = plot.Fact(JobTarget) ?? "";
         var answer = plot.Fact(Answer) ?? "";
@@ -284,7 +285,7 @@ public static class PowerArc
                 (PowerStep.Tribute, TributePaid) => new JobResult(job, target, true, null),
                 (PowerStep.Tribute, TributeRefused) => new JobResult(job, target, false, PowerStance.Oppose),
                 (PowerStep.Tribute, TributeFealty) => new JobResult(job, target, true, PowerStance.Ally),
-                (PowerStep.Governorship, Accept) => new JobResult(job, target, true, null, EmpireEnding.Imperial),
+                (PowerStep.Governorship, Accept) => new JobResult(job, target, true, null, power.ServiceEnding),
                 (PowerStep.FinalDemand, Accept) => new JobResult(job, target, true, PowerStance.Ally),
                 (PowerStep.FinalDemand, _) => new JobResult(job, target, false, PowerStance.Oppose), // refused, or ignored: war
                 (PowerStep.Treaty, Accept) => new JobResult(job, target, true, null, EmpireEnding.Independence),
@@ -295,7 +296,7 @@ public static class PowerArc
         else
         {
             var success = JobQuestFact(plot) is { } fact && plot.Fact(fact) == QuestOutcome.Success;
-            result = new JobResult(job, target, success, null, success && job == PowerStep.StormCapital ? EmpireEnding.Resistance : null);
+            result = new JobResult(job, target, success, null, success && job == PowerStep.StormCapital ? power.DefeatEnding : null);
             plot.SetFact(success ? Wins : Losses, (Count(plot, success ? Wins : Losses) + 1).ToString(System.Globalization.CultureInfo.InvariantCulture));
         }
 

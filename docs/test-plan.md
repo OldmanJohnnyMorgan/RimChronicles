@@ -387,6 +387,10 @@ Run `docs/SPEC-war-in-heaven/war-runbook-1.md` once W5 is merged. Needs Royalty 
       colony and hostile to the Empire; a mixed group of mechanitors and mechs fights under the vanilla assault.
 - [ ] W4a: the Choir's saga (steps W4a.1–W4a.9): stirs on its own or from Dev Mode, rumours of the hum, wakes with its
       faction and the colony's stored stance, expands; off without Biotech or with its setting off.
+- [ ] W4b: the Choir's plot and ranks (steps W4b.1–W4b.7): envoy and stance, jobs by stance, tribute, Chorus rank
+      from service, decided by weight (never the model) until the retrain.
+- [ ] W5: waking (steps W5.1–W5.5): either power's attack wakes the other at once; the ship launch wakes the Empire;
+      the Royal Ascent wakes the Choir and brings its raids.
 
 ---
 

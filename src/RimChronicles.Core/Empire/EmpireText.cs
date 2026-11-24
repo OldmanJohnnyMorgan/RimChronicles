@@ -32,6 +32,9 @@ public static class EmpireText
         AwakeningTrigger.ImperialColonist => $"{detail}, a colonist of {colony}, was recognised as one of the Empire's own",
         AwakeningTrigger.Wealth => $"{colony}'s wealth ({detail} silver) drew the Empire's eye",
         AwakeningTrigger.Deadline => "the Empire's long quiet ran out",
+        AwakeningTrigger.Rival => "its old enemy, the Hollow Choir, came out of the dark and attacked",
+        AwakeningTrigger.ShipLaunch => $"{colony} started a ship reactor, and the Empire will not let it leave",
+        AwakeningTrigger.RoyalAscent => $"{colony} began the Royal Ascent",
         AwakeningTrigger.Dev => "woken from Dev Mode",
         _ => trigger,
     };

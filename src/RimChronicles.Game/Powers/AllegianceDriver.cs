@@ -15,9 +15,9 @@ namespace RimChronicles.Game.Powers;
 /// </summary>
 public static class AllegianceDriver
 {
-    /// <summary>The power's major plot, if it has started. The Hollow Choir's comes with W4.</summary>
+    /// <summary>The power's major plot, if it has started.</summary>
     public static Plot? PlotOf(RimChroniclesGameComponent component, Power power) =>
-        power == Power.Empire ? EmpireBeats.Current(component) : null;
+        power == Power.Empire ? EmpireBeats.Current(component) : power == Power.Choir ? ChoirBeats.Current(component) : null;
 
     public static void Daily(RimChroniclesGameComponent component)
     {

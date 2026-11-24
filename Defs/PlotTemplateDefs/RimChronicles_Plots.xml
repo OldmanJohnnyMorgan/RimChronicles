@@ -33,6 +33,14 @@
     <maxGapDays>12</maxGapDays>
   </RimChronicles.Game.Plots.PlotTemplateDef>
   <RimChronicles.Game.Plots.PlotTemplateDef>
+    <defName>HollowChoir</defName>
+    <label>hollow choir</label>
+    <description>The Empire's old enemy (War in Heaven): the Choir wakes, asks the colony's stance, and takes the rim settlement by settlement.</description>
+    <countsTowardCap>false</countsTowardCap>
+    <minGapDays>6</minGapDays>
+    <maxGapDays>12</maxGapDays>
+  </RimChronicles.Game.Plots.PlotTemplateDef>
+  <RimChronicles.Game.Plots.PlotTemplateDef>
     <defName>ImperialCrisis</defName>
     <label>imperial crisis</label>
     <description>The Empire's war on the colony: probing raids, breaches, psychic assaults, sieges and the final assault.</description>

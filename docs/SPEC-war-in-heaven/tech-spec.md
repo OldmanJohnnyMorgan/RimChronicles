@@ -117,6 +117,26 @@ conquest job, defend ally, sabotage, tribute, reckoning, and the Choir's Act 3 o
   `Targets`, `Repaint` and `Raze`. Before the War in Heaven the Choir may already take Imperial settlements; W10 weights
   them up. The Empire's driver is unchanged; W4b folds both into one loop once the Choir has its plot.
 
+- **As built (W4b):** the `HollowChoir` plot template; `ChoirBeats` (Game) mirrors `EmpireBeats` with `ChoirLetters`
+  (Core/Choir): envoy, Act 2 jobs (escort, conquest job, defend ally, sabotage of a Choir settlement until W8 adds sites),
+  tribute ("Join the Chorus"), reckoning, the First Voice's offer, the final demand, the treaty and the assault on the
+  Cathedral (the Choir's oldest settlement, as a capital quest until W9). `Power.ServiceEnding`/`DefeatEnding` give the
+  Choir its own endings (`Choral`, `Silenced`); `PowerArc.FinishJob(plot, power)` uses them. **Ranks (D13):**
+  `ChoirRanks` (Core, saved as `choirRanks`): Listener, Chorister (4 favor), Choirmaster (12), Cantor (24), Voice of the
+  Choir (40); 4 favor per finished escort or conquest job to the colonist with the most; Choirmaster or above opens the
+  offer (the saga's `HighTitleHolder`, read daily). The plot is registered with `useDirector: false` and left out of the
+  snapshot's `activePlots` until W12. Its endings send news and a letter and end the plot; victory screens and epilogues
+  come with W11. `PowerDrivers.Daily` runs each running power's driver, then the allegiance sync; the Chronicle tab
+  titles the story "The Hollow Choir".
+
+- **As built (W5):** triggers `Rival`, `ShipLaunch`, `RoyalAscent`; `PowerSaga.WakeAtOnce` goes straight to Awakened
+  (keeping a stirring's first trigger). `CrossWaking.RivalShouldWake`: a power awake and having attacked (an expansion,
+  a crisis operation, or a raid against a ship launch or the Royal Ascent) wakes a rival that is still dormant or
+  stirring; `PowerDrivers` checks it daily. The ship launch now wakes a sleeping Empire before its reaction; the Royal
+  Ascent (`RoyalAscentPatch` on `Quest.Accept`) wakes the Choir and, unless the colony is its ally, raids at once and
+  every 4 days while the ascent quest is ongoing (the saga's `NextShipRaidDay` serves both reactions). Dev Mode:
+  **Hollow Choir: react to the Royal Ascent**.
+
 ### 4.3 The Choir's crisis
 
 The Empire's crisis code, run with `Power.Choir`. What differs:

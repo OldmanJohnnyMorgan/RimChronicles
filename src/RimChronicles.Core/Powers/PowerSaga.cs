@@ -34,6 +34,15 @@ public static class AwakeningTrigger
     public const string MechanitorColonist = "MechanitorColonist";
     public const string TitleRefused = "TitleRefused";
     public const string Deadline = "Deadline";
+
+    /// <summary>The rival power woke and attacked (War in Heaven spec §4): this one wakes at once.</summary>
+    public const string Rival = "Rival";
+
+    /// <summary>The colony started a ship reactor: the Empire wakes at once (spec §5).</summary>
+    public const string ShipLaunch = "ShipLaunch";
+
+    /// <summary>The colony accepted the Royal Ascent: the Hollow Choir wakes at once (spec §5).</summary>
+    public const string RoyalAscent = "RoyalAscent";
     public const string Dev = "Dev";
 }
 
@@ -193,6 +202,25 @@ public sealed class PowerSaga : IArchivable
         TriggerDetail = detail;
         Note(today, $"stirring: {Power.Text.TriggerWhy(trigger, detail, colony)}");
         return new PowerEvent(Power.Text.StirringNews);
+    }
+
+    /// <summary>Dormant or Stirring → Awakened at once, skipping the stirring (War in Heaven spec §4–§5: a rival's attack,
+    /// the ship launch, the Royal Ascent). Returns null if it is already awake.</summary>
+    public PowerEvent? WakeAtOnce(string trigger, string detail, int today, string name, string colony)
+    {
+        if (State is not (PowerState.Dormant or PowerState.Stirring))
+        {
+            return null;
+        }
+
+        if (State == PowerState.Dormant)
+        {
+            Trigger = trigger;
+            TriggerDetail = detail;
+        }
+
+        Note(today, $"woken at once: {Power.Text.TriggerWhy(trigger, detail, colony)}");
+        return Wake(today, name);
     }
 
     /// <summary>Stirring → Awakened: the Empire starts expanding by force.</summary>

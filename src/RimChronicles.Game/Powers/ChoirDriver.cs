@@ -4,6 +4,7 @@ using RimChronicles.Core.Plots;
 using RimChronicles.Core.Powers;
 using RimChronicles.Game.Empire;
 using RimChronicles.Game.Engine;
+using RimChronicles.Game.Patches;
 using RimChronicles.Game.Plots;
 using RimWorld;
 using RimWorld.Planet;
@@ -15,8 +16,8 @@ namespace RimChronicles.Game.Powers;
 /// The Hollow Choir's saga, day by day (War in Heaven W4a; spec §3.1, §4): dormant until a trigger (colony wealth, a
 /// mechanitor colonist, day 300 at the latest), then stirring (rumours and the hum), then awake: its faction appears
 /// near the colony (<see cref="ChoirFaction.Create"/>), takes the colony's stored allegiance, and starts taking
-/// settlements by the same rules as the Empire. Its plot (envoy, jobs, acts) comes with W4b; cross-waking with the
-/// Empire, the ship launch and the Royal Ascent with W5. Main thread only.
+/// settlements by the same rules as the Empire. Its plot is <see cref="ChoirBeats"/>; cross-waking with the Empire, the
+/// ship launch and the Royal Ascent come with W5. Main thread only.
 /// </summary>
 public static class ChoirDriver
 {
@@ -38,6 +39,12 @@ public static class ChoirDriver
 
         var saga = component.Choir;
         var today = GenDate.DaysPassed;
+        if (saga.IsAwake)
+        {
+            ChoirBeats.EnsurePlot(component, today);
+            saga.HighTitleHolder = ChoirBeats.HighRankHolder(component);
+        }
+
         switch (saga.State)
         {
             case PowerState.Dormant:
@@ -65,6 +72,14 @@ public static class ChoirDriver
                 }
 
                 break;
+            case PowerState.Awakened or PowerState.Ascendant when saga.NextShipRaidDay >= 0 && ChoirFaction.Existing is { } raider:
+                AscentRaids(component, raider, today);
+                if (saga.ExpansionDue(today))
+                {
+                    ExpandOnce(component, raider, today);
+                }
+
+                break;
             case PowerState.Awakened or PowerState.Ascendant when saga.ExpansionDue(today):
                 if (ChoirFaction.Existing is { } choir)
                 {
@@ -80,6 +95,7 @@ public static class ChoirDriver
     {
         var ev = component.Choir.Awaken(trigger, detail, today, Rand.RangeInclusive(PowerSaga.MinStirringDays, PowerSaga.MaxStirringDays), Colony);
         Show(component, ev, today);
+        ChoirBeats.EnsurePlot(component, today);
         Record(component, today, $"Awaken:{trigger}", Choir.Text.TriggerWhy(trigger, detail, Colony), source, options);
         component.Plots.LastBeatDay = today;
     }
@@ -102,6 +118,90 @@ public static class ChoirDriver
         Show(component, component.Choir.Wake(today, choir.Name), today, choir);
         Record(component, today, $"{Choir.OptionPrefix}:Awaken", reason, source);
         component.Plots.LastBeatDay = today;
+    }
+
+    /// <summary>Wakes a dormant or stirring Choir at once (War in Heaven W5: its rival attacked, or the colony accepted
+    /// the Royal Ascent): the faction appears, and the stirring is skipped. False if it was already awake or can't run.</summary>
+    public static bool WakeAtOnce(RimChroniclesGameComponent component, string trigger, string detail, int today)
+    {
+        var saga = component.Choir;
+        if (!Available || saga.State is not (PowerState.Dormant or PowerState.Stirring)
+            || ChoirFaction.Create(Find.AnyPlayerHomeMap?.Tile ?? PlanetTile.Invalid) is not { } choir)
+        {
+            return false;
+        }
+
+        if (component.Allegiance.StanceToward(Choir) is var stance && stance != PowerStance.Neutral)
+        {
+            PowerFactions.ApplyStance(choir, stance);
+        }
+
+        var ev = saga.WakeAtOnce(trigger, detail, today, choir.Name, Colony)!;
+        ChoirBeats.EnsurePlot(component, today);
+        Show(component, ev, today, choir);
+        Record(component, today, $"Awaken:{trigger}", Choir.Text.TriggerWhy(trigger, detail, Colony), "Only");
+        component.Plots.LastBeatDay = today;
+        return true;
+    }
+
+    /// <summary>Days between Choir raids while the Royal Ascent is under way.</summary>
+    public const int AscentRaidGapDays = EmpireDriver.ShipRaidGapDays;
+
+    /// <summary>The Royal Ascent's reaction (War in Heaven spec §5), the mirror of the Empire's at a ship launch: the
+    /// Choir wakes at once if it hasn't, and unless the colony is its ally it goes to war and raids, then again every few
+    /// days while the ascent is under way.</summary>
+    public static void Notify_RoyalAscent()
+    {
+        if (RimChroniclesGameComponent.Current is not { } component || !Available)
+        {
+            return;
+        }
+
+        var today = GenDate.DaysPassed;
+        var saga = component.Choir;
+        WakeAtOnce(component, AwakeningTrigger.RoyalAscent, "", today);
+        if (ChoirFaction.Existing is not { } choir || saga.Ending.Length > 0 || saga.NextShipRaidDay >= 0
+            || component.Allegiance.StanceToward(Choir) == PowerStance.Ally)
+        {
+            return;
+        }
+
+        if (!choir.HostileTo(Faction.OfPlayer))
+        {
+            choir.TryAffectGoodwillWith(Faction.OfPlayer, -100 - choir.PlayerGoodwill, canSendMessage: true, canSendHostilityLetter: true);
+        }
+
+        const string label = "The Choir will not see a crown";
+        var text = $"Word of the Royal Ascent has reached {choir.Name}. The Chorus will not let the usurpers crown a new heir on the rim.\n\n"
+            + "Its mechs are on their way, and more will follow while the ascent goes on.";
+        ChoirBeats.Current(component)?.Tell(today, label, text);
+        StoryLetters.Send(label, text, LetterDefOf.ThreatBig, faction: choir);
+        saga.Note(today, "the colony began the Royal Ascent: the Choir moves to stop it");
+        saga.NextShipRaidDay = today;
+        AscentRaids(component, choir, today);
+    }
+
+    /// <summary>A Choir raid now and every <see cref="AscentRaidGapDays"/> days while a Royal Ascent quest is under way.</summary>
+    private static void AscentRaids(RimChroniclesGameComponent component, Faction choir, int today)
+    {
+        var saga = component.Choir;
+        if (saga.NextShipRaidDay < 0 || today < saga.NextShipRaidDay)
+        {
+            return;
+        }
+
+        var ascent = Find.QuestManager.QuestsListForReading.Any(q => q.root?.defName == RoyalAscentPatch.QuestDefName && q.State == QuestState.Ongoing);
+        if (!ascent || saga.Ending.Length > 0 || saga.State == PowerState.Broken || Find.AnyPlayerHomeMap is not { } map)
+        {
+            saga.NextShipRaidDay = -1;
+            return;
+        }
+
+        saga.NextShipRaidDay = today + AscentRaidGapDays;
+        if (!EmpireDriver.ImperialRaid(map, choir, 1.5f))
+        {
+            Log.Warning("[Rim Chronicles] The Choir's raid against the Royal Ascent could not start.");
+        }
     }
 
     /// <summary>One expansion attack, by the Empire's rules (<see cref="PowerExpansion"/>), against any other humanlike
@@ -152,6 +252,7 @@ public static class ChoirDriver
         component.News.Add(new NewsEvent(today, Choir.NewsKind, ev.NewsText, choir?.Name ?? Name));
         if (ev.LetterLabel is { } label && ev.LetterText is { } text)
         {
+            ChoirBeats.Current(component)?.Tell(today, label, text);
             StoryLetters.Send(label, text, LetterDefOf.ThreatBig, faction: choir);
         }
     }
@@ -229,6 +330,9 @@ public static class ChoirDriver
 
         Wake(component, today, "woken from Dev Mode", "Dev");
     }
+
+    [DebugAction("Rim Chronicles", "Hollow Choir: react to the Royal Ascent", allowedGameStates = AllowedGameStates.PlayingOnMap)]
+    public static void DevRoyalAscent() => Notify_RoyalAscent();
 
     [DebugAction("Rim Chronicles", "Hollow Choir: expand now", allowedGameStates = AllowedGameStates.Playing)]
     public static void DevExpand()

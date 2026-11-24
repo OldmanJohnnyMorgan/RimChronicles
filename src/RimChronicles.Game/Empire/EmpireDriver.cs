@@ -204,6 +204,22 @@ public static class EmpireDriver
         }
     }
 
+    /// <summary>Wakes a dormant or stirring Empire at once (War in Heaven W5: its rival attacked, or the colony started a
+    /// ship reactor). False if it was already awake or can't run.</summary>
+    public static bool WakeAtOnce(RimChroniclesGameComponent component, string trigger, string detail, int today)
+    {
+        if (!Available || EmpireFaction is not { } empire || component.Empire.WakeAtOnce(trigger, detail, today, empire.Name, Colony) is not { } ev)
+        {
+            return false;
+        }
+
+        EmpireBeats.EnsurePlot(component, today);
+        Show(component, ev, today, empire);
+        Record(component, today, $"Awaken:{trigger}", EmpireText.TriggerWhy(trigger, detail, Colony), "Only");
+        component.Plots.LastBeatDay = today;
+        return true;
+    }
+
     private static void Record(RimChroniclesGameComponent component, int today, string choice, string reason, string source, string? options = null) =>
         component.Plots.Record(new DirectorDecision
         {
@@ -264,6 +280,11 @@ public static class EmpireDriver
         }
 
         var saga = component.Empire;
+        if (saga.State is PowerState.Dormant or PowerState.Stirring)
+        {
+            WakeAtOnce(component, AwakeningTrigger.ShipLaunch, "", GenDate.DaysPassed); // War in Heaven spec §5
+        }
+
         var stance = EmpireBeats.Current(component) is { } plot ? PowerArc.StanceOf(plot) : PowerStance.Neutral;
         if (saga.State is not (PowerState.Awakened or PowerState.Ascendant) || saga.Ending.Length > 0 || stance == PowerStance.Ally
             || saga.NextShipRaidDay >= 0)

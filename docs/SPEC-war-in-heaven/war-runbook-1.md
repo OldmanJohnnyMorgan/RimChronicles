@@ -53,3 +53,25 @@ with the Empire plot under way for step W2.1. Every Dev Mode tool below is in th
 | W4a.7 | New colony with a mechanitor colonist (or install a mechlink), wait for day 30+ | The Choir stirs on its own; **show** says a mechanitor drew it |
 | W4a.8 | Turn the Hollow Choir setting off, or play without Biotech | **show** says it isn't running; nothing happens |
 | W4a.9 | Save and reload in each state | The state, log and faction survive |
+
+## W4b: the Choir's plot and ranks
+
+| # | Do | Pass when |
+| --- | --- | --- |
+| W4b.1 | **Hollow Choir: wake now**; let a few days pass | The Chronicle tab shows "The Hollow Choir"; a "Chorus envoy" letter asks the colony's stance |
+| W4b.2 | Answer "Stand with the Choir"; let days pass | The Choir marches (letter); escort or conquest jobs for the Choir appear as quests; **War in Heaven: show allegiance** says side `choir`, Empire `oppose` |
+| W4b.3 | Finish a Choir job (or **Hollow Choir: grant rank favor** three times) | A "rise in the Chorus" letter names the colonist; after 12 favor (Choirmaster) **Hollow Choir: show**… the offer can come in Act 3 |
+| W4b.4 | Other colony: "Stand against it" | Defend-ally and sabotage jobs against the Choir appear; the Choir is hostile |
+| W4b.5 | Other colony: "Keep out of it" | A tribute letter with "Join the Chorus" as the third choice |
+| W4b.6 | Dev Mode decision log (**Plots: show decisions** or the director log) | Choir plot decisions show source `Random`, never `Model` |
+| W4b.7 | Save and reload mid-plot | The plot, its facts and the ranks survive |
+
+## W5: cross-waking, the ship launch and the Royal Ascent
+
+| # | Do | Pass when |
+| --- | --- | --- |
+| W5.1 | New colony: **Empire: trigger awakening**, then **Empire: wake**, then **Empire: expand now**; let a day pass | The Choir wakes at once (no stirring): its letter, its faction; **Hollow Choir: show** says the Empire's attack woke it |
+| W5.2 | New colony: **Hollow Choir: wake now**, **Hollow Choir: expand now**; let a day pass | The Empire wakes at once; **Empire: show** says the Choir woke it |
+| W5.3 | New colony, both asleep: build and start a ship reactor (Dev Mode: spawn the ship parts) | The Empire wakes at once, goes to war and raids; the next day the Choir wakes too (the Empire attacked) |
+| W5.4 | New colony with a Royal title: accept the Royal Ascent quest (or **Hollow Choir: react to the Royal Ascent**) | The Choir wakes at once, goes to war and raids; while the ascent runs, another raid every 4 days; the Empire wakes after the first raid |
+| W5.5 | As W5.4, but side with the Choir first (**War in Heaven: set side**) | The Choir wakes but doesn't raid |

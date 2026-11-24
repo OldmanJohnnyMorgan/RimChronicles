@@ -44,6 +44,9 @@ public static class ChoirText
         AwakeningTrigger.MechanitorColonist => $"{detail}, a mechanitor of {colony}, was heard by the Choir",
         AwakeningTrigger.Wealth => $"{colony}'s wealth ({detail} silver) drew the Choir out of the dark",
         AwakeningTrigger.Deadline => "the Choir's long silence ended",
+        AwakeningTrigger.Rival => "the Empire, the usurper, woke and marched",
+        AwakeningTrigger.RoyalAscent => $"{colony} began the Royal Ascent, and the Choir will not see a new Emperor crowned",
+        AwakeningTrigger.ShipLaunch => $"{colony} started a ship reactor",
         AwakeningTrigger.Dev => "woken from Dev Mode",
         _ => trigger,
     };
