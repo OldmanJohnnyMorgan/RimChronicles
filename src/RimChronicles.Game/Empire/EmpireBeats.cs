@@ -66,7 +66,7 @@ public static class EmpireBeats
                 var stance = EmpireArc.StanceOf(plot);
                 plot.SetFact(EmpireArc.Stance, stance);
                 ApplyStance(empire, stance);
-                Send(EmpireLetters.Marches(stance, empire.Name, Colony), stance == EmpireStance.Oppose ? LetterDefOf.ThreatBig : LetterDefOf.NeutralEvent);
+                Send(plot, EmpireLetters.Marches(stance, empire.Name, Colony), stance == EmpireStance.Oppose ? LetterDefOf.ThreatBig : LetterDefOf.NeutralEvent);
                 component.Plots.Advance(plot, PlotBeat.Complication, today, gap, $"Act 2: the Empire marches; the colony is {stance}");
                 return true;
             }
@@ -146,7 +146,7 @@ public static class EmpireBeats
             {
                 var ascendant = EmpireArc.ReckoningScore(plot, component.Empire) > 0;
                 component.Empire.Reckon(ascendant, today);
-                Send(EmpireLetters.Reckoning(ascendant, empire.Name, Colony), LetterDefOf.ThreatBig);
+                Send(plot, EmpireLetters.Reckoning(ascendant, empire.Name, Colony), LetterDefOf.ThreatBig);
                 component.News.Add(new NewsEvent(today, EmpireSaga.NewsKind,
                     ascendant ? $"{empire.Name} issued final demands to every settlement on the rim" : $"{empire.Name} pulled back its columns after heavy losses",
                     empire.Name));
@@ -302,7 +302,7 @@ public static class EmpireBeats
                 if (r.NewStance is { } stance)
                 {
                     ApplyStance(empire, stance);
-                    Send(EmpireLetters.StanceTaken(stance, empire.Name, Colony), stance == EmpireStance.Oppose ? LetterDefOf.ThreatBig : LetterDefOf.NeutralEvent);
+                    Send(plot, EmpireLetters.StanceTaken(stance, empire.Name, Colony), stance == EmpireStance.Oppose ? LetterDefOf.ThreatBig : LetterDefOf.NeutralEvent);
                 }
                 else if (r.Job == EmpireStep.Tribute && !r.Success)
                 {
@@ -349,8 +349,11 @@ public static class EmpireBeats
             .Select(x => x.Pawn.LabelShort)
             .FirstOrDefault() ?? "";
 
-    private static void Send((string Label, string Text) letter, LetterDef def) =>
+    private static void Send(Plot plot, (string Label, string Text) letter, LetterDef def)
+    {
+        plot.Tell(GenDate.DaysPassed, letter.Label, letter.Text);
         StoryLetters.Send(letter.Label, letter.Text, def, faction: StoryLetters.Empire);
+    }
 
     [DebugAction("Rim Chronicles", "Empire: set stance", allowedGameStates = AllowedGameStates.Playing)]
     public static void DevStance()

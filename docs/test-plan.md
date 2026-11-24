@@ -125,6 +125,12 @@ One long Dev Mode game, run at speed 3 or 4 in the background. Keep the director
   - [ ] waits after a raid or a death;
   - [ ] no repeated beats back to back;
   - [ ] reasons that match the colony.
+- [ ] Along the way, check the player-facing polish (PRs #123 and #124):
+  - [ ] a plot letter's **Jump to** goes to the nemesis, relative or colonist it names;
+  - [ ] choice letters end with what happens if no one answers, and answering shows a short message;
+  - [ ] the **Chronicle** tab lists each story once its first letter arrives (Silent Press stays hidden until its
+        first clue), with its letters and answers in order, and finished stories below running ones;
+  - [ ] with Ollama stopped for a moment, one "model not answering" letter arrives, not one per bulletin.
 - [ ] At the end, import the recorded cases:
       ```powershell
       dotnet run --project harness/RimChronicles.Eval -- director-import --from "$env:USERPROFILE\AppData\LocalLow\Ludeon Studios\RimWorld by Ludeon Studios\RimChronicles\director-cases"

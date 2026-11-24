@@ -17,6 +17,7 @@ public sealed class ChoiceLetter_Nemesis : ChoiceLetter
         text += StoryLetters.IfUnanswered(NemesisArc.ChoiceTimeoutDays, "the colony waits for them to return");
         var letter = (ChoiceLetter_Nemesis)LetterMaker.MakeLetter(label, text, NemesisLetterDefOf.RimChronicles_NemesisChoice);
         StoryLetters.Point(letter, plotId);
+        StoryLetters.Record(plotId, label, text);
         letter.plotId = plotId;
         letter.cost = cost;
         letter.StartTimeout(NemesisArc.ChoiceTimeoutDays * GenDate.TicksPerDay);
@@ -71,7 +72,7 @@ public sealed class ChoiceLetter_Nemesis : ChoiceLetter
                 plot.NextBeatDay = GenDate.DaysPassed; // offer the Hunt quest at the next daily check
             }
 
-            StoryLetters.Confirm(choice switch
+            StoryLetters.Answered(plot, choice switch
             {
                 NemesisArc.ChoiceBounty => $"Bounty posted: {cost} silver paid.",
                 NemesisArc.ChoiceHunt => "The colony will hunt them down. A quest will follow.",

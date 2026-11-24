@@ -7,4 +7,11 @@
     <tabWindowClass>RimChronicles.Game.News.MainTabWindow_RimDispatch</tabWindowClass>
     <order>95</order>
   </MainButtonDef>
+  <MainButtonDef>
+    <defName>RimChronicles_Chronicle</defName>
+    <label>chronicle</label>
+    <description>The colony's stories: every letter each one sent, and how the colony answered.</description>
+    <tabWindowClass>RimChronicles.Game.Plots.MainTabWindow_Chronicle</tabWindowClass>
+    <order>96</order>
+  </MainButtonDef>
 </Defs>
