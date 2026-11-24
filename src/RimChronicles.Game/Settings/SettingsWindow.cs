@@ -193,9 +193,16 @@ public static class SettingsWindow
         list.GapLine();
         if (list.ButtonText("Reset to defaults", widthPct: 0.3f))
         {
-            settings.ResetToDefaults();
-            _probeStatus = "";
-            _customDirector = false;
+            Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation(
+                "Reset every Rim Chronicles setting to its default? This clears the model server, any separate prose or director "
+                + "model, and the story settings.",
+                () =>
+                {
+                    settings.ResetToDefaults();
+                    _probeStatus = "";
+                    _customDirector = false;
+                },
+                destructive: true));
         }
 
         _height = list.CurHeight + 24f;

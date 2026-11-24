@@ -2,6 +2,7 @@ using LudeonTK;
 using RimChronicles.Core.News;
 using RimChronicles.Core.Plots;
 using RimChronicles.Core.Plots.SilentPress;
+using RimChronicles.Game.Engine;
 using RimWorld;
 using Verse;
 
@@ -52,13 +53,13 @@ public static class SilentPressBeats
         switch (step)
         {
             case SilentPressStep.TraderClue:
-                Send(SilentPressLetters.TraderClue(f), LetterDefOf.NeutralEvent);
+                Send(component, plot, SilentPressLetters.TraderClue(f), LetterDefOf.NeutralEvent);
                 plot.SetFact(SilentPressArc.Clues, "1");
                 component.Plots.Advance(plot, PlotBeat.Complication, today, gap, "a trader's remark");
                 return true;
 
             case SilentPressStep.VisitorClue:
-                Send(SilentPressLetters.VisitorClue(f), LetterDefOf.NeutralEvent);
+                Send(component, plot, SilentPressLetters.VisitorClue(f), LetterDefOf.NeutralEvent);
                 plot.SetFact(SilentPressArc.Clues, "2");
                 component.Plots.Advance(plot, PlotBeat.Complication, today, gap, "a rumour on the road");
                 return true;
@@ -84,14 +85,14 @@ public static class SilentPressBeats
                 component.ReporterPawn = null; // a recruited (living) old reporter no longer counts; the outlet sends someone new
                 component.Desk.Reinstate(today, Rand.RangeInclusive(2, 4),
                     haggled ? SilentPressArc.ColdBulletinsHaggled : SilentPressArc.ColdBulletinsPaid, SilentPressLetters.ColdPersona(Colony));
-                Send(SilentPressLetters.Reinstated(f, haggled), LetterDefOf.NeutralEvent);
+                Send(component, plot, SilentPressLetters.Reinstated(f, haggled), LetterDefOf.NeutralEvent);
                 component.Plots.End(plot, today, haggled ? "reparations haggled; a cold new reporter" : "reparations paid; a cold new reporter");
                 return true;
             }
 
             case SilentPressStep.Refused:
                 AffectGoodwill(f.Faction, -SilentPressArc.GoodwillLossRefused);
-                Send(SilentPressLetters.Refused(f, SilentPressArc.GoodwillLossRefused), LetterDefOf.NegativeEvent);
+                Send(component, plot, SilentPressLetters.Refused(f, SilentPressArc.GoodwillLossRefused), LetterDefOf.NegativeEvent);
                 plot.SetFact("refused", "yes");
                 plot.SetFact(SilentPressArc.Answer, "");
                 component.Plots.Advance(plot, PlotBeat.Choice, today, SilentPressArc.ReofferDays, "the colony refused; a permanent blackout");
@@ -118,8 +119,9 @@ public static class SilentPressBeats
         }
     }
 
-    private static void Send((string Label, string Text) letter, LetterDef def) =>
-        Find.LetterStack.ReceiveLetter(letter.Label, letter.Text, def);
+    private static void Send(RimChroniclesGameComponent component, Plot plot, (string Label, string Text) letter, LetterDef def) =>
+        StoryLetters.Send(letter.Label, letter.Text, def, StoryLetters.For(component, plot),
+            StoryLetters.FactionNamed(plot.Fact(SilentPressArc.ReporterFaction)) ?? StoryLetters.FactionOf(component, plot));
 
     [DebugAction("Rim Chronicles", "Silent Press: silence the reporter", allowedGameStates = AllowedGameStates.Playing)]
     public static void DevSilence()
@@ -156,7 +158,10 @@ public sealed class ChoiceLetter_SilentPress : ChoiceLetter
 
     public static void Send(string plotId, string label, string text, int price, bool reoffer)
     {
+        text += StoryLetters.IfUnanswered(SilentPressArc.EnvoyTimeoutDays, "it counts as a refusal");
         var letter = (ChoiceLetter_SilentPress)LetterMaker.MakeLetter(label, text, SilentPressLetterDefOf.RimChronicles_SilentPressChoice);
+        var reporterFaction = RimChroniclesGameComponent.Current?.Plots.Active.FirstOrDefault(p => p.Id == plotId)?.Fact(SilentPressArc.ReporterFaction);
+        StoryLetters.Point(letter, plotId, StoryLetters.FactionNamed(reporterFaction));
         letter.plotId = plotId;
         letter.price = price;
         letter.reoffer = reoffer;
@@ -213,6 +218,7 @@ public sealed class ChoiceLetter_SilentPress : ChoiceLetter
             }
 
             // Refusing a later offer keeps the 30-day wait before the next one.
+            StoryLetters.Confirm(answer == SilentPressArc.AnswerRefuse ? "The colony refused to pay." : $"Reparations paid: {amount} silver.");
         }
 
         Find.LetterStack.RemoveLetter(this);

@@ -4,6 +4,7 @@ using RimChronicles.Core.News;
 using RimChronicles.Core.Plots;
 using RimChronicles.Game.Plots;
 using RimChronicles.Game.Quests;
+using RimChronicles.Game.Engine;
 using RimWorld;
 using RimWorld.Planet;
 using Verse;
@@ -55,7 +56,7 @@ public static class EmpireBeats
                     new PlotChoice("Stand with the Empire", EmpireStance.Ally),
                     new PlotChoice("Stand against it", EmpireStance.Oppose),
                     new PlotChoice("Keep out of it", EmpireStance.Neutral),
-                ], EmpireArc.EnvoyTimeoutDays);
+                ], EmpireArc.EnvoyTimeoutDays, "the colony keeps out of it", empire);
                 component.Plots.Advance(plot, PlotBeat.Hook, today, EmpireArc.EnvoyTimeoutDays + 1, "Act 1: the envoy asks the colony's stance");
                 return true;
             }
@@ -131,7 +132,7 @@ public static class EmpireBeats
                     new PlotChoice($"Pay {silver} silver", EmpireArc.TributePaid, Silver: silver),
                     new PlotChoice("Refuse", EmpireArc.TributeRefused),
                     new PlotChoice("Swear fealty", EmpireArc.TributeFealty),
-                ], EmpireArc.LetterTimeoutDays);
+                ], EmpireArc.LetterTimeoutDays, "the tribute goes unpaid, though the Empire doesn't go to war over it", empire);
                 component.Plots.Advance(plot, plot.Beat, today, EmpireArc.LetterTimeoutDays, "the Empire demands tribute");
                 return true;
             }
@@ -164,7 +165,8 @@ public static class EmpireBeats
                 EmpireArc.StartJob(plot, transition.Step, holder, today);
                 var (label, text) = EmpireLetters.Governorship(empire.Name, Colony, holder);
                 ChoiceLetter_Plot.Send(plot, EmpireArc.Answer, label, text,
-                    [new PlotChoice("Accept the governorship", EmpireArc.Accept), new PlotChoice("Not yet", EmpireArc.Decline)], EmpireArc.LetterTimeoutDays);
+                    [new PlotChoice("Accept the governorship", EmpireArc.Accept), new PlotChoice("Not yet", EmpireArc.Decline)], EmpireArc.LetterTimeoutDays,
+                    "it counts as not yet", empire);
                 component.Plots.Advance(plot, PlotBeat.Choice, today, EmpireArc.LetterTimeoutDays, "Act 3: the Empire offers a governorship");
                 return true;
             }
@@ -178,7 +180,7 @@ public static class EmpireBeats
                 ChoiceLetter_Plot.Send(plot, EmpireArc.Answer, label, text, final
                     ? [new PlotChoice("Submit to the Empire", EmpireArc.Accept), new PlotChoice("Refuse", EmpireArc.Decline)]
                     : [new PlotChoice("Sign the treaty", EmpireArc.Accept), new PlotChoice("Fight on", EmpireArc.Decline)],
-                    EmpireArc.LetterTimeoutDays);
+                    EmpireArc.LetterTimeoutDays, final ? "it counts as a refusal: war" : "no treaty is signed", empire);
                 component.Plots.Advance(plot, PlotBeat.Choice, today, EmpireArc.LetterTimeoutDays, final ? "Act 3: the final demand" : "Act 3: a treaty is offered");
                 return true;
             }
@@ -347,7 +349,8 @@ public static class EmpireBeats
             .Select(x => x.Pawn.LabelShort)
             .FirstOrDefault() ?? "";
 
-    private static void Send((string Label, string Text) letter, LetterDef def) => Find.LetterStack.ReceiveLetter(letter.Label, letter.Text, def);
+    private static void Send((string Label, string Text) letter, LetterDef def) =>
+        StoryLetters.Send(letter.Label, letter.Text, def, faction: StoryLetters.Empire);
 
     [DebugAction("Rim Chronicles", "Empire: set stance", allowedGameStates = AllowedGameStates.Playing)]
     public static void DevStance()

@@ -40,6 +40,12 @@ public static class EmpireEndings
 
         var template = EpilogueTask.Template(c, Colony);
         var colony = Colony;
+        if (Settings.ProviderFactory.CreateProse(RimChroniclesMod.Settings) is not null)
+        {
+            // The model can take a minute or two; without a word the player would wait for the credits in silence.
+            Messages.Message($"The story of {colony} is over. The chronicler is writing its epilogue…", MessageTypeDefOf.NeutralEvent, historical: false);
+        }
+
         PlotNarrator.Run(component, "the epilogue", template, text => Show(c.Ending, text),
             (prompts, tier, fallback) => EpilogueTask.Build(prompts, c, colony, tier, ThinkingMode.Off, fallback).Definition);
     }
@@ -47,7 +53,7 @@ public static class EmpireEndings
     private static void Show(string ending, string text)
     {
         var title = $"Rim Chronicles: {EpilogueTask.Headline(ending)}";
-        Find.LetterStack.ReceiveLetter(title, text, LetterDefOf.PositiveEvent);
+        Engine.StoryLetters.Send(title, text, LetterDefOf.PositiveEvent, faction: Engine.StoryLetters.Empire);
         GameVictoryUtility.ShowCredits($"{title}\n\n{text}", SongDefOf.EndCreditsSong, exitToMainMenu: false);
     }
 

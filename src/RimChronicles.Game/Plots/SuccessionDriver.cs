@@ -127,7 +127,7 @@ public static class SuccessionDriver
         }
 
         var (label, template) = HandoffTask.Template(context.OldName, heir.Name, heirToLost, loss, unfinished, heir.Kind);
-        void Deliver(string text) => Find.LetterStack.ReceiveLetter(label, text, LetterDefOf.NeutralEvent);
+        void Deliver(string text) => Engine.StoryLetters.Send(label, text, LetterDefOf.NeutralEvent, heirPawn is { Spawned: true } ? new LookTargets(heirPawn) : null);
 
         var died = loss is ProtagonistLoss.Died or ProtagonistLoss.KilledByNemesis;
         if (!died || lost is null || heirPawn is null)
