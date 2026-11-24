@@ -1,0 +1,357 @@
+{
+  "model": "director-e4b",
+  "labels": "test-v1",
+  "seed": 1,
+  "items": [
+    {
+      "item": 1,
+      "case": "dir-s9001-00000",
+      "group": "Nemesis/Hook",
+      "model": "A",
+      "same": true
+    },
+    {
+      "item": 2,
+      "case": "dir-s9001-00010",
+      "group": "AwakenedEmpire/Act2",
+      "model": "A",
+      "same": false
+    },
+    {
+      "item": 3,
+      "case": "dir-s9001-00020",
+      "group": "Nemesis/Complication",
+      "model": "A",
+      "same": true
+    },
+    {
+      "item": 4,
+      "case": "dir-s9001-00030",
+      "group": "AwakenedEmpire/Ascendant",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 5,
+      "case": "dir-s9001-00040",
+      "group": "LostFamily/Hook",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 6,
+      "case": "dir-s9001-00050",
+      "group": "AwakenedEmpire/Broken",
+      "model": "A",
+      "same": false
+    },
+    {
+      "item": 7,
+      "case": "dir-s9001-00060",
+      "group": "AwakenedEmpire/Act2",
+      "model": "A",
+      "same": true
+    },
+    {
+      "item": 8,
+      "case": "dir-s9001-00070",
+      "group": "Nemesis/Hook",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 9,
+      "case": "dir-s9001-00080",
+      "group": "AwakenedEmpire/Ascendant",
+      "model": "A",
+      "same": true
+    },
+    {
+      "item": 10,
+      "case": "dir-s9001-00090",
+      "group": "LostFamily/Hook",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 11,
+      "case": "dir-s9001-00100",
+      "group": "AwakenedEmpire/Ascendant",
+      "model": "A",
+      "same": true
+    },
+    {
+      "item": 12,
+      "case": "dir-s9001-00110",
+      "group": "AwakenedEmpire/Act2",
+      "model": "A",
+      "same": true
+    },
+    {
+      "item": 13,
+      "case": "dir-s9001-00120",
+      "group": "Nemesis/Hook",
+      "model": "A",
+      "same": true
+    },
+    {
+      "item": 14,
+      "case": "dir-s9001-00130",
+      "group": "AwakenedEmpire/Ascendant",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 15,
+      "case": "dir-s9001-00140",
+      "group": "Nemesis/Complication",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 16,
+      "case": "dir-s9001-00150",
+      "group": "AwakenedEmpire/Broken",
+      "model": "B",
+      "same": false
+    },
+    {
+      "item": 17,
+      "case": "dir-s9001-00160",
+      "group": "LostFamily/Complication",
+      "model": "A",
+      "same": true
+    },
+    {
+      "item": 18,
+      "case": "dir-s9001-00170",
+      "group": "Nemesis/Hook",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 19,
+      "case": "dir-s9001-00180",
+      "group": "AwakenedEmpire/Act2",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 20,
+      "case": "dir-s9001-00190",
+      "group": "Nemesis/Complication",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 21,
+      "case": "dir-s9001-00200",
+      "group": "AwakenedEmpire/Ascendant",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 22,
+      "case": "dir-s9001-00210",
+      "group": "LostFamily/Hook",
+      "model": "A",
+      "same": true
+    },
+    {
+      "item": 23,
+      "case": "dir-s9001-00220",
+      "group": "AwakenedEmpire/Broken",
+      "model": "A",
+      "same": true
+    },
+    {
+      "item": 24,
+      "case": "dir-s9001-00230",
+      "group": "AwakenedEmpire/Act2",
+      "model": "A",
+      "same": true
+    },
+    {
+      "item": 25,
+      "case": "dir-s9001-00240",
+      "group": "Nemesis/Hook",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 26,
+      "case": "dir-s9001-00250",
+      "group": "AwakenedEmpire/Ascendant",
+      "model": "A",
+      "same": true
+    },
+    {
+      "item": 27,
+      "case": "dir-s9001-00260",
+      "group": "LostFamily/Hook",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 28,
+      "case": "dir-s9001-00270",
+      "group": "AwakenedEmpire/Ascendant",
+      "model": "A",
+      "same": true
+    },
+    {
+      "item": 29,
+      "case": "dir-s9001-00280",
+      "group": "AwakenedEmpire/Act2",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 30,
+      "case": "dir-s9001-00290",
+      "group": "Nemesis/Hook",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 31,
+      "case": "dir-s9001-00300",
+      "group": "AwakenedEmpire/Ascendant",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 32,
+      "case": "dir-s9001-00310",
+      "group": "Nemesis/Complication",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 33,
+      "case": "dir-s9001-00320",
+      "group": "AwakenedEmpire/Broken",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 34,
+      "case": "dir-s9001-00330",
+      "group": "LostFamily/Complication",
+      "model": "A",
+      "same": true
+    },
+    {
+      "item": 35,
+      "case": "dir-s9001-00340",
+      "group": "Nemesis/Hook",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 36,
+      "case": "dir-s9001-00350",
+      "group": "AwakenedEmpire/Act2",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 37,
+      "case": "dir-s9001-00360",
+      "group": "Nemesis/Complication",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 38,
+      "case": "dir-s9001-00370",
+      "group": "AwakenedEmpire/Ascendant",
+      "model": "A",
+      "same": true
+    },
+    {
+      "item": 39,
+      "case": "dir-s9001-00380",
+      "group": "LostFamily/Hook",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 40,
+      "case": "dir-s9001-00390",
+      "group": "AwakenedEmpire/Broken",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 41,
+      "case": "dir-s9001-00400",
+      "group": "AwakenedEmpire/Act2",
+      "model": "A",
+      "same": false
+    },
+    {
+      "item": 42,
+      "case": "dir-s9001-00410",
+      "group": "Nemesis/Hook",
+      "model": "B",
+      "same": false
+    },
+    {
+      "item": 43,
+      "case": "dir-s9001-00420",
+      "group": "AwakenedEmpire/Ascendant",
+      "model": "B",
+      "same": false
+    },
+    {
+      "item": 44,
+      "case": "dir-s9001-00430",
+      "group": "LostFamily/Hook",
+      "model": "A",
+      "same": false
+    },
+    {
+      "item": 45,
+      "case": "dir-s9001-00440",
+      "group": "AwakenedEmpire/Ascendant",
+      "model": "A",
+      "same": true
+    },
+    {
+      "item": 46,
+      "case": "dir-s9001-00450",
+      "group": "AwakenedEmpire/Act2",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 47,
+      "case": "dir-s9001-00460",
+      "group": "Nemesis/Hook",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 48,
+      "case": "dir-s9001-00470",
+      "group": "AwakenedEmpire/Ascendant",
+      "model": "A",
+      "same": true
+    },
+    {
+      "item": 49,
+      "case": "dir-s9001-00480",
+      "group": "Nemesis/Complication",
+      "model": "A",
+      "same": true
+    },
+    {
+      "item": 50,
+      "case": "dir-s9001-00490",
+      "group": "AwakenedEmpire/Broken",
+      "model": "A",
+      "same": true
+    }
+  ]
+}
