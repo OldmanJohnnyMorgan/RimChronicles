@@ -408,14 +408,15 @@ public static class CaseGenerator
 
             // The crisis plot and its past operations.
             var state = new CrisisState();
-            var crisisStart = wokeDay + rng.Next(20, 40);
+            var past = rng.Next(stage == CrisisStage.Probing ? 0 : 1, 5);
+            // With no operation yet, the crisis began recently: its first beat has lasted the scenario's days.
+            var crisisStart = past == 0 ? _day - Math.Max(daysInBeat, 3) : wokeDay + rng.Next(20, 40);
             var crisisTemplate = new PlotTemplate { Id = CrisisArc.TemplateId, CountsTowardCap = false, MinGapDays = 3, MaxGapDays = 6 };
             var crisis = _book.Start(crisisTemplate, new ProtagonistSlot { Kind = ProtagonistKind.Colony, PawnId = Inheritance.ColonyId, Name = _colony },
                 crisisStart, 3, $"{empireName} marches against {_colony}");
             crisis.Note(crisisStart, $"stage {CrisisStages.Label(stage)}: the colony opposes the Empire");
             var gap = CrisisArc.DefaultGapDays;
             var sinceLast = Math.Max(daysInBeat, gap); // the gate has passed, so an operation can be offered today
-            var past = rng.Next(stage == CrisisStage.Probing ? 0 : 1, 5);
             var firstDay = _day - sinceLast - (past - 1) * rng.Next(gap, gap + 8);
             for (var i = 0; i < past; i++)
             {
@@ -430,7 +431,8 @@ public static class CaseGenerator
 
                 var op = allowed[rng.Next(allowed.Count)];
                 CrisisArc.OperationStarted(_book, crisis, op, at, rng.Next(6, 40) * 100, state, day, gap);
-                state.Ended(rng.NextDouble() < 0.7 ? OperationOutcome.Repelled : OperationOutcome.Succeeded);
+                // A final assault that succeeded would have ended the colony's story: one in the past was repelled.
+                state.Ended(op.FinaleOnly || rng.NextDouble() < 0.7 ? OperationOutcome.Repelled : OperationOutcome.Succeeded);
             }
 
             FillCrisis(state, stage, captive);
