@@ -254,17 +254,22 @@ try
         case "director-gen":
         {
             var seed = cli.Int("seed", 1);
-            var crisisArc = cli.Get("arc") switch
+            var arcName = cli.Get("arc");
+            if (arcName is not (null or "crisis" or "war"))
             {
-                null => false,
-                "crisis" => true,
-                var unknownArc => throw new ArgumentException($"director-gen --arc: unknown arc '{unknownArc}' (only 'crisis')."),
-            };
+                throw new ArgumentException($"director-gen --arc: unknown arc '{arcName}' ('crisis' or 'war').");
+            }
+
+            var crisisArc = arcName == "crisis";
+            var warArc = arcName == "war";
             var dir = cli.Get("out") is { } o ? Path.GetFullPath(o)
-                : Path.Combine(root, "training", "data", "cases", "synthetic", crisisArc ? $"seed-{seed}-crisis" : $"seed-{seed}");
-            return RimChronicles.Eval.DirectorCases.DirectorGenCommand.Run(seed, cli.Int("count", crisisArc ? 1200 : 5000), dir,
+                : Path.Combine(root, "training", "data", "cases", "synthetic", arcName is null ? $"seed-{seed}" : $"seed-{seed}-{arcName}");
+            var siteDefs = Path.Combine(root, "Defs", "SiteArchetypeDefs");
+            return RimChronicles.Eval.DirectorCases.DirectorGenCommand.Run(seed, cli.Int("count", crisisArc ? 1200 : warArc ? 1500 : 5000), dir,
                 Path.Combine(root, "harness", "schema", "snapshot.schema.json"), Console.Out,
-                crisisArc ? RimChronicles.Eval.DirectorCases.SiteArchetypeXml.Load(Path.Combine(root, "Defs", "SiteArchetypeDefs")) : null);
+                crisisArc ? RimChronicles.Eval.DirectorCases.SiteArchetypeXml.Load(siteDefs)
+                    : warArc ? RimChronicles.Eval.DirectorCases.SiteArchetypeXml.Load(siteDefs, RimChronicles.Core.Powers.Power.Choir.Id) : null,
+                war: warArc);
         }
 
         case "director-import":

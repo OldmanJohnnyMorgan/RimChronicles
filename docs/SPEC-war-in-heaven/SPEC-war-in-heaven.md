@@ -186,7 +186,7 @@ is no longer a separate ending.
 The War in Heaven changes the director's option vocabulary: a mechanite arc, the War in Heaven, the shuttle demands
 and new jobs. **The fine-tuned directors need retraining after this is built.**
 
-- **One retrain, not two.** The crisis retrain (`training/README.md`, "Crisis retrain") waits until the War in Heaven
+- **One retrain, not two.** The crisis retrain (`training/README.md`, now "Retrain for the crisis and the War in Heaven") waits until the War in Heaven
   options are settled, then one round of 12B labels, one E2B and E4B retrain, and one report covers both.
 - **Test set:** test version 3, with War in Heaven cases added beside seed 9001 and seed-9001-crisis. Claude Code
   labels them in session, as for test-crisis-v1.

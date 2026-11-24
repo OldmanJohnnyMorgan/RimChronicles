@@ -24,6 +24,7 @@ public sealed class WorldReader : IWorldReader
         var day = GenDate.DaysPassed;
 
         var crisis = Crisis.CrisisDriver.DirectorDecides;
+        var war = Powers.ChoirDriver.DirectorDecides;
         var moods = colonists.Select(p => p.needs?.mood?.CurLevel).Where(m => m.HasValue).Select(m => m!.Value).ToList();
 
         return new WorldSnapshot
@@ -45,14 +46,23 @@ public sealed class WorldReader : IWorldReader
             RecentEvents = ReadRecentEvents(),
             // The crisis shows only when the director may decide it (C11, tech spec R17): a director trained before the
             // crisis arc sees the world as it was trained on.
-            // The Hollow Choir's plot stays out until the director is trained on it (War in Heaven W12).
+            // So do the Hollow Choir's plots and the War in Heaven (W12, tech spec R12).
             ActivePlots = RimChroniclesGameComponent.Current?.Plots.Active
-                .Where(p => (crisis || p.Template != Core.Crisis.CrisisArc.TemplateId) && p.Template != Core.Powers.Power.Choir.PlotTemplateId)
+                .Where(p => (crisis || p.Template != Core.Crisis.CrisisArc.TemplateId)
+                    && (war || (p.Template != Core.Powers.Power.Choir.PlotTemplateId && p.Template != Core.Powers.Power.Choir.CrisisTemplateId
+                        && p.Template != Core.War.WarInHeaven.TemplateId)))
                 .Select(p => p.ToInfo()).ToList() ?? [],
             Crisis = crisis ? ReadCrisis(day) : null,
+            War = war ? ReadWar() : null,
             PublicEvents = RimChroniclesGameComponent.Current?.News.Since(day - MaxNewsDays).Select(e => e.Text).ToList() ?? [],
         };
     }
+
+    /// <summary>The War in Heaven block, once the Hollow Choir is awake (before it, there's no war to speak of).</summary>
+    private static WarInfo? ReadWar() =>
+        RimChroniclesGameComponent.Current is { Choir.IsAwake: true } component
+            ? Core.War.WarBrief.From(component.War, component.Allegiance, Powers.PowerFactions.Running)
+            : null;
 
     /// <summary>The crisis brief: stage, recent operations, what's knocked out, and the Imperials still held or defected.</summary>
     private static CrisisInfo? ReadCrisis(int day)
@@ -141,7 +151,9 @@ public sealed class WorldReader : IWorldReader
                 PlotState = Empire.EmpireDriver.Available && f == Empire.EmpireDriver.EmpireFaction
                     && RimChroniclesGameComponent.Current?.Empire is { IsAwake: true } saga
                     ? saga.State.ToString()
-                    : null,
+                    : f == Powers.ChoirFaction.Existing && RimChroniclesGameComponent.Current?.Choir is { IsAwake: true } choir
+                        ? choir.State.ToString()
+                        : null,
                 Settlements = settlements.Count(s => s.Faction == f),
             })
             .ToList();

@@ -83,7 +83,7 @@ public partial class SnapshotTests
     [Fact]
     public void SnapshotSet_HasTheCoverageTheSpecRequires()
     {
-        var all = All().Where(s => !IsRealExport(s) && !IsCrisis(s)).ToList();
+        var all = All().Where(s => !IsRealExport(s) && !IsCrisis(s) && !IsWar(s)).ToList();
         string Phase(WorldSnapshot s) => s.Id.Split('-')[2];
 
         Assert.Equal(20, all.Count);
@@ -104,6 +104,18 @@ public partial class SnapshotTests
 
     /// <summary>Imperial crisis snapshots (crisis C11) are named snap-NN-crisis-*.</summary>
     private static bool IsCrisis(WorldSnapshot s) => s.Id.Split('-')[2] == "crisis";
+
+    private static bool IsWar(WorldSnapshot s) => s.Id.Split('-')[2] == "war";
+
+    [Fact]
+    public void TheWarSnapshot_HasTheWarBlock_AndTheWarPlotDecides()
+    {
+        var war = All().Where(IsWar).ToList();
+        Assert.Single(war);
+        Assert.NotNull(war[0].War);
+        Assert.Equal("WarInHeaven", war[0].ActivePlots.Single(p => p.Id == war[0].Director!.PlotId).Template);
+        Assert.All(war[0].AllowedTransitions.Where(o => o != "Wait"), o => Assert.StartsWith("War:", o));
+    }
 
     [Fact]
     public void CrisisSnapshots_HaveACrisisBlock_AndTheCrisisPlotDecides()

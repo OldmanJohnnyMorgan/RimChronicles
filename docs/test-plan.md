@@ -369,8 +369,10 @@ Built 2026-11-24 (`milestones/C11-director-wiring.md`). Steps: `crisis-runbook-4
 - [ ] 9. Reclaimed Holding (runbook steps 8–10): offered once the Empire holds a nearby town; destroying the
       garrison's console hands the town back, with a letter, news and goodwill.
 
-Then the crisis retrain (training/README.md, "Crisis retrain"): crisis test labels (Claude Code, in session), local
-labels, E2B and E4B retrained, reports and reviews, and the presets marked as knowing the crisis.
+Then one retrain covers the crisis and the War in Heaven (training/README.md, "Retrain for the crisis and the War in
+Heaven"): the test labels are done (test-crisis-v1, test-war-v1, Claude Code in session); local labels for both, E2B and
+E4B retrained under `-war` names, reports and reviews on test version 3, and the presets set to
+`DirectorVocabulary.WarInHeaven`.
 
 ## Part C: the War in Heaven (`war-in-heaven`)
 

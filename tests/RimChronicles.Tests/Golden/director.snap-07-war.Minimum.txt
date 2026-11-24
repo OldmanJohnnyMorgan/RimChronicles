@@ -1,0 +1,47 @@
+=== allowedTransitions ===
+- Wait: hold this plot for a few days; nothing happens in it yet
+- Complication:VexSighted: Vex is seen near the colony
+- Complication:ImperialBounty: the Empire posts a bounty on Vex
+
+=== decidingPlot ===
+nemesis-01 (Nemesis), in its Hook beat.
+
+=== plotState ===
+- nemesis-01 (Nemesis): beat Hook, protagonist Mara. Raider 'Vex' killed Mara's husband Dorin on day 398 and escaped. Mara has sworn to find him.
+
+=== worldSummary ===
+Date: day 412 (Decembary 5506).
+Colony: Hearthstead, 9 people, wealth 184,000 silver, mood strained.
+
+People:
+- Mara (34); traits: Tough, Bloodlust; backstory: Imperial deserter; widow of Dorin; role: Shooting specialist.
+- Dorin (38), dead; traits: Kind, Great memory; backstory: Colony doctor; husband of Mara.
+- Sela (12); traits: Nimble; backstory: Child; daughter of Mara and Dorin.
+- Arne (55); traits: Pessimist, Industrious; backstory: Mechanic.
+- Quill (29); traits: Abrasive; backstory: Smuggler.
+
+History:
+- Day 355: Mara married Dorin.
+- Day 398: Raider 'Vex' killed Dorin and escaped.
+- Day 405: Quill led a trade caravan to The Iron Covenant.
+
+Factions:
+- The Shattered Empire (Empire): goodwill -40, 4 settlements, Empire state: Stirring.
+- Vex's Crew (Pirates): goodwill -100, 2 settlements.
+- The Iron Covenant (Outlanders): goodwill +45, 8 settlements.
+
+Hollow Choir crisis, stage Reclamation: the Choir is striking at the colony with tunnelling mechs, the hum and retrieval squads.
+- Day 388: probing swarm, repelled.
+- Day 401: the hum, succeeded.
+- The Choir's hum is silenced until day 420 (a resonator was destroyed).
+- Held prisoner: Ortan (Choir soldier).
+
+The War in Heaven:
+- The Empire and the Hollow Choir have been fighting in full since day 395.
+- The colony stands with the Empire, and is at war with the Hollow Choir.
+- The front favours the colony's side (+2).
+
+Recent events:
+- Raid repelled day 398, Dorin killed
+- Trade caravan to the Iron Covenant day 405
+- Mara refused to leave Dorin's grave for two days

@@ -25,8 +25,8 @@ first, then `main` is merged into `war-in-heaven`.
 | **Checkpoint 2** | `war-runbook-2.md` | PC | Summons both ways; a Choir raid of each operation; each site; the Cathedral |
 | W10 | The War in Heaven (**Core built 2026-11-24**: odds, day 600, `WarArc`; game work to do) | Codespace | Odds and day 600 (unit); expansion against the rival; `WarInHeaven` plot and `War:*` jobs; front factor |
 | W11 | Endings (**Core built 2026-11-24**: the side's offer, the refusable treaty, total independence; game work to do) | Codespace | Choral victory, Independence (treaty and total), Resistance folded in; epilogue prompt updated, Stage 0 run at zero API spend |
-| W12 | Director wiring | Codespace | Snapshot blocks, prompts, Golden files, vocabulary levels, `director-gen` arcs `choir`, `choir-crisis`, `war`; old cases byte-identical |
-| W13 | Test labels and the one retrain | Codespace (labels), then PC | Claude Code labels `test-war-v1` in session (teacher v5); the PC labels training cases with the 12B, retrains E2B and E4B under `-war` names, reports and reviews pass, presets declare `WarInHeaven` |
+| W12 | Director wiring (**built 2026-11-24**) | Codespace | Snapshot blocks, prompts, Golden files, vocabulary levels, `director-gen` arcs `choir`, `choir-crisis`, `war`; old cases byte-identical |
+| W13 | Test labels and the one retrain (**test labels done 2026-11-24**: test-war-v1, teacher v5; the retrain is next, on the PC) | Codespace (labels), then PC | Claude Code labels `test-war-v1` in session (teacher v5); the PC labels training cases with the 12B, retrains E2B and E4B under `-war` names, reports and reviews pass, presets declare `WarInHeaven` |
 | W14 | Balance and proof run | PC | `war-runbook-3.md` (a full game per side, with Dev Mode to speed up) and the balance pass; then `war-in-heaven` merges into `main` |
 
 ## Order and parallel work

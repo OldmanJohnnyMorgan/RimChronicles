@@ -1,11 +1,11 @@
-# Crisis retrain (crisis C11): same recipe as director-e4b.yaml, under its own name so the shipped rimchron-director-e4b
+# Retrain for the crisis and the War in Heaven (War in Heaven W13): same recipe as director-e4b.yaml, under its own name so the shipped rimchron-director-e4b
 # stays until this one passes its report. Director SFT for the Recommended tier (D6): Gemma 4 E4B on the Recommended-tier dataset. Training spec §5.2.
 base_model: unsloth/gemma-4-E4B-it
 ollama_base: gemma4:e4b                  # the Ollama model whose chat template the export copies
 dataset: data/splits/recommended         # director-dataset --tier Recommended
 output_dir: ~/rimchron-runs              # on the WSL disk, not /mnt/c (much faster)
 export_dir: /mnt/c/RimworldMods/rc-models
-run_name: director-e4b-crisis
+run_name: director-e4b-war
 instruction_marker: "<|turn>user\n"      # Gemma 4 turn markers (D0)
 response_marker: "<|turn>model\n"
 load_in_4bit: true

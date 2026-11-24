@@ -226,6 +226,19 @@ destruction instead of the Resistance ending, victory screens and the epilogue's
   `-war` names, reports on test version 3, then `ollama cp` over the shipped names. `training/README.md`'s "Crisis
   retrain" section becomes "Retrain for the War in Heaven".
 
+**As built (W12):**
+
+| Where | What |
+| --- | --- |
+| `WorldSnapshot.War` (`WarInfo`), `ChoirCrisis` | The war block (started, side, both stances, front, destroyed powers) and the Choir's crisis block; schema and `WarBrief` |
+| `WorldSummarizer` | "The War in Heaven:" and "Hollow Choir crisis, stage …" blocks, director only, only when present (existing prompts byte-identical); the Choir's faction reads "Choir state", and bulletins use Choir rumours for it |
+| `Power.OptionNames` | The Choir's own option names: `Choir:SabotageChoir`, `Act3:FirstVoiceOffer`, `Act3:StormTheCathedral` (the Empire's unchanged) |
+| `TierPresets.DirectorVocabulary` | `Base`, `Crisis`, `WarInHeaven` per preset (both shipped presets `Base`); `KnowsCrisis` and `KnowsWarInHeaven` read it; prompted models know everything |
+| `ChoirDriver.DirectorDecides`, `WorldReader` | The Choir plot (and later its crisis and the War plot) and the war block reach the snapshot, and the director decides the Choir plot, only for a model that knows the War in Heaven |
+| `director-gen --arc war` | `CaseGenerator.WarScenarios`: 9 Choir plot, 7 Choir crisis and 9 War plot scenarios (300 per cycle); ids `dir-s{seed}-w{n}`; `seed-<n>-war` (default 1,500); generator version 1 of its own. The Empire, crisis and minor-arc cases are byte-identical |
+| `director-dataset` | Test version 3 when War in Heaven test cases are in the test split; `DirectorLabels.Group` names Choir follow-ups `ChoirCrisis/SiegeGoal` and `ChoirCrisis/Site` |
+| `harness/snapshots/snap-25-war-in-heaven.json` | A War plot snapshot for the Stage 0 harness; golden `director.snap-07-war.*` |
+
 ## 8. Settings
 
 The **Major plot** section gains: Hollow Choir on/off (needs Biotech), War in Heaven on/off, its certain-start day
