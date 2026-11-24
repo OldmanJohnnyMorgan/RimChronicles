@@ -15,8 +15,8 @@ namespace RimChronicles.Game.Powers;
 /// The Hollow Choir's saga, day by day (War in Heaven W4a; spec §3.1, §4): dormant until a trigger (colony wealth, a
 /// mechanitor colonist, day 300 at the latest), then stirring (rumours and the hum), then awake: its faction appears
 /// near the colony (<see cref="ChoirFaction.Create"/>), takes the colony's stored allegiance, and starts taking
-/// settlements by the same rules as the Empire. Its plot (envoy, jobs, acts) comes with W4b; cross-waking with the
-/// Empire, the ship launch and the Royal Ascent with W5. Main thread only.
+/// settlements by the same rules as the Empire. Its plot is <see cref="ChoirBeats"/>; cross-waking with the Empire, the
+/// ship launch and the Royal Ascent come with W5. Main thread only.
 /// </summary>
 public static class ChoirDriver
 {
@@ -38,6 +38,12 @@ public static class ChoirDriver
 
         var saga = component.Choir;
         var today = GenDate.DaysPassed;
+        if (saga.IsAwake)
+        {
+            ChoirBeats.EnsurePlot(component, today);
+            saga.HighTitleHolder = ChoirBeats.HighRankHolder(component);
+        }
+
         switch (saga.State)
         {
             case PowerState.Dormant:
@@ -80,6 +86,7 @@ public static class ChoirDriver
     {
         var ev = component.Choir.Awaken(trigger, detail, today, Rand.RangeInclusive(PowerSaga.MinStirringDays, PowerSaga.MaxStirringDays), Colony);
         Show(component, ev, today);
+        ChoirBeats.EnsurePlot(component, today);
         Record(component, today, $"Awaken:{trigger}", Choir.Text.TriggerWhy(trigger, detail, Colony), source, options);
         component.Plots.LastBeatDay = today;
     }
@@ -152,6 +159,7 @@ public static class ChoirDriver
         component.News.Add(new NewsEvent(today, Choir.NewsKind, ev.NewsText, choir?.Name ?? Name));
         if (ev.LetterLabel is { } label && ev.LetterText is { } text)
         {
+            ChoirBeats.Current(component)?.Tell(today, label, text);
             StoryLetters.Send(label, text, LetterDefOf.ThreatBig, faction: choir);
         }
     }

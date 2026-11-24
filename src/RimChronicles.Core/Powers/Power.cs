@@ -32,6 +32,12 @@ public sealed class Power
     /// Empire).</summary>
     public string ColonistTrigger { get; init; } = AwakeningTrigger.ImperialColonist;
 
+    /// <summary>The ending when the colony accepts the power's highest offer (the Empire's governorship: Imperial).</summary>
+    public string ServiceEnding { get; init; } = global::RimChronicles.Core.Empire.EmpireEnding.Imperial;
+
+    /// <summary>The ending when the colony takes the power's capital (the Empire's: Resistance).</summary>
+    public string DefeatEnding { get; init; } = global::RimChronicles.Core.Empire.EmpireEnding.Resistance;
+
     public required PowerText Text { get; init; }
 
     public override string ToString() => Id;
@@ -59,6 +65,8 @@ public sealed class Power
         EnvoyOption = "Act1:ChoirEnvoy",
         MarchOption = "Act2:TheChoirMarches",
         ColonistTrigger = AwakeningTrigger.MechanitorColonist,
+        ServiceEnding = global::RimChronicles.Core.Choir.ChoirEnding.Choral,
+        DefeatEnding = global::RimChronicles.Core.Choir.ChoirEnding.Silenced,
         Text = new global::RimChronicles.Core.Choir.ChoirPowerText(),
     };
 

@@ -45,7 +45,9 @@ public sealed class WorldReader : IWorldReader
             RecentEvents = ReadRecentEvents(),
             // The crisis shows only when the director may decide it (C11, tech spec R17): a director trained before the
             // crisis arc sees the world as it was trained on.
-            ActivePlots = RimChroniclesGameComponent.Current?.Plots.Active.Where(p => crisis || p.Template != Core.Crisis.CrisisArc.TemplateId)
+            // The Hollow Choir's plot stays out until the director is trained on it (War in Heaven W12).
+            ActivePlots = RimChroniclesGameComponent.Current?.Plots.Active
+                .Where(p => (crisis || p.Template != Core.Crisis.CrisisArc.TemplateId) && p.Template != Core.Powers.Power.Choir.PlotTemplateId)
                 .Select(p => p.ToInfo()).ToList() ?? [],
             Crisis = crisis ? ReadCrisis(day) : null,
             PublicEvents = RimChroniclesGameComponent.Current?.News.Since(day - MaxNewsDays).Select(e => e.Text).ToList() ?? [],

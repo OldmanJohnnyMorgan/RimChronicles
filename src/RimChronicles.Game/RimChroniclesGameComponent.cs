@@ -28,6 +28,7 @@ public sealed class RimChroniclesGameComponent : GameComponent
     private PowerSaga _choir = new() { Power = Power.Choir };
     private CrisisState _crisis = new();
     private Allegiance _allegiance = new();
+    private Core.Choir.ChoirRanks _choirRanks = new();
     private List<Pawn> _tracked = [];
     private Pawn? _reporterPawn;
 
@@ -61,6 +62,9 @@ public sealed class RimChroniclesGameComponent : GameComponent
 
     /// <summary>The Hollow Choir, the Empire's old enemy (War in Heaven W4).</summary>
     public PowerSaga Choir => _choir;
+
+    /// <summary>Colonists' standing in the Chorus (War in Heaven W4b, spec D13).</summary>
+    public Core.Choir.ChoirRanks ChoirRanks => _choirRanks;
 
     /// <summary>The saga of <paramref name="power"/>.</summary>
     public PowerSaga SagaOf(Power power) => power == Power.Choir ? _choir : _empire;
@@ -128,6 +132,7 @@ public sealed class RimChroniclesGameComponent : GameComponent
         ScribeArchive.Instance.Deep(ref _choir, Power.Choir.Id);
         ScribeArchive.Instance.Deep(ref _crisis, "crisis");
         ScribeArchive.Instance.Deep(ref _allegiance, "allegiance");
+        ScribeArchive.Instance.Deep(ref _choirRanks, "choirRanks");
         Scribe_Collections.Look(ref _tracked, "trackedPawns", LookMode.Reference);
         Scribe_References.Look(ref _reporterPawn, "reporterPawn");
         _news ??= new NewsLog();
@@ -139,6 +144,7 @@ public sealed class RimChroniclesGameComponent : GameComponent
         _choir.Power = Power.Choir; // not saved: a loaded saga starts as the Empire's
         _crisis ??= new CrisisState();
         _allegiance ??= new Allegiance();
+        _choirRanks ??= new Core.Choir.ChoirRanks();
         _tracked ??= [];
         _tracked.RemoveAll(p => p is null);
     }
@@ -165,9 +171,7 @@ public sealed class RimChroniclesGameComponent : GameComponent
         Game.Plots.SilentPressBeats.Daily(this);
         Game.Plots.LostFamilyBeats.Daily(this);
         Game.Plots.PlotDriver.Daily(this);
-        Game.Empire.EmpireDriver.Daily(this);
-        Game.Powers.ChoirDriver.Daily(this);
-        Game.Powers.AllegianceDriver.Daily(this);
+        Game.Powers.PowerDrivers.Daily(this);
         Game.Crisis.CrisisDriver.Daily(this);
         Game.News.NewsDriver.Tick(this);
     }

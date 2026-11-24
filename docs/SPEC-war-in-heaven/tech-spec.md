@@ -117,6 +117,18 @@ conquest job, defend ally, sabotage, tribute, reckoning, and the Choir's Act 3 o
   `Targets`, `Repaint` and `Raze`. Before the War in Heaven the Choir may already take Imperial settlements; W10 weights
   them up. The Empire's driver is unchanged; W4b folds both into one loop once the Choir has its plot.
 
+- **As built (W4b):** the `HollowChoir` plot template; `ChoirBeats` (Game) mirrors `EmpireBeats` with `ChoirLetters`
+  (Core/Choir): envoy, Act 2 jobs (escort, conquest job, defend ally, sabotage of a Choir settlement until W8 adds sites),
+  tribute ("Join the Chorus"), reckoning, the First Voice's offer, the final demand, the treaty and the assault on the
+  Cathedral (the Choir's oldest settlement, as a capital quest until W9). `Power.ServiceEnding`/`DefeatEnding` give the
+  Choir its own endings (`Choral`, `Silenced`); `PowerArc.FinishJob(plot, power)` uses them. **Ranks (D13):**
+  `ChoirRanks` (Core, saved as `choirRanks`): Listener, Chorister (4 favor), Choirmaster (12), Cantor (24), Voice of the
+  Choir (40); 4 favor per finished escort or conquest job to the colonist with the most; Choirmaster or above opens the
+  offer (the saga's `HighTitleHolder`, read daily). The plot is registered with `useDirector: false` and left out of the
+  snapshot's `activePlots` until W12. Its endings send news and a letter and end the plot; victory screens and epilogues
+  come with W11. `PowerDrivers.Daily` runs each running power's driver, then the allegiance sync; the Chronicle tab
+  titles the story "The Hollow Choir".
+
 ### 4.3 The Choir's crisis
 
 The Empire's crisis code, run with `Power.Choir`. What differs:
