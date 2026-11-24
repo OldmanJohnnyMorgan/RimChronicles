@@ -383,6 +383,8 @@ Run `docs/SPEC-war-in-heaven/war-runbook-1.md` once W5 is merged. Needs Royalty 
 
 - [ ] W2: allegiance (steps W2.1–W2.5): an old save picks up the Empire stance; setting a side updates the plots and
       the Empire's goodwill; it survives a reload.
+- [ ] W3: the Hollow Choir's faction (steps W3.1–W3.5): not made at world creation; created with settlements near the
+      colony and hostile to the Empire; a mixed group of mechanitors and mechs fights under the vanilla assault.
 
 ---
 

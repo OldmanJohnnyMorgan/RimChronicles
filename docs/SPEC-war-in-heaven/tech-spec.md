@@ -87,6 +87,15 @@ The riskiest step, so it comes first and alone.
   mechanitor kinds and the group makers are ours.
 - **Gear and implants by stage** set bandwidth, which sets how many mechs a mechanitor brings.
 
+- **As built (W3):** `Defs/FactionDefs/RimChronicles_HollowChoir.xml` (fixed name "The Hollow Choir", leader
+  title First Voice, not required or configurable at world creation) and `Defs/PawnKindDefs/RimChronicles_ChoirUnits.xml`
+  (Chorister, Choirmaster, First Voice on Biotech's `MechanitorBase`), all `MayRequire` Biotech. Group makers mix them
+  with vanilla mech kinds. `Power.Choir` and `ChoirText` (Core/Choir) are ready but stay out of `Power.All` until W4.
+  `ChoirFaction.Create(home)` (Game) makes the faction, places 4 settlements 8–30 tiles from the colony and sets it
+  hostile to the Empire; `PowerFactions.Of(Power.Choir)` finds it. Dev Mode: **Hollow Choir: create faction**,
+  **Hollow Choir: raid (1,500 points)** (the checkpoint 1 check of mixed groups under vanilla lords). The Cantor and the
+  stage rosters come with W7; the settlement count setting with W4.
+
 ### 4.2 Saga and plot
 
 `Power.Choir`'s saga has the Empire's states and timings (spec §3.1, D6): triggers are colony wealth, a destroyed

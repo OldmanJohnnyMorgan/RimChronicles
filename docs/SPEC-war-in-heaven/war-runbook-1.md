@@ -29,3 +29,13 @@ with the Empire plot under way for step W2.1. Every Dev Mode tool below is in th
 | W2.3 | **War in Heaven: set side** → Independent; **show allegiance**; open the Factions tab | `empire: oppose`, side `independent`, cause `dev`. Once the Empire plot is past the envoy, the Empire is hostile |
 | W2.4 | **Empire: set stance** → ally; let a day pass; **show allegiance** | The allegiance follows the plot back to `empire: ally` |
 | W2.5 | Save, reload, **show allegiance** | The same stances and log as before saving |
+
+## W3: the Hollow Choir's faction
+
+| # | Do | Pass when |
+| --- | --- | --- |
+| W3.1 | New colony with Royalty and Biotech: open the Factions tab and the world map before anything else | No Hollow Choir anywhere: it is never made at world creation |
+| W3.2 | **Hollow Choir: create faction**; open the Factions tab and the world map | **The Hollow Choir** is listed, its leader titled First Voice, hostile to the Empire. About four of its settlements sit 8–30 tiles from the colony, plus one elsewhere |
+| W3.3 | **Hollow Choir: raid (1,500 points)** while the Choir isn't hostile to you | A group of mechanitors and mechs arrives and holds its ground; the message counts both |
+| W3.4 | Make the Choir hostile (Factions tab, Dev Mode goodwill buttons, down to -100), then raid again and fight it for a day | Mechanitors and mechs attack together under the vanilla assault: no errors, no mech stops for lack of power, no mech goes feral. (Killing a mechanitor doesn't stop its mechs yet; that comes with W7) |
+| W3.5 | Save, reload; **Hollow Choir: create faction** again | The faction and its settlements are still there, and no second Choir appears |
