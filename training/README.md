@@ -264,9 +264,10 @@ dotnet run --project harness/RimChronicles.Eval -- director-report --models gemm
 Once a director has a committed report that passes (D8):
 
 1. Make sure Ollama has it: `ollama list` shows `rimchron-director-e2b` (D6 step 4).
-2. In game: **Options → Mod settings → Rim Chronicles → Separate director model**. Model `rimchron-director-e2b`;
-   leave the address and key blank to use the main server; **Director prompt tier: Minimum** (the tier it was trained
-   on; Recommended for `rimchron-director-e4b`). The main model keeps writing bulletins, letters and epilogues.
+2. In game: **Options → Mod settings → Rim Chronicles → Director model**: pick `rimchron-director-e2b` (it uses the
+   Minimum prompt tier it was trained on). For a model that isn't listed yet, such as `rimchron-director-e4b`, pick
+   **Other**, type its name and pick its tier (Recommended for E4B). Leave the address and key blank to use the main
+   server. The main model keeps writing bulletins, letters and epilogues.
 3. Press **Test connection**: it tests the main model, then the director.
 4. In a Dev Mode game, **Rim Chronicles → Plot: director log** shows each decision; with a model set up the source is
    `Model`. The 200-day check (D11) uses this setup.

@@ -14,6 +14,9 @@ public static class SettingsWindow
     private static Task<ConnectionProbe.Result>? _probe;
     private static string _probeStatus = "";
 
+    /// <summary>"Other" is picked for the director model while its name is still blank; the name alone can't say so.</summary>
+    private static bool _customDirector;
+
     private static Vector2 _scroll;
     private static float _height = 1000f;
 
@@ -105,27 +108,47 @@ public static class SettingsWindow
         }
 
         list.GapLine();
-        list.Label("Separate director model (optional): makes the director's decisions, such as a fine-tuned rimchron-director-e2b, while the main model writes");
-        var directorBefore = settings.DirectorModel;
-        settings.DirectorModel = list.TextEntryLabeled("Director model (blank: use the main one)  ", settings.DirectorModel);
-        if (settings.DirectorModel != directorBefore && TierPresets.SuggestedDirectorTier(settings.DirectorModel) is { } suggested)
+        list.Label("Director model: makes the director's decisions, while the main model writes");
+        var preset = TierPresets.DirectorPreset(settings.DirectorModel);
+        var custom = _customDirector || (settings.DirectorModel.Length > 0 && preset is null);
+        if (list.RadioButton("    None: the main model decides", settings.DirectorModel.Length == 0 && !custom, tabIn: 12f))
         {
-            settings.DirectorTier = suggested; // typing rimchron-director-e4b picks Recommended
+            settings.DirectorModel = "";
+            _customDirector = false;
         }
 
-        if (settings.DirectorModel.Length > 0)
+        foreach (var choice in TierPresets.DirectorPresets)
         {
-            settings.DirectorEndpoint = list.TextEntryLabeled("Director address (blank: the main one)  ", settings.DirectorEndpoint);
-            if (settings.DirectorEndpoint.Length > 0 && TierPresets.EndpointProblem(settings.DirectorEndpoint) is { } directorProblem)
+            if (list.RadioButton($"    {choice.Label}", !custom && preset?.Model == choice.Model, tabIn: 12f))
             {
-                list.Label($"<color=#e0a040>{directorProblem}</color>");
+                settings.DirectorModel = choice.Model;
+                settings.DirectorTier = choice.Tier; // the tier it was trained on
+                _customDirector = false;
+            }
+        }
+
+        if (list.RadioButton("    Other: a model you name", custom, tabIn: 12f))
+        {
+            if (!custom)
+            {
+                settings.DirectorModel = "";
             }
 
-            settings.DirectorApiKey = list.TextEntryLabeled("Director API key (blank: the main one)  ", settings.DirectorApiKey);
-            list.Label("Director prompt tier: the tier the director model was trained on (rimchron-director-e2b: Minimum; -e4b: Recommended)");
+            _customDirector = true;
+        }
+
+        if (custom)
+        {
+            settings.DirectorModel = list.TextEntryLabeled("        Director model name  ", settings.DirectorModel).Trim();
+            if (settings.DirectorModel.Length == 0)
+            {
+                list.Label("<color=#a0a0a0>        Enter the model's name as the server knows it (e.g. from ollama list). Blank: the main model decides.</color>");
+            }
+
+            list.Label("        Director prompt tier: the tier the model was trained on");
             foreach (var tier in new[] { ModelTier.Minimum, ModelTier.Recommended, ModelTier.High })
             {
-                if (list.RadioButton($"    {tier}", settings.DirectorTier == tier, tabIn: 12f))
+                if (list.RadioButton($"            {tier}", settings.DirectorTier == tier, tabIn: 12f))
                 {
                     settings.DirectorTier = tier;
                 }
@@ -135,6 +158,17 @@ public static class SettingsWindow
             {
                 list.Label($"<color=#e0a040>The name says this model was trained for {trained}: other tiers send it prompts it never saw.</color>");
             }
+        }
+
+        if (settings.DirectorModel.Length > 0)
+        {
+            settings.DirectorEndpoint = list.TextEntryLabeled("    Director address (blank: the main one)  ", settings.DirectorEndpoint);
+            if (settings.DirectorEndpoint.Length > 0 && TierPresets.EndpointProblem(settings.DirectorEndpoint) is { } directorProblem)
+            {
+                list.Label($"<color=#e0a040>{directorProblem}</color>");
+            }
+
+            settings.DirectorApiKey = list.TextEntryLabeled("    Director API key (blank: the main one)  ", settings.DirectorApiKey);
 
             if (!ModelSlots.DirectorSeparate(settings.Slots) && settings.Tier != ModelTier.Off)
             {
@@ -159,6 +193,7 @@ public static class SettingsWindow
         {
             settings.ResetToDefaults();
             _probeStatus = "";
+            _customDirector = false;
         }
 
         _height = list.CurHeight + 24f;
