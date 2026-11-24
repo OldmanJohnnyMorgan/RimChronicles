@@ -8,6 +8,7 @@ using RimChronicles.Game.Crisis.Operations;
 using RimChronicles.Game.Crisis.Pieces;
 using RimChronicles.Game.Crisis.Siege;
 using RimChronicles.Game.Empire;
+using RimChronicles.Game.Engine;
 using RimWorld;
 using RimWorld.Planet;
 using Verse;
@@ -331,7 +332,7 @@ public sealed class MapComponent_RcCitadel(Map map) : MapComponent(map)
         if (_shieldUp && _relays.All(r => r is null || r.Destroyed))
         {
             _shieldUp = false;
-            Find.LetterStack.ReceiveLetter("The keep's shield is down",
+            StoryLetters.Crisis("The keep's shield is down",
                 "The last psychic relay in the Citadel's courtyard is destroyed. The keep's walls and doors are no longer shielded, and the psykers "
                 + "inside have lost their link.", LetterDefOf.PositiveEvent, new LookTargets(new TargetInfo(_rings[2].CenterCell, map)));
         }
@@ -404,7 +405,7 @@ public sealed class MapComponent_RcCitadel(Map map) : MapComponent(map)
                 : "The colony's raids on the Empire's relay sites left the courtyard without a relay: the keep is unshielded.")
             + (_sideGate ? "\n\nThe stolen Citadel plans show a side entrance into the keep, on the far side from its main gate." : "")
             + "\n\nWhen you enter the outer works, the courtyard's garrison will come out to meet you. The keep's guard never leaves the keep.";
-        Find.LetterStack.ReceiveLetter("The Imperial Citadel", text, LetterDefOf.NeutralEvent, new LookTargets(new TargetInfo(_rings[2].CenterCell, map)));
+        StoryLetters.Crisis("The Imperial Citadel", text, LetterDefOf.NeutralEvent, new LookTargets(new TargetInfo(_rings[2].CenterCell, map)));
     }
 
     public override void ExposeData()

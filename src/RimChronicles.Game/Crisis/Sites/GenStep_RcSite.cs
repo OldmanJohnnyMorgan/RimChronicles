@@ -5,6 +5,7 @@ using RimChronicles.Core.Crisis.Sites;
 using RimChronicles.Game.Crisis.Operations;
 using RimChronicles.Game.Crisis.Pieces;
 using RimChronicles.Game.Empire;
+using RimChronicles.Game.Engine;
 using RimWorld;
 using Verse;
 using Verse.AI.Group;
@@ -311,7 +312,7 @@ public sealed class MapComponent_RcSite(Map map) : MapComponent(map)
                 + "on the colony, Herald or not."),
             _ => ("Outpost comms destroyed", "The Imperial outpost's comms console is destroyed: the Empire has lost its eyes on this stretch of the rim."),
         };
-        Find.LetterStack.ReceiveLetter(label, text, LetterDefOf.PositiveEvent);
+        StoryLetters.Crisis(label, text, LetterDefOf.PositiveEvent);
     }
 
     public override void ExposeData()

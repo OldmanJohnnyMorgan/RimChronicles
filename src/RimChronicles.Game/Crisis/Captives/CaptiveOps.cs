@@ -7,6 +7,7 @@ using RimChronicles.Game.Crisis.Pieces;
 using RimChronicles.Game.Crisis.Sites;
 using RimChronicles.Game.Crisis.Units;
 using RimChronicles.Game.Empire;
+using RimChronicles.Game.Engine;
 using RimWorld;
 using RimWorld.Planet;
 using Verse;
@@ -79,7 +80,7 @@ public static class CaptiveOps
         }
 
         var empire = EmpireDriver.EmpireFaction;
-        Find.LetterStack.ReceiveLetter("An Imperial defects",
+        StoryLetters.Crisis("An Imperial defects",
             $"{pawn.LabelShort}, once an Imperial {Rank(defector.Rank)}, has joined {Faction.OfPlayer.Name}. The Empire won't forget it: "
             + "while they're with the colony, it may send a strike force to take them back.",
             LetterDefOf.PositiveEvent, pawn, empire);
@@ -141,7 +142,7 @@ public static class CaptiveOps
         }
 
         component.Crisis.Intel[^1].Text = text;
-        Find.LetterStack.ReceiveLetter($"Intel: {intel.Label}", $"{source}\n\n{text}", LetterDefOf.PositiveEvent, look ?? LookTargets.Invalid);
+        StoryLetters.Crisis($"Intel: {intel.Label}", $"{source}\n\n{text}", LetterDefOf.PositiveEvent, look ?? LookTargets.Invalid);
     }
 
     /// <summary>Puts a site of the archetype on the world map near the colony, for <see cref="RevealedSiteDays"/> days.</summary>

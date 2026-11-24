@@ -72,8 +72,9 @@ public static class ReporterLife
 
         LordMaker.MakeNewLord(faction, new LordJob_VisitColony(faction, chillSpot, GenDate.TicksPerDay), map, [pawn]);
         var reporter = component.Desk.Reporter;
-        LetterSink.Instance.Send($"{reporter.Outlet.CapitalizeFirst()}: correspondent visiting",
-            $"{reporter.Name}, who writes the bulletins for {reporter.Outlet}, has come by to gather news. They'll stay for about a day.");
+        StoryLetters.Send($"{reporter.Outlet.CapitalizeFirst()}: correspondent visiting",
+            $"{reporter.Name}, who writes the bulletins for {reporter.Outlet}, has come by to gather news. They'll stay for about a day.",
+            LetterDefOf.NeutralEvent, new LookTargets(pawn), faction);
         return true;
     }
 

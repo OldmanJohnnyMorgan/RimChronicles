@@ -20,7 +20,8 @@ Your storyteller (Randy, Cassandra, Phoebe) keeps running underneath. Rim Chroni
   - **Lost Family:** a colonist's relative in another faction writes letters, is taken captive, and may be rescued.
   - **Silent Press:** killing the reporter has consequences, with clues and then an envoy demanding reparations.
 - **A plot director.** Once a day it decides whether a plot moves on or waits, choosing only from the options the
-  plot allows, and it holds back when the colony has just been hit. Plots reach you as letters, choices and quests.
+  plot allows, and it holds back when the colony has just been hit. Plots reach you as letters, choices and quests,
+  and the **Chronicle** tab keeps each story's letters and the colony's answers in order.
   When a plot's protagonist dies, someone close to them inherits the story.
 - **The Awakened Empire** (needs Royalty). The Empire starts dormant, wakes, and starts taking territory on the world
   map. You choose to stand with it, oppose it or keep out of its way. A minor plot can become part of the Empire's

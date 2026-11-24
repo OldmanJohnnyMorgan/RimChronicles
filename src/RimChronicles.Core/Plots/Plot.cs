@@ -43,6 +43,10 @@ public sealed class Plot : IArchivable
     /// <summary>"Day N: what happened and why", oldest first. Doubles as the director's decision log.</summary>
     public List<string> Log = [];
 
+    /// <summary>The letters the player got from this plot and the colony's answers, oldest first (the Chronicle tab).
+    /// Empty for plots from saves made before it was kept.</summary>
+    public List<StoryEntry> Story = [];
+
     /// <summary>How it ended ("nemesis killed", "dropped"), once <see cref="Beat"/> is <see cref="PlotBeat.Ended"/>.</summary>
     public string Outcome = "";
 
@@ -67,6 +71,21 @@ public sealed class Plot : IArchivable
 
     public void Note(int day, string line) => Log.Add($"Day {day}: {line}");
 
+    /// <summary>Keeps a letter the player got from this plot, for the Chronicle tab.</summary>
+    public void Tell(int day, string label, string text) => AddStory(new StoryEntry { Day = day, Label = label, Text = text });
+
+    /// <summary>Keeps the colony's answer to a choice letter, for the Chronicle tab.</summary>
+    public void Answered(int day, string text) => AddStory(new StoryEntry { Day = day, Text = text, Answer = true });
+
+    private void AddStory(StoryEntry entry)
+    {
+        Story.Add(entry);
+        if (Story.Count > PlotChronicle.MaxEntries)
+        {
+            Story.RemoveRange(0, Story.Count - PlotChronicle.MaxEntries);
+        }
+    }
+
     /// <summary>The snapshot view of this plot, for the director and the reporter.</summary>
     public PlotInfo ToInfo() => new()
     {
@@ -89,6 +108,7 @@ public sealed class Plot : IArchivable
         archive.Deep(ref Protagonist, "protagonist");
         archive.DeepList(ref Facts, "facts");
         archive.Strings(ref Log, "log");
+        archive.DeepList(ref Story, "story");
         archive.Value(ref Outcome, "outcome", "");
         archive.Value(ref PublicHint, "publicHint", "");
         Id ??= "";

@@ -204,8 +204,40 @@ cd C:\RimworldMods\RimChronicles\RimChronicles
 dotnet run --project harness/RimChronicles.Eval -- director-report --config training/models.director.json --models gemma4-e2b,director-e2b --base gemma4-e2b --name director-e2b-v1
 ```
 
-Then the same for E4B with `director-e4b` in place of `director-e2b` (`min_free_vram_gb: 9`; the E4B conversion needs
-the WSL memory from D0). Send me `progress.csv`, the end of the `sft` log, and commit the report.
+Send me `progress.csv`, the end of the `sft` log, and commit the report.
+
+**6. E4B (the Recommended tier).** The same steps with `director-e4b`, on the Recommended-tier dataset. Its config
+differs from E2B's for memory: batch 1 with 16 accumulation steps (the same effective batch of 16) and
+`max_seq_length` 2048, since the model is about twice as big and E2B already peaked at 10.8 of 15.7 GB. Expect
+roughly 12–16 s per step and about 470 steps per epoch, so 3–5 hours if it stops early. Watch the first check's
+`peak VRAM`: above about 14.5 GB, stop it and tell me before it spills.
+
+```powershell
+cd C:\RimworldMods\RimChronicles\RimChronicles
+git checkout main
+git pull
+dotnet run --project harness/RimChronicles.Eval -- director-dataset --tier Recommended --max-wait-share 0.6 --hand-only AwakenedEmpire
+ollama stop gemma4:e2b
+ollama stop rimchron-director-e2b
+```
+
+```bash
+cd /mnt/c/RimworldMods/RimChronicles/RimChronicles/training
+uv run python -m rimchron_train data --config config/director-e4b.yaml
+uv run python -m rimchron_train sft --config config/director-e4b.yaml 2>&1 | tee ~/sft-director-e4b-v1.log
+uv run python -m rimchron_train export --config config/director-e4b.yaml
+```
+
+The export holds the merged model in system RAM (about 16 GB for E4B, twice E2B's). With `.wslconfig` at
+`memory=24GB` and `swap=32GB` it fits; if it's killed, raise `memory` (keep 6–8 GB for Windows), run `wsl --shutdown`
+and export again (`--modelfiles-only` if the GGUFs were written).
+
+```powershell
+cd C:\RimworldMods\rc-models\director-e4b
+ollama create rimchron-director-e4b -f Modelfile.merged.q4_k_m
+cd C:\RimworldMods\RimChronicles\RimChronicles
+dotnet run --project harness/RimChronicles.Eval -- director-report --config training/models.director.json --models gemma4-e4b,director-e4b --base gemma4-e4b --name director-e4b-v1
+```
 
 ## D8: the director report
 
@@ -231,10 +263,11 @@ dotnet run --project harness/RimChronicles.Eval -- director-report --models gemm
 
 Once a director has a committed report that passes (D8):
 
-1. Make sure Ollama has it: `ollama list` shows `rimchron-director-e2b` (D6 step 4).
-2. In game: **Options → Mod settings → Rim Chronicles → Separate director model**. Model `rimchron-director-e2b`;
-   leave the address and key blank to use the main server; **Director prompt tier: Minimum** (the tier it was trained
-   on; Recommended for `rimchron-director-e4b`). The main model keeps writing bulletins, letters and epilogues.
+1. Make sure Ollama has it: `ollama list` shows `rimchron-director-e2b` or `rimchron-director-e4b` (D6 steps 4 and 6).
+2. In game: **Options → Mod settings → Rim Chronicles → Director model**: pick `rimchron-director-e2b` (Minimum
+   prompts) or `rimchron-director-e4b` (Recommended prompts); each uses the prompt tier it was trained on. For a model
+   that isn't listed, pick **Other**, type its name and pick the tier it was trained on. Leave the address and key blank to use the main
+   server. The main model keeps writing bulletins, letters and epilogues.
 3. Press **Test connection**: it tests the main model, then the director.
 4. In a Dev Mode game, **Rim Chronicles → Plot: director log** shows each decision; with a model set up the source is
    `Model`. The 200-day check (D11) uses this setup.

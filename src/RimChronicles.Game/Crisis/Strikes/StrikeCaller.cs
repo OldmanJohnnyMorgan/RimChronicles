@@ -121,10 +121,10 @@ public sealed class MapComponent_RcStrikes(Map map) : MapComponent(map)
             StrikeKind.Beam => "a power beam",
             _ => "an orbital strike",
         };
-        Find.LetterStack.ReceiveLetter("Orbital strike called",
+        StoryLetters.Crisis("Orbital strike called",
             $"{who} has called {what} on the marked spot. It lands in about {delay / StrikeRules.TicksPerSecond} seconds.\n\n"
             + (herald is null ? "Get clear." : $"Get clear, or take {herald.LabelShort} down before it lands: without its herald, the strike is called off."),
-            LetterDefOf.ThreatBig, new LookTargets(new TargetInfo(cell, map)), EmpireDriver.EmpireFaction);
+            LetterDefOf.ThreatBig, new LookTargets(new TargetInfo(cell, map)), EmpireDriver.EmpireFaction, record: false);
     }
 
     public override void ExposeData()

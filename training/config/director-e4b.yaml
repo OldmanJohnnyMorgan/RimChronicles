@@ -8,14 +8,14 @@ run_name: director-e4b
 instruction_marker: "<|turn>user\n"      # Gemma 4 turn markers (D0)
 response_marker: "<|turn>model\n"
 load_in_4bit: true
-max_seq_length: 4096                     # sft prints the p99 row length; lower this to it to save memory
+max_seq_length: 2048                     # rows are ~1,000 tokens at most (p99 ~900); sft stops if one is longer
 lora_r: 16
 lora_alpha: 32
 lora_dropout: 0.05
 learning_rate: 2.0e-4
 warmup_ratio: 0.03
-per_device_batch: 2
-grad_accumulation: 8                     # effective batch 16
+per_device_batch: 1                      # E2B peaked at 10.8 of 15.7 GB with 2; E4B is about twice as big, so half the
+grad_accumulation: 16                    # activations per pass. Effective batch stays 16, so step counts match E2B
 epochs: 3
 seed: 1
 quantizations: [q4_k_m, q8_0]

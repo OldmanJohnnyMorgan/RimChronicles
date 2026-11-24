@@ -5,6 +5,7 @@ using RimChronicles.Core.News;
 using RimChronicles.Core.Plots;
 using RimChronicles.Game.Empire;
 using RimChronicles.Game.Plots;
+using RimChronicles.Game.Engine;
 using RimWorld;
 using Verse;
 
@@ -110,7 +111,7 @@ public static class CrisisDriver
 
         if (CrisisText.StageLetter(stage, before, empire.Name, colony) is { } letter)
         {
-            Find.LetterStack.ReceiveLetter(letter.Label, letter.Text, LetterDefOf.ThreatBig);
+            StoryLetters.Crisis(letter.Label, letter.Text, LetterDefOf.ThreatBig);
         }
 
         Plot(component)?.Note(today, $"stage {CrisisStages.Label(stage)}: {why}");

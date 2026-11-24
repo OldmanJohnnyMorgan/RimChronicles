@@ -5,6 +5,7 @@ using RimChronicles.Core.Plots;
 using RimChronicles.Core.Plots.LostFamily;
 using RimChronicles.Core.Plots.Nemesis;
 using RimChronicles.Game.Plots;
+using RimChronicles.Game.Engine;
 using RimWorld;
 using RimWorld.Planet;
 using Verse;
@@ -46,7 +47,8 @@ public static class EmpirePromotions
         plot.SetFact(NemesisPlot.NemesisFaction, empire.Name);
         var name = plot.Fact(NemesisPlot.NemesisName) ?? nemesis.LabelShort;
         var (label, text) = Promotion.OfficerLetter(name, oldFaction, empire.Name, plot.Protagonist.Name);
-        Find.LetterStack.ReceiveLetter(label, text, LetterDefOf.ThreatSmall);
+        plot.Tell(today, label, text);
+        StoryLetters.Send(label, text, LetterDefOf.ThreatSmall, nemesis.Spawned ? new LookTargets(nemesis) : null, empire);
         plot.PublicHint = Promotion.OfficerNews(name, oldFaction, empire.Name);
         component.News.Add(new NewsEvent(today, "PlotHint", plot.PublicHint, empire.Name));
         NoteOnEmpire(component, today, $"promoted {plot.Id}: {name} became an Imperial officer");
@@ -65,7 +67,8 @@ public static class EmpirePromotions
             plot.SetFact(Promotion.Fact, Promotion.Conquered);
             plot.SetFact(Promotion.ConqueredAt, settlement);
             var (label, text) = Promotion.CaughtLetter(kin, settlement, empire.Name, plot.Protagonist.Name);
-            Find.LetterStack.ReceiveLetter(label, text, LetterDefOf.NegativeEvent);
+            plot.Tell(today, label, text);
+            StoryLetters.Send(label, text, LetterDefOf.NegativeEvent, StoryLetters.For(component, plot), empire);
             plot.PublicHint = $"{empire.Name} took captives when {settlement} fell";
             var template = PlotTemplateDef.Find(LostFamilyArc.TemplateId);
             component.Plots.Advance(plot, PlotBeat.Complication, today,

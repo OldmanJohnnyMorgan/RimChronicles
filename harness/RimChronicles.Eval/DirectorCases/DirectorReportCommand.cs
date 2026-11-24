@@ -215,7 +215,7 @@ public static partial class DirectorReportCommand
         var baseline = model == AlwaysWait;
         double Share<T>(IEnumerable<T> xs, Func<T, bool> f) { var list = xs.ToList(); return list.Count == 0 ? double.NaN : (double)list.Count(f) / list.Count; }
 
-        var invented = baseline ? [] : pairs.Select(p => (p.L.Case, Found: InventedFacts(p.R.On.Reason, p.R.Names, p.R.Briefing))).Where(x => x.Found.Count > 0).ToList();
+        var invented = baseline ? [] : pairs.Select(p => (p.L.Case, Found: InventedFacts(p.R.On.Reason, p.R.Names, p.R.Briefing), p.R.On.Reason)).Where(x => x.Found.Count > 0).ToList();
         var latencies = runs.Select(r => r.On.LatencySeconds).Where(x => x > 0).Order().ToList();
         var waitRight = pairs.Where(p => p.L.WaitExpected == true).ToList();
         var waitWrong = pairs.Where(p => p.L.WaitExpected == false).ToList();
@@ -243,7 +243,7 @@ public static partial class DirectorReportCommand
             ChoseWait = Share(pairs, p => p.R.On.Choice == "Wait"),
             Top1ByGroup = pairs.GroupBy(p => p.L.Group).OrderBy(g => g.Key, StringComparer.Ordinal)
                 .ToDictionary(g => g.Key, g => Share(g, p => p.R.On.Choice == p.L.Best)),
-            InventedExamples = invented.Take(10).Select(x => $"{x.Case}: {string.Join("; ", x.Found)}").ToList(),
+            InventedExamples = invented.Take(10).Select(x => $"{x.Case}: {string.Join("; ", x.Found)}. Reason: \"{x.Reason}\"").ToList(),
         };
     }
 
