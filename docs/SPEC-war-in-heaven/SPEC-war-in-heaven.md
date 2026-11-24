@@ -1,6 +1,6 @@
 # Rim Chronicles — The War in Heaven Spec
 
-**For:** Claude Code · **Owner:** John · **Date:** 2026-11-24 (draft 3: all open questions decided)
+**For:** Claude Code · **Owner:** John · **Date:** 2026-11-24 (draft 3: all open questions decided; tech spec and project plan in this folder)
 **Parent spec:** Rim Chronicles — Design Spec (Stage 5). Siblings: `SPEC-crisis-combat-and-locations/`,
 `SPEC-director-model.md`. Where they disagree, the parent spec wins.
 
