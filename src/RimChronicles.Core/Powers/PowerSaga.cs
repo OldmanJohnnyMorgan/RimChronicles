@@ -29,13 +29,16 @@ public static class AwakeningTrigger
     public const string Wealth = "Wealth";
     public const string SiteDestroyed = "SiteDestroyed";
     public const string ImperialColonist = "ImperialColonist";
+
+    /// <summary>The Hollow Choir's mirror of <see cref="ImperialColonist"/>: a mechanitor among the colonists.</summary>
+    public const string MechanitorColonist = "MechanitorColonist";
     public const string TitleRefused = "TitleRefused";
     public const string Deadline = "Deadline";
     public const string Dev = "Dev";
 }
 
-/// <summary>What the game sees today that could wake the Empire. <see cref="ImperialColonist"/> names a colonist with
-/// an Imperial backstory, or is null. One-off signs (a destroyed site, a renounced title) are latched on the saga.</summary>
+/// <summary>What the game sees today that could wake a power. <see cref="ImperialColonist"/> names the colonist who
+/// draws it (an Imperial backstory for the Empire, a mechlink for the Choir), or is null. One-off signs (a destroyed site, a renounced title) are latched on the saga.</summary>
 public sealed record PowerSigns(float ColonyWealth, string? ImperialColonist)
 {
     public static readonly PowerSigns None = new(0, null);
@@ -151,7 +154,7 @@ public sealed class PowerSaga : IArchivable
 
             if (signs.ImperialColonist is not null)
             {
-                options.Add(new($"Awaken:{AwakeningTrigger.ImperialColonist}", AwakeningTrigger.ImperialColonist, 2));
+                options.Add(new($"Awaken:{Power.ColonistTrigger}", Power.ColonistTrigger, 2));
             }
 
             if (signs.ColonyWealth >= WealthThreshold)
@@ -173,7 +176,7 @@ public sealed class PowerSaga : IArchivable
     {
         AwakeningTrigger.SiteDestroyed => SiteDestroyed,
         AwakeningTrigger.TitleRefused => TitleRefusedBy,
-        AwakeningTrigger.ImperialColonist => signs.ImperialColonist ?? "",
+        AwakeningTrigger.ImperialColonist or AwakeningTrigger.MechanitorColonist => signs.ImperialColonist ?? "",
         AwakeningTrigger.Wealth => ((int)signs.ColonyWealth).ToString(System.Globalization.CultureInfo.InvariantCulture),
         _ => "",
     };

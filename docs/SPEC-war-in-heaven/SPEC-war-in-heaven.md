@@ -55,7 +55,8 @@ settlements on the world map, relations, envoys and territory, so it can do ever
   revealed. Leaders and officers are mechanitors (mechlink, bandwidth implants); the army is mechs (vanilla Biotech and
   Core mech kinds), with mechanitors commanding from the back.
 - **Titles:** a mechanite rank ladder mirrors Royal titles, so allying with it can lead to a mechanite victory ending
-  (§7). Ranks give bandwidth, the way titles give psylink levels.
+  (§7). Ranks give bandwidth, the way titles give psylink levels. Rank comes from service (D13): each job done for the
+  Choir raises a colonist's standing, and a colonist at a high rank opens the First Voice's offer.
 - **Lore:** the mechanites are the Empire's original enemy. Imperial envoys, bulletins and letters treat them as the
   old foe; the mechanites see the Empire as the usurper. The model for their character is an ancient power that hides
   in the dark, works through agents and believes that conflict makes peoples stronger; the name and voice are our own.
@@ -218,6 +219,7 @@ tests go into `docs/test-plan.md` and a runbook, for John to run once at the end
 | D10 | Resistance victory is folded into the War in Heaven endings | 2026-11-24 |
 | D11 | Order: C14 and the crisis merge to main, then this tech spec and build, then the one retrain and a proof run | 2026-11-24 |
 | D12 | The mechanite empire is the Hollow Choir; its people call themselves the Chorus | 2026-11-24 |
+| D13 | Choir rank comes from service: a rank ladder of its own, raised per colonist by jobs done for the Choir (like Imperial favor); a colonist at a high rank opens the First Voice's offer | 2026-11-24 |
 
 ---
 

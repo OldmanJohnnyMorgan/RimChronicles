@@ -104,6 +104,13 @@ public static class SettingsWindow
                 list.CheckboxLabeled("    Citadel: spawn inner defenders only as you reach them", ref settings.CitadelLazyRings,
                     "Faster on slower PCs: the courtyard's and keep's defenders appear when your colonists reach the ring before theirs.");
             }
+
+            list.CheckboxLabeled("    The Hollow Choir: the Empire's old enemy wakes too", ref settings.HollowChoir,
+                "A power of mechanitors and their mechs that mirrors the Empire's story. Needs the Biotech DLC; without it, this does nothing.");
+            if (settings.HollowChoir && !ModsConfig.BiotechActive)
+            {
+                list.Label("<color=#a0a0a0>    Biotech isn't active, so the Hollow Choir is off.</color>");
+            }
         }
 
         list.Gap();

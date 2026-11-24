@@ -109,6 +109,14 @@ faction (R2).
 **The plot** `HollowChoir` mirrors `AwakenedEmpire`'s acts and jobs, with `Choir:*` ids: envoy, expansion, escort,
 conquest job, defend ally, sabotage, tribute, reckoning, and the Choir's Act 3 offers (§6).
 
+- **As built (W4a):** the Choir's saga is saved as `choir` (`component.Choir`, `SagaOf(power)`); its `Power` is set
+  after load. `Power.All` is `[Empire, Choir]`; the game runs `PowerFactions.Running` (the Empire with the major plot
+  and Royalty; the Choir also with the **Hollow Choir** setting and Biotech). Each power has its own colonist trigger
+  (`Power.ColonistTrigger`: `ImperialColonist`, `MechanitorColonist`). `ChoirDriver` (Game) runs the saga: triggers,
+  rumours, waking (creates the faction, applies the colony's stored stance) and expansion, with the Empire's
+  `Targets`, `Repaint` and `Raze`. Before the War in Heaven the Choir may already take Imperial settlements; W10 weights
+  them up. The Empire's driver is unchanged; W4b folds both into one loop once the Choir has its plot.
+
 ### 4.3 The Choir's crisis
 
 The Empire's crisis code, run with `Power.Choir`. What differs:

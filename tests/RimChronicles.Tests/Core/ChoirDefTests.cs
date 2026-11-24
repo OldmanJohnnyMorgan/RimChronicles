@@ -75,12 +75,12 @@ public class ChoirDefTests
     }
 
     [Fact]
-    public void ThePower_IsReadyButNotRunningUntilItsPlotExists()
+    public void ThePower_IsTheChoirs()
     {
         Assert.Equal("choir", Power.Choir.Id);
         Assert.Equal("Choir", Power.Choir.OptionPrefix);
         Assert.Equal("Act1:ChoirEnvoy", Power.Choir.EnvoyOption);
-        Assert.DoesNotContain(Power.Choir, Power.All); // joins with its saga and plot (W4)
+        Assert.Contains(Power.Choir, Power.All);
         Assert.Contains("Chorus", Power.Choir.Text.Describe(PowerStep.Envoy));
     }
 }

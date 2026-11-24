@@ -52,7 +52,7 @@ public class PowerTests
         Assert.Equal("AwakenedEmpire", Power.Empire.PlotTemplateId);
         Assert.Equal("ImperialCrisis", Power.Empire.CrisisTemplateId);
         Assert.Same(Power.Empire, new PowerSaga().Power);
-        Assert.Equal([Power.Empire], Power.All);
+        Assert.Equal([Power.Empire, Power.Choir], Power.All);
     }
 
     [Fact]
@@ -82,5 +82,15 @@ public class PowerTests
         Assert.Equal(("the Stub woke", "Awake", "the Stub"), (woke.NewsText, woke.LetterLabel, woke.LetterText));
         var hit = saga.Expanded(new ExpansionTarget("Ashgrove", "Ashgrove", "The Free Rim", 10, 2), ExpansionResult.Conquered, 70, 20, "the Stub");
         Assert.Equal("the Stub hit Ashgrove", hit.NewsText);
+    }
+
+    [Fact]
+    public void TheChoir_IsDrawnByAMechanitorColonist_TheEmpireByAnImperialOne()
+    {
+        var signs = new PowerSigns(0, "Ada");
+        Assert.Equal(["Awaken:MechanitorColonist"], new PowerSaga { Power = Power.Choir }.Triggers(signs, 40).Select(o => o.Id));
+        Assert.Equal(["Awaken:ImperialColonist"], new PowerSaga().Triggers(signs, 40).Select(o => o.Id));
+        Assert.Equal("Ada", new PowerSaga { Power = Power.Choir }.DetailFor(AwakeningTrigger.MechanitorColonist, signs));
+        Assert.Contains("mechanitor", Power.Choir.Text.TriggerWhy(AwakeningTrigger.MechanitorColonist, "Ada", "Wyrmfold"));
     }
 }

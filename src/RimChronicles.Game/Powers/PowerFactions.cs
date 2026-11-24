@@ -8,6 +8,14 @@ namespace RimChronicles.Game.Powers;
 /// faction, the Hollow Choir its own (<see cref="ChoirFaction"/>), each while it exists and isn't defeated.</summary>
 public static class PowerFactions
 {
+    /// <summary>The powers this game runs: the Empire with the major plot on and Royalty active; the Hollow Choir with
+    /// its setting on and Biotech active too. A power runs before its faction exists (the Choir is made when it wakes).</summary>
+    public static IReadOnlyList<Power> Running => Power.All.Where(Runs).ToList();
+
+    public static bool Runs(Power power) =>
+        RimChroniclesMod.Settings.MajorPlot && ModsConfig.RoyaltyActive
+        && (power == Power.Empire || (power == Power.Choir && RimChroniclesMod.Settings.HollowChoir && ChoirFaction.Available));
+
     public static Faction? Of(Power power)
     {
         if (power == Power.Empire)

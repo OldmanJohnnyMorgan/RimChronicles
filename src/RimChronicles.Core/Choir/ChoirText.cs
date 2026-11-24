@@ -41,7 +41,7 @@ public static class ChoirText
     public static string TriggerWhy(string trigger, string detail, string colony) => trigger switch
     {
         AwakeningTrigger.SiteDestroyed => $"{colony} destroyed the Choir's site {detail}",
-        AwakeningTrigger.ImperialColonist => $"{detail}, a mechanitor of {colony}, was heard by the Choir",
+        AwakeningTrigger.MechanitorColonist => $"{detail}, a mechanitor of {colony}, was heard by the Choir",
         AwakeningTrigger.Wealth => $"{colony}'s wealth ({detail} silver) drew the Choir out of the dark",
         AwakeningTrigger.Deadline => "the Choir's long silence ended",
         AwakeningTrigger.Dev => "woken from Dev Mode",

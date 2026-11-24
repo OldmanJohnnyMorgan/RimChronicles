@@ -25,6 +25,7 @@ public sealed class RimChroniclesGameComponent : GameComponent
     private PlotBook _plots = new();
     private GrudgeLedger _grudges = new();
     private PowerSaga _empire = new();
+    private PowerSaga _choir = new() { Power = Power.Choir };
     private CrisisState _crisis = new();
     private Allegiance _allegiance = new();
     private List<Pawn> _tracked = [];
@@ -57,6 +58,12 @@ public sealed class RimChroniclesGameComponent : GameComponent
 
     /// <summary>The Awakened Empire, the major plot (Stage 5).</summary>
     public PowerSaga Empire => _empire;
+
+    /// <summary>The Hollow Choir, the Empire's old enemy (War in Heaven W4).</summary>
+    public PowerSaga Choir => _choir;
+
+    /// <summary>The saga of <paramref name="power"/>.</summary>
+    public PowerSaga SagaOf(Power power) => power == Power.Choir ? _choir : _empire;
 
     /// <summary>The Imperial crisis: operations against the colony (crisis C1).</summary>
     public CrisisState Crisis => _crisis;
@@ -118,6 +125,7 @@ public sealed class RimChroniclesGameComponent : GameComponent
         ScribeArchive.Instance.Deep(ref _plots, "plots");
         ScribeArchive.Instance.Deep(ref _grudges, "grudges");
         ScribeArchive.Instance.Deep(ref _empire, "empire");
+        ScribeArchive.Instance.Deep(ref _choir, Power.Choir.Id);
         ScribeArchive.Instance.Deep(ref _crisis, "crisis");
         ScribeArchive.Instance.Deep(ref _allegiance, "allegiance");
         Scribe_Collections.Look(ref _tracked, "trackedPawns", LookMode.Reference);
@@ -127,6 +135,8 @@ public sealed class RimChroniclesGameComponent : GameComponent
         _plots ??= new PlotBook();
         _grudges ??= new GrudgeLedger();
         _empire ??= new PowerSaga();
+        _choir ??= new PowerSaga();
+        _choir.Power = Power.Choir; // not saved: a loaded saga starts as the Empire's
         _crisis ??= new CrisisState();
         _allegiance ??= new Allegiance();
         _tracked ??= [];
@@ -156,6 +166,7 @@ public sealed class RimChroniclesGameComponent : GameComponent
         Game.Plots.LostFamilyBeats.Daily(this);
         Game.Plots.PlotDriver.Daily(this);
         Game.Empire.EmpireDriver.Daily(this);
+        Game.Powers.ChoirDriver.Daily(this);
         Game.Powers.AllegianceDriver.Daily(this);
         Game.Crisis.CrisisDriver.Daily(this);
         Game.News.NewsDriver.Tick(this);
