@@ -59,4 +59,22 @@ public class ModelSlotsTests
     [Fact]
     public void SuggestedDirectorTier_IsNullWhenTheNameDoesntSay() =>
         Assert.Null(TierPresets.SuggestedDirectorTier("my-director"));
+
+    [Theory]
+    [InlineData("rimchron-director-e2b")]
+    [InlineData(" RimChron-Director-E2B \n")]
+    public void DirectorPreset_MatchesTheName_AndCarriesItsTrainingTier(string model)
+    {
+        var preset = TierPresets.DirectorPreset(model);
+        Assert.NotNull(preset);
+        Assert.Equal("rimchron-director-e2b", preset.Value.Model);
+        Assert.Equal(ModelTier.Minimum, preset.Value.Tier);
+    }
+
+    [Theory]
+    [InlineData("")]
+    [InlineData(null)]
+    [InlineData("my-director")]
+    public void DirectorPreset_IsNullForBlankOrCustomNames(string? model) =>
+        Assert.Null(TierPresets.DirectorPreset(model));
 }

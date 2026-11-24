@@ -22,6 +22,28 @@ public static class TierPresets
         _ => null,
     };
 
+    /// <summary>The fine-tuned directors offered as choices in the settings window, each with the tier it was trained on.
+    /// A model joins this list only after its report is committed to <c>harness/reports/</c>.</summary>
+    public static readonly IReadOnlyList<(string Model, ModelTier Tier, string Label)> DirectorPresets =
+    [
+        ("rimchron-director-e2b", ModelTier.Minimum, "rimchron-director-e2b: fine-tuned on Gemma 4 E2B (about 2 GB of VRAM), Minimum prompts"),
+    ];
+
+    /// <summary>The preset matching a director model name (trimmed, any case), or null for a custom name or blank.</summary>
+    public static (string Model, ModelTier Tier, string Label)? DirectorPreset(string? model)
+    {
+        var name = (model ?? "").Trim();
+        foreach (var preset in DirectorPresets)
+        {
+            if (string.Equals(preset.Model, name, StringComparison.OrdinalIgnoreCase))
+            {
+                return preset;
+            }
+        }
+
+        return null;
+    }
+
     /// <summary>The tier a fine-tuned director was trained on, from its name (<c>rimchron-director-e2b</c>: Minimum;
     /// <c>-e4b</c>: Recommended; <c>-12b</c>: High), or null when the name doesn't say.</summary>
     public static ModelTier? SuggestedDirectorTier(string? model)
