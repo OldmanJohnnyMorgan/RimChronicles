@@ -1,6 +1,6 @@
 # Rim Chronicles — The War in Heaven Spec
 
-**For:** Claude Code · **Owner:** John · **Date:** 2026-11-24 (draft 1: John's outline and four decisions; open questions in §11)
+**For:** Claude Code · **Owner:** John · **Date:** 2026-11-24 (draft 2: Q2–Q7 decided; the name is still open, §11)
 **Parent spec:** Rim Chronicles — Design Spec (Stage 5). Siblings: `SPEC-crisis-combat-and-locations/`,
 `SPEC-director-model.md`. Where they disagree, the parent spec wins.
 
@@ -27,8 +27,8 @@ code owns waking, timing, odds, units and territory.
 
 ### Non-goals (this spec)
 
-- A second full crisis-combat system. The mechanites reuse the crisis framework (operations, sites, threat budget)
-  with their own units; how far that goes is open question Q5.
+- A second crisis-combat system written from scratch. The mechanites get the full crisis (decided, §3.2), built on
+  the Imperial crisis's framework (operations, sites, siege planner, threat budget, citadel) with their own units.
 - Archonexus and Anomaly endings. Only the ship launch and the Royal Ascent wake an empire (§5).
 - Changing the vanilla mechanoid hive. It stays as wild mechs (decided, §10).
 
@@ -57,7 +57,9 @@ settlements on the world map, relations, envoys and territory, so it can do ever
 - **Titles:** a mechanite rank ladder mirrors Royal titles, so allying with it can lead to a mechanite victory ending
   (§7). Ranks give bandwidth, the way titles give psylink levels.
 - **Lore:** the mechanites are the Empire's original enemy. Imperial envoys, bulletins and letters treat them as the
-  old foe; the mechanites see the Empire as the usurper.
+  old foe; the mechanites see the Empire as the usurper. The model for their character is an ancient power that hides
+  in the dark, works through agents and believes that conflict makes peoples stronger; the name and voice must be
+  our own (Q1).
 
 ### 3.1 Mechanite states (mirror of the Empire)
 
@@ -68,12 +70,20 @@ settlements on the world map, relations, envoys and territory, so it can do ever
 | Awakened | Reveals settlements, expands, raids | Act 2 milestones |
 | Ascendant or Broken | Controls most of the region, or is collapsing | The player completes or fails an ending |
 
+### 3.2 Mechanite crisis (decided: the full crisis)
+
+The mechanites get everything the Imperial crisis has, mirrored: their own operations, siege goals, sites, a citadel,
+captives and defectors, strikes and a threat budget, with mechs and mechanitors in place of Imperial troops and
+psykers. The crisis code is generalised so both empires run on it; the mechanite tech spec says which parts are shared
+and which are new (mech commanders instead of the psyker AI, for example).
+
 ---
 
 ## 4. Waking
 
 Each empire still wakes on its own triggers. Today the Empire's are wealth, a destroyed Imperial site, an Imperial
-colonist and a refused title, with day 300 at the latest. The mechanites get a mirror set (Q2).
+colonist and a refused title, with day 300 at the latest. The mechanites mirror them (decided): colony wealth, a
+destroyed mechanite site, a mechanitor colonist, the Royal Ascent (§5), and day 300 at the latest.
 
 **The other empire follows.** When one empire wakes and **starts attacking**, the other wakes too. (John:
 "if the mechanites wake first and start attacking, then the empire wakes … and vice versa.") Waking second skips
@@ -112,14 +122,19 @@ A side allows only its own kind:
 
 - **Empire side:** the colony can't keep **mechanitors** (pawns with a mechlink). An Imperial shuttle lands and asks
   for each one. If the player agrees, the pawn leaves for **5 days** and comes back as a **psycaster** of the equivalent
-  level: the mechlink is removed and a psylink of the matching level is added (mapping: Q3).
+  level: the mechlink is removed and a psylink of the matching level is added.
+- **Level mapping (decided):** psylink level = 1 + (bandwidth above the mechlink's base 6, in steps of 4), at most 6.
+  Bandwidth 6–9 gives level 1, 10–13 level 2, and so on. The reverse gives a mechlink with 6 + 4 × (level − 1)
+  bandwidth (the extra from a mod hediff, since bandwidth from band nodes stays at the colony). The tech spec checks
+  how 1.7 counts bandwidth.
+- **The pawn's mechs (decided):** they shut down where they stand, so the player can dismantle them for parts.
 - **Mechanite side:** the mirror. A mechanite shuttle takes each **psycaster** for 5 days and brings them back as a
   mechanitor of the equivalent level.
 - **Refusal** starts the **Independence track**: war with both.
 - **Independents** are the only colonies that can keep both kinds.
 
 The demand repeats for each new mechanitor (or psycaster) the colony gets while on that side. A pawn away on the
-shuttle is safe and can't be lost in the meantime (Q4 covers their mechs).
+shuttle is safe and can't be lost in the meantime.
 
 ---
 
@@ -150,10 +165,16 @@ It's the final act.
 | --- | --- |
 | Empire | **Imperial victory**: the Empire wins the war with the player's help (today's governorship ending) |
 | Mechanites | **Mechanite victory**: a new ending, the mirror of Imperial victory |
-| Independence | **Independence**: outlast both, or force both to sign treaties |
+| Independence | **Independence**: defeat one empire, then take the other's treaty or destroy it too |
 
-Each ending has its own victory screen and an LLM-written epilogue, as today. Today's Resistance victory (destroy the
-Imperial capital with a coalition) becomes a mechanite-side or independent route in the War in Heaven (Q6).
+**Independence fights both crises at once** (decided). When the player destroys one empire (its citadel or capital),
+the other offers a treaty that recognises the colony as a free state. Accepting it ends the game in Independence;
+refusing keeps the war going until the player destroys the second empire as well, a harder Independence victory with
+its own epilogue.
+
+Each ending has its own victory screen and an LLM-written epilogue, as today. **Today's Resistance victory is folded
+in** (decided): destroying the Imperial capital is how the mechanite side and independents defeat the Empire, and it
+is no longer a separate ending.
 
 ---
 
@@ -187,23 +208,17 @@ tests go into `docs/test-plan.md` and a runbook, for John to run once at the end
 | D2 | A "mechanite pawn" is a mechanitor (mechlink); the reverse transfer takes psycasters | 2026-11-24 |
 | D3 | The War in Heaven starts for certain on game day 600 | 2026-11-24 |
 | D4 | The War in Heaven ends with the player's side winning: Imperial victory, mechanite victory or Independence | 2026-11-24 |
-| D5 | One director retrain covers the crisis and the War in Heaven | 2026-11-24 (proposed) |
+| D5 | One director retrain covers the crisis and the War in Heaven | 2026-11-24 |
+| D6 | The mechanites wake on a mirror of the Empire's triggers, day 300 at the latest | 2026-11-24 |
+| D7 | Psylink level = 1 + (bandwidth above 6) / 4, at most 6; the reverse for psycasters | 2026-11-24 |
+| D8 | A converted mechanitor's mechs shut down where they stand, for the player to dismantle | 2026-11-24 |
+| D9 | The mechanites get the full crisis; Independence fights both; destroying one empire brings the other's treaty offer, which the player may refuse | 2026-11-24 |
+| D10 | Resistance victory is folded into the War in Heaven endings | 2026-11-24 |
+| D11 | Order: C14 and the crisis merge to main, then this tech spec and build, then the one retrain and a proof run | 2026-11-24 |
 
 ---
 
 ## 11. Open questions
 
-- **Q1 Name.** What is the mechanite empire called in game, and what do its people call themselves?
-- **Q2 Mechanite waking triggers.** Proposed mirror of the Empire's: colony wealth, a destroyed mechanite site, a
-  mechanitor colonist, the Royal Ascent (§5), day 300 at the latest. Or should the mechanites have no deadline of their
-  own and only wake from triggers or when the Empire attacks?
-- **Q3 Level mapping.** Psylinks have levels 1–6; mechanitors have bandwidth. Proposed: psylink level = 1 + (bandwidth
-  above the mechlink's 6, in steps of 4), up to 6, and the reverse for psycasters. Or tie it to the pawn's title or rank.
-- **Q4 Mechs on the shuttle.** When a mechanitor is converted, what happens to their mechs: given to the Empire,
-  turned feral, or shut down where they stand?
-- **Q5 Mechanite combat.** Should the mechanites get the full crisis treatment (their own operations, sieges, sites
-  and a citadel), or raids and territory only in this iteration?
-- **Q6 Resistance victory.** Does destroying the Imperial capital stay as an ending (for the mechanite side or
-  independents), or is it folded into the War in Heaven endings?
-- **Q7 Order of work.** Proposed: C14 and the crisis merge to main first, then this spec's tech spec and build, then the
-  one retrain and a proof run.
+- **Q1 Name.** What is the mechanite empire called in game, and what do its people call themselves? It has no name
+  in the lore. Candidates were offered on 2026-11-24; the name must be original, not borrowed from the show that inspired it.
