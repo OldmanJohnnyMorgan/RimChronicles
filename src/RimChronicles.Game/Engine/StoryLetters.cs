@@ -19,6 +19,19 @@ public static class StoryLetters
         Send(label, text, def, For(component, plot), FactionOf(component, plot));
     }
 
+    /// <summary>An Imperial crisis letter: about the Empire unless another faction is given, and kept in the Awakened
+    /// Empire plot's story for the Chronicle tab unless <paramref name="record"/> is false (for frequent tactical
+    /// warnings, such as a strike being called).</summary>
+    public static void Crisis(string label, string text, LetterDef def, LookTargets? targets = null, Faction? faction = null, bool record = true)
+    {
+        if (record && RimChroniclesGameComponent.Current is { } component && Game.Empire.EmpireBeats.Current(component) is { } plot)
+        {
+            plot.Tell(GenDate.DaysPassed, label, text);
+        }
+
+        Send(label, text, def, targets, faction ?? Empire);
+    }
+
     /// <summary>Keeps a letter in the story of the plot with this id, if it is still running.</summary>
     public static void Record(string plotId, string label, string text)
     {

@@ -80,6 +80,32 @@ public static class SettingsWindow
             list.Label("<color=#a0a0a0>Royalty isn't active, so the major plot is off.</color>");
         }
 
+        if (settings.MajorPlot)
+        {
+            list.CheckboxLabeled("    Imperial crisis: the Empire attacks a colony that opposes it", ref settings.Crisis,
+                "Probing raids, breaches, psychic assaults, sieges and a final assault, escalating with the plot. Off: the Empire's raids are vanilla raids.");
+            if (settings.Crisis)
+            {
+                var difficulty = list.SliderLabeled($"    Crisis difficulty: {settings.CrisisDifficulty:0.0}×", settings.CrisisDifficulty,
+                    RimChroniclesSettings.MinCrisisDifficulty, RimChroniclesSettings.MaxCrisisDifficulty,
+                    tooltip: "Scales the strength of Imperial operations, on top of the storyteller's threat scale.");
+                settings.CrisisDifficulty = (float)Math.Round(difficulty * 10f) / 10f;
+                var gap = (int)Math.Round(list.SliderLabeled($"    At least {settings.CrisisGapDays} days between Imperial operations", settings.CrisisGapDays,
+                    Core.Crisis.CrisisArc.MinGapDays, Core.Crisis.CrisisArc.MaxGapDays));
+                settings.CrisisGapDays = Math.Clamp(gap, Core.Crisis.CrisisArc.MinGapDays, Core.Crisis.CrisisArc.MaxGapDays);
+                var delay = (int)Math.Round(list.SliderLabeled($"    Orbital strikes land {settings.StrikeDelaySeconds} seconds after the warning", settings.StrikeDelaySeconds,
+                    Core.Crisis.Strikes.StrikeRules.MinDelaySeconds, Core.Crisis.Strikes.StrikeRules.MaxDelaySeconds,
+                    tooltip: "Game time at normal speed. Every strike is marked and announced first; taking down its herald calls it off."));
+                settings.StrikeDelaySeconds = Math.Clamp(delay, Core.Crisis.Strikes.StrikeRules.MinDelaySeconds, Core.Crisis.Strikes.StrikeRules.MaxDelaySeconds);
+                var citadel = (int)Math.Round(list.SliderLabeled($"    Imperial Citadel map: {settings.CitadelMapSize}×{settings.CitadelMapSize}", settings.CitadelMapSize,
+                    Core.Crisis.Sites.CitadelRings.MinMapSize, Core.Crisis.Sites.CitadelRings.MaxMapSize,
+                    tooltip: "The capital's map for the finale. Smaller generates faster and runs smoother on slower PCs.") / 25f) * 25;
+                settings.CitadelMapSize = Math.Clamp(citadel, Core.Crisis.Sites.CitadelRings.MinMapSize, Core.Crisis.Sites.CitadelRings.MaxMapSize);
+                list.CheckboxLabeled("    Citadel: spawn inner defenders only as you reach them", ref settings.CitadelLazyRings,
+                    "Faster on slower PCs: the courtyard's and keep's defenders appear when your colonists reach the ring before theirs.");
+            }
+        }
+
         list.Gap();
         var intensity = list.SliderLabeled(
             $"Story intensity: {Core.Plots.StoryIntensity.Describe(settings.StoryIntensity)} ({settings.StoryIntensity:0.0}×)",

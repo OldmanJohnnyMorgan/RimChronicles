@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Given to Imperial psykers near a standing psychic relay (C8); it fades soon after they leave its range or it falls. -->
+  <HediffDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_RelayLink</defName>
+    <label>psychic relay link</label>
+    <description>Tuned to a nearby Imperial psychic relay: sheds neural heat faster, and psycasts hit harder.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <defaultLabelColor>(0.6, 0.6, 1)</defaultLabelColor>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>600~600</disappearsAfterTicks>
+        <showRemainingTime>false</showRemainingTime>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <statOffsets>
+          <PsychicEntropyRecoveryRate>0.3</PsychicEntropyRecoveryRate>
+          <PsychicSensitivity>0.25</PsychicSensitivity>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+
+</Defs>

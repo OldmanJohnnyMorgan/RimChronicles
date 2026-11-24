@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Given to Imperial psykers that arrive while a destroyed psychic relay site holds the "psykers" capability down (C9). -->
+  <HediffDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_RelaySevered</defName>
+    <label>relay severed</label>
+    <description>The Imperial psychic relay this psyker was tuned to has been destroyed: less psychically sensitive, and slower to shed neural heat.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>true</isBad>
+    <defaultLabelColor>(0.7, 0.5, 0.5)</defaultLabelColor>
+    <stages>
+      <li>
+        <statOffsets>
+          <PsychicSensitivity>-0.35</PsychicSensitivity>
+          <PsychicEntropyRecoveryRate>-0.25</PsychicEntropyRecoveryRate>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+
+</Defs>

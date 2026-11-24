@@ -66,4 +66,14 @@ public static class CasePools
         : Pick(rng, Onsets) + Pick(rng, Middles) + Pick(rng, Codas);
 
     public static T Pick<T>(Random rng, IReadOnlyList<T> items) => items[rng.Next(items.Count)];
+
+    /// <summary>Intel a crisis case may hold (crisis C11). None warns of a specific operation: that would hold the
+    /// crisis to it and leave a single option.</summary>
+    public static readonly string[] CrisisIntel =
+    [
+        "Uplink codes: the next orbital strike called on the colony will fail.",
+        "A psychic relay site lies two days to the north; the next psychic assault will be short of adepts.",
+        "The garrison of the nearest Imperial outpost is twelve soldiers and two heralds.",
+        "The Citadel's keep has a side entrance on the far side from its main gate.",
+    ];
 }

@@ -17,7 +17,16 @@ namespace RimChronicles.Game.Empire;
 public static class EmpireBeats
 {
     public static void Register() => PlotDriver.Register(EmpireArc.TemplateId,
-        plot => RimChroniclesGameComponent.Current is { } c ? EmpireArc.Transitions(plot, c.Empire, GenDate.DaysPassed) : [], Fire);
+        plot => RimChroniclesGameComponent.Current is { } c ? EmpireArc.Transitions(plot, c.Empire, GenDate.DaysPassed) : [], Fire,
+        subOptions: SiteOptions);
+
+    /// <summary>The Imperial sites a sabotage job may target (crisis C11, tech spec R7), for the director's second call.
+    /// Empty unless the director may decide the crisis: otherwise the site is picked by weight.</summary>
+    public static IReadOnlyList<PlotTransition> SiteOptions(Plot plot, PlotTransition option) =>
+        option.Step == EmpireStep.SabotageImperial && Crisis.CrisisDriver.DirectorDecides
+            && RimChroniclesGameComponent.Current is { } component && EmpireDriver.EmpireFaction is { } empire
+            ? Crisis.Sites.SiteOffers.Allowed(component, empire).Select(a => new PlotTransition(a.Id, a.Name, a.Weight, a.Desc)).ToList()
+            : [];
 
     private static string Colony => Faction.OfPlayer.Name;
 
@@ -111,7 +120,36 @@ public static class EmpireBeats
 
             case EmpireStep.SabotageImperial:
             {
-                if (!empire.HostileTo(Faction.OfPlayer) || QuestOffers.NearestSettlement(s => s.Faction == empire) is not { } target)
+                if (!empire.HostileTo(Faction.OfPlayer))
+                {
+                    return false;
+                }
+
+                // While the crisis runs, the sabotage is an Imperial site (C9); otherwise, or with no site defs, a settlement.
+                if (Crisis.Sites.SiteOffers.Pick(component, empire, transition.Sub) is { } archetype)
+                {
+                    if (archetype.needsHolding)
+                    {
+                        if (Crisis.Sites.SiteOffers.Holding(component, empire) is not { } held)
+                        {
+                            return false; // the holding changed hands since the options were read; it decides again later
+                        }
+
+                        var town = held.Settlement.Label;
+                        return StartQuest(component, plot, today, gap, transition.Step, town, () => QuestOffers.ImperialSite(component, plot, archetype, empire,
+                            $"Liberate {town}",
+                            $"{empire.Name} took {town} from {held.Former.Name}, and an Imperial garrison holds it near {Colony}. Destroy the comms "
+                            + $"console deepest inside the garrison's walls, and {town} goes back to {held.Former.Name}.", held));
+                    }
+
+                    var near = QuestOffers.NearestSettlement(s => s.Faction == empire)?.Label ?? archetype.label;
+                    return StartQuest(component, plot, today, gap, transition.Step, near, () => QuestOffers.ImperialSite(component, plot, archetype, empire,
+                        $"Destroy the {archetype.label}",
+                        $"{empire.Name} has raised {Find.ActiveLanguageWorker.WithIndefiniteArticle(archetype.label)} near {Colony}: "
+                        + $"{archetype.description}. Destroy its objective before the site is abandoned, and the Empire's advance will falter."));
+                }
+
+                if (QuestOffers.NearestSettlement(s => s.Faction == empire) is not { } target)
                 {
                     return false;
                 }

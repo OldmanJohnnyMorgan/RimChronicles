@@ -24,6 +24,8 @@ public sealed class RimChroniclesMod : Mod
         Plots.SilentPressBeats.Register();
         Plots.LostFamilyBeats.Register();
         Empire.EmpireBeats.Register();
+        Crisis.CrisisDriver.Register();
+        Crisis.Operations.OperationSpawner.Register();
         Log.Message($"[Rim Chronicles] Loaded on {System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription}; "
             + $"Harmony patches applied; tier {Settings.Tier}, model {Settings.Model} at {Settings.Endpoint}.");
     }

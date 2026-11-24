@@ -4,6 +4,8 @@ RimWorld 1.7 mod adding a story mode narrated by a local LLM.
 
 - Design spec: `docs/Rim Chronicles — Design Spec.md`
 - Technical spec: https://claude.ai/artifact/AMTEFZMpdn9ELPEJd5biXB
+- Crisis combat and locations (branch `crisis-combat-locations`, merges after the director-model track): `docs/SPEC-crisis-combat-and-locations/` (spec, tech spec, project plan)
+- The War in Heaven (draft spec, follows the crisis track): `docs/SPEC-war-in-heaven/`
 
 ## Commands
 
@@ -21,6 +23,7 @@ dotnet run --project harness/RimChronicles.Eval -- run --judge --temperature def
 dotnet run --project harness/RimChronicles.Eval -- judge latest    # judge an existing run; rewrites summary.html
 dotnet run --project harness/RimChronicles.Eval -- report latest --compare <runId>   # rebuild summary.html with deltas
 dotnet run --project harness/RimChronicles.Eval -- spotcheck latest # blind 10% sample to hand-score; run again to score agreement
+dotnet run --project harness/RimChronicles.Eval -- director-gen --seed 1 --arc crisis   # crisis C11: the Imperial crisis's director cases (seed-1-crisis)
 dotnet run --project harness/RimChronicles.Eval -- director-report --models gemma4-e2b --count 50   # D8: score models on the frozen director test set
 dotnet run --project harness/RimChronicles.Eval -- director-review --models <id>   # D9: blind review page; then --answers <file> to score it
 ```
@@ -55,7 +58,7 @@ Package versions are central in `Directory.Packages.props`. Llm, Core and Game m
 
 1. Check every RimWorld API against the decompiled 1.7 source in `reference/` (outside the repo). Never trust memory of 1.4–1.6.
 2. Target `net10.0` and use Harmony 3 from the Workshop mod. Never bundle an old `0Harmony.dll`.
-3. Never call Unity APIs in new code; the 1.7 shims exist only for old mods. The one exception is UI code (the settings page and windows), which may use the stub types RimWorld's UI needs, such as `Rect` (decided 2026-11-21; see `docs/ENGINE_NOTES.md`).
+3. Never call Unity APIs in new code; the 1.7 shims exist only for old mods. The exceptions are UI code (the settings page and windows), which may use the stub types RimWorld's UI needs, such as `Rect` (decided 2026-11-21), and Dev Mode drawing (debug text and overlays), which may use the stub types it needs, such as `Vector3` or `Color` (decided 2026-11-22). See `docs/ENGINE_NOTES.md`.
 4. Never touch game state off the main thread. LLM results go through the main-thread queue.
 5. Every saved class implements `ExposeData` (Core types implement `IArchivable.Expose`), and loading tolerates missing or null data (the mod may be added to or removed from a save).
 6. Game-engine calls live only in `RimChronicles.Game`. Story logic never calls RimWorld directly.

@@ -1,8 +1,11 @@
+using RimChronicles.Core.Engine;
 using RimChronicles.Core.Plots;
 using RimChronicles.Core.Snapshots;
 using RimChronicles.Game.Engine;
 using RimChronicles.Game.Settings;
 using RimChronicles.Llm;
+using RimChronicles.Llm.Chat;
+using RimChronicles.Llm.Prompts;
 using RimChronicles.Llm.Tasks;
 using RimWorld;
 using Verse;
@@ -24,11 +27,20 @@ public static class PlotDriver
     /// today; it is chosen again tomorrow.</summary>
     public delegate bool BeatHandler(RimChroniclesGameComponent component, Plot plot, PlotTemplate template, int today, PlotTransition transition);
 
-    private sealed record Arc(TransitionsFor Transitions, BeatHandler Fire);
+    /// <summary>The follow-up options for one of a plot's options, picked in a second director call once that option is
+    /// chosen (crisis C11: a siege's goal, a sabotage job's site). Empty when it has none, or none for the director.</summary>
+    public delegate IReadOnlyList<PlotTransition> SubOptionsFor(Plot plot, PlotTransition option);
+
+    /// <summary><paramref name="UseDirector"/> is false while an arc's options must not reach the director model (the
+    /// Imperial crisis when the director wasn't trained on it, tech spec R17): it then picks by weight, and records no
+    /// training cases.</summary>
+    private sealed record Arc(TransitionsFor Transitions, BeatHandler Fire, Func<bool> UseDirector, SubOptionsFor? SubOptions);
 
     private static readonly Dictionary<string, Arc> Arcs = [];
 
-    public static void Register(string templateId, TransitionsFor transitions, BeatHandler fire) => Arcs[templateId] = new(transitions, fire);
+    public static void Register(string templateId, TransitionsFor transitions, BeatHandler fire, Func<bool>? useDirector = null,
+        SubOptionsFor? subOptions = null) =>
+        Arcs[templateId] = new(transitions, fire, useDirector ?? (() => true), subOptions);
 
     /// <summary>Called once per in-game day.</summary>
     public static void Daily(RimChroniclesGameComponent component)
@@ -73,11 +85,17 @@ public static class PlotDriver
             return Apply(component, plot, template, arc, options[0], options, today, new DirectorChoice(options[0].Id, ""), "Only");
         }
 
+        var fallback = Director.PickWeighted(options, Rand.Value);
+        if (!arc.UseDirector())
+        {
+            return Apply(component, plot, template, arc, fallback, options, today,
+                new DirectorChoice(fallback.Id, "picked by weight: this arc doesn't use the director yet"), "Random");
+        }
+
         var settings = RimChroniclesMod.Settings;
         var director = ProviderFactory.CreateDirector(settings);
         var provider = director?.Provider;
         var prompts = PromptStore.Library;
-        var fallback = Director.PickWeighted(options, Rand.Value);
         var modelReady = provider is not null && prompts is not null;
 
         // Main thread: read the world into plain data; the model call runs in the background.
@@ -93,6 +111,19 @@ public static class PlotDriver
                 new DirectorChoice(fallback.Id, "picked by weight: no model is set up"), "Random");
         }
 
+        // Each option's follow-ups, read now on the main thread; only the chosen option's are asked about.
+        var subOptions = new Dictionary<string, IReadOnlyList<PlotTransition>>(StringComparer.Ordinal);
+        if (arc.SubOptions is { } subFor)
+        {
+            foreach (var option in options)
+            {
+                if (subFor(plot, option) is { Count: > 1 } subs)
+                {
+                    subOptions[option.Id] = subs;
+                }
+            }
+        }
+
         var tier = director!.Value.Tier; // a separate director model gets the tier it was trained on
         var plotId = plot.Id;
         var library = prompts!;
@@ -106,6 +137,7 @@ public static class PlotDriver
         {
             DirectorChoice choice;
             string source;
+            (DirectorChoice Choice, string Source, WorldSnapshot Snapshot)? sub = null;
             try
             {
                 var (definition, _) = Director.Build(library, world, tier, grammar: true,
@@ -114,6 +146,10 @@ public static class PlotDriver
                 ModelNotices.Post(mainThread, outcome.Attempts, "director");
                 choice = outcome.Value;
                 source = outcome.Source == OutcomeSource.Template ? "Random" : outcome.Source.ToString();
+                if (subOptions.TryGetValue(choice.Choice, out var subs))
+                {
+                    sub = await DecideSub(library, chat, world, subs, tier, mainThread, token).ConfigureAwait(false);
+                }
             }
             catch (OperationCanceledException)
             {
@@ -140,10 +176,90 @@ public static class PlotDriver
                     return; // the options changed; it decides again on a later day
                 }
 
-                Apply(component, live, template, arc, chosen, now, GenDate.DaysPassed, choice, source);
+                if (sub is { } follow)
+                {
+                    chosen = chosen with { Sub = follow.Choice.Choice };
+                    if (settings.RecordDirectorCases)
+                    {
+                        DirectorRecorder.Save(follow.Snapshot);
+                    }
+                }
+
+                if (Apply(component, live, template, arc, chosen, now, GenDate.DaysPassed, choice, source) && sub is { } done)
+                {
+                    component.Plots.Record(new DirectorDecision
+                    {
+                        Day = GenDate.DaysPassed, PlotId = plotId, Options = string.Join(", ", done.Snapshot.AllowedTransitions),
+                        Choice = done.Choice.Choice, Reason = done.Choice.Reason, Source = done.Source,
+                    });
+                }
             });
         }, token);
         return true;
+    }
+
+    /// <summary>Dev Mode (crisis C11): asks the director to pick among <paramref name="options"/> for this plot now, as
+    /// the second call would, and shows the pick, without firing anything. Weighted when no model is set up.</summary>
+    public static void DevAsk(RimChroniclesGameComponent component, Plot plot, IReadOnlyList<PlotTransition> options, string what)
+    {
+        if (options.Count == 0)
+        {
+            Messages.Message($"Rim Chronicles: no {what} to choose from now.", MessageTypeDefOf.RejectInput, historical: false);
+            return;
+        }
+
+        var director = ProviderFactory.CreateDirector(RimChroniclesMod.Settings);
+        if (director?.Provider is not { } chat || PromptStore.Library is not { } library)
+        {
+            var pick = Director.PickWeighted(options, Rand.Value);
+            Find.WindowStack.Add(new Dialog_MessageBox($"No model is set up: picked {pick.Id} by weight from {string.Join(", ", options.Select(o => o.Id))}."));
+            return;
+        }
+
+        var world = Snapshot(plot, options, GenDate.DaysPassed);
+        var tier = director.Value.Tier;
+        var mainThread = component.MainThread;
+        var token = component.GameToken;
+        Task.Run(async () =>
+        {
+            var (choice, source, _) = await DecideSub(library, chat, world, options, tier, mainThread, token).ConfigureAwait(false);
+            mainThread.Post(() => Find.WindowStack.Add(new Dialog_MessageBox(
+                $"Director's {what} for {plot.Id} ({source}): {choice.Choice}\n\n{choice.Reason}\n\nOptions: {string.Join(", ", options.Select(o => o.Id))}.")));
+        }, token);
+    }
+
+    /// <summary>The second call (crisis C11): the same world, now with the chosen option's follow-ups as the options
+    /// and no Wait. Without a valid answer it picks by weight. Runs in the background; touches no game state.</summary>
+    private static async Task<(DirectorChoice, string, WorldSnapshot)> DecideSub(PromptLibrary library, IChatProvider chat, WorldSnapshot world,
+        IReadOnlyList<PlotTransition> subs, ModelTier tier, IMainThread mainThread, CancellationToken token)
+    {
+        var fallback = Director.PickWeighted(subs, Random.Shared.NextDouble());
+        var subWorld = world with
+        {
+            Id = world.Id.EndsWith("-sub", StringComparison.Ordinal) ? world.Id : world.Id + "-sub",
+            AllowedTransitions = subs.Select(o => o.Id).ToList(),
+            Director = (world.Director ?? new DirectorCase()) with
+            {
+                Descriptions = subs.Where(o => o.Desc.Length > 0).GroupBy(o => o.Id).ToDictionary(g => g.Key, g => g.First().Desc),
+            },
+        };
+        try
+        {
+            var (definition, _) = Director.Build(library, subWorld, tier, grammar: true,
+                new DelegateFallback<DirectorChoice>(() => new DirectorChoice(fallback.Id, "picked by weight: no valid answer from the model")));
+            var outcome = await new LlmTaskRunner(chat).RunAsync(definition, token).ConfigureAwait(false);
+            ModelNotices.Post(mainThread, outcome.Attempts, "director");
+            return (outcome.Value, outcome.Source == OutcomeSource.Template ? "Random" : outcome.Source.ToString(), subWorld);
+        }
+        catch (OperationCanceledException)
+        {
+            throw;
+        }
+        catch (Exception ex)
+        {
+            mainThread.Post(() => Log.Error($"[Rim Chronicles] The director's follow-up failed; picking by weight. {ex}"));
+            return (new DirectorChoice(fallback.Id, "picked by weight: the director failed"), "Random", subWorld);
+        }
     }
 
     /// <summary>The world as the director sees it for this decision: the snapshot, the plot's options with what each

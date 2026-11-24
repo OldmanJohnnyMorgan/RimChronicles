@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Imperial sites (crisis spec §4.1, C9). Each archetype is planned by Core's SitePlanner from the pieces by tag: the
+  objective room deepest from the gates, the required pieces, then optional ones by weight within the budget, all
+  inside a wall with gates on one side. Size is the plan's grid (walls and the ground round them included). Budget is
+  in threat points: pieces' threatCost plus the garrison. They need Royalty, like the rest of the crisis (Q1).
+-->
+<Defs>
+
+  <RimChronicles.Game.Crisis.Sites.SiteArchetypeDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Site_ForwardOutpost</defName>
+    <label>Imperial forward outpost</label>
+    <description>a small walled Imperial outpost; destroying its comms console cuts the Empire's eyes on the colony</description>
+    <archetype>ForwardOutpost</archetype>
+    <sitePart>RimChronicles_ImperialOutpost</sitePart>
+    <objectiveThing>CommsConsole</objectiveThing>
+    <objectiveTag>CommsRoom</objectiveTag>
+    <size>(40,40)</size>
+    <required>
+      <li><tag>Barracks</tag></li>
+      <li><tag>Power</tag></li>
+    </required>
+    <optional>
+      <li><tag>Artillery</tag><weight>1</weight><max>1</max></li>
+      <li><tag>Armory</tag><weight>1</weight><max>1</max></li>
+      <li><tag>Records</tag><weight>1</weight><max>1</max></li>
+    </optional>
+    <gates>1</gates>
+    <budget>600~2500</budget>
+    <pieceShare>0.4</pieceShare>
+    <minStage>Probing</minStage>
+    <weight>2</weight>
+  </RimChronicles.Game.Crisis.Sites.SiteArchetypeDef>
+
+  <RimChronicles.Game.Crisis.Sites.SiteArchetypeDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Site_PsychicRelay</defName>
+    <label>Imperial psychic relay</label>
+    <description>a fortified psychic relay that amplifies the Empire's adepts; destroying its core weakens Imperial psykers for weeks</description>
+    <archetype>PsychicRelay</archetype>
+    <sitePart>RimChronicles_ImperialRelaySite</sitePart>
+    <objectiveThing>RimChronicles_PsychicRelay</objectiveThing>
+    <objectiveTag>RelayChamber</objectiveTag>
+    <size>(52,52)</size>
+    <required>
+      <li><tag>Barracks</tag></li>
+      <li><tag>Power</tag></li>
+    </required>
+    <optional>
+      <li><tag>Turret</tag><weight>2</weight><max>3</max></li>
+      <li><tag>Artillery</tag><weight>1</weight><max>1</max></li>
+      <li><tag>Armory</tag><weight>1</weight><max>1</max></li>
+      <li><tag>Records</tag><weight>1</weight><max>1</max></li>
+      <li><tag>Barracks</tag><weight>1</weight><max>1</max></li>
+    </optional>
+    <gates>2</gates>
+    <budget>1500~5000</budget>
+    <pieceShare>0.4</pieceShare>
+    <minStage>Reclamation</minStage>
+    <weight>2</weight>
+    <capability>psykers</capability>
+    <capabilityDays>15</capabilityDays>
+  </RimChronicles.Game.Crisis.Sites.SiteArchetypeDef>
+
+  <RimChronicles.Game.Crisis.Sites.SiteArchetypeDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Site_OrbitalUplink</defName>
+    <label>Imperial orbital uplink</label>
+    <description>a fortified uplink that guides the Empire's orbital strikes; destroying it stops the strikes for weeks</description>
+    <archetype>OrbitalUplink</archetype>
+    <sitePart>RimChronicles_ImperialUplinkSite</sitePart>
+    <objectiveThing>RimChronicles_ImperialUplink</objectiveThing>
+    <objectiveTag>UplinkStation</objectiveTag>
+    <size>(52,52)</size>
+    <required>
+      <li><tag>Barracks</tag></li>
+      <li><tag>Power</tag></li>
+    </required>
+    <optional>
+      <li><tag>Turret</tag><weight>3</weight><max>4</max></li>
+      <li><tag>Artillery</tag><weight>1</weight><max>2</max></li>
+      <li><tag>Armory</tag><weight>1</weight><max>1</max></li>
+      <li><tag>Records</tag><weight>1</weight><max>1</max></li>
+    </optional>
+    <gates>2</gates>
+    <budget>1500~5000</budget>
+    <pieceShare>0.4</pieceShare>
+    <minStage>Reclamation</minStage>
+    <weight>2</weight>
+    <capability>strikes</capability>
+    <capabilityDays>15</capabilityDays>
+  </RimChronicles.Game.Crisis.Sites.SiteArchetypeDef>
+
+  <!-- Reclaimed Holding (crisis C11): a settlement the Empire conquered near the colony, held by an Imperial garrison.
+       Offered only while there is one. Destroying the garrison's comms console breaks its hold: the settlement goes
+       back to the faction the Empire took it from (QuestPart_ChroniclesLiberate). -->
+  <RimChronicles.Game.Crisis.Sites.SiteArchetypeDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Site_ReclaimedHolding</defName>
+    <label>Imperial-held settlement</label>
+    <description>the Imperial garrison holding a settlement the Empire conquered nearby; breaking it frees the settlement and hands it back to its people</description>
+    <archetype>ReclaimedHolding</archetype>
+    <sitePart>RimChronicles_ImperialHolding</sitePart>
+    <objectiveThing>CommsConsole</objectiveThing>
+    <objectiveTag>CommsRoom</objectiveTag>
+    <size>(52,52)</size>
+    <required>
+      <li><tag>Barracks</tag><count>2</count></li>
+      <li><tag>Power</tag></li>
+    </required>
+    <optional>
+      <li><tag>Turret</tag><weight>2</weight><max>3</max></li>
+      <li><tag>Armory</tag><weight>1</weight><max>1</max></li>
+      <li><tag>Records</tag><weight>1</weight><max>1</max></li>
+      <li><tag>Artillery</tag><weight>1</weight><max>1</max></li>
+    </optional>
+    <gates>2</gates>
+    <budget>1200~4500</budget>
+    <pieceShare>0.4</pieceShare>
+    <minStage>Reclamation</minStage>
+    <weight>3</weight>
+    <needsHolding>true</needsHolding>
+  </RimChronicles.Game.Crisis.Sites.SiteArchetypeDef>
+
+</Defs>

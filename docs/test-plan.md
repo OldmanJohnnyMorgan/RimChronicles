@@ -355,12 +355,22 @@ Use "crisis-test-3" at stage 3 or 4.
 - [ ] 20. Save with the Stellarch off-map after its escape, reload, and fire FinalAssault: the same one leads it and
       can't escape again.
 
-### B5. Checkpoint 4, part two: C11 (after Claude Code builds it)
+### B5. Checkpoint 4, part two: C11
 
-Claude Code adds these steps to `crisis-runbook-4.md` with C11. Expect:
-- the director picking Imperial operations, siege goals and sites (the log's source is `Model`);
-- a free harness run;
-- the crisis cases in `director-gen`.
+Built 2026-11-24 (`milestones/C11-director-wiring.md`). Steps: `crisis-runbook-4.md`, "C11: director wiring".
+- [ ] 1. With **rimchron-director-e4b** as director: crisis decisions are weighted (source `Random`).
+- [ ] 2. With no separate director: **Crisis: decide now** gives source `Model`.
+- [ ] 3. **Crisis: ask director for a siege goal** / **for a site**: a `Goal:*` / `Site:*` pick with a reason.
+- [ ] 4. A siege the director starts logs a `Goal:*` follow-up, and its letter's aim matches.
+- [ ] 5. A sabotage job logs a `Site:*` follow-up, and the quest is that site.
+- [ ] 6. Recorded cases include the crisis and its follow-ups (none with the E4B director).
+- [ ] 7. Save, reload, decide again: no errors.
+- [ ] 8. `validate` and a free `run --tasks director`: snap-01–23 unchanged, snap-24 valid.
+- [ ] 9. Reclaimed Holding (runbook steps 8–10): offered once the Empire holds a nearby town; destroying the
+      garrison's console hands the town back, with a letter, news and goodwill.
+
+Then the crisis retrain (training/README.md, "Crisis retrain"): crisis test labels (Claude Code, in session), local
+labels, E2B and E4B retrained, reports and reviews, and the presets marked as knowing the crisis.
 
 ---
 

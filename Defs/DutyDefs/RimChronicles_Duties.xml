@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Crisis duties (C6). RimChronicles_Assault is vanilla's AssaultColony with focus fire: the squad shoots the lord's
+  focus target (medics first, then whoever is easiest to bring down) when it can, else fights as usual.
+-->
+<Defs>
+  <DutyDef>
+    <defName>RimChronicles_Assault</defName>
+    <alwaysShowWeapon>true</alwaysShowWeapon>
+    <thinkNode Class="ThinkNode_Priority">
+      <subNodes>
+        <li Class="JobGiver_TakeCombatEnhancingDrug" />
+        <li Class="ThinkNode_Subtree">
+          <treeDef>Abilities_Aggressive</treeDef>
+        </li>
+        <li Class="RimChronicles.Game.Crisis.Operations.JobGiver_RcFocusFire">
+          <targetAcquireRadius>65</targetAcquireRadius>
+          <targetKeepRadius>72</targetKeepRadius>
+        </li>
+        <li Class="JobGiver_AITrashColonyClose" />
+        <li Class="JobGiver_AITrashBuildingsDistant" />
+        <li Class="JobGiver_AIGotoNearestHostile" />
+        <li Class="JobGiver_AITrashBuildingsDistant">
+          <attackAllInert>true</attackAllInert>
+        </li>
+        <li Class="JobGiver_AISapper">
+          <canMineNonMineables>false</canMineNonMineables>
+        </li>
+      </subNodes>
+    </thinkNode>
+    <constantThinkNode Class="ThinkNode_ConditionalCanPickupOpportunisticWeapon">
+      <subNodes>
+        <li Class="JobGiver_PickUpOpportunisticWeapon" />
+      </subNodes>
+    </constantThinkNode>
+  </DutyDef>
+</Defs>

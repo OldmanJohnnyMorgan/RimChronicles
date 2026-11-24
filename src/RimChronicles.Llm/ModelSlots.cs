@@ -52,5 +52,9 @@ public static class ModelSlots
             : main;
     }
 
+    /// <summary>True when the model that makes the director's decisions may also make the Imperial crisis's
+    /// (<see cref="TierPresets.KnowsCrisis"/>). False with no model at all: the crisis then picks by weight anyway.</summary>
+    public static bool DirectorKnowsCrisis(Inputs s) => Director(s) is { } slot && TierPresets.KnowsCrisis(slot.Model);
+
     private static bool Blank(string? text) => string.IsNullOrWhiteSpace(text);
 }

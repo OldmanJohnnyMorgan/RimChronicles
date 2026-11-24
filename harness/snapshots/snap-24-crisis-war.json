@@ -1,0 +1,193 @@
+{
+  "schemaVersion": 1,
+  "id": "snap-24-crisis-war",
+  "day": 633,
+  "season": "Septober",
+  "year": 5510,
+  "colony": {
+    "name": "Last Lantern",
+    "wealth": 32000,
+    "population": 8,
+    "mood": "strained"
+  },
+  "pawns": [
+    {
+      "id": "p1",
+      "name": "Bastian",
+      "age": 20,
+      "traits": [
+        "Tough"
+      ],
+      "backstory": "Settler",
+      "relations": [],
+      "status": "alive"
+    },
+    {
+      "id": "p2",
+      "name": "Ines",
+      "age": 61,
+      "traits": [
+        "Iron-willed",
+        "Industrious"
+      ],
+      "backstory": "Imperial strategist",
+      "relations": [],
+      "status": "alive"
+    },
+    {
+      "id": "p3",
+      "name": "Tora",
+      "age": 69,
+      "traits": [
+        "Volatile"
+      ],
+      "backstory": "Colonial marshal",
+      "relations": [],
+      "status": "alive"
+    },
+    {
+      "id": "p4",
+      "name": "Nol",
+      "age": 46,
+      "traits": [
+        "Trigger-happy",
+        "Jogger"
+      ],
+      "backstory": "Doctor",
+      "relations": [],
+      "status": "alive"
+    },
+    {
+      "id": "p5",
+      "name": "Kialen",
+      "age": 48,
+      "traits": [
+        "Trigger-happy",
+        "Nervous"
+      ],
+      "backstory": "Nurse",
+      "relations": [],
+      "status": "alive"
+    }
+  ],
+  "tales": [
+    {
+      "day": 439,
+      "type": "WentOnBerserk",
+      "actor": "p2"
+    },
+    {
+      "day": 469,
+      "type": "Marriage",
+      "actor": "p1",
+      "victim": "p3"
+    }
+  ],
+  "factions": [
+    {
+      "name": "the Kestrel Tribe",
+      "kind": "Tribe",
+      "goodwill": 19,
+      "settlements": 5,
+      "atWarWith": []
+    },
+    {
+      "name": "the Marrow League",
+      "kind": "Outlanders",
+      "goodwill": 39,
+      "settlements": 3,
+      "atWarWith": []
+    },
+    {
+      "name": "the Lantern Throne",
+      "kind": "Empire",
+      "goodwill": -100,
+      "plotState": "Awakened",
+      "settlements": 9,
+      "atWarWith": []
+    }
+  ],
+  "activePlots": [
+    {
+      "id": "imperialcrisis-2",
+      "template": "ImperialCrisis",
+      "beat": "Complication",
+      "protagonist": "colony",
+      "summary": "Day 516: started: the Lantern Throne marches against Last Lantern Day 516: stage war: the colony opposes the Empire Day 611: Complication: Operation:Decapitation at stage war, budget 1900"
+    },
+    {
+      "id": "awakenedempire-1",
+      "template": "AwakenedEmpire",
+      "beat": "Act2",
+      "protagonist": "colony",
+      "summary": "The Lantern Throne woke on day 477. Last Lantern is at war with the Lantern Throne. The Lantern Throne has taken 1 settlement on the rim."
+    },
+    {
+      "id": "lostfamily-90",
+      "template": "LostFamily",
+      "beat": "Hook",
+      "protagonist": "p4",
+      "summary": "Nol has had a letter from a cousin, Ottilie."
+    },
+    {
+      "id": "nemesis-91",
+      "template": "Nemesis",
+      "beat": "Hook",
+      "protagonist": "p5",
+      "summary": "'Red' Rasmus wounded Kialen in a raid and escaped."
+    }
+  ],
+  "recentEvents": [
+    "Day 630: the colony finished a new workshop."
+  ],
+  "publicEvents": [
+    "the Kestrel Tribe held a harvest fair"
+  ],
+  "reportedEvents": [],
+  "allowedTransitions": [
+    "Operation:ProbingRaid",
+    "Operation:Breach",
+    "Operation:PsychicAssault",
+    "Operation:Retrieval",
+    "Operation:SiegeWithBombardment",
+    "Operation:Decapitation",
+    "Wait"
+  ],
+  "previousBulletins": [],
+  "director": {
+    "plotId": "imperialcrisis-2",
+    "daysInBeat": 22,
+    "descriptions": {
+      "Operation:ProbingRaid": "a small Imperial force tests the colony's defenses, then pulls back to report",
+      "Operation:Breach": "breachers knock out turrets and open the walls; the main force follows",
+      "Operation:PsychicAssault": "Imperial psykers attack under a Praetorian escort",
+      "Operation:Retrieval": "a strike force comes for an Imperial captive or defector the colony holds",
+      "Operation:SiegeWithBombardment": "the Empire digs in a siege camp near the colony and bombards it",
+      "Operation:Decapitation": "drop pods land near the colony's leader",
+      "Wait": "hold this plot for a few days; nothing happens in it yet"
+    }
+  },
+  "crisis": {
+    "stage": "War",
+    "operations": [
+      {
+        "day": 611,
+        "operation": "Decapitation",
+        "outcome": "repelled"
+      }
+    ],
+    "disabled": [],
+    "captives": [
+      {
+        "name": "Sorrel",
+        "rank": "soldier"
+      },
+      {
+        "name": "Juno",
+        "rank": "herald"
+      }
+    ],
+    "defectors": [],
+    "intel": []
+  }
+}

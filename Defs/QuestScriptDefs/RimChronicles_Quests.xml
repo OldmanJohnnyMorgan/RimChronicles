@@ -67,4 +67,14 @@
     <defaultChallengeRating>2</defaultChallengeRating>
     <root Class="RimChronicles.Game.Quests.QuestNode_Root_ChroniclesSabotage" />
   </QuestScriptDef>
+  <!-- An Imperial site to destroy (crisis C9): offered by the Empire plot's SabotageImperial job. Needs Royalty. -->
+  <QuestScriptDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_ImperialSite</defName>
+    <randomlySelectable>false</randomlySelectable>
+    <isRootSpecial>true</isRootSpecial>
+    <autoAccept>false</autoAccept>
+    <expireDaysRange>4~4</expireDaysRange>
+    <defaultChallengeRating>3</defaultChallengeRating>
+    <root Class="RimChronicles.Game.Crisis.Sites.QuestNode_Root_ChroniclesImperialSite" />
+  </QuestScriptDef>
 </Defs>

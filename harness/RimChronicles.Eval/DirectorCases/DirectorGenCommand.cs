@@ -14,8 +14,14 @@ public static class DirectorGenCommand
     /// <summary>Bump when the generator's output changes for the same seed.</summary>
     public const int GeneratorVersion = 4; // v4: waitExpected is open when a treaty or governorship is offered
 
-    public static int Run(int seed, int count, string outDir, string schemaPath, TextWriter log)
+    /// <summary>Bump when the crisis cases' output changes for the same seed (crisis C11).</summary>
+    public const int CrisisGeneratorVersion = 3; // v2: Reclaimed Holding in about half the Site cases; v3: a crisis with no operation yet began recently, and past final assaults were repelled
+
+    /// <summary>Writes the cases; with <paramref name="sites"/> (the <c>crisis</c> arc), the crisis cases instead.</summary>
+    public static int Run(int seed, int count, string outDir, string schemaPath, TextWriter log, IReadOnlyList<Core.Crisis.Sites.SiteArchetype>? sites = null)
     {
+        var crisis = sites is not null;
+        var scenarios = crisis ? CaseGenerator.CrisisScenarios : CaseGenerator.Scenarios;
         var schema = (JsonObject)JsonNode.Parse(File.ReadAllText(schemaPath))!;
         Directory.CreateDirectory(outDir);
         var coverage = new SortedDictionary<string, int>(StringComparer.Ordinal);
@@ -25,7 +31,7 @@ public static class DirectorGenCommand
 
         for (var i = 0; i < count; i++)
         {
-            var result = CaseGenerator.Generate(seed, i);
+            var result = crisis ? CaseGenerator.GenerateCrisis(seed, i, sites!) : CaseGenerator.Generate(seed, i);
             var json = SnapshotJson.Serialize(result.Snapshot);
             var problems = JsonSchemaValidator.Validate(JsonNode.Parse(json), schema);
             if (problems.Count > 0)
@@ -47,13 +53,18 @@ public static class DirectorGenCommand
         var manifest = new JsonObject
         {
             ["generator"] = "director-gen",
-            ["generatorVersion"] = GeneratorVersion,
+            ["generatorVersion"] = crisis ? CrisisGeneratorVersion : GeneratorVersion,
             ["seed"] = seed,
             ["count"] = count - errors,
             ["sha256"] = digest,
-            ["scenarios"] = new JsonArray(CaseGenerator.Scenarios.Select(s => (JsonNode?)JsonValue.Create(s)).ToArray()),
+            ["scenarios"] = new JsonArray(scenarios.Select(s => (JsonNode?)JsonValue.Create(s)).ToArray()),
             ["waitExpected"] = new JsonObject(waits.Select(kv => KeyValuePair.Create(kv.Key, (JsonNode?)JsonValue.Create(kv.Value)))),
         };
+        if (crisis)
+        {
+            manifest["arc"] = "crisis";
+        }
+
         File.WriteAllText(Path.Combine(outDir, "manifest.json"), manifest.ToJsonString(new JsonSerializerOptions { WriteIndented = true }) + "\n");
 
         var table = new StringBuilder("scenario,mood,cases\n");
@@ -65,7 +76,7 @@ public static class DirectorGenCommand
 
         File.WriteAllText(Path.Combine(outDir, "coverage.csv"), table.ToString());
         log.WriteLine($"Wrote {count - errors} cases to {outDir} (seed {seed}, sha256 {digest[..12]}).");
-        log.WriteLine($"Coverage: {CaseGenerator.Scenarios.Length} scenarios x {CaseGenerator.Moods.Length} moods, "
+        log.WriteLine($"Coverage: {scenarios.Length} scenarios x {CaseGenerator.Moods.Length} moods, "
             + $"{coverage.Values.DefaultIfEmpty(0).Min()}-{coverage.Values.DefaultIfEmpty(0).Max()} cases each (coverage.csv).");
         log.WriteLine($"Wait expected: {string.Join(", ", waits.Select(kv => $"{kv.Key} {kv.Value}"))}.");
         return errors == 0 ? 0 : 1;

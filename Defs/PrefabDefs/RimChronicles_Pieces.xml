@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Crisis pieces (crisis spec §3, tech spec §3.1): vanilla PrefabDefs with a PieceExtension. Positions are (x, y, z) and
+  rects are (minX, minZ, maxX, maxZ), both counted from the south-west corner, unrotated. Stuff is chosen when a piece is
+  stamped, so things made from stuff leave it out. Build new pieces in game with Dev Mode -> Generation -> Create prefab,
+  paste the XML here and add the extension; `dotnet test` checks every piece's size and doors at every rotation.
+-->
+<Defs>
+
+  <PrefabDef>
+    <defName>RimChronicles_Piece_SandbagLine</defName>
+    <size>(5,1)</size>
+    <things>
+      <Sandbags>
+        <rects>
+          <li>(0,0,4,0)</li>
+        </rects>
+      </Sandbags>
+    </things>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <tags><li>Cover</li><li>Line</li></tags>
+        <doorSides><li>North</li><li>South</li></doorSides>
+        <defenseValue>1</defenseValue>
+        <threatCost>20</threatCost>
+        <buildOrder>1</buildOrder>
+      </li>
+    </modExtensions>
+  </PrefabDef>
+
+  <PrefabDef>
+    <defName>RimChronicles_Piece_SandbagCorner</defName>
+    <size>(3,3)</size>
+    <things>
+      <Sandbags>
+        <rects>
+          <li>(0,0,2,0)</li>
+          <li>(0,1,0,2)</li>
+        </rects>
+      </Sandbags>
+    </things>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <tags><li>Cover</li><li>Corner</li></tags>
+        <doorSides><li>North</li><li>East</li></doorSides>
+        <defenseValue>1</defenseValue>
+        <threatCost>20</threatCost>
+        <buildOrder>1</buildOrder>
+      </li>
+    </modExtensions>
+  </PrefabDef>
+
+  <!-- The crisis spec's example: a mortar behind a sandbag ring, open to the south. -->
+  <PrefabDef>
+    <defName>RimChronicles_Piece_MortarPit</defName>
+    <size>(5,5)</size>
+    <things>
+      <Sandbags>
+        <rects>
+          <li>(0,4,4,4)</li>
+          <li>(0,1,0,3)</li>
+          <li>(4,1,4,3)</li>
+          <li>(0,0,1,0)</li>
+          <li>(3,0,4,0)</li>
+        </rects>
+      </Sandbags>
+      <Turret_Mortar>
+        <position>(2, 0, 2)</position>
+      </Turret_Mortar>
+    </things>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <tags><li>Emplacement</li><li>Artillery</li></tags>
+        <doorSides><li>South</li></doorSides>
+        <defenseValue>3</defenseValue>
+        <threatCost>120</threatCost>
+        <buildOrder>2</buildOrder>
+      </li>
+    </modExtensions>
+  </PrefabDef>
+
+  <PrefabDef>
+    <defName>RimChronicles_Piece_TurretNest</defName>
+    <size>(5,5)</size>
+    <things>
+      <Sandbags>
+        <rects>
+          <li>(0,4,4,4)</li>
+          <li>(0,1,0,3)</li>
+          <li>(4,1,4,3)</li>
+          <li>(0,0,1,0)</li>
+          <li>(3,0,4,0)</li>
+        </rects>
+      </Sandbags>
+      <Turret_MiniTurret>
+        <position>(2, 0, 2)</position>
+      </Turret_MiniTurret>
+    </things>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <tags><li>Emplacement</li><li>Turret</li></tags>
+        <doorSides><li>South</li></doorSides>
+        <needsPower>true</needsPower>
+        <defenseValue>3</defenseValue>
+        <threatCost>80</threatCost>
+        <buildOrder>2</buildOrder>
+      </li>
+    </modExtensions>
+  </PrefabDef>
+
+  <!-- A walled room with three beds and a torch, one door to the south. -->
+  <PrefabDef>
+    <defName>RimChronicles_Piece_Barracks</defName>
+    <size>(7,6)</size>
+    <things>
+      <Wall>
+        <rects>
+          <li>(0,0,2,0)</li>
+          <li>(4,0,6,0)</li>
+          <li>(0,5,6,5)</li>
+          <li>(0,1,0,4)</li>
+          <li>(6,1,6,4)</li>
+        </rects>
+      </Wall>
+      <Door>
+        <position>(3, 0, 0)</position>
+      </Door>
+      <Bed>
+        <positions>
+          <li>(1, 0, 3)</li>
+          <li>(3, 0, 3)</li>
+          <li>(5, 0, 3)</li>
+        </positions>
+      </Bed>
+      <TorchLamp>
+        <position>(1, 0, 1)</position>
+      </TorchLamp>
+    </things>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <tags><li>Room</li><li>Barracks</li></tags>
+        <doorSides><li>South</li></doorSides>
+        <buildOrder>1</buildOrder>
+      </li>
+    </modExtensions>
+  </PrefabDef>
+
+  <!-- Siege camp pieces for stages 3-5 (C8). They use the camp's own buildings, so they need Royalty too. -->
+
+  <!-- Stage 3: the uplink behind a sandbag row facing the colony. -->
+  <PrefabDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Piece_SiegeUplink</defName>
+    <size>(5,3)</size>
+    <things>
+      <Sandbags>
+        <rects>
+          <li>(0,2,4,2)</li>
+        </rects>
+      </Sandbags>
+      <RimChronicles_ImperialUplink>
+        <position>(2, 0, 0)</position>
+      </RimChronicles_ImperialUplink>
+    </things>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <tags><li>Uplink</li></tags>
+        <doorSides><li>South</li></doorSides>
+        <defenseValue>1</defenseValue>
+        <threatCost>150</threatCost>
+        <buildOrder>3</buildOrder>
+      </li>
+    </modExtensions>
+  </PrefabDef>
+
+  <!-- Stage 4: shield emitter and psychic relay side by side, behind a sandbag row. -->
+  <PrefabDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Piece_ShieldRelay</defName>
+    <size>(5,3)</size>
+    <things>
+      <Sandbags>
+        <rects>
+          <li>(0,2,4,2)</li>
+        </rects>
+      </Sandbags>
+      <RimChronicles_ImperialShield>
+        <position>(0, 0, 0)</position>
+      </RimChronicles_ImperialShield>
+      <RimChronicles_PsychicRelay>
+        <position>(2, 0, 0)</position>
+      </RimChronicles_PsychicRelay>
+    </things>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <tags><li>Relay</li><li>Shield</li></tags>
+        <doorSides><li>South</li></doorSides>
+        <defenseValue>2</defenseValue>
+        <threatCost>200</threatCost>
+        <buildOrder>4</buildOrder>
+      </li>
+    </modExtensions>
+  </PrefabDef>
+
+  <!-- Stage 5: the drop-pod beacon with a sandbag row in front. -->
+  <PrefabDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Piece_DropBeacon</defName>
+    <size>(3,3)</size>
+    <things>
+      <Sandbags>
+        <rects>
+          <li>(0,2,2,2)</li>
+        </rects>
+      </Sandbags>
+      <RimChronicles_ImperialDropBeacon>
+        <position>(1, 0, 0)</position>
+      </RimChronicles_ImperialDropBeacon>
+    </things>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <tags><li>Beacon</li></tags>
+        <doorSides><li>South</li><li>East</li><li>West</li></doorSides>
+        <defenseValue>1</defenseValue>
+        <threatCost>150</threatCost>
+        <buildOrder>5</buildOrder>
+      </li>
+    </modExtensions>
+  </PrefabDef>
+
+  <!-- Site rooms (C9). Rooms open to the south; the site planner turns them to face the way in. -->
+
+  <!-- Forward Outpost objective: the comms console the quest asks to destroy. -->
+  <PrefabDef>
+    <defName>RimChronicles_Piece_CommandRoom</defName>
+    <size>(9,7)</size>
+    <things>
+      <Wall>
+        <rects>
+          <li>(0,0,3,0)</li>
+          <li>(5,0,8,0)</li>
+          <li>(0,6,8,6)</li>
+          <li>(0,1,0,5)</li>
+          <li>(8,1,8,5)</li>
+        </rects>
+      </Wall>
+      <Door>
+        <position>(4, 0, 0)</position>
+      </Door>
+      <CommsConsole>
+        <position>(4, 0, 4)</position>
+      </CommsConsole>
+      <TorchLamp>
+        <position>(1, 0, 1)</position>
+      </TorchLamp>
+    </things>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <tags><li>Room</li><li>CommsRoom</li></tags>
+        <doorSides><li>South</li></doorSides>
+        <needsPower>true</needsPower>
+      </li>
+    </modExtensions>
+  </PrefabDef>
+
+  <!-- Psychic Relay objective: the relay core in a walled chamber. -->
+  <PrefabDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Piece_RelayChamber</defName>
+    <size>(7,7)</size>
+    <things>
+      <Wall>
+        <rects>
+          <li>(0,0,2,0)</li>
+          <li>(4,0,6,0)</li>
+          <li>(0,6,6,6)</li>
+          <li>(0,1,0,5)</li>
+          <li>(6,1,6,5)</li>
+        </rects>
+      </Wall>
+      <Door>
+        <position>(3, 0, 0)</position>
+      </Door>
+      <RimChronicles_PsychicRelay>
+        <position>(3, 0, 3)</position>
+      </RimChronicles_PsychicRelay>
+      <TorchLamp>
+        <position>(1, 0, 1)</position>
+      </TorchLamp>
+    </things>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <tags><li>Room</li><li>RelayChamber</li></tags>
+        <doorSides><li>South</li></doorSides>
+      </li>
+    </modExtensions>
+  </PrefabDef>
+
+  <!-- Orbital Uplink objective: the uplink console in a walled station. -->
+  <PrefabDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Piece_UplinkStation</defName>
+    <size>(9,7)</size>
+    <things>
+      <Wall>
+        <rects>
+          <li>(0,0,3,0)</li>
+          <li>(5,0,8,0)</li>
+          <li>(0,6,8,6)</li>
+          <li>(0,1,0,5)</li>
+          <li>(8,1,8,5)</li>
+        </rects>
+      </Wall>
+      <Door>
+        <position>(4, 0, 0)</position>
+      </Door>
+      <RimChronicles_ImperialUplink>
+        <position>(4, 0, 4)</position>
+      </RimChronicles_ImperialUplink>
+      <TorchLamp>
+        <position>(1, 0, 1)</position>
+      </TorchLamp>
+    </things>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <tags><li>Room</li><li>UplinkStation</li></tags>
+        <doorSides><li>South</li></doorSides>
+      </li>
+    </modExtensions>
+  </PrefabDef>
+
+  <!-- A solar generator and a battery: what the site's turrets run on. -->
+  <PrefabDef>
+    <defName>RimChronicles_Piece_PowerYard</defName>
+    <size>(7,6)</size>
+    <things>
+      <SolarGenerator>
+        <position>(2, 0, 2)</position>
+      </SolarGenerator>
+      <Battery>
+        <position>(5, 0, 1)</position>
+      </Battery>
+    </things>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <tags><li>Power</li></tags>
+        <doorSides><li>North</li><li>East</li><li>South</li><li>West</li></doorSides>
+      </li>
+    </modExtensions>
+  </PrefabDef>
+
+  <!-- A storeroom with two shelves. -->
+  <PrefabDef>
+    <defName>RimChronicles_Piece_Armory</defName>
+    <size>(7,6)</size>
+    <things>
+      <Wall>
+        <rects>
+          <li>(0,0,2,0)</li>
+          <li>(4,0,6,0)</li>
+          <li>(0,5,6,5)</li>
+          <li>(0,1,0,4)</li>
+          <li>(6,1,6,4)</li>
+        </rects>
+      </Wall>
+      <Door>
+        <position>(3, 0, 0)</position>
+      </Door>
+      <Shelf>
+        <positions>
+          <li>(1, 0, 4)</li>
+          <li>(4, 0, 4)</li>
+        </positions>
+      </Shelf>
+    </things>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <tags><li>Room</li><li>Armory</li></tags>
+        <doorSides><li>South</li></doorSides>
+      </li>
+    </modExtensions>
+  </PrefabDef>
+
+  <!-- Records room (C10): a walled office holding one Imperial dispatch; a colonist who reads it gains one intel item. -->
+  <PrefabDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Piece_RecordsRoom</defName>
+    <size>(7,6)</size>
+    <things>
+      <Wall>
+        <rects>
+          <li>(0,0,2,0)</li>
+          <li>(4,0,6,0)</li>
+          <li>(0,5,6,5)</li>
+          <li>(0,1,0,4)</li>
+          <li>(6,1,6,4)</li>
+        </rects>
+      </Wall>
+      <Door>
+        <position>(3, 0, 0)</position>
+      </Door>
+      <Shelf>
+        <position>(4, 0, 4)</position>
+      </Shelf>
+      <RimChronicles_ImperialRecords>
+        <position>(2, 0, 3)</position>
+      </RimChronicles_ImperialRecords>
+      <TorchLamp>
+        <position>(1, 0, 1)</position>
+      </TorchLamp>
+    </things>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <tags><li>Room</li><li>Records</li></tags>
+        <doorSides><li>South</li></doorSides>
+      </li>
+    </modExtensions>
+  </PrefabDef>
+
+  <!-- Citadel keep (C12): the throne room the assault ends in. -->
+  <PrefabDef MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Piece_ThroneRoom</defName>
+    <size>(11,9)</size>
+    <things>
+      <Wall>
+        <rects>
+          <li>(0,0,4,0)</li>
+          <li>(6,0,10,0)</li>
+          <li>(0,8,10,8)</li>
+          <li>(0,1,0,7)</li>
+          <li>(10,1,10,7)</li>
+        </rects>
+      </Wall>
+      <Door>
+        <position>(5, 0, 0)</position>
+      </Door>
+      <Throne>
+        <position>(5, 0, 6)</position>
+      </Throne>
+      <Brazier>
+        <positions>
+          <li>(2, 0, 6)</li>
+          <li>(8, 0, 6)</li>
+          <li>(2, 0, 2)</li>
+          <li>(8, 0, 2)</li>
+        </positions>
+      </Brazier>
+    </things>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <tags><li>Room</li><li>Throne</li></tags>
+        <doorSides><li>South</li></doorSides>
+      </li>
+    </modExtensions>
+  </PrefabDef>
+
+  <!-- Citadel keep (C12): a sealed vault with no door; breach it for what's inside. -->
+  <PrefabDef>
+    <defName>RimChronicles_Piece_Vault</defName>
+    <size>(7,6)</size>
+    <things>
+      <Wall>
+        <rects>
+          <li>(0,0,6,0)</li>
+          <li>(0,5,6,5)</li>
+          <li>(0,1,0,4)</li>
+          <li>(6,1,6,4)</li>
+        </rects>
+      </Wall>
+      <AIPersonaCore>
+        <position>(3, 0, 2)</position>
+      </AIPersonaCore>
+    </things>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <tags><li>Room</li><li>Vault</li><li>Sealed</li></tags>
+      </li>
+    </modExtensions>
+  </PrefabDef>
+
+</Defs>
