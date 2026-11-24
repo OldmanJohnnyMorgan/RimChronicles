@@ -398,10 +398,11 @@ Run `docs/SPEC-war-in-heaven/war-runbook-1.md` once W5 is merged. Needs Royalty 
 
 ## After all of it
 
-- **C14, the balance pass and proof run:** Claude Code writes its part of runbook 4 from your B1–B5 notes. It's a
-  late-game run from stage 1 to the Citadel, tuned until the bar is met:
+- **C14, the balance pass and proof run: passed (John, 2026-11-24).** The late-game run from stage 1 to the Citadel
+  met the bar:
   - stage 3 costs real losses but is winnable without save-scumming;
   - stage 4 and the Citadel need preparation (relays, uplinks, intel first).
-- **Merge:** after C14, `crisis-combat-locations` merges into `main` (with the README update, PR #110).
+- **Merge:** done. `crisis-combat-locations` merged into `main` on 2026-11-24 (PR #93); the crisis track is complete.
+  Its director retrain is folded into the War in Heaven's (W13).
 - **Not in this plan:** the Stage 5 proof run (`docs/stage5-runbook.md`, M7) has no results file yet. Run it if it
   hasn't been run.

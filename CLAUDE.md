@@ -4,7 +4,7 @@ RimWorld 1.7 mod adding a story mode narrated by a local LLM.
 
 - Design spec: `docs/Rim Chronicles — Design Spec.md`
 - Technical spec: https://claude.ai/artifact/AMTEFZMpdn9ELPEJd5biXB
-- Crisis combat and locations (merged into `main` 2026-11-24; C14 balance and proof run still on the PC): `docs/SPEC-crisis-combat-and-locations/` (spec, tech spec, project plan)
+- Crisis combat and locations (complete: merged into `main` and C14 passed, 2026-11-24): `docs/SPEC-crisis-combat-and-locations/` (spec, tech spec, project plan)
 - The War in Heaven (the Hollow Choir; branch `war-in-heaven`, milestones W0–W14): `docs/SPEC-war-in-heaven/` (spec, tech spec, project plan)
 
 ## Commands
