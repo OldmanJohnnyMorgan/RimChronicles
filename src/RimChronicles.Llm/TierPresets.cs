@@ -27,6 +27,7 @@ public static class TierPresets
     public static readonly IReadOnlyList<(string Model, ModelTier Tier, string Label)> DirectorPresets =
     [
         ("rimchron-director-e2b", ModelTier.Minimum, "rimchron-director-e2b: fine-tuned on Gemma 4 E2B (about 2 GB of VRAM), Minimum prompts"),
+        ("rimchron-director-e4b", ModelTier.Recommended, "rimchron-director-e4b: fine-tuned on Gemma 4 E4B (about 4 GB of VRAM), Recommended prompts"),
     ];
 
     /// <summary>The preset matching a director model name (trimmed, any case), or null for a custom name or blank.</summary>
