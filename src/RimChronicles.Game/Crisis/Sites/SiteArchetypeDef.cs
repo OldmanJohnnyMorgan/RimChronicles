@@ -46,6 +46,9 @@ public sealed class SiteArchetypeDef : Def
 
     public int capabilityDays;
 
+    /// <summary>Offered only while the Empire holds a settlement it conquered near the colony (Reclaimed Holding).</summary>
+    public bool needsHolding;
+
     public SiteArchetype ToCore() => new()
     {
         Name = archetype,
@@ -65,6 +68,7 @@ public sealed class SiteArchetypeDef : Def
         Weight = weight,
         Capability = string.IsNullOrEmpty(capability) ? null : capability,
         CapabilityDays = capabilityDays,
+        NeedsHolding = needsHolding,
     };
 
     public static SiteArchetypeDef? For(SiteArchetype archetype) =>

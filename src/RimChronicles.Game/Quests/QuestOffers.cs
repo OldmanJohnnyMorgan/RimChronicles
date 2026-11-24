@@ -69,11 +69,17 @@ public static class QuestOffers
     /// <summary>An Imperial site of <paramref name="archetype"/> to destroy (crisis C9). It counts as the Sabotage
     /// template, so the Empire plot follows it as it did the settlement sabotage.</summary>
     public static Quest? ImperialSite(RimChroniclesGameComponent component, Plot plot, Crisis.Sites.SiteArchetypeDef archetype, Faction empire,
-        string name, string description) =>
+        string name, string description, (Settlement Settlement, Faction Former)? holding = null) =>
         QuestStarter.Offer(component, plot, QuestTemplates.Sabotage, "RimChronicles_ImperialSite", name, description, slate =>
         {
             slate.Set(Crisis.Sites.QuestNode_Root_ChroniclesImperialSite.ArchetypeVar, archetype);
             slate.Set(Crisis.Sites.QuestNode_Root_ChroniclesImperialSite.FactionVar, empire);
+            if (holding is { } held)
+            {
+                slate.Set(Crisis.Sites.QuestNode_Root_ChroniclesImperialSite.HoldingVar, held.Settlement);
+                slate.Set(Crisis.Sites.QuestNode_Root_ChroniclesImperialSite.FormerVar, held.Former);
+            }
+
             slate.Set(QuestNode_Root_ChroniclesSite.RewardVar, QuestTemplates.RewardSilver(slate.Get("points", 300f)));
         });
 

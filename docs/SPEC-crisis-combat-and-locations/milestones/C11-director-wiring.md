@@ -1,7 +1,7 @@
 # C11: director wiring
 
 Crisis milestone C11 (project plan §2, tech spec R6–R8, R17 and §5). Built 2026-11-24; not yet checked in game
-(checkpoint 4, part two). `Site:ReclaimedHolding` (tech spec R7) is left for a follow-up: it needs a new site archetype.
+(checkpoint 4, part two). `Site:ReclaimedHolding` came in a follow-up PR (below).
 
 ## Who decides the crisis
 
@@ -36,6 +36,23 @@ crisis is on". When the retrained directors ship, their presets set `KnowsCrisis
 | `director-dataset` | The manifest's test version becomes 2 when crisis test cases (seed 9001) are in the test split |
 | `harness/snapshots/snap-24-crisis-war.json`, schema | A crisis snapshot for the Stage 0 harness; `crisis` and the `ImperialCrisis` template in the schema |
 | Dev Mode | **Crisis: decide now**, **Crisis: ask director for a siege goal**, **Crisis: ask director for a site**; **Crisis: show state** says who decides |
+
+## Reclaimed Holding
+
+Tech spec R7 calls it "a new opposed Act 2 option". It's built as a fourth `Site:*` archetype under
+`Empire:SabotageImperial` instead: a new Empire option would put an unknown id in front of the shipped directors and
+could change seed 9001's Empire cases. As a site, it follows the other sites: the director picks it in the follow-up
+call when it may decide the crisis, else by weight.
+
+| Where | What |
+| --- | --- |
+| `Defs/SiteArchetypeDefs`, `Defs/SitePartDefs` | `ReclaimedHolding`: 52×52, two barracks and power, the comms console in the comms room as objective, from Reclamation, weight 3, `needsHolding` |
+| `SiteArchetype.NeedsHolding`, `SiteArchetypes.Allowed(…, holdingNear)` | Offered only while the Empire holds a settlement it conquered near the colony |
+| `SiteOffers.Holding` | The nearest settlement the saga says the Empire conquered and still holds, within 30 tiles, its former owner still standing, no map or quest on it |
+| `EmpireBeats` (sabotage job), `QuestNode_Root_ChroniclesImperialSite` | "Liberate {town}": the site appears beside the held settlement |
+| `Crisis/Sites/Liberation.cs` | On the objective's destruction (`QuestPart_ChroniclesLiberate`): the settlement goes back to its former owner (+15 goodwill with the colony), news, a letter in the Empire plot's story, a saga note. The conquest stays in the saga, so the crisis stage doesn't move back |
+| Dev Mode | **Crisis: Empire takes the nearest settlement** (sets one up), **Crisis: offer Reclaimed Holding** |
+| `director-gen --arc crisis` | About half the Site cases have a holding (the Empire summary says so) and offer `Site:ReclaimedHolding`; crisis generator version 2 |
 
 ## Unchanged on purpose
 

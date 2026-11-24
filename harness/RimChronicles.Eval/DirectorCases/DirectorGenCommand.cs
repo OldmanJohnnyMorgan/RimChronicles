@@ -15,7 +15,7 @@ public static class DirectorGenCommand
     public const int GeneratorVersion = 4; // v4: waitExpected is open when a treaty or governorship is offered
 
     /// <summary>Bump when the crisis cases' output changes for the same seed (crisis C11).</summary>
-    public const int CrisisGeneratorVersion = 1;
+    public const int CrisisGeneratorVersion = 2; // v2: Reclaimed Holding in about half the Site cases
 
     /// <summary>Writes the cases; with <paramref name="sites"/> (the <c>crisis</c> arc), the crisis cases instead.</summary>
     public static int Run(int seed, int count, string outDir, string schemaPath, TextWriter log, IReadOnlyList<Core.Crisis.Sites.SiteArchetype>? sites = null)

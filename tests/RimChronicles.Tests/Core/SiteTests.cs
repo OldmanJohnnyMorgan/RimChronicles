@@ -262,6 +262,9 @@ public class SiteTests
         Assert.Empty(SiteArchetypes.Allowed(all, CrisisStage.None));
         Assert.Equal(["ForwardOutpost"], SiteArchetypes.Allowed(all, CrisisStage.Probing).Select(a => a.Name));
         Assert.Equal(["ForwardOutpost", "OrbitalUplink", "PsychicRelay"], SiteArchetypes.Allowed(all, CrisisStage.Reclamation).Select(a => a.Name));
+        Assert.Equal(["ForwardOutpost", "OrbitalUplink", "PsychicRelay", "ReclaimedHolding"],
+            SiteArchetypes.Allowed(all, CrisisStage.Reclamation, holdingNear: true).Select(a => a.Name));
+        Assert.Equal(["ForwardOutpost"], SiteArchetypes.Allowed(all, CrisisStage.Probing, holdingNear: true).Select(a => a.Name));
         Assert.Null(SiteArchetypes.Pick([], 0.5));
         Assert.Equal("ForwardOutpost", SiteArchetypes.Pick(SiteArchetypes.Allowed(all, CrisisStage.War), 0.0)!.Name);
         Assert.Equal("PsychicRelay", SiteArchetypes.Pick(SiteArchetypes.Allowed(all, CrisisStage.War), 0.99)!.Name);

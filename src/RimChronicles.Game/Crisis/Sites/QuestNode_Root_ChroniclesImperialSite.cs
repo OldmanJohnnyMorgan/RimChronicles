@@ -16,15 +16,26 @@ public sealed class QuestNode_Root_ChroniclesImperialSite : QuestNode_Root_Chron
     public const string ArchetypeVar = "rcSiteArchetype";
     public const string FactionVar = "rcSiteFaction";
 
+    /// <summary>Reclaimed Holding (C11): the conquered settlement the garrison holds, and the faction it was taken from.
+    /// The site appears beside it, and destroying the objective hands it back.</summary>
+    public const string HoldingVar = "rcSiteHolding";
+    public const string FormerVar = "rcSiteFormer";
+
     protected override void Build(Quest quest, Slate slate)
     {
         var archetype = slate.Get<SiteArchetypeDef>(ArchetypeVar) ?? throw new InvalidOperationException("An Imperial site needs an archetype.");
         var faction = slate.Get<Faction>(FactionVar) ?? throw new InvalidOperationException("An Imperial site needs the Empire.");
-        var site = MakeSite(quest, archetype.sitePart!, faction, slate.Get("points", archetype.budget.min));
+        var holding = slate.Get<Settlement>(HoldingVar);
+        var site = MakeSite(quest, archetype.sitePart!, faction, slate.Get("points", archetype.budget.min), holding?.Tile);
         quest.AddPart(new QuestPart_ChroniclesTagSiteObjective
         {
             inSignal = Signal("site.MapGenerated"), site = site, tag = QuestGenUtility.HardcodedTargetQuestTagWithQuestID("objective"),
         });
+        if (holding is not null && slate.Get<Faction>(FormerVar) is { } former)
+        {
+            quest.AddPart(new QuestPart_ChroniclesLiberate { inSignal = Signal("objective.Destroyed"), settlement = holding, former = former });
+        }
+
         Outcomes(quest, slate, site, Signal("objective.Destroyed"));
     }
 }

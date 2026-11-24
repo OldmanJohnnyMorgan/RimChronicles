@@ -51,6 +51,10 @@ public sealed record SiteArchetype
 
     public int CapabilityDays { get; init; }
 
+    /// <summary>Offered only while the Empire holds a settlement it conquered near the colony (Reclaimed Holding, crisis
+    /// C11): the site is that settlement's garrison, and breaking it hands the settlement back.</summary>
+    public bool NeedsHolding { get; init; }
+
     public string Id => Prefix + Name;
 
     /// <summary>The budget a site gets for the threat points it was made with.</summary>
@@ -60,8 +64,13 @@ public sealed record SiteArchetype
 /// <summary>Which archetypes the crisis may offer at a stage, and the weighted pick (the director picks from C11).</summary>
 public static class SiteArchetypes
 {
-    public static IReadOnlyList<SiteArchetype> Allowed(IEnumerable<SiteArchetype> all, CrisisStage stage) =>
-        stage == CrisisStage.None ? [] : all.Where(a => a.MinStage <= stage && a.Weight > 0).OrderBy(a => a.Name, StringComparer.Ordinal).ToList();
+    public const string ReclaimedHolding = "ReclaimedHolding";
+
+    /// <summary>The archetypes allowed at <paramref name="stage"/>; one that <see cref="SiteArchetype.NeedsHolding"/>
+    /// only when <paramref name="holdingNear"/>.</summary>
+    public static IReadOnlyList<SiteArchetype> Allowed(IEnumerable<SiteArchetype> all, CrisisStage stage, bool holdingNear = false) =>
+        stage == CrisisStage.None ? []
+        : all.Where(a => a.MinStage <= stage && a.Weight > 0 && (!a.NeedsHolding || holdingNear)).OrderBy(a => a.Name, StringComparer.Ordinal).ToList();
 
     /// <summary>A weighted pick with <paramref name="roll"/> in [0, 1); null when nothing is allowed.</summary>
     public static SiteArchetype? Pick(IReadOnlyList<SiteArchetype> allowed, double roll)
