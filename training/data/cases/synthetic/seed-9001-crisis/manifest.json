@@ -1,0 +1,24 @@
+{
+  "generator": "director-gen",
+  "generatorVersion": 3,
+  "seed": 9001,
+  "count": 240,
+  "sha256": "97b1b792ec43a61865198ca6d16d3b5d4b93e49800bcedd0c5af09d30adbfa4f",
+  "scenarios": [
+    "Crisis:Probing",
+    "Crisis:Reclamation",
+    "Crisis:Reclamation\u002Bcaptive",
+    "Crisis:War",
+    "Crisis:War\u002Bcaptive",
+    "Crisis:Finale",
+    "Crisis:SiegeGoal",
+    "Crisis:Site"
+  ],
+  "waitExpected": {
+    "true": 93,
+    "false": 19,
+    "open": 40,
+    "no Wait offered": 88
+  },
+  "arc": "crisis"
+}

@@ -304,10 +304,14 @@ plus the crisis test labels).
 
 1. **Cases (PowerShell):** `director-gen --seed 1 --arc crisis` (1,200 training cases) and
    `director-gen --seed 9001 --arc crisis --count 240` (the crisis test cases).
-2. **Test labels:** Claude Code labels the seed-9001 crisis cases in session (`training/data/labels/test-crisis-v1`),
-   as it did test-v1. No API spend.
-3. **Training labels:** the local teacher, `director-label --cases training/data/cases/synthetic/seed-1-crisis`, then
-   `director-labels-check`. Check the agreement and the forced-label share as for D4b.
+2. **Test labels: done** (2026-11-24). `training/data/labels/test-crisis-v1`: 240 seed-9001 crisis cases (crisis
+   generator v3) labelled by Claude Code in session with teacher prompt `director-teacher/v4`, the v3 rubric plus
+   crisis rules (operations by stage, retrieval for prisoners, nothing sent at a knocked-out capability, siege goals,
+   sites). Self-agreement 24/24; the Wait rule held in all 112 cases it decides. Best answers: Wait 43%, probe 11%,
+   retrieval 11%, forward outpost 9%, walls 7%, the rest spread. If the crisis generator changes, these go stale.
+3. **Training labels:** the local teacher, `director-label --cases training/data/cases/synthetic/seed-1-crisis` (it
+   uses `director-teacher/v4`), then `director-labels-check`. Check the agreement and the forced-label share as for
+   D4b.
 4. **Datasets and training:** `director-dataset` as before (it finds the crisis folders itself; its manifest says test
    version 2), then retrain E2B and E4B (D6).
 5. **Report and review** on both test sets together:
