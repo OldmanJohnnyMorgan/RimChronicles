@@ -1,0 +1,27 @@
+# Crisis retrain (crisis C11): same recipe as director-e4b.yaml, under its own name so the shipped rimchron-director-e4b
+# stays until this one passes its report. Director SFT for the Recommended tier (D6): Gemma 4 E4B on the Recommended-tier dataset. Training spec §5.2.
+base_model: unsloth/gemma-4-E4B-it
+ollama_base: gemma4:e4b                  # the Ollama model whose chat template the export copies
+dataset: data/splits/recommended         # director-dataset --tier Recommended
+output_dir: ~/rimchron-runs              # on the WSL disk, not /mnt/c (much faster)
+export_dir: /mnt/c/RimworldMods/rc-models
+run_name: director-e4b-crisis
+instruction_marker: "<|turn>user\n"      # Gemma 4 turn markers (D0)
+response_marker: "<|turn>model\n"
+load_in_4bit: true
+max_seq_length: 2048                     # rows are ~1,000 tokens at most (p99 ~900); sft stops if one is longer
+lora_r: 16
+lora_alpha: 32
+lora_dropout: 0.05
+learning_rate: 2.0e-4
+warmup_ratio: 0.03
+per_device_batch: 1                      # E2B peaked at 10.8 of 15.7 GB with 2; E4B is about twice as big, so half the
+grad_accumulation: 16                    # activations per pass. Effective batch stays 16, so step counts match E2B
+epochs: 3
+seed: 1
+quantizations: [q4_k_m, q8_0]
+eval_every_steps: 100                    # generate on the val sample every 100 optimizer steps
+eval_rows: 100
+patience: 4                              # stop after 4 evaluations (400 steps) without a better top-1
+max_new_tokens: 300                      # at least the game's director budget (200 Minimum, 300 above)
+min_free_vram_gb: 9

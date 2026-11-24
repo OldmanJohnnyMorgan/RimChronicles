@@ -7,7 +7,7 @@ public class TrainingConfigTests
 {
     [Theory]
     [InlineData("models.d0.json", 1)]
-    [InlineData("models.director.json", 4)]
+    [InlineData("models.director.json", 6)]
     public void TrainingModelConfigs_LoadAndValidate(string file, int models)
     {
         var config = HarnessConfig.Load(Repo.Path("training", file));
