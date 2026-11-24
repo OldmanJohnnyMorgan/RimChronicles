@@ -1,6 +1,6 @@
 # Rim Chronicles — The War in Heaven Spec
 
-**For:** Claude Code · **Owner:** John · **Date:** 2026-11-24 (draft 2: Q2–Q7 decided; the name is still open, §11)
+**For:** Claude Code · **Owner:** John · **Date:** 2026-11-24 (draft 3: all open questions decided)
 **Parent spec:** Rim Chronicles — Design Spec (Stage 5). Siblings: `SPEC-crisis-combat-and-locations/`,
 `SPEC-director-model.md`. Where they disagree, the parent spec wins.
 
@@ -51,15 +51,17 @@ Without Royalty there is no major plot at all, as today.
 A new humanlike faction led by **mechanitors**, with mech armies. Unlike the hidden mechanoid hive, it has
 settlements on the world map, relations, envoys and territory, so it can do everything the Empire does.
 
-- **Faction:** a new `FactionDef` (name to be chosen, Q1), tech level Ultra, hidden and dormant until it wakes, then
+- **Faction:** a new `FactionDef`, **the Hollow Choir** (decided, D12), tech level Ultra, hidden and dormant until it wakes, then
   revealed. Leaders and officers are mechanitors (mechlink, bandwidth implants); the army is mechs (vanilla Biotech and
   Core mech kinds), with mechanitors commanding from the back.
 - **Titles:** a mechanite rank ladder mirrors Royal titles, so allying with it can lead to a mechanite victory ending
   (§7). Ranks give bandwidth, the way titles give psylink levels.
 - **Lore:** the mechanites are the Empire's original enemy. Imperial envoys, bulletins and letters treat them as the
   old foe; the mechanites see the Empire as the usurper. The model for their character is an ancient power that hides
-  in the dark, works through agents and believes that conflict makes peoples stronger; the name and voice must be
-  our own (Q1).
+  in the dark, works through agents and believes that conflict makes peoples stronger; the name and voice are our own.
+- **Name and voice:** outsiders and the Empire call them **the Hollow Choir**; they call themselves **the Chorus**.
+  Their mechanites hum in one voice, and colonists hear the hum before raids and while the Choir is Stirring, which
+  gives the narrator a sign to use ("the Choir is singing again").
 
 ### 3.1 Mechanite states (mirror of the Empire)
 
@@ -215,10 +217,10 @@ tests go into `docs/test-plan.md` and a runbook, for John to run once at the end
 | D9 | The mechanites get the full crisis; Independence fights both; destroying one empire brings the other's treaty offer, which the player may refuse | 2026-11-24 |
 | D10 | Resistance victory is folded into the War in Heaven endings | 2026-11-24 |
 | D11 | Order: C14 and the crisis merge to main, then this tech spec and build, then the one retrain and a proof run | 2026-11-24 |
+| D12 | The mechanite empire is the Hollow Choir; its people call themselves the Chorus | 2026-11-24 |
 
 ---
 
 ## 11. Open questions
 
-- **Q1 Name.** What is the mechanite empire called in game, and what do its people call themselves? It has no name
-  in the lore. Candidates were offered on 2026-11-24; the name must be original, not borrowed from the show that inspired it.
+None open. The tech spec comes after C14 and the crisis merge to main (D11).
