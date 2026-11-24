@@ -129,6 +129,14 @@ conquest job, defend ally, sabotage, tribute, reckoning, and the Choir's Act 3 o
   come with W11. `PowerDrivers.Daily` runs each running power's driver, then the allegiance sync; the Chronicle tab
   titles the story "The Hollow Choir".
 
+- **As built (W5):** triggers `Rival`, `ShipLaunch`, `RoyalAscent`; `PowerSaga.WakeAtOnce` goes straight to Awakened
+  (keeping a stirring's first trigger). `CrossWaking.RivalShouldWake`: a power awake and having attacked (an expansion,
+  a crisis operation, or a raid against a ship launch or the Royal Ascent) wakes a rival that is still dormant or
+  stirring; `PowerDrivers` checks it daily. The ship launch now wakes a sleeping Empire before its reaction; the Royal
+  Ascent (`RoyalAscentPatch` on `Quest.Accept`) wakes the Choir and, unless the colony is its ally, raids at once and
+  every 4 days while the ascent quest is ongoing (the saga's `NextShipRaidDay` serves both reactions). Dev Mode:
+  **Hollow Choir: react to the Royal Ascent**.
+
 ### 4.3 The Choir's crisis
 
 The Empire's crisis code, run with `Power.Choir`. What differs:

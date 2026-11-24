@@ -16,7 +16,7 @@ first, then `main` is merged into `war-in-heaven`.
 | W3 | Choir faction and units (**built 2026-11-24**; in game at checkpoint 1) | Codespace | Faction def, mechanitor kinds, group makers by stage; created on waking with its settlements; Dev Mode spawns a Choir group |
 | W4a | Choir saga (**built 2026-11-24**; in game at checkpoint 1) | Codespace | `ChoirDriver`: triggers (wealth, a mechanitor colonist, day 300), stirring rumours and the hum, waking creates the faction and applies the stored allegiance, expansion; the Hollow Choir setting; Dev Mode show, trigger stirring, wake, expand |
 | W4b | Choir plot and ranks (**built 2026-11-24**; in game at checkpoint 1) | Codespace | `HollowChoir` plot template and beats (envoy, Act 2 jobs, tribute, Act 3), the Choir rank ladder from service (spec D13) opening the First Voice's offer; Empire and Choir drivers share one loop over `PowerFactions.Running` |
-| W5 | Cross-waking, ship launch and Royal Ascent | Codespace | Waking rules of spec §4–§5 unit-tested; `Quest.Accept` patch; Dev Mode for each |
+| W5 | Cross-waking, ship launch and Royal Ascent (**built 2026-11-24**; in game at checkpoint 1) | Codespace | Waking rules of spec §4–§5 unit-tested; `Quest.Accept` patch; Dev Mode for each |
 | **Checkpoint 1** | `war-runbook-1.md` | PC | Choir wakes (each way), faction and settlements appear, sides set relations, the hum shows in bulletins |
 | W6 | Summons, conversion, shut-down and dismantle | Codespace | Both quest scripts; conversion at every level (unit); shut-down mechs never go feral; dismantle yields parts; refusal sets independence |
 | W7 | Choir crisis: commander AI, operations, cluster drop, burrowing strike, the Hum | Codespace | Tech spec §4.3 rows 1–5; fairness tests as for the crisis |

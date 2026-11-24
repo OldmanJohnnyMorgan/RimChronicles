@@ -1,5 +1,6 @@
 using RimChronicles.Core.Powers;
 using RimChronicles.Game.Empire;
+using RimWorld;
 
 namespace RimChronicles.Game.Powers;
 
@@ -21,6 +22,29 @@ public static class PowerDrivers
             }
         }
 
+        CrossWake(component);
         AllegianceDriver.Daily(component);
+    }
+
+    /// <summary>War in Heaven spec §4: once one power is awake and has attacked, a rival still asleep wakes at once.</summary>
+    private static void CrossWake(RimChroniclesGameComponent component)
+    {
+        var running = PowerFactions.Running;
+        if (!running.Contains(Power.Empire) || !running.Contains(Power.Choir))
+        {
+            return;
+        }
+
+        var today = GenDate.DaysPassed;
+        var empire = component.Empire;
+        var choir = component.Choir;
+        if (CrossWaking.RivalShouldWake(empire, CrossWaking.HasAttacked(empire, component.Crisis.History.Count > 0), choir))
+        {
+            ChoirDriver.WakeAtOnce(component, AwakeningTrigger.Rival, EmpireDriver.EmpireFaction?.Name ?? "", today);
+        }
+        else if (CrossWaking.RivalShouldWake(choir, CrossWaking.HasAttacked(choir), empire))
+        {
+            EmpireDriver.WakeAtOnce(component, AwakeningTrigger.Rival, ChoirFaction.Existing?.Name ?? "", today);
+        }
     }
 }

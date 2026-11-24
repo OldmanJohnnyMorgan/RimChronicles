@@ -389,6 +389,8 @@ Run `docs/SPEC-war-in-heaven/war-runbook-1.md` once W5 is merged. Needs Royalty 
       faction and the colony's stored stance, expands; off without Biotech or with its setting off.
 - [ ] W4b: the Choir's plot and ranks (steps W4b.1–W4b.7): envoy and stance, jobs by stance, tribute, Chorus rank
       from service, decided by weight (never the model) until the retrain.
+- [ ] W5: waking (steps W5.1–W5.5): either power's attack wakes the other at once; the ship launch wakes the Empire;
+      the Royal Ascent wakes the Choir and brings its raids.
 
 ---
 
