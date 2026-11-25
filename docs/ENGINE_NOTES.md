@@ -24,7 +24,7 @@ dlls/<name>.dll` for `Assembly-CSharp`, `RimWorld`, `Waylith`, `UnityStubs`, `Wa
 | `UnityEngine*` and `Unity.*` assembly names redirect to `UnityStubs`. | `WaylithClr.AssemblyNameRedirects` | — |
 | Only `Assembly-CSharp` is marked JIT-patchable (`WaylithClr.JitPatchableAssemblies`). Harmony patches should target methods in `Assembly-CSharp`. Patching `RimWorld.dll` or `Waylith*` code may not work. | `runtimeconfig.json` | — |
 | Mods still load DLLs from `<mod>/1.7/Assemblies/`, and `About/About.xml` still uses `packageId`, `supportedVersions`, `modDependencies` and `loadAfter`. | `ModContentPack`, `ModMetaData` | Yes (test 1) |
-| The log is `Player.log` in the save data folder, written by `Waylith.Logging.FileLog`. | `FileLog` | — |
+| The log is `Logs\Player.log` in the save data folder (the previous session's is `Logs\Player-prev.log`), written by `Waylith.Logging.FileLog`. | `FileLog` | — |
 
 ## Harmony
 

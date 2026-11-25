@@ -89,6 +89,16 @@ public static class PowerExpansion
     /// <summary>The chance an attack on this target fails: 15%, plus 5% for each settlement its owner holds (up to 6).</summary>
     public static double RepelChance(ExpansionTarget t) => 0.15 + 0.05 * Math.Clamp(t.FactionSettlements, 0, 6);
 
+    /// <summary>The numbers behind one attack, for the Dev Mode log: the rolls, the target's odds and how many
+    /// settlements were in reach.</summary>
+    public static string Odds(ExpansionTarget t, int candidates, double targetRoll, double resultRoll)
+    {
+        var repel = RepelChance(t);
+        return string.Create(System.Globalization.CultureInfo.InvariantCulture,
+            $"Result roll {resultRoll:0.000}: repelled below {repel:0.00}, razed below {repel + RazeChance:0.00}, else taken "
+            + $"({t.Faction} holds {t.FactionSettlements}; {t.Distance:0} tiles; target roll {targetRoll:0.000} of {candidates} in reach).");
+    }
+
     public static ExpansionResult PickResult(ExpansionTarget t, double roll)
     {
         var repel = RepelChance(t);

@@ -216,7 +216,8 @@ public static class ChoirDriver
         var saga = component.Choir;
         var gap = StoryIntensity.Scale(Rand.RangeInclusive(PowerExpansion.MinGapDays, PowerExpansion.MaxGapDays), RimChroniclesMod.Settings.StoryIntensity);
         var settlements = EmpireDriver.Targets(choir);
-        var target = PowerExpansion.PickTarget(settlements.Keys.ToList(), Rand.Value);
+        var targetRoll = Rand.Value;
+        var target = PowerExpansion.PickTarget(settlements.Keys.ToList(), targetRoll);
         if (target is null)
         {
             saga.NextExpansionDay = today + gap;
@@ -224,7 +225,8 @@ public static class ChoirDriver
             return;
         }
 
-        var result = PowerExpansion.PickResult(target, Rand.Value);
+        var resultRoll = Rand.Value;
+        var result = PowerExpansion.PickResult(target, resultRoll);
         var settlement = settlements[target];
         switch (result)
         {
@@ -238,6 +240,11 @@ public static class ChoirDriver
         }
 
         Show(component, saga.Expanded(target, result, today, gap, choir.Name), today, choir);
+        if (Prefs.DevMode)
+        {
+            Log.Message($"[Rim Chronicles] Choir expansion: {Power.Choir.Text.ExpansionNews(result, choir.Name, target)}. "
+                + PowerExpansion.Odds(target, settlements.Count, targetRoll, resultRoll));
+        }
     }
 
     private static void Record(RimChroniclesGameComponent component, int today, string choice, string reason, string source, string? options = null) =>

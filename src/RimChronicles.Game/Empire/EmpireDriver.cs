@@ -85,7 +85,8 @@ public static class EmpireDriver
     {
         var gap = StoryIntensity.Scale(Rand.RangeInclusive(PowerExpansion.MinGapDays, PowerExpansion.MaxGapDays), RimChroniclesMod.Settings.StoryIntensity);
         var settlements = Targets(empire);
-        var target = PowerExpansion.PickTarget(settlements.Keys.ToList(), Rand.Value);
+        var targetRoll = Rand.Value;
+        var target = PowerExpansion.PickTarget(settlements.Keys.ToList(), targetRoll);
         if (target is null)
         {
             component.Empire.NextExpansionDay = today + gap;
@@ -93,7 +94,8 @@ public static class EmpireDriver
             return;
         }
 
-        var result = PowerExpansion.PickResult(target, Rand.Value);
+        var resultRoll = Rand.Value;
+        var result = PowerExpansion.PickResult(target, resultRoll);
         var settlement = settlements[target];
         switch (result)
         {
@@ -110,7 +112,8 @@ public static class EmpireDriver
         Show(component, component.Empire.Expanded(target, result, today, gap, empire.Name), today, empire);
         if (Prefs.DevMode)
         {
-            Log.Message($"[Rim Chronicles] Empire expansion: {Power.Empire.Text.ExpansionNews(result, empire.Name, target)}.");
+            Log.Message($"[Rim Chronicles] Empire expansion: {Power.Empire.Text.ExpansionNews(result, empire.Name, target)}. "
+                + PowerExpansion.Odds(target, settlements.Count, targetRoll, resultRoll));
         }
     }
 
