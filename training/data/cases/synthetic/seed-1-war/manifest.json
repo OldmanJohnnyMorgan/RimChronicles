@@ -1,0 +1,41 @@
+{
+  "generator": "director-gen",
+  "generatorVersion": 1,
+  "seed": 1,
+  "count": 1500,
+  "sha256": "44d52f953c306964687606d0b465672b55402f84d3b1ff8af08843e8d6b5c238",
+  "scenarios": [
+    "Choir:Act2:ally",
+    "Choir:Act2:oppose",
+    "Choir:Act2:neutral",
+    "Choir:Act3:ally",
+    "Choir:Act3:ally\u002Brank",
+    "Choir:Act3:oppose:ascendant",
+    "Choir:Act3:oppose:broken",
+    "Choir:Act3:neutral:ascendant",
+    "Choir:Act3:neutral:broken",
+    "ChoirCrisis:Probing",
+    "ChoirCrisis:Reclamation",
+    "ChoirCrisis:Reclamation\u002Bcaptive",
+    "ChoirCrisis:War",
+    "ChoirCrisis:Finale",
+    "ChoirCrisis:SiegeGoal",
+    "ChoirCrisis:Site",
+    "War:empire",
+    "War:empire\u002Bpush",
+    "War:choir",
+    "War:choir\u002Bpush",
+    "War:empire:victory",
+    "War:choir:victory",
+    "War:independent",
+    "War:independent:fallen",
+    "War:undeclared"
+  ],
+  "waitExpected": {
+    "true": 514,
+    "false": 144,
+    "open": 548,
+    "no Wait offered": 294
+  },
+  "arc": "war"
+}
