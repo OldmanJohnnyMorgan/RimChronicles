@@ -99,7 +99,7 @@ public static partial class DirectorReportCommand
         Directory.CreateDirectory(o.OutDir);
         var md = Markdown(o, prompt.Meta.Version, labels, metrics, results);
         File.WriteAllText(Path.Combine(o.OutDir, o.Name + ".md"), md);
-        File.WriteAllText(Path.Combine(o.OutDir, o.Name + ".json"), JsonSerializer.Serialize(metrics, new JsonSerializerOptions { WriteIndented = true }) + "\n");
+        File.WriteAllText(Path.Combine(o.OutDir, o.Name + ".json"), JsonSerializer.Serialize(metrics, new JsonSerializerOptions { WriteIndented = true, NewLine = "\n" }) + "\n");
         File.WriteAllText(Path.Combine(o.OutDir, o.Name + "-cases.csv"), CasesCsv(labels, results));
         log.WriteLine($"Report: {Path.Combine(o.OutDir, o.Name + ".md")} (each case: {o.Name}-cases.csv)");
         return 0;

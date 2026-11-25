@@ -98,7 +98,7 @@ public static class SpotCheck
             pairs.Count == 0 ? null : pairs.Average(p => p.JudgeOverall),
             pairs.Count == 0 ? null : pairs.Average(p => p.HumanOverall));
 
-        File.WriteAllText(Path.Combine(runFolder, AgreementFile), JsonSerializer.Serialize(agreement, new JsonSerializerOptions { WriteIndented = true }));
+        File.WriteAllText(Path.Combine(runFolder, AgreementFile), JsonSerializer.Serialize(agreement, new JsonSerializerOptions { WriteIndented = true, NewLine = "\n" }));
         static string P(double? v) => v is null ? "-" : v.Value.ToString("P0", CultureInfo.InvariantCulture);
         static string N(double? v) => v is null ? "-" : v.Value.ToString("0.00", CultureInfo.InvariantCulture);
         log.WriteLine($"Scored {pairs.Count} of {samples.Count} samples.");

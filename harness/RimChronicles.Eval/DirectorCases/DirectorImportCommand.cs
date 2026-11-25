@@ -75,7 +75,7 @@ public static class DirectorImportCommand
             ["count"] = all.Count,
             ["sha256"] = Convert.ToHexString(hash.GetHashAndReset()).ToLowerInvariant(),
         };
-        File.WriteAllText(Path.Combine(outDir, "manifest.json"), manifest.ToJsonString(new JsonSerializerOptions { WriteIndented = true }) + "\n");
+        File.WriteAllText(Path.Combine(outDir, "manifest.json"), manifest.ToJsonString(new JsonSerializerOptions { WriteIndented = true, NewLine = "\n" }) + "\n");
         log.WriteLine($"Imported {added} new case(s), skipped {skipped} already imported, rejected {rejected}. {all.Count} exported cases in {outDir}.");
         return rejected == 0 ? 0 : 1;
     }

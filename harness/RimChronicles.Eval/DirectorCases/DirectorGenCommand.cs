@@ -70,7 +70,7 @@ public static class DirectorGenCommand
             manifest["arc"] = war ? "war" : "crisis";
         }
 
-        File.WriteAllText(Path.Combine(outDir, "manifest.json"), manifest.ToJsonString(new JsonSerializerOptions { WriteIndented = true }) + "\n");
+        File.WriteAllText(Path.Combine(outDir, "manifest.json"), manifest.ToJsonString(new JsonSerializerOptions { WriteIndented = true, NewLine = "\n" }) + "\n");
 
         var table = new StringBuilder("scenario,mood,cases\n");
         foreach (var (key, n) in coverage)

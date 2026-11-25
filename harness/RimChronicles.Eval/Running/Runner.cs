@@ -17,7 +17,7 @@ namespace RimChronicles.Eval.Running;
 /// <summary>Runs every cell through the real <see cref="LlmTaskRunner"/>, scores it and writes the run folder.</summary>
 public static class Runner
 {
-    private static readonly JsonSerializerOptions Indented = new() { WriteIndented = true };
+    private static readonly JsonSerializerOptions Indented = new() { WriteIndented = true, NewLine = "\n" };
 
     public static async Task<RunResult> RunAsync(RunOptions o, TextWriter log, CancellationToken ct)
     {
