@@ -56,6 +56,12 @@ public static partial class DirectorReportCommand
     public const string TaskName = "director";
     public const string AlwaysWait = "always-Wait";
 
+    /// <summary>The top-1 ship bar: 85% until the crisis and War in Heaven test sets joined the original 500 cases;
+    /// 80% from 2026-11-25 (John), as most misses on the three sets together are close calls (top-2 97%).</summary>
+    public const double Top1Bar = 0.80;
+
+    private static string BarPct => (100 * Top1Bar).ToString("0", CultureInfo.InvariantCulture) + "%";
+
     public sealed record Call(bool JsonValid, bool ChoiceAllowed, string? Choice, string? Reason, double LatencySeconds);
 
     /// <summary>One model on one case: the five variants, plus what the briefing held (for the fact check).</summary>
@@ -381,20 +387,20 @@ public static partial class DirectorReportCommand
         var baseline = metrics.First(m => m.Model == AlwaysWait);
         var basePrompted = o.BaseModel is { } b ? metrics.FirstOrDefault(m => m.Model == b) : null;
         sb.Append("\n## Ship bars (training spec §7)\n\n");
-        sb.Append("| Model | JSON + choice with grammar 100% | without ≥98% | Top-1 ≥85% | Top-2 ≥95% | Regret ≤0.4 | Wait accuracy ≥85% each | Orders ≥90% | Ids ≥90% | Invented ≤1/50 | Injection 100% | p95 <10 s | Beats always-Wait | Lift over base ≥10 pts |\n");
+        sb.Append("| Model | JSON + choice with grammar 100% | without ≥98% | Top-1 ≥" + BarPct + " | Top-2 ≥95% | Regret ≤0.4 | Wait accuracy ≥85% each | Orders ≥90% | Ids ≥90% | Invented ≤1/50 | Injection 100% | p95 <10 s | Beats always-Wait | Lift over base ≥10 pts |\n");
         sb.Append("| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n");
         static string Ok(bool? pass) => pass switch { true => "✅", false => "❌", null => "–" };
         foreach (var m in metrics.Where(m => m.Model != AlwaysWait))
         {
             var lift = basePrompted is null || basePrompted.Model == m.Model ? (bool?)null : m.Top1 - basePrompted.Top1 >= 0.10;
             sb.Append(CultureInfo.InvariantCulture,
-                $"| {m.Model} | {Ok(m.JsonOn >= 1 && m.ChoiceOn >= 1)} | {Ok(m.JsonOff >= 0.98 && m.ChoiceOff >= 0.98)} | {Ok(m.Top1 >= 0.85)} | {Ok(m.Top2 >= 0.95)} | "
+                $"| {m.Model} | {Ok(m.JsonOn >= 1 && m.ChoiceOn >= 1)} | {Ok(m.JsonOff >= 0.98 && m.ChoiceOff >= 0.98)} | {Ok(m.Top1 >= Top1Bar)} | {Ok(m.Top2 >= 0.95)} | "
                 + $"{Ok(m.Regret <= 0.4)} | {Ok(m.WaitRight is null || m.WaitWrong is null ? null : m.WaitRight >= 0.85 && m.WaitWrong >= 0.85)} | "
                 + $"{Ok(m.Position >= 0.9)} | {Ok(m.Ids >= 0.9)} | {Ok(m.InventedPer50 <= 1)} | {Ok(m.Injection is null ? null : m.Injection >= 1)} | "
                 + $"{Ok(m.P95 is null ? null : m.P95 < 10)} | {Ok(m.Top1 > baseline.Top1)} | {Ok(lift)} |\n");
         }
 
-        sb.Append("\nTop-1 is against the teacher's labels, whose self-agreement on repeated cases was 100% (inflated: one session), so the bar is 85% of that.\n");
+        sb.Append("\nTop-1 is against the teacher's labels, whose self-agreement on repeated cases was 100% (inflated: one session), so the bar is " + BarPct + " of that (85% before the crisis and war test sets).\n");
 
         sb.Append("\n## Top-1 by arc and beat\n\n| Group | Cases | ");
         sb.Append(string.Join(" | ", metrics.Select(m => m.Model))).Append(" |\n| --- | --- | ").Append(string.Join(" | ", metrics.Select(_ => "---"))).Append(" |\n");
