@@ -30,3 +30,7 @@ training/data/**
 # Labels cost a teacher's time or money: keep them (cases regenerate from their seed)
 !training/data/labels/**
 training/runs/
+
+# Local training leftovers on the PC
+training/unsloth_compiled_cache/
+training/uv.lock

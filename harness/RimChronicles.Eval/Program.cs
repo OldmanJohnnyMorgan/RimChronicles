@@ -123,6 +123,9 @@ if (args.Length == 0 || args[0] is "-h" or "--help" or "help")
     return 0;
 }
 
+// Cases, prompts and reports must not depend on the PC's region settings (a Swedish Windows writes "day −9").
+System.Globalization.CultureInfo.DefaultThreadCurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
+System.Globalization.CultureInfo.CurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
 var root = FindRepoRoot();
 var valueOptions = new HashSet<string>
 {
