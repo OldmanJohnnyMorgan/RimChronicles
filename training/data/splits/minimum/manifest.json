@@ -2,7 +2,7 @@
   "builder": "director-dataset",
   "promptVersion": "director/v2",
   "tier": "Minimum",
-  "testVersion": 3,
+  "testVersion": 2,
   "testSeeds": [
     9001
   ],
@@ -22,6 +22,10 @@
     {
       "labels": "pilot",
       "sha256": "d2c969dc492549f217a9de3933c89219609a02aaf668ae4da0974d60ced5c3e3"
+    },
+    {
+      "labels": "rule-goal-site-v1",
+      "sha256": "8300247f0d7bd9b1cccab75e9c1513281c888c951ec2b5d73d4f6f4f19933889"
     },
     {
       "labels": "test-crisis-v1",
@@ -49,25 +53,25 @@
     }
   ],
   "cases": {
-    "train": 5200,
-    "val": 576,
-    "test": 1040
+    "train": 5230,
+    "val": 580,
+    "test": 740
   },
   "rows": {
-    "train": 15600,
-    "val": 576,
-    "test": 1040
+    "train": 15690,
+    "val": 580,
+    "test": 740
   },
   "sha256": {
-    "train": "8aa7a57cfc293b9a9ffdc8042783da6dae5cc680d9f45b6b07c2c83e6ff340e7",
-    "val": "339394ba765f3cd6a666f5cef7a3a60dca3a9bbd207e60bc8ac6c3ca95b1365c",
-    "test": "89d18215d6efa5c4e79ad319f9a97728e92cc4e9eb9417021f0b5f5a249392b5"
+    "train": "70c3f4ad1cde4947b55c9fc6287855ca47345f1d5012589a3d6170d47d74d456",
+    "val": "1db072f0e05fc0324b6e96a3f87c61c018a6a3907a2cce3402d7985a1c8fbf8a",
+    "test": "479c7bb47034c0a69bc14c59c5694931d37fc267f8114a4dd0e65810623cf43b"
   },
   "leftOut": {
-    "lowAgreement": 108,
-    "caseMissing": 0,
+    "lowAgreement": 74,
+    "caseMissing": 300,
     "caseChanged": 0,
-    "duplicate": 250,
+    "duplicate": 670,
     "waitCapped": 0,
     "localOpenHandOnly": 866
   }

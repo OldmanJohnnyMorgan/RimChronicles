@@ -15,7 +15,7 @@
       "case": "dir-s9001-00020",
       "group": "Nemesis/Complication",
       "model": "A",
-      "same": true
+      "same": false
     },
     {
       "item": 3,
@@ -57,7 +57,7 @@
       "case": "dir-s9001-00145",
       "group": "AwakenedEmpire/Act2",
       "model": "B",
-      "same": true
+      "same": false
     },
     {
       "item": 9,
@@ -78,7 +78,7 @@
       "case": "dir-s9001-00208",
       "group": "Nemesis/Complication",
       "model": "A",
-      "same": true
+      "same": false
     },
     {
       "item": 12,
@@ -148,14 +148,14 @@
       "case": "dir-s9001-00416",
       "group": "AwakenedEmpire/Act2",
       "model": "B",
-      "same": true
+      "same": false
     },
     {
       "item": 22,
       "case": "dir-s9001-00436",
       "group": "AwakenedEmpire/Ascendant",
       "model": "A",
-      "same": true
+      "same": false
     },
     {
       "item": 23,
@@ -246,7 +246,7 @@
       "case": "dir-s9001-c00207",
       "group": "ImperialCrisis/Site",
       "model": "B",
-      "same": true
+      "same": false
     },
     {
       "item": 36,
@@ -267,7 +267,7 @@
       "case": "dir-s9001-w00029",
       "group": "HollowChoir/Ascendant",
       "model": "A",
-      "same": true
+      "same": false
     },
     {
       "item": 39,
@@ -302,7 +302,7 @@
       "case": "dir-s9001-w00133",
       "group": "HollowChoir/Broken",
       "model": "B",
-      "same": true
+      "same": false
     },
     {
       "item": 44,
