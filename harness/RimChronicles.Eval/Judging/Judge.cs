@@ -39,7 +39,7 @@ public static class Judge
         RimChronicles.Core.Empire.EpilogueTask.TaskName,
     };
 
-    private static readonly JsonSerializerOptions Indented = new() { WriteIndented = true };
+    private static readonly JsonSerializerOptions Indented = new() { WriteIndented = true, NewLine = "\n" };
 
     public static async Task<IReadOnlyList<JudgeRow>> RunAsync(JudgeOptions o, TextWriter log, CancellationToken ct)
     {

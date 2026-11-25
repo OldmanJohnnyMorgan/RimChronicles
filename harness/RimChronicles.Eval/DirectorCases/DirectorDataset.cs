@@ -207,7 +207,7 @@ public static class DirectorDataset
             ["sha256"] = hashes,
             ["leftOut"] = new JsonObject { ["lowAgreement"] = lowAgreement, ["caseMissing"] = missing, ["caseChanged"] = stale, ["duplicate"] = duplicate, ["waitCapped"] = waitCapped.Count, ["localOpenHandOnly"] = handOnly },
         };
-        File.WriteAllText(Path.Combine(o.OutDir, "manifest.json"), manifest.ToJsonString(new JsonSerializerOptions { WriteIndented = true }) + "\n");
+        File.WriteAllText(Path.Combine(o.OutDir, "manifest.json"), manifest.ToJsonString(new JsonSerializerOptions { WriteIndented = true, NewLine = "\n" }) + "\n");
         log.WriteLine($"Cases: train {cases["train"]}, val {cases["val"]}, test {cases["test"]} (rows {counts["train"]} / {counts["val"]} / {counts["test"]}); "
             + $"left out: {lowAgreement} low agreement, {missing} missing, {stale} changed since labelling, {duplicate} duplicate, {waitCapped.Count} Wait cases over the cap, {handOnly} local labels on hand-only open cases. Prompt {DirectorTask}/{prompt.Meta.Version}, tier {o.Tier}. Written to {o.OutDir}.");
         return missing == 0 && stale == 0 ? 0 : 1;

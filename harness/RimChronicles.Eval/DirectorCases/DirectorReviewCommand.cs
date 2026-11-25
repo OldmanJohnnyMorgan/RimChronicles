@@ -80,7 +80,7 @@ public static class DirectorReviewCommand
                 ["same"] = i.A.Choice == i.B.Choice,
             }).ToArray()),
         };
-        File.WriteAllText(Path.Combine(o.OutDir, "key.json"), key.ToJsonString(new JsonSerializerOptions { WriteIndented = true }) + "\n");
+        File.WriteAllText(Path.Combine(o.OutDir, "key.json"), key.ToJsonString(new JsonSerializerOptions { WriteIndented = true, NewLine = "\n" }) + "\n");
         File.WriteAllText(Path.Combine(o.OutDir, "review.html"), Html(items, Path.GetFileName(o.OutDir.TrimEnd('/', '\\'))));
         log.WriteLine($"{items.Count} cases ({stats.Hits} answers from the cache, {stats.Misses} new calls); "
             + $"{items.Count(i => i.A.Choice == i.B.Choice)} where both answers pick the same option. Open {Path.Combine(o.OutDir, "review.html")}.");
