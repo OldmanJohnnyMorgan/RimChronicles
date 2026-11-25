@@ -384,3 +384,14 @@ labels, E2B and E4B retrained, reports and reviews, and the presets marked as kn
   Its director retrain is folded into the War in Heaven's (W13).
 - **Not in this plan:** the Stage 5 proof run (`docs/stage5-runbook.md`, M7) has no results file yet. Run it if it
   hasn't been run.
+
+## Fixes since C14: check at the next in-game session (W14 proof run)
+
+**Crisis lords no longer panic-flee (branch `fix-crisis-panic-flee`).** Vanilla added its own panic flee (at a random
+40–70% of the force lost) to our operation and garrison lords, which cut short the profiles' regroup and retreat.
+
+- [ ] 1. **Crisis: fire operation** → a standard raid; down about 40%: it pulls back to regroup (no "fleeing" message),
+      then comes back with the reserve.
+- [ ] 2. Down 60% of it: it retreats and carries off its downed where no colonist is close.
+- [ ] 3. FinalAssault: down more than 70%: it still doesn't retreat (B4 #14).
+- [ ] 4. A Citadel's inner rings: down most of a garrison: the rest hold their ring.
