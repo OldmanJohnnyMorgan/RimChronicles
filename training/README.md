@@ -343,6 +343,11 @@ Work from the `war-in-heaven` branch until it merges into `main`.
 
    About 3,600 + 4,500 calls: roughly 1.5 and 2 hours at D4b's pace. Ctrl+C is safe; run the same command to go on.
    Send Claude Code the two checks' output before training.
+   **Rule labels for siege goals and sites** (added after the first `-war` run failed on them): the rubric fixes
+   these by rules, and the local 12B broke them (it agreed on 186 of 420), so `director-rule-labels` labels those 420
+   training cases by the rules (which agree with 81 of the 84 test labels). Its folder,
+   `training/data/labels/rule-goal-site-v1`, is committed; `director-dataset` reads it before the `local-*` folders,
+   so its labels win. To rebuild it: `dotnet run --project harness/RimChronicles.Eval -- director-rule-labels`.
 4. **Datasets and training:** `director-dataset` with the same options as E2B v3 and E4B v1 (it finds the crisis and
    war folders itself; its manifest says test version 3), then retrain under the `-war` names, so the shipped
    `rimchron-director-e2b` and `-e4b` stay as they are until the new ones pass. Build each tier's dataset just before
@@ -374,6 +379,7 @@ Work from the `war-in-heaven` branch until it merges into `main`.
 
    then `director-review` with the same `--config`, `--models director-e2b-war`, `--cases` and `--labels`. E4B
    likewise (`gemma4-e4b,director-e4b-war`, `--name director-e4b-war-v1`).
+   A retrain after a label change keeps the model names and bumps the report name (`director-e2b-war-v2`).
 6. **Presets:** once a report passes and is committed, copy the model over the shipped name
    (`ollama cp rimchron-director-e2b-war rimchron-director-e2b`), and its preset in `src/RimChronicles.Llm/TierPresets.cs`
    becomes `DirectorVocabulary.WarInHeaven`: the game then hands it the crisis, the Hollow Choir and the War in Heaven.

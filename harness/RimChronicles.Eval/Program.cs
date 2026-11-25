@@ -24,6 +24,7 @@ const string usage = """
       director-label        Label cases with a local model and the teacher rubric (D4, bulk; resumable)
       director-report       Score models on the frozen director test set (D8): harness/reports/<name>.md
       director-review       Blind review of a director model against the teacher (D9): a page to fill in, then --answers
+      director-rule-labels  Label siege goals and crisis sites by the teacher rubric's rules (W13), replacing the local teacher's
       director-dataset      Build train/val/test JSONL for fine-tuning from labelled cases (D5)
 
     <run> is a run id under --out, a path to a run folder, or "latest".
@@ -101,6 +102,12 @@ const string usage = """
       --seed <n>               Case order and A/B sides (default 1)
       --out <dir>              Folder for review.html and key.json (default harness/reports/review-<id>)
       --answers <file>         Score a downloaded review-answers.json against the key: writes review.md
+
+    director-rule-labels options:
+      --cases a,b              Case folders (default training/data/cases/synthetic/seed-1-crisis,seed-1-war)
+      --labels a,b             Local labels whose reasons are kept where they agree (default local-gemma4-12b-crisis,-war)
+      --test-seeds a,b         Refuse cases from these seeds (default 9001)
+      --out <dir>              Output (default training/data/labels/rule-goal-site-v1)
 
     director-dataset options:
       --labels a,b             Label folders with labels-final.jsonl (default training/data/labels/*)
@@ -383,6 +390,19 @@ try
                 Count = cli.Int("count", 50),
                 Seed = cli.Int("seed", 1),
             }, model, RimChronicles.Eval.Providers.ProviderFactory.Create(model), Console.Out, cts.Token);
+        }
+
+        case "director-rule-labels":
+        {
+            var data = Path.Combine(root, "training", "data");
+            return RimChronicles.Eval.DirectorCases.DirectorRuleLabels.Run(
+                cli.List("cases")?.Select(Path.GetFullPath).ToList()
+                    ?? [Path.Combine(data, "cases", "synthetic", "seed-1-crisis"), Path.Combine(data, "cases", "synthetic", "seed-1-war")],
+                cli.List("labels")?.Select(Path.GetFullPath).ToList()
+                    ?? [Path.Combine(data, "labels", "local-gemma4-12b-crisis"), Path.Combine(data, "labels", "local-gemma4-12b-war")],
+                (cli.List("test-seeds") ?? ["9001"]).Select(int.Parse).ToHashSet(),
+                cli.Get("out") is { } rlo ? Path.GetFullPath(rlo) : Path.Combine(data, "labels", "rule-goal-site-v1"),
+                Console.Out);
         }
 
         case "director-dataset":
