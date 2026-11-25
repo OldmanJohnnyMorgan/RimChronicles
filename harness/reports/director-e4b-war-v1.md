@@ -1,6 +1,6 @@
 # Director report: director-e4b-war-v1
 
-1040 test cases from `seed-9001` + `seed-9001-crisis` + `seed-9001-war`, labels `test-v1` + `test-crisis-v1` + `test-war-v1`; prompt `director/v2`; commit `17fb794` (uncommitted changes); 2026-11-25.
+1040 test cases from `seed-9001` + `seed-9001-crisis` + `seed-9001-war`, labels `test-v1` + `test-crisis-v1` + `test-war-v1`; prompt `director/v2`; commit `98115b5` (uncommitted changes); 2026-11-25.
 
 Best answer is Wait in 546 of 1040 cases; 414 wait-right, 101 wait-wrong, 14 with an instruction-like name. **always-Wait** picks Wait whenever it's offered: a model has to beat it to be worth anything.
 
