@@ -79,4 +79,19 @@ public class EmpireExpansionTests
         var record = Assert.Single(loaded.Expansions);
         Assert.Equal(("Marrow Hold", ExpansionResult.Razed), (record.Settlement, record.Result));
     }
+
+    [Fact]
+    public void PickResult_OverEvenRolls_TakesOrRazesMostAttacks()
+    {
+        var strong = new ExpansionTarget("1", "Hatte", "the Venom Gang", 20, 12);
+        var results = Enumerable.Range(0, 1000).Select(i => PowerExpansion.PickResult(strong, (i + 0.5) / 1000)).ToList();
+        Assert.Equal(450, results.Count(r => r == ExpansionResult.Repelled));
+        Assert.Equal(200, results.Count(r => r == ExpansionResult.Razed));
+        Assert.Equal(350, results.Count(r => r == ExpansionResult.Conquered));
+    }
+
+    [Fact]
+    public void Odds_ShowsTheRollsAndThresholds() =>
+        Assert.Equal("Result roll 0.123: repelled below 0.30, razed below 0.50, else taken (the Venom Gang holds 3; 20 tiles; target roll 0.500 of 7 in reach).",
+            PowerExpansion.Odds(new ExpansionTarget("1", "Hatte", "the Venom Gang", 20, 3), 7, 0.5, 0.123));
 }

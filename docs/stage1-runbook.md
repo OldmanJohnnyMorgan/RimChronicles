@@ -52,4 +52,4 @@ Send me:
 - any Rim Chronicles lines from the debug log, especially red ones;
 - the snapshot JSON file from test 5 (paste it, or upload it to the codespace's `reference` folder).
 
-The full log is `Player.log`, in the same save-data folder as the snapshot.
+The full log is `Logs\Player.log`, in the same save-data folder as the snapshot (`%USERPROFILE%\AppData\LocalLow\Ludeon Studios\RimWorld by Ludeon Studios`); the previous session's is `Logs\Player-prev.log`.
