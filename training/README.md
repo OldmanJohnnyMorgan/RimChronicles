@@ -380,6 +380,8 @@ Work from the `war-in-heaven` branch until it merges into `main`.
    then `director-review` with the same `--config`, `--models director-e2b-war`, `--cases` and `--labels`. E4B
    likewise (`gemma4-e4b,director-e4b-war`, `--name director-e4b-war-v1`).
    A retrain after a label change keeps the model names and bumps the report name (`director-e2b-war-v2`).
+   Each report also writes `<name>-cases.csv` beside it: per model and case, the label's ranking, the pick in every
+   variant and the reason. Re-running a report rebuilds it from the cache without calling a model.
 6. **Presets:** once a report passes and is committed, copy the model over the shipped name
    (`ollama cp rimchron-director-e2b-war rimchron-director-e2b`), and its preset in `src/RimChronicles.Llm/TierPresets.cs`
    becomes `DirectorVocabulary.WarInHeaven`: the game then hands it the crisis, the Hollow Choir and the War in Heaven.

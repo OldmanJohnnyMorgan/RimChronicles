@@ -100,7 +100,8 @@ public static partial class DirectorReportCommand
         var md = Markdown(o, prompt.Meta.Version, labels, metrics, results);
         File.WriteAllText(Path.Combine(o.OutDir, o.Name + ".md"), md);
         File.WriteAllText(Path.Combine(o.OutDir, o.Name + ".json"), JsonSerializer.Serialize(metrics, new JsonSerializerOptions { WriteIndented = true }) + "\n");
-        log.WriteLine($"Report: {Path.Combine(o.OutDir, o.Name + ".md")}");
+        File.WriteAllText(Path.Combine(o.OutDir, o.Name + "-cases.csv"), CasesCsv(labels, results));
+        log.WriteLine($"Report: {Path.Combine(o.OutDir, o.Name + ".md")} (each case: {o.Name}-cases.csv)");
         return 0;
     }
 
@@ -316,6 +317,35 @@ public static partial class DirectorReportCommand
         }
 
         return found;
+    }
+
+    // ---------- per case ----------
+
+    /// <summary>One row per model and case: the label's ranking and every variant's pick, so misses can be read case by
+    /// case (which option it took instead, whether it moved with the order or the ids). Rebuilt from the cache, so
+    /// re-running a report adds it without calling a model.</summary>
+    public static string CasesCsv(IReadOnlyList<Label> labels, IReadOnlyDictionary<string, List<CaseRun>> results)
+    {
+        var sb = new StringBuilder();
+        Csv.AppendRow(sb, ["model", "case", "group", "wait_expected", "best", "pick", "correct", "top2", "regret", "pick_rank",
+            "pick_off", "pick_order2", "pick_order3", "pick_ids", "ranking", "reason"]);
+        foreach (var (model, runs) in results)
+        {
+            var byCase = runs.ToDictionary(r => r.Case);
+            foreach (var l in labels)
+            {
+                var r = byCase[l.Case];
+                var ranking = l.Scores.OrderByDescending(kv => kv.Value).ThenBy(kv => kv.Key, StringComparer.Ordinal).ToList();
+                var pick = r.On.Choice;
+                var rank = pick is null ? (int?)null : ranking.FindIndex(kv => kv.Key == pick) is var i and >= 0 ? i + 1 : null;
+                Csv.AppendRow(sb, [model, l.Case, l.Group, Csv.Bool(l.WaitExpected), l.Best, pick, Csv.Bool(pick == l.Best),
+                    Csv.Bool(pick is not null && TopTwo(l.Scores).Contains(pick)), Csv.Num(Regret(l.Scores, l.Best, pick)), Csv.Num(rank),
+                    r.Off.Choice, r.Order2.Choice, r.Order3.Choice, r.IdsChoice,
+                    string.Join("; ", ranking.Select(kv => $"{kv.Key} {kv.Value.ToString("0.##", CultureInfo.InvariantCulture)}")), r.On.Reason]);
+            }
+        }
+
+        return sb.ToString();
     }
 
     // ---------- report ----------
