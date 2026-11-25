@@ -60,6 +60,10 @@ public sealed class LordJob_RcOperation : LordJob
 
     public override bool GuiltyOnDowned => true;
 
+    /// <summary>No vanilla panic flee: the profile's loss links are the only retreat, so it isn't cut short at a random
+    /// 40–70% of losses and always ends in <see cref="LordToil_RcRetreat"/>, which carries off the downed.</summary>
+    public override bool AddFleeToil => false;
+
     public OperationProfile Profile => OperationProfiles.For(operation);
 
     public override StateGraph CreateGraph()

@@ -201,6 +201,9 @@ public sealed class LordJob_RcGarrison : LordJob
 
     public bool HoldsFast => ring >= 2;
 
+    /// <summary>No vanilla panic flee: a garrison holds its ring (or answers a reinforce memo) until it falls.</summary>
+    public override bool AddFleeToil => false;
+
     public override StateGraph CreateGraph()
     {
         var graph = new StateGraph();
