@@ -14,6 +14,8 @@
 - Minor plots from your colony's history: Nemesis, Lost Family, Silent Press.
 - A plot director that knows when to move a story on and when to let the colony breathe.
 - The Awakened Empire (needs Royalty): a game-long arc with three endings and an epilogue.
+- The Imperial crisis (needs Royalty): oppose the Empire and it comes for you with skilled troops, real psycasts, orbital strikes, sites to raid and a three-ringed Citadel to storm.
+- The Hollow Choir and the War in Heaven (needs Biotech and Royalty): the Empire's ancient mechanite enemy wakes. Pick a side, or stand alone against both, until the two powers go to war and one side wins.
 
 Works without a model too: every text has a written template. For narration, run Ollama (or any OpenAI-compatible server) and pick a tier in the mod settings.
 
