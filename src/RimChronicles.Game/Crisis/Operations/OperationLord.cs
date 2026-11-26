@@ -119,8 +119,7 @@ public sealed class LordJob_RcOperation : LordJob
 
         foreach (var mech in silent)
         {
-            mech.TryGetComp<CompMechanoid>()?.Deactivate();
-            lord.Notify_PawnLost(mech, PawnLostCondition.Incapped);
+            mech.TryGetComp<CompMechanoid>()?.Deactivate(); // vanilla's ToSleep tells the lord the mech is lost (Incapped)
         }
 
         if (silent.Count > 0 && map is not null)
