@@ -34,7 +34,7 @@ dotnet build RimChronicles.slnx
 | 3 | **Empire: trigger awakening**, then **Empire: end stirring now**. Wait for the envoy letter (a few days; **Increment time** helps) and choose **Stand against it**. | The envoy letter comes; the stance is taken. |
 | 4 | Wait for "The Empire marches" (6–12 days on), then **Crisis: show state**. | Stage **probing** ("Act 2: the Empire is testing the colony"); a letter **Imperial scouts**; a news item about scouts; operations allowed: "Operation:ProbingRaid (not built yet)". |
 | 5 | **Empire: expansion tick** twice, wait a day, **Crisis: show state**. | Stage **reclamation**; an **The Empire escalates** letter. |
-| 6 | Check the budget line against a colony with more fighters or turrets (spawn some turrets with Dev Mode, wait a day). | The budget goes up with colony strength, within the clamp (factor 0.6 to 1.8). |
+| 6 | Check the budget line against a colony with more fighters or turrets (spawn some turrets with Dev Mode, wait a day). | The budget goes up with colony strength, within the clamp (factor 0.3 to 1.8). |
 | 7 | Save, quit to the menu, reload; **Crisis: show state**. | Same stage and announcement day; no errors. |
 
 ## C2: pieces

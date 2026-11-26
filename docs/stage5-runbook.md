@@ -13,13 +13,13 @@ Then restart RimWorld, with **Development mode** on.
 
 ## M1: Empire states
 
-The Empire starts **Dormant**. From day 30 it can wake (move to **Stirring**) on any of these signs; with several, it
-picks one by weight, and the choice goes into **Plot: director log** as `empire`:
+The Empire starts **Dormant** and stirs on day 20, the opening hook (decided 2026-11-26). The signs below only say why;
+with several, it picks one by weight, and the choice goes into **Plot: director log** as `empire`:
 - the colony destroys an Imperial settlement (weight 4);
 - a colonist renounces an Imperial title (3);
 - a colonist has an Imperial backstory (2);
 - colony wealth reaches 80,000 (1);
-- with no sign at all, day 120.
+- with no sign at all, "the Empire took notice" of the new colony.
 
 While stirring (10–20 days at normal story intensity), a rumour reaches the news every 5–8 days: envoys, demands, recalled officers. Then the
 Empire is **Awakened**, with a "The Empire awakens" letter. Waking and awakening count as beats: they wait for the

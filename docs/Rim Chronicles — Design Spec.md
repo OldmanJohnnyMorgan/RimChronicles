@@ -335,7 +335,7 @@ Requires the Royalty DLC. Without Royalty, the mod runs minor plots and the news
 
 | State | What the Empire does | Moves on when |
 | --- | --- | --- |
-| Dormant | Few settlements, no expansion, normal Royalty quests | Awakening trigger (below), or day 120 at the latest (was 300; faster pacing, 2026-11-26) |
+| Dormant | Few settlements, no expansion, normal Royalty quests | Day 20: the opening hook. The awakening triggers (below) only say why (decided 2026-11-26; was day 300 at the latest) |
 | Stirring | Rumours in bulletins, envoys, demands on nearby factions | 10–20 days pass (was 20–40; 2026-11-26) |
 | Awakened | Expands: takes over or founds a settlement every 15–30 days, wars with neighbours | Act 2 milestones are met |
 | Ascendant or Broken | Either controls most of the map and makes final demands, or is collapsing after losses | Player completes or fails an ending |

@@ -67,11 +67,16 @@ public sealed class PowerSaga : IArchivable
     /// <summary>Which power this saga is. Not saved: the owner sets it (the Empire's saga is the default).</summary>
     public Power Power = Power.Empire;
 
-    /// <summary>No trigger wakes the Empire before this day, so a new colony settles first.</summary>
-    public const int EarliestAwakeningDay = 30;
+    /// <summary>The opening hook (decided 2026-11-26): the story's first power stirs on this day, whatever the signs;
+    /// they only say why. The Empire's day, or the Choir's when it runs alone (no Royalty).</summary>
+    public const int HookDay = 20;
 
-    /// <summary>The Empire wakes on this day at the latest.</summary>
-    public const int DeadlineDay = 120;
+    /// <summary>The second power's earliest day to wake on its own signs (the Choir beside the Empire): it usually wakes
+    /// sooner, when the first power attacks (War in Heaven spec §4).</summary>
+    public const int LateEarliestDay = 30;
+
+    /// <summary>The second power's deadline.</summary>
+    public const int LateDeadlineDay = 120;
 
     /// <summary>Colony wealth that draws the Empire's eye.</summary>
     public const float WealthThreshold = 80_000f;
@@ -140,16 +145,19 @@ public sealed class PowerSaga : IArchivable
 
     public void Note(int day, string line) => Log.Add($"Day {day}: {line}");
 
-    /// <summary>The awakening triggers present today, with their weights: the more pointed the provocation, the heavier.</summary>
-    public IReadOnlyList<PlotTransition> Triggers(PowerSigns signs, int today)
+    /// <summary>The awakening triggers present today, with their weights: the more pointed the provocation, the heavier.
+    /// <paramref name="deadlineDay"/> overrides the power's own deadline (the Choir running alone takes the hook day).</summary>
+    public IReadOnlyList<PlotTransition> Triggers(PowerSigns signs, int today, int? deadlineDay = null)
     {
+        var deadline = deadlineDay ?? Power.DeadlineDay;
+        var earliest = Math.Min(Power.EarliestWakeDay, deadline);
         var options = new List<PlotTransition>();
         if (State != PowerState.Dormant)
         {
             return options;
         }
 
-        if (today >= EarliestAwakeningDay)
+        if (today >= earliest)
         {
             if (SiteDestroyed.Length > 0)
             {
@@ -172,7 +180,7 @@ public sealed class PowerSaga : IArchivable
             }
         }
 
-        if (options.Count == 0 && today >= DeadlineDay)
+        if (options.Count == 0 && today >= deadline)
         {
             options.Add(new($"Awaken:{AwakeningTrigger.Deadline}", AwakeningTrigger.Deadline, 1));
         }

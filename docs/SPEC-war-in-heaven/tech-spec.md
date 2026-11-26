@@ -99,7 +99,7 @@ The riskiest step, so it comes first and alone.
 ### 4.2 Saga and plot
 
 `Power.Choir`'s saga has the Empire's states and timings (spec §3.1, D6): triggers are colony wealth, a destroyed
-Choir site, a mechanitor colonist, the Royal Ascent, and day 120 at the latest (spec D14). The **hum** is the Stirring rumour:
+Choir site, a mechanitor colonist, the Royal Ascent, and day 120 at the latest (spec D14, D15: the Empire stirs on day 20). The **hum** is the Stirring rumour:
 bulletins and letters mention it, and Dev Mode can play it.
 
 **Cross-waking (spec §4):** when a power is Awakened and **its first operation or expansion against anyone** happens,
