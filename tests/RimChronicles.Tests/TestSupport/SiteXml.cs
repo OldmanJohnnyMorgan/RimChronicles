@@ -10,10 +10,13 @@ public static class SiteXml
 {
     public static string File => Repo.Path("Defs", "SiteArchetypeDefs", "RimChronicles_Sites.xml");
 
-    public static IReadOnlyList<SiteArchetype> Load() =>
-        XDocument.Load(File).Root!.Elements().Where(e => e.Name.LocalName.EndsWith("SiteArchetypeDef")).Select(Parse).ToList();
+    public static string ChoirFile => Repo.Path("Defs", "SiteArchetypeDefs", "RimChronicles_ChoirSites.xml");
 
-    public static SiteArchetype Get(string name) => Load().Single(a => a.Name == name);
+    /// <summary>The Empire's archetypes, or with <paramref name="power"/> <c>choir</c> the Hollow Choir's (War in Heaven W8).</summary>
+    public static IReadOnlyList<SiteArchetype> Load(string? power = null) =>
+        XDocument.Load(power == "choir" ? ChoirFile : File).Root!.Elements().Where(e => e.Name.LocalName.EndsWith("SiteArchetypeDef")).Select(Parse).ToList();
+
+    public static SiteArchetype Get(string name, string? power = null) => Load(power).Single(a => a.Name == name);
 
     private static SiteArchetype Parse(XElement e)
     {
@@ -26,6 +29,7 @@ public static class SiteXml
             li.Element("tag")!.Value, I(li.Element("count")?.Value, 1), F(li.Element("weight")?.Value, 1), I(li.Element("max")?.Value, 1))).ToList();
         return new SiteArchetype
         {
+            Power = Text("power") ?? "empire",
             Name = Text("archetype")!,
             Desc = Text("description") ?? "",
             Width = size[0],
