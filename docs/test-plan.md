@@ -294,7 +294,7 @@ The director presets are now named as on the Ollama registry (`oldmanjohnnymorga
 - **Checkpoint 2, the rest (W7–W9, all built)**: the Choir's crisis (`war-runbook-2.md` steps W7.1–W7.17), its sites and
   the cluster siege (W8.1–W8.16), the Cathedral and the First Voice (W9.1–W9.15).
 - **Checkpoint 3 (W10–W11, built)**: the War in Heaven (`war-runbook-3.md` W10.1–W10.19) and the endings (W11.1–W11.9).
-- **Stage 0 run for epilogue v3** (rule 8, zero API spend): on the PC, `dotnet run --project harness/RimChronicles.Eval -- run --tasks epilogue`;
+- **Stage 0 run for epilogue v3** (rule 8, zero API spend): on the PC, `dotnet run --project harness/RimChronicles.Eval -- run --tasks epilogue --models gemma4-e2b,gemma4-e4b,gemma4-12b` (no `claude-ref`, which calls the paid API);
   send Claude Code the run folder's `raw/` to review.
 - **W14**: the balance pass and a full proof run per side; then `war-in-heaven` merges into `main`.
 - **Release** (`docs/release.md`): a `Preview.png`, publish the directors to the Ollama registry, and the Workshop upload.
