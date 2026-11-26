@@ -24,6 +24,10 @@
       "sha256": "d2c969dc492549f217a9de3933c89219609a02aaf668ae4da0974d60ced5c3e3"
     },
     {
+      "labels": "rule-goal-site-v1",
+      "sha256": "8300247f0d7bd9b1cccab75e9c1513281c888c951ec2b5d73d4f6f4f19933889"
+    },
+    {
       "labels": "test-crisis-v1",
       "sha256": "731a9784730110580fcc43c69af52ab890d87cf07b2fd0be3f2ab3978c0555d7"
     },
@@ -49,25 +53,25 @@
     }
   ],
   "cases": {
-    "train": 5200,
-    "val": 576,
+    "train": 5230,
+    "val": 580,
     "test": 1040
   },
   "rows": {
-    "train": 15600,
-    "val": 576,
+    "train": 15690,
+    "val": 580,
     "test": 1040
   },
   "sha256": {
-    "train": "b3463638467e7bb2f1c3d07f5c7cac28df849792d31811f57a4ee505f737481e",
-    "val": "4c6cf1d2188510bff3f4ed730920f35c54c54cb798e208b18ca8b329ed3ebaa0",
+    "train": "9a496807146f450a5b98b8855da767eb8ea4d625d9c398b03d6ec455b6ed5384",
+    "val": "eb804ca500236eae8961a8d9e804432b3fb397fe3477005079da7533db271f7a",
     "test": "9367195b379813d980beecc7129c39ba725ae7bf9fa5c5eb8f4764b065e2146f"
   },
   "leftOut": {
-    "lowAgreement": 108,
+    "lowAgreement": 74,
     "caseMissing": 0,
     "caseChanged": 0,
-    "duplicate": 250,
+    "duplicate": 670,
     "waitCapped": 0,
     "localOpenHandOnly": 866
   }

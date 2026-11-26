@@ -1,0 +1,357 @@
+{
+  "model": "director-e4b-war",
+  "labels": "test-v1\u002Btest-crisis-v1\u002Btest-war-v1",
+  "seed": 1,
+  "items": [
+    {
+      "item": 1,
+      "case": "dir-s9001-00000",
+      "group": "Nemesis/Hook",
+      "model": "A",
+      "same": false
+    },
+    {
+      "item": 2,
+      "case": "dir-s9001-00020",
+      "group": "Nemesis/Complication",
+      "model": "A",
+      "same": true
+    },
+    {
+      "item": 3,
+      "case": "dir-s9001-00041",
+      "group": "LostFamily/Complication",
+      "model": "A",
+      "same": true
+    },
+    {
+      "item": 4,
+      "case": "dir-s9001-00062",
+      "group": "AwakenedEmpire/Ascendant",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 5,
+      "case": "dir-s9001-00083",
+      "group": "AwakenedEmpire/Ascendant",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 6,
+      "case": "dir-s9001-00104",
+      "group": "Nemesis/Hook",
+      "model": "A",
+      "same": true
+    },
+    {
+      "item": 7,
+      "case": "dir-s9001-00124",
+      "group": "LostFamily/Hook",
+      "model": "A",
+      "same": true
+    },
+    {
+      "item": 8,
+      "case": "dir-s9001-00145",
+      "group": "AwakenedEmpire/Act2",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 9,
+      "case": "dir-s9001-00166",
+      "group": "AwakenedEmpire/Ascendant",
+      "model": "A",
+      "same": true
+    },
+    {
+      "item": 10,
+      "case": "dir-s9001-00187",
+      "group": "Nemesis/Hook",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 11,
+      "case": "dir-s9001-00208",
+      "group": "Nemesis/Complication",
+      "model": "A",
+      "same": true
+    },
+    {
+      "item": 12,
+      "case": "dir-s9001-00228",
+      "group": "LostFamily/Complication",
+      "model": "A",
+      "same": true
+    },
+    {
+      "item": 13,
+      "case": "dir-s9001-00249",
+      "group": "AwakenedEmpire/Ascendant",
+      "model": "A",
+      "same": true
+    },
+    {
+      "item": 14,
+      "case": "dir-s9001-00270",
+      "group": "AwakenedEmpire/Ascendant",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 15,
+      "case": "dir-s9001-00291",
+      "group": "Nemesis/Hook",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 16,
+      "case": "dir-s9001-00312",
+      "group": "LostFamily/Hook",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 17,
+      "case": "dir-s9001-00332",
+      "group": "AwakenedEmpire/Act2",
+      "model": "A",
+      "same": true
+    },
+    {
+      "item": 18,
+      "case": "dir-s9001-00353",
+      "group": "AwakenedEmpire/Ascendant",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 19,
+      "case": "dir-s9001-00374",
+      "group": "Nemesis/Hook",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 20,
+      "case": "dir-s9001-00395",
+      "group": "Nemesis/Complication",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 21,
+      "case": "dir-s9001-00416",
+      "group": "AwakenedEmpire/Act2",
+      "model": "B",
+      "same": false
+    },
+    {
+      "item": 22,
+      "case": "dir-s9001-00436",
+      "group": "AwakenedEmpire/Ascendant",
+      "model": "A",
+      "same": true
+    },
+    {
+      "item": 23,
+      "case": "dir-s9001-00457",
+      "group": "AwakenedEmpire/Ascendant",
+      "model": "A",
+      "same": true
+    },
+    {
+      "item": 24,
+      "case": "dir-s9001-00478",
+      "group": "Nemesis/Hook",
+      "model": "A",
+      "same": true
+    },
+    {
+      "item": 25,
+      "case": "dir-s9001-00499",
+      "group": "LostFamily/Hook",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 26,
+      "case": "dir-s9001-c00020",
+      "group": "ImperialCrisis/Complication",
+      "model": "A",
+      "same": false
+    },
+    {
+      "item": 27,
+      "case": "dir-s9001-c00040",
+      "group": "ImperialCrisis/Complication",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 28,
+      "case": "dir-s9001-c00061",
+      "group": "ImperialCrisis/Complication",
+      "model": "A",
+      "same": true
+    },
+    {
+      "item": 29,
+      "case": "dir-s9001-c00082",
+      "group": "ImperialCrisis/Complication",
+      "model": "B",
+      "same": false
+    },
+    {
+      "item": 30,
+      "case": "dir-s9001-c00103",
+      "group": "ImperialCrisis/Site",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 31,
+      "case": "dir-s9001-c00124",
+      "group": "ImperialCrisis/Complication",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 32,
+      "case": "dir-s9001-c00144",
+      "group": "ImperialCrisis/Hook",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 33,
+      "case": "dir-s9001-c00165",
+      "group": "ImperialCrisis/Complication",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 34,
+      "case": "dir-s9001-c00186",
+      "group": "ImperialCrisis/Complication",
+      "model": "A",
+      "same": false
+    },
+    {
+      "item": 35,
+      "case": "dir-s9001-c00207",
+      "group": "ImperialCrisis/Site",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 36,
+      "case": "dir-s9001-c00228",
+      "group": "ImperialCrisis/Complication",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 37,
+      "case": "dir-s9001-w00008",
+      "group": "HollowChoir/Broken",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 38,
+      "case": "dir-s9001-w00029",
+      "group": "HollowChoir/Ascendant",
+      "model": "A",
+      "same": true
+    },
+    {
+      "item": 39,
+      "case": "dir-s9001-w00050",
+      "group": "HollowChoir/Act2",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 40,
+      "case": "dir-s9001-w00071",
+      "group": "WarInHeaven/Complication",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 41,
+      "case": "dir-s9001-w00092",
+      "group": "WarInHeaven/Complication",
+      "model": "A",
+      "same": true
+    },
+    {
+      "item": 42,
+      "case": "dir-s9001-w00112",
+      "group": "ChoirCrisis/Complication",
+      "model": "B",
+      "same": false
+    },
+    {
+      "item": 43,
+      "case": "dir-s9001-w00133",
+      "group": "HollowChoir/Broken",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 44,
+      "case": "dir-s9001-w00154",
+      "group": "HollowChoir/Ascendant",
+      "model": "A",
+      "same": true
+    },
+    {
+      "item": 45,
+      "case": "dir-s9001-w00175",
+      "group": "HollowChoir/Act2",
+      "model": "A",
+      "same": true
+    },
+    {
+      "item": 46,
+      "case": "dir-s9001-w00196",
+      "group": "WarInHeaven/Complication",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 47,
+      "case": "dir-s9001-w00216",
+      "group": "WarInHeaven/Complication",
+      "model": "B",
+      "same": true
+    },
+    {
+      "item": 48,
+      "case": "dir-s9001-w00237",
+      "group": "ChoirCrisis/Complication",
+      "model": "A",
+      "same": true
+    },
+    {
+      "item": 49,
+      "case": "dir-s9001-w00258",
+      "group": "HollowChoir/Broken",
+      "model": "A",
+      "same": true
+    },
+    {
+      "item": 50,
+      "case": "dir-s9001-w00279",
+      "group": "HollowChoir/Ascendant",
+      "model": "A",
+      "same": true
+    }
+  ]
+}
