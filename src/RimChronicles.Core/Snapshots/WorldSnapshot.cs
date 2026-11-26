@@ -264,10 +264,17 @@ public sealed record PlotLetterCase
 /// <summary>The end of the major plot, for its epilogue (Stage 5 M5): which ending, and the colonists who mattered.</summary>
 public sealed record EpilogueCase
 {
-    /// <summary>"Resistance", "Imperial" or "Independence".</summary>
+    /// <summary>"Resistance", "Imperial" or "Independence"; since War in Heaven W11 also "Choral", "Silenced" and
+    /// "IndependenceTotal".</summary>
     public required string Ending { get; init; }
 
+    /// <summary>The power the story ended with (the Empire's or the Hollow Choir's name; for total independence, the
+    /// Empire's).</summary>
     public required string Empire { get; init; }
+
+    /// <summary>The other power, when the story ended in the War in Heaven (W11): the one destroyed, or for total
+    /// independence the Hollow Choir. Null for an ending outside the war.</summary>
+    public string? Rival { get; init; }
 
     /// <summary>The colony's last stance toward the Empire: "ally", "oppose" or "neutral".</summary>
     public string Stance { get; init; } = "neutral";

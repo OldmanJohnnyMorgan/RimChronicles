@@ -221,7 +221,7 @@ public static partial class WorldSummarizer
             {
                 "ally" => $"{colony} sided with {c.Empire}.",
                 "oppose" => $"{colony} fought {c.Empire}.",
-                _ => $"{colony} tried to keep out of the Empire's wars.",
+                _ => $"{colony} tried to keep out of the powers' wars.",
             },
             ["people"] = people.Length == 0 ? "- (none named)" : people.ToString().TrimEnd(),
             ["events"] = c.Events.Count == 0 ? "- (none recorded)" : string.Join("\n", c.Events.Select(e => $"- {e}")),

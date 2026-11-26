@@ -12,8 +12,7 @@ part ends with what to send Claude Code.
 | War in Heaven director retrain (W13) | E4B passed (`director-e4b-war-v2`, review 96%, #157) and is the E4B preset (#158). E2B failed (`director-e2b-war-v2`); its retrain is on hold, with hand labels ready (#159) |
 | War in Heaven game (W2–W6) | Built on `war-in-heaven`, not yet checked in game: Parts 2 and 3 |
 | War in Heaven game (W7–W9) | Built (2026-11-26): the Choir's crisis (its operations, commander AI, cluster drops, burrowing and the Hum), its pieces and sites, the cluster siege, the Cathedral and the First Voice. Checked in game at checkpoint 2 (`war-runbook-2.md`, W7.1–W7.17, W8.1–W8.16, W9.1–W9.15) |
-| War in Heaven game (W10) | Built (2026-11-26): the War in Heaven's start, its plot and jobs, the front, and destroying a power. Checked in game at checkpoint 3 (`war-runbook-3.md`, W10.1–W10.19) |
-| War in Heaven game (W11) | Not built yet: the endings' victory screens and epilogues. Checkpoint 3 runs once it lands |
+| War in Heaven game (W10–W11) | Built (2026-11-26): the War in Heaven's start, its plot and jobs, the front, destroying a power, and every ending's victory screen and epilogue (prompt `epilogue/v3`). Checked in game at checkpoint 3 (`war-runbook-3.md`, W10.1–W10.19, W11.1–W11.9) |
 
 **Order:**
 
@@ -270,7 +269,9 @@ lost) to our operation and garrison lords, which cut short the profiles' regroup
   `ollama cp rimchron-director-e2b-war rimchron-director-e2b` and its preset change (as #158 for E4B).
 - **Checkpoint 2, the rest (W7–W9, all built)**: the Choir's crisis (`war-runbook-2.md` steps W7.1–W7.17), its sites and
   the cluster siege (W8.1–W8.16), the Cathedral and the First Voice (W9.1–W9.15).
-- **Checkpoint 3 (W10–W11)**: the War in Heaven (W10, built: `war-runbook-3.md` W10.1–W10.19) and the endings (W11).
+- **Checkpoint 3 (W10–W11, built)**: the War in Heaven (`war-runbook-3.md` W10.1–W10.19) and the endings (W11.1–W11.9).
+- **Stage 0 run for epilogue v3** (rule 8, zero API spend): on the PC, `dotnet run --project harness/RimChronicles.Eval -- run --tasks epilogue`;
+  send Claude Code the run folder's `raw/` to review.
 - **W14**: the balance pass and a full proof run per side; then `war-in-heaven` merges into `main`.
 - **Stage 5 proof run** (`docs/stage5-runbook.md`, M7) has no results file. Run it if it hasn't been.
 

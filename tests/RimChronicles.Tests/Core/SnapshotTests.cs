@@ -83,7 +83,7 @@ public partial class SnapshotTests
     [Fact]
     public void SnapshotSet_HasTheCoverageTheSpecRequires()
     {
-        var all = All().Where(s => !IsRealExport(s) && !IsCrisis(s) && !IsWar(s)).ToList();
+        var all = All().Where(s => !IsRealExport(s) && !IsCrisis(s) && !IsWar(s) && !IsEnding(s)).ToList();
         string Phase(WorldSnapshot s) => s.Id.Split('-')[2];
 
         Assert.Equal(20, all.Count);
@@ -106,6 +106,17 @@ public partial class SnapshotTests
     private static bool IsCrisis(WorldSnapshot s) => s.Id.Split('-')[2] == "crisis";
 
     private static bool IsWar(WorldSnapshot s) => s.Id.Split('-')[2] == "war";
+
+    /// <summary>The War in Heaven's endings for the epilogue (W11) are named snap-NN-ending-*.</summary>
+    private static bool IsEnding(WorldSnapshot s) => s.Id.Split('-')[2] == "ending";
+
+    [Fact]
+    public void TheEndingSnapshots_CoverTheNewEndings()
+    {
+        var endings = All().Where(IsEnding).Select(s => s.Epilogue!).ToList();
+        Assert.Contains(endings, e => e.Ending == "Choral" && e.Rival is not null);
+        Assert.Contains(endings, e => e.Ending == "IndependenceTotal" && e.Rival is not null);
+    }
 
     [Fact]
     public void TheWarSnapshot_HasTheWarBlock_AndTheWarPlotDecides()

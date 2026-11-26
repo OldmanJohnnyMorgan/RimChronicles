@@ -273,6 +273,18 @@ capital; both crises' budgets are scaled by the front factor (0.8). The ending i
 news, a letter); the victory screens and epilogues are W11. Dev Mode: **War in Heaven: show**, **start now**, **destroy
 a power**, **move the front**.
 
+**As built (W11):** the epilogue covers every ending: Imperial, Resistance, Independence, and new Choral victory, the
+Choir silenced and total independence. `EpilogueCase.Rival` marks a War in Heaven ending, and `EpilogueTask.Meaning`
+says how the rival fell (Imperial and Choral in the war, Independence by the survivor's treaty, total independence).
+Each has a headline and a template epilogue. **Prompt `epilogue/v3`** (rule 8) speaks of the powers, not only the
+Empire, and heads the power's name "The power"; the stance line for a neutral colony reads "the powers' wars". The
+harness gains `snap-26-ending-choral` and `snap-27-ending-independence` (schema: the new endings, `rival`); a Stage 0
+run on the PC checks v3 at zero API spend. In game, `EmpireEndings.Epilogue` is the shared victory screen (the credits
+with the epilogue, a letter, the plot's story), and `CaseFor` takes the power (the Choir's high-rank holder named
+first), the rival and the war's events. The Choir plot's Choral and Silenced endings and every war ending
+(`WarDriver.Finish`, which also ends every power's plot and crisis) use it. Dev Mode: **War in Heaven: reach an
+ending**.
+
 ## 7. Director, snapshot and prompts
 
 - Snapshot gains `allegiance`, a `choir` block (mirror of `empire`), a `choirCrisis` block (mirror of `crisis`) and a

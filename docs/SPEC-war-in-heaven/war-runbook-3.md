@@ -31,3 +31,21 @@ the front and the log.
 | W10.17 | A colony with only the Empire awake (the Choir dormant): storm the Imperial capital | The old Resistance ending, as before W10 |
 | W10.18 | Save and reload mid-war (a job under way) | The war, the front, the destroyed powers and the job survive |
 | W10.19 | **Plot: director log** with the E4B war preset | The war plot's decisions are `War:*` with source `Model` |
+
+## W11: the endings
+
+Each ending ends the game's story with the victory screen: the credits roll with the epilogue, written by the model
+(or the template), and the epilogue stays as a letter and in the Chronicle tab. The game goes on afterwards.
+**War in Heaven: reach an ending** reaches any of the four at once.
+
+| # | Do | Pass when |
+| --- | --- | --- |
+| W11.1 | On the Empire's side, win the war (W10.11 → **Accept**), or **reach an ending** → Imperial victory | "Rim Chronicles: Imperial victory" on the credits: the Empire won the War in Heaven with the colony at its side, the Choir destroyed; the colony's people named (the title holder first) |
+| W11.2 | On the Choir's side (W10.12 → **Accept**), or **reach an ending** → Choral victory | "Choral victory": the Choir won, the Empire destroyed, the colony in the Chorus; the Choirmaster named first |
+| W11.3 | Independent: destroy one power, then sign the treaty (W10.14), or **reach an ending** → Independence | "Independence": the survivor's treaty after the other's fall |
+| W11.4 | Independent: destroy both (W10.15), or **reach an ending** → Total independence | "Total independence": both powers brought down |
+| W11.5 | Outside the war: the Choir plot's First Voice's offer accepted (W4b.3, Act 3) | "Choral victory" (without the war): the colony joined the Chorus |
+| W11.6 | Only the Choir awake (the Empire asleep): storm the Cathedral | "The Choir silenced" |
+| W11.7 | Only the Empire awake: storm the Imperial capital | "Resistance victory", as before |
+| W11.8 | After any ending | Every power's story and crisis has ended (Chronicle tab), the news reports it, and no more crisis operations come |
+| W11.9 | With Ollama stopped, reach an ending | The template epilogue shows; it names the same people |

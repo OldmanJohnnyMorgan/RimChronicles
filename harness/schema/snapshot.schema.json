@@ -356,11 +356,20 @@
           "enum": [
             "Resistance",
             "Imperial",
-            "Independence"
+            "Independence",
+            "Choral",
+            "Silenced",
+            "IndependenceTotal"
           ]
         },
         "empire": {
           "type": "string"
+        },
+        "rival": {
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "stance": {
           "type": "string",
