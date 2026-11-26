@@ -101,14 +101,15 @@ mod's own prompts (`docs/stage0-results.md`), not from leaderboards.
 
 Until the first release, build the mod from source (see [Building](#building)). Then:
 
-1. Subscribe to Harmony, and put this repository's folder in RimWorld's `Mods` folder.
+1. Subscribe to Harmony, and put the mod in RimWorld's `Mods` folder: the packaged `release\RimChronicles` folder
+   (`docs/release.md`), or this repository's folder.
 2. In the mod list, load Rim Chronicles after Harmony.
-3. For narration, install Ollama and pull the model for your tier, for example:
-   ```powershell
-   ollama pull gemma4:e4b
-   ```
+3. For narration, install [Ollama](https://ollama.com/download). On Windows it runs in the background once installed.
 4. In game: **Options → Mod settings → Rim Chronicles**. Pick a tier, check the server address
-   (`http://localhost:11434/` for Ollama), and press **Test connection**.
+   (`http://localhost:11434/` for Ollama), press **Download model** (once; it fetches the tier's model, a few GB),
+   then **Test connection**. You can also pull models yourself, for example `ollama pull gemma4:e4b`.
+5. Optional: under **Advanced: separate models**, pick the fine-tuned director `rimchron-director-e4b` and press
+   **Download model** again. It makes the director's decisions; the main model still writes.
 
 The mod is meant to tolerate being added to a running save or removed from one, but back up first.
 
@@ -118,7 +119,9 @@ The mod is meant to tolerate being added to a running save or removed from one, 
 - **Separate prose model** (optional): a second model writes bulletins, letters and epilogues, while the main one
   makes the director's decisions.
 - **Separate director model** (optional): a model just for the director's decisions, such as a small fine-tuned
-  director, at the prompt tier it was trained on.
+  director, at the prompt tier it was trained on. The fine-tuned directors are on the Ollama registry as
+  `oldmanjohnnymorgan/rimchron-director-e4b` (it knows every plot, the War in Heaven included) and `-e2b` (the minor
+  plots and the Awakened Empire; the crises pick by weight).
 - **News cadence:** a bulletin every 1–7 days (3 by default).
 - **Story intensity:** how often minor plots start, and how fast the Empire expands.
 - **Story arcs:** turn Nemesis, Lost Family or Silent Press off. Plots already running still finish.
@@ -129,7 +132,8 @@ The mod is meant to tolerate being added to a running save or removed from one, 
 - **Imperial crisis:** on or off; its difficulty (0.5–2×, on top of the storyteller's threat scale); the least number
   of days between Imperial operations; how long orbital strikes are telegraphed (6–10 seconds); the Citadel's map size
   (225–350, 275 by default); and, for slower PCs, spawning the Citadel's inner defenders only as you reach them.
-- **Reset to defaults**, and **Test connection** to check the model server.
+- **Reset to defaults**, **Test connection** to check the model server, and **Download model** to have Ollama fetch
+  every model the settings name.
 
 With **Development mode** on, a *Rim Chronicles* debug menu can force a bulletin, start a Nemesis or Lost Family
 plot, advance a plot one beat, test each quest type, trigger the Empire's awakening or an ending, and dump the world

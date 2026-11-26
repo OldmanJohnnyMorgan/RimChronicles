@@ -67,6 +67,23 @@ class ExportTests(unittest.TestCase):
         self.assertNotIn("PARAMETER temperature 1", lines)
         self.assertFalse(any(l.startswith("FROM") or l.startswith("LICENSE") for l in lines))
 
+    def test_publish_modelfile_keeps_the_base_licence(self):
+        from rimchron_train.export import publish_modelfile
+        mf = 'FROM /x/blob\nTEMPLATE """t"""\nLICENSE """Apache License\nVersion 2.0"""\nPARAMETER stop x\n'
+        self.assertEqual(publish_modelfile("rimchron-director-e4b", mf),
+                         'FROM rimchron-director-e4b\nLICENSE """Apache License\nVersion 2.0"""\n')
+
+    def test_publish_modelfile_refuses_a_base_without_a_licence(self):
+        from rimchron_train.export import publish_modelfile
+        with self.assertRaises(SystemExit):
+            publish_modelfile("m", 'FROM /x\nTEMPLATE """t"""\n')
+
+    def test_registry_namespace_matches_the_game(self):
+        from pathlib import Path
+        from rimchron_train.registry import NAMESPACE
+        cs = (Path(__file__).resolve().parents[2] / "src/RimChronicles.Llm/TierPresets.cs").read_text()
+        self.assertIn(f'RegistryNamespace = "{NAMESPACE}"', cs)
+
     def test_merged_modelfiles_find_unsloth_gguf_dir_and_skip_mmproj(self):
         import tempfile
         from pathlib import Path

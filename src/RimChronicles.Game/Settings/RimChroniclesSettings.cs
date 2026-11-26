@@ -192,7 +192,8 @@ public sealed class RimChroniclesSettings : ModSettings
         DirectorTier = DirectorTier == ModelTier.Off ? ModelTier.Minimum : DirectorTier;
         if (TierPresets.DirectorPreset(DirectorModel) is { } preset)
         {
-            DirectorModel = preset.Model;
+            // The name is kept as typed: a local copy under the bare name (rimchron-director-e4b) is the same model as the
+            // registry's oldmanjohnnymorgan/rimchron-director-e4b, and Ollama knows it only by the name it was given.
             DirectorTier = preset.Tier; // a preset always runs at the tier it was trained on
         }
     }
