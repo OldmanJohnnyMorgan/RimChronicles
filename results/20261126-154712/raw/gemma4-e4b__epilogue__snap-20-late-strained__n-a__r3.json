@@ -1,0 +1,32 @@
+{
+  "cell": "gemma4-e4b__epilogue__snap-20-late-strained__n-a__r3",
+  "model": "gemma4-e4b",
+  "task": "epilogue",
+  "snapshot": "snap-20-late-strained",
+  "grammar": "n/a",
+  "repeat": 3,
+  "promptVersion": "epilogue/v3",
+  "outcome": "Model",
+  "value": "Varrowgate swore itself to The Shattered Empire. The Empire took Brightwater on day 1012. Cassia accepted the governorship on day 1040.\n\nCassia served the Empire and was made a Count on day 960. Henrik escorted Imperial envoys across the region. Mags forged the weapons the colony traded to the Empire.\n\nThe colony now functions as an Imperial province. It remains under the Empire\u0027s governance. The stone walls stand against the horizon.",
+  "attempts": [
+    {
+      "request": {
+        "system": "You write the epilogue shown on the victory screen when a RimWorld colony\u0027s long story with the great powers ends: the Empire, the Hollow Choir (a power of mechanitors and their mechs, who call themselves the Chorus), or both, at war with each other in the War in Heaven.\n\nWhat to write:\n- 80 to 160 words, in three short paragraphs. A short epilogue is fine: never pad it.\n- First paragraph: how it ended, as the ending below describes it.\n- Second paragraph: the colonists who mattered. Name every person listed, in order, and say what each did, in the words of the facts. Say plainly if someone died before the end, but never how or when: the facts don\u0027t say.\n- Third paragraph: what the colony is now, in a few quiet lines. End on an image, not a moral.\n\nWhat you know:\n- Use only the facts and names below. Never invent people, places, factions, numbers, quotes, dates or events, or a cause linking two facts.\n- Refer to each person by name, or by the pronoun given for them. Never guess anyone\u0027s gender.\n- Give people no rank, title or role the facts don\u0027t give.\n\nStyle:\n- Write like the game\u0027s own end screens: plain, warm and a little grim. Third person, past tense. No poetry, no rhetorical questions.\n- Keep sentences short, mostly under 20 words.\n- Write only the epilogue: no title, no heading, no notes. Don\u0027t open with the name of the ending (\u0022Resistance victory\u0022, \u0022Choral victory\u0022); the screen already shows it.\n",
+        "user": "## The colony\nVarrowgate\n\n## The power\nThe Shattered Empire\n\n## How it ended\nVarrowgate served The Shattered Empire and became an Imperial province, governed in the Empire\u0027s name.\n\n## Where the colony stood\nVarrowgate sided with The Shattered Empire.\n\n## The colonists who mattered\n- Cassia (she): served the Empire and was made a Count on day 960\n- Henrik (he): escorted Imperial envoys across the region\n- Mags (they): forged the weapons the colony traded to the Empire\n\n## What happened\n- Varrowgate swore itself to the Shattered Empire.\n- The Empire took Brightwater on day 1012.\n- The Empire\u0027s envoy offered Varrowgate a governorship on day 1040.\n- Cassia accepted the governorship.\n\nWrite the epilogue now.\n",
+        "maxOutputTokens": 420,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "Varrowgate swore itself to The Shattered Empire. The Empire took Brightwater on day 1012. Cassia accepted the governorship on day 1040.\n\nCassia served the Empire and was made a Count on day 960. Henrik escorted Imperial envoys across the region. Mags forged the weapons the colony traded to the Empire.\n\nThe colony now functions as an Imperial province. It remains under the Empire\u0027s governance. The stone walls stand against the horizon.",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 0.5606082,
+      "inputTokens": 559,
+      "outputTokens": 104,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-272\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795708068,\u0022model\u0022:\u0022gemma4:e4b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022Varrowgate swore itself to The Shattered Empire. The Empire took Brightwater on day 1012. Cassia accepted the governorship on day 1040.\\n\\nCassia served the Empire and was made a Count on day 960. Henrik escorted Imperial envoys across the region. Mags forged the weapons the colony traded to the Empire.\\n\\nThe colony now functions as an Imperial province. It remains under the Empire\u0027s governance. The stone walls stand against the horizon.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:559,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:558},\u0022completion_tokens\u0022:104,\u0022total_tokens\u0022:663}}\n"
+    }
+  ]
+}

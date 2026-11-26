@@ -1,0 +1,80 @@
+{
+  "runId": "20261126-154712",
+  "startedUtc": "2026-11-26T15:47:12.1185758\u002B00:00",
+  "finishedUtc": "2026-11-26T15:48:51.8604358\u002B00:00",
+  "gitCommit": "56b5672af11682a1e42727f026c350fff69bbe1d",
+  "gitDirty": false,
+  "promptVersions": {
+    "director": "v2",
+    "director-teacher": "v5",
+    "epilogue": "v3",
+    "inheritance-handoff": "v3",
+    "judge": "v3",
+    "news-bulletin": "v10",
+    "plot-letter": "v3"
+  },
+  "config": "C:\\RimworldMods\\RimChronicles\\RimChronicles\\harness\\models.json",
+  "configSha256": "c3854941376fe110faa3105bfcde7a5146596d8df25156325361d242f448f2e5",
+  "models": [
+    "gemma4-e2b",
+    "gemma4-e4b",
+    "gemma4-12b",
+    "claude-ref"
+  ],
+  "tasks": [
+    "epilogue"
+  ],
+  "snapshots": [
+    "*"
+  ],
+  "repeats": 3,
+  "cells": 60,
+  "cacheHits": 0,
+  "cacheMisses": 62,
+  "environment": {
+    "gemma4-e2b": {
+      "reachable": true,
+      "serverKind": "ollama",
+      "serverVersion": "0.40.17",
+      "modelListed": true,
+      "quantization": "Q4_K_M",
+      "parameterSize": "4.6B",
+      "vramBytes": 431960882,
+      "sizeBytes": 431960882,
+      "error": null
+    },
+    "gemma4-e4b": {
+      "reachable": true,
+      "serverKind": "ollama",
+      "serverVersion": "0.40.17",
+      "modelListed": true,
+      "quantization": "Q4_K_M",
+      "parameterSize": "7.5B",
+      "vramBytes": 542900222,
+      "sizeBytes": 542900222,
+      "error": null
+    },
+    "gemma4-12b": {
+      "reachable": true,
+      "serverKind": "ollama",
+      "serverVersion": "0.40.17",
+      "modelListed": true,
+      "quantization": "Q4_K_M",
+      "parameterSize": "11.9B",
+      "vramBytes": 1454553168,
+      "sizeBytes": 1454553168,
+      "error": null
+    },
+    "claude-ref": {
+      "reachable": true,
+      "serverKind": "anthropic",
+      "serverVersion": null,
+      "modelListed": null,
+      "quantization": null,
+      "parameterSize": null,
+      "vramBytes": null,
+      "sizeBytes": null,
+      "error": null
+    }
+  }
+}

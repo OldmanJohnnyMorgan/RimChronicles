@@ -1,0 +1,32 @@
+{
+  "cell": "gemma4-12b__epilogue__snap-27-ending-independence__n-a__r1",
+  "model": "gemma4-12b",
+  "task": "epilogue",
+  "snapshot": "snap-27-ending-independence",
+  "grammar": "n/a",
+  "repeat": 1,
+  "promptVersion": "epilogue/v3",
+  "outcome": "Model",
+  "value": "Varrowgate brought down both The Shattered Empire and The Hollow Choir. The colony declared itself free of both powers. The Imperial Citadel fell to Varrowgate.\n\nAurel led the storming of the Cathedral. Cassia held the walls against the cluster sieges. Henrik brought down the High Stellarch and died before the end. Mags refused the Empire\u0027s treaty.\n\nNo one is left on the rim to rule it. Varrowgate stands alone in the silence. Dust settles over the ruins of the Citadel.",
+  "attempts": [
+    {
+      "request": {
+        "system": "You write the epilogue shown on the victory screen when a RimWorld colony\u0027s long story with the great powers ends: the Empire, the Hollow Choir (a power of mechanitors and their mechs, who call themselves the Chorus), or both, at war with each other in the War in Heaven.\n\nWhat to write:\n- 80 to 160 words, in three short paragraphs. A short epilogue is fine: never pad it.\n- First paragraph: how it ended, as the ending below describes it.\n- Second paragraph: the colonists who mattered. Name every person listed, in order, and say what each did, in the words of the facts. Say plainly if someone died before the end, but never how or when: the facts don\u0027t say.\n- Third paragraph: what the colony is now, in a few quiet lines. End on an image, not a moral.\n\nWhat you know:\n- Use only the facts and names below. Never invent people, places, factions, numbers, quotes, dates or events, or a cause linking two facts.\n- Refer to each person by name, or by the pronoun given for them. Never guess anyone\u0027s gender.\n- Give people no rank, title or role the facts don\u0027t give.\n\nStyle:\n- Write like the game\u0027s own end screens: plain, warm and a little grim. Third person, past tense. No poetry, no rhetorical questions.\n- Keep sentences short, mostly under 20 words.\n- Write only the epilogue: no title, no heading, no notes. Don\u0027t open with the name of the ending (\u0022Resistance victory\u0022, \u0022Choral victory\u0022); the screen already shows it.\n",
+        "user": "## The colony\nVarrowgate\n\n## The power\nThe Shattered Empire\n\n## How it ended\nVarrowgate brought down both great powers, The Shattered Empire and The Hollow Choir. No one is left on the rim to rule it.\n\n## Where the colony stood\nVarrowgate fought The Shattered Empire.\n\n## The colonists who mattered\n- Aurel (he): led the storming of the Cathedral\n- Cassia (she): held the walls against the cluster sieges\n- Henrik (he): brought down the High Stellarch, and died before the end\n- Mags (they): refused the Empire\u0027s treaty\n\n## What happened\n- Varrowgate declared itself free of both powers.\n- The War in Heaven began on day 600.\n- The Hollow Choir\u0027s Cathedral fell to Varrowgate.\n- The Shattered Empire offered a treaty, and Varrowgate refused it.\n- The Imperial Citadel fell to Varrowgate.\n\nWrite the epilogue now.\n",
+        "maxOutputTokens": 420,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "Varrowgate brought down both The Shattered Empire and The Hollow Choir. The colony declared itself free of both powers. The Imperial Citadel fell to Varrowgate.\n\nAurel led the storming of the Cathedral. Cassia held the walls against the cluster sieges. Henrik brought down the High Stellarch and died before the end. Mags refused the Empire\u0027s treaty.\n\nNo one is left on the rim to rule it. Varrowgate stands alone in the silence. Dust settles over the ruins of the Citadel.",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 1.3895704,
+      "inputTokens": 590,
+      "outputTokens": 108,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-249\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795708098,\u0022model\u0022:\u0022gemma4:12b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022Varrowgate brought down both The Shattered Empire and The Hollow Choir. The colony declared itself free of both powers. The Imperial Citadel fell to Varrowgate.\\n\\nAurel led the storming of the Cathedral. Cassia held the walls against the cluster sieges. Henrik brought down the High Stellarch and died before the end. Mags refused the Empire\u0027s treaty.\\n\\nNo one is left on the rim to rule it. Varrowgate stands alone in the silence. Dust settles over the ruins of the Citadel.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:590,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:0},\u0022completion_tokens\u0022:108,\u0022total_tokens\u0022:698}}\n"
+    }
+  ]
+}

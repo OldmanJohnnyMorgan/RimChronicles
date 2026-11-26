@@ -1,0 +1,53 @@
+{
+  "cell": "gemma4-e4b__epilogue__snap-26-ending-choral__n-a__r2",
+  "model": "gemma4-e4b",
+  "task": "epilogue",
+  "snapshot": "snap-26-ending-choral",
+  "grammar": "n/a",
+  "repeat": 2,
+  "promptVersion": "epilogue/v3",
+  "outcome": "ModelRetry",
+  "value": "The Hollow Choir won the War in Heaven. The Shattered Empire was destroyed. Varrowgate took its place in the Chorus, and its people sing with the Choir now.\n\nHenrik led the colony\u0027s strike on Brightwater in the War in Heaven. Mags kept the colony\u0027s mechs running through the war and died before the end. Cassia rose to Choirmaster in the Chorus.\n\nVarrowgate stands with the Choir. The humming continues in the hills.",
+  "attempts": [
+    {
+      "request": {
+        "system": "You write the epilogue shown on the victory screen when a RimWorld colony\u0027s long story with the great powers ends: the Empire, the Hollow Choir (a power of mechanitors and their mechs, who call themselves the Chorus), or both, at war with each other in the War in Heaven.\n\nWhat to write:\n- 80 to 160 words, in three short paragraphs. A short epilogue is fine: never pad it.\n- First paragraph: how it ended, as the ending below describes it.\n- Second paragraph: the colonists who mattered. Name every person listed, in order, and say what each did, in the words of the facts. Say plainly if someone died before the end, but never how or when: the facts don\u0027t say.\n- Third paragraph: what the colony is now, in a few quiet lines. End on an image, not a moral.\n\nWhat you know:\n- Use only the facts and names below. Never invent people, places, factions, numbers, quotes, dates or events, or a cause linking two facts.\n- Refer to each person by name, or by the pronoun given for them. Never guess anyone\u0027s gender.\n- Give people no rank, title or role the facts don\u0027t give.\n\nStyle:\n- Write like the game\u0027s own end screens: plain, warm and a little grim. Third person, past tense. No poetry, no rhetorical questions.\n- Keep sentences short, mostly under 20 words.\n- Write only the epilogue: no title, no heading, no notes. Don\u0027t open with the name of the ending (\u0022Resistance victory\u0022, \u0022Choral victory\u0022); the screen already shows it.\n",
+        "user": "## The colony\nVarrowgate\n\n## The power\nThe Hollow Choir\n\n## How it ended\nThe Hollow Choir won the War in Heaven with Varrowgate at its side, and The Shattered Empire was destroyed. Varrowgate took its place in the Chorus, and its people sing with the Choir now.\n\n## Where the colony stood\nVarrowgate sided with The Hollow Choir.\n\n## The colonists who mattered\n- Cassia (she): rose to Choirmaster in the Chorus\n- Henrik (he): led the colony\u0027s strike on Brightwater in the War in Heaven\n- Mags (they): kept the colony\u0027s mechs running through the war, and died before the end\n\n## What happened\n- The Hollow Choir woke on day 610, humming in the hills.\n- Varrowgate stood with the Hollow Choir.\n- The War in Heaven began on day 702.\n- The Shattered Empire\u0027s capital fell to the Choir\u0027s final push, with Varrowgate at its head.\n- The First Voice offered Varrowgate a place in the Chorus.\n\nWrite the epilogue now.\n",
+        "maxOutputTokens": 420,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "The Hollow Choir claimed victory in the War in Heaven. The Shattered Empire was destroyed. Varrowgate joined the Chorus, its people now singing with the Choir.\n\nHenrik led the colony\u0027s strike on Brightwater in the War in Heaven. Mags kept the colony\u0027s mechs running through the war, and died before the end. Cassia rose to Choirmaster in the Chorus.\n\nVarrowgate stood with the Hollow Choir. The Hills hummed with the sound of the Choir.",
+      "error": null,
+      "failures": [
+        "Do not mention names that are not in the briefing: Hills"
+      ],
+      "latencySeconds": 0.5340894,
+      "inputTokens": 614,
+      "outputTokens": 104,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-257\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795708069,\u0022model\u0022:\u0022gemma4:e4b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022The Hollow Choir claimed victory in the War in Heaven. The Shattered Empire was destroyed. Varrowgate joined the Chorus, its people now singing with the Choir.\\n\\nHenrik led the colony\u0027s strike on Brightwater in the War in Heaven. Mags kept the colony\u0027s mechs running through the war, and died before the end. Cassia rose to Choirmaster in the Chorus.\\n\\nVarrowgate stood with the Hollow Choir. The Hills hummed with the sound of the Choir.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:614,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:613},\u0022completion_tokens\u0022:104,\u0022total_tokens\u0022:718}}\n"
+    },
+    {
+      "request": {
+        "system": "You write the epilogue shown on the victory screen when a RimWorld colony\u0027s long story with the great powers ends: the Empire, the Hollow Choir (a power of mechanitors and their mechs, who call themselves the Chorus), or both, at war with each other in the War in Heaven.\n\nWhat to write:\n- 80 to 160 words, in three short paragraphs. A short epilogue is fine: never pad it.\n- First paragraph: how it ended, as the ending below describes it.\n- Second paragraph: the colonists who mattered. Name every person listed, in order, and say what each did, in the words of the facts. Say plainly if someone died before the end, but never how or when: the facts don\u0027t say.\n- Third paragraph: what the colony is now, in a few quiet lines. End on an image, not a moral.\n\nWhat you know:\n- Use only the facts and names below. Never invent people, places, factions, numbers, quotes, dates or events, or a cause linking two facts.\n- Refer to each person by name, or by the pronoun given for them. Never guess anyone\u0027s gender.\n- Give people no rank, title or role the facts don\u0027t give.\n\nStyle:\n- Write like the game\u0027s own end screens: plain, warm and a little grim. Third person, past tense. No poetry, no rhetorical questions.\n- Keep sentences short, mostly under 20 words.\n- Write only the epilogue: no title, no heading, no notes. Don\u0027t open with the name of the ending (\u0022Resistance victory\u0022, \u0022Choral victory\u0022); the screen already shows it.\n",
+        "user": "## The colony\nVarrowgate\n\n## The power\nThe Hollow Choir\n\n## How it ended\nThe Hollow Choir won the War in Heaven with Varrowgate at its side, and The Shattered Empire was destroyed. Varrowgate took its place in the Chorus, and its people sing with the Choir now.\n\n## Where the colony stood\nVarrowgate sided with The Hollow Choir.\n\n## The colonists who mattered\n- Cassia (she): rose to Choirmaster in the Chorus\n- Henrik (he): led the colony\u0027s strike on Brightwater in the War in Heaven\n- Mags (they): kept the colony\u0027s mechs running through the war, and died before the end\n\n## What happened\n- The Hollow Choir woke on day 610, humming in the hills.\n- Varrowgate stood with the Hollow Choir.\n- The War in Heaven began on day 702.\n- The Shattered Empire\u0027s capital fell to the Choir\u0027s final push, with Varrowgate at its head.\n- The First Voice offered Varrowgate a place in the Chorus.\n\nWrite the epilogue now.\n\n\nYour previous answer was rejected:\n- Do not mention names that are not in the briefing: Hills\nAnswer again, following every rule.",
+        "maxOutputTokens": 420,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "The Hollow Choir won the War in Heaven. The Shattered Empire was destroyed. Varrowgate took its place in the Chorus, and its people sing with the Choir now.\n\nHenrik led the colony\u0027s strike on Brightwater in the War in Heaven. Mags kept the colony\u0027s mechs running through the war and died before the end. Cassia rose to Choirmaster in the Chorus.\n\nVarrowgate stands with the Choir. The humming continues in the hills.",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 0.5016345,
+      "inputTokens": 643,
+      "outputTokens": 100,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-159\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795708069,\u0022model\u0022:\u0022gemma4:e4b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022The Hollow Choir won the War in Heaven. The Shattered Empire was destroyed. Varrowgate took its place in the Chorus, and its people sing with the Choir now.\\n\\nHenrik led the colony\u0027s strike on Brightwater in the War in Heaven. Mags kept the colony\u0027s mechs running through the war and died before the end. Cassia rose to Choirmaster in the Chorus.\\n\\nVarrowgate stands with the Choir. The humming continues in the hills.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:643,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:609},\u0022completion_tokens\u0022:100,\u0022total_tokens\u0022:743}}\n"
+    }
+  ]
+}

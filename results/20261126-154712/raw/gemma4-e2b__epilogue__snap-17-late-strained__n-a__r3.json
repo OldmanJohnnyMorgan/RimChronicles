@@ -1,0 +1,32 @@
+{
+  "cell": "gemma4-e2b__epilogue__snap-17-late-strained__n-a__r3",
+  "model": "gemma4-e2b",
+  "task": "epilogue",
+  "snapshot": "snap-17-late-strained",
+  "grammar": "n/a",
+  "repeat": 3,
+  "promptVersion": "epilogue/v3",
+  "outcome": "Model",
+  "value": "The Shattered Empire signed a treaty. The treaty recognized Ironbloom as a free state. The war ended with this agreement.\n\nSeverin defected from the Empire\u0027s general staff and advised the colony. Annika broke the Imperial siege of Dunwold. Thane rebuilt the walls after every raid. Mila nursed the colony through the war and died before the end.\n\nIronbloom remained a free state. The colony stood on the scarred land. A quiet settlement under a new sky.",
+  "attempts": [
+    {
+      "request": {
+        "system": "You write the epilogue shown on the victory screen when a RimWorld colony\u0027s long story with the great powers ends: the Empire, the Hollow Choir (a power of mechanitors and their mechs, who call themselves the Chorus), or both, at war with each other in the War in Heaven.\n\nWhat to write:\n- 80 to 160 words, in three short paragraphs. A short epilogue is fine: never pad it.\n- First paragraph: how it ended, as the ending below describes it.\n- Second paragraph: the colonists who mattered. Name every person listed, in order, and say what each did, in the words of the facts. Say plainly if someone died before the end, but never how or when: the facts don\u0027t say.\n- Third paragraph: what the colony is now, in a few quiet lines. End on an image, not a moral.\n\nWhat you know:\n- Use only the facts and names below. Never invent people, places, factions, numbers, quotes, dates or events, or a cause linking two facts.\n- Refer to each person by name, or by the pronoun given for them. Never guess anyone\u0027s gender.\n- Give people no rank, title or role the facts don\u0027t give.\n\nStyle:\n- Write like the game\u0027s own end screens: plain, warm and a little grim. Third person, past tense. No poetry, no rhetorical questions.\n- Keep sentences short, mostly under 20 words.\n- Write only the epilogue: no title, no heading, no notes. Don\u0027t open with the name of the ending (\u0022Resistance victory\u0022, \u0022Choral victory\u0022); the screen already shows it.\n",
+        "user": "## The colony\nIronbloom\n\n## The power\nThe Shattered Empire\n\n## How it ended\nThe Shattered Empire signed a treaty recognising Ironbloom as a free state, bound to no one.\n\n## Where the colony stood\nIronbloom fought The Shattered Empire.\n\n## The colonists who mattered\n- Severin (he): defected from the Empire\u0027s general staff and advised the colony\n- Annika (she): broke the Imperial siege of Dunwold\n- Thane (he): rebuilt the walls after every raid\n- Mila (she): nursed the colony through the war, and died before the end\n\n## What happened\n- Ironbloom destroyed an Imperial outpost on day 655, waking the Shattered Empire.\n- The Empire took the Ashford town of Dunwold on day 701.\n- Ironbloom broke the Imperial siege of Dunwold.\n- The Empire, broken by its losses, signed a treaty recognising Ironbloom as a free state.\n\nWrite the epilogue now.\n",
+        "maxOutputTokens": 360,
+        "useGrammar": false,
+        "thinking": "Off",
+        "schema": null
+      },
+      "ok": true,
+      "text": "The Shattered Empire signed a treaty. The treaty recognized Ironbloom as a free state. The war ended with this agreement.\n\nSeverin defected from the Empire\u0027s general staff and advised the colony. Annika broke the Imperial siege of Dunwold. Thane rebuilt the walls after every raid. Mila nursed the colony through the war and died before the end.\n\nIronbloom remained a free state. The colony stood on the scarred land. A quiet settlement under a new sky.",
+      "error": null,
+      "failures": [],
+      "latencySeconds": 0.4196525,
+      "inputTokens": 584,
+      "outputTokens": 99,
+      "reasoningTokens": null,
+      "rawResponse": "{\u0022id\u0022:\u0022chatcmpl-24\u0022,\u0022object\u0022:\u0022chat.completion\u0022,\u0022created\u0022:1795708046,\u0022model\u0022:\u0022gemma4:e2b\u0022,\u0022system_fingerprint\u0022:\u0022fp_ollama\u0022,\u0022choices\u0022:[{\u0022index\u0022:0,\u0022message\u0022:{\u0022role\u0022:\u0022assistant\u0022,\u0022content\u0022:\u0022The Shattered Empire signed a treaty. The treaty recognized Ironbloom as a free state. The war ended with this agreement.\\n\\nSeverin defected from the Empire\u0027s general staff and advised the colony. Annika broke the Imperial siege of Dunwold. Thane rebuilt the walls after every raid. Mila nursed the colony through the war and died before the end.\\n\\nIronbloom remained a free state. The colony stood on the scarred land. A quiet settlement under a new sky.\u0022},\u0022finish_reason\u0022:\u0022stop\u0022}],\u0022usage\u0022:{\u0022prompt_tokens\u0022:584,\u0022prompt_tokens_details\u0022:{\u0022cached_tokens\u0022:583},\u0022completion_tokens\u0022:99,\u0022total_tokens\u0022:683}}\n"
+    }
+  ]
+}

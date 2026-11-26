@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eval run 20261126-154712</title>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #898781;
+  --grid: #e1e0d9; --axis: #c3c2b7; --border: rgba(11,11,11,0.10);
+  --series: #2a78d6; --pass: #006300; --fail: #d03b3b;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --muted: #898781;
+    --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,0.10);
+    --series: #3987e5; --pass: #0ca30c; --fail: #e05555;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink); font: 14px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 1100px; margin: 0 auto; padding: 24px 16px 64px; }
+h1 { font-size: 22px; margin: 0 0 4px; }
+h2 { font-size: 18px; margin: 32px 0 8px; }
+h3 { font-size: 15px; margin: 20px 0 8px; }
+p { max-width: 75ch; }
+.meta { color: var(--ink-2); margin: 4px 0; }
+.note { color: var(--ink-2); border-left: 3px solid var(--axis); padding-left: 10px; }
+.muted { color: var(--muted); }
+code { font: 12px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.scroll { overflow-x: auto; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; }
+table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+th, td { padding: 6px 10px; text-align: left; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+thead th { color: var(--ink-2); font-weight: 600; font-size: 12px; }
+tbody th { font-weight: 600; }
+tbody tr:last-child > * { border-bottom: none; }
+.num { text-align: right; }
+.icon { font-weight: 700; }
+.icon.pass { color: var(--pass); }
+.icon.fail { color: var(--fail); }
+figure { margin: 12px 0 0; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px; overflow-x: auto; }
+.chart { width: 100%; min-width: 520px; height: auto; display: block; }
+.chart text { fill: var(--ink-2); font-size: 12px; }
+.chart .chart-title { fill: var(--ink); font-weight: 600; font-size: 13px; }
+.chart .tick { fill: var(--muted); font-size: 11px; }
+.chart .grid { stroke: var(--grid); stroke-width: 1; }
+.chart .threshold { stroke: var(--ink-2); stroke-width: 1.5; stroke-dasharray: 4 4; }
+.chart .whisker { stroke: var(--series); stroke-width: 2; stroke-linecap: round; }
+.chart .dot { fill: var(--series); stroke: var(--surface); stroke-width: 2; }
+.chart .hit { fill: transparent; }
+.chart .row:hover .hit { fill: var(--grid); fill-opacity: 0.5; }
+details { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; padding: 8px 12px; }
+summary { cursor: pointer; font-weight: 600; }
+article { border-top: 1px solid var(--grid); padding: 8px 0; }
+pre { white-space: pre-wrap; font: 13px/1.5 system-ui, sans-serif; margin: 4px 0; }
+.judge { color: var(--ink-2); font-size: 13px; margin: 4px 0; }
+a { color: var(--series); }
+</style>
+</head>
+<body>
+<main>
+<header>
+<h1>Rim Chronicles model evaluation</h1>
+<p class="meta">Run <strong>20261126-154712</strong> · 60 outputs · 4 models · commit <code>56b5672a</code> · prompts <code>director/v2</code>, <code>director-teacher/v5</code>, <code>epilogue/v3</code>, <code>inheritance-handoff/v3</code>, <code>judge/v3</code>, <code>news-bulletin/v10</code>, <code>plot-letter/v3</code></p>
+<p class="note">Not judged yet: invented facts and prose quality are empty. Run <code>rimchron-eval judge 20261126-154712</code>.</p>
+</header>
+<section>
+<h2>At a glance</h2>
+<p>Whether each model meets every pass bar that applies to it, per task. Failing bars are named; details follow below.</p>
+<div class="scroll"><table>
+<thead><tr><th>Model</th><th>Tier</th><th>Server</th><th>Quantization</th><th class="num">VRAM</th><th>Epilogue</th></tr></thead>
+<tbody>
+<tr><th scope="row">gemma4-e2b</th><td>Minimum</td><td>ollama</td><td>Q4_K_M</td><td class="num">0.4 GB</td><td><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> Meets all bars</td></tr>
+<tr><th scope="row">gemma4-e4b</th><td>Recommended</td><td>ollama</td><td>Q4_K_M</td><td class="num">0.5 GB</td><td><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> Meets all bars</td></tr>
+<tr><th scope="row">gemma4-12b</th><td>High</td><td>ollama</td><td>Q4_K_M</td><td class="num">1.5 GB</td><td><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> Meets all bars</td></tr>
+<tr><th scope="row">claude-ref</th><td>Reference</td><td>anthropic</td><td>–</td><td class="num">–</td><td><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> Meets all bars</td></tr>
+</tbody></table></div>
+</section>
+<section>
+<h2>Epilogue</h2>
+<p>Pass bars: length in range at least 90%; at most 1 invented fact per 10 outputs (a new person, place, number, quote or event, or a contradiction); overall quality at least 3.5 (Recommended tier). Rates use first answers only.</p>
+<div class="scroll"><table>
+<thead><tr><th>Model</th><th>Tier</th><th class="num">Outputs</th><th class="num">Judged</th><th class="num">Length in range</th><th class="num">Invented facts / 10</th><th class="num">Embellishments / 10</th><th class="num">Voice</th><th class="num">Clarity</th><th class="num">Tone</th><th class="num">Overall</th><th class="num">Names grounded</th><th class="num">Passed first try</th><th class="num">Fell back</th><th class="num">Median s</th><th class="num">p90 s</th><th class="num">Output tokens</th><th class="num">Reasoning tokens</th></tr></thead>
+<tbody>
+<tr><th scope="row">gemma4-e2b</th><td>Minimum</td><td class="num">15</td><td class="num">–</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">100%</td><td class="num">100%</td><td class="num">0%</td><td class="num">0.4</td><td class="num">0.5</td><td class="num">106</td><td class="num">–</td></tr>
+<tr><th scope="row">gemma4-e4b</th><td>Recommended</td><td class="num">15</td><td class="num">–</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">87%</td><td class="num">87%</td><td class="num">0%</td><td class="num">0.6</td><td class="num">0.6</td><td class="num">99</td><td class="num">–</td></tr>
+<tr><th scope="row">gemma4-12b</th><td>High</td><td class="num">15</td><td class="num">–</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">100%</td><td class="num">100%</td><td class="num">0%</td><td class="num">1.2</td><td class="num">1.4</td><td class="num">104</td><td class="num">–</td></tr>
+<tr><th scope="row">claude-ref</th><td>Reference</td><td class="num">15</td><td class="num">–</td><td class="num"><span class="icon pass" title="meets the bar" aria-label="pass">✓</span> 100%</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">100%</td><td class="num">100%</td><td class="num">0%</td><td class="num">7.0</td><td class="num">8.7</td><td class="num">737</td><td class="num">–</td></tr>
+</tbody></table></div>
+<figure>
+<svg class="chart" viewBox="0 0 710 188" role="img" aria-label="Epilogue latency: median (dot) and 90th percentile (line end), seconds">
+<text class="chart-title" x="0" y="16">Epilogue latency: median (dot) and 90th percentile (line end), seconds</text>
+<line class="grid" x1="230" x2="230" y1="34" y2="158"/><text class="tick" x="230" y="176" text-anchor="middle">0</text>
+<line class="grid" x1="450" x2="450" y1="34" y2="158"/><text class="tick" x="450" y="176" text-anchor="middle">5</text>
+<line class="grid" x1="670" x2="670" y1="34" y2="158"/><text class="tick" x="670" y="176" text-anchor="middle">10</text>
+<g class="row"><title>gemma4-e2b: median 0.4 s, p90 0.5 s (15 outputs)</title><rect class="hit" x="0" y="40" width="710" height="28"/><text class="label" x="218" y="58" text-anchor="end">gemma4-e2b</text><line class="whisker" x1="248.6" x2="250.5" y1="54" y2="54"/><circle class="dot" cx="248.6" cy="54" r="5"/></g>
+<g class="row"><title>gemma4-e4b: median 0.6 s, p90 0.6 s (15 outputs)</title><rect class="hit" x="0" y="68" width="710" height="28"/><text class="label" x="218" y="86" text-anchor="end">gemma4-e4b</text><line class="whisker" x1="254.9" x2="258.4" y1="82" y2="82"/><circle class="dot" cx="254.9" cy="82" r="5"/></g>
+<g class="row"><title>gemma4-12b: median 1.2 s, p90 1.4 s (15 outputs)</title><rect class="hit" x="0" y="96" width="710" height="28"/><text class="label" x="218" y="114" text-anchor="end">gemma4-12b</text><line class="whisker" x1="284.6" x2="293.7" y1="110" y2="110"/><circle class="dot" cx="284.6" cy="110" r="5"/></g>
+<g class="row"><title>claude-ref: median 7.0 s, p90 8.7 s (15 outputs)</title><rect class="hit" x="0" y="124" width="710" height="28"/><text class="label" x="218" y="142" text-anchor="end">claude-ref</text><line class="whisker" x1="538.7" x2="612.2" y1="138" y2="138"/><circle class="dot" cx="538.7" cy="138" r="5"/></g>
+</svg>
+</figure>
+</section>
+<section>
+<h2>Outputs</h2>
+<p>Every first answer, grouped by task and model. Open the raw file for the full request, retries and timings.</p>
+<h3>Epilogue</h3>
+<details>
+<summary>gemma4-e2b · 15 outputs</summary>
+<article><p class="meta"><a href="raw/gemma4-e2b__epilogue__snap-17-late-strained__n-a__r1.json">snap-17-late-strained</a> · repeat 1 · Model · 74 words · 0.4 s</p>
+<pre>The Shattered Empire signed a treaty recognizing Ironbloom as a free state. Ironbloom fought The Shattered Empire.
+
+Severin defected from the Empire&#39;s general staff and advised the colony. Annika broke the Imperial siege of Dunwold. Thane rebuilt the walls after every raid. Mila nursed the colony through the war and died before the end.
+
+Ironbloom remained a free state. The colony stood amidst the ruins of conflict. A quiet settlement under a pale sky.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__epilogue__snap-17-late-strained__n-a__r2.json">snap-17-late-strained</a> · repeat 2 · Model · 74 words · 0.4 s</p>
+<pre>The Shattered Empire signed a treaty. The treaty recognized Ironbloom as a free state. The war ended with this agreement.
+
+Severin defected from the Empire&#39;s general staff and advised the colony. Annika broke the Imperial siege of Dunwold. Thane rebuilt the walls after every raid. Mila nursed the colony through the war and died before the end.
+
+Ironbloom remained a free state. The colonists survived the conflict. The settlement stood quiet under the stars.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__epilogue__snap-17-late-strained__n-a__r3.json">snap-17-late-strained</a> · repeat 3 · Model · 76 words · 0.4 s</p>
+<pre>The Shattered Empire signed a treaty. The treaty recognized Ironbloom as a free state. The war ended with this agreement.
+
+Severin defected from the Empire&#39;s general staff and advised the colony. Annika broke the Imperial siege of Dunwold. Thane rebuilt the walls after every raid. Mila nursed the colony through the war and died before the end.
+
+Ironbloom remained a free state. The colony stood on the scarred land. A quiet settlement under a new sky.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__epilogue__snap-19-late-desperate__n-a__r1.json">snap-19-late-desperate</a> · repeat 1 · Model · 83 words · 0.4 s</p>
+<pre>Last Lantern and its allies destroyed the capital of The Sun Throne. The Empire fell.
+
+Ysolde led the coalition with the Marrow League. Bram held the gate when the legionaries attacked on day 906 and died before the end. Hesper sabotaged the Imperial settlement of Calder Mill. Jory kept the wounded alive through the siege.
+
+Last Lantern and its allies destroyed the Imperial capital of Solace. The colony now rests in the ruins of Solace. A quiet shadow remains over the broken stone.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__epilogue__snap-19-late-desperate__n-a__r2.json">snap-19-late-desperate</a> · repeat 2 · Model · 78 words · 0.4 s</p>
+<pre>Last Lantern and its allies destroyed the capital of The Sun Throne. The Empire fell.
+
+Ysolde led the coalition with the Marrow League. Bram held the gate when the legionaries attacked on day 906 and died before the end. Hesper sabotaged the Imperial settlement of Calder Mill. Jory kept the wounded alive through the siege.
+
+Last Lantern and its allies destroyed the Imperial capital of Solace. The colony became a quiet ruin. Dust settled over the broken stones.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__epilogue__snap-19-late-desperate__n-a__r3.json">snap-19-late-desperate</a> · repeat 3 · Model · 79 words · 0.4 s</p>
+<pre>Last Lantern and its allies destroyed the capital of The Sun Throne. The Empire fell.
+
+Ysolde led the coalition with the Marrow League. Bram held the gate when the legionaries attacked on day 906 and died before the end. Hesper sabotaged the Imperial settlement of Calder Mill. Jory kept the wounded alive through the siege.
+
+Last Lantern and its allies destroyed the Imperial capital of Solace. The colony remained in the ruins. A silent landscape under a fading sun.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__epilogue__snap-20-late-strained__n-a__r1.json">snap-20-late-strained</a> · repeat 1 · Model · 74 words · 0.4 s</p>
+<pre>Varrowgate served The Shattered Empire. The Empire took Brightwater on day 1012. The Empire&#39;s envoy offered Varrowgate a governorship on day 1040. Cassia accepted the governorship.
+
+Cassia served the Empire and was made a Count on day 960. Henrik escorted Imperial envoys across the region. Mags forged the weapons the colony traded to the Empire.
+
+Varrowgate became an Imperial province. The colony remained under the Empire&#39;s name. A quiet settlement under the Imperial banner.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__epilogue__snap-20-late-strained__n-a__r2.json">snap-20-late-strained</a> · repeat 2 · Model · 74 words · 0.4 s</p>
+<pre>Varrowgate served The Shattered Empire. The Empire took Brightwater on day 1012. The Empire&#39;s envoy offered Varrowgate a governorship on day 1040. Cassia accepted the governorship.
+
+Cassia served the Empire and was made a Count on day 960. Henrik escorted Imperial envoys across the region. Mags forged the weapons the colony traded to the Empire.
+
+Varrowgate became an Imperial province. The colony remained under the Empire&#39;s rule. A quiet settlement under the Empire&#39;s banner.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__epilogue__snap-20-late-strained__n-a__r3.json">snap-20-late-strained</a> · repeat 3 · Model · 76 words · 0.4 s</p>
+<pre>Varrowgate served The Shattered Empire. The Empire took Brightwater on day 1012. The Empire&#39;s envoy offered Varrowgate a governorship on day 1040. Cassia accepted the governorship.
+
+Cassia served the Empire and was made a Count on day 960. Henrik escorted Imperial envoys across the region. Mags forged the weapons the colony traded to the Empire.
+
+Varrowgate became an Imperial province. The colony remained under the Empire&#39;s rule. A quiet settlement under the banner of the Empire.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__epilogue__snap-26-ending-choral__n-a__r1.json">snap-26-ending-choral</a> · repeat 1 · Model · 84 words · 0.5 s</p>
+<pre>The Hollow Choir won the War in Heaven. Varrowgate stood with the Choir. The Shattered Empire was destroyed. Varrowgate took its place in the Chorus. Its people sing with the Choir now.
+
+Cassia rose to Choirmaster in the Chorus. Henrik led the colony&#39;s strike on Brightwater in the War in Heaven. Mags kept the colony&#39;s mechs running through the war. Mags died before the end.
+
+Varrowgate is now part of the Chorus. The people sing with the Choir. A quiet hum fills the hills.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__epilogue__snap-26-ending-choral__n-a__r2.json">snap-26-ending-choral</a> · repeat 2 · Model · 85 words · 0.5 s</p>
+<pre>The Hollow Choir won the War in Heaven. Varrowgate stood with the Choir. The Shattered Empire was destroyed. Varrowgate took its place in the Chorus. Its people sing with the Choir now.
+
+Cassia rose to Choirmaster in the Chorus. Henrik led the colony&#39;s strike on Brightwater in the War in Heaven. Mags kept the colony&#39;s mechs running through the war. Mags died before the end.
+
+Varrowgate now sings with the Choir. The hills hum with the Choir&#39;s song. A quiet peace settled over the land.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__epilogue__snap-26-ending-choral__n-a__r3.json">snap-26-ending-choral</a> · repeat 3 · Model · 85 words · 0.5 s</p>
+<pre>The Hollow Choir won the War in Heaven. Varrowgate stood with the Choir. The Shattered Empire was destroyed. Varrowgate took its place in the Chorus. Its people sing with the Choir now.
+
+Cassia rose to Choirmaster in the Chorus. Henrik led the colony&#39;s strike on Brightwater in the War in Heaven. Mags kept the colony&#39;s mechs running through the war. Mags died before the end.
+
+Varrowgate now sings with the Choir. The hills hum with the Choir&#39;s song. A quiet peace settled over the land.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__epilogue__snap-27-ending-independence__n-a__r1.json">snap-27-ending-independence</a> · repeat 1 · Model · 69 words · 0.4 s</p>
+<pre>Varrowgate brought down both great powers. No one was left on the rim to rule it.
+
+Aurel led the storming of the Cathedral. Cassia held the walls against the cluster sieges. Henrik brought down the High Stellarch and died before the end. Mags refused the Empire&#39;s treaty.
+
+Varrowgate declared itself free of both powers. The colony now stood in quiet. The ruins held the silence of a hard-won peace.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__epilogue__snap-27-ending-independence__n-a__r2.json">snap-27-ending-independence</a> · repeat 2 · Model · 70 words · 0.4 s</p>
+<pre>Varrowgate brought down both great powers. No one was left on the rim to rule it.
+
+Aurel led the storming of the Cathedral. Cassia held the walls against the cluster sieges. Henrik brought down the High Stellarch and died before the end. Mags refused the Empire&#39;s treaty.
+
+Varrowgate declared itself free of both powers. The colony now stood in quiet aftermath. The ruins held the silence of a hard-won peace.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e2b__epilogue__snap-27-ending-independence__n-a__r3.json">snap-27-ending-independence</a> · repeat 3 · Model · 66 words · 0.4 s</p>
+<pre>Varrowgate brought down both great powers. No one remained on the rim to rule it.
+
+Aurel led the storming of the Cathedral. Cassia held the walls against the cluster sieges. Henrik brought down the High Stellarch and died before the end. Mags refused the Empire&#39;s treaty.
+
+Varrowgate declared itself free of both powers. The colony now rests in silence. The ruins stand under a cold sky.</pre>
+</article>
+</details>
+<details>
+<summary>gemma4-e4b · 15 outputs</summary>
+<article><p class="meta"><a href="raw/gemma4-e4b__epilogue__snap-17-late-strained__n-a__r1.json">snap-17-late-strained</a> · repeat 1 · Model · 70 words · 0.6 s</p>
+<pre>The Shattered Empire signed a treaty. Ironbloom was recognized as a free state. The fighting against the Empire concluded.
+
+Severin advised the colony after defecting from the Empire&#39;s general staff. Annika broke the Imperial siege of Dunwold. Thane rebuilt the walls after every raid. Mila nursed the colony through the war and died before the end.
+
+Ironbloom stood alone. The walls remained standing. The sun set over the quiet fields.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__epilogue__snap-17-late-strained__n-a__r2.json">snap-17-late-strained</a> · repeat 2 · Model · 72 words · 0.6 s</p>
+<pre>The Shattered Empire signed a treaty. Ironbloom was recognized as a free state. The war against the Empire had ended.
+
+Severin defected from the Empire&#39;s general staff and advised the colony. Annika broke the Imperial siege of Dunwold. Thane rebuilt the walls after every raid. Mila nursed the colony through the war, and she died before the end.
+
+Ironbloom stood alone. The walls remained standing. The sun set over the quiet fields.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__epilogue__snap-17-late-strained__n-a__r3.json">snap-17-late-strained</a> · repeat 3 · Model · 69 words · 0.5 s</p>
+<pre>The Shattered Empire signed a treaty. Ironbloom was recognized as a free state. The war against the Empire concluded.
+
+Severin defected from the Empire&#39;s general staff and advised the colony. Annika broke the Imperial siege of Dunwold. Thane rebuilt the walls after every raid. Mila nursed the colony through the war and died before the end.
+
+Ironbloom stands alone now. The walls remain. The quiet settles over the fields.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__epilogue__snap-19-late-desperate__n-a__r1.json">snap-19-late-desperate</a> · repeat 1 · Model · 75 words · 0.6 s</p>
+<pre>The Sun Throne fell. Last Lantern and its allies destroyed the Imperial capital of Solace. The Empire was broken by the coalition.
+
+Ysolde led the coalition with the Marrow League. Bram held the gate when the legionaries attacked on day 906, and died before the end. Hesper sabotaged the Imperial settlement of Calder Mill. Jory kept the wounded alive through the siege.
+
+Last Lantern remained. The ruins of Solace settled under a quiet, gray sky.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__epilogue__snap-19-late-desperate__n-a__r2.json">snap-19-late-desperate</a> · repeat 2 · ModelRetry · 84 words · 0.7 s</p>
+<pre>The capital of The Sun Throne was destroyed. Last Lantern and its allies defeated the Empire. The long war in Heaven concluded with the fall of the Empire.
+
+Ysolde led the coalition with the Marrow League. Bram held the gate when the legionaries attacked on day 906, and died before the end. Hesper sabotaged the Imperial settlement of Calder Mill. Jory kept the wounded alive through the siege.
+
+Last Lantern remained. It stood among the quiet ruins. The dust settled over the broken stones.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__epilogue__snap-19-late-desperate__n-a__r3.json">snap-19-late-desperate</a> · repeat 3 · Model · 68 words · 0.5 s</p>
+<pre>The capital of The Sun Throne was destroyed. Last Lantern and its allies ended the Empire.
+
+Ysolde led the coalition with the Marrow League. Bram held the gate when the legionaries attacked on day 906, and died before the end. Hesper sabotaged the Imperial settlement of Calder Mill. Jory kept the wounded alive through the siege.
+
+Last Lantern remained. The ruins of Solace settled under a quiet sky.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__epilogue__snap-20-late-strained__n-a__r1.json">snap-20-late-strained</a> · repeat 1 · Model · 69 words · 0.6 s</p>
+<pre>Varrowgate swore itself to The Shattered Empire. The Empire took Brightwater on day 1012. Cassia accepted the governorship on day 1040.
+
+Henrik escorted Imperial envoys across the region. Mags forged the weapons the colony traded to the Empire. Cassia served the Empire and was made a Count on day 960.
+
+The colony became an Imperial province. It was governed in the Empire&#39;s name. Dust settled over the stone walls.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__epilogue__snap-20-late-strained__n-a__r2.json">snap-20-late-strained</a> · repeat 2 · Model · 63 words · 0.5 s</p>
+<pre>Varrowgate became an Imperial province. It served The Shattered Empire. The Empire took Brightwater on day 1012.
+
+Cassia served the Empire and was made a Count on day 960. Henrik escorted Imperial envoys across the region. Mags forged the weapons the colony traded to the Empire.
+
+Varrowgate held its governorship. The Imperial banner flew over the settlement. The dust settled on the plains.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__epilogue__snap-20-late-strained__n-a__r3.json">snap-20-late-strained</a> · repeat 3 · Model · 71 words · 0.6 s</p>
+<pre>Varrowgate swore itself to The Shattered Empire. The Empire took Brightwater on day 1012. Cassia accepted the governorship on day 1040.
+
+Cassia served the Empire and was made a Count on day 960. Henrik escorted Imperial envoys across the region. Mags forged the weapons the colony traded to the Empire.
+
+The colony now functions as an Imperial province. It remains under the Empire&#39;s governance. The stone walls stand against the horizon.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__epilogue__snap-26-ending-choral__n-a__r1.json">snap-26-ending-choral</a> · repeat 1 · Model · 70 words · 0.6 s</p>
+<pre>The Hollow Choir claimed victory in the War in Heaven. The Shattered Empire was destroyed. Varrowgate joined the Chorus, its people now singing with the Choir.
+
+Henrik led the colony&#39;s strike on Brightwater in the War in Heaven. Mags kept the colony&#39;s mechs running through the war and died before the end. Cassia rose to Choirmaster in the Chorus.
+
+Varrowgate stood with the Choir. The humming continued in the hills.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__epilogue__snap-26-ending-choral__n-a__r2.json">snap-26-ending-choral</a> · repeat 2 · ModelRetry · 74 words · 0.5 s</p>
+<pre>The Hollow Choir claimed victory in the War in Heaven. The Shattered Empire was destroyed. Varrowgate joined the Chorus, its people now singing with the Choir.
+
+Henrik led the colony&#39;s strike on Brightwater in the War in Heaven. Mags kept the colony&#39;s mechs running through the war, and died before the end. Cassia rose to Choirmaster in the Chorus.
+
+Varrowgate stood with the Hollow Choir. The Hills hummed with the sound of the Choir.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__epilogue__snap-26-ending-choral__n-a__r3.json">snap-26-ending-choral</a> · repeat 3 · Model · 71 words · 0.6 s</p>
+<pre>The Hollow Choir prevailed in the War in Heaven. The Shattered Empire was destroyed. Varrowgate joined the Chorus, its people now singing with the Choir.
+
+Henrik led the colony&#39;s strike on Brightwater in the War in Heaven. Mags kept the colony&#39;s mechs running through the war, and died before the end. Cassia rose to Choirmaster in the Chorus.
+
+Varrowgate stood with the Hollow Choir. The hills hummed. The Choir sang on.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__epilogue__snap-27-ending-independence__n-a__r1.json">snap-27-ending-independence</a> · repeat 1 · Model · 73 words · 0.6 s</p>
+<pre>The War in Heaven concluded with Varrowgate bringing down both The Shattered Empire and The Hollow Choir. No one remained on the rim to rule the shattered lands.
+
+Aurel led the storming of the Cathedral. Cassia held the walls against the cluster sieges. Henrik brought down the High Stellarch, and died before the end. Mags refused the Empire&#39;s treaty.
+
+Varrowgate declared itself free of both powers. The colony stood amidst the quiet ruins.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__epilogue__snap-27-ending-independence__n-a__r2.json">snap-27-ending-independence</a> · repeat 2 · Model · 77 words · 0.6 s</p>
+<pre>The War in Heaven concluded with Varrowgate bringing down both The Shattered Empire and The Hollow Choir. No one remained on the rim to rule the aftermath.
+
+Aurel led the storming of the Cathedral. Cassia held the walls against the cluster sieges. Henrik brought down the High Stellarch, and he died before the end. Mags refused the Empire&#39;s treaty.
+
+Varrowgate declared itself free of both powers. The colony stood quiet, watching the dust settle over the ruins.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-e4b__epilogue__snap-27-ending-independence__n-a__r3.json">snap-27-ending-independence</a> · repeat 3 · Model · 73 words · 0.6 s</p>
+<pre>The War in Heaven concluded with Varrowgate bringing down both The Shattered Empire and The Hollow Choir. No one remained on the rim to rule the ruins.
+
+Aurel led the storming of the Cathedral. Cassia held the walls against the cluster sieges. Henrik brought down the High Stellarch, and he died before the end. Mags refused the Empire&#39;s treaty.
+
+Varrowgate declared itself free of both powers. The colony stood amidst the quiet wreckage.</pre>
+</article>
+</details>
+<details>
+<summary>gemma4-12b · 15 outputs</summary>
+<article><p class="meta"><a href="raw/gemma4-12b__epilogue__snap-17-late-strained__n-a__r1.json">snap-17-late-strained</a> · repeat 1 · Model · 69 words · 1.3 s</p>
+<pre>The Shattered Empire signed a treaty recognizing Ironbloom as a free state. The colony is now bound to no one.
+
+Severin defected from the Empire&#39;s general staff and advised the colony. Annika broke the Imperial siege of Dunwold. Thane rebuilt the walls after every raid. Mila nursed the colony through the war and died before the end.
+
+Ironbloom remains a free state. The walls stand silent against the horizon.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__epilogue__snap-17-late-strained__n-a__r2.json">snap-17-late-strained</a> · repeat 2 · Model · 79 words · 1.3 s</p>
+<pre>The Shattered Empire signed a treaty recognizing Ironbloom as a free state. The colony is now bound to no one.
+
+Severin defected from the Empire&#39;s general staff and advised the colony. Annika broke the Imperial siege of Dunwold. Thane rebuilt the walls after every raid. Mila nursed the colony through the war and died before the end.
+
+Ironbloom stands alone on the frontier. The smoke from the old outposts has cleared. A single banner flies over the silent walls.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__epilogue__snap-17-late-strained__n-a__r3.json">snap-17-late-strained</a> · repeat 3 · Model · 75 words · 1.2 s</p>
+<pre>The Shattered Empire signed a treaty recognizing Ironbloom as a free state. The conflict ended with the colony bound to no one.
+
+Severin defected from the Empire&#39;s general staff and advised the colony. Annika broke the Imperial siege of Dunwold. Thane rebuilt the walls after every raid. Mila nursed the colony through the war and died before the end.
+
+Ironbloom stands alone. The walls remain intact against the horizon. A banner hangs over the gate.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__epilogue__snap-19-late-desperate__n-a__r1.json">snap-19-late-desperate</a> · repeat 1 · Model · 68 words · 1.2 s</p>
+<pre>Last Lantern and its allies destroyed the capital of The Sun Throne. The Empire fell.
+
+Ysolde led the coalition with the Marrow League. Bram held the gate when the legionaries attacked and died before the end. Hesper sabotaged the Imperial settlement of Calder Mill. Jory kept the wounded alive through the siege.
+
+Last Lantern remains on the rim. The ruins of Solace sit silent under a cold sky.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__epilogue__snap-19-late-desperate__n-a__r2.json">snap-19-late-desperate</a> · repeat 2 · Model · 76 words · 1.2 s</p>
+<pre>Last Lantern and its allies destroyed the capital of The Sun Throne. The Empire fell.
+
+Ysolde led the coalition with the Marrow League. Bram held the gate when the legionaries attacked on day 906 and died before the end. Hesper sabotaged the Imperial settlement of Calder Mill. Jory kept the wounded alive through the siege.
+
+The colony remains at the site of the old conflict. The ruins of the capital stand silent under a gray sky.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__epilogue__snap-19-late-desperate__n-a__r3.json">snap-19-late-desperate</a> · repeat 3 · Model · 69 words · 1.0 s</p>
+<pre>Last Lantern and its allies destroyed the capital of The Sun Throne. The Empire fell.
+
+Ysolde led the coalition with the Marrow League. Bram held the gate when the legionaries attacked on day 906 and died before the end. Hesper sabotaged the Imperial settlement of Calder Mill. Jory kept the wounded alive through the siege.
+
+Last Lantern remains. The ruins of the capital stand silent under a heavy sky.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__epilogue__snap-20-late-strained__n-a__r1.json">snap-20-late-strained</a> · repeat 1 · Model · 81 words · 1.6 s</p>
+<pre>Varrowgate swore itself to The Shattered Empire. The Empire took Brightwater. An envoy offered Varrowgate a governorship, and the colony became an Imperial province governed in the Empire&#39;s name.
+
+Cassia served the Empire and was made a Count. Henrik escorted Imperial envoys across the region. Mags forged the weapons the colony traded to the Empire.
+
+Varrowgate is now a province of the Empire. The banners of the Shattered Empire fly over the settlement. A heavy seal sits upon the governing desk.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__epilogue__snap-20-late-strained__n-a__r2.json">snap-20-late-strained</a> · repeat 2 · Model · 76 words · 1.2 s</p>
+<pre>Varrowgate swore itself to the Shattered Empire. The Empire took Brightwater on day 1012. An Imperial envoy offered Varrowgate a governorship on day 1040. Cassia accepted the offer.
+
+Cassia served the Empire and was made a Count on day 960. Henrik escorted Imperial envoys across the region. Mags forged the weapons the colony traded to the Empire.
+
+Varrowgate is now an Imperial province. It is governed in the Empire&#39;s name. A banner hangs over the gate.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__epilogue__snap-20-late-strained__n-a__r3.json">snap-20-late-strained</a> · repeat 3 · Model · 70 words · 1.1 s</p>
+<pre>Varrowgate swore itself to The Shattered Empire. The Empire took Brightwater and offered the colony a governorship. Cassia accepted the offer.
+
+Cassia served the Empire and was made a Count. Henrik escorted Imperial envoys across the region. Mags forged the weapons the colony traded to the Empire.
+
+Varrowgate is now an Imperial province. It is governed in the Empire&#39;s name. The banners of the Shattered Empire fly over the settlement.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__epilogue__snap-26-ending-choral__n-a__r1.json">snap-26-ending-choral</a> · repeat 1 · Model · 85 words · 1.4 s</p>
+<pre>The Hollow Choir won the War in Heaven with Varrowgate at its side. The Shattered Empire was destroyed. Varrowgate took its place in the Chorus, and its people sing with the Choir now.
+
+Cassia rose to Choirmaster in the Chorus. Henrik led the colony&#39;s strike on Brightwater in the War in Heaven. Mags kept the colony&#39;s mechs running through the war and died before the end.
+
+Varrowgate is now a part of the Chorus. The hum of the hills remains. The people join the song.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__epilogue__snap-26-ending-choral__n-a__r2.json">snap-26-ending-choral</a> · repeat 2 · Model · 86 words · 1.2 s</p>
+<pre>The Hollow Choir won the War in Heaven with Varrowgate at its side. The Shattered Empire was destroyed. Varrowgate took its place in the Chorus, and its people sing with the Choir now.
+
+Cassia rose to Choirmaster in the Chorus. Henrik led the colony&#39;s strike on Brightwater in the War in Heaven. Mags kept the colony&#39;s mechs running through the war and died before the end.
+
+Varrowgate is a part of the Chorus. The hum of the hills remains. A single note echoes through the valley.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__epilogue__snap-26-ending-choral__n-a__r3.json">snap-26-ending-choral</a> · repeat 3 · Model · 89 words · 1.3 s</p>
+<pre>The Hollow Choir won the War in Heaven with Varrowgate at its side. The Shattered Empire was destroyed. Varrowgate took its place in the Chorus, and its people sing with the Choir now.
+
+Cassia rose to Choirmaster in the Chorus. Henrik led the colony&#39;s strike on Brightwater in the War in Heaven. Mags kept the colony&#39;s mechs running through the war and died before the end.
+
+Varrowgate is now a part of the Chorus. The people live in harmony with the machines. A single note echoes across the hills.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__epilogue__snap-27-ending-independence__n-a__r1.json">snap-27-ending-independence</a> · repeat 1 · Model · 80 words · 1.4 s</p>
+<pre>Varrowgate brought down both The Shattered Empire and The Hollow Choir. The colony declared itself free of both powers. The Imperial Citadel fell to Varrowgate.
+
+Aurel led the storming of the Cathedral. Cassia held the walls against the cluster sieges. Henrik brought down the High Stellarch and died before the end. Mags refused the Empire&#39;s treaty.
+
+No one is left on the rim to rule it. Varrowgate stands alone in the silence. Dust settles over the ruins of the Citadel.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__epilogue__snap-27-ending-independence__n-a__r2.json">snap-27-ending-independence</a> · repeat 2 · Model · 82 words · 1.2 s</p>
+<pre>Varrowgate brought down both The Shattered Empire and The Hollow Choir. The Imperial Citadel fell to the colony. No one is left on the rim to rule it.
+
+Aurel led the storming of the Cathedral. Cassia held the walls against the cluster sieges. Henrik brought down the High Stellarch and died before the end. Mags refused the Empire&#39;s treaty.
+
+Varrowgate is now free of both powers. The colony stands alone in the silence of the rim. Dust settles over the fallen spires.</pre>
+</article>
+<article><p class="meta"><a href="raw/gemma4-12b__epilogue__snap-27-ending-independence__n-a__r3.json">snap-27-ending-independence</a> · repeat 3 · Model · 83 words · 1.2 s</p>
+<pre>Varrowgate brought down both The Shattered Empire and The Hollow Choir. The colony declared itself free of both powers. The Imperial Citadel fell to Varrowgate.
+
+Aurel led the storming of the Cathedral. Cassia held the walls against the cluster sieges. Henrik brought down the High Stellarch and died before the end. Mags refused the Empire&#39;s treaty.
+
+No one is left on the rim to rule it. Varrowgate stands alone in the silence of the wastes. Dust settles over the ruins of the Citadel.</pre>
+</article>
+</details>
+<details>
+<summary>claude-ref · 15 outputs</summary>
+<article><p class="meta"><a href="raw/claude-ref__epilogue__snap-17-late-strained__n-a__r1.json">snap-17-late-strained</a> · repeat 1 · Model · 130 words · 6.1 s</p>
+<pre>The Shattered Empire, broken by its losses, signed a treaty. It recognised Ironbloom as a free state, bound to no one. The war had begun on day 655, when Ironbloom destroyed an Imperial outpost. It ended with ink, not fire.
+
+Severin defected from the Empire&#39;s general staff and advised the colony. Annika broke the Imperial siege of Dunwold, the Ashford town the Empire had taken. Thane rebuilt the walls after every raid. Mila nursed the colony through the war. She died before the end, and did not see the treaty signed.
+
+Ironbloom belongs to itself now. No banner flies over it but its own. The walls Thane mended still stand, patched stone on patched stone. In the evenings, smoke rises from the chimneys, straight and slow, over a quiet field.</pre>
+</article>
+<article><p class="meta"><a href="raw/claude-ref__epilogue__snap-17-late-strained__n-a__r2.json">snap-17-late-strained</a> · repeat 2 · Model · 116 words · 6.4 s</p>
+<pre>The Shattered Empire signed a treaty recognising Ironbloom as a free state, bound to no one. The Empire had been broken by its losses. Its war with Ironbloom began on day 655, when the colony destroyed an Imperial outpost.
+
+Severin defected from the Empire&#39;s general staff. He advised the colony. Annika broke the Imperial siege of Dunwold, the Ashford town the Empire had taken on day 701. Thane rebuilt the walls after every raid. Mila nursed the colony through the war. She died before the end.
+
+Ironbloom answers to no one now. No banner flies over it but its own. The walls Thane rebuilt still stand, patched and repatched, around a colony that is finally free.</pre>
+</article>
+<article><p class="meta"><a href="raw/claude-ref__epilogue__snap-17-late-strained__n-a__r3.json">snap-17-late-strained</a> · repeat 3 · Model · 119 words · 7.3 s</p>
+<pre>The Shattered Empire signed a treaty in the end. It recognised Ironbloom as a free state, bound to no one. The Empire had been broken by its losses. Ironbloom had fought it since destroying an Imperial outpost on day 655.
+
+Severin defected from the Empire&#39;s general staff. He advised the colony through the long fight. Annika broke the Imperial siege of Dunwold. Thane rebuilt the walls after every raid. Mila nursed the colony through the war. She died before the end, and did not see the treaty signed.
+
+Ironbloom answers to no one now. No one comes to take what it has built. The walls Thane rebuilt still ring the colony. Inside them, people go about the day&#39;s work.</pre>
+</article>
+<article><p class="meta"><a href="raw/claude-ref__epilogue__snap-19-late-desperate__n-a__r1.json">snap-19-late-desperate</a> · repeat 1 · Model · 113 words · 8.6 s</p>
+<pre>The Sun Throne took Calder Mill and razed Fenwick. Last Lantern joined the Marrow League against the Empire. Imperial legionaries came on day 906 and were driven off. In the end, Last Lantern and its allies destroyed Solace, the Imperial capital. The Empire fell.
+
+Ysolde led the coalition with the Marrow League. Bram held the gate when the legionaries attacked on day 906. He died before the end. Hesper sabotaged the Imperial settlement of Calder Mill. Jory kept the wounded alive through the siege.
+
+The war is over now. Last Lantern still stands, small and stubborn. At night its people light the lamps, and the light carries a long way across the dark.</pre>
+</article>
+<article><p class="meta"><a href="raw/claude-ref__epilogue__snap-19-late-desperate__n-a__r2.json">snap-19-late-desperate</a> · repeat 2 · Model · 110 words · 6.5 s</p>
+<pre>Last Lantern and its allies destroyed Solace, the capital of The Sun Throne. The Empire fell. Before the end, the Empire had taken Calder Mill and razed Fenwick. Last Lantern joined the Marrow League against it.
+
+Ysolde led the coalition with the Marrow League. Bram held the gate when the legionaries attacked on day 906. The legionaries were driven off. He died before the end. Hesper sabotaged the Imperial settlement of Calder Mill. Jory kept the wounded alive through the siege.
+
+Last Lantern still stands. No legionaries come to the gate now. At night the colony&#39;s lights burn as they always have, and no one watches the dark for banners.</pre>
+</article>
+<article><p class="meta"><a href="raw/claude-ref__epilogue__snap-19-late-desperate__n-a__r3.json">snap-19-late-desperate</a> · repeat 3 · Model · 110 words · 8.7 s</p>
+<pre>The Sun Throne took Calder Mill and razed Fenwick. Last Lantern joined the Marrow League against the Empire. In the end, Last Lantern and its allies destroyed the Imperial capital of Solace, and the Empire fell.
+
+Ysolde led the coalition with the Marrow League. Bram held the gate when the legionaries attacked on day 906, and they were driven off. He did not live to see the end. Hesper sabotaged the Imperial settlement of Calder Mill. Jory kept the wounded alive through the siege.
+
+The Sun Throne is gone. Last Lantern is quiet now. The gate Bram held is still there. At dusk, someone walks out and lights the lamps.</pre>
+</article>
+<article><p class="meta"><a href="raw/claude-ref__epilogue__snap-20-late-strained__n-a__r1.json">snap-20-late-strained</a> · repeat 1 · Model · 102 words · 8.3 s</p>
+<pre>Varrowgate swore itself to the Shattered Empire. The Empire took Brightwater on day 1012. On day 1040, the Empire&#39;s envoy offered Varrowgate a governorship. Cassia accepted it. Varrowgate became an Imperial province, governed in the Empire&#39;s name.
+
+Cassia served the Empire. She was made a Count on day 960. Henrik escorted Imperial envoys across the region. Mags forged the weapons the colony traded to the Empire.
+
+Varrowgate is a province now. Its people answer to the Empire. The work goes on as it did before, only under another name. In the evening, smoke rises over the walls, and the gate stands open.</pre>
+</article>
+<article><p class="meta"><a href="raw/claude-ref__epilogue__snap-20-late-strained__n-a__r2.json">snap-20-late-strained</a> · repeat 2 · Model · 134 words · 8.2 s</p>
+<pre>Varrowgate served the Shattered Empire to the end. It swore itself to the Empire and kept that oath. In time, the Empire&#39;s envoy offered Varrowgate a governorship, and Cassia accepted it. Varrowgate became an Imperial province, governed in the Empire&#39;s name.
+
+Cassia served the Empire. She was made a Count on day 960, and she took the governorship when it came. Henrik escorted Imperial envoys across the region, through every season the roads allowed. Mags forged the weapons the colony traded to the Empire. Their work went out from Varrowgate in Imperial hands.
+
+Varrowgate is no longer only a colony. It is a province now, and it answers to the Empire. The people who built it still live inside its walls. At dusk the gates close as they always have, under an Imperial banner.</pre>
+</article>
+<article><p class="meta"><a href="raw/claude-ref__epilogue__snap-20-late-strained__n-a__r3.json">snap-20-late-strained</a> · repeat 3 · Model · 107 words · 11.1 s</p>
+<pre>Varrowgate swore itself to the Shattered Empire and served it to the end. The Empire took Brightwater on day 1012. On day 1040, the Empire&#39;s envoy offered Varrowgate a governorship. Varrowgate became an Imperial province, governed in the Empire&#39;s name.
+
+Cassia served the Empire. She was made a Count on day 960, and she accepted the governorship. Henrik escorted Imperial envoys across the region. Mags forged the weapons the colony traded to the Empire.
+
+Varrowgate answers to distant masters now. Its people still work and eat and sleep. Its walls still stand. In the evening, forge smoke drifts over the road where the envoys came and went.</pre>
+</article>
+<article><p class="meta"><a href="raw/claude-ref__epilogue__snap-26-ending-choral__n-a__r1.json">snap-26-ending-choral</a> · repeat 1 · Model · 132 words · 5.3 s</p>
+<pre>The Hollow Choir woke on day 610, humming in the hills. Varrowgate stood with it. The War in Heaven began on day 702. The Shattered Empire&#39;s capital fell to the Choir&#39;s final push, and Varrowgate was at its head. The Shattered Empire was destroyed. The First Voice offered Varrowgate a place in the Chorus, and the colony took it.
+
+Cassia rose to Choirmaster in the Chorus. Henrik led the colony&#39;s strike on Brightwater in the War in Heaven. Mags kept the colony&#39;s mechs running through the war. They did not live to see the end.
+
+Varrowgate is part of the Chorus now. The war is over, and the Empire is gone. Its people sing with the Choir. In the evenings, their voices carry out over the hills where the humming first began.</pre>
+</article>
+<article><p class="meta"><a href="raw/claude-ref__epilogue__snap-26-ending-choral__n-a__r2.json">snap-26-ending-choral</a> · repeat 2 · Model · 108 words · 6.6 s</p>
+<pre>The War in Heaven began on day 702. It ended when the Shattered Empire&#39;s capital fell to the Choir&#39;s final push, with Varrowgate at its head. The Shattered Empire was destroyed. The First Voice offered Varrowgate a place in the Chorus, and Varrowgate took it.
+
+Cassia rose to Choirmaster in the Chorus. Henrik led the colony&#39;s strike on Brightwater in the War in Heaven. Mags kept the colony&#39;s mechs running through the war. They died before the end.
+
+Varrowgate belongs to the Chorus now. Its people sing with the Choir. On day 610, the Hollow Choir woke humming in the hills. Now Varrowgate&#39;s voices are in that song.</pre>
+</article>
+<article><p class="meta"><a href="raw/claude-ref__epilogue__snap-26-ending-choral__n-a__r3.json">snap-26-ending-choral</a> · repeat 3 · Model · 118 words · 6.0 s</p>
+<pre>The War in Heaven ended with the Hollow Choir victorious and Varrowgate at its side. The Shattered Empire&#39;s capital fell to the Choir&#39;s final push, with Varrowgate at its head. The Shattered Empire was destroyed. The First Voice offered Varrowgate a place in the Chorus, and the colony took it.
+
+Cassia rose to Choirmaster in the Chorus. Henrik led the colony&#39;s strike on Brightwater in the War in Heaven. Mags kept the colony&#39;s mechs running through the war. They died before the end.
+
+Varrowgate belongs to the Chorus now. Its people sing with the Choir. The mechs Mags kept running still walk the colony. In the hills where the Choir first woke humming, Varrowgate&#39;s voices join the song.</pre>
+</article>
+<article><p class="meta"><a href="raw/claude-ref__epilogue__snap-27-ending-independence__n-a__r1.json">snap-27-ending-independence</a> · repeat 1 · Model · 114 words · 7.2 s</p>
+<pre>Varrowgate declared itself free of both powers. Then, on day 600, the War in Heaven began. The Hollow Choir&#39;s Cathedral fell to Varrowgate. The Shattered Empire offered a treaty, and Varrowgate refused it. Then the Imperial Citadel fell too. Both great powers were brought down. No one is left on the rim to rule it.
+
+Aurel led the storming of the Cathedral. Cassia held the walls against the cluster sieges. Henrik brought down the High Stellarch. He died before the end. Mags refused the Empire&#39;s treaty.
+
+Varrowgate answers to no one now. Its walls still stand, the ones Cassia held. Beyond them, the rim lies open and unclaimed, and no banner flies over it.</pre>
+</article>
+<article><p class="meta"><a href="raw/claude-ref__epilogue__snap-27-ending-independence__n-a__r2.json">snap-27-ending-independence</a> · repeat 2 · Model · 120 words · 6.5 s</p>
+<pre>Varrowgate declared itself free of both powers. Then the War in Heaven began on day 600. The Hollow Choir&#39;s Cathedral fell to Varrowgate. The Imperial Citadel fell too. Both great powers are gone now, and no one is left on the rim to rule it.
+
+Aurel led the storming of the Cathedral. Cassia held the walls against the cluster sieges. Henrik brought down the High Stellarch. He died before the end. When the Shattered Empire offered a treaty, Mags refused it.
+
+Varrowgate answers to no one now. There are no more envoys and no more sieges. The fields need tending, and the people tend them. In the evening, someone walks the walls Cassia held. Above them, the sky stays empty.</pre>
+</article>
+<article><p class="meta"><a href="raw/claude-ref__epilogue__snap-27-ending-independence__n-a__r3.json">snap-27-ending-independence</a> · repeat 3 · Model · 120 words · 7.0 s</p>
+<pre>Varrowgate declared itself free of both powers. The War in Heaven began on day 600. The Hollow Choir&#39;s Cathedral fell to Varrowgate. The Shattered Empire offered a treaty, and Varrowgate refused it. Then the Imperial Citadel fell too. Both great powers were brought down. No one is left on the rim to rule it.
+
+Aurel led the storming of the Cathedral. Cassia held the walls against the cluster sieges. Henrik brought down the High Stellarch. He died before the end. Mags refused the Empire&#39;s treaty. They would not sign.
+
+Varrowgate answers to no one now. The walls Cassia held still stand, scarred and patched. At dusk, the gate stays open, and the road beyond it runs empty to the horizon.</pre>
+</article>
+</details>
+</section>
+</main>
+</body>
+</html>
