@@ -99,7 +99,8 @@ public static class CrisisDriver
     /// <summary>Today's budget for a stage: the storyteller's threat scale times the crisis difficulty setting.</summary>
     public static float Budget(RimChroniclesGameComponent component, CrisisStage stage, ColonyStrength strength) =>
         ThreatBudget.Compute(stage, Find.Storyteller.difficulty.threatScale * RimChroniclesMod.Settings.CrisisDifficulty, strength,
-            component.Empire.State == PowerState.Broken);
+            component.Empire.State == PowerState.Broken)
+        * component.War.BudgetFactor(RimChroniclesMod.Settings.WarFrontFactor); // the War in Heaven pulls forces to the front (W10)
 
     private static void Start(RimChroniclesGameComponent component, int today, string why)
     {

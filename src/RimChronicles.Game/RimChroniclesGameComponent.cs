@@ -192,6 +192,7 @@ public sealed class RimChroniclesGameComponent : GameComponent
         Game.Powers.PowerDrivers.Daily(this);
         Game.Crisis.CrisisDriver.Daily(this);
         Game.Crisis.Choir.ChoirCrisisDriver.Daily(this);
+        Game.War.WarDriver.Daily(this);
         Game.News.NewsDriver.Tick(this);
     }
 }

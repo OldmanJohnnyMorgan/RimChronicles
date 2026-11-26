@@ -217,7 +217,7 @@ public static class ChoirDriver
         var gap = StoryIntensity.Scale(Rand.RangeInclusive(PowerExpansion.MinGapDays, PowerExpansion.MaxGapDays), RimChroniclesMod.Settings.StoryIntensity);
         var settlements = EmpireDriver.Targets(choir);
         var targetRoll = Rand.Value;
-        var target = PowerExpansion.PickTarget(settlements.Keys.ToList(), targetRoll);
+        var target = PowerExpansion.PickTarget(settlements.Keys.ToList(), targetRoll, EmpireDriver.RivalName(component, Power.Choir));
         if (target is null)
         {
             saga.NextExpansionDay = today + gap;

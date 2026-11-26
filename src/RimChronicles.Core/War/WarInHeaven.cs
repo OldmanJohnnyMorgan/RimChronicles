@@ -43,6 +43,23 @@ public sealed class WarInHeaven : IArchivable
     /// <summary>The daily chance never goes above this.</summary>
     public const double MaxOdds = 0.1;
 
+    /// <summary>While the war is on, each crisis sends this share of its budget at the colony: the rest is pulled to the
+    /// front (tech spec §6; a setting).</summary>
+    public const float DefaultFrontFactor = 0.8f;
+
+    /// <summary>A destroyed power's saga ending (W10, spec D10): its story is over, but it isn't the game's ending.</summary>
+    public const string DestroyedEnding = "Destroyed";
+
+    /// <summary>
+    /// Whether taking a power's capital destroys it (W10, tech spec R11) instead of ending the game in its defeat
+    /// (Resistance, or the Choir silenced): once the war is on, or while both powers are awake, so there's a war for the
+    /// story to go on to. With one power only (no Biotech, or the Choir still asleep), the old endings stand.
+    /// </summary>
+    public bool CapitalFallDestroys(PowerSaga empire, PowerSaga choir) => State == WarState.Started || (Awake(empire) && Awake(choir));
+
+    /// <summary>The budget factor for a crisis today.</summary>
+    public float BudgetFactor(float frontFactor) => State == WarState.Started ? Math.Clamp(frontFactor, 0.1f, 1f) : 1f;
+
     public WarState State = WarState.NotYet;
     public int StartDay = -1;
 

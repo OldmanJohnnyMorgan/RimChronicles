@@ -262,6 +262,12 @@ public static class ChoirBeats
             }
 
             case PowerStep.Ending:
+                if (plot.Fact(PowerArc.EndingFact) == Choir.DefeatEnding && War.WarDriver.CapitalFallDestroys(component))
+                {
+                    War.WarDriver.Destroy(component, Choir, today, $"its Cathedral fell to {Colony}"); // R11: not the Choir silenced
+                    return true;
+                }
+
                 Finish(component, plot, plot.Fact(PowerArc.EndingFact) ?? Core.Empire.EmpireEnding.Independence, choir, today);
                 return true;
 

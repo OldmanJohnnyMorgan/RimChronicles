@@ -112,6 +112,22 @@ public static class SettingsWindow
             {
                 list.Label("<color=#a0a0a0>    Biotech isn't active, so the Hollow Choir is off.</color>");
             }
+
+            if (settings.HollowChoir)
+            {
+                list.CheckboxLabeled("    The War in Heaven: the two powers fight it out", ref settings.WarInHeaven,
+                    "Once both are awake and the colony is at war, each day there's a chance the Empire and the Hollow Choir turn their armies on each "
+                    + "other, rising the longer the colony's war goes on. Your side's victory ends the story.");
+                if (settings.WarInHeaven)
+                {
+                    settings.WarCertainDay = (int)Math.Round(list.SliderLabeled($"    It starts for certain on game day {settings.WarCertainDay}",
+                        settings.WarCertainDay, RimChroniclesSettings.MinWarCertainDay, RimChroniclesSettings.MaxWarCertainDay) / 10f) * 10;
+                    settings.WarOddsSteepness = (float)Math.Round(list.SliderLabeled($"    Odds before then: {settings.WarOddsSteepness:0.0}×",
+                        settings.WarOddsSteepness, 0f, 3f, tooltip: "0: only on the certain day. 1: about 3% a day after six months of the colony's war."), 1);
+                    settings.WarFrontFactor = (float)Math.Round(list.SliderLabeled($"    While it's on, crises send {settings.WarFrontFactor:P0} of their forces at the colony",
+                        settings.WarFrontFactor, 0.5f, 1f, tooltip: "The rest is pulled away to the front."), 2);
+                }
+            }
         }
 
         list.Gap();
