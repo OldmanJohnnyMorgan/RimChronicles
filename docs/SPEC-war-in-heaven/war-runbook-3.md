@@ -49,3 +49,73 @@ Each ending ends the game's story with the victory screen: the credits roll with
 | W11.7 | Only the Empire awake: storm the Imperial capital | "Resistance victory", as before |
 | W11.8 | After any ending | Every power's story and crisis has ended (Chronicle tab), the news reports it, and no more crisis operations come |
 | W11.9 | With Ollama stopped, reach an ending | The template epilogue shows; it names the same people |
+
+## Paths to each victory (Dev Mode)
+
+Three new colonies, one per side, each with Royalty and Biotech, the crisis, the Hollow Choir and the War in Heaven on
+(mod settings → Story), and Ollama running. Every action is under the Dev Mode menu's *Rim Chronicles* section.
+**Plot: advance beat** opens a menu of the running plots: pick by template (`AwakenedEmpire`, `HollowChoir`,
+`WarInHeaven`). Each path storms one fortress for real; **War in Heaven: reach an ending** is the shortcut that skips
+the fight (use it for the second look at each screen, and for W11.9 with Ollama stopped).
+
+### Common start (every path)
+
+1. **Empire: trigger awakening**, then **Empire: end stirring now**: the Empire is Awakened (**Empire: show state**).
+2. **Hollow Choir: wake now**: the faction and its settlements appear on the world map (**Hollow Choir: show**).
+3. **War in Heaven: set side**: the path's side. **War in Heaven: show allegiance** shows it, and the other power (or
+   both) hostile in the factions tab.
+4. **Make the enemy's capital a fortress.** A capital becomes the Citadel (Empire) or the Cathedral (Choir) only once
+   that power's crisis is at the War stage; a capital visited before then stays an ordinary settlement for good, so
+   don't send anyone there yet. For each power you're fighting:
+   - **Plot: advance beat** → its plot, until **Show plots** says it's in Act 2 (beat `Complication`).
+   - Its expansion four times: **Empire: expansion tick** or **Hollow Choir: expand now**.
+   - **Crisis: show state** (Empire) or **Choir crisis: show state** (Choir) says **Stage: War**.
+5. **War in Heaven: start now**: "The War in Heaven" letter, a news line, a war story in the Chronicle tab.
+   **War in Heaven: show**: Started.
+
+### Storming a capital (Imperial and Choral paths)
+
+6. **War in Heaven: move the front** → to 4, then **Plot: advance beat** → `WarInHeaven`: the quest "The final push on
+   {capital}". Accept it in the Quests tab.
+7. Form a caravan of your best fighters for the capital; on the world map select it and press **DEV: Teleport to
+   destination**, then attack.
+8. On the map (takes a while to generate):
+   - **Crisis: Citadel state**: Shield up; relays (resonators, at the Cathedral) standing 2 of 2; rings reached; the
+     garrisons. It works on the Cathedral too.
+   - Destroy the courtyard's relays (resonators): **Citadel state** says Shield down.
+   - Walk in ring by ring: **Citadel state** ticks each ring reached, and its garrison wakes as you reach it.
+   - The keep: the High Stellarch in the throne room (**Crisis: Stellarch state**), or the First Voice in the
+     Cathedral's sanctum (**Choir crisis: First Voice state**).
+   - Win by clearing the map. To speed up, Dev Mode's **Pawns → Destroy non-colonists** clears what's left, but fight
+     at least the first ring and the leader for real once.
+9. The settlement is destroyed: "{power} is destroyed" letter and news; **War in Heaven: show**: destroyed; its crisis
+   sends nothing more.
+10. **Plot: advance beat** → `WarInHeaven`: "Victory in the War in Heaven". Press **Accept**.
+11. The credits roll with the epilogue; the epilogue letter stays, and the Chronicle tab has it. Check the people named.
+
+### Imperial victory
+
+Side with the Empire. Step 4 for the **Hollow Choir**; steps 6–11 storm the **Cathedral**. Pass: "Imperial victory",
+the Choir destroyed, the colony's title holder named first (W11.1).
+
+### Choral victory
+
+Side with the Hollow Choir. Step 4 for the **Empire**; steps 6–11 storm the **Citadel**. Pass: "Choral victory", the
+Empire destroyed, the Choirmaster named first (W11.2). Grant a colonist rank first (**Hollow Choir: grant rank favor**,
+a few times) so there is a Choirmaster to name.
+
+### Independence and total independence
+
+Independent (step 3 → **Independent (against every power)**). Step 4 for **both** powers. No final push comes for an
+independent colony, so:
+
+1. Destroy one power: storm its capital through its own plot (**Plot: advance beat** on `AwakenedEmpire` until it
+   offers storming the capital, then steps 7–8 at the Citadel), or **War in Heaven: destroy a power** → the Hollow Choir.
+2. **Plot: advance beat** → `WarInHeaven`: "A treaty of independence" from the survivor.
+   - **Sign the treaty** → "Independence" (W11.3). Save before this, so you can reload and try the other answer.
+   - **Fight on** → destroy the survivor (storm its capital, or **destroy a power**) → "Total independence" (W11.4).
+
+### After every ending
+
+**Crisis: show state** and **Choir crisis: show state** report no stage; the Chronicle tab shows every power's story
+ended; no more operations arrive over a few days at speed 3 (W11.8).

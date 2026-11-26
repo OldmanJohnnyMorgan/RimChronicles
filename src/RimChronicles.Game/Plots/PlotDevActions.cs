@@ -132,16 +132,31 @@ public static class NemesisDevActions
         LetterSink.Instance.Send($"Rim Chronicles: grudges ({grudges.Count})", text);
     }
 
-    /// <summary>Fires the oldest active plot's next beat now, ignoring its wait, the beat spacing and the pacing gate.</summary>
+    /// <summary>Fires a plot's next beat now, ignoring its wait, the beat spacing and the pacing gate. With more than one
+    /// plot running (the Empire's, the Choir's and the War in Heaven's at once), a menu picks which, oldest first.</summary>
     [DebugAction("Rim Chronicles", "Plot: advance beat", allowedGameStates = AllowedGameStates.Playing)]
     public static void AdvanceBeat()
     {
-        if (RimChroniclesGameComponent.Current is not { } component || component.Plots.Active.OrderBy(p => p.StartDay).FirstOrDefault() is not { } plot)
+        if (RimChroniclesGameComponent.Current is not { } component || component.Plots.Active.Count == 0)
         {
             Messages.Message("Rim Chronicles: no active plot.", MessageTypeDefOf.RejectInput, historical: false);
             return;
         }
 
+        var plots = component.Plots.Active.OrderBy(p => p.StartDay).ToList();
+        if (plots.Count == 1)
+        {
+            Advance(component, plots[0]);
+            return;
+        }
+
+        Find.WindowStack.Add(new FloatMenu(plots
+            .Select(plot => new FloatMenuOption($"{plot.Id} ({plot.Template}, {plot.Beat})", () => Advance(component, plot)))
+            .ToList()));
+    }
+
+    private static void Advance(RimChroniclesGameComponent component, Core.Plots.Plot plot)
+    {
         var today = GenDate.DaysPassed;
         plot.NextBeatDay = today;
         component.Plots.LastBeatDay = -1;
