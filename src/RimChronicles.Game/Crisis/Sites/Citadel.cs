@@ -27,9 +27,31 @@ public static class CitadelMaps
     /// <summary>Settlements Dev Mode turned into Citadels, with the options to use.</summary>
     public static readonly Dictionary<int, CitadelOptions> Dev = [];
 
+    /// <summary>The Empire's Citadel or, since War in Heaven W9, the Hollow Choir's Cathedral: both use this generator.</summary>
+    public static bool IsCitadel(MapParent? parent) => IsImperialCitadel(parent) || IsCathedral(parent);
+
+    /// <summary>The Choir's capital becomes the Cathedral once its crisis is at war (or the finale) and the Choir is
+    /// hostile; a settlement whose map was generated as the Cathedral stays one.</summary>
+    public static bool IsCathedral(MapParent? parent)
+    {
+        if (parent is not Settlement settlement || Generator is null || !Choir.ChoirCrisisDriver.Available
+            || Choir.ChoirCrisisDriver.Faction is not { } choir || settlement.Faction != choir || RimChroniclesGameComponent.Current is not { } component)
+        {
+            return false;
+        }
+
+        if (Dev.ContainsKey(settlement.ID) || component.ChoirCrisis.CitadelSettlementId == settlement.ID)
+        {
+            return true;
+        }
+
+        return choir.HostileTo(Faction.OfPlayer) && Choir.ChoirCrisisDriver.Stage(component, choir).Stage >= CrisisStage.War
+            && EmpireBeats.Capital(choir) == settlement;
+    }
+
     /// <summary>The capital becomes the Citadel once the crisis is at war (or the finale) and the Empire is hostile; a
     /// settlement whose map was generated as the Citadel stays one.</summary>
-    public static bool IsCitadel(MapParent? parent)
+    public static bool IsImperialCitadel(MapParent? parent)
     {
         if (parent is not Settlement settlement || Generator is null || !CrisisDriver.Available
             || EmpireDriver.EmpireFaction is not { } empire || settlement.Faction != empire || RimChroniclesGameComponent.Current is not { } component)
@@ -46,8 +68,9 @@ public static class CitadelMaps
             && EmpireBeats.Capital(empire) == settlement;
     }
 
-    /// <summary>The Citadel's options from the crisis: courtyard relays and uplinks left, the side entrance, the budget.</summary>
-    public static CitadelOptions Options(int mapSize, int settlementId)
+    /// <summary>The Citadel's options from the crisis: courtyard relays and uplinks left, the side entrance, the budget.
+    /// For the Cathedral, the Choir's: resonator and spire sites destroyed, and its budget.</summary>
+    public static CitadelOptions Options(int mapSize, int settlementId, bool cathedral = false)
     {
         if (Dev.TryGetValue(settlementId, out var dev))
         {
@@ -55,10 +78,13 @@ public static class CitadelMaps
         }
 
         var component = RimChroniclesGameComponent.Current;
-        var state = component?.Crisis;
-        var budget = component is null ? 12000f : 2 * CrisisDriver.Budget(component, CrisisStage.Finale, ColonyStrengthReader.Read());
+        var state = cathedral ? component?.ChoirCrisis : component?.Crisis;
+        var budget = component is null ? 12000f
+            : 2 * (cathedral ? Choir.ChoirCrisisDriver.Budget(component, CrisisStage.Finale, ColonyStrengthReader.Read())
+                : CrisisDriver.Budget(component, CrisisStage.Finale, ColonyStrengthReader.Read()));
         return new CitadelOptions
         {
+            Power = cathedral ? Core.Powers.Power.Choir.Id : Core.Powers.Power.Empire.Id,
             MapSize = mapSize,
             Relays = CitadelRings.Relays(state?.RelaySitesDestroyed ?? 0),
             Uplinks = CitadelRings.Uplinks(state?.UplinkSitesDestroyed ?? 0),
@@ -79,16 +105,19 @@ public sealed class GenStep_RcCitadel : GenStep
 
     public override void Generate(Map map, GenStepParams parms)
     {
-        if (EmpireDriver.EmpireFaction is not { } empire)
+        // The Hollow Choir's Cathedral (War in Heaven W9) when the settlement is the Choir's, else the Imperial Citadel.
+        var cathedral = map.Parent?.Faction is { } owner && owner == Choir.ChoirCrisisDriver.Faction;
+        var power = cathedral ? Core.Powers.Power.Choir : Core.Powers.Power.Empire;
+        if (Powers.PowerFactions.Of(power) is not { } empire)
         {
-            Log.Error("[Rim Chronicles] The Citadel needs the Empire faction; nothing generated.");
+            Log.Error($"[Rim Chronicles] The {(cathedral ? "Cathedral needs the Hollow Choir's" : "Citadel needs the Empire")} faction; nothing generated.");
             return;
         }
 
         var clock = Stopwatch.StartNew();
         var id = map.Parent?.ID ?? map.Tile.tileId;
-        var options = CitadelMaps.Options(Math.Min(map.Size.x, map.Size.z), id);
-        var plan = CitadelPlanner.Plan(PieceLibrary.SourcesFor(Core.Powers.Power.Empire.Id), options, id);
+        var options = CitadelMaps.Options(Math.Min(map.Size.x, map.Size.z), id, cathedral) with { Power = power.Id };
+        var plan = CitadelPlanner.Plan(PieceLibrary.SourcesFor(power.Id), options, id);
         var problems = CitadelPlanner.Problems(plan);
         if (problems.Count > 0)
         {
@@ -98,7 +127,8 @@ public sealed class GenStep_RcCitadel : GenStep
         var planned = clock.ElapsedMilliseconds;
         foreach (var ring in plan.Rings)
         {
-            SiteStamper.Stamp(map, ring.Plan, new IntVec3(ring.At.X, 0, ring.At.Z), null, $"Citadel {ring.Name}", empire, roads: ring.Index == 0);
+            SiteStamper.Stamp(map, ring.Plan, new IntVec3(ring.At.X, 0, ring.At.Z), null, $"{(cathedral ? "Cathedral" : "Citadel")} {ring.Name}", empire,
+                roads: ring.Index == 0, StuffPalette.ForPower(power.Id));
         }
 
         var component = MapComponent_RcCitadel.For(map)!;
@@ -119,10 +149,10 @@ public sealed class GenStep_RcCitadel : GenStep
 
         if (RimChroniclesGameComponent.Current is { } game)
         {
-            game.Crisis.CitadelSettlementId = id;
+            (cathedral ? game.ChoirCrisis : game.Crisis).CitadelSettlementId = id;
         }
 
-        Log.Message($"[Rim Chronicles] Citadel generated in {clock.ElapsedMilliseconds} ms (plan {planned} ms): map {options.MapSize}, "
+        Log.Message($"[Rim Chronicles] {(cathedral ? "Cathedral" : "Citadel")} generated in {clock.ElapsedMilliseconds} ms (plan {planned} ms): map {options.MapSize}, "
             + $"{plan.Relays.Count()} courtyard relay(s), {options.Uplinks} uplink(s), side entrance {(plan.SideGate is null ? "hidden" : "known")}, "
             + $"budget {options.Budget:0}, pieces {string.Join("/", plan.Rings.Select(r => r.Plan.Pieces.Count))}{(lazy ? ", inner garrisons held back" : "")}.");
     }
@@ -249,6 +279,23 @@ public sealed class MapComponent_RcCitadel(Map map) : MapComponent(map)
     private bool _welcomed;
     private bool _sideGate;
 
+    /// <summary>Whose (War in Heaven W9): the Empire's Citadel, or the Choir's Cathedral. Null in saves from before W9:
+    /// those are the Empire's.</summary>
+    private Faction? _faction;
+
+    private bool _cathedral;
+
+    /// <summary>The Cathedral's chain of command: <c>_mechs[i]</c> is commanded by <c>_commanders[i]</c>.</summary>
+    private List<Pawn?> _mechs = [];
+
+    private List<Pawn?> _commanders = [];
+
+    public bool Cathedral => _cathedral;
+
+    private Faction? Owner => _faction ?? EmpireDriver.EmpireFaction;
+
+    private string[] Names => _cathedral ? CitadelRings.ChoirNames : CitadelRings.Names;
+
     public bool Active => _active;
     public bool ShieldUp => _shieldUp;
     public IReadOnlyList<Thing> Relays => _relays;
@@ -259,8 +306,10 @@ public sealed class MapComponent_RcCitadel(Map map) : MapComponent(map)
     public void Set(CitadelPlan plan, Faction empire)
     {
         _active = true;
+        _faction = empire;
+        _cathedral = plan.Options.IsCathedral;
         _rings = plan.Rings.Select(r => new CellRect(r.RingOnMap.X, r.RingOnMap.Z, r.RingOnMap.W, r.RingOnMap.H)).ToList();
-        _relays = SiegeDefs.Relay is { } relay
+        _relays = (_cathedral ? Choir.ChoirHum.ResonatorDef : SiegeDefs.Relay) is { } relay
             ? map.listerBuildings.allBuildingsNonColonist.Where(b => b.def == relay && b.Faction == empire && _rings[1].Contains(b.Position)).Cast<Thing>().ToList()
             : [];
         _shieldUp = _relays.Count > 0;
@@ -272,6 +321,12 @@ public sealed class MapComponent_RcCitadel(Map map) : MapComponent(map)
     /// <summary>Spawns a ring's garrison at its spots, under a <see cref="LordJob_RcGarrison"/>.</summary>
     public void Spawn(PendingGarrison g, Faction empire)
     {
+        if (_cathedral)
+        {
+            SpawnChoir(g, empire);
+            return;
+        }
+
         var pawns = OperationSpawner.Force(ForceMix.Citadel(g.ring), CrisisStage.Finale, g.points, empire, CitadelRings.MaxDefenders[Math.Clamp(g.ring, 0, 2)]);
         if (pawns.Count == 0)
         {
@@ -300,6 +355,77 @@ public sealed class MapComponent_RcCitadel(Map map) : MapComponent(map)
         _lords[g.ring] = lord;
     }
 
+    /// <summary>A Cathedral ring's garrison (W9): the ring's Choir mix under its mechanitors; the sanctum's bossgroup is
+    /// commanded by the First Voice, who stands in the sanctum. A fallen commander's mechs shut down.</summary>
+    private void SpawnChoir(PendingGarrison g, Faction choir)
+    {
+        var parts = Choir.ChoirForce.Build(Core.Choir.ChoirMixes.Cathedral(g.ring), CrisisStage.Finale, g.points, choir, CitadelRings.MaxDefenders[Math.Clamp(g.ring, 0, 2)]);
+        Pawn? voice = null;
+        if (g.ring == 2 && Choir.FirstVoice.Ready(choir) is { } leader)
+        {
+            voice = leader;
+            parts.Mechanitors.Insert(0, leader);
+            parts.Links.Clear();
+            Choir.ChoirForce.Link(parts, parts.Mechs);
+        }
+
+        if (parts.Count == 0)
+        {
+            return;
+        }
+
+        var spots = g.spots.Where(c => c.InBounds(map) && c.Standable(map)).ToList();
+        var pawns = parts.All;
+        for (var i = 0; i < pawns.Count; i++)
+        {
+            var at = pawns[i] == voice && g.leader.IsValid && g.leader.InBounds(map) ? g.leader
+                : CellFinder.RandomClosewalkCellNear(spots.Count > 0 ? spots[i % spots.Count] : g.centre, map, 2);
+            GenSpawn.Spawn(pawns[i], at, map);
+        }
+
+        foreach (var (mech, commander) in parts.Links)
+        {
+            _mechs.Add(mech);
+            _commanders.Add(commander);
+        }
+
+        var lord = LordMaker.MakeNewLord(choir, new LordJob_RcGarrison(g.centre, g.radius, g.ring), map, pawns);
+        while (_lords.Count <= g.ring)
+        {
+            _lords.Add(null!);
+        }
+
+        _lords[g.ring] = lord;
+    }
+
+    /// <summary>A Cathedral mechanitor is dead, downed or captured: its mechs shut down where they stand.</summary>
+    private void SilenceFallenCommanders()
+    {
+        var silenced = new List<Pawn>();
+        for (var i = _mechs.Count - 1; i >= 0; i--)
+        {
+            if (_commanders[i] is { Dead: false, Downed: false, IsPrisoner: false, Spawned: true })
+            {
+                continue;
+            }
+
+            if (_mechs[i] is { Dead: false, Spawned: true } mech && mech.Map == map)
+            {
+                mech.TryGetComp<CompMechanoid>()?.Deactivate();
+                silenced.Add(mech);
+            }
+
+            _mechs.RemoveAt(i);
+            _commanders.RemoveAt(i);
+        }
+
+        if (silenced.Count > 0)
+        {
+            Messages.Message($"With their mechanitor down, {silenced.Count} of the Choir's mechs fall silent. Any colonist can dismantle them.",
+                new LookTargets(silenced), MessageTypeDefOf.PositiveEvent);
+        }
+    }
+
     /// <summary>The ring a cell is in (2 keep, 1 courtyard, 0 outer works), or -1.</summary>
     public int RingOf(IntVec3 c)
     {
@@ -316,10 +442,15 @@ public sealed class MapComponent_RcCitadel(Map map) : MapComponent(map)
 
     /// <summary>A keep building, shielded while a courtyard relay stands (fairness rule 8: the relay is reachable).</summary>
     public bool Shields(Building building) =>
-        _active && _shieldUp && _rings.Count > 2 && _rings[2].Contains(building.Position) && building.Faction == EmpireDriver.EmpireFaction;
+        _active && _shieldUp && _rings.Count > 2 && _rings[2].Contains(building.Position) && building.Faction == Owner;
 
     public override void MapComponentTick()
     {
+        if (_active && _mechs.Count > 0 && Find.TickManager.TicksGame % 60 == 0)
+        {
+            SilenceFallenCommanders();
+        }
+
         if (!_active || Find.TickManager.TicksGame % CheckTicks != 0)
         {
             return;
@@ -332,6 +463,14 @@ public sealed class MapComponent_RcCitadel(Map map) : MapComponent(map)
             Welcome();
         }
 
+        if (_shieldUp && _relays.All(r => r is null || r.Destroyed) && _cathedral)
+        {
+            _shieldUp = false;
+            StoryLetters.ChoirCrisis("The sanctum's shield is down",
+                "The last resonator in the Cathedral's cloister is destroyed, and its hum with it. The sanctum's walls and doors are no longer shielded.",
+                LetterDefOf.PositiveEvent, new LookTargets(new TargetInfo(_rings[2].CenterCell, map)));
+        }
+
         if (_shieldUp && _relays.All(r => r is null || r.Destroyed))
         {
             _shieldUp = false;
@@ -340,7 +479,7 @@ public sealed class MapComponent_RcCitadel(Map map) : MapComponent(map)
                 + "inside have lost their link.", LetterDefOf.PositiveEvent, new LookTargets(new TargetInfo(_rings[2].CenterCell, map)));
         }
 
-        if (_shieldUp)
+        if (_shieldUp && !_cathedral)
         {
             Empower();
         }
@@ -360,7 +499,7 @@ public sealed class MapComponent_RcCitadel(Map map) : MapComponent(map)
     /// up to meet them when they enter the outer works.</summary>
     private void Reached(int ring)
     {
-        if (EmpireDriver.EmpireFaction is { } empire)
+        if (Owner is { } empire)
         {
             foreach (var held in _held.Where(h => h.ring == ring + 1).ToList())
             {
@@ -372,7 +511,7 @@ public sealed class MapComponent_RcCitadel(Map map) : MapComponent(map)
         if (ring + 1 < _lords.Count && _lords[ring + 1] is { } next && next.LordJob is LordJob_RcGarrison { HoldsFast: false })
         {
             next.ReceiveMemo(LordJob_RcGarrison.ReinforceMemo);
-            Messages.Message($"The Citadel's {CitadelRings.Names[ring + 1]} garrison is moving out to meet you.", MessageTypeDefOf.ThreatBig);
+            Messages.Message($"The {(_cathedral ? "Cathedral" : "Citadel")}'s {Names[ring + 1]} garrison is moving out to meet you.", MessageTypeDefOf.ThreatBig);
         }
     }
 
@@ -399,6 +538,12 @@ public sealed class MapComponent_RcCitadel(Map map) : MapComponent(map)
 
     private void Welcome()
     {
+        if (_cathedral)
+        {
+            WelcomeCathedral();
+            return;
+        }
+
         var relays = _relays.Count;
         var text = "The Imperial Citadel: three rings of walls. The outer works hold trenches, turret nests and mortar pits; the courtyard "
             + "holds barracks, an armory and the Empire's psychic relays and uplinks; the keep holds the throne room.\n\n"
@@ -411,8 +556,27 @@ public sealed class MapComponent_RcCitadel(Map map) : MapComponent(map)
         StoryLetters.Crisis("The Imperial Citadel", text, LetterDefOf.NeutralEvent, new LookTargets(new TargetInfo(_rings[2].CenterCell, map)));
     }
 
+    private void WelcomeCathedral()
+    {
+        var resonators = _relays.Count;
+        var text = "The Hollow Choir's Cathedral: three rings of walls. The outer works hold its mech line, charge-turret nests and auto-mortars; "
+            + "the cloister holds its barracks, signal spires and the resonators; the sanctum holds the First Voice and its bossgroup guard.\n\n"
+            + (resonators > 0
+                ? $"While any of the cloister's {resonators} resonator{(resonators == 1 ? "" : "s")} stands, the sanctum's walls and doors are shielded, and "
+                  + "everyone who can feel it hears the hum. Destroy the resonators first."
+                : "The colony's raids on the Choir's resonators left the cloister without one: the sanctum is unshielded, and there is no hum.")
+            + "\n\nThe Choir's mechs follow their mechanitors: bring a mechanitor down and its mechs fall silent. Bring the First Voice down and "
+            + "the bossgroup falls with it.\n\nWhen you enter the outer works, the cloister's garrison will come out to meet you. The sanctum's guard "
+            + "never leaves the sanctum.";
+        StoryLetters.ChoirCrisis("The Cathedral", text, LetterDefOf.NeutralEvent, new LookTargets(new TargetInfo(_rings[2].CenterCell, map)));
+    }
+
     public override void ExposeData()
     {
+        Scribe_References.Look(ref _faction, "rcCitadelFaction");
+        Scribe_Values.Look(ref _cathedral, "rcCathedral");
+        Scribe_Collections.Look(ref _mechs, "rcCathedralMechs", LookMode.Reference);
+        Scribe_Collections.Look(ref _commanders, "rcCathedralCommanders", LookMode.Reference);
         Scribe_Values.Look(ref _active, "rcCitadel");
         Scribe_Collections.Look(ref _rings, "rcCitadelRings", LookMode.Value);
         Scribe_Collections.Look(ref _relays, "rcCitadelRelays", LookMode.Reference);
@@ -435,6 +599,13 @@ public sealed class MapComponent_RcCitadel(Map map) : MapComponent(map)
 
             _lords ??= [];
             _held ??= [];
+            _mechs ??= [];
+            _commanders ??= [];
+            if (_mechs.Count != _commanders.Count)
+            {
+                _mechs.Clear();
+                _commanders.Clear();
+            }
         }
     }
 
@@ -451,11 +622,25 @@ public sealed class MapComponent_RcCitadel(Map map) : MapComponent(map)
         new("no relays left (keep unshielded)", DebugActionType.Action, () => Make(new CitadelOptions { Relays = 0, Uplinks = 0 })),
     ];
 
+    /// <summary>The Hollow Choir's Cathedral (War in Heaven W9), made as the Citadel is.</summary>
+    [DebugAction("Rim Chronicles", "Choir crisis: generate Cathedral", allowedGameStates = AllowedGameStates.PlayingOnWorld | AllowedGameStates.PlayingOnMap)]
+    public static List<DebugActionNode> GenerateCathedral() =>
+    [
+        new("standard (2 resonators, 1 spire)", DebugActionType.Action, () => Make(new CitadelOptions { Power = Core.Powers.Power.Choir.Id })),
+        new("after 1 resonator and 1 spire site destroyed", DebugActionType.Action,
+            () => Make(new CitadelOptions { Power = Core.Powers.Power.Choir.Id, Relays = 1, Uplinks = 0 })),
+        new("no resonators left (sanctum unshielded)", DebugActionType.Action,
+            () => Make(new CitadelOptions { Power = Core.Powers.Power.Choir.Id, Relays = 0, Uplinks = 0 })),
+    ];
+
     private static void Make(CitadelOptions options)
     {
-        if (EmpireDriver.EmpireFaction is not { } empire || CitadelMaps.Generator is null)
+        var power = options.IsCathedral ? Core.Powers.Power.Choir : Core.Powers.Power.Empire;
+        if (Powers.PowerFactions.Of(power) is not { } empire || CitadelMaps.Generator is null)
         {
-            Messages.Message("Rim Chronicles: the Citadel needs Royalty and the Empire faction.", MessageTypeDefOf.RejectInput, historical: false);
+            Messages.Message(options.IsCathedral
+                ? "Rim Chronicles: the Cathedral needs Biotech, Royalty and the Hollow Choir awake (Hollow Choir: wake now)."
+                : "Rim Chronicles: the Citadel needs Royalty and the Empire faction.", MessageTypeDefOf.RejectInput, historical: false);
             return;
         }
 
@@ -469,7 +654,7 @@ public sealed class MapComponent_RcCitadel(Map map) : MapComponent(map)
         var settlement = (Settlement)WorldObjectMaker.MakeWorldObject(WorldObjectDefOf.Settlement);
         settlement.SetFaction(empire);
         settlement.Tile = tile;
-        settlement.Name = "Citadel (test)";
+        settlement.Name = options.IsCathedral ? "Cathedral (test)" : "Citadel (test)";
         Find.WorldObjects.Add(settlement);
         var budget = RimChroniclesGameComponent.Current is { } c ? 2 * CrisisDriver.Budget(c, CrisisStage.Finale, ColonyStrengthReader.Read()) : 12000f;
         CitadelMaps.Dev[settlement.ID] = options with { Budget = budget };
@@ -479,7 +664,7 @@ public sealed class MapComponent_RcCitadel(Map map) : MapComponent(map)
         var seconds = clock.ElapsedMilliseconds / 1000f;
         Current.Game.CurrentMap = map;
         Find.CameraDriver.JumpToCurrentMapLoc(map.Center);
-        Messages.Message($"Rim Chronicles: Citadel generated in {seconds:0.0} s ({size}×{size}). The log has the details.",
+        Messages.Message($"Rim Chronicles: {(options.IsCathedral ? "Cathedral" : "Citadel")} generated in {seconds:0.0} s ({size}×{size}). The log has the details.",
             seconds < 30 ? MessageTypeDefOf.NeutralEvent : MessageTypeDefOf.NegativeEvent, historical: false);
     }
 

@@ -284,7 +284,8 @@ public static class ChoirOperations
 
         var profile = OperationProfiles.For(CrisisOperations.FinalChorus);
         var parts = ChoirForce.Build(ChoirMixes.FinalChorus, stage, budget * profile.ForceShare, choir);
-        if (ChoirForce.FirstVoice(choir, stage) is { } voice)
+        var voice = FirstVoice.Ready(choir); // the one First Voice, kept between appearances (W9); null once it has fallen
+        if (voice is not null)
         {
             parts.Mechanitors.Insert(0, voice);
             parts.Links.Clear();
@@ -298,9 +299,11 @@ public static class ChoirOperations
 
         WalkIn(parts.All, entry, map);
         MakeLord(choir, Job(profile.Operation, stage, 0, entry, null, dev), map, parts);
-        StoryLetters.ChoirCrisis("The final chorus",
-            $"The First Voice has come for {Faction.OfPlayer.Name} in person, with {parts.Mechs.Count} mechs and {parts.Mechanitors.Count - 1} mechanitors. "
-            + "They won't retreat.\n\nThe First Voice commands the most mechs of all: bring the First Voice down and they fall silent.",
+        StoryLetters.ChoirCrisis("The final chorus", voice is not null
+                ? $"The First Voice has come for {Faction.OfPlayer.Name} in person, with {parts.Mechs.Count} mechs and {parts.Mechanitors.Count - 1} mechanitors. "
+                  + "They won't retreat.\n\nThe First Voice commands the most mechs of all: bring the First Voice down and they fall silent."
+                : $"The last of the Chorus have come for {Faction.OfPlayer.Name}: {parts.Mechs.Count} mechs and {parts.Mechanitors.Count} mechanitors, "
+                  + "with no First Voice to lead them. They won't retreat.",
             LetterDefOf.ThreatBig, new LookTargets(parts.All));
         return true;
     }

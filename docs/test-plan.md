@@ -11,8 +11,8 @@ part ends with what to send Claude Code.
 | Imperial crisis (C0–C14) | Done 2026-11-24, merged into `main` (#93); record below |
 | War in Heaven director retrain (W13) | E4B passed (`director-e4b-war-v2`, review 96%, #157) and is the E4B preset (#158). E2B failed (`director-e2b-war-v2`); its retrain is on hold, with hand labels ready (#159) |
 | War in Heaven game (W2–W6) | Built on `war-in-heaven`, not yet checked in game: Parts 2 and 3 |
-| War in Heaven game (W7–W8) | Built (2026-11-26): the Choir's crisis (its operations, commander AI, cluster drops, burrowing and the Hum), its pieces and sites, and the cluster siege. Checked in game at checkpoint 2 (`war-runbook-2.md`, W7.1–W7.17, W8.1–W8.16) |
-| War in Heaven game (W9–W11) | Not built yet: the Cathedral map and the First Voice, the War in Heaven plot and the endings' screens. Checkpoint 2's rest and checkpoint 3 come when they land |
+| War in Heaven game (W7–W9) | Built (2026-11-26): the Choir's crisis (its operations, commander AI, cluster drops, burrowing and the Hum), its pieces and sites, the cluster siege, the Cathedral and the First Voice. Checked in game at checkpoint 2 (`war-runbook-2.md`, W7.1–W7.17, W8.1–W8.16, W9.1–W9.15) |
+| War in Heaven game (W10–W11) | Not built yet: the War in Heaven plot and the endings' screens. Checkpoint 3 comes when they land |
 
 **Order:**
 
@@ -267,8 +267,8 @@ lost) to our operation and garrison lords, which cut short the profiles' regroup
 - **E2B war retrain (v3).** On hold until after the playtest. The hand labels (`hand-choir-v1`, PR #159) and the exact
   commands are in `training/README.md`, "Hand labels for the Hollow Choir". If it passes: its review, then
   `ollama cp rimchron-director-e2b-war rimchron-director-e2b` and its preset change (as #158 for E4B).
-- **Checkpoint 2, the rest (W7–W9)**: the Choir's crisis (W7, built: `war-runbook-2.md` steps W7.1–W7.17), its sites
-  and the cluster siege (W8, built: W8.1–W8.16), the Cathedral (W9). Run it once W9 is built.
+- **Checkpoint 2, the rest (W7–W9, all built)**: the Choir's crisis (`war-runbook-2.md` steps W7.1–W7.17), its sites and
+  the cluster siege (W8.1–W8.16), the Cathedral and the First Voice (W9.1–W9.15).
 - **Checkpoint 3 (W10–W11)**: the War in Heaven plot from day 600 and the endings; `war-runbook-3.md`.
 - **W14**: the balance pass and a full proof run per side; then `war-in-heaven` merges into `main`.
 - **Stage 5 proof run** (`docs/stage5-runbook.md`, M7) has no results file. Run it if it hasn't been.
