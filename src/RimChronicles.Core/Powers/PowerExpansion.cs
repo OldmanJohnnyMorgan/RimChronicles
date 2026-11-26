@@ -58,8 +58,18 @@ public static class PowerExpansion
 
     public static double Weight(ExpansionTarget t) => 1.0 / (1.0 + t.Distance / 10.0) / Math.Max(1, t.FactionSettlements);
 
-    /// <summary>The target, or null with none. <paramref name="roll"/> is in [0, 1).</summary>
-    public static ExpansionTarget? PickTarget(IReadOnlyList<ExpansionTarget> candidates, double roll)
+    /// <summary>During the War in Heaven (W10), the rival power's settlements count this many times over: each power
+    /// turns its armies on the other first.</summary>
+    public const double FrontWeight = 3;
+
+    /// <summary>A target's weight, times <see cref="FrontWeight"/> for the rival's (<paramref name="rivalFaction"/>, by
+    /// name) during the War in Heaven.</summary>
+    public static double Weight(ExpansionTarget t, string? rivalFaction) =>
+        Weight(t) * (rivalFaction is not null && t.Faction == rivalFaction ? FrontWeight : 1);
+
+    /// <summary>The target, or null with none. <paramref name="roll"/> is in [0, 1). With <paramref name="rivalFaction"/>
+    /// (the War in Heaven), the rival's settlements are weighted up; without it, the pick is as before W10.</summary>
+    public static ExpansionTarget? PickTarget(IReadOnlyList<ExpansionTarget> candidates, double roll, string? rivalFaction = null)
     {
         if (candidates.Count == 0)
         {
@@ -72,11 +82,11 @@ public static class PowerExpansion
             return candidates.OrderBy(c => c.Distance).ThenBy(c => c.Id, StringComparer.Ordinal).First();
         }
 
-        var total = inRange.Sum(Weight);
+        var total = inRange.Sum(c => Weight(c, rivalFaction));
         var target = Math.Clamp(roll, 0, 0.999999) * total;
         foreach (var c in inRange)
         {
-            target -= Weight(c);
+            target -= Weight(c, rivalFaction);
             if (target < 0)
             {
                 return c;

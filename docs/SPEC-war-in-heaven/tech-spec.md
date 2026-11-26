@@ -257,6 +257,22 @@ Independence); after both, `Ending:IndependenceTotal`. Jobs move the front by ±
 powers in descriptions. The game side (the daily roll, the War plot's quests, the rival weighting in expansion,
 destruction instead of the Resistance ending, victory screens and the epilogue's new endings) is still to do.
 
+**As built (W10, the game side):** `WarDriver` (Game/War) rolls the start daily while both are awake and the colony at
+war (the settings: on/off, the certain day, the odds' steepness), announces it (news, a letter) and starts the
+`WarInHeaven` plot, which the director decides with a War in Heaven model. Its jobs are the template quests: DefendFront
+a `DefendAlly` on the side's nearest settlement against the rival; Strike a `Sabotage` of a settlement's comms console
+(never a capital); EscortConvoy an `Escort` to the side's settlement; Sabotage one of the target's crisis sites while its
+crisis runs (W8), else a strike; FinalPush the rival's capital (`Capital`, which generates as the Citadel or the
+Cathedral); VictoryOffer and TreatyOffer letters. Aftermath: a won strike hands the settlement to the side, a lost
+defence to the rival; a won final push destroys the rival. **Destruction (R11):** once the war is on, or both powers are
+awake, taking a power's capital through its own plot destroys it (`WarDriver.Destroy`: the war's record, the saga's
+ending `Destroyed`, no more expansions, its plot and crisis ended, news and a letter) instead of the Resistance or
+Silenced ending; with only the Empire awake, Resistance stands. A destruction before the war begins it. **The front:**
+expansions weight the rival's settlements ×3 during the war (`PowerExpansion.FrontWeight`) and never take a power's
+capital; both crises' budgets are scaled by the front factor (0.8). The ending is recorded (the war's log, both sagas,
+news, a letter); the victory screens and epilogues are W11. Dev Mode: **War in Heaven: show**, **start now**, **destroy
+a power**, **move the front**.
+
 ## 7. Director, snapshot and prompts
 
 - Snapshot gains `allegiance`, a `choir` block (mirror of `empire`), a `choirCrisis` block (mirror of `crisis`) and a

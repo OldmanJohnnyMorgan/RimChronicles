@@ -181,3 +181,44 @@ public class WarInHeavenTests
         Assert.Equal(WarState.NotYet, old.State);
     }
 }
+
+/// <summary>The War in Heaven in game (W10): the front, the budget pulled to it, and capitals that destroy.</summary>
+public class WarFrontTests
+{
+    private static RimChronicles.Core.Powers.ExpansionTarget T(string id, string faction, float distance) =>
+        new(id, id, faction, distance, 3);
+
+    [Fact]
+    public void DuringTheWar_TheRivalsSettlementsAreWeightedUp_AndWithoutItNothingChanges()
+    {
+        var targets = new[] { T("a", "The Hollow Choir", 10), T("b", "Tribe", 10) };
+        Assert.Equal(RimChronicles.Core.Powers.PowerExpansion.PickTarget(targets, 0.4), RimChronicles.Core.Powers.PowerExpansion.PickTarget(targets, 0.4, null));
+        var rival = Enumerable.Range(0, 100).Count(i => RimChronicles.Core.Powers.PowerExpansion.PickTarget(targets, i / 100.0, "The Hollow Choir")!.Id == "a");
+        Assert.Equal(75, rival); // three times the weight: three in four picks
+        Assert.Equal(50, Enumerable.Range(0, 100).Count(i => RimChronicles.Core.Powers.PowerExpansion.PickTarget(targets, i / 100.0)!.Id == "a"));
+    }
+
+    [Fact]
+    public void TheCrisesSendLess_WhileTheWarIsOn()
+    {
+        var war = new RimChronicles.Core.War.WarInHeaven();
+        Assert.Equal(1f, war.BudgetFactor(0.8f));
+        war.Start(600, "day 600");
+        Assert.Equal(0.8f, war.BudgetFactor(0.8f));
+    }
+
+    [Fact]
+    public void ACapitalDestroys_OnceBothAreAwakeOrTheWarIsOn_ElseTheOldEndingStands()
+    {
+        var empire = new RimChronicles.Core.Powers.PowerSaga { State = RimChronicles.Core.Powers.PowerState.Awakened };
+        var choir = new RimChronicles.Core.Powers.PowerSaga { Power = RimChronicles.Core.Powers.Power.Choir };
+        var war = new RimChronicles.Core.War.WarInHeaven();
+        Assert.False(war.CapitalFallDestroys(empire, choir)); // the Choir asleep: Resistance as before
+        choir.State = RimChronicles.Core.Powers.PowerState.Awakened;
+        Assert.True(war.CapitalFallDestroys(empire, choir));
+        empire.Ending = RimChronicles.Core.War.WarInHeaven.DestroyedEnding;
+        Assert.False(war.CapitalFallDestroys(empire, choir));
+        war.Start(400, "the fall of the Empire");
+        Assert.True(war.CapitalFallDestroys(empire, choir)); // the second capital, in the war: total independence comes from the war
+    }
+}

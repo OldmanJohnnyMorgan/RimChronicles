@@ -86,7 +86,7 @@ public static class EmpireDriver
         var gap = StoryIntensity.Scale(Rand.RangeInclusive(PowerExpansion.MinGapDays, PowerExpansion.MaxGapDays), RimChroniclesMod.Settings.StoryIntensity);
         var settlements = Targets(empire);
         var targetRoll = Rand.Value;
-        var target = PowerExpansion.PickTarget(settlements.Keys.ToList(), targetRoll);
+        var target = PowerExpansion.PickTarget(settlements.Keys.ToList(), targetRoll, RivalName(component, Power.Empire));
         if (target is null)
         {
             component.Empire.NextExpansionDay = today + gap;
@@ -119,6 +119,12 @@ public static class EmpireDriver
 
     /// <summary>Settlements the Empire may attack: other humanlike factions' settlements on the same layer as an
     /// Imperial one, never the player's, never one with a map open or a quest on it, and never a faction's last.</summary>
+    /// <summary>The rival power's faction name while the War in Heaven is on, for <see cref="PowerExpansion.PickTarget"/>; else null.</summary>
+    internal static string? RivalName(RimChroniclesGameComponent component, Power power) =>
+        component.War.State == Core.War.WarState.Started && Power.All.FirstOrDefault(p => p != power) is { } rival
+            ? Powers.PowerFactions.Of(rival)?.Name
+            : null;
+
     internal static Dictionary<ExpansionTarget, Settlement> Targets(Faction empire)
     {
         var all = Find.WorldObjects.Settlements;
@@ -135,6 +141,13 @@ public static class EmpireDriver
         {
             if (s.Faction is not { } owner || owner == empire || owner.IsPlayer || owner.Hidden || owner.defeated
                 || !owner.def.humanlikeFaction || s.HasMap || questTargets.Contains(s) || counts[owner] < 2)
+            {
+                continue;
+            }
+
+            // A power's capital (the Citadel, the Cathedral) falls only to the colony (War in Heaven W10).
+            if (owner == Powers.PowerFactions.Of(Power.Choir) && s == EmpireBeats.Capital(owner)
+                || owner == EmpireFaction && Powers.PowerFactions.Of(Power.Choir) is not null && s == EmpireBeats.Capital(owner))
             {
                 continue;
             }

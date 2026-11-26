@@ -247,6 +247,12 @@ public static class EmpireBeats
             }
 
             case PowerStep.Ending:
+                if (plot.Fact(PowerArc.EndingFact) == Power.Empire.DefeatEnding && War.WarDriver.CapitalFallDestroys(component))
+                {
+                    War.WarDriver.Destroy(component, Power.Empire, today, $"its capital fell to {Colony}"); // R11: not the Resistance ending
+                    return true;
+                }
+
                 EmpireEndings.Finish(component, plot, plot.Fact(PowerArc.EndingFact) ?? EmpireEnding.Independence, empire, today);
                 return true;
 

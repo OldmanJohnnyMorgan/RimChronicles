@@ -121,7 +121,8 @@ public static class ChoirCrisisDriver
     /// <summary>The budget for a stage, as the Empire's, weaker while the Choir is broken.</summary>
     public static float Budget(RimChroniclesGameComponent component, CrisisStage stage, ColonyStrength strength) =>
         ThreatBudget.Compute(stage, Find.Storyteller.difficulty.threatScale * RimChroniclesMod.Settings.CrisisDifficulty, strength,
-            component.Choir.State == PowerState.Broken);
+            component.Choir.State == PowerState.Broken)
+        * component.War.BudgetFactor(RimChroniclesMod.Settings.WarFrontFactor); // the War in Heaven pulls forces to the front (W10)
 
     /// <summary>Every Choir raid pulls out: the crisis is off or over, or the colony made peace with the Choir.</summary>
     public static bool Abandoned() =>

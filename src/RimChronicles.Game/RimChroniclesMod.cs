@@ -29,6 +29,7 @@ public sealed class RimChroniclesMod : Mod
         Crisis.Operations.OperationSpawner.Register();
         Crisis.Choir.ChoirCrisisDriver.Register();
         Crisis.Choir.ChoirOperations.Register();
+        War.WarDriver.Register();
         Log.Message($"[Rim Chronicles] Loaded on {System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription}; "
             + $"Harmony patches applied; tier {Settings.Tier}, model {Settings.Model} at {Settings.Endpoint}.");
     }
