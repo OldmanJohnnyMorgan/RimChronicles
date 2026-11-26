@@ -219,6 +219,10 @@ public static partial class WorldSummarizer
             ["ending"] = Empire.EpilogueTask.Meaning(c, colony), // no headline: v1 models echoed "Resistance victory." as an opener
             ["stance"] = c.Stance switch
             {
+                // Independence in the War in Heaven means war with both powers (spec §6): naming only one told the model
+                // the colony fought the Empire alone (run 20261126-154712, snap-27).
+                "oppose" when c.Rival is { } rival && c.Ending.StartsWith("Independence", StringComparison.Ordinal)
+                    => $"{colony} fought both {c.Empire} and {rival}.",
                 "ally" => $"{colony} sided with {c.Empire}.",
                 "oppose" => $"{colony} fought {c.Empire}.",
                 _ => $"{colony} tried to keep out of the powers' wars.",

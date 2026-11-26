@@ -72,6 +72,14 @@ public class EpilogueTaskTests
         Assert.Contains(meaning, WorldSummarizer.ForEpilogue(c, "Last Lantern").Variables["ending"]);
     }
 
+    [Theory]
+    [InlineData("IndependenceTotal", "The Hollow Choir", "Last Lantern fought both The Sun Throne and The Hollow Choir.")]
+    [InlineData("Independence", "The Hollow Choir", "Last Lantern fought both The Sun Throne and The Hollow Choir.")]
+    [InlineData("Independence", null, "Last Lantern fought The Sun Throne.")]     // the Empire's own treaty, outside the war
+    [InlineData("Choral", "The Hollow Choir", "Last Lantern fought The Sun Throne.")]
+    public void AnIndependentColonyInTheWar_FoughtBothPowers(string ending, string? rival, string stance) =>
+        Assert.Equal(stance, WorldSummarizer.ForEpilogue(Case with { Ending = ending, Rival = rival }, "Last Lantern").Variables["stance"]);
+
     [Fact]
     public void TheOldEndings_ReadAsBefore_WithoutARival()
     {
