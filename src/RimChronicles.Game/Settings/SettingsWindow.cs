@@ -1,5 +1,6 @@
 using RimChronicles.Llm;
 using RimChronicles.Llm.Chat;
+using RimChronicles.Llm.Providers;
 using UnityEngine;
 using Verse;
 
@@ -13,6 +14,17 @@ public static class SettingsWindow
 
     private static Task<ConnectionProbe.Result>? _probe;
     private static string _probeStatus = "";
+    private static ConnectionProbe.Problem _probeProblem;
+
+    /// <summary>The Download model button's work: the models still to pull, one after another, off the main thread.</summary>
+    private static Task<string>? _pull;
+    private static CancellationTokenSource? _pullCancel;
+    private static PullStatus? _pullProgress; // written by the download's thread, read each frame; a record swap is atomic
+    private static string _pullStatus = "";
+    private static string _pullModel = "";
+    private static readonly HttpClient PullHttp = new() { Timeout = Timeout.InfiniteTimeSpan }; // a pull lasts minutes
+
+    private const string OllamaDownloadUrl = "https://ollama.com/download";
 
     /// <summary>"Other" is picked for the director model while its name is still blank; the name alone can't say so.</summary>
     private static bool _customDirector;
@@ -311,6 +323,7 @@ public static class SettingsWindow
             _probeStatus = done.IsCompletedSuccessfully
                 ? (done.Result.Ok ? $"<color=#80d080>{done.Result.Message}</color>" : $"<color=#e06060>{done.Result.Message}</color>")
                 : $"<color=#e06060>Failed: {done.Exception?.GetBaseException().Message}</color>";
+            _probeProblem = done.IsCompletedSuccessfully ? done.Result.Problem : ConnectionProbe.Problem.None;
             _probe = null;
         }
 
@@ -340,6 +353,95 @@ public static class SettingsWindow
         if (_probeStatus.Length > 0)
         {
             list.Label(_probeStatus);
+        }
+
+        if (_probeProblem == ConnectionProbe.Problem.Unreachable && list.ButtonText("Get Ollama (opens ollama.com)", widthPct: 0.3f))
+        {
+            OpenInBrowser(OllamaDownloadUrl);
+        }
+
+        DrawDownload(list, settings);
+    }
+
+    /// <summary>Download model: has Ollama pull every model the settings call (main, director, prose), so a player
+    /// never needs a terminal. Already-downloaded models finish at once.</summary>
+    private static void DrawDownload(Listing_Standard list, RimChroniclesSettings settings)
+    {
+        if (_pull is { IsCompleted: true } done)
+        {
+            _pullStatus = done.IsCompletedSuccessfully ? done.Result : $"<color=#e06060>Failed: {done.Exception?.GetBaseException().Message}</color>";
+            _pull = null;
+            _pullProgress = null;
+            _pullCancel?.Dispose();
+            _pullCancel = null;
+        }
+
+        var downloads = Downloads(settings);
+        if (_pull is null)
+        {
+            if (downloads.Count > 0 && list.ButtonText(downloads.Count == 1 ? "Download model" : $"Download models ({downloads.Count})", widthPct: 0.3f))
+            {
+                _pullCancel = new CancellationTokenSource();
+                _pullProgress = PullStatus.Starting;
+                _pullStatus = "";
+                _probeProblem = ConnectionProbe.Problem.None;
+                var cancel = _pullCancel.Token;
+                // Background task: touches no game state, only returns a line the window reads next frame.
+                _pull = Task.Run(() => PullAll(downloads, cancel));
+            }
+        }
+        else
+        {
+            list.Label($"{_pullModel}: {_pullProgress?.Describe() ?? "Starting…"} (you can close this window; the download carries on)");
+            if (list.ButtonText("Cancel download", widthPct: 0.3f))
+            {
+                _pullCancel?.Cancel();
+            }
+        }
+
+        if (_pullStatus.Length > 0)
+        {
+            list.Label(_pullStatus);
+        }
+    }
+
+    private static IReadOnlyList<ModelSlot> Downloads(RimChroniclesSettings settings)
+    {
+        var slots = settings.Slots;
+        var prose = settings.ProseModelEnabled
+            ? new ModelSlot(string.IsNullOrWhiteSpace(settings.ProseEndpoint) ? settings.Endpoint : settings.ProseEndpoint, settings.ProseModel,
+                string.IsNullOrWhiteSpace(settings.ProseApiKey) ? settings.ApiKey : settings.ProseApiKey, settings.Tier, TierPresets.Temperature)
+            : null;
+        return ModelSlots.Downloads(ModelSlots.Main(slots), ModelSlots.Director(slots), prose);
+    }
+
+    private static async Task<string> PullAll(IReadOnlyList<ModelSlot> slots, CancellationToken cancel)
+    {
+        var lines = new List<string>();
+        foreach (var slot in slots)
+        {
+            _pullModel = slot.Model;
+            var result = await OllamaPull.RunAsync(PullHttp, TierPresets.EndpointUri(slot.Endpoint), slot.Model, slot.ApiKey,
+                status => _pullProgress = status, cancel).ConfigureAwait(false);
+            lines.Add(result.Ok ? $"<color=#80d080>{result.Message}</color>" : $"<color=#e06060>{slot.Model}: {result.Message}</color>");
+            if (!result.Ok)
+            {
+                break;
+            }
+        }
+
+        return string.Join("\n", lines);
+    }
+
+    private static void OpenInBrowser(string url)
+    {
+        try
+        {
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(url) { UseShellExecute = true });
+        }
+        catch (Exception ex) when (ex is InvalidOperationException or System.ComponentModel.Win32Exception or PlatformNotSupportedException)
+        {
+            _probeStatus += $" Couldn't open a browser: go to {url}";
         }
     }
 }

@@ -21,7 +21,8 @@ part ends with what to send Claude Code.
    tick what you saw there.
 3. **Part 3: checkpoint 2, first part (W6)**: the summons.
 4. **Part 4: fixes since C14**: the crisis panic-flee fix, in any crisis fight.
-5. **Later:** the E2B war retrain (v3), checkpoint 2's rest (W7–W9), checkpoint 3 (W10–W11), and the W14 proof run.
+5. **Part 5: release prep**: Download model and the Workshop package.
+6. **Later:** the E2B war retrain (v3), checkpoint 2's rest (W7–W9), checkpoint 3 (W10–W11), and the W14 proof run.
 
 PowerShell for `dotnet`, `ollama` and `git`; WSL2 bash for Python. The repo is at
 `C:\RimworldMods\RimChronicles\RimChronicles` (WSL2: `/mnt/c/RimworldMods/RimChronicles/RimChronicles`).
@@ -260,6 +261,29 @@ lost) to our operation and garrison lords, which cut short the profiles' regroup
 - [ ] 3. FinalAssault: down more than 70%: it still doesn't retreat.
 - [ ] 4. A Citadel's inner rings (**Crisis: generate Citadel**): down most of a garrison: the rest hold their ring.
 
+## Part 5: release prep (about 15 minutes, any time)
+
+What changed: the settings page can download models through Ollama, and the build can package the Workshop folder.
+The director presets are now named as on the Ollama registry (`oldmanjohnnymorgan/rimchron-director-e4b`); your local
+`rimchron-director-e4b` still counts as the same preset.
+
+- [ ] 1. Mod settings with your current director set: the `rimchron-director-e4b` preset is still the one selected, at
+      Recommended, with no orange warning.
+- [ ] 2. Main tier Minimum (`gemma4:e2b`, already pulled): **Download model**: it finishes within seconds, green.
+- [ ] 3. Run `ollama rm gemma4:e2b` in PowerShell, then **Test connection**: red, and it says to press Download model.
+      **Download model**: the line shows GB and percent while it runs; close and reopen the settings mid-way, and it's
+      still going. It ends green; **Test connection** answers.
+- [ ] 4. **Download model**, then **Cancel download** mid-way: it says cancelled. Press it again: Ollama resumes.
+- [ ] 5. Quit Ollama (tray icon → Quit), then **Test connection**: red, it mentions ollama.com, and a **Get Ollama**
+      button opens ollama.com/download in your browser. Start Ollama again.
+- [ ] 6. Packaging: `dotnet build src/RimChronicles.Game -c Release -t:PackageRelease`. `release\RimChronicles\` has
+      only `About`, `1.7`, `Defs`, `prompts`, `LICENSE`, `README.md`. (A warning about `Preview.png` is expected until
+      we add one.)
+- [ ] 7. Move the repository folder out of `Mods`, copy `release\RimChronicles` in, and start a new colony: the mod
+      loads with no red errors, and a bulletin arrives (Dev Mode: **Force bulletin**). Put things back after.
+
+**Send Claude Code:** which steps passed, and the text of any red line or error.
+
 ---
 
 ## Later
@@ -273,6 +297,7 @@ lost) to our operation and garrison lords, which cut short the profiles' regroup
 - **Stage 0 run for epilogue v3** (rule 8, zero API spend): on the PC, `dotnet run --project harness/RimChronicles.Eval -- run --tasks epilogue`;
   send Claude Code the run folder's `raw/` to review.
 - **W14**: the balance pass and a full proof run per side; then `war-in-heaven` merges into `main`.
+- **Release** (`docs/release.md`): a `Preview.png`, publish the directors to the Ollama registry, and the Workshop upload.
 - **Stage 5 proof run** (`docs/stage5-runbook.md`, M7) has no results file. Run it if it hasn't been.
 
 ---

@@ -385,6 +385,8 @@ Work from the `war-in-heaven` branch until it merges into `main`.
 6. **Presets:** once a report passes and is committed, copy the model over the shipped name
    (`ollama cp rimchron-director-e2b-war rimchron-director-e2b`), and its preset in `src/RimChronicles.Llm/TierPresets.cs`
    becomes `DirectorVocabulary.WarInHeaven`: the game then hands it the crisis, the Hollow Choir and the War in Heaven.
+7. **Publish** for players: `docs/release.md` §3 (`rimchron_train publish`, then `ollama create` and `ollama push`
+   under `oldmanjohnnymorgan/`, with Gemma's Apache 2.0 licence attached).
 
 ### Hand labels for the Hollow Choir (`hand-choir-v1`, 2026-11-26)
 

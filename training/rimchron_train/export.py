@@ -33,6 +33,44 @@ def template_lines(modelfile: str) -> list[str]:
     return out
 
 
+def license_lines(modelfile: str) -> list[str]:
+    """The LICENSE blocks from a Modelfile. Gemma 4 is Apache 2.0, which lets us share the fine-tuned weights as long as
+    the licence goes with them, so a published director carries its base model's."""
+    out, inside = [], False
+    for line in modelfile.splitlines():
+        if line.startswith("LICENSE"):
+            inside = '"""' in line and line.count('"""') == 1
+            out.append(line)
+        elif inside:
+            out.append(line)
+            inside = '"""' not in line
+    return out
+
+
+def publish_modelfile(local_model: str, base: str) -> str:
+    """A Modelfile that re-tags a local director for the registry: FROM keeps its weights, template and temperature,
+    and the base model's LICENSE is added (docs/release.md)."""
+    lic = license_lines(base)
+    if not lic:
+        raise SystemExit("No LICENSE in the base model's Modelfile; can't publish without it.")
+    return "\n".join([f"FROM {local_model}", *lic, ""])
+
+
+def publish(cfg: Config, local_model: str, base_modelfile_path: str | None) -> int:
+    from .registry import NAMESPACE
+    base = Path(base_modelfile_path).read_text() if base_modelfile_path else base_modelfile(cfg.ollama_base)
+    out = cfg.export_dir / cfg.run_name
+    out.mkdir(parents=True, exist_ok=True)
+    path = out / "Modelfile.publish"
+    path.write_text(publish_modelfile(local_model, base))
+    name = local_model.split(":")[0].split("/")[-1]
+    print(f"wrote {path}. Next, in PowerShell:\n"
+          f"  cd {out}\n"
+          f"  ollama create {NAMESPACE}/{name} -f Modelfile.publish\n"
+          f"  ollama push {NAMESPACE}/{name}")
+    return 0
+
+
 def write_merged_modelfiles(out: Path, tmpl: list[str]) -> list[Path]:
     """One Modelfile.merged.<quant> per text GGUF under out/merged* (Unsloth writes them to merged_gguf/ beside the
     merged/ checkpoint). The mmproj file is Gemma's vision projector: the director is text-only, so it's skipped."""
