@@ -260,12 +260,13 @@ public sealed class RunnerTests : IDisposable
     {
         var (cells, snapshots) = RunPlan.Build(Options());
 
-        // 20 hand-written snapshots, 3 real exports, 1 crisis snapshot (crisis C11) and 1 War in Heaven snapshot (W12).
-        // stub-min: director x2 grammar modes (50) + news (25) + handoff (3) + plot letter (6) + epilogue (3);
-        // stub-nogrammar: 25 + 25 + 3 + 6 + 3.
-        Assert.Equal(25, snapshots.Count);
-        Assert.Equal(87, cells.Count(c => c.Model.Id == "stub-min"));
-        Assert.Equal(62, cells.Count(c => c.Model.Id == "stub-nogrammar"));
+        // 20 hand-written snapshots, 3 real exports, 1 crisis snapshot (crisis C11), 1 War in Heaven snapshot (W12) and
+        // 2 War in Heaven endings for the epilogue (W11).
+        // stub-min: director x2 grammar modes (54) + news (27) + handoff (3) + plot letter (6) + epilogue (5);
+        // stub-nogrammar: 27 + 27 + 3 + 6 + 5.
+        Assert.Equal(27, snapshots.Count);
+        Assert.Equal(95, cells.Count(c => c.Model.Id == "stub-min"));
+        Assert.Equal(68, cells.Count(c => c.Model.Id == "stub-nogrammar"));
         Assert.DoesNotContain(cells, c => c.Model.Id == "stub-nogrammar" && c.Grammar == "on");
     }
 

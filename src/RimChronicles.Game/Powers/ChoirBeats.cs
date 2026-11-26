@@ -392,8 +392,16 @@ public static class ChoirBeats
 
         var news = ChoirLetters.EndingNews(ending, choir.Name, Colony);
         component.News.Add(new NewsEvent(today, Choir.NewsKind, news, choir.Name));
-        Send(plot, ("The Choir's story ends", news + "."), LetterDefOf.PositiveEvent, choir);
+        var c = EmpireEndings.CaseFor(component, plot, ending, choir, Choir, null, [], news);
         component.Plots.End(plot, today, ending);
+        if (ending is ChoirEnding.Choral or ChoirEnding.Silenced)
+        {
+            EmpireEndings.Epilogue(component, plot, c); // the victory screen and the epilogue (W11)
+        }
+        else
+        {
+            Send(plot, ("The Choir's story ends", news + "."), LetterDefOf.PositiveEvent, choir);
+        }
     }
 
     private static void Send(Plot plot, (string Label, string Text) letter, LetterDef def, Faction choir)

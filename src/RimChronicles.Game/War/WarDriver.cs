@@ -345,7 +345,8 @@ public static class WarDriver
         component.News.Add(new NewsEvent(today, power.NewsKind, $"{faction.Name} took {settlement.Label} from {owner}", faction.Name));
     }
 
-    /// <summary>The war reached its ending (W10 records it; W11 adds the victory screen and the epilogue).</summary>
+    /// <summary>The war reached its ending: the war, both sagas and the news record it, every power's story ends, and the
+    /// victory screen shows the epilogue (W11).</summary>
     private static void Finish(RimChroniclesGameComponent component, Plot plot, string ending, int today)
     {
         component.War.End(today, ending);
@@ -369,8 +370,45 @@ public static class WarDriver
         };
         component.News.Add(new NewsEvent(today, WarInHeaven.NewsKind, line, ""));
         plot.Tell(today, "The War in Heaven is over", line + ".");
-        StoryLetters.Send("The War in Heaven is over", line + ".", LetterDefOf.PositiveEvent);
+        foreach (var story in component.Plots.Active.Where(p => Power.All.Any(pw => p.Template == pw.PlotTemplateId || p.Template == pw.CrisisTemplateId)).ToList())
+        {
+            component.Plots.End(story, today, ending);
+        }
+
+        var c = CaseFor(component, plot, ending, line);
         component.Plots.End(plot, today, ending);
+        if (c is not null)
+        {
+            EmpireEndings.Epilogue(component, plot, c);
+        }
+        else
+        {
+            StoryLetters.Send("The War in Heaven is over", line + ".", LetterDefOf.PositiveEvent);
+        }
+    }
+
+    /// <summary>The epilogue's facts for a war ending: the power it ended with (the side, the survivor, or for total
+    /// independence the Empire), the other as the rival, and the war's own events.</summary>
+    private static Core.Snapshots.EpilogueCase? CaseFor(RimChroniclesGameComponent component, Plot plot, string ending, string closing)
+    {
+        var war = component.War;
+        var (power, rival) = ending switch
+        {
+            Core.Empire.EmpireEnding.Imperial => (Power.Empire, Power.Choir),
+            Core.Choir.ChoirEnding.Choral => (Power.Choir, Power.Empire),
+            WarEnding.IndependenceTotal => (Power.Empire, Power.Choir),
+            _ => war.IsDestroyed(Power.Empire) ? (Power.Choir, Power.Empire) : (Power.Empire, Power.Choir),
+        };
+        if (PowerFactions.Of(power) is not { } main)
+        {
+            return null; // its faction is gone (defeated by vanilla): the letter stands in for the screen
+        }
+
+        var rivalName = PowerFactions.Of(rival)?.Name ?? rival.DisplayName;
+        var events = new List<string> { $"The War in Heaven began on day {war.StartDay}." };
+        events.AddRange(war.Destroyed.Select(id => Power.All.FirstOrDefault(p => p.Id == id)).OfType<Power>()
+            .Select(p => $"{PowerFactions.Of(p)?.Name ?? p.DisplayName} was destroyed."));
+        return EmpireEndings.CaseFor(component, plot, ending, main, power, rivalName, events, closing);
     }
 
     // ---- Dev Mode (rule 7)
@@ -421,6 +459,41 @@ public static class WarDriver
         {
             Destroy(component, power, GenDate.DaysPassed, "destroyed from Dev Mode");
         }
+    })).ToList();
+
+    /// <summary>Ends the war in one of its endings at once (W11): the victory screen and the epilogue. Starts the war first
+    /// if it hasn't begun.</summary>
+    [DebugAction("Rim Chronicles", "War in Heaven: reach an ending", allowedGameStates = AllowedGameStates.Playing)]
+    public static List<DebugActionNode> DevEnding() => WarArc.Endings.Select(ending => new DebugActionNode(Core.Empire.EpilogueTask.Headline(ending), DebugActionType.Action, () =>
+    {
+        if (RimChroniclesGameComponent.Current is not { } component || !Available)
+        {
+            Messages.Message("Rim Chronicles: the War in Heaven isn't running in this game.", MessageTypeDefOf.RejectInput, historical: false);
+            return;
+        }
+
+        var today = GenDate.DaysPassed;
+        Begin(component, today, "forced from Dev Mode");
+        if (Plot(component) is not { } plot || component.War.State != WarState.Started)
+        {
+            Messages.Message("Rim Chronicles: the war plot couldn't start, or the war is already over.", MessageTypeDefOf.RejectInput, historical: false);
+            return;
+        }
+
+        var lost = ending switch
+        {
+            Core.Empire.EmpireEnding.Imperial => [Power.Choir],
+            Core.Choir.ChoirEnding.Choral => [Power.Empire],
+            WarEnding.IndependenceTotal => Power.All,
+            _ => new[] { Power.Choir },
+        };
+        foreach (var power in lost)
+        {
+            component.War.Destroy(power, today, "from Dev Mode");
+        }
+
+        plot.SetFact(PowerArc.EndingFact, ending);
+        Finish(component, plot, ending, today);
     })).ToList();
 
     [DebugAction("Rim Chronicles", "War in Heaven: move the front", allowedGameStates = AllowedGameStates.Playing)]
