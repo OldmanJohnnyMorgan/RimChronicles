@@ -40,4 +40,42 @@ public static class CrisisText
             _ => null,
         };
     }
+
+    /// <summary>The Hollow Choir's stage news (War in Heaven W7), the mirror of <see cref="StageNews"/>.</summary>
+    public static string ChoirStageNews(CrisisStage stage, CrisisStage before, string choir, string colony) => stage switch
+    {
+        CrisisStage.Probing when before == CrisisStage.None => $"Swarms of Choir mechs have been seen testing the defenses of {colony}",
+        CrisisStage.Probing => $"{choir} has pulled back from its campaign against {colony} to probing swarms",
+        CrisisStage.Reclamation when before > stage => $"{choir} is faltering, and its war on {colony} with it",
+        CrisisStage.Reclamation => $"{choir} is sending real forces against {colony}: tunnelling mechs and the hum",
+        CrisisStage.War => $"{choir} is at open war with {colony}: cluster drops and burrowing mechs are expected",
+        CrisisStage.Finale => $"{choir} is throwing every mech it has at {colony}",
+        _ when before != CrisisStage.None => $"The Choir's campaign against {colony} has stopped",
+        _ => "",
+    };
+
+    /// <summary>The Hollow Choir's escalation letters; null when the stage went down or the crisis ended.</summary>
+    public static (string Label, string Text)? ChoirStageLetter(CrisisStage stage, CrisisStage before, string choir, string colony)
+    {
+        if (stage <= before)
+        {
+            return null;
+        }
+
+        return stage switch
+        {
+            CrisisStage.Probing => ("Choir swarms",
+                $"{choir} has started testing {colony}. Small swarms of mechs, each with a mechanitor behind it, will probe the defenses "
+                + "and pull back to report.\n\nThe mechanitors are the key: bring one down and the mechs it commands fall silent."),
+            CrisisStage.Reclamation => ("The Choir escalates",
+                $"{choir} is done probing. Tunnelling mechs will come up under {colony}'s defenses, and resonators dropped near the colony "
+                + "will fill the air with the hum, slowing everyone who can feel it. Destroy the resonators to end it."),
+            CrisisStage.War => ("Open war with the Choir",
+                $"{choir} is at war with {colony}. Its cantors will call mech clusters down wherever they can see, and mechs will "
+                + "burrow up beside the colony's leaders.\n\nA cantor's drop is called off if the cantor falls before it lands."),
+            CrisisStage.Finale => ("The Choir's last campaign",
+                $"{choir} is throwing everything it has at {colony}. The First Voice will lead its last chorus in person."),
+            _ => null,
+        };
+    }
 }

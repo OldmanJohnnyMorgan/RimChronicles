@@ -29,6 +29,9 @@ public sealed record CrisisInputs
 
     /// <summary>Crisis operations the colony has come through (repelled or retreated from).</summary>
     public int OperationsSurvived { get; init; }
+
+    /// <summary>Whose crisis (War in Heaven W7): the Empire's unless said otherwise. It only changes the reasons' wording.</summary>
+    public Power Power { get; init; } = Power.Empire;
 }
 
 /// <summary>The crisis stage, worked out from the Empire's saga and plot each day (tech spec §4.1). Never stored on
@@ -50,34 +53,34 @@ public static class CrisisStages
         var plot = inputs.EmpirePlot;
         if (saga.State is PowerState.Dormant or PowerState.Stirring)
         {
-            return (CrisisStage.None, "the Empire isn't awake");
+            return (CrisisStage.None, $"{Name(inputs)} isn't awake");
         }
 
         if (saga.Ending.Length > 0 || plot is null || plot.Ended || plot.Fact(PowerArc.EndingFact) is { Length: > 0 })
         {
-            return (CrisisStage.None, "the Empire's story has no running plot, or it has ended");
+            return (CrisisStage.None, $"{Name(inputs)}'s story has no running plot, or it has ended");
         }
 
         if (plot.Beat is not (PlotBeat.Complication or PlotBeat.Choice))
         {
-            return (CrisisStage.None, "Act 1: the Empire hasn't marched yet");
+            return (CrisisStage.None, $"Act 1: {Name(inputs)} hasn't marched yet");
         }
 
         var stance = PowerArc.StanceOf(plot);
         if (stance == PowerStance.Ally)
         {
-            return (CrisisStage.None, "the colony is the Empire's ally");
+            return (CrisisStage.None, $"the colony is {Name(inputs)}'s ally");
         }
 
         if (stance != PowerStance.Oppose && !inputs.EmpireHostile)
         {
-            return (CrisisStage.None, "the colony keeps out of the Empire's way");
+            return (CrisisStage.None, $"the colony keeps out of {Name(inputs)}'s way");
         }
 
         var (stage, why) = Raw(inputs, plot, saga);
         if (saga.State == PowerState.Broken && stage > CrisisStage.Reclamation)
         {
-            return (CrisisStage.Reclamation, $"{why}, but the Empire is broken");
+            return (CrisisStage.Reclamation, $"{why}, but {Name(inputs)} is broken");
         }
 
         if (stage > CrisisStage.Probing && TributeCapped(plot))
@@ -92,7 +95,7 @@ public static class CrisisStages
     {
         if (plot.Fact(PowerArc.Job) == PowerStep.StormCapital)
         {
-            return (CrisisStage.Finale, "the colony is storming the Imperial capital");
+            return (CrisisStage.Finale, inputs.Power == Power.Choir ? "the colony is storming the Choir's Cathedral" : "the colony is storming the Imperial capital");
         }
 
         if (saga.NextShipRaidDay >= 0)
@@ -102,29 +105,34 @@ public static class CrisisStages
 
         if (plot.Fact(PowerArc.StanceCause) == PowerArc.CauseFinalDemand)
         {
-            return (CrisisStage.Finale, "the colony refused the Empire's final demand");
+            return (CrisisStage.Finale, $"the colony refused {Name(inputs)}'s final demand");
         }
 
         if (plot.Beat == PlotBeat.Choice)
         {
             return saga.State == PowerState.Ascendant
-                ? (CrisisStage.War, "Act 3, and the Empire is ascendant")
+                ? (CrisisStage.War, $"Act 3, and {Name(inputs)} is ascendant")
                 : (CrisisStage.Reclamation, "Act 3");
         }
 
         var expansions = saga.Expansions.Count;
         if (expansions >= PowerArc.ExpansionsForReckoning - WarBeforeReckoning)
         {
-            return (CrisisStage.War, $"Act 2, {expansions} Imperial expansions");
+            return (CrisisStage.War, $"Act 2, {expansions} {Adjective(inputs)} expansions");
         }
 
         if (expansions >= ReclamationAfter || inputs.OperationsSurvived >= ReclamationAfter)
         {
-            return (CrisisStage.Reclamation, $"Act 2, {expansions} Imperial expansions and {inputs.OperationsSurvived} operations survived");
+            return (CrisisStage.Reclamation, $"Act 2, {expansions} {Adjective(inputs)} expansions and {inputs.OperationsSurvived} operations survived");
         }
 
-        return (CrisisStage.Probing, "Act 2: the Empire is testing the colony");
+        return (CrisisStage.Probing, $"Act 2: {Name(inputs)} is testing the colony");
     }
+
+    /// <summary>How the reasons name the power: "the Empire" (as before W7) or "the Hollow Choir".</summary>
+    private static string Name(CrisisInputs inputs) => inputs.Power.DisplayName;
+
+    private static string Adjective(CrisisInputs inputs) => inputs.Power == Power.Choir ? "Choir" : "Imperial";
 
     /// <summary>A neutral colony that refused tribute faces probing raids only, until it finishes a job against the
     /// Empire or Act 3 begins (decided 2026-11-22, Q3).</summary>

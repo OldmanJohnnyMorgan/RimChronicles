@@ -105,6 +105,22 @@ public static class CrisisArc
         return allowed;
     }
 
+    /// <summary>
+    /// True while the other power's crisis has an operation running, or started one within half the pacing gap (War in
+    /// Heaven W7, tech spec §10): the Empire's and the Choir's crises take turns, so a colony fighting both never faces
+    /// two operations at once. Never true while the other crisis has run nothing.
+    /// </summary>
+    public static bool OtherBusy(CrisisState other, int today, int gapDays)
+    {
+        if (other.Running is not null)
+        {
+            return true;
+        }
+
+        var half = Math.Max(MinGapDays, Math.Clamp(gapDays, MinGapDays, MaxGapDays) / 2);
+        return other.LastOperationDay >= 0 && today - other.LastOperationDay < half;
+    }
+
     public static bool CooledDown(OperationSpec operation, CrisisState state, int today)
     {
         var last = state.LastDayOf(operation.Step);

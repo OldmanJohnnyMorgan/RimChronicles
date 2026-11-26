@@ -49,10 +49,13 @@ public class ChoirDefTests
     [Fact]
     public void EveryUnit_IsAChoirMechanitorThatNeedsBiotech()
     {
-        Assert.Equal(["RimChronicles_Chorister", "RimChronicles_Choirmaster", "RimChronicles_FirstVoice"], Units.Select(u => Value(u, "defName")));
+        Assert.Equal(["RimChronicles_Chorister", "RimChronicles_Choirmaster", "RimChronicles_FirstVoice", "RimChronicles_Cantor"], Units.Select(u => Value(u, "defName")));
         Assert.All(Units, u =>
         {
             Assert.Equal("MechanitorBase", (string?)u.Attribute("ParentName"));
+            var role = u.Element("modExtensions")?.Elements("li").Single().Element("role")?.Value;
+            Assert.True(Enum.TryParse<RimChronicles.Core.Crisis.Units.UnitRole>(role, out var r) && RimChronicles.Core.Choir.ChoirRoster.IsMechanitor(r),
+                $"{Value(u, "defName")} needs a Choir mechanitor role, has {role}");
             Assert.Equal(Biotech, (string?)u.Attribute("MayRequire"));
             Assert.Equal(ChoirIds.FactionDefName, Value(u, "defaultFactionDef"));
         });

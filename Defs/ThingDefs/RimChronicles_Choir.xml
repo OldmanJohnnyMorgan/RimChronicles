@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The Hollow Choir's things (War in Heaven W7). The resonator: dropped near the colony by the Hum operation, it hums
+  over the colony while it stands (CompRcResonator, Core's HumRules) and falls silent after two days. Destroying it ends
+  the hum. It borrows Royalty's defoliator art until the Choir has its own.
+-->
+<Defs>
+  <ThingDef ParentName="BuildingBase" MayRequire="Ludeon.RimWorld.Biotech,Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_ChoirResonator</defName>
+    <label>Choir resonator</label>
+    <description>A Hollow Choir resonator. It hums at a pitch felt more than heard, dragging at the minds of everyone nearby who can feel it. Destroy it to end the hum.</description>
+    <size>(1,1)</size>
+    <tickerType>Normal</tickerType>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+    <fillPercent>0.8</fillPercent>
+    <rotatable>false</rotatable>
+    <selectable>true</selectable>
+    <useHitPoints>true</useHitPoints>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+    <statBases>
+      <MaxHitPoints>350</MaxHitPoints>
+      <Flammability>0</Flammability>
+      <Beauty>-30</Beauty>
+    </statBases>
+    <building>
+      <claimable>false</claimable>
+      <deconstructible>false</deconstructible>
+      <destroySound>BuildingDestroyed_Metal_Big</destroySound>
+    </building>
+    <graphicData>
+      <texPath>Things/Building/Mech/Defoliator</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1.8,1.8)</drawSize>
+    </graphicData>
+    <comps>
+      <li Class="RimChronicles.Game.Crisis.Choir.CompProperties_RcResonator" />
+    </comps>
+  </ThingDef>
+</Defs>

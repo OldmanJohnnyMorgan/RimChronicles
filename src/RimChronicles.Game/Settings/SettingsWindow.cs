@@ -82,8 +82,9 @@ public static class SettingsWindow
 
         if (settings.MajorPlot)
         {
-            list.CheckboxLabeled("    Imperial crisis: the Empire attacks a colony that opposes it", ref settings.Crisis,
-                "Probing raids, breaches, psychic assaults, sieges and a final assault, escalating with the plot. Off: the Empire's raids are vanilla raids.");
+            list.CheckboxLabeled("    Crisis: the Empire (and the Hollow Choir) attack a colony that opposes them", ref settings.Crisis,
+                "The Empire: probing raids, breaches, psychic assaults, sieges and a final assault. The Hollow Choir: probing swarms, tunnel breaches, "
+                + "the hum, burrowing mechs and the final chorus. Both escalate with their plots and take turns. Off: their raids are vanilla raids.");
             if (settings.Crisis)
             {
                 var difficulty = list.SliderLabeled($"    Crisis difficulty: {settings.CrisisDifficulty:0.0}×", settings.CrisisDifficulty,

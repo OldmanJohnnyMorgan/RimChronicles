@@ -163,6 +163,20 @@ Imperial site parts until W8 builds the Choir's pieces. The game offers only the
 loader takes a power. The Empire's operations, sites and cases are unchanged. The game side (units, the commander AI,
 spawning, sites in game, the Cathedral) is still to do.
 
+**As built (W7, the game side):**
+
+| Where | What |
+| --- | --- |
+| Core `ChoirRoster`, `ChoirMixes` | Units: the mechanitor roles `Chorister`, `Cantor`, `Choirmaster`, `FirstVoice`, and `Mech` with a `MechClass` (Light, Line, Heavy, Tunneler, Boss) that maps to vanilla Core and Biotech mech kinds by stage, falling back to a lighter class when a kind is missing. Each operation has a mix; `Assign` gives each mech a commander by bandwidth (Chorister 5, Cantor 4, Choirmaster 8, First Voice 12) |
+| Core `OperationProfiles.For` | The Choir's operations run their Imperial mirror's shape: ProbingSwarm the probe, Burrowing the hunt, FinalChorus the final assault, TunnelBreach and TheHum the standard; the retreat rules are tested as for the Empire |
+| Core `CommanderTactics`, `ClusterDropRules`, `Burrowing`, `HumRules` | Row 1: a mechanitor stands 7 cells behind its mechs' centre, away from the nearest enemy, in sight of them, and falls back 12 cells when an enemy is within 7 (never more than 20 from its mechs). Row 2: a cluster drop needs a living Cantor who sees the target within 55 cells (or a signal spire, W8), is telegraphed 6–10 s, lands 6–14 cells from the target on open sky only, with a 1-minute cooldown and a 1–4 cap per raid from the budget; targets are chosen as for strikes. Row 3: tunnels come up 3–12 cells from the target, never under overhead mountain (a built roof doesn't stop them), with vanilla's 26–30 s rumble as the warning. Row 5: a resonator hums for at most two days over colonists within 70 cells, severity their psychic sensitivity (none for the deaf) |
+| Game `ChoirCrisisDriver` | The mirror of `CrisisDriver`, with its own saved `CrisisState` (`choirCrisis` on the game component; old saves load without it), its stage texts (`CrisisText.ChoirStage*`), the `ChoirCrisis` plot, budget and Dev Mode. The two crises take turns (`CrisisArc.OtherBusy`): neither starts while the other's operation runs or within half the gap after it |
+| Game `ChoirOperations`, `ChoirForce` | ProbingSwarm (walks in), TunnelBreach (tunnelers burrow up by the turrets or walls, the rest walks in), TheHum (1–2 resonators drop 18–34 cells from the colony, then an assault), Retrieval (burrows up by a Choir prisoner), Burrowing (by the leader), FinalChorus (the First Voice leads). `LordJob_RcOperation` takes a `power` (saved; `empire` by default) and the chain of command; a commander killed, downed or captured deactivates its mechs (`CompMechanoid.Deactivate`), which then count as lost. Reserves drop in under the surviving commanders |
+| Game `ChoirCommand`, `RimChronicles_Command` | Mechanitors hold and shoot from the commander AI's spot (vanilla `JobGiver_AIDefendPoint` around a focus refreshed every 250 ticks); mechs take the crisis assault duty (or the retrieval's) |
+| Game `MapComponent_RcClusterDrops` | Cantors' drops, telegraphed and called off as strikes are; the mechs join the Choir's operation under the cantor |
+| Game `ChoirHum`, `RimChronicles_ChoirResonator`, `RimChronicles_Hum` | The resonator (Royalty's defoliator art for now) refreshes the `RimChronicles_Hum` hediff (−15% work speed, −30% and −5% consciousness when loud) and its mood thought (−6, −10) |
+| Not yet | The cluster siege (W8, with the Choir's pieces and sites), the Choir's captives' interrogation and intel, and the Cathedral (W9). `ClusterSiege` isn't registered, so it's never offered |
+
 ## 5. Allegiance and the summons
 
 - **Allegiance** (R8). Siding with a power makes the colony hostile to the other (faction relation set, the other

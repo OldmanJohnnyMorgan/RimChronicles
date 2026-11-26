@@ -17,6 +17,46 @@ public enum UnitRole
 
     /// <summary>The finale's commander.</summary>
     Stellarch,
+
+    // The Hollow Choir's people (War in Heaven W7): mechanitors who command mechs. A mech is a vanilla mech kind with
+    // no unit extension; its weight class is the mix entry's <see cref="MixEntry.Mech"/>.
+
+    /// <summary>A Choir mech (a vanilla mech kind of the entry's <see cref="MechClass"/>).</summary>
+    Mech,
+
+    /// <summary>A Choir mechanitor: commands its mechs from behind them.</summary>
+    Chorister,
+
+    /// <summary>A Choir mechanitor who calls cluster drops (the Herald's mirror).</summary>
+    Cantor,
+
+    /// <summary>A senior Choir mechanitor, with more bandwidth and better gear.</summary>
+    Choirmaster,
+
+    /// <summary>The Choir's leader, who leads the final chorus.</summary>
+    FirstVoice,
+}
+
+/// <summary>A Choir mech's weight class (War in Heaven W7). Each maps to vanilla mech kinds by stage
+/// (<see cref="Choir.ChoirRoster"/>).</summary>
+public enum MechClass
+{
+    None,
+
+    /// <summary>Militors, scorchers, pikemen and scythers.</summary>
+    Light,
+
+    /// <summary>Lancers, legionaries and tesserons.</summary>
+    Line,
+
+    /// <summary>Centipedes and centurions.</summary>
+    Heavy,
+
+    /// <summary>Tunnelers: they come up from below (burrowing and tunnel breaches).</summary>
+    Tunneler,
+
+    /// <summary>The war queen, diabolus and apocriton: the final chorus only.</summary>
+    Boss,
 }
 
 /// <summary>An adept's specialty (crisis spec §5.3.1).</summary>
@@ -91,10 +131,11 @@ public static class PsycastKits
 
     public static bool IsPsyker(UnitRole role) => role is UnitRole.Adept or UnitRole.Stellarch;
 
-    /// <summary>The first stage a unit appears at: Mind Adepts need psylink 5 (stage 3), the Stellarch leads the finale.</summary>
+    /// <summary>The first stage a unit appears at: Mind Adepts need psylink 5 (stage 3), the Stellarch and the First
+    /// Voice lead the finale.</summary>
     public static CrisisStage FirstStage(UnitRole role, Specialty specialty) => role switch
     {
-        UnitRole.Stellarch => CrisisStage.Finale,
+        UnitRole.Stellarch or UnitRole.FirstVoice => CrisisStage.Finale,
         UnitRole.Adept when specialty == Specialty.Mind => CrisisStage.War,
         _ => CrisisStage.Probing,
     };

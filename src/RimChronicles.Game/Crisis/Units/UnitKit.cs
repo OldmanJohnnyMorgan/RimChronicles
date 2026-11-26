@@ -1,3 +1,4 @@
+using RimChronicles.Core.Choir;
 using RimChronicles.Core.Crisis;
 using RimChronicles.Core.Crisis.Units;
 using RimWorld;
@@ -16,7 +17,12 @@ public static class UnitKit
 
     public static UnitExtension? Unit(PawnKindDef? kind) => kind?.GetModExtension<UnitExtension>();
 
-    public static IEnumerable<PawnKindDef> Kinds => DefDatabase<PawnKindDef>.AllDefsListForReading.Where(k => Unit(k) is not null);
+    /// <summary>The Empire's crisis units. The Hollow Choir's mechanitors (W7) are <see cref="ChoirKinds"/>, kept apart
+    /// so no Imperial force, check or captive ever picks one up.</summary>
+    public static IEnumerable<PawnKindDef> Kinds => DefDatabase<PawnKindDef>.AllDefsListForReading.Where(k => Unit(k) is { } u && !ChoirRoster.IsMechanitor(u.role));
+
+    /// <summary>The Hollow Choir's mechanitor units (War in Heaven W7).</summary>
+    public static IEnumerable<PawnKindDef> ChoirKinds => DefDatabase<PawnKindDef>.AllDefsListForReading.Where(k => Unit(k) is { } u && ChoirRoster.IsMechanitor(u.role));
 
     /// <summary>Generates a unit for <paramref name="faction"/> at <paramref name="stage"/>, kitted out. Not spawned.</summary>
     public static Pawn Generate(PawnKindDef kind, Faction faction, CrisisStage stage)
