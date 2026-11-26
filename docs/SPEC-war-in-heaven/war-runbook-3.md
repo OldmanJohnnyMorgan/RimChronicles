@@ -14,7 +14,7 @@ the front and the log.
 | --- | --- | --- |
 | W10.1 | Mod settings → Story, under the Hollow Choir | **The War in Heaven** checkbox (on), the certain day (600), the odds (1.0×), the front factor (80%) |
 | W10.2 | Both awake, the colony at peace with both (**set side** → neither, if offered, or a fresh colony before choosing): **War in Heaven: show** | "Can start: False": the colony isn't at war |
-| W10.3 | Side with the Empire; let 30+ days pass at speed 3; **show** | The odds rise from 0% after 30 days of war; the war may start on its own |
+| W10.3 | Side with the Empire; let 15+ days pass at speed 3; **show** | The odds rise from 0% after 15 days of war; the war may start on its own |
 | W10.4 | **War in Heaven: start now** | A "The War in Heaven" letter (which side the colony is on), a news line; **show**: Started; a "war in heaven" story in the Chronicle tab |
 | W10.5 | **Empire: expansion tick** and **Hollow Choir: expand now** several times | Each now goes for the other's settlements about three times as often as for others; neither ever takes the other's capital |
 | W10.6 | **Crisis: show state** and **Choir crisis: show state** | The budget today is 80% of what it was before the war (the front factor) |

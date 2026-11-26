@@ -73,7 +73,7 @@ public static class EmpirePromotions
             plot.PublicHint = $"{empire.Name} took captives when {settlement} fell";
             var template = PlotTemplateDef.Find(LostFamilyArc.TemplateId);
             component.Plots.Advance(plot, PlotBeat.Complication, today,
-                template is null ? 5 : Rand.RangeInclusive(template.MinGapDays, template.MaxGapDays), $"promoted: {kin} caught in the fall of {settlement}");
+                template is null ? 5 : PlotGaps.Roll(template), $"promoted: {kin} caught in the fall of {settlement}");
             NoteOnEmpire(component, today, $"promoted {plot.Id}: {kin} caught in the fall of {settlement}");
             if (Prefs.DevMode)
             {

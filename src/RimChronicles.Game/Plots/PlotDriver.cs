@@ -296,7 +296,7 @@ public static class PlotDriver
 
         if (chosen.Id == Director.WaitId)
         {
-            PlotBook.Hold(plot, today, Rand.RangeInclusive(template.MinGapDays, template.MaxGapDays), choice.Reason);
+            PlotBook.Hold(plot, today, PlotGaps.Roll(template), choice.Reason);
         }
 
         if (Prefs.DevMode && source != "Only")

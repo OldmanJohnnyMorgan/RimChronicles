@@ -69,7 +69,7 @@ settlements on the world map, relations, envoys and territory, so it can do ever
 | State | What the mechanites do | Moves on when |
 | --- | --- | --- |
 | Dormant | Hidden; no settlements on the map; vanilla mech raids only | A waking trigger (§5) |
-| Stirring | Rumours, signals, strange mech clusters near the colony | 20–40 days pass |
+| Stirring | Rumours, signals, strange mech clusters near the colony | 10–20 days pass |
 | Awakened | Reveals settlements, expands, raids | Act 2 milestones |
 | Ascendant or Broken | Controls most of the region, or is collapsing | The player completes or fails an ending |
 
@@ -85,8 +85,8 @@ and which are new (mech commanders instead of the psyker AI, for example).
 ## 4. Waking
 
 Each empire still wakes on its own triggers. Today the Empire's are wealth, a destroyed Imperial site, an Imperial
-colonist and a refused title, with day 300 at the latest. The mechanites mirror them (decided): colony wealth, a
-destroyed mechanite site, a mechanitor colonist, the Royal Ascent (§5), and day 300 at the latest.
+colonist and a refused title, and it stirs on day 20 whatever the signs: the opening hook (D15). The mechanites mirror them (decided): colony wealth, a
+destroyed mechanite site, a mechanitor colonist, the Royal Ascent (§5), from day 30 and day 120 at the latest; beside the Empire it usually wakes on the Empire's first attack. Without Royalty, the Choir takes the day-20 hook.
 
 **The other empire follows.** When one empire wakes and **starts attacking**, the other wakes too. (John:
 "if the mechanites wake first and start attacking, then the empire wakes … and vice versa.") Waking second skips
@@ -220,6 +220,8 @@ tests go into `docs/test-plan.md` and a runbook, for John to run once at the end
 | D11 | Order: C14 and the crisis merge to main, then this tech spec and build, then the one retrain and a proof run | 2026-11-24 |
 | D12 | The mechanite empire is the Hollow Choir; its people call themselves the Chorus | 2026-11-24 |
 | D13 | Choir rank comes from service: a rank ladder of its own, raised per colonist by jobs done for the Choir (like Imperial favor); a colonist at a high rank opens the First Voice's offer | 2026-11-24 |
+| D14 | Faster pacing after the playtest: the powers wake by day 120 at the latest (D6's day 300) or at 80,000 wealth (was 150,000), stir 10–20 days (was 20–40); a job's result applies the day after it ends; the War in Heaven's odds start after 15 days of war and reach 5% a day at 165 (was 30 and 3% at 180); the final push opens at front +3 (was +4); story intensity scales every beat gap, the stirring and the war's odds | 2026-11-26 |
+| D15 | The awakening is the opening hook, not an endgame: the Empire stirs on day 20 (its signs only say why); the Choir wakes from day 30 on its signs, on the Empire's first attack, or on day 120, and takes the day-20 hook itself without Royalty; the crisis budget's weak-colony floor drops from 0.6× to 0.3× (Probing at least 240 points) | 2026-11-26 |
 
 ---
 

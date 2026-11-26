@@ -50,6 +50,12 @@ public sealed class Power
 
     public required PowerText Text { get; init; }
 
+    /// <summary>No sign wakes this power before this day, so a new colony settles first.</summary>
+    public int EarliestWakeDay { get; init; } = PowerSaga.HookDay;
+
+    /// <summary>The power stirs on this day at the latest, with no sign at all.</summary>
+    public int DeadlineDay { get; init; } = PowerSaga.HookDay;
+
     public override string ToString() => Id;
 
     public static readonly Power Empire = new()
@@ -76,6 +82,8 @@ public sealed class Power
         MarchOption = "Act2:TheChoirMarches",
         ColonistTrigger = AwakeningTrigger.MechanitorColonist,
         DisplayName = "the Hollow Choir",
+        EarliestWakeDay = PowerSaga.LateEarliestDay, // the Empire's is the opening hook; the Choir usually wakes on its attack
+        DeadlineDay = PowerSaga.LateDeadlineDay,
         OptionNames = new Dictionary<string, string>
         {
             ["SabotageImperial"] = "SabotageChoir",

@@ -24,9 +24,6 @@ namespace RimChronicles.Game.War;
 /// </summary>
 public static class WarDriver
 {
-    private static int JobGapMin => 6;
-    private static int JobGapMax => 12;
-
     public static bool Available => RimChroniclesMod.Settings.MajorPlot && RimChroniclesMod.Settings.WarInHeaven
         && ChoirDriver.Available && EmpireDriver.Available;
 
@@ -60,7 +57,7 @@ public static class WarDriver
         {
             var since = component.Allegiance.WarSince();
             if (war.CanStart(component.Empire, component.Choir, since >= 0)
-                && WarInHeaven.StartsToday(today, today - since, Rand.Value, RimChroniclesMod.Settings.WarOddsSteepness, RimChroniclesMod.Settings.WarCertainDay))
+                && WarInHeaven.StartsToday(today, today - since, Rand.Value, PlotGaps.WarSteepness(), RimChroniclesMod.Settings.WarCertainDay))
             {
                 Begin(component, today, today >= RimChroniclesMod.Settings.WarCertainDay ? $"day {today}" : $"the colony's war went on for {today - since} days");
             }
@@ -151,7 +148,7 @@ public static class WarDriver
     private static bool Fire(RimChroniclesGameComponent component, Plot plot, PlotTemplate template, int today, PlotTransition transition)
     {
         var c = Context(component);
-        var gap = Rand.RangeInclusive(JobGapMin, JobGapMax);
+        var gap = PlotGaps.Roll(template);
         var sideFaction = c.SidePower is { } s ? PowerFactions.Of(s) : null;
         var rivalFaction = c.Rival is { } r ? PowerFactions.Of(r) : null;
         switch (transition.Step)
@@ -163,18 +160,18 @@ public static class WarDriver
                     return false;
                 }
 
-                return Job(component, plot, today, gap, transition.Step, ally.Label, () => QuestOffers.DefendAlly(component, plot, ally, rivalFaction,
+                return Job(component, plot, today, transition.Step, ally.Label, () => QuestOffers.DefendAlly(component, plot, ally, rivalFaction,
                     $"Hold {ally.Label}",
                     $"{rivalFaction.Name} has camped outside {ally.Label}, a settlement of {sideFaction.Name}, in the War in Heaven. Break the camp, or "
                     + $"{ally.Label} falls to {rivalFaction.Name}."));
             }
 
             case WarStep.StrikeRival when rivalFaction is not null:
-                return Strike(component, plot, today, gap, transition.Step, rivalFaction, sideFaction);
+                return Strike(component, plot, today, transition.Step, rivalFaction, sideFaction);
             case WarStep.StrikeEmpire when PowerFactions.Of(Power.Empire) is { } empire:
-                return Strike(component, plot, today, gap, transition.Step, empire, null);
+                return Strike(component, plot, today, transition.Step, empire, null);
             case WarStep.StrikeChoir when PowerFactions.Of(Power.Choir) is { } choir:
-                return Strike(component, plot, today, gap, transition.Step, choir, null);
+                return Strike(component, plot, today, transition.Step, choir, null);
 
             case WarStep.EscortConvoy when sideFaction is not null:
             {
@@ -183,17 +180,17 @@ public static class WarDriver
                     return false;
                 }
 
-                return Job(component, plot, today, gap, transition.Step, destination.Label, () => QuestOffers.Escort(component, plot, sideFaction, destination, 3,
+                return Job(component, plot, today, transition.Step, destination.Label, () => QuestOffers.Escort(component, plot, sideFaction, destination, 3,
                     $"A convoy to {destination.Label}",
                     $"{sideFaction.Name} is moving supplies to the front through {destination.Label}. Escort its convoy there safely."));
             }
 
             case WarStep.SabotageRival when rivalFaction is not null:
-                return Sabotage(component, plot, today, gap, transition.Step, rivalFaction);
+                return Sabotage(component, plot, today, transition.Step, rivalFaction);
             case WarStep.SabotageEmpire when PowerFactions.Of(Power.Empire) is { } empire:
-                return Sabotage(component, plot, today, gap, transition.Step, empire);
+                return Sabotage(component, plot, today, transition.Step, empire);
             case WarStep.SabotageChoir when PowerFactions.Of(Power.Choir) is { } choir:
-                return Sabotage(component, plot, today, gap, transition.Step, choir);
+                return Sabotage(component, plot, today, transition.Step, choir);
 
             case WarStep.FinalPush when rivalFaction is not null && sideFaction is not null:
             {
@@ -202,7 +199,7 @@ public static class WarDriver
                     return false;
                 }
 
-                return Job(component, plot, today, gap, transition.Step, capital.Label, () => QuestOffers.Capital(component, plot, capital,
+                return Job(component, plot, today, transition.Step, capital.Label, () => QuestOffers.Capital(component, plot, capital,
                     $"The final push on {capital.Label}",
                     $"{sideFaction.Name} is making its final push on {capital.Label}, the capital of {rivalFaction.Name}, and wants {Colony} at its head. "
                     + $"Take {capital.Label}, and {rivalFaction.Name} is finished."));
@@ -217,7 +214,7 @@ public static class WarDriver
                     + $"{reward}. Accepting ends the story.",
                     [new PlotChoice("Accept", PowerArc.Accept), new PlotChoice("Not yet", PowerArc.Decline)], PowerArc.LetterTimeoutDays,
                     "it counts as not yet", sideFaction);
-                component.Plots.Advance(plot, PlotBeat.Choice, today, PowerArc.LetterTimeoutDays, "the side's victory offer");
+                component.Plots.Advance(plot, PlotBeat.Choice, today, PlotBook.JobCheckDays, "the side's victory offer");
                 return true;
             }
 
@@ -235,7 +232,7 @@ public static class WarDriver
                     + "Signing ends the story. Refusing means fighting on until it falls too.",
                     [new PlotChoice("Sign the treaty", PowerArc.Accept), new PlotChoice("Fight on", PowerArc.Decline)], PowerArc.LetterTimeoutDays,
                     "no treaty is signed", faction);
-                component.Plots.Advance(plot, PlotBeat.Choice, today, PowerArc.LetterTimeoutDays, "the survivor's treaty");
+                component.Plots.Advance(plot, PlotBeat.Choice, today, PlotBook.JobCheckDays, "the survivor's treaty");
                 return true;
             }
 
@@ -255,35 +252,35 @@ public static class WarDriver
 
     /// <summary>Strike a settlement of <paramref name="target"/>: a sabotage of its comms console. Never the capital
     /// (that's the final push, or the power's own Act 3).</summary>
-    private static bool Strike(RimChroniclesGameComponent component, Plot plot, int today, int gap, string step, Faction target, Faction? side)
+    private static bool Strike(RimChroniclesGameComponent component, Plot plot, int today, string step, Faction target, Faction? side)
     {
         if (QuestOffers.NearestSettlement(s => s.Faction == target && s != EmpireBeats.Capital(target)) is not { } settlement)
         {
             return false;
         }
 
-        return Job(component, plot, today, gap, step, settlement.Label, () => QuestOffers.Sabotage(component, plot, settlement, null,
+        return Job(component, plot, today, step, settlement.Label, () => QuestOffers.Sabotage(component, plot, settlement, null,
             $"Strike {settlement.Label}",
             $"Destroy the comms console in {settlement.Label}, a settlement of {target.Name}, within {QuestTemplates.SabotageDays} days."
             + (side is not null ? $" {side.Name} will take {settlement.Label} once it's blind." : " The War in Heaven is the colony's chance to hurt it.")));
     }
 
     /// <summary>Sabotage <paramref name="target"/>'s war machine: one of its crisis sites while its crisis runs, else a settlement.</summary>
-    private static bool Sabotage(RimChroniclesGameComponent component, Plot plot, int today, int gap, string step, Faction target)
+    private static bool Sabotage(RimChroniclesGameComponent component, Plot plot, int today, string step, Faction target)
     {
         if (Crisis.Sites.SiteOffers.Pick(component, target) is { needsHolding: false } archetype)
         {
             var near = QuestOffers.NearestSettlement(s => s.Faction == target)?.Label ?? archetype.label;
-            return Job(component, plot, today, gap, step, near, () => QuestOffers.ImperialSite(component, plot, archetype, target,
+            return Job(component, plot, today, step, near, () => QuestOffers.ImperialSite(component, plot, archetype, target,
                 $"Destroy the {archetype.label}",
                 $"{target.Name} has {Find.ActiveLanguageWorker.WithIndefiniteArticle(archetype.label)} near {Colony}: {archetype.description}. "
                 + "Destroy its objective, and its war effort falters."));
         }
 
-        return Strike(component, plot, today, gap, step, target, null);
+        return Strike(component, plot, today, step, target, null);
     }
 
-    private static bool Job(RimChroniclesGameComponent component, Plot plot, int today, int gap, string step, string target, Func<Quest?> offer)
+    private static bool Job(RimChroniclesGameComponent component, Plot plot, int today, string step, string target, Func<Quest?> offer)
     {
         WarArc.StartJob(plot, step, target, today);
         if (offer() is null)
@@ -292,7 +289,7 @@ public static class WarDriver
             return false;
         }
 
-        component.Plots.Advance(plot, PlotBeat.Complication, today, gap, $"job: {step} at {target}");
+        component.Plots.Advance(plot, PlotBeat.Complication, today, PlotBook.JobCheckDays, $"job: {step} at {target}");
         return true;
     }
 
@@ -430,7 +427,7 @@ public static class WarDriver
             $"Running: {(Available ? "yes" : "no (needs the major plot, the War in Heaven and Hollow Choir settings, Royalty and Biotech)")}.",
             $"State: {war.State}{(war.StartDay >= 0 ? $" since day {war.StartDay} ({war.Cause})" : "")}. Front: {war.Front}. Destroyed: {string.Join(", ", war.Destroyed.DefaultIfEmpty("none"))}.",
             $"Can start: {war.CanStart(component.Empire, component.Choir, since >= 0)}; the colony's war since day {since}; "
-                + $"odds today {WarInHeaven.Odds(since < 0 ? 0 : today - since, RimChroniclesMod.Settings.WarOddsSteepness):P1}; certain on day {RimChroniclesMod.Settings.WarCertainDay}.",
+                + $"odds today {WarInHeaven.Odds(since < 0 ? 0 : today - since, PlotGaps.WarSteepness()):P1}; certain on day {RimChroniclesMod.Settings.WarCertainDay}.",
             $"Side: {c.Side}; opposed: {string.Join(", ", c.Opposed.Select(p => p.Id).DefaultIfEmpty("none"))}. "
                 + $"Crises send {war.BudgetFactor(RimChroniclesMod.Settings.WarFrontFactor):P0} at the colony.",
             $"Plot: {(Plot(component) is { } plot ? $"{plot.Id}, {plot.Beat}, next beat day {plot.NextBeatDay}, job {plot.Fact(PowerArc.Job)}" : "none")}.",

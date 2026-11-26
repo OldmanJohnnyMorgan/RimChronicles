@@ -54,7 +54,8 @@ public static class ChoirDriver
         {
             case PowerState.Dormant:
                 var signs = ReadSigns();
-                var options = saga.Triggers(signs, today);
+                var alone = !PowerFactions.Running.Contains(Power.Empire); // no Royalty: the Choir is the opening hook
+                var options = saga.Triggers(signs, today, alone ? PowerSaga.HookDay : null);
                 if (options.Count > 0 && BeatBlocked(component, today) is null)
                 {
                     var pick = Director.PickWeighted(options, Rand.Value);
@@ -98,7 +99,7 @@ public static class ChoirDriver
     /// <summary>Dormant → Stirring, recorded in the director's log. Counts as a beat, so minor plots space around it.</summary>
     private static void Awaken(RimChroniclesGameComponent component, string trigger, string detail, int today, string source, string options)
     {
-        var ev = component.Choir.Awaken(trigger, detail, today, Rand.RangeInclusive(PowerSaga.MinStirringDays, PowerSaga.MaxStirringDays), Colony);
+        var ev = component.Choir.Awaken(trigger, detail, today, PlotGaps.Stirring(), Colony);
         Show(component, ev, today);
         ChoirBeats.EnsurePlot(component, today);
         Record(component, today, $"Awaken:{trigger}", Choir.Text.TriggerWhy(trigger, detail, Colony), source, options);

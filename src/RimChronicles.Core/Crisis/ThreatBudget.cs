@@ -44,7 +44,7 @@ public sealed record ColonyStrength
 /// separate from the storyteller's raid points. The numbers are first guesses for the balance pass (C14).</summary>
 public static class ThreatBudget
 {
-    public const float MinStrengthFactor = 0.6f;
+    public const float MinStrengthFactor = 0.3f; // was 0.6: the hook brings raids to young colonies (2026-11-26)
     public const float MaxStrengthFactor = 1.8f;
 
     public const float MinDifficulty = 0.1f;

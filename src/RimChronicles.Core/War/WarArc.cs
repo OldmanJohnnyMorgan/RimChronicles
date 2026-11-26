@@ -75,7 +75,7 @@ public static class WarArc
     public const string Prefix = "War:";
 
     /// <summary>The front score at which the side's final push opens.</summary>
-    public const int FrontForPush = 4;
+    public const int FrontForPush = 3;
 
     private static readonly HashSet<string> LetterJobs = [WarStep.VictoryOffer, WarStep.TreatyOffer];
 

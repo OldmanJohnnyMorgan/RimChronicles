@@ -11,8 +11,8 @@ public class EmpireSagaTests
     public void Triggers_WaitForTheColonyToSettle()
     {
         var saga = new PowerSaga { SiteDestroyed = "Ashgrove" };
-        Assert.Empty(saga.Triggers(new PowerSigns(1_000_000, "Ada"), PowerSaga.EarliestAwakeningDay - 1));
-        Assert.Equal(3, saga.Triggers(new PowerSigns(1_000_000, "Ada"), PowerSaga.EarliestAwakeningDay).Count);
+        Assert.Empty(saga.Triggers(new PowerSigns(1_000_000, "Ada"), Power.Empire.EarliestWakeDay - 1));
+        Assert.Equal(3, saga.Triggers(new PowerSigns(1_000_000, "Ada"), Power.Empire.EarliestWakeDay).Count);
     }
 
     [Fact]
@@ -31,8 +31,31 @@ public class EmpireSagaTests
     public void Triggers_TheDeadlineWakesAQuietEmpire()
     {
         var saga = new PowerSaga();
-        Assert.Empty(saga.Triggers(PowerSigns.None, PowerSaga.DeadlineDay - 1));
-        Assert.Equal(AwakeningTrigger.Deadline, Assert.Single(saga.Triggers(PowerSigns.None, PowerSaga.DeadlineDay)).Step);
+        Assert.Empty(saga.Triggers(PowerSigns.None, Power.Empire.DeadlineDay - 1));
+        Assert.Equal(AwakeningTrigger.Deadline, Assert.Single(saga.Triggers(PowerSigns.None, Power.Empire.DeadlineDay)).Step);
+    }
+
+    [Fact]
+    public void TheEmpire_IsTheOpeningHook_OnTheHookDay()
+    {
+        var saga = new PowerSaga();
+        Assert.Empty(saga.Triggers(PowerSigns.None, PowerSaga.HookDay - 1));
+        Assert.Equal(AwakeningTrigger.Deadline, Assert.Single(saga.Triggers(PowerSigns.None, PowerSaga.HookDay)).Step);
+        Assert.Equal(AwakeningTrigger.Wealth, Assert.Single(saga.Triggers(new PowerSigns(PowerSaga.WealthThreshold, null), PowerSaga.HookDay)).Step);
+    }
+
+    [Fact]
+    public void TheChoir_WakesLater_UnlessItRunsAlone()
+    {
+        var saga = new PowerSaga { Power = Power.Choir };
+        Assert.Empty(saga.Triggers(new PowerSigns(0, "Mira"), PowerSaga.LateEarliestDay - 1));
+        Assert.Single(saga.Triggers(new PowerSigns(0, "Mira"), PowerSaga.LateEarliestDay));
+        Assert.Empty(saga.Triggers(PowerSigns.None, PowerSaga.LateDeadlineDay - 1));
+        Assert.Single(saga.Triggers(PowerSigns.None, PowerSaga.LateDeadlineDay));
+
+        // Alone (no Royalty), it takes the hook day, and its signs count from then too.
+        Assert.Equal(AwakeningTrigger.Deadline, Assert.Single(saga.Triggers(PowerSigns.None, PowerSaga.HookDay, PowerSaga.HookDay)).Step);
+        Assert.Equal(AwakeningTrigger.MechanitorColonist, Assert.Single(saga.Triggers(new PowerSigns(0, "Mira"), PowerSaga.HookDay, PowerSaga.HookDay)).Step);
     }
 
     [Fact]

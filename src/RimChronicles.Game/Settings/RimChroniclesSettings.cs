@@ -21,7 +21,8 @@ public sealed class RimChroniclesSettings : ModSettings
     /// <summary>The Awakened Empire major plot (Stage 5); it also needs Royalty.</summary>
     public bool MajorPlot = true;
 
-    /// <summary>How often minor plots start and how fast the Empire expands (<see cref="Core.Plots.StoryIntensity"/>).</summary>
+    /// <summary>How fast the whole story moves: plot starts, beat gaps, stirring, expansion and the War in Heaven's odds
+    /// (<see cref="Core.Plots.StoryIntensity"/>).</summary>
     public float StoryIntensity = Core.Plots.StoryIntensity.Default;
 
     /// <summary>The Imperial crisis: Empire operations against an opposed colony (needs the major plot and Royalty).</summary>
@@ -39,7 +40,7 @@ public sealed class RimChroniclesSettings : ModSettings
     /// <summary>The game day it starts for certain (spec D3: 600).</summary>
     public int WarCertainDay = Core.War.WarInHeaven.CertainDay;
 
-    /// <summary>How steeply the daily odds rise with the colony's war (1: 3% a day at 180 days of war).</summary>
+    /// <summary>How steeply the daily odds rise with the colony's war (1: 5% a day at 165 days of war), times the story intensity.</summary>
     public float WarOddsSteepness = 1f;
 
     /// <summary>While the war is on, the share of each crisis's budget sent at the colony (the rest goes to the front).</summary>
