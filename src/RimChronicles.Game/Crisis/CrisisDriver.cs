@@ -43,7 +43,9 @@ public static class CrisisDriver
     public static bool DirectorDecides => Available && ModelSlots.DirectorKnowsCrisis(RimChroniclesMod.Settings.Slots);
 
     public static void Register() => PlotDriver.Register(CrisisArc.TemplateId,
-        plot => RimChroniclesGameComponent.Current is { } c && Available ? CrisisArc.Transitions(plot, Context(c), GenDate.DaysPassed) : [],
+        plot => RimChroniclesGameComponent.Current is { } c && Available && !Choir.ChoirCrisisDriver.OtherPowerBusy(c, Power.Empire, GenDate.DaysPassed)
+            ? CrisisArc.Transitions(plot, Context(c), GenDate.DaysPassed)
+            : [],
         Fire, useDirector: () => DirectorDecides, subOptions: SubOptions);
 
     /// <summary>A siege's goals, the ones the colony gives a target for (tech spec R8).</summary>

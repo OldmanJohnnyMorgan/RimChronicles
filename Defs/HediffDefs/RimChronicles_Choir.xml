@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The Hum (War in Heaven W7): what a Choir resonator does to a colonist in its reach who can feel it. The resonator
+  refreshes it every 250 ticks; it fades 600 ticks after the last. Severity is the colonist's psychic sensitivity
+  (Core's HumRules): 1.25 and up is the loud stage.
+-->
+<Defs>
+  <HediffDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>RimChronicles_Hum</defName>
+    <label>the hum</label>
+    <description>The low hum of a Hollow Choir resonator, felt more than heard. It drags at the mind: work comes slowly and nothing feels right. It ends when the resonators are destroyed.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.65, 0.55, 0.9)</defaultLabelColor>
+    <isBad>true</isBad>
+    <maxSeverity>2</maxSeverity>
+    <initialSeverity>1</initialSeverity>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>600~600</disappearsAfterTicks>
+        <showRemainingTime>false</showRemainingTime>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <label>faint</label>
+        <statOffsets>
+          <WorkSpeedGlobal>-0.15</WorkSpeedGlobal>
+        </statOffsets>
+      </li>
+      <li>
+        <minSeverity>1.25</minSeverity>
+        <label>loud</label>
+        <statOffsets>
+          <WorkSpeedGlobal>-0.3</WorkSpeedGlobal>
+        </statOffsets>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.05</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+</Defs>

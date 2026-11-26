@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
   The Hollow Choir's people (War in Heaven spec §4.1, W3): mechanitors, on Biotech's mechanitor kind (MayRequire
-  Biotech). Their mechs are vanilla mech kinds, listed in the faction's group makers. The crisis roles (the Cantor
-  and the commander AI) come with W7.
+  Biotech). Their mechs are vanilla mech kinds, listed in the faction's group makers. Each carries a crisis role
+  (W7): the Choir's crisis builds its forces from these roles and vanilla mechs by class (Core's ChoirRoster), and
+  its mechanitors command their mechs from behind them.
 -->
 <Defs>
 
@@ -23,6 +24,11 @@
       <li>SpacerGun</li>
       <li>IndustrialGunAdvanced</li>
     </weaponTags>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Units.UnitExtension">
+        <role>Chorister</role>
+      </li>
+    </modExtensions>
   </PawnKindDef>
 
   <!-- A senior mechanitor: better gear and implants, more bandwidth. -->
@@ -41,6 +47,11 @@
       <li>SpacerGun</li>
     </weaponTags>
     <techHediffsMoney>2000~4000</techHediffsMoney>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Units.UnitExtension">
+        <role>Choirmaster</role>
+      </li>
+    </modExtensions>
   </PawnKindDef>
 
   <!-- The leader. -->
@@ -61,6 +72,35 @@
     </weaponTags>
     <techHediffsMoney>4000~6000</techHediffsMoney>
     <forceWeaponQuality>Legendary</forceWeaponQuality>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Units.UnitExtension">
+        <role>FirstVoice</role>
+      </li>
+    </modExtensions>
+  </PawnKindDef>
+
+  <!-- Calls cluster drops (W7): a mechanitor with a long view of the field, the Herald's mirror. -->
+  <PawnKindDef ParentName="MechanitorBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>RimChronicles_Cantor</defName>
+    <label>cantor</label>
+    <defaultFactionDef>RimChronicles_HollowChoir</defaultFactionDef>
+    <combatPower>110</combatPower>
+    <apparelMoney>2000~3500</apparelMoney>
+    <apparelRequired Inherit="False" />
+    <apparelTags Inherit="False">
+      <li>IndustrialAdvanced</li>
+      <li>SpacerMilitary</li>
+    </apparelTags>
+    <weaponMoney>800~1500</weaponMoney>
+    <weaponTags Inherit="False">
+      <li>SpacerGun</li>
+      <li>IndustrialGunAdvanced</li>
+    </weaponTags>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Units.UnitExtension">
+        <role>Cantor</role>
+      </li>
+    </modExtensions>
   </PawnKindDef>
 
 </Defs>

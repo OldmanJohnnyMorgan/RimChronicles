@@ -48,4 +48,12 @@
     <minGapDays>3</minGapDays>
     <maxGapDays>6</maxGapDays>
   </RimChronicles.Game.Plots.PlotTemplateDef>
+  <RimChronicles.Game.Plots.PlotTemplateDef>
+    <defName>ChoirCrisis</defName>
+    <label>choir crisis</label>
+    <description>The Hollow Choir's war on the colony (War in Heaven): probing swarms, tunnel breaches, the hum, burrowing mechs and the final chorus.</description>
+    <countsTowardCap>false</countsTowardCap>
+    <minGapDays>3</minGapDays>
+    <maxGapDays>6</maxGapDays>
+  </RimChronicles.Game.Plots.PlotTemplateDef>
 </Defs>

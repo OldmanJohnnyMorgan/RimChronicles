@@ -243,6 +243,21 @@ public class ChoirOperationTests
         Assert.Equal(2, HumRules.Resonators(CrisisStage.War));
     }
 
+    // ---- the two crises take turns (tech spec §10)
+
+    [Fact]
+    public void TheCrises_TakeTurns_ButNeverWaitOnACrisisThatHasRunNothing()
+    {
+        var other = new CrisisState();
+        Assert.False(CrisisArc.OtherBusy(other, 100, 8));
+        other.Started(CrisisOperations.ProbingRaid, CrisisStage.Probing, 1000, 100);
+        Assert.True(CrisisArc.OtherBusy(other, 101, 8)); // still running
+        other.Ended(OperationOutcome.Repelled);
+        Assert.True(CrisisArc.OtherBusy(other, 103, 8)); // within half the gap
+        Assert.False(CrisisArc.OtherBusy(other, 104, 8));
+        Assert.True(CrisisArc.OtherBusy(other, 102, 2)); // never less than the minimum gap
+    }
+
     // ---- stages and text
 
     [Fact]

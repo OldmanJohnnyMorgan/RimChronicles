@@ -53,6 +53,7 @@ public sealed class WorldReader : IWorldReader
                         && p.Template != Core.War.WarInHeaven.TemplateId)))
                 .Select(p => p.ToInfo()).ToList() ?? [],
             Crisis = crisis ? ReadCrisis(day) : null,
+            ChoirCrisis = war && Crisis.Choir.ChoirCrisisDriver.Available ? ReadChoirCrisis(day) : null,
             War = war ? ReadWar() : null,
             PublicEvents = RimChroniclesGameComponent.Current?.News.Since(day - MaxNewsDays).Select(e => e.Text).ToList() ?? [],
         };
@@ -77,6 +78,22 @@ public sealed class WorldReader : IWorldReader
             .Select(p => p.ThingID)
             .ToHashSet();
         return Core.Crisis.CrisisBrief.From(component.Crisis, Crisis.CrisisDriver.Stage(component, empire).Stage, day, present.Contains);
+    }
+
+    /// <summary>The Hollow Choir's crisis brief (War in Heaven W7), while it has a stage: the mirror of <see cref="ReadCrisis"/>.</summary>
+    private static CrisisInfo? ReadChoirCrisis(int day)
+    {
+        if (RimChroniclesGameComponent.Current is not { } component || Crisis.Choir.ChoirCrisisDriver.Faction is not { } choir
+            || Crisis.Choir.ChoirCrisisDriver.Stage(component, choir).Stage is var stage && stage == Core.Crisis.CrisisStage.None)
+        {
+            return null;
+        }
+
+        var present = PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive
+            .Where(p => p.IsPrisonerOfColony || p.Faction is { IsPlayer: true })
+            .Select(p => p.ThingID)
+            .ToHashSet();
+        return Core.Crisis.CrisisBrief.From(component.ChoirCrisis, stage, day, present.Contains);
     }
 
     public static PawnInfo ReadPawn(Pawn pawn, List<Pawn> colonists) => new()
