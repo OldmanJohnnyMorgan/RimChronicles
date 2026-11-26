@@ -8,7 +8,7 @@ One in-game session on the reference PC covers W6 to W9. Royalty and Biotech mus
 
 | # | Do | Pass when |
 | --- | --- | --- |
-| W6.1 | Colony with a mechanitor colonist (install a mechlink) and two mechs it controls. **Empire: trigger awakening**, **Empire: wake**, answer the envoy "Stand with the Empire" (or **War in Heaven: set side** → empire). Let a day pass (or **War in Heaven: send a summons now**) | A quest "The Empire's summons: {name}" is on offer, naming the colonist and what happens if you refuse |
+| W6.1 | Colony with a mechanitor colonist (install a mechlink) and two mechs it controls. **Empire: trigger awakening**, **Empire: end stirring now**, answer the envoy "Stand with the Empire" (or **War in Heaven: set side** → empire). Let a day pass (or **War in Heaven: send a summons now**) | A quest "The Empire's summons: {name}" is on offer, naming the colonist and what happens if you refuse |
 | W6.2 | Accept it | An Imperial shuttle lands; the colonist can board; it leaves once they are aboard |
 | W6.3 | Wait 5 days (or **War in Heaven: return the summoned colonist now**, then let an hour pass) | The colonist comes back by shuttle as a psycaster: level 1 with a basic mechlink (bandwidth 6–9), higher with more bandwidth; no mechlink; a letter says what they became |
 | W6.4 | Look at the two mechs | Both deactivated where they stood (inspect: "Deactivated."), never feral, even after a few days |
