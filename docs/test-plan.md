@@ -67,7 +67,7 @@ then 1e runs as long as you like.
 ### 1a. Settings and connection (5 minutes)
 
 - [ ] **Options → Mod settings → Rim Chronicles**:
-  - [ ] **Story**: the major plot on, **Imperial crisis** on, **The Hollow Choir** on, all story arcs on.
+  - [ ] **Story**: the major plot on, **Crisis** on (it covers both powers), **The Hollow Choir** on, all story arcs on.
   - [ ] **Advanced: separate models** → **Show a separate prose or director model** → **Director model**: pick
         `rimchron-director-e4b`. No orange warning shows.
   - [ ] **Dev: record director decisions for training** on (below the advanced part; Dev Mode only).
