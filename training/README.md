@@ -385,3 +385,39 @@ Work from the `war-in-heaven` branch until it merges into `main`.
 6. **Presets:** once a report passes and is committed, copy the model over the shipped name
    (`ollama cp rimchron-director-e2b-war rimchron-director-e2b`), and its preset in `src/RimChronicles.Llm/TierPresets.cs`
    becomes `DirectorVocabulary.WarInHeaven`: the game then hands it the crisis, the Hollow Choir and the War in Heaven.
+
+### Hand labels for the Hollow Choir (`hand-choir-v1`, 2026-11-26)
+
+`director-e4b-war-v2` passed every ship bar (#157), but `director-e2b-war-v2` missed top-1 (76%), regret (0.44) and the
+order and id checks. Its weak groups are HollowChoir/Broken (25%; always-Wait 0%), AwakenedEmpire/Broken (62%) and
+HollowChoir/Ascendant (65%). It waits on two thirds of Choir Broken cases and never storms the Cathedral: it seems to
+carry the Empire's Broken habit (`hand-empire-v1`, rubric v1, 55% Wait) over to the Choir, where rubric v5 gives a
+breaking power at war with the colony the treaty or the assault.
+
+Claude Code labelled every open Choir training case that offers Wait (seed `seed-1-war`, no Wait rule): 242 cases
+(110 Broken, 92 Ascendant, 40 Act2; 10 shown twice, all agreed), with the teacher prompt the war test set was labelled
+with (`director-teacher/v5`), without looking at the test labels. Wait is picked on 0% of Broken, 31% of Ascendant and
+57% of Act2. They agree with the 12B on 88% of Broken but only 45–48% of Ascendant and Act2: the 12B rarely offers the
+First Voice's offer, and these labels give it to a colony that is reeling or whose beat has run 25 days or more. To
+rebuild the pack: copy those cases to a folder, then `director-pack --cases <folder> --count 242 --repeat 10 --seed 2`.
+
+`director-dataset` reads the folder by itself and its labels win over `local-gemma4-12b-war` (242 replaced). Keep
+`--hand-only AwakenedEmpire` as it is: adding `HollowChoir` would also drop the 12B's labels on 56 open Choir cases that
+don't offer Wait, which have no hand label.
+
+**E2B v3 (not run yet):** the same commands as step 4, with the report named `director-e2b-war-v3`:
+
+```powershell
+dotnet run --project harness/RimChronicles.Eval -- director-dataset --tier Minimum --max-wait-share 0.6 --hand-only AwakenedEmpire
+```
+
+```bash
+cd /mnt/c/RimworldMods/RimChronicles/RimChronicles/training
+uv run python -m rimchron_train data --config config/director-e2b-war.yaml
+uv run python -m rimchron_train sft --config config/director-e2b-war.yaml 2>&1 | tee ~/sft-director-e2b-war-v3.log
+uv run python -m rimchron_train export --config config/director-e2b-war.yaml
+```
+
+Then `ollama create rimchron-director-e2b-war` and the step 5 report with `--name director-e2b-war-v3`. If Empire
+Broken is still weak, the next lever is the conflict between `hand-empire-v1` (rubric v1, matched to `test-v1`) and
+rubric v5 on a breaking power.
