@@ -32,10 +32,10 @@ public class WarInHeavenTests
 
     [Theory]
     [InlineData(0, 0)]
-    [InlineData(29, 0)]
-    [InlineData(30, 0)]
-    [InlineData(105, 0.015)]
-    [InlineData(180, 0.03)]
+    [InlineData(14, 0)]
+    [InlineData(15, 0)]
+    [InlineData(90, 0.025)]
+    [InlineData(165, 0.05)]
     [InlineData(1000, 0.1)] // capped
     public void TheOdds_RiseWithTheLengthOfTheWar(int warDays, double odds) =>
         Assert.Equal(odds, WarInHeaven.Odds(warDays), 6);
@@ -45,8 +45,8 @@ public class WarInHeavenTests
     {
         Assert.True(WarInHeaven.StartsToday(600, 0, 0.99));
         Assert.False(WarInHeaven.StartsToday(599, 0, 0.0001));
-        Assert.True(WarInHeaven.StartsToday(400, 180, 0.02));
-        Assert.False(WarInHeaven.StartsToday(400, 180, 0.05));
+        Assert.True(WarInHeaven.StartsToday(400, 165, 0.04));
+        Assert.False(WarInHeaven.StartsToday(400, 165, 0.06));
     }
 
     [Fact]

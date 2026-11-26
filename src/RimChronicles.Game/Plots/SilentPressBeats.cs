@@ -41,14 +41,14 @@ public static class SilentPressBeats
         plot.SetFact(SilentPressArc.ReporterFaction, reporter.Faction);
         plot.SetFact("silencedDay", silenced);
         plot.BeatDay = reporter.SilencedDay;
-        plot.NextBeatDay = Math.Max(today, reporter.SilencedDay) + Rand.RangeInclusive(template.MinGapDays, template.MaxGapDays);
+        plot.NextBeatDay = Math.Max(today, reporter.SilencedDay) + PlotGaps.Roll(template);
         plot.Note(today, "Hook: the news stopped");
     }
 
     public static bool Fire(RimChroniclesGameComponent component, Plot plot, PlotTemplate template, int today, PlotTransition transition)
     {
         var f = SilentPressLetters.Facts.From(plot, Colony);
-        var gap = Rand.RangeInclusive(template.MinGapDays, template.MaxGapDays);
+        var gap = PlotGaps.Roll(template);
         var step = SilentPressArc.NextStep(plot);
         switch (step)
         {

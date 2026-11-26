@@ -209,7 +209,7 @@ public static class EmpireDriver
     {
         var empire = EmpireFaction!;
         var ev = component.Empire.Awaken(trigger, detail, today,
-            Rand.RangeInclusive(PowerSaga.MinStirringDays, PowerSaga.MaxStirringDays), Colony);
+            PlotGaps.Stirring(), Colony);
         Show(component, ev, today, empire);
         EmpireBeats.EnsurePlot(component, today);
         Record(component, today, $"Awaken:{trigger}", EmpireText.TriggerWhy(trigger, detail, Colony), source, options);

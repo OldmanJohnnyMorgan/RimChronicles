@@ -155,7 +155,7 @@ public static class CrisisDriver
         }
 
         CrisisArc.OperationStarted(component.Plots, plot, operation, stage, budget, component.Crisis, today,
-            Rand.RangeInclusive(template.MinGapDays, template.MaxGapDays));
+            PlotGaps.Roll(template));
         return true;
     }
 

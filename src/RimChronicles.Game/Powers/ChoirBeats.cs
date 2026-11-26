@@ -69,7 +69,7 @@ public static class ChoirBeats
             return false; // still stirring: the faction appears when it wakes
         }
 
-        var gap = Rand.RangeInclusive(template.MinGapDays, template.MaxGapDays);
+        var gap = PlotGaps.Roll(template);
         switch (transition.Step)
         {
             case PowerStep.Envoy:
@@ -102,7 +102,7 @@ public static class ChoirBeats
                     return false;
                 }
 
-                return StartQuest(component, plot, today, gap, transition.Step, destination.Label, () => QuestOffers.Escort(component, plot, choir, destination,
+                return StartQuest(component, plot, today, transition.Step, destination.Label, () => QuestOffers.Escort(component, plot, choir, destination,
                     Rand.RangeInclusive(1, 2), $"Escort Chorus envoys to {destination.Label}",
                     $"{choir.Name} asks its ally {Colony} to see its envoys safely to {destination.Label}. Take them there by caravan within "
                     + $"{QuestTemplates.EscortDays} days."));
@@ -115,7 +115,7 @@ public static class ChoirBeats
                     return false;
                 }
 
-                return StartQuest(component, plot, today, gap, transition.Step, target.Label, () => QuestOffers.Sabotage(component, plot, target, null,
+                return StartQuest(component, plot, today, transition.Step, target.Label, () => QuestOffers.Sabotage(component, plot, target, null,
                     $"Weaken {target.Label}",
                     $"{choir.Name} means to take {target.Label}, held by {target.Faction.Name}, and asks its ally {Colony} to destroy the comms "
                     + $"console there first. Do it within {QuestTemplates.SabotageDays} days, and {target.Label} will fall to the Choir."));
@@ -128,7 +128,7 @@ public static class ChoirBeats
                     return false;
                 }
 
-                return StartQuest(component, plot, today, gap, transition.Step, ally.Label, () => QuestOffers.DefendAlly(component, plot, ally, choir,
+                return StartQuest(component, plot, today, transition.Step, ally.Label, () => QuestOffers.DefendAlly(component, plot, ally, choir,
                     $"Break the siege of {ally.Label}",
                     $"A Choir host has camped outside {ally.Label}, held by {ally.Faction.Name}, humming day and night. Clear the camp, or "
                     + $"{ally.Label} will fall to the Choir."));
@@ -152,14 +152,14 @@ public static class ChoirBeats
                         }
 
                         var town = held.Settlement.Label;
-                        return StartQuest(component, plot, today, gap, transition.Step, town, () => QuestOffers.ImperialSite(component, plot, archetype, choir,
+                        return StartQuest(component, plot, today, transition.Step, town, () => QuestOffers.ImperialSite(component, plot, archetype, choir,
                             $"Free {town}",
                             $"{choir.Name} took {town} from {held.Former.Name}, and a Chorus garrison holds it near {Colony}. Destroy the comms "
                             + $"console deepest inside the garrison's walls, and {town} goes back to {held.Former.Name}.", held));
                     }
 
                     var near = QuestOffers.NearestSettlement(s => s.Faction == choir)?.Label ?? archetype.label;
-                    return StartQuest(component, plot, today, gap, transition.Step, near, () => QuestOffers.ImperialSite(component, plot, archetype, choir,
+                    return StartQuest(component, plot, today, transition.Step, near, () => QuestOffers.ImperialSite(component, plot, archetype, choir,
                         $"Destroy the {archetype.label}",
                         $"{choir.Name} has raised {Find.ActiveLanguageWorker.WithIndefiniteArticle(archetype.label)} near {Colony}: "
                         + $"{archetype.description}. Destroy its objective before the site is abandoned, and the Choir's advance will falter."));
@@ -170,7 +170,7 @@ public static class ChoirBeats
                     return false;
                 }
 
-                return StartQuest(component, plot, today, gap, transition.Step, target.Label, () => QuestOffers.Sabotage(component, plot, target, null,
+                return StartQuest(component, plot, today, transition.Step, target.Label, () => QuestOffers.Sabotage(component, plot, target, null,
                     $"Sabotage {target.Label}",
                     $"Destroy the comms console in the Choir settlement of {target.Label} within {QuestTemplates.SabotageDays} days, "
                     + "and the Choir's advance will falter."));
@@ -187,7 +187,7 @@ public static class ChoirBeats
                     new PlotChoice("Refuse", PowerArc.TributeRefused),
                     new PlotChoice("Join the Chorus", PowerArc.TributeFealty),
                 ], PowerArc.LetterTimeoutDays, "the tribute goes unpaid, though the Choir doesn't go to war over it", choir);
-                component.Plots.Advance(plot, plot.Beat, today, PowerArc.LetterTimeoutDays, "the Choir demands tribute");
+                component.Plots.Advance(plot, plot.Beat, today, PlotBook.JobCheckDays, "the Choir demands tribute");
                 return true;
             }
 
@@ -221,7 +221,7 @@ public static class ChoirBeats
                 ChoiceLetter_Plot.Send(plot, PowerArc.Answer, label, text,
                     [new PlotChoice("Join the Chorus", PowerArc.Accept), new PlotChoice("Not yet", PowerArc.Decline)], PowerArc.LetterTimeoutDays,
                     "it counts as not yet", choir);
-                component.Plots.Advance(plot, PlotBeat.Choice, today, PowerArc.LetterTimeoutDays, "Act 3: the First Voice's offer");
+                component.Plots.Advance(plot, PlotBeat.Choice, today, PlotBook.JobCheckDays, "Act 3: the First Voice's offer");
                 return true;
             }
 
@@ -235,7 +235,7 @@ public static class ChoirBeats
                     ? [new PlotChoice("Join the Chorus", PowerArc.Accept), new PlotChoice("Refuse", PowerArc.Decline)]
                     : [new PlotChoice("Sign the treaty", PowerArc.Accept), new PlotChoice("Fight on", PowerArc.Decline)],
                     PowerArc.LetterTimeoutDays, final ? "it counts as a refusal: war" : "no treaty is signed", choir);
-                component.Plots.Advance(plot, PlotBeat.Choice, today, PowerArc.LetterTimeoutDays, final ? "Act 3: the final demand" : "Act 3: a treaty is offered");
+                component.Plots.Advance(plot, PlotBeat.Choice, today, PlotBook.JobCheckDays, final ? "Act 3: the final demand" : "Act 3: a treaty is offered");
                 return true;
             }
 
@@ -257,7 +257,7 @@ public static class ChoirBeats
                     return false;
                 }
 
-                component.Plots.Advance(plot, PlotBeat.Choice, today, gap, $"Act 3: silence {cathedral.Label}");
+                component.Plots.Advance(plot, PlotBeat.Choice, today, PlotBook.JobCheckDays, $"Act 3: silence {cathedral.Label}");
                 return true;
             }
 
@@ -276,7 +276,7 @@ public static class ChoirBeats
         }
     }
 
-    private static bool StartQuest(RimChroniclesGameComponent component, Plot plot, int today, int gap, string step, string target, Func<Quest?> offer)
+    private static bool StartQuest(RimChroniclesGameComponent component, Plot plot, int today, string step, string target, Func<Quest?> offer)
     {
         PowerArc.StartJob(plot, step, target, today);
         if (offer() is null)
@@ -285,7 +285,7 @@ public static class ChoirBeats
             return false;
         }
 
-        component.Plots.Advance(plot, plot.Beat, today, gap, $"job: {step} at {target}");
+        component.Plots.Advance(plot, plot.Beat, today, PlotBook.JobCheckDays, $"job: {step} at {target}");
         return true;
     }
 

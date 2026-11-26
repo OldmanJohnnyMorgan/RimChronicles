@@ -139,7 +139,7 @@ public static class SettingsWindow
                     settings.WarCertainDay = (int)Math.Round(list.SliderLabeled($"    It starts for certain on game day {settings.WarCertainDay}",
                         settings.WarCertainDay, RimChroniclesSettings.MinWarCertainDay, RimChroniclesSettings.MaxWarCertainDay) / 10f) * 10;
                     settings.WarOddsSteepness = (float)Math.Round(list.SliderLabeled($"    Odds before then: {settings.WarOddsSteepness:0.0}×",
-                        settings.WarOddsSteepness, 0f, 3f, tooltip: "0: only on the certain day. 1: about 3% a day after six months of the colony's war."), 1);
+                        settings.WarOddsSteepness, 0f, 3f, tooltip: "0: only on the certain day. 1: about 5% a day after five and a half months of the colony's war (times the story intensity)."), 1);
                     settings.WarFrontFactor = (float)Math.Round(list.SliderLabeled($"    While it's on, crises send {settings.WarFrontFactor:P0} of their forces at the colony",
                         settings.WarFrontFactor, 0.5f, 1f, tooltip: "The rest is pulled away to the front."), 2);
                 }
@@ -150,7 +150,7 @@ public static class SettingsWindow
         var intensity = list.SliderLabeled(
             $"Story intensity: {Core.Plots.StoryIntensity.Describe(settings.StoryIntensity)} ({settings.StoryIntensity:0.0}×)",
             settings.StoryIntensity, Core.Plots.StoryIntensity.Min, Core.Plots.StoryIntensity.Max,
-            tooltip: "How often minor plots start, and how fast the Empire expands. 2× halves the waits; 0.5× doubles them.");
+            tooltip: "How fast the story moves: how often minor plots start, the days between story beats, how long a power stirs, how fast the powers expand and how soon the War in Heaven starts. 2× halves the waits; 0.5× doubles them.");
         settings.StoryIntensity = (float)Math.Round(intensity * 10f) / 10f;
 
         list.Label("Story arcs (turning one off stops new plots of that kind; running ones finish)");

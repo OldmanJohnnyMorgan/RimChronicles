@@ -10,7 +10,7 @@ public enum PowerState
     /// <summary>Few settlements, no expansion, normal Royalty quests.</summary>
     Dormant,
 
-    /// <summary>Rumours, envoys and demands on nearby factions, for 20–40 days.</summary>
+    /// <summary>Rumours, envoys and demands on nearby factions, for 10–20 days.</summary>
     Stirring,
 
     /// <summary>Expanding by force.</summary>
@@ -71,13 +71,13 @@ public sealed class PowerSaga : IArchivable
     public const int EarliestAwakeningDay = 30;
 
     /// <summary>The Empire wakes on this day at the latest.</summary>
-    public const int DeadlineDay = 300;
+    public const int DeadlineDay = 120;
 
     /// <summary>Colony wealth that draws the Empire's eye.</summary>
-    public const float WealthThreshold = 150_000f;
+    public const float WealthThreshold = 80_000f;
 
-    public const int MinStirringDays = 20;
-    public const int MaxStirringDays = 40;
+    public const int MinStirringDays = 10;
+    public const int MaxStirringDays = 20;
     public const int MinRumourGapDays = 5;
     public const int MaxRumourGapDays = 8;
 
@@ -191,12 +191,13 @@ public sealed class PowerSaga : IArchivable
     };
 
     /// <summary>Dormant → Stirring, for <paramref name="trigger"/>. The stirring lasts
-    /// <paramref name="stirringDays"/> days (pick it from the spec's 20–40).</summary>
+    /// <paramref name="stirringDays"/> days (pick it from <see cref="MinStirringDays"/>–<see cref="MaxStirringDays"/>, scaled by the
+    /// story intensity; a quiet story may double it).</summary>
     public PowerEvent Awaken(string trigger, string detail, int today, int stirringDays, string colony)
     {
         State = PowerState.Stirring;
         StateDay = today;
-        NextStateDay = today + Math.Clamp(stirringDays, 1, MaxStirringDays);
+        NextStateDay = today + Math.Clamp(stirringDays, 1, StoryIntensity.Scale(MaxStirringDays, StoryIntensity.Min));
         NextRumourDay = today + MinRumourGapDays;
         Trigger = trigger;
         TriggerDetail = detail;

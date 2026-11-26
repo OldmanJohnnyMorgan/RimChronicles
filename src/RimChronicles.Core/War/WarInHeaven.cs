@@ -33,10 +33,10 @@ public sealed class WarInHeaven : IArchivable
     public const int CertainDay = 600;
 
     /// <summary>Days of war before the odds start rising.</summary>
-    public const int QuietWarDays = 30;
+    public const int QuietWarDays = 15;
 
     /// <summary>The daily chance after <see cref="QuietWarDays"/> + <see cref="RiseDays"/> days of war.</summary>
-    public const double FullOdds = 0.03;
+    public const double FullOdds = 0.05;
 
     public const int RiseDays = 150;
 

@@ -55,7 +55,7 @@ public static class EmpireBeats
             return false;
         }
 
-        var gap = Rand.RangeInclusive(template.MinGapDays, template.MaxGapDays);
+        var gap = PlotGaps.Roll(template);
         switch (transition.Step)
         {
             case PowerStep.Envoy:
@@ -88,7 +88,7 @@ public static class EmpireBeats
                     return false;
                 }
 
-                return StartQuest(component, plot, today, gap, transition.Step, destination.Label, () => QuestOffers.Escort(component, plot, empire, destination,
+                return StartQuest(component, plot, today, transition.Step, destination.Label, () => QuestOffers.Escort(component, plot, empire, destination,
                     Rand.RangeInclusive(1, 2), $"Escort Imperial envoys to {destination.Label}",
                     $"{empire.Name} asks its ally {Colony} to see its envoys safely to {destination.Label}. Take them there by caravan within "
                     + $"{QuestTemplates.EscortDays} days."));
@@ -101,7 +101,7 @@ public static class EmpireBeats
                     return false;
                 }
 
-                return StartQuest(component, plot, today, gap, transition.Step, target.Label, () => QuestOffers.Sabotage(component, plot, target, null,
+                return StartQuest(component, plot, today, transition.Step, target.Label, () => QuestOffers.Sabotage(component, plot, target, null,
                     $"Weaken {target.Label}",
                     $"{empire.Name} means to take {target.Label}, held by {target.Faction.Name}, and asks its ally {Colony} to destroy the comms "
                     + $"console there first. Do it within {QuestTemplates.SabotageDays} days, and {target.Label} will fall to the Empire."));
@@ -114,7 +114,7 @@ public static class EmpireBeats
                     return false;
                 }
 
-                return StartQuest(component, plot, today, gap, transition.Step, ally.Label, () => QuestOffers.DefendAlly(component, plot, ally, empire,
+                return StartQuest(component, plot, today, transition.Step, ally.Label, () => QuestOffers.DefendAlly(component, plot, ally, empire,
                     $"Break the siege of {ally.Label}",
                     $"An Imperial column has camped outside {ally.Label}, held by {ally.Faction.Name}. Clear the camp, or {ally.Label} will fall to the Empire."));
             }
@@ -137,14 +137,14 @@ public static class EmpireBeats
                         }
 
                         var town = held.Settlement.Label;
-                        return StartQuest(component, plot, today, gap, transition.Step, town, () => QuestOffers.ImperialSite(component, plot, archetype, empire,
+                        return StartQuest(component, plot, today, transition.Step, town, () => QuestOffers.ImperialSite(component, plot, archetype, empire,
                             $"Liberate {town}",
                             $"{empire.Name} took {town} from {held.Former.Name}, and an Imperial garrison holds it near {Colony}. Destroy the comms "
                             + $"console deepest inside the garrison's walls, and {town} goes back to {held.Former.Name}.", held));
                     }
 
                     var near = QuestOffers.NearestSettlement(s => s.Faction == empire)?.Label ?? archetype.label;
-                    return StartQuest(component, plot, today, gap, transition.Step, near, () => QuestOffers.ImperialSite(component, plot, archetype, empire,
+                    return StartQuest(component, plot, today, transition.Step, near, () => QuestOffers.ImperialSite(component, plot, archetype, empire,
                         $"Destroy the {archetype.label}",
                         $"{empire.Name} has raised {Find.ActiveLanguageWorker.WithIndefiniteArticle(archetype.label)} near {Colony}: "
                         + $"{archetype.description}. Destroy its objective before the site is abandoned, and the Empire's advance will falter."));
@@ -155,7 +155,7 @@ public static class EmpireBeats
                     return false;
                 }
 
-                return StartQuest(component, plot, today, gap, transition.Step, target.Label, () => QuestOffers.Sabotage(component, plot, target, null,
+                return StartQuest(component, plot, today, transition.Step, target.Label, () => QuestOffers.Sabotage(component, plot, target, null,
                     $"Sabotage {target.Label}",
                     $"Destroy the comms console in the Imperial settlement of {target.Label} within {QuestTemplates.SabotageDays} days, "
                     + "and the Empire's advance will falter."));
@@ -172,7 +172,7 @@ public static class EmpireBeats
                     new PlotChoice("Refuse", PowerArc.TributeRefused),
                     new PlotChoice("Swear fealty", PowerArc.TributeFealty),
                 ], PowerArc.LetterTimeoutDays, "the tribute goes unpaid, though the Empire doesn't go to war over it", empire);
-                component.Plots.Advance(plot, plot.Beat, today, PowerArc.LetterTimeoutDays, "the Empire demands tribute");
+                component.Plots.Advance(plot, plot.Beat, today, PlotBook.JobCheckDays, "the Empire demands tribute");
                 return true;
             }
 
@@ -206,7 +206,7 @@ public static class EmpireBeats
                 ChoiceLetter_Plot.Send(plot, PowerArc.Answer, label, text,
                     [new PlotChoice("Accept the governorship", PowerArc.Accept), new PlotChoice("Not yet", PowerArc.Decline)], PowerArc.LetterTimeoutDays,
                     "it counts as not yet", empire);
-                component.Plots.Advance(plot, PlotBeat.Choice, today, PowerArc.LetterTimeoutDays, "Act 3: the Empire offers a governorship");
+                component.Plots.Advance(plot, PlotBeat.Choice, today, PlotBook.JobCheckDays, "Act 3: the Empire offers a governorship");
                 return true;
             }
 
@@ -220,7 +220,7 @@ public static class EmpireBeats
                     ? [new PlotChoice("Submit to the Empire", PowerArc.Accept), new PlotChoice("Refuse", PowerArc.Decline)]
                     : [new PlotChoice("Sign the treaty", PowerArc.Accept), new PlotChoice("Fight on", PowerArc.Decline)],
                     PowerArc.LetterTimeoutDays, final ? "it counts as a refusal: war" : "no treaty is signed", empire);
-                component.Plots.Advance(plot, PlotBeat.Choice, today, PowerArc.LetterTimeoutDays, final ? "Act 3: the final demand" : "Act 3: a treaty is offered");
+                component.Plots.Advance(plot, PlotBeat.Choice, today, PlotBook.JobCheckDays, final ? "Act 3: the final demand" : "Act 3: a treaty is offered");
                 return true;
             }
 
@@ -242,7 +242,7 @@ public static class EmpireBeats
                     return false;
                 }
 
-                component.Plots.Advance(plot, PlotBeat.Choice, today, gap, $"Act 3: storm {capital.Label}");
+                component.Plots.Advance(plot, PlotBeat.Choice, today, PlotBook.JobCheckDays, $"Act 3: storm {capital.Label}");
                 return true;
             }
 
@@ -268,7 +268,7 @@ public static class EmpireBeats
     /// <summary>Tribute: 1% of colony wealth, rounded to 50, between 200 and 2,000 silver.</summary>
     public static int TributeSilver(float wealth) => (int)Math.Clamp(Math.Round(wealth * 0.01f / 50f) * 50f, 200f, 2000f);
 
-    private static bool StartQuest(RimChroniclesGameComponent component, Plot plot, int today, int gap, string step, string target, Func<Quest?> offer)
+    private static bool StartQuest(RimChroniclesGameComponent component, Plot plot, int today, string step, string target, Func<Quest?> offer)
     {
         PowerArc.StartJob(plot, step, target, today);
         if (offer() is null)
@@ -277,7 +277,7 @@ public static class EmpireBeats
             return false;
         }
 
-        component.Plots.Advance(plot, plot.Beat, today, gap, $"job: {step} at {target}");
+        component.Plots.Advance(plot, plot.Beat, today, PlotBook.JobCheckDays, $"job: {step} at {target}");
         return true;
     }
 

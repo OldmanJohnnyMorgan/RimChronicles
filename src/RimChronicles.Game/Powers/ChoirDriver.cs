@@ -98,7 +98,7 @@ public static class ChoirDriver
     /// <summary>Dormant → Stirring, recorded in the director's log. Counts as a beat, so minor plots space around it.</summary>
     private static void Awaken(RimChroniclesGameComponent component, string trigger, string detail, int today, string source, string options)
     {
-        var ev = component.Choir.Awaken(trigger, detail, today, Rand.RangeInclusive(PowerSaga.MinStirringDays, PowerSaga.MaxStirringDays), Colony);
+        var ev = component.Choir.Awaken(trigger, detail, today, PlotGaps.Stirring(), Colony);
         Show(component, ev, today);
         ChoirBeats.EnsurePlot(component, today);
         Record(component, today, $"Awaken:{trigger}", Choir.Text.TriggerWhy(trigger, detail, Colony), source, options);

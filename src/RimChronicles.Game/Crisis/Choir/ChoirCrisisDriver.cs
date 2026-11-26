@@ -182,7 +182,7 @@ public static class ChoirCrisisDriver
         }
 
         CrisisArc.OperationStarted(component.Plots, plot, operation, stage, budget, component.ChoirCrisis, today,
-            Rand.RangeInclusive(template.MinGapDays, template.MaxGapDays));
+            PlotGaps.Roll(template));
         return true;
     }
 
