@@ -17,5 +17,10 @@ public static class StellarchKilledPatch
         {
             Stellarch.Fell(__instance, StellarchFate.Dead);
         }
+
+        if (__instance.Dead && Crisis.Choir.FirstVoice.Is(__instance))
+        {
+            Crisis.Choir.FirstVoice.Fell(__instance, StellarchFate.Dead); // the First Voice's fall (War in Heaven W9)
+        }
     }
 }

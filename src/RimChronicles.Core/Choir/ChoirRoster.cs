@@ -238,6 +238,32 @@ public static class ChoirMixes
         ],
     };
 
+    /// <summary>The Cathedral's garrisons (W9), ring by ring: the outer works' mech line with a cantor; the cloister's
+    /// heavier line under a choirmaster; the sanctum's bossgroup guard, which the First Voice commands.</summary>
+    public static IReadOnlyList<MixEntry> Cathedral(int ring) => ring switch
+    {
+        0 =>
+        [
+            Mechs(MechClass.Line, 5),
+            Mechs(MechClass.Light, 3),
+            Of(UnitRole.Chorister, 1),
+            Of(UnitRole.Cantor, 1),
+        ],
+        1 =>
+        [
+            Mechs(MechClass.Line, 4),
+            Mechs(MechClass.Heavy, 2),
+            Of(UnitRole.Chorister, 1),
+            Of(UnitRole.Choirmaster, 1),
+        ],
+        _ =>
+        [
+            Mechs(MechClass.Boss, 2, CrisisStage.Finale),
+            Mechs(MechClass.Heavy, 2),
+            Of(UnitRole.Choirmaster, 1),
+        ],
+    };
+
     /// <summary>What a Cantor's cluster drop brings: a few mechs of the stage's light and line classes.</summary>
     public static readonly IReadOnlyList<MixEntry> ClusterDrop =
     [

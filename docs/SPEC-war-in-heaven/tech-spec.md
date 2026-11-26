@@ -188,6 +188,14 @@ spawning, sites in game, the Cathedral) is still to do.
 | `SiteOffers`, `Liberation`, `ChoirBeats` | Offers, the holding and liberation take the power from the faction (the holding from that power's saga). The Choir plot's `SabotageChoir` job offers the Choir's sites while its crisis runs (the director picks the `Site:*` with a War in Heaven model), and a Choir-held town is freed as the Empire's are |
 | Core `ClusterSiegeRules`, `ChoirMixes.ClusterSiege`; Game `ClusterCamp`, `LordToil_RcClusterSiege`, `ChoirOperations.ClusterSiege` | Row 4: the cluster siege walks to the Imperial siege's best camp spot and lays out `CampLayout` with the Choir's pieces. Its stages aren't built: the first lands on arrival, each next one drops in by pod (`PieceStamper.Pods`) 18,000 ticks after the last while a mechanitor stands within 20 cells. Its mechanitors are its builders (`SiegeRules.AfterBuildersFall`); its beacon brings waves from the reserve; its goal (`Goal:*`, the director's second call) aims the cluster drops; when it ends, what it dropped is left ownerless |
 
+**As built (W9):**
+
+| Where | What |
+| --- | --- |
+| Core `CitadelOptions.Power`, `CitadelRings.*TagFor`, `ChoirMixes.Cathedral` | The Cathedral is the Citadel's three-ring plan with the Choir's rooms: resonator chambers hold up the shield (the relays' place), signal spire stations stand in the cloister (the uplinks'), and the sanctum (`RimChronicles_Piece_Sanctum`) is the keep's heart (the throne room's). Ring names: outer works, cloister, sanctum. Garrisons: the outer works' mech line with a cantor, the cloister's heavier line under a choirmaster, the sanctum's bossgroup (boss mechs and heavies) commanded by the First Voice |
+| Game `CitadelMaps.IsCathedral`, `GenStep_RcCitadel`, `MapComponent_RcCitadel` | The Choir's capital generates as the Cathedral once its crisis is at war and the Choir is hostile (the same map generator and patch). Generation, the shield (resonators in the cloister; the sanctum takes a tenth of the damage while one stands), lazy rings and the reinforce memo are the Citadel's; the welcome and shield letters are the Choir's; the cloister's resonators also hum. The Cathedral keeps its chain of command and silences a fallen mechanitor's mechs. Destroyed Resonator and Signal Spire sites take resonators and spires from the cloister |
+| Game `FirstVoice` | One First Voice, made once and kept between appearances (the Choir crisis's leader fields), leads the final chorus and stands in the sanctum. Its death or capture is announced and carries the colony's assault on the Cathedral (`StormTheCathedral`). It doesn't skip away like the Stellarch: bringing it down silences the bossgroup it commands |
+
 ## 5. Allegiance and the summons
 
 - **Allegiance** (R8). Siding with a power makes the colony hostile to the other (faction relation set, the other

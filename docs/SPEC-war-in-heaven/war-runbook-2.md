@@ -71,3 +71,25 @@ for a Choir-held town near the colony). **Crisis: generate site** lists the Choi
 | W8.14 | Beat the siege back (half its force) | It retreats; what it dropped in stays, ownerless: the turrets don't fire, the resonator falls silent, the spire calls nothing |
 | W8.15 | Save at camp stage 2–3 and reload | The camp carries on growing on its timer |
 | W8.16 | Imperial checks still hold: **Crisis: generate site** → each Imperial archetype; **Crisis: fire siege with goal** | Imperial sites and camps never show a Choir piece (no mech turrets, no spire, no resonator) |
+
+## W9: the Cathedral and the First Voice
+
+Setup: "choir-test-1" at stage 3 or 4 (**Hollow Choir: expand now** and **Plot: advance beat** as needed).
+
+| # | Do | Pass when |
+| --- | --- | --- |
+| W9.1 | **Choir crisis: generate Cathedral** → standard: **note the seconds**, which must be **under 30** | A 275×275 map with three walled rings in plasteel and steel: the outer works (charge-turret nests, auto-mortars, sandbags), the cloister (barracks, armory, two resonator chambers, a signal spire station), the sanctum deepest in. No Imperial piece (no throne, vault, records, mortar pit) |
+| W9.2 | Speed 1 for a minute with the map in view | No stutter; note the speed-3 TPS |
+| W9.3 | Colonists arrive at the edge | "The Cathedral" letter: the rings, the resonators holding the sanctum's shield, the hum, the First Voice |
+| W9.4 | Colonists who can feel it, within reach of a cloister resonator | They get **the hum** |
+| W9.5 | A colonist enters the outer works | "The Cathedral's cloister garrison is moving out to meet you"; the sanctum's guard stays |
+| W9.6 | Shoot a sanctum wall | It takes a tenth of the damage; destroy both cloister resonators: "The sanctum's shield is down", full damage again, the hum stops |
+| W9.7 | No resonators left (**generate Cathedral** → no resonators) | No resonator chambers, the sanctum unshielded from the start |
+| W9.8 | In a normal game, destroy a Resonator site (W8.3), then attack the Choir's capital at stage 3+ | The Cathedral has one cloister resonator |
+| W9.9 | Reach the sanctum | **The First Voice** stands in the sanctum with a bossgroup (war queen, diabolus or apocriton) and heavy mechs; **Choir crisis: First Voice state** names it |
+| W9.10 | Down or kill the First Voice | "The First Voice is dead" (or captured); the mechs it commanded, the bossgroup included, fall silent; a news line |
+| W9.11 | In a game storming the Cathedral (**Act3:StormTheCathedral**), bring the First Voice down | The Cathedral quest succeeds ("the assault on the Cathedral has won") |
+| W9.12 | From a save where the First Voice led a final chorus (W7.13) and survived, attack the Cathedral | The same First Voice is in the sanctum |
+| W9.13 | After the First Voice has fallen: fire FinalChorus, generate a Cathedral | "The last of the Chorus" with no First Voice; the sanctum's bossgroup has no First Voice |
+| W9.14 | Save on the Cathedral and reload | Shield, rings reached, held garrisons (lazy rings) and the chain of command are kept |
+| W9.15 | Imperial checks: **Crisis: generate Citadel** | Unchanged: throne room, relays, the Stellarch, Imperial pieces only |

@@ -214,4 +214,43 @@
     </modExtensions>
   </PrefabDef>
 
+  <!-- The Cathedral's sanctum (W9): the First Voice's hall at the heart of the keep, the throne room's mirror. Signal
+       spires stand at its far end and resonators hum in its corners. -->
+  <PrefabDef MayRequire="Ludeon.RimWorld.Biotech,Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Piece_Sanctum</defName>
+    <size>(11,9)</size>
+    <things>
+      <Wall>
+        <rects>
+          <li>(0,0,4,0)</li>
+          <li>(6,0,10,0)</li>
+          <li>(0,8,10,8)</li>
+          <li>(0,1,0,7)</li>
+          <li>(10,1,10,7)</li>
+        </rects>
+      </Wall>
+      <Door>
+        <position>(5, 0, 0)</position>
+      </Door>
+      <RimChronicles_SignalSpire>
+        <position>(5, 0, 6)</position>
+      </RimChronicles_SignalSpire>
+      <TorchLamp>
+        <positions>
+          <li>(2, 0, 6)</li>
+          <li>(8, 0, 6)</li>
+          <li>(2, 0, 2)</li>
+          <li>(8, 0, 2)</li>
+        </positions>
+      </TorchLamp>
+    </things>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <power>choir</power>
+        <tags><li>Room</li><li>Sanctum</li></tags>
+        <doorSides><li>South</li></doorSides>
+      </li>
+    </modExtensions>
+  </PrefabDef>
+
 </Defs>

@@ -72,10 +72,6 @@ public static class ChoirForce
     public static Pawn Mech(PawnKindDef kind, Faction faction) =>
         PawnGenerator.GeneratePawn(new PawnGenerationRequest(kind, faction, forceGenerateNewPawn: true));
 
-    /// <summary>The First Voice, for the final chorus (on top of the mix, as the Stellarch leads the final assault).</summary>
-    public static Pawn? FirstVoice(Faction faction, CrisisStage stage) =>
-        KindFor(UnitRole.FirstVoice) is { } kind ? UnitKit.Generate(kind, faction, stage) : null;
-
     /// <summary>Gives each of <paramref name="mechs"/> a commander among the force's mechanitors.</summary>
     public static void Link(ChoirForceParts parts, IReadOnlyList<Pawn> mechs)
     {

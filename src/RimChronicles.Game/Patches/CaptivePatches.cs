@@ -19,6 +19,11 @@ public static class CaptiveCapturedPatch
             CaptiveOps.Captured(pawn);
             Crisis.Finale.Stellarch.Fell(pawn, Core.Crisis.StellarchFate.Captured); // only acts on the High Stellarch (C13)
         }
+
+        if (by == Faction.OfPlayer && ___pawn is { } taken && Crisis.Choir.FirstVoice.Is(taken))
+        {
+            Crisis.Choir.FirstVoice.Fell(taken, Core.Crisis.StellarchFate.Captured); // the First Voice (War in Heaven W9)
+        }
     }
 }
 

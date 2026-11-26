@@ -11,6 +11,12 @@ public sealed record CitadelOptions
     public int Uplinks { get; init; } = CitadelRings.BaseUplinks;
     public bool SideEntrance { get; init; }
     public float Budget { get; init; } = 12000;
+
+    /// <summary>Whose (War in Heaven W9): the Empire's Citadel, or the Hollow Choir's Cathedral, which plans the same
+    /// three rings with its own rooms (<see cref="CitadelRings.RelayTagFor"/> and the rest).</summary>
+    public string Power { get; init; } = Powers.Power.Empire.Id;
+
+    public bool IsCathedral => Power == Powers.Power.Choir.Id;
 }
 
 /// <summary>One ring of the Citadel: which (0 outer works, 1 courtyard, 2 keep), its plan, and where its grid's (0, 0)
@@ -55,7 +61,7 @@ public sealed class CitadelPlan
     }
 
     /// <summary>The courtyard's relay chambers: while one stands, the keep is shielded (fairness rule 8).</summary>
-    public IEnumerable<SitePlacement> Relays => Courtyard.Plan.Pieces.Where(p => p.Has(CitadelRings.RelayTag));
+    public IEnumerable<SitePlacement> Relays => Courtyard.Plan.Pieces.Where(p => p.Has(CitadelRings.RelayTagFor(Options.Power)));
 
     public SitePlacement? Throne => Keep.Plan.Objective;
 
@@ -107,6 +113,25 @@ public static class CitadelRings
 
     public const string RelayTag = "RelayChamber";
     public const string UplinkTag = "UplinkStation";
+    public const string ThroneTag = "Throne";
+
+    // The Hollow Choir's Cathedral (War in Heaven W9): resonators hold up the sanctum's shield, signal spires stand in
+    // the cloister, and the First Voice waits in the sanctum.
+    public const string ChoirRelayTag = "ResonatorChamber";
+    public const string ChoirUplinkTag = "SpireStation";
+    public const string SanctumTag = "Sanctum";
+
+    public static string RelayTagFor(string power) => power == Powers.Power.Choir.Id ? ChoirRelayTag : RelayTag;
+
+    public static string UplinkTagFor(string power) => power == Powers.Power.Choir.Id ? ChoirUplinkTag : UplinkTag;
+
+    /// <summary>The keep's objective room: the throne room, or the Cathedral's sanctum.</summary>
+    public static string ThroneTagFor(string power) => power == Powers.Power.Choir.Id ? SanctumTag : ThroneTag;
+
+    /// <summary>The Cathedral's rings, as the player reads them.</summary>
+    public static readonly string[] ChoirNames = ["outer works", "cloister", "sanctum"];
+
+    public static string[] NamesFor(string power) => power == Powers.Power.Choir.Id ? ChoirNames : Names;
 
     public static readonly float[] Shares = [0.4f, 0.35f, 0.25f];
 
@@ -138,23 +163,27 @@ public static class CitadelRings
     public static SiteArchetype Courtyard(CitadelOptions o)
     {
         var budget = o.Budget * Shares[1];
+        var relay = RelayTagFor(o.Power);
         var required = new List<PieceRequest> { new(SiteTags.Barracks, 2), new(SiteTags.Power), new("Armory") };
         if (o.Relays > 1)
         {
-            required.Add(new PieceRequest(RelayTag, o.Relays - 1));
+            required.Add(new PieceRequest(relay, o.Relays - 1));
         }
 
         if (o.Uplinks > 0)
         {
-            required.Add(new PieceRequest(UplinkTag, o.Uplinks));
+            required.Add(new PieceRequest(UplinkTagFor(o.Power), o.Uplinks));
         }
 
+        IReadOnlyList<PieceRequest> optional = o.IsCathedral
+            ? [new("Turret", Weight: 2, Max: 4), new("Artillery", Weight: 1, Max: 2)]
+            : [new("Turret", Weight: 2, Max: 4), new("Artillery", Weight: 1, Max: 2), new("Records", Weight: 1, Max: 1)];
         return new SiteArchetype
         {
             Name = "CitadelCourtyard", Width = CourtyardSize, Height = CourtyardSize,
-            ObjectiveTag = o.Relays > 0 ? RelayTag : "Armory",
+            ObjectiveTag = o.Relays > 0 ? relay : "Armory",
             Required = o.Relays > 0 ? required : required.Where(r => r.Tag != "Armory").ToList(),
-            Optional = [new("Turret", Weight: 2, Max: 4), new("Artillery", Weight: 1, Max: 2), new("Records", Weight: 1, Max: 1)],
+            Optional = optional,
             Gates = 2, MinBudget = budget, MaxBudget = budget, PieceShare = 0.3f, OptionalChance = 0.6f,
         };
     }
@@ -162,6 +191,17 @@ public static class CitadelRings
     public static SiteArchetype Keep(CitadelOptions o)
     {
         var budget = o.Budget * Shares[2];
+        if (o.IsCathedral)
+        {
+            return new SiteArchetype
+            {
+                Name = "CathedralSanctum", Width = KeepSize, Height = KeepSize, ObjectiveTag = SanctumTag,
+                Required = [new(SiteTags.Barracks)],
+                Optional = [new("Armory", Weight: 1, Max: 1), new(SiteTags.Barracks, Weight: 1, Max: 1)],
+                Gates = 1, MinBudget = budget, MaxBudget = budget, PieceShare = 0.15f, OptionalChance = 0.9f,
+            };
+        }
+
         return new SiteArchetype
         {
             Name = "CitadelKeep", Width = KeepSize, Height = KeepSize, ObjectiveTag = "Throne",
@@ -235,9 +275,9 @@ public static class CitadelPlanner
         bool Reached(CitadelRing ring, SitePlacement piece) =>
             piece.Cells().Select(ring.ToMap).Any(c => grid[c] != CellKind.Wall && reached[c.X, c.Z]);
 
-        if (plan.Throne is not { } throne || !throne.Has("Throne"))
+        if (plan.Throne is not { } throne || !throne.Has(CitadelRings.ThroneTagFor(plan.Options.Power)))
         {
-            problems.Add("the keep has no throne room");
+            problems.Add($"the keep has no {(plan.Options.IsCathedral ? "sanctum" : "throne room")}");
         }
         else if (!Reached(plan.Keep, throne))
         {
