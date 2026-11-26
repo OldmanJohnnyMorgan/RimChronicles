@@ -93,7 +93,7 @@ public class ModelSlotsTests
     [InlineData("", true)]                                   // the main (prompted) model decides
     [InlineData("gemma4:12b", true)]                         // a prompted director reads the options' descriptions
     [InlineData("rimchron-director-e2b", false)]             // fine-tuned before the crisis arc (C11)
-    [InlineData(" RimChron-Director-E4B ", false)]
+    [InlineData(" RimChron-Director-E4B ", true)]            // retrained on the crisis and the War in Heaven (#157)
     [InlineData("rimchron-director-e4b-v2", false)]          // an unlisted fine-tune counts as trained before it
     public void TheCrisisReachesTheDirector_OnlyWhenItsModelKnowsIt(string directorModel, bool knows) =>
         Assert.Equal(knows, ModelSlots.DirectorKnowsCrisis(Main with { DirectorModel = directorModel, DirectorTier = ModelTier.Minimum }));
