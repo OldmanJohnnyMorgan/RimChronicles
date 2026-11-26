@@ -2,9 +2,11 @@ using RimChronicles.Core.Persistence;
 
 namespace RimChronicles.Core.Powers;
 
-/// <summary>A settlement the Empire could attack. <see cref="Distance"/> is in world tiles from the nearest Imperial
-/// settlement; <see cref="FactionSettlements"/> is how many its owner holds, a stand-in for the owner's strength.</summary>
-public sealed record ExpansionTarget(string Id, string Name, string Faction, float Distance, int FactionSettlements);
+/// <summary>A settlement a power could attack. <see cref="Distance"/> is in world tiles from the nearest of the power's
+/// bases in the colony's region (<see cref="PowerExpansion.Bases{T}"/>); <see cref="FactionSettlements"/> is how many
+/// its owner holds, a stand-in for the owner's strength; <see cref="FromLastConquest"/> is the tiles from the power's
+/// latest conquest, or -1 with none.</summary>
+public sealed record ExpansionTarget(string Id, string Name, string Faction, float Distance, int FactionSettlements, float FromLastConquest = -1);
 
 public enum ExpansionResult
 {
@@ -39,14 +41,37 @@ public sealed class ExpansionRecord : IArchivable
     public override string ToString() => $"Day {Day}: {Settlement} ({Faction}) {Result.ToString().ToLowerInvariant()}";
 }
 
-/// <summary>Territory expansion (design spec, Stage 5): pure rules, no model. The Empire picks a settlement in range,
-/// weighted towards near and weak targets, and the attack ends in conquest, razing or failure, with stronger owners
-/// more likely to hold. Random numbers come in from the caller.</summary>
+/// <summary>Territory expansion (design spec, Stage 5): pure rules, no model. A power attacks out of its bases in the
+/// colony's region, picking a settlement in range, weighted strongly towards near targets, gently towards weak owners,
+/// and towards its latest conquest, so its territory spreads as a front the colony can see (decided 2026-11-26). The
+/// attack ends in conquest, razing or failure, with stronger owners more likely to hold. Random numbers come in from
+/// the caller.</summary>
 public static class PowerExpansion
 {
-    /// <summary>Targets within this many tiles of an Imperial settlement are in range. With none in range, the
-    /// nearest is.</summary>
-    public const float RangeTiles = 60f;
+    /// <summary>Targets within this many tiles of a base are in range. With none in range, the nearest is.</summary>
+    public const float RangeTiles = 30f;
+
+    /// <summary>A power's bases are its settlements within this many tiles of the colony.</summary>
+    public const float RegionTiles = 40f;
+
+    /// <summary>With no settlement that close, its bases are this many of its settlements nearest the colony.</summary>
+    public const int FallbackBases = 3;
+
+    /// <summary>The distance falloff: a target this many tiles out weighs an eighth of one next door.</summary>
+    public const float FalloffTiles = 5f;
+
+    /// <summary>A target next to the latest conquest weighs this much more (1 + bonus times); the bonus halves every
+    /// <see cref="FalloffTiles"/> tiles out.</summary>
+    public const double AdvanceBonus = 2;
+
+    /// <summary>The settlements a power attacks out of: those within <see cref="RegionTiles"/> of the colony, or the
+    /// <see cref="FallbackBases"/> nearest it. <paramref name="toColony"/> gives a settlement's distance to the colony
+    /// (<see cref="float.PositiveInfinity"/> on another layer).</summary>
+    public static IReadOnlyList<T> Bases<T>(IReadOnlyList<T> settlements, Func<T, float> toColony)
+    {
+        var near = settlements.Where(s => toColony(s) <= RegionTiles).ToList();
+        return near.Count > 0 ? near : settlements.OrderBy(toColony).Take(FallbackBases).ToList();
+    }
 
     public const int MinGapDays = 15;
     public const int MaxGapDays = 30;
@@ -56,7 +81,15 @@ public static class PowerExpansion
 
     public const double RazeChance = 0.2;
 
-    public static double Weight(ExpansionTarget t) => 1.0 / (1.0 + t.Distance / 10.0) / Math.Max(1, t.FactionSettlements);
+    /// <summary>A target's weight: <c>1 / (1 + d/5)³</c>, over the square root of its owner's settlements, times the
+    /// advance bonus near the latest conquest. With settlements spread evenly, about three attacks in four land within
+    /// 15 tiles of a base.</summary>
+    public static double Weight(ExpansionTarget t)
+    {
+        var near = 1.0 + Math.Max(0, t.Distance) / FalloffTiles;
+        var advance = t.FromLastConquest >= 0 ? 1 + AdvanceBonus / (1.0 + t.FromLastConquest / FalloffTiles) : 1;
+        return advance / (near * near * near) / Math.Sqrt(Math.Max(1, t.FactionSettlements));
+    }
 
     /// <summary>During the War in Heaven (W10), the rival power's settlements count this many times over: each power
     /// turns its armies on the other first.</summary>
@@ -106,7 +139,8 @@ public static class PowerExpansion
         var repel = RepelChance(t);
         return string.Create(System.Globalization.CultureInfo.InvariantCulture,
             $"Result roll {resultRoll:0.000}: repelled below {repel:0.00}, razed below {repel + RazeChance:0.00}, else taken "
-            + $"({t.Faction} holds {t.FactionSettlements}; {t.Distance:0} tiles; target roll {targetRoll:0.000} of {candidates} in reach).");
+            + $"({t.Faction} holds {t.FactionSettlements}; {t.Distance:0} tiles{(t.FromLastConquest >= 0 ? $", {t.FromLastConquest:0} from the last conquest" : "")}; "
+            + $"target roll {targetRoll:0.000} of {candidates} in reach).");
     }
 
     public static ExpansionResult PickResult(ExpansionTarget t, double roll)

@@ -84,7 +84,7 @@ public static class EmpireDriver
     private static void ExpandOnce(RimChroniclesGameComponent component, Faction empire, int today)
     {
         var gap = StoryIntensity.Scale(Rand.RangeInclusive(PowerExpansion.MinGapDays, PowerExpansion.MaxGapDays), RimChroniclesMod.Settings.StoryIntensity);
-        var settlements = Targets(empire);
+        var settlements = Targets(empire, component.Empire);
         var targetRoll = Rand.Value;
         var target = PowerExpansion.PickTarget(settlements.Keys.ToList(), targetRoll, RivalName(component, Power.Empire));
         if (target is null)
@@ -125,10 +125,22 @@ public static class EmpireDriver
             ? Powers.PowerFactions.Of(rival)?.Name
             : null;
 
-    internal static Dictionary<ExpansionTarget, Settlement> Targets(Faction empire)
+    /// <summary>The settlements a power (<paramref name="empire"/>, the Empire or the Choir) could attack, measured from
+    /// its bases in the colony's region (<see cref="PowerExpansion.Bases{T}"/>), and from its latest conquest when
+    /// <paramref name="saga"/> names one.</summary>
+    internal static Dictionary<ExpansionTarget, Settlement> Targets(Faction empire, PowerSaga? saga = null)
     {
         var all = Find.WorldObjects.Settlements;
-        var imperial = all.Where(s => s.Faction == empire).ToList();
+        var owned = all.Where(s => s.Faction == empire).ToList();
+        var home = Find.AnyPlayerHomeMap?.Tile;
+        var imperial = home is { } h && h.Valid
+            ? PowerExpansion.Bases(owned, e => e.Tile.Layer == h.Layer ? Find.WorldGrid.ApproxDistanceInTiles(e.Tile, h) : float.PositiveInfinity)
+            : owned;
+        var front = saga?.LastConquest is { } last ? owned.FirstOrDefault(e => e.Label == last) : null;
+        if (front is not null && !imperial.Contains(front))
+        {
+            imperial = [.. imperial, front]; // the front is a base too
+        }
         var counts = all.Where(s => s.Faction is not null).GroupBy(s => s.Faction).ToDictionary(g => g.Key, g => g.Count());
         var questTargets = Find.QuestManager.QuestsListForReading
             .Where(q => q.State is QuestState.Ongoing or QuestState.NotYetAccepted)
@@ -159,7 +171,8 @@ public static class EmpireDriver
             }
 
             var distance = near.Min(e => Find.WorldGrid.ApproxDistanceInTiles(e.Tile, s.Tile));
-            targets[new ExpansionTarget(s.ID.ToString(System.Globalization.CultureInfo.InvariantCulture), s.Label, owner.Name, distance, counts[owner])] = s;
+            var fromFront = front is not null && front.Tile.Layer == s.Tile.Layer ? Find.WorldGrid.ApproxDistanceInTiles(front.Tile, s.Tile) : -1f;
+            targets[new ExpansionTarget(s.ID.ToString(System.Globalization.CultureInfo.InvariantCulture), s.Label, owner.Name, distance, counts[owner], fromFront)] = s;
         }
 
         return targets;
