@@ -2,6 +2,8 @@ using RimChronicles.Core.Choir;
 using RimChronicles.Core.Crisis;
 using RimChronicles.Core.Crisis.Operations;
 using RimChronicles.Core.Crisis.Pieces;
+using RimChronicles.Core.Crisis.Strikes;
+using RimChronicles.Core.Crisis.Siege;
 using RimChronicles.Core.Crisis.Units;
 using RimChronicles.Core.Powers;
 using RimChronicles.Game.Crisis.Operations;
@@ -29,6 +31,8 @@ public static class ChoirOperations
         ChoirCrisisDriver.RegisterOperation(CrisisOperations.Retrieval, (map, op, stage, budget, _) => Retrieval(map, stage, budget, dev: false));
         ChoirCrisisDriver.RegisterOperation(CrisisOperations.Burrowing, (map, op, stage, budget, _) => Burrowing(map, stage, budget, dev: false));
         ChoirCrisisDriver.RegisterOperation(CrisisOperations.FinalChorus, (map, op, stage, budget, _) => FinalChorus(map, stage, budget, dev: false));
+        ChoirCrisisDriver.RegisterOperation(CrisisOperations.ClusterSiege, (map, op, stage, budget, detail) =>
+            ClusterSiege(map, stage, budget, SiegeGoals.Parse(detail) is var goal && goal != SiegeGoal.None ? goal : null, dev: false));
     }
 
     /// <summary>The Choir's people the colony holds prisoner (what a retrieval comes for), highest rank first.</summary>
@@ -218,6 +222,55 @@ public static class ChoirOperations
             + $"in about half a minute. They'll pull out once {target.LabelShort} is down.\n\nGet {target.LabelShort} behind the guns, or under the "
             + "mountain: they can't dig up through rock.",
             LetterDefOf.ThreatBig, new LookTargets(tunnels));
+        return true;
+    }
+
+    /// <summary>
+    /// The cluster siege (W8, tech spec §4.3 row 4): the force walks to the best camp spot (as the Imperial siege does),
+    /// lands its cluster there and grows it stage by stage while its mechanitors hold it, then attacks. Its goal (the
+    /// director's pick, else a weighted one) sets what its cluster drops aim at. The reserve comes through its beacon.
+    /// </summary>
+    public static bool ClusterSiege(Map map, CrisisStage stage, float budget, SiegeGoal? goal, bool dev)
+    {
+        if (Choir is not { } choir || Siege.SiegeSpotSampler.Best(map) is not { } best)
+        {
+            return false;
+        }
+
+        var spot = best.Spot;
+        var edge = CellRect.WholeMap(map).EdgeCells.Where(c => c.Standable(map)).Select(c => c.DistanceTo(spot)).DefaultIfEmpty(0).Min();
+        if (!CellFinder.TryFindRandomEdgeCellWith(c => c.Standable(map) && c.DistanceTo(spot) <= edge + 25
+                && map.reachability.CanReach(c, spot, Verse.AI.PathEndMode.OnCell, TraverseMode.PassDoors), map, CellFinder.EdgeRoadChance_Ignore, out var entry))
+        {
+            return false;
+        }
+
+        var profile = OperationProfiles.For(CrisisOperations.ClusterSiege);
+        var parts = ChoirForce.Build(ChoirMixes.ClusterSiege, stage, budget * profile.ForceShare, choir);
+        if (parts.Count == 0)
+        {
+            return false;
+        }
+
+        WalkIn(parts.All, entry, map);
+        var picked = goal ?? OperationSpawner.PickGoal(map);
+        var facing = Core.Crisis.Siege.SpotScorer.Facing(best.Score.Spot.Cell, new Cell(best.Centre.x, best.Centre.z));
+        var job = Job(profile.Operation, stage, budget * profile.ReserveShare, entry, null, dev);
+        job.cluster = new ClusterCamp(spot, facing, picked);
+        MakeLord(choir, job, map, parts);
+        var aim = picked switch
+        {
+            SiegeGoal.BreakWalls => "Its cluster drops will go for the walls and turrets.",
+            SiegeGoal.Starve => "Its cluster drops will go for the fields, the food stores and the power.",
+            SiegeGoal.KillLeader => "Its cluster drops will go for the colony's leader whenever they're in the open.",
+            _ => "",
+        };
+        StoryLetters.ChoirCrisis("Choir cluster siege",
+            $"{parts.Count} of the Choir are marching on {Faction.OfPlayer.Name}, with {Mechanitors(parts)}, to land a mech cluster near it. Once "
+            + "they reach their spot, the cluster grows a stage every few hours while a mechanitor holds it: sandbags and shelters, then "
+            + $"auto-mortars, a signal spire, a shield and a resonator, and last a drop beacon. {aim}\n\nStrike before it grows. Kill its "
+            + "mechanitors and it stops growing; kill most of them and the siege must attack or give up.",
+            LetterDefOf.ThreatBig, new LookTargets(new TargetInfo(spot, map)));
         return true;
     }
 

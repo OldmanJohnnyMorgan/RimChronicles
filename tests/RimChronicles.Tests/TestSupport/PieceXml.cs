@@ -40,12 +40,27 @@ public static class PieceXml
         ["AIPersonaCore"] = new(1, 1, false, CellKind.Floor),
         ["Throne"] = new(1, 1, true, CellKind.PassThrough), // Royalty
         ["Brazier"] = new(1, 1, false, CellKind.PassThrough), // Royalty
+
+        // The Hollow Choir's (W8): vanilla mech-cluster turrets and Defs/ThingDefs/RimChronicles_Choir.xml.
+        ["Turret_AutoChargeBlaster"] = new(2, 2, true, CellKind.PassThrough),
+        ["Turret_AutoMortar"] = new(2, 2, true, CellKind.PassThrough),
+        ["RimChronicles_SignalSpire"] = new(2, 1, true, CellKind.PassThrough),
+        ["RimChronicles_ChoirShield"] = new(1, 1, false, CellKind.PassThrough),
+        ["RimChronicles_ChoirResonator"] = new(1, 1, false, CellKind.PassThrough),
+        ["RimChronicles_ChoirBeacon"] = new(1, 1, false, CellKind.PassThrough),
     };
 
     public static string PiecesFile => Repo.Path("Defs", "PrefabDefs", "RimChronicles_Pieces.xml");
 
+    public static string ChoirPiecesFile => Repo.Path("Defs", "PrefabDefs", "RimChronicles_ChoirPieces.xml");
+
+    /// <summary>Every piece in the repo (the Empire's, the Choir's and the shared), or those of one file.</summary>
     public static IReadOnlyList<PieceSource> Load(string? path = null) =>
-        XDocument.Load(path ?? PiecesFile).Root!.Elements("PrefabDef").Select(Parse).ToList();
+        (path is null ? [PiecesFile, ChoirPiecesFile] : new[] { path })
+            .SelectMany(f => XDocument.Load(f).Root!.Elements("PrefabDef")).Select(Parse).ToList();
+
+    /// <summary>The pieces a power may use (its own and the shared).</summary>
+    public static IReadOnlyList<PieceSource> For(string power) => PieceSources.For(Load(), power);
 
     public static PieceSource Parse(XElement prefab)
     {
@@ -89,6 +104,7 @@ public static class PieceXml
                 DefenseValue = int.TryParse(ext.Element("defenseValue")?.Value, out var d) ? d : 0,
                 ThreatCost = float.TryParse(ext.Element("threatCost")?.Value, CultureInfo.InvariantCulture, out var t) ? t : 0,
                 BuildOrder = int.TryParse(ext.Element("buildOrder")?.Value, out var b) ? b : 1,
+                Power = ext.Element("power")?.Value is { Length: > 0 } power ? power : null,
             };
         return new PieceSource { Name = name, SizeX = sx, SizeZ = sz, Things = things, Floor = floor, Meta = meta };
     }

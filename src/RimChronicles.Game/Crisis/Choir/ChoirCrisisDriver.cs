@@ -56,7 +56,13 @@ public static class ChoirCrisisDriver
         plot => RimChroniclesGameComponent.Current is { } c && Available && !OtherPowerBusy(c, Choir, GenDate.DaysPassed)
             ? CrisisArc.Transitions(plot, Context(c), GenDate.DaysPassed)
             : [],
-        Fire, useDirector: () => DirectorDecides);
+        Fire, useDirector: () => DirectorDecides, subOptions: SubOptions);
+
+    /// <summary>A cluster siege's goals, the ones the colony gives a target for (W8), as for the Imperial siege.</summary>
+    public static IReadOnlyList<PlotTransition> SubOptions(Plot plot, PlotTransition option) =>
+        option.Step == CrisisOperations.ClusterSiege && ColonyStrengthReader.HomeMap() is { } map
+            ? Operations.OperationSpawner.AllowedGoals(map).Select(g => new PlotTransition(g.Id, g.Goal.ToString(), g.Weight, g.Desc)).ToList()
+            : [];
 
     /// <summary>
     /// True while the other power's crisis has an operation running, or started one within half the pacing gap: the

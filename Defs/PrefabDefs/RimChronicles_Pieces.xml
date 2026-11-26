@@ -4,6 +4,8 @@
   rects are (minX, minZ, maxX, maxZ), both counted from the south-west corner, unrotated. Stuff is chosen when a piece is
   stamped, so things made from stuff leave it out. Build new pieces in game with Dev Mode -> Generation -> Create prefab,
   paste the XML here and add the extension; `dotnet test` checks every piece's size and doors at every rotation.
+  A piece with a <power> is that power's only (War in Heaven W8); one without is shared by the Empire and the Hollow
+  Choir. The Choir's own pieces are in RimChronicles_ChoirPieces.xml.
 -->
 <Defs>
 
@@ -70,6 +72,7 @@
     </things>
     <modExtensions>
       <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <power>empire</power>
         <tags><li>Emplacement</li><li>Artillery</li></tags>
         <doorSides><li>South</li></doorSides>
         <defenseValue>3</defenseValue>
@@ -98,6 +101,7 @@
     </things>
     <modExtensions>
       <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <power>empire</power>
         <tags><li>Emplacement</li><li>Turret</li></tags>
         <doorSides><li>South</li></doorSides>
         <needsPower>true</needsPower>
@@ -163,6 +167,7 @@
     </things>
     <modExtensions>
       <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <power>empire</power>
         <tags><li>Uplink</li></tags>
         <doorSides><li>South</li></doorSides>
         <defenseValue>1</defenseValue>
@@ -191,6 +196,7 @@
     </things>
     <modExtensions>
       <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <power>empire</power>
         <tags><li>Relay</li><li>Shield</li></tags>
         <doorSides><li>South</li></doorSides>
         <defenseValue>2</defenseValue>
@@ -216,6 +222,7 @@
     </things>
     <modExtensions>
       <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <power>empire</power>
         <tags><li>Beacon</li></tags>
         <doorSides><li>South</li><li>East</li><li>West</li></doorSides>
         <defenseValue>1</defenseValue>
@@ -286,6 +293,7 @@
     </things>
     <modExtensions>
       <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <power>empire</power>
         <tags><li>Room</li><li>RelayChamber</li></tags>
         <doorSides><li>South</li></doorSides>
       </li>
@@ -318,6 +326,7 @@
     </things>
     <modExtensions>
       <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <power>empire</power>
         <tags><li>Room</li><li>UplinkStation</li></tags>
         <doorSides><li>South</li></doorSides>
       </li>
@@ -405,6 +414,7 @@
     </things>
     <modExtensions>
       <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <power>empire</power>
         <tags><li>Room</li><li>Records</li></tags>
         <doorSides><li>South</li></doorSides>
       </li>
@@ -442,6 +452,7 @@
     </things>
     <modExtensions>
       <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <power>empire</power>
         <tags><li>Room</li><li>Throne</li></tags>
         <doorSides><li>South</li></doorSides>
       </li>
@@ -467,6 +478,7 @@
     </things>
     <modExtensions>
       <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <power>empire</power>
         <tags><li>Room</li><li>Vault</li><li>Sealed</li></tags>
       </li>
     </modExtensions>

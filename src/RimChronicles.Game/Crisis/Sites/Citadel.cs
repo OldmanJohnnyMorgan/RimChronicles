@@ -88,7 +88,7 @@ public sealed class GenStep_RcCitadel : GenStep
         var clock = Stopwatch.StartNew();
         var id = map.Parent?.ID ?? map.Tile.tileId;
         var options = CitadelMaps.Options(Math.Min(map.Size.x, map.Size.z), id);
-        var plan = CitadelPlanner.Plan(PieceLibrary.All.Select(p => p.Source).ToList(), options, id);
+        var plan = CitadelPlanner.Plan(PieceLibrary.SourcesFor(Core.Powers.Power.Empire.Id), options, id);
         var problems = CitadelPlanner.Problems(plan);
         if (problems.Count > 0)
         {
@@ -487,7 +487,7 @@ public sealed class MapComponent_RcCitadel(Map map) : MapComponent(map)
     [DebugAction("Rim Chronicles", "Crisis: batch Citadels", allowedGameStates = AllowedGameStates.Playing)]
     public static void Batch()
     {
-        var pieces = PieceLibrary.All.Select(p => p.Source).ToList();
+        var pieces = PieceLibrary.SourcesFor(Core.Powers.Power.Empire.Id);
         var lines = new List<string>();
         var clock = Stopwatch.StartNew();
         var passed = 0;

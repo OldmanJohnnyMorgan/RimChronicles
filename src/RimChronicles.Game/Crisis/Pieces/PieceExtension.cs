@@ -21,6 +21,9 @@ public sealed class PieceExtension : DefModExtension
     /// <summary>For sieges: the stage it is built in, 1 to 5.</summary>
     public int buildOrder = 1;
 
+    /// <summary>Whose piece it is (War in Heaven W8): <c>empire</c>, <c>choir</c>, or empty for a shared piece.</summary>
+    public string? power;
+
     public PieceMeta ToCore() => new()
     {
         Tags = tags ?? [],
@@ -30,6 +33,7 @@ public sealed class PieceExtension : DefModExtension
         DefenseValue = defenseValue,
         ThreatCost = threatCost,
         BuildOrder = buildOrder,
+        Power = string.IsNullOrEmpty(power) ? null : power,
     };
 
     public override IEnumerable<string> ConfigErrors()

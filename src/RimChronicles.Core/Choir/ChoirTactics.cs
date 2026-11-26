@@ -164,10 +164,10 @@ public static class ClusterDropRules
         return null;
     }
 
-    /// <summary>The target to drop near: as a strike would choose it (turrets, clustered colonists, power), never under
-    /// overhead mountain or where the Choir already stands.</summary>
-    public static StrikeCandidate? Target(IEnumerable<StrikeCandidate> candidates, StrikeState state) =>
-        StrikeRules.Pick(candidates, state)?.Target;
+    /// <summary>The target to drop near: as a strike would choose it (turrets, clustered colonists, power, and what a
+    /// cluster siege's goal aims at), never under overhead mountain or where the Choir already stands.</summary>
+    public static StrikeCandidate? Target(IEnumerable<StrikeCandidate> candidates, StrikeState state, SiegeGoal goal = SiegeGoal.None) =>
+        StrikeRules.Pick(candidates, state, goal)?.Target;
 
     /// <summary>Where the pods land near the target: open sky only (fairness rule 3), standable, not fogged, between
     /// <see cref="MinLanding"/> and <see cref="MaxLanding"/> cells away.</summary>

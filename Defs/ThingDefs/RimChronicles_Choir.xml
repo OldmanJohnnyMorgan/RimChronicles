@@ -3,6 +3,10 @@
   The Hollow Choir's things (War in Heaven W7). The resonator: dropped near the colony by the Hum operation, it hums
   over the colony while it stands (CompRcResonator, Core's HumRules) and falls silent after two days. Destroying it ends
   the hum. It borrows Royalty's defoliator art until the Choir has its own.
+
+  The cluster siege's and the sites' buildings (W8). They aren't built: they drop in by pod (the siege) or are stamped
+  with the site, owned by the Choir. The signal spire lets the Choir call cluster drops with no cantor in sight
+  (MapComponent_RcClusterDrops.Spires); the shield stops shells; the beacon brings the siege's reinforcement waves.
 -->
 <Defs>
   <ThingDef ParentName="BuildingBase" MayRequire="Ludeon.RimWorld.Biotech,Ludeon.RimWorld.Royalty">
@@ -38,5 +42,87 @@
     <comps>
       <li Class="RimChronicles.Game.Crisis.Choir.CompProperties_RcResonator" />
     </comps>
+  </ThingDef>
+  <ThingDef Name="RimChronicles_ChoirBuildingBase" ParentName="BuildingBase" Abstract="True" MayRequire="Ludeon.RimWorld.Biotech,Ludeon.RimWorld.Royalty">
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+    <fillPercent>0.5</fillPercent>
+    <rotatable>false</rotatable>
+    <useHitPoints>true</useHitPoints>
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+    <building>
+      <claimable>false</claimable>
+      <deconstructible>false</deconstructible>
+      <destroySound>BuildingDestroyed_Metal_Small</destroySound>
+    </building>
+    <damageMultipliers>
+      <li>
+        <damageDef>Flame</damageDef>
+        <multiplier>0</multiplier>
+      </li>
+    </damageMultipliers>
+  </ThingDef>
+
+  <ThingDef ParentName="RimChronicles_ChoirBuildingBase" MayRequire="Ludeon.RimWorld.Biotech,Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_SignalSpire</defName>
+    <label>Choir signal spire</label>
+    <description>A mechband spire the Hollow Choir's cantors tune to. While it stands, the Choir can call mech clusters down on anything near the colony, cantor in sight or not. Every drop is still marked and announced before it lands.</description>
+    <graphicData>
+      <texPath>Things/Building/Misc/MechbandAntenna</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(2,1)</drawSize>
+    </graphicData>
+    <size>(2,1)</size>
+    <rotatable>true</rotatable>
+    <statBases>
+      <MaxHitPoints>350</MaxHitPoints>
+      <Flammability>0</Flammability>
+      <Beauty>-20</Beauty>
+    </statBases>
+  </ThingDef>
+
+  <ThingDef ParentName="RimChronicles_ChoirBuildingBase" MayRequire="Ludeon.RimWorld.Biotech,Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_ChoirShield</defName>
+    <label>Choir shield emitter</label>
+    <description>A Choir momentum repulsor tuned to high angles: shells and other falling projectiles fired from outside can't land inside its field. EMP knocks it out for a while.</description>
+    <graphicData>
+      <texPath>Things/Building/Mech/ShieldGeneratorMortar</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+    <size>(1,1)</size>
+    <tickerType>Normal</tickerType>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <statBases>
+      <MaxHitPoints>200</MaxHitPoints>
+      <Flammability>0</Flammability>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_ProjectileInterceptor">
+        <radius>18</radius>
+        <interceptAirProjectiles>true</interceptAirProjectiles>
+        <color>(0.6, 0.5, 0.9)</color>
+        <reactivateEffect>MortarShieldGenerator_Reactivate</reactivateEffect>
+        <activeSound>MortarShield_Ambience</activeSound>
+        <disarmedByEmpForTicks>1080</disarmedByEmpForTicks>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="RimChronicles_ChoirBuildingBase" MayRequire="Ludeon.RimWorld.Biotech,Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_ChoirBeacon</defName>
+    <label>Choir drop beacon</label>
+    <description>A beacon that guides the Hollow Choir's mech pods. While it stands, more mechs land beside the cluster every few hours.</description>
+    <graphicData>
+      <texPath>Things/Building/Mech/MechDropBeacon</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+    <size>(1,1)</size>
+    <statBases>
+      <MaxHitPoints>200</MaxHitPoints>
+      <Flammability>0</Flammability>
+    </statBases>
   </ThingDef>
 </Defs>

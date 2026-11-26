@@ -179,7 +179,7 @@ public static class CaptiveOps
 
         var (site, def) = sites[0];
         var points = site.parts.FirstOrDefault(p => p.def == def!.sitePart)?.parms.threatPoints ?? def!.budget.min;
-        var plan = SitePlanner.PlanValid(def!.ToCore(), PieceLibrary.All.Select(p => p.Source).ToList(), points, site.ID, out _);
+        var plan = SitePlanner.PlanValid(def!.ToCore(), PieceLibrary.SourcesFor(def.power), points, site.ID, out _);
         var soldiers = Math.Max(2, (int)Math.Round(plan.DefenderPoints / 150f));
         return $"The {def.label} ({site.Label}) is held by about {soldiers} troops, with {plan.Gates.Count} gate{(plan.Gates.Count == 1 ? "" : "s")} on its "
             + $"{plan.Entry.ToString().ToLowerInvariant()} side.";

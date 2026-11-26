@@ -81,7 +81,7 @@ public sealed class SiegeCamp : IExposable
     /// <summary>The camp's pieces in map cells: each placement's south-west corner on this map.</summary>
     public IReadOnlyList<(CampPlacement Placement, PrefabDef Prefab, IntVec3 Min)> Plan()
     {
-        var prefabs = PieceLibrary.All.ToDictionary(p => p.Source, p => p.Prefab);
+        var prefabs = PieceLibrary.For(Core.Powers.Power.Empire.Id).ToDictionary(p => p.Source, p => p.Prefab);
         return CampLayout.Plan(prefabs.Keys, facing)
             .Select(p => (p, prefabs[p.Piece], new IntVec3(spot.x + p.Min.X, 0, spot.z + p.Min.Z)))
             .ToList();

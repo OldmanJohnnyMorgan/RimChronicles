@@ -40,6 +40,9 @@ public sealed class LordJob_RcOperation : LordJob
     /// <summary>The siege camp, for a siege (C8); null for other operations.</summary>
     public SiegeCamp? siege;
 
+    /// <summary>The Choir's cluster siege camp (War in Heaven W8); null for other operations.</summary>
+    public Choir.ClusterCamp? cluster;
+
     /// <summary>Whose operation (War in Heaven W7): the Empire's (<c>empire</c>, the default, so older saves load as
     /// before) or the Hollow Choir's (<c>choir</c>).</summary>
     public string power = Power.Empire.Id;
@@ -147,8 +150,8 @@ public sealed class LordJob_RcOperation : LordJob
                 PhaseKind.Regroup => new LordToil_DefendPoint(staging, 8f, 6f),
                 PhaseKind.Retreat => new LordToil_RcRetreat(),
                 PhaseKind.Breach => new LordToil_AssaultColonyBreaching(),
-                PhaseKind.Travel => new LordToil_Travel(siege?.spot ?? staging),
-                PhaseKind.Siege => new LordToil_RcSiege(),
+                PhaseKind.Travel => new LordToil_Travel(siege?.spot ?? cluster?.spot ?? staging),
+                PhaseKind.Siege => cluster is not null ? new Choir.LordToil_RcClusterSiege() : new LordToil_RcSiege(),
                 PhaseKind.Retrieve => new LordToil_RcRetrieve(),
                 _ => new LordToil_RcAssault(),
             };
@@ -183,7 +186,8 @@ public sealed class LordJob_RcOperation : LordJob
         PhaseTrigger.TargetDown => new Trigger_TickCondition(() => target is null || target.Dead || target.Downed || !target.Spawned || target.Map != Map
             || (lord.faction is { } own && target.Faction == own), 60), // a freed captive is the Empire's again
         PhaseTrigger.Arrived => new Trigger_Memo("TravelArrived"),
-        PhaseTrigger.BuildersLost => new Trigger_TickCondition(() => siege is not null && siege.AfterBuilders(lord) == AfterBuilders.Assault, 250),
+        PhaseTrigger.BuildersLost => new Trigger_TickCondition(() => (siege is not null && siege.AfterBuilders(lord) == AfterBuilders.Assault)
+            || (cluster is not null && cluster.AfterMechanitors(lord) == AfterBuilders.Assault), 250),
         _ => new Trigger_TickCondition(() => !dev && Abandoned(), 250),
     };
 
@@ -211,6 +215,14 @@ public sealed class LordJob_RcOperation : LordJob
             End(link.Outcome);
         }
 
+        if (from.Kind == PhaseKind.Siege && to == PhaseKind.Assault && Map is not null && cluster is not null)
+        {
+            Messages.Message(link.Trigger == PhaseTrigger.BuildersLost
+                    ? "The Choir's cluster has lost most of its mechanitors, but it still has the strength to attack: it's coming in."
+                    : "The Choir's cluster has grown all it will: it's coming in.",
+                new TargetInfo(cluster.spot, Map), MessageTypeDefOf.ThreatBig);
+        }
+
         if (from.Kind == PhaseKind.Siege && to == PhaseKind.Assault && Map is not null && siege is not null)
         {
             Messages.Message(link.Trigger == PhaseTrigger.BuildersLost
@@ -233,6 +245,11 @@ public sealed class LordJob_RcOperation : LordJob
         {
             siege.JobTick(lord, this);
         }
+
+        if (cluster is not null && Find.TickManager.TicksGame % 250 == 0 && lord.CurLordToil is not LordToil_RcRetreat)
+        {
+            cluster.JobTick(lord, this, growing: lord.CurLordToil is Choir.LordToil_RcClusterSiege);
+        }
     }
 
     private void End(string outcome)
@@ -246,6 +263,11 @@ public sealed class LordJob_RcOperation : LordJob
         if (siege is not null && lord?.Map is not null)
         {
             siege.Teardown(lord);
+        }
+
+        if (cluster is not null && lord?.Map is not null)
+        {
+            cluster.Teardown(lord);
         }
 
         if (StateFor(power) is { Running: { } running } state && running.Operation == operation)
@@ -373,6 +395,7 @@ public sealed class LordJob_RcOperation : LordJob
         Scribe_Values.Look(ref _ended, "ended");
         Scribe_Values.Look(ref _reserveSent, "reserveSent");
         Scribe_Deep.Look(ref siege, "siege");
+        Scribe_Deep.Look(ref cluster, "cluster");
         Scribe_Values.Look(ref power, "power", Power.Empire.Id);
         Scribe_Collections.Look(ref commanded, "commanded", LookMode.Reference);
         Scribe_Collections.Look(ref commandedBy, "commandedBy", LookMode.Reference);

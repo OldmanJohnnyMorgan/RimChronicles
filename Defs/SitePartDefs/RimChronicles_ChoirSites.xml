@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  World-map sites for the Hollow Choir's archetypes (War in Heaven W8), the mirror of RimChronicles_Sites.xml: vanilla's
+  outpost site part with our gen step, which plans and stamps the Choir's archetype for the Choir's faction.
+-->
+<Defs>
+
+  <SitePartDef ParentName="Outpost" MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Biotech">
+    <defName>RimChronicles_ChoirOutpost</defName>
+    <label>Choir cluster outpost</label>
+    <description>A small walled Choir outpost with a comms console.</description>
+    <arrivedLetter>There is a Hollow Choir cluster outpost in this area. Its comms console is in the room deepest inside the walls.</arrivedLetter>
+    <tags Inherit="False">
+      <li>RimChronicles_ChoirOutpost</li>
+    </tags>
+  </SitePartDef>
+
+  <GenStepDef MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Biotech">
+    <defName>RimChronicles_ChoirOutpost</defName>
+    <linkWithSite>RimChronicles_ChoirOutpost</linkWithSite>
+    <order>400</order>
+    <genStep Class="RimChronicles.Game.Crisis.Sites.GenStep_RcSite">
+      <archetype>RimChronicles_Site_ClusterOutpost</archetype>
+    </genStep>
+  </GenStepDef>
+
+  <SitePartDef ParentName="Outpost" MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Biotech">
+    <defName>RimChronicles_ChoirResonatorSite</defName>
+    <label>Choir resonator</label>
+    <description>A fortified Choir resonator.</description>
+    <arrivedLetter>There is a Hollow Choir resonator in this area. You can feel its hum already. It stands in the chamber deepest inside the walls.</arrivedLetter>
+    <tags Inherit="False">
+      <li>RimChronicles_ChoirResonatorSite</li>
+    </tags>
+  </SitePartDef>
+
+  <GenStepDef MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Biotech">
+    <defName>RimChronicles_ChoirResonatorSite</defName>
+    <linkWithSite>RimChronicles_ChoirResonatorSite</linkWithSite>
+    <order>400</order>
+    <genStep Class="RimChronicles.Game.Crisis.Sites.GenStep_RcSite">
+      <archetype>RimChronicles_Site_Resonator</archetype>
+    </genStep>
+  </GenStepDef>
+
+  <SitePartDef ParentName="Outpost" MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Biotech">
+    <defName>RimChronicles_ChoirSpireSite</defName>
+    <label>Choir signal spire</label>
+    <description>A fortified Choir signal spire.</description>
+    <arrivedLetter>There is a Hollow Choir signal spire in this area. It stands in the station deepest inside the walls.</arrivedLetter>
+    <tags Inherit="False">
+      <li>RimChronicles_ChoirSpireSite</li>
+    </tags>
+  </SitePartDef>
+
+  <GenStepDef MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Biotech">
+    <defName>RimChronicles_ChoirSpireSite</defName>
+    <linkWithSite>RimChronicles_ChoirSpireSite</linkWithSite>
+    <order>400</order>
+    <genStep Class="RimChronicles.Game.Crisis.Sites.GenStep_RcSite">
+      <archetype>RimChronicles_Site_SignalSpire</archetype>
+    </genStep>
+  </GenStepDef>
+
+  <SitePartDef ParentName="Outpost" MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Biotech">
+    <defName>RimChronicles_ChoirHoldingSite</defName>
+    <label>Choir-held settlement</label>
+    <description>A Chorus garrison holding a conquered settlement.</description>
+    <arrivedLetter>A Chorus garrison holds this place. Its comms console is in the room deepest inside the walls: destroy it and the garrison's hold is broken.</arrivedLetter>
+    <tags Inherit="False">
+      <li>RimChronicles_ChoirHoldingSite</li>
+    </tags>
+  </SitePartDef>
+
+  <GenStepDef MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Biotech">
+    <defName>RimChronicles_ChoirHoldingSite</defName>
+    <linkWithSite>RimChronicles_ChoirHoldingSite</linkWithSite>
+    <order>400</order>
+    <genStep Class="RimChronicles.Game.Crisis.Sites.GenStep_RcSite">
+      <archetype>RimChronicles_Site_ChoirHolding</archetype>
+    </genStep>
+  </GenStepDef>
+
+</Defs>
