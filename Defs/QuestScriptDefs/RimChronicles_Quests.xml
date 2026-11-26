@@ -86,7 +86,7 @@
     <isRootSpecial>true</isRootSpecial>
     <autoAccept>false</autoAccept>
     <expireDaysRange>3~3</expireDaysRange>
-    <root Class="RimChronicles.Game.Powers.QuestNode_Root_ChroniclesSummons" />
+    <root Class="RimChronicles.Game.Powers.Summons.QuestNode_Root_ChroniclesSummons" />
   </QuestScriptDef>
 
 </Defs>
