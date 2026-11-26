@@ -46,4 +46,28 @@ sensitive colonists help for W7.6. **Choir crisis: fire operation** fires any op
 | W7.16 | Save mid-operation (a pending drop, tunnels rumbling, a resonator humming), reload | The operation carries on: the drop lands or is called off, the tunnels open, the hum continues; downing a commander after the load still silences its mechs |
 | W7.17 | **Choir crisis: decide now** with the E4B war preset, then with E2B | E4B: an `Operation:*` with source `Model` in **Plot: director log**; E2B: a weighted pick |
 
-The cluster siege (Operation:ClusterSiege) comes with W8: it isn't offered until then.
+The cluster siege (Operation:ClusterSiege) is W8's: see below.
+
+## W8: the Choir's sites and the cluster siege
+
+Setup: "choir-test-1" from W7 (the Choir hostile, its crisis at stage 2–3; **Hollow Choir: expand now** a few times
+for a Choir-held town near the colony). **Crisis: generate site** lists the Choir's archetypes beside the Empire's.
+
+| # | Do | Pass when |
+| --- | --- | --- |
+| W8.1 | **Crisis: batch sites** | Each Choir archetype (ClusterOutpost, Resonator, SignalSpire, ChoirHolding) "50/50 pass on the first seed", 0 fallbacks, as the Imperial ones |
+| W8.2 | **Crisis: generate site** → ClusterOutpost → seed 1 | A walled outpost in plasteel and steel, a command room with a comms console deepest in, mech charge-turret nests, Choir mechs and mechanitors guarding it; no Imperial piece (no records room, mortar pit or uplink) |
+| W8.3 | Resonator → seed 2 | The resonator stands in a chamber deepest in; colonists who arrive and can feel it get **the hum**; destroy it: "Choir resonator destroyed"; **Choir crisis: show state** stops offering TheHum for 15 days |
+| W8.4 | SignalSpire → seed 3 | The spire in a station deepest in; destroy it: "Choir signal spire destroyed"; back home, a Cantor's raid calls no cluster drops ("knocked out") and ClusterSiege isn't offered for 15 days |
+| W8.5 | On any Choir site, down or kill a mechanitor | "With their mechanitor down, N of the Choir's mechs fall silent"; they stop where they stand and can be dismantled |
+| W8.6 | The Choir plot's sabotage job (**Plot: advance beat** on the Choir plot while opposed and the crisis runs) | "Destroy the Choir cluster outpost / resonator / signal spire" or "Free {town}" (with a Choir-held town near); the quest's site is that archetype, and destroying its objective succeeds |
+| W8.7 | Free a Choir-held town (ChoirHolding) | "{town} liberated": the town goes back to its old owner (world map colour too), goodwill rises, a news line |
+| W8.8 | **Choir crisis: fire cluster siege with goal** → Goal:BreakWalls → stage 3 | A "Choir cluster siege" letter naming its aim; the force walks to the spot **Crisis: show siege scoring** marks BEST |
+| W8.9 | Watch the camp grow (speed 3, about 7 in-game hours a stage) | Stage 1 lands at once (sandbags, shelters), then by pod: auto-mortars (shelling starts), a signal spire, a shield and a resonator (the hum begins at home), a drop beacon; a message for each; no stage before the last landed |
+| W8.10 | Kill every mechanitor at the camp before stage 3 | The camp stops growing; with most of them down "lost most of its mechanitors… it's coming in" (or it leaves after heavy losses) |
+| W8.11 | Let the spire land, then watch the cluster drops | Drops come with no cantor in sight, aimed per the goal (walls and turrets for BreakWalls), still marked 6–10 s first |
+| W8.12 | Let the beacon land | More of the Choir drop in at the beacon a few hours later, up to 3 waves |
+| W8.13 | Leave the siege alone for 2 days | "grown all it will: it's coming in" |
+| W8.14 | Beat the siege back (half its force) | It retreats; what it dropped in stays, ownerless: the turrets don't fire, the resonator falls silent, the spire calls nothing |
+| W8.15 | Save at camp stage 2–3 and reload | The camp carries on growing on its timer |
+| W8.16 | Imperial checks still hold: **Crisis: generate site** → each Imperial archetype; **Crisis: fire siege with goal** | Imperial sites and camps never show a Choir piece (no mech turrets, no spire, no resonator) |

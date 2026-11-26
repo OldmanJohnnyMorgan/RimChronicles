@@ -196,6 +196,48 @@ public static class ChoirMixes
         Of(UnitRole.Cantor, 1, CrisisStage.War),
     ];
 
+    /// <summary>The cluster siege (W8): a mechanitor to hold the camp for every few mechs, a cantor to call drops.</summary>
+    public static readonly IReadOnlyList<MixEntry> ClusterSiege =
+    [
+        Mechs(MechClass.Line, 4),
+        Mechs(MechClass.Light, 2),
+        Mechs(MechClass.Heavy, 1, CrisisStage.War),
+        Of(UnitRole.Chorister, 2),
+        Of(UnitRole.Cantor, 1),
+    ];
+
+    /// <summary>A Choir site's garrison (W8), by archetype: what the site guards.</summary>
+    public static IReadOnlyList<MixEntry> ForSite(string archetype) => archetype switch
+    {
+        "Resonator" =>
+        [
+            Mechs(MechClass.Line, 3),
+            Mechs(MechClass.Light, 2),
+            Of(UnitRole.Chorister, 1),
+            Of(UnitRole.Choirmaster, 1, CrisisStage.War),
+        ],
+        "SignalSpire" =>
+        [
+            Mechs(MechClass.Line, 3),
+            Mechs(MechClass.Heavy, 1, CrisisStage.War),
+            Of(UnitRole.Cantor, 2),
+            Of(UnitRole.Chorister, 1),
+        ],
+        "ChoirHolding" =>
+        [
+            Mechs(MechClass.Line, 4),
+            Mechs(MechClass.Light, 2),
+            Mechs(MechClass.Heavy, 1, CrisisStage.War),
+            Of(UnitRole.Chorister, 2),
+        ],
+        _ =>
+        [
+            Mechs(MechClass.Light, 3),
+            Mechs(MechClass.Line, 2),
+            Of(UnitRole.Chorister, 1),
+        ],
+    };
+
     /// <summary>What a Cantor's cluster drop brings: a few mechs of the stage's light and line classes.</summary>
     public static readonly IReadOnlyList<MixEntry> ClusterDrop =
     [
@@ -212,6 +254,40 @@ public static class ChoirMixes
         CrisisOperations.Retrieval => Retrieval,
         CrisisOperations.Burrowing => Burrowing,
         CrisisOperations.FinalChorus => FinalChorus,
+        CrisisOperations.ClusterSiege => ClusterSiege,
         _ => Assault,
+    };
+}
+
+/// <summary>
+/// The Choir's cluster siege (War in Heaven W8, tech spec §4.3 row 4): the mirror of the Imperial siege. It walks to the
+/// same kind of camp spot and lays out the same five stages (<see cref="Crisis.Siege.CampLayout"/>, with the Choir's
+/// pieces), but its pieces aren't built: each stage drops in by pod <see cref="StageTicks"/> after the last, while a
+/// mechanitor stands at the camp. Kill the mechanitors and the camp stops growing; lose most of them and the siege
+/// must attack or leave (<see cref="Crisis.Siege.SiegeRules.AfterBuildersFall"/>, with mechanitors as its builders).
+/// </summary>
+public static class ClusterSiegeRules
+{
+    /// <summary>A stage drops in this long after the last: all five in under two days, as the Imperial camp is built.</summary>
+    public const int StageTicks = 18000;
+
+    /// <summary>A mechanitor this close to the camp's centre keeps it growing.</summary>
+    public const float CampReach = 20f;
+
+    /// <summary>The stage to be on: the first at once, then the next once <see cref="StageTicks"/> have passed since the
+    /// last landed, while a mechanitor is at the camp; never past the last.</summary>
+    public static int Next(int current, int ticksSinceLast, bool mechanitorAtCamp) =>
+        current < Crisis.Siege.BuildStages.First ? Crisis.Siege.BuildStages.First
+        : current >= Crisis.Siege.BuildStages.Last || !mechanitorAtCamp || ticksSinceLast < StageTicks ? current
+        : current + 1;
+
+    /// <summary>What each stage gives the Choir, as the player is told when it lands.</summary>
+    public static string Landed(int stage) => stage switch
+    {
+        1 => "The Choir's cluster has landed: sandbag lines and shelters around its mechanitors.",
+        2 => "The Choir's cluster has grown auto-mortars: the shelling starts now.",
+        3 => "The Choir's cluster has raised a signal spire: its cluster drops need no cantor now.",
+        4 => "The Choir's cluster has a shield and a resonator: shells won't reach it, and the hum has begun.",
+        _ => "The Choir's cluster has lit a drop beacon: more mechs will land there.",
     };
 }

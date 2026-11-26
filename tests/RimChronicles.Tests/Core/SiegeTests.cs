@@ -100,7 +100,7 @@ public class SiegeTests
     [Fact]
     public void Stages_TheNextStagesBlueprintsNeverExistBeforeThisOneIsBuilt()
     {
-        var plan = CampLayout.Plan(PieceXml.Load(), Side.North);
+        var plan = CampLayout.Plan(PieceXml.For("empire"), Side.North);
         var stage = 0;
         var pending = new List<CampPlacement>();
         var placedStages = new List<int>();
@@ -131,7 +131,7 @@ public class SiegeTests
     [MemberData(nameof(Facings))]
     public void Layout_EveryStageHasItsPieces_NoneOverlap_AllWithinTheRadius(Side facing)
     {
-        var plan = CampLayout.Plan(PieceXml.Load(), facing);
+        var plan = CampLayout.Plan(PieceXml.For("empire"), facing);
         Assert.Equal(CampLayout.Slots.Count, plan.Count); // the repo has a piece for every slot
         foreach (var stage in Enumerable.Range(BuildStages.First, BuildStages.Last))
         {
@@ -153,7 +153,7 @@ public class SiegeTests
     [MemberData(nameof(Facings))]
     public void Layout_TheSandbagsFaceTheColony_MortarsBehindThem_OpenToTheRear(Side facing)
     {
-        var plan = CampLayout.Plan(PieceXml.Load(), facing);
+        var plan = CampLayout.Plan(PieceXml.For("empire"), facing);
         var toward = CampLayout.Turn(new Cell(0, 1), facing);
         float Ahead(CampPlacement p) => p.Cells().Max(c => (c.X * toward.X) + (c.Z * toward.Z));
         var lines = plan.Where(p => p.Piece.Meta.Tags.Contains("Line")).Max(Ahead);
@@ -166,7 +166,7 @@ public class SiegeTests
     [Fact]
     public void Layout_ASlotWithNoPieceIsLeftOut()
     {
-        var onlyLines = PieceXml.Load().Where(p => p.Meta.Tags.Contains("Line")).ToList();
+        var onlyLines = PieceXml.For("empire").Where(p => p.Meta.Tags.Contains("Line")).ToList();
         var plan = CampLayout.Plan(onlyLines, Side.North);
         Assert.All(plan, p => Assert.Equal(1, p.Stage));
         Assert.Equal(CampLayout.Slots.Count(s => s.Tag == "Line"), plan.Count);

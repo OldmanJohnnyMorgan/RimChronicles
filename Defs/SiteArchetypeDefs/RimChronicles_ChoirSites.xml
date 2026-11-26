@@ -2,9 +2,10 @@
 <!--
   The Hollow Choir's sites (War in Heaven spec §4.3, W7): the mirror of the Imperial sites, one for one, so the site
   planner's rules carry over. Their power is "choir": the Imperial crisis never offers them, and the Imperial crisis
-  cases never see them. Until W8 builds the Choir's own pieces and site parts, they use the Imperial ones. They need
+  cases never see them. They need
   Royalty and Biotech. The resonator's capability is the Choir's psychic arm (the hum), the spire's its strikes (cluster
-  drops).
+  drops). Since W8 they have their own site parts (Defs/SitePartDefs/RimChronicles_ChoirSites.xml), objective rooms and
+  turret nests (RimChronicles_ChoirPieces.xml); the barracks, power yard, armory and command room are shared.
 -->
 <Defs>
   <RimChronicles.Game.Crisis.Sites.SiteArchetypeDef MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Biotech">
@@ -13,7 +14,7 @@
     <description>a walled cluster of Choir mechs and their mechanitors; destroying its comms console blinds the Choir to the colony</description>
     <archetype>ClusterOutpost</archetype>
     <power>choir</power>
-    <sitePart>RimChronicles_ImperialOutpost</sitePart>
+    <sitePart>RimChronicles_ChoirOutpost</sitePart>
     <objectiveThing>CommsConsole</objectiveThing>
     <objectiveTag>CommsRoom</objectiveTag>
     <size>(40,40)</size>
@@ -36,11 +37,6 @@
         <weight>1</weight>
         <max>1</max>
       </li>
-      <li>
-        <tag>Records</tag>
-        <weight>1</weight>
-        <max>1</max>
-      </li>
     </optional>
     <gates>1</gates>
     <budget>600~2500</budget>
@@ -54,9 +50,9 @@
     <description>a fortified resonator that carries the Choir's hum; destroying its core silences the hum for weeks</description>
     <archetype>Resonator</archetype>
     <power>choir</power>
-    <sitePart>RimChronicles_ImperialRelaySite</sitePart>
-    <objectiveThing>RimChronicles_PsychicRelay</objectiveThing>
-    <objectiveTag>RelayChamber</objectiveTag>
+    <sitePart>RimChronicles_ChoirResonatorSite</sitePart>
+    <objectiveThing>RimChronicles_ChoirResonator</objectiveThing>
+    <objectiveTag>ResonatorChamber</objectiveTag>
     <size>(52,52)</size>
     <required>
       <li>
@@ -83,11 +79,6 @@
         <max>1</max>
       </li>
       <li>
-        <tag>Records</tag>
-        <weight>1</weight>
-        <max>1</max>
-      </li>
-      <li>
         <tag>Barracks</tag>
         <weight>1</weight>
         <max>1</max>
@@ -107,9 +98,9 @@
     <description>a signal spire the Choir's Cantors use to call down mech clusters; destroying it stops the cluster drops for weeks</description>
     <archetype>SignalSpire</archetype>
     <power>choir</power>
-    <sitePart>RimChronicles_ImperialUplinkSite</sitePart>
-    <objectiveThing>RimChronicles_ImperialUplink</objectiveThing>
-    <objectiveTag>UplinkStation</objectiveTag>
+    <sitePart>RimChronicles_ChoirSpireSite</sitePart>
+    <objectiveThing>RimChronicles_SignalSpire</objectiveThing>
+    <objectiveTag>SpireStation</objectiveTag>
     <size>(52,52)</size>
     <required>
       <li>
@@ -135,11 +126,6 @@
         <weight>1</weight>
         <max>1</max>
       </li>
-      <li>
-        <tag>Records</tag>
-        <weight>1</weight>
-        <max>1</max>
-      </li>
     </optional>
     <gates>2</gates>
     <budget>1500~5000</budget>
@@ -155,7 +141,7 @@
     <description>a town the Choir took, held by a Chorus garrison; destroying the comms console deepest inside hands it back to its people</description>
     <archetype>ChoirHolding</archetype>
     <power>choir</power>
-    <sitePart>RimChronicles_ImperialHolding</sitePart>
+    <sitePart>RimChronicles_ChoirHoldingSite</sitePart>
     <objectiveThing>CommsConsole</objectiveThing>
     <objectiveTag>CommsRoom</objectiveTag>
     <size>(52,52)</size>
@@ -176,11 +162,6 @@
       </li>
       <li>
         <tag>Armory</tag>
-        <weight>1</weight>
-        <max>1</max>
-      </li>
-      <li>
-        <tag>Records</tag>
         <weight>1</weight>
         <max>1</max>
       </li>

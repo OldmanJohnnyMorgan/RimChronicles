@@ -25,6 +25,7 @@ public static class ChoirDevActions
             (CrisisOperations.Retrieval, ChoirOperations.Retrieval),
             (CrisisOperations.Burrowing, ChoirOperations.Burrowing),
             (CrisisOperations.FinalChorus, ChoirOperations.FinalChorus),
+            (CrisisOperations.ClusterSiege, (m, s, b, d) => ChoirOperations.ClusterSiege(m, s, b, null, d)),
         };
         var nodes = new List<DebugActionNode>();
         foreach (var (step, run) in operations)
@@ -63,6 +64,34 @@ public static class ChoirDevActions
 
         return nodes;
     }
+
+    /// <summary>Fires a cluster siege with a chosen goal (the plain fire action picks one by weight).</summary>
+    [DebugAction("Rim Chronicles", "Choir crisis: fire cluster siege with goal", allowedGameStates = AllowedGameStates.PlayingOnMap)]
+    public static List<DebugActionNode> FireSiege() => Core.Crisis.Siege.SiegeGoals.All.Select(goal =>
+    {
+        var node = new DebugActionNode(goal.Id);
+        foreach (var stage in Stages.Where(s => s >= CrisisStage.War))
+        {
+            node.AddChild(new DebugActionNode($"stage {(int)stage} {CrisisStages.Label(stage)}", DebugActionType.Action, () =>
+            {
+                if (RimChroniclesGameComponent.Current is not { } component || Find.CurrentMap is not { } map || ChoirCrisisDriver.Faction is null)
+                {
+                    return;
+                }
+
+                var budget = ChoirCrisisDriver.Budget(component, stage, ColonyStrengthReader.Read());
+                if (!ChoirOperations.ClusterSiege(map, stage, budget, goal.Goal, dev: true))
+                {
+                    Messages.Message("Rim Chronicles: no cluster siege spot on this map (Crisis: show siege scoring says why).", MessageTypeDefOf.RejectInput, historical: false);
+                    return;
+                }
+
+                component.ChoirCrisis.Started(CrisisOperations.ClusterSiege, stage, budget, GenDate.DaysPassed);
+            }));
+        }
+
+        return node;
+    }).ToList();
 
     /// <summary>Spawns a Choir mechanitor, or a mech of a class, for the Choir at a stage on a clicked cell.</summary>
     [DebugAction("Rim Chronicles", "Choir crisis: spawn unit", allowedGameStates = AllowedGameStates.PlayingOnMap)]

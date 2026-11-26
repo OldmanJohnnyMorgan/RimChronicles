@@ -28,7 +28,15 @@ public static class ChoirBeats
 
     public static void Register() => PlotDriver.Register(Choir.PlotTemplateId,
         plot => RimChroniclesGameComponent.Current is { } c ? PowerArc.Transitions(plot, c.Choir, GenDate.DaysPassed) : [], Fire,
-        useDirector: () => ChoirDriver.DirectorDecides);
+        useDirector: () => ChoirDriver.DirectorDecides, subOptions: SiteOptions);
+
+    /// <summary>The Choir's sites a sabotage job may target (War in Heaven W8), for the director's second call, the
+    /// mirror of <see cref="EmpireBeats.SiteOptions"/>. Empty unless the director may decide the Choir's crisis.</summary>
+    public static IReadOnlyList<PlotTransition> SiteOptions(Plot plot, PlotTransition option) =>
+        option.Step == PowerStep.SabotageImperial && Crisis.Choir.ChoirCrisisDriver.DirectorDecides
+            && RimChroniclesGameComponent.Current is { } component && PowerFactions.Of(Choir) is { } choir
+            ? Crisis.Sites.SiteOffers.Allowed(component, choir).Select(a => new PlotTransition(a.Id, a.Name, a.Weight, a.Desc)).ToList()
+            : [];
 
     private static string Colony => Faction.OfPlayer.Name;
 
@@ -128,8 +136,36 @@ public static class ChoirBeats
 
             case PowerStep.SabotageImperial:
             {
-                // The Choir's own sites come with W8; until then the sabotage is a Choir settlement.
-                if (!choir.HostileTo(Faction.OfPlayer) || QuestOffers.NearestSettlement(s => s.Faction == choir) is not { } target)
+                if (!choir.HostileTo(Faction.OfPlayer))
+                {
+                    return false;
+                }
+
+                // While the Choir's crisis runs, the sabotage is one of its sites (W8); otherwise a Choir settlement.
+                if (Crisis.Sites.SiteOffers.Pick(component, choir, transition.Sub) is { } archetype)
+                {
+                    if (archetype.needsHolding)
+                    {
+                        if (Crisis.Sites.SiteOffers.Holding(component, choir) is not { } held)
+                        {
+                            return false;
+                        }
+
+                        var town = held.Settlement.Label;
+                        return StartQuest(component, plot, today, gap, transition.Step, town, () => QuestOffers.ImperialSite(component, plot, archetype, choir,
+                            $"Free {town}",
+                            $"{choir.Name} took {town} from {held.Former.Name}, and a Chorus garrison holds it near {Colony}. Destroy the comms "
+                            + $"console deepest inside the garrison's walls, and {town} goes back to {held.Former.Name}.", held));
+                    }
+
+                    var near = QuestOffers.NearestSettlement(s => s.Faction == choir)?.Label ?? archetype.label;
+                    return StartQuest(component, plot, today, gap, transition.Step, near, () => QuestOffers.ImperialSite(component, plot, archetype, choir,
+                        $"Destroy the {archetype.label}",
+                        $"{choir.Name} has raised {Find.ActiveLanguageWorker.WithIndefiniteArticle(archetype.label)} near {Colony}: "
+                        + $"{archetype.description}. Destroy its objective before the site is abandoned, and the Choir's advance will falter."));
+                }
+
+                if (QuestOffers.NearestSettlement(s => s.Faction == choir) is not { } target)
                 {
                     return false;
                 }

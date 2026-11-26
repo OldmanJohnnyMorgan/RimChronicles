@@ -17,7 +17,7 @@ public static class SiteDevActions
 
     /// <summary>Makes a site of an archetype near the colony with a chosen seed, generates its map and goes there.</summary>
     [DebugAction("Rim Chronicles", "Crisis: generate site", allowedGameStates = AllowedGameStates.PlayingOnWorld | AllowedGameStates.PlayingOnMap)]
-    public static List<DebugActionNode> Generate() => SiteOffers.Usable().Select(def =>
+    public static List<DebugActionNode> Generate() => SiteOffers.Usable(Core.Powers.Power.Empire.Id).Concat(SiteOffers.Usable(Core.Powers.Power.Choir.Id)).Select(def =>
     {
         var node = new DebugActionNode(def.archetype);
         foreach (var seed in Seeds.Cast<long?>().Append(null))
@@ -30,9 +30,12 @@ public static class SiteDevActions
 
     private static void Make(SiteArchetypeDef def, long? seed)
     {
-        if (EmpireDriver.EmpireFaction is not { } empire || def.sitePart is null)
+        if (Powers.PowerFactions.Of(def.power == Core.Powers.Power.Choir.Id ? Core.Powers.Power.Choir : Core.Powers.Power.Empire) is not { } empire
+            || def.sitePart is null)
         {
-            Messages.Message("Rim Chronicles: sites need Royalty and the Empire faction.", MessageTypeDefOf.RejectInput, historical: false);
+            Messages.Message(def.power == Core.Powers.Power.Choir.Id
+                ? "Rim Chronicles: Choir sites need the Hollow Choir awake (Hollow Choir: wake now)."
+                : "Rim Chronicles: sites need Royalty and the Empire faction.", MessageTypeDefOf.RejectInput, historical: false);
             return;
         }
 
@@ -60,11 +63,10 @@ public static class SiteDevActions
     [DebugAction("Rim Chronicles", "Crisis: batch sites", allowedGameStates = AllowedGameStates.Playing)]
     public static void Batch()
     {
-        var pieces = PieceLibrary.All.Select(p => p.Source).ToList();
         var lines = new List<string>();
-        foreach (var def in SiteOffers.Usable())
+        foreach (var def in SiteOffers.Usable(Core.Powers.Power.Empire.Id).Concat(SiteOffers.Usable(Core.Powers.Power.Choir.Id)))
         {
-            lines.AddRange(BatchReport(def.ToCore(), pieces, BatchSeeds));
+            lines.AddRange(BatchReport(def.ToCore(), PieceLibrary.SourcesFor(def.power), BatchSeeds));
             lines.Add("");
         }
 

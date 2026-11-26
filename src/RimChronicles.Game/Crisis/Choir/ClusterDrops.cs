@@ -89,7 +89,8 @@ public sealed class MapComponent_RcClusterDrops(Map map) : MapComponent(map)
             return;
         }
 
-        if (ClusterDropRules.Target(strikes.Candidates(choir, cantors, spire), _state) is not { } target)
+        var goal = ClusterCamp.On(map)?.goal ?? SiegeGoal.None;
+        if (ClusterDropRules.Target(strikes.Candidates(choir, cantors, spire, goal), _state, goal) is not { } target)
         {
             return;
         }

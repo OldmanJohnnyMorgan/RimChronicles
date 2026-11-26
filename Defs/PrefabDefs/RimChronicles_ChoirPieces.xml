@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The Hollow Choir's pieces (War in Heaven W8): its cluster siege's stages and its sites' objective rooms, the mirror of
+  the Imperial ones, with vanilla mech-cluster turrets and the Choir's own buildings (Defs/ThingDefs/RimChronicles_Choir.xml).
+  They're the Choir's only (<power>choir</power>): the Empire's sites and camps never take them. Sandbags, barracks,
+  the command room, the power yard and the armory are shared (RimChronicles_Pieces.xml).
+-->
+<Defs>
+
+  <!-- A mech charge turret behind a sandbag ring, open to the south: the Choir's turret nest. Self-powered. -->
+  <PrefabDef MayRequire="Ludeon.RimWorld.Biotech,Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Piece_ClusterNest</defName>
+    <size>(5,5)</size>
+    <things>
+      <Sandbags>
+        <rects>
+          <li>(0,4,4,4)</li>
+          <li>(0,1,0,3)</li>
+          <li>(4,1,4,3)</li>
+          <li>(0,0,1,0)</li>
+          <li>(3,0,4,0)</li>
+        </rects>
+      </Sandbags>
+      <Turret_AutoChargeBlaster>
+        <position>(2, 0, 2)</position>
+      </Turret_AutoChargeBlaster>
+    </things>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <power>choir</power>
+        <tags><li>Emplacement</li><li>Turret</li></tags>
+        <doorSides><li>South</li></doorSides>
+        <defenseValue>3</defenseValue>
+        <threatCost>120</threatCost>
+        <buildOrder>2</buildOrder>
+      </li>
+    </modExtensions>
+  </PrefabDef>
+
+  <!-- Stage 2 of the cluster siege: a mech auto-mortar behind sandbags. It needs no crew. -->
+  <PrefabDef MayRequire="Ludeon.RimWorld.Biotech,Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Piece_ClusterMortar</defName>
+    <size>(5,5)</size>
+    <things>
+      <Sandbags>
+        <rects>
+          <li>(0,4,4,4)</li>
+          <li>(0,1,0,3)</li>
+          <li>(4,1,4,3)</li>
+          <li>(0,0,1,0)</li>
+          <li>(3,0,4,0)</li>
+        </rects>
+      </Sandbags>
+      <Turret_AutoMortar>
+        <position>(2, 0, 2)</position>
+      </Turret_AutoMortar>
+    </things>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <power>choir</power>
+        <tags><li>Emplacement</li><li>Artillery</li></tags>
+        <doorSides><li>South</li></doorSides>
+        <defenseValue>3</defenseValue>
+        <threatCost>150</threatCost>
+        <buildOrder>2</buildOrder>
+      </li>
+    </modExtensions>
+  </PrefabDef>
+
+  <!-- Stage 3: the signal spire behind a sandbag row facing the colony. -->
+  <PrefabDef MayRequire="Ludeon.RimWorld.Biotech,Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Piece_ClusterSpire</defName>
+    <size>(5,3)</size>
+    <things>
+      <Sandbags>
+        <rects>
+          <li>(0,2,4,2)</li>
+        </rects>
+      </Sandbags>
+      <RimChronicles_SignalSpire>
+        <position>(2, 0, 0)</position>
+      </RimChronicles_SignalSpire>
+    </things>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <power>choir</power>
+        <tags><li>Uplink</li></tags>
+        <doorSides><li>South</li></doorSides>
+        <defenseValue>1</defenseValue>
+        <threatCost>150</threatCost>
+        <buildOrder>3</buildOrder>
+      </li>
+    </modExtensions>
+  </PrefabDef>
+
+  <!-- Stage 4: the shield emitter and a resonator side by side, behind a sandbag row. -->
+  <PrefabDef MayRequire="Ludeon.RimWorld.Biotech,Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Piece_ClusterShieldResonator</defName>
+    <size>(5,3)</size>
+    <things>
+      <Sandbags>
+        <rects>
+          <li>(0,2,4,2)</li>
+        </rects>
+      </Sandbags>
+      <RimChronicles_ChoirShield>
+        <position>(0, 0, 0)</position>
+      </RimChronicles_ChoirShield>
+      <RimChronicles_ChoirResonator>
+        <position>(2, 0, 0)</position>
+      </RimChronicles_ChoirResonator>
+    </things>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <power>choir</power>
+        <tags><li>Relay</li><li>Shield</li></tags>
+        <doorSides><li>South</li></doorSides>
+        <defenseValue>2</defenseValue>
+        <threatCost>200</threatCost>
+        <buildOrder>4</buildOrder>
+      </li>
+    </modExtensions>
+  </PrefabDef>
+
+  <!-- Stage 5: the drop beacon with a sandbag row in front. -->
+  <PrefabDef MayRequire="Ludeon.RimWorld.Biotech,Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Piece_ClusterBeacon</defName>
+    <size>(3,3)</size>
+    <things>
+      <Sandbags>
+        <rects>
+          <li>(0,2,2,2)</li>
+        </rects>
+      </Sandbags>
+      <RimChronicles_ChoirBeacon>
+        <position>(1, 0, 0)</position>
+      </RimChronicles_ChoirBeacon>
+    </things>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <power>choir</power>
+        <tags><li>Beacon</li></tags>
+        <doorSides><li>South</li><li>East</li><li>West</li></doorSides>
+        <defenseValue>1</defenseValue>
+        <threatCost>150</threatCost>
+        <buildOrder>5</buildOrder>
+      </li>
+    </modExtensions>
+  </PrefabDef>
+
+  <!-- Resonator site objective: a resonator in a walled chamber. It hums over anyone who comes for it. -->
+  <PrefabDef MayRequire="Ludeon.RimWorld.Biotech,Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Piece_ResonatorChamber</defName>
+    <size>(7,7)</size>
+    <things>
+      <Wall>
+        <rects>
+          <li>(0,0,2,0)</li>
+          <li>(4,0,6,0)</li>
+          <li>(0,6,6,6)</li>
+          <li>(0,1,0,5)</li>
+          <li>(6,1,6,5)</li>
+        </rects>
+      </Wall>
+      <Door>
+        <position>(3, 0, 0)</position>
+      </Door>
+      <RimChronicles_ChoirResonator>
+        <position>(3, 0, 3)</position>
+      </RimChronicles_ChoirResonator>
+      <TorchLamp>
+        <position>(1, 0, 1)</position>
+      </TorchLamp>
+    </things>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <power>choir</power>
+        <tags><li>Room</li><li>ResonatorChamber</li></tags>
+        <doorSides><li>South</li></doorSides>
+      </li>
+    </modExtensions>
+  </PrefabDef>
+
+  <!-- Signal Spire site objective: the spire in a walled station. -->
+  <PrefabDef MayRequire="Ludeon.RimWorld.Biotech,Ludeon.RimWorld.Royalty">
+    <defName>RimChronicles_Piece_SpireStation</defName>
+    <size>(9,7)</size>
+    <things>
+      <Wall>
+        <rects>
+          <li>(0,0,3,0)</li>
+          <li>(5,0,8,0)</li>
+          <li>(0,6,8,6)</li>
+          <li>(0,1,0,5)</li>
+          <li>(8,1,8,5)</li>
+        </rects>
+      </Wall>
+      <Door>
+        <position>(4, 0, 0)</position>
+      </Door>
+      <RimChronicles_SignalSpire>
+        <position>(4, 0, 4)</position>
+      </RimChronicles_SignalSpire>
+      <TorchLamp>
+        <position>(1, 0, 1)</position>
+      </TorchLamp>
+    </things>
+    <modExtensions>
+      <li Class="RimChronicles.Game.Crisis.Pieces.PieceExtension">
+        <power>choir</power>
+        <tags><li>Room</li><li>SpireStation</li></tags>
+        <doorSides><li>South</li></doorSides>
+      </li>
+    </modExtensions>
+  </PrefabDef>
+
+</Defs>

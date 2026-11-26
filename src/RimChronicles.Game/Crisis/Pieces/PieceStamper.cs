@@ -14,6 +14,12 @@ public sealed class StuffPalette(params ThingDef?[] stuffs)
     public static StuffPalette Imperial => new(
         DefDatabase<ThingDef>.GetNamedSilentFail("BlocksGranite"), ThingDefOf.Steel, ThingDefOf.Plasteel, ThingDefOf.Cloth);
 
+    /// <summary>Plasteel and steel: the Hollow Choir's (War in Heaven W8).</summary>
+    public static StuffPalette Choir => new(ThingDefOf.Plasteel, ThingDefOf.Steel, ThingDefOf.Cloth);
+
+    /// <summary>The palette of a power's sites and camps.</summary>
+    public static StuffPalette ForPower(string power) => power == Core.Powers.Power.Choir.Id ? Choir : Imperial;
+
     public ThingDef? For(ThingDef def)
     {
         if (!def.MadeFromStuff)
@@ -56,6 +62,44 @@ public static class PieceStamper
             var def = data.def.IsBlueprint && data.def.entityDefToBuild is ThingDef built ? built : data.def;
             return def.MadeFromStuff ? Tuple.Create(def, palette.For(def) ?? data.stuff) : null;
         });
+        return true;
+    }
+
+    /// <summary>
+    /// Drops the piece in by pod, as vanilla drops a mech cluster (War in Heaven W8, the Choir's cluster siege): all or
+    /// nothing. Sandbags and walls appear at once; every other building comes down in its own pod, owned by
+    /// <paramref name="faction"/>. The things are listed in <paramref name="spawned"/> before they land.
+    /// </summary>
+    public static bool Pods(PrefabDef prefab, Map map, IntVec3 min, Rot4 rot, Faction faction, StuffPalette palette, List<Thing>? spawned = null)
+    {
+        var pos = PosFor(prefab, min, rot);
+        if (!Footprint(prefab, min, rot).InBounds(map) || !PrefabUtility.CanSpawnPrefab(prefab, map, pos, rot, canWipeEdifices: false))
+        {
+            return false;
+        }
+
+        foreach (var (data, cell, thingRot) in PrefabUtility.GetThings(prefab, pos, rot))
+        {
+            var def = data.def.IsBlueprint && data.def.entityDefToBuild is ThingDef built ? built : data.def;
+            var facing = def.rotatable ? thingRot : def.defaultPlacingRot;
+            var thing = ThingMaker.MakeThing(def, def.MadeFromStuff ? palette.For(def) ?? data.stuff : null);
+            thing.SetFactionDirect(faction);
+            spawned?.Add(thing);
+            if (def == ThingDefOf.Sandbags || def.IsWall)
+            {
+                GenSpawn.Spawn(thing, cell, map, facing, WipeMode.VanishOrMoveAside);
+                continue;
+            }
+
+            var info = new ActiveTransporterInfo
+            {
+                openDelay = 60, leaveSlag = false, despawnPodBeforeSpawningThing = true, moveItemsAsideBeforeSpawning = true,
+                spawnWipeMode = WipeMode.VanishOrMoveAside, setRotation = facing,
+            };
+            info.innerContainer.TryAdd(thing, 1);
+            DropPodUtility.MakeDropPodAt(cell, map, info, faction);
+        }
+
         return true;
     }
 

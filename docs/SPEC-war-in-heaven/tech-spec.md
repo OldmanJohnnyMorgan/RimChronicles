@@ -175,7 +175,18 @@ spawning, sites in game, the Cathedral) is still to do.
 | Game `ChoirCommand`, `RimChronicles_Command` | Mechanitors hold and shoot from the commander AI's spot (vanilla `JobGiver_AIDefendPoint` around a focus refreshed every 250 ticks); mechs take the crisis assault duty (or the retrieval's) |
 | Game `MapComponent_RcClusterDrops` | Cantors' drops, telegraphed and called off as strikes are; the mechs join the Choir's operation under the cantor |
 | Game `ChoirHum`, `RimChronicles_ChoirResonator`, `RimChronicles_Hum` | The resonator (Royalty's defoliator art for now) refreshes the `RimChronicles_Hum` hediff (−15% work speed, −30% and −5% consciousness when loud) and its mood thought (−6, −10) |
-| Not yet | The cluster siege (W8, with the Choir's pieces and sites), the Choir's captives' interrogation and intel, and the Cathedral (W9). `ClusterSiege` isn't registered, so it's never offered |
+| Not yet | The Choir's captives' interrogation and intel, and the Cathedral (W9) |
+
+**As built (W8):**
+
+| Where | What |
+| --- | --- |
+| `PieceMeta.Power`, `PieceExtension.power`, `PieceSources.For`, `PieceLibrary.For` | A piece is the Empire's, the Choir's, or shared (no `power`). Each power's sites, camps and the Citadel plan only with their own and the shared: sandbags, barracks, the command room, the power yard and the armory are shared; the Imperial mortar pit, turret nest, siege buildings, relay chamber, uplink station, records room, throne room and vault are the Empire's |
+| `Defs/PrefabDefs/RimChronicles_ChoirPieces.xml`, `Defs/ThingDefs/RimChronicles_Choir.xml` | The Choir's pieces: a mech charge-turret nest (Turret tag), an auto-mortar (Artillery, stage 2), a signal spire (Uplink slot, stage 3), a shield and resonator (Relay slot, stage 4), a drop beacon (stage 5), and the objective rooms `ResonatorChamber` and `SpireStation`. Its buildings: `RimChronicles_SignalSpire` (Biotech's mechband antenna art; lets cluster drops come with no cantor), `RimChronicles_ChoirShield`, `RimChronicles_ChoirBeacon`, and the W7 resonator. Vanilla's mech-cluster turrets start awake and need no power or crew |
+| `Defs/SitePartDefs/RimChronicles_ChoirSites.xml`, the Choir archetypes | Each Choir archetype has its own site part and gen step (W7's pointed at the Imperial ones). The Resonator's objective is a resonator, the SignalSpire's a spire; the records room is left out |
+| `GenStep_RcSite`, `SiteStamper`, `MapComponent_RcSite` | A site is generated for its archetype's power: its faction (`PowerFactions.Of`), palette (plasteel and steel for the Choir), pieces and garrison (`ChoirMixes.ForSite`, under `LordJob_DefendBase`). The site's record keeps the garrison's chain of command and silences a fallen mechanitor's mechs. Destroying a Choir objective holds the Choir's capability (the resonator: the hum, 15 days; the spire: cluster drops and the cluster siege, 15 days) in `ChoirCrisis` |
+| `SiteOffers`, `Liberation`, `ChoirBeats` | Offers, the holding and liberation take the power from the faction (the holding from that power's saga). The Choir plot's `SabotageChoir` job offers the Choir's sites while its crisis runs (the director picks the `Site:*` with a War in Heaven model), and a Choir-held town is freed as the Empire's are |
+| Core `ClusterSiegeRules`, `ChoirMixes.ClusterSiege`; Game `ClusterCamp`, `LordToil_RcClusterSiege`, `ChoirOperations.ClusterSiege` | Row 4: the cluster siege walks to the Imperial siege's best camp spot and lays out `CampLayout` with the Choir's pieces. Its stages aren't built: the first lands on arrival, each next one drops in by pod (`PieceStamper.Pods`) 18,000 ticks after the last while a mechanitor stands within 20 cells. Its mechanitors are its builders (`SiegeRules.AfterBuildersFall`); its beacon brings waves from the reserve; its goal (`Goal:*`, the director's second call) aims the cluster drops; when it ends, what it dropped is left ownerless |
 
 ## 5. Allegiance and the summons
 
