@@ -85,6 +85,39 @@ public class OllamaPullTests
         Assert.Empty(handler.Requests);
     }
 
+    [Fact]
+    public async Task ANameTheRegistryDoesntKnow_SaysSo()
+    {
+        var (result, _) = await Run(Lines("""{"status":"pulling manifest"}""", """{"error":"pull model manifest: file does not exist"}"""), "rimchron-director-e4b");
+        Assert.Contains("no model named rimchron-director-e4b", result.Message);
+    }
+
+    [Theory]
+    [InlineData(HttpStatusCode.OK, "{}", true)]
+    [InlineData(HttpStatusCode.NotFound, """{"error":"model 'x' not found"}""", false)]
+    [InlineData(HttpStatusCode.NotFound, "404 page not found", null)]   // not Ollama
+    [InlineData(HttpStatusCode.InternalServerError, "oops", null)]
+    public async Task HasModel_ReadsTheServersAnswer(HttpStatusCode status, string body, bool? has)
+    {
+        var handler = StubHttpHandler.Json(status, body);
+        Assert.Equal(has, await OllamaPull.HasModelAsync(new HttpClient(handler), Endpoint, "gemma4:e4b", null, CancellationToken.None));
+        Assert.Equal("http://localhost:11434/api/show", handler.Requests.Single().Request.RequestUri!.ToString());
+    }
+
+    [Fact]
+    public async Task HasModel_IsNullWhenNothingAnswers() =>
+        Assert.Null(await OllamaPull.HasModelAsync(new HttpClient(new StubHttpHandler((_, _) => throw new HttpRequestException("refused"))),
+            Endpoint, "gemma4:e4b", null, CancellationToken.None));
+
+    [Theory]
+    [InlineData("rimchron-director-e4b", "oldmanjohnnymorgan/rimchron-director-e4b")]   // the local name from training
+    [InlineData(" RimChron-Director-E4B ", "oldmanjohnnymorgan/rimchron-director-e4b")]
+    [InlineData("oldmanjohnnymorgan/rimchron-director-e4b", "oldmanjohnnymorgan/rimchron-director-e4b")]
+    [InlineData("gemma4:e4b", "gemma4:e4b")]
+    [InlineData("rimchron-director-e4b-war", "rimchron-director-e4b-war")]             // not a preset: as named
+    public void PullName_FetchesAPresetUnderItsRegistryName(string model, string pull) =>
+        Assert.Equal(pull, OllamaPull.PullName(model));
+
     [Theory]
     [InlineData("rimchron-director-e4b", "rimchron-director-e4b")]
     [InlineData(" OldmanJohnnyMorgan/RimChron-Director-E4B ", "rimchron-director-e4b")]

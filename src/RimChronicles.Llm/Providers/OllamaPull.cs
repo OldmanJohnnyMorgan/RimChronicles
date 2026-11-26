@@ -86,7 +86,9 @@ public static class OllamaPull
 
                 if (node?["error"]?.GetValue<string>() is { } error)
                 {
-                    return new(false, $"Download failed: {error}");
+                    return new(false, error.Contains("file does not exist", StringComparison.OrdinalIgnoreCase)
+                        ? $"Download failed: ollama.com has no model named {model}. Check the name ({error})."
+                        : $"Download failed: {error}");
                 }
 
                 last = node?["status"]?.GetValue<string>() ?? last;
@@ -110,6 +112,43 @@ public static class OllamaPull
             return new(false, $"The download was cut off: {ex.Message}. Try again; Ollama resumes where it stopped.");
         }
     }
+
+    /// <summary>Whether the server already has <paramref name="model"/> (POST {endpoint}/api/show): true or false, or
+    /// null when it can't tell (not Ollama, unreachable, an error).</summary>
+    public static async Task<bool?> HasModelAsync(HttpClient http, Uri endpoint, string model, string? apiKey, CancellationToken cancellationToken)
+    {
+        using var message = new HttpRequestMessage(HttpMethod.Post, new Uri(endpoint, "api/show"))
+        {
+            Content = new StringContent(new JsonObject { ["model"] = model.Trim() }.ToJsonString(), Encoding.UTF8, "application/json"),
+        };
+        if (!string.IsNullOrWhiteSpace(apiKey))
+        {
+            message.Headers.Authorization = new AuthenticationHeaderValue("Bearer", apiKey.Trim());
+        }
+
+        try
+        {
+            using var response = await http.SendAsync(message, cancellationToken).ConfigureAwait(false);
+            if (response.IsSuccessStatusCode)
+            {
+                return true;
+            }
+
+            var raw = await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+            // Ollama answers a missing model with 404 and a JSON error; a server without /api/show 404s with no JSON.
+            return (int)response.StatusCode == 404 && ErrorOf(raw) is not null ? false : null;
+        }
+        catch (HttpRequestException)
+        {
+            return null;
+        }
+    }
+
+    /// <summary>What to download for a model the settings name: a fine-tuned preset set under its local, bare name
+    /// (<c>rimchron-director-e4b</c>, as training makes it) is fetched under its registry name, since the registry
+    /// knows no other. Anything else is fetched as named.</summary>
+    public static string PullName(string model) =>
+        TierPresets.DirectorPreset(model) is { } preset && !model.Contains('/', StringComparison.Ordinal) ? preset.Model : model.Trim();
 
     private static long Long(JsonNode? node)
     {

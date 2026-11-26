@@ -22,6 +22,10 @@ public static class SettingsWindow
     private static PullStatus? _pullProgress; // written by the download's thread, read each frame; a record swap is atomic
     private static string _pullStatus = "";
     private static string _pullModel = "";
+
+    /// <summary>A director downloaded under its registry name in place of the bare local name the settings held: the
+    /// window switches the setting to it on the main thread once the download is done.</summary>
+    private static volatile string? _directorRenamed;
     private static readonly HttpClient PullHttp = new() { Timeout = Timeout.InfiniteTimeSpan }; // a pull lasts minutes
 
     private const string OllamaDownloadUrl = "https://ollama.com/download";
@@ -372,6 +376,12 @@ public static class SettingsWindow
             _pullStatus = done.IsCompletedSuccessfully ? done.Result : $"<color=#e06060>Failed: {done.Exception?.GetBaseException().Message}</color>";
             _pull = null;
             _pullProgress = null;
+            if (_directorRenamed is { } renamed)
+            {
+                settings.DirectorModel = renamed;
+                _directorRenamed = null;
+                _pullStatus += $"\nThe director model is now set to {renamed}.";
+            }
             _pullCancel?.Dispose();
             _pullCancel = null;
         }
@@ -387,7 +397,8 @@ public static class SettingsWindow
                 _probeProblem = ConnectionProbe.Problem.None;
                 var cancel = _pullCancel.Token;
                 // Background task: touches no game state, only returns a line the window reads next frame.
-                _pull = Task.Run(() => PullAll(downloads, cancel));
+                var director = settings.DirectorModel;
+                _pull = Task.Run(() => PullAll(downloads, director, cancel));
             }
         }
         else
@@ -415,18 +426,32 @@ public static class SettingsWindow
         return ModelSlots.Downloads(ModelSlots.Main(slots), ModelSlots.Director(slots), prose);
     }
 
-    private static async Task<string> PullAll(IReadOnlyList<ModelSlot> slots, CancellationToken cancel)
+    private static async Task<string> PullAll(IReadOnlyList<ModelSlot> slots, string director, CancellationToken cancel)
     {
         var lines = new List<string>();
         foreach (var slot in slots)
         {
             _pullModel = slot.Model;
-            var result = await OllamaPull.RunAsync(PullHttp, TierPresets.EndpointUri(slot.Endpoint), slot.Model, slot.ApiKey,
-                status => _pullProgress = status, cancel).ConfigureAwait(false);
-            lines.Add(result.Ok ? $"<color=#80d080>{result.Message}</color>" : $"<color=#e06060>{slot.Model}: {result.Message}</color>");
+            var endpoint = TierPresets.EndpointUri(slot.Endpoint);
+            _pullProgress = new PullStatus("Checking…", 0, 0);
+            if (await OllamaPull.HasModelAsync(PullHttp, endpoint, slot.Model, slot.ApiKey, cancel).ConfigureAwait(false) == true)
+            {
+                lines.Add($"<color=#80d080>{slot.Model}: already downloaded.</color>");
+                continue;
+            }
+
+            var name = OllamaPull.PullName(slot.Model);
+            _pullModel = name;
+            var result = await OllamaPull.RunAsync(PullHttp, endpoint, name, slot.ApiKey, status => _pullProgress = status, cancel).ConfigureAwait(false);
+            lines.Add(result.Ok ? $"<color=#80d080>{result.Message}</color>" : $"<color=#e06060>{name}: {result.Message}</color>");
             if (!result.Ok)
             {
                 break;
+            }
+
+            if (name != slot.Model.Trim() && string.Equals(slot.Model.Trim(), director, StringComparison.OrdinalIgnoreCase))
+            {
+                _directorRenamed = name; // the setting follows the name the server now has it under
             }
         }
 
