@@ -8,7 +8,9 @@ namespace RimChronicles.Game.Settings;
 /// <summary>Builds the chat provider from the settings. One shared HttpClient for the whole mod.</summary>
 public static class ProviderFactory
 {
-    private static readonly HttpClient Http = new();
+    // No client-wide timeout: each request's own limit (OpenAiCompatOptions.Timeout) governs. HttpClient's default
+    // 100 s would cut off the settings page's 120 s connection test on a cold model load.
+    private static readonly HttpClient Http = new() { Timeout = Timeout.InfiniteTimeSpan };
 
     /// <summary>The provider for these settings, or null when the tier is Off or the endpoint is unusable. Used for the
     /// director's decisions, and for narration when no separate prose model is set.</summary>

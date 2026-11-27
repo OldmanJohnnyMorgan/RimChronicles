@@ -261,6 +261,13 @@ lost) to our operation and garrison lords, which cut short the profiles' regroup
 - [ ] 3. FinalAssault: down more than 70%: it still doesn't retreat.
 - [ ] 4. A Citadel's inner rings (**Crisis: generate Citadel**): down most of a garrison: the rest hold their ring.
 
+**LLM client fixes (code review fixes 4, 5, 6, 10).** Settings page, any time.
+
+- [ ] 10. Stop Ollama, start it again (so nothing is loaded), then press the connection test at once: it waits for the
+      model to load and passes, even if that takes over 100 s, instead of failing at 100 s.
+- [ ] 11. Enter the address as `http://localhost:11434/v1`: the connection test passes (it used to 404 on
+      `/v1/v1/chat/completions`).
+
 ## Part 5: release prep (about 15 minutes, any time)
 
 What changed: the settings page can download models through Ollama, and the build can package the Workshop folder.

@@ -142,11 +142,18 @@ public static class TierPresets
         return null;
     }
 
-    /// <summary>The endpoint as a base URI with a trailing slash, so "v1/chat/completions" resolves under it.</summary>
+    /// <summary>The endpoint as a base URI with a trailing slash, so "v1/chat/completions" (and Ollama's "api/...")
+    /// resolves under it. A trailing "/v1", as LM Studio, vLLM and OpenAI-style docs give the address, is dropped, so
+    /// it doesn't become "/v1/v1/chat/completions".</summary>
     public static Uri EndpointUri(string endpoint)
     {
-        var text = endpoint.Trim();
-        return new Uri(text.EndsWith('/') ? text : text + "/");
+        var text = endpoint.Trim().TrimEnd('/');
+        if (text.EndsWith("/v1", StringComparison.OrdinalIgnoreCase) && new Uri(text).AbsolutePath.Length > 1)
+        {
+            text = text[..^3];
+        }
+
+        return new Uri(text + "/");
     }
 }
 

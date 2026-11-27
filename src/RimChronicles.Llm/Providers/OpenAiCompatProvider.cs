@@ -35,7 +35,8 @@ public sealed record OpenAiCompatOptions
     public JsonObject? ExtraBody { get; init; }
 }
 
-/// <summary>Calls POST {endpoint}/v1/chat/completions. Never throws for HTTP, timeout or parse errors.</summary>
+/// <summary>Calls POST {endpoint}/v1/chat/completions. Never throws except when the caller's token is cancelled: HTTP,
+/// transport, timeout and parse errors all come back as a failed <see cref="ChatResult"/>.</summary>
 public sealed class OpenAiCompatProvider(HttpClient http, OpenAiCompatOptions options) : IChatProvider
 {
     private const int MaxErrorBodyChars = 2000;
@@ -80,6 +81,11 @@ public sealed class OpenAiCompatProvider(HttpClient http, OpenAiCompatOptions op
         catch (HttpRequestException ex)
         {
             return ChatResult.Failure(ModelId, $"Request failed: {ex.Message}", clock.Elapsed);
+        }
+        catch (Exception ex) when (ex is not OperationCanceledException)
+        {
+            // A dropped connection mid-body (IOException), a bad address and the like: still a failed call, not a throw.
+            return ChatResult.Failure(ModelId, $"Request failed: {ex.GetType().Name}: {ex.Message}", clock.Elapsed);
         }
     }
 
@@ -162,6 +168,7 @@ public sealed class OpenAiCompatProvider(HttpClient http, OpenAiCompatOptions op
             InputTokens = IntOrZero(usage?["prompt_tokens"]),
             OutputTokens = IntOrZero(usage?["completion_tokens"]),
             ReasoningTokens = IntOrNull(usage?["completion_tokens_details"]?["reasoning_tokens"]),
+            Truncated = finish == "length",
             Latency = latency,
             ModelId = modelId,
             RawResponse = raw,

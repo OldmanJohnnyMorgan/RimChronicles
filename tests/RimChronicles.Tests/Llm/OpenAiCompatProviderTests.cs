@@ -108,6 +108,42 @@ public class OpenAiCompatProviderTests
         Assert.Contains("token limit", result.Error);
     }
 
+    [Fact]
+    public void ParseResponse_TextCutOffAtTheLimit_IsMarkedTruncated()
+    {
+        const string raw = """{"choices":[{"message":{"content":"The raiders came at dawn and the"},"finish_reason":"length"}]}""";
+
+        var result = OpenAiCompatProvider.ParseResponse(raw, "m", TimeSpan.Zero);
+
+        Assert.True(result.Ok);
+        Assert.True(result.Truncated);
+        Assert.False(OpenAiCompatProvider.ParseResponse(OkResponse, "m", TimeSpan.Zero).Truncated);
+    }
+
+    [Fact]
+    public async Task CompleteAsync_TransportErrorOtherThanHttp_ReturnsFailureInsteadOfThrowing()
+    {
+        var handler = new StubHttpHandler((_, _) => throw new IOException("connection reset mid-body"));
+        var provider = new OpenAiCompatProvider(new HttpClient(handler), Options);
+
+        var result = await provider.CompleteAsync(new ChatRequest { System = "s", User = "u", MaxOutputTokens = 10 }, CancellationToken.None);
+
+        Assert.False(result.Ok);
+        Assert.Contains("connection reset", result.Error);
+    }
+
+    [Fact]
+    public async Task CompleteAsync_CallerCancellation_StillThrows()
+    {
+        var handler = new StubHttpHandler((_, ct) => Task.FromCanceled<HttpResponseMessage>(ct));
+        var provider = new OpenAiCompatProvider(new HttpClient(handler), Options);
+        using var cancel = new CancellationTokenSource();
+        await cancel.CancelAsync();
+
+        await Assert.ThrowsAnyAsync<OperationCanceledException>(() =>
+            provider.CompleteAsync(new ChatRequest { System = "s", User = "u", MaxOutputTokens = 10 }, cancel.Token));
+    }
+
     [Theory]
     [InlineData("not json")]
     [InlineData("""{"choices":[]}""")]
