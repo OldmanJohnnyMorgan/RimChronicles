@@ -40,7 +40,7 @@ public static class CitadelKeepShieldPatch
     {
         try
         {
-            if (__instance is Building { Spawned: true } building && MapComponent_RcCitadel.For(building.Map) is { ShieldUp: true } citadel && citadel.Shields(building))
+            if (MapComponent_RcCitadel.Shielded.Count > 0 && __instance is Building { Spawned: true } building && MapComponent_RcCitadel.For(building.Map) is { ShieldUp: true } citadel && citadel.Shields(building))
             {
                 dinfo.SetAmount(dinfo.Amount * CitadelMaps.KeepShieldFactor);
             }

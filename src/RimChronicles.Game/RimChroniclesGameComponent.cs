@@ -37,9 +37,35 @@ public sealed class RimChroniclesGameComponent : GameComponent
 
     public RimChroniclesGameComponent(Verse.Game game)
     {
-        Current?._cancel.Cancel();
+        Current?.End();
         Current = this;
+
+        // Static Dev Mode and lookup state from the last game (code review fix 9). Maps load after this.
+        Game.Crisis.Psykers.PsykerLog.Reset();
+        Game.Crisis.Sites.MapComponent_RcCitadel.Shielded.Clear();
     }
+
+    /// <summary>The game is over (quit to the main menu, or another game replaced it): stops its background work and
+    /// lets it be collected (code review fix 8). Its queue is never drained again.</summary>
+    internal void End()
+    {
+        if (Current == this)
+        {
+            Current = null;
+        }
+
+        if (_ended)
+        {
+            return;
+        }
+
+        // Cancelled, not disposed: background tasks may still hold its token, and a source with no timer holds nothing
+        // that needs freeing.
+        _ended = true;
+        _cancel.Cancel();
+    }
+
+    private bool _ended;
 
     /// <summary>Hand results here from background tasks; they run on the main thread next frame.</summary>
     public IMainThread MainThread => _queue;

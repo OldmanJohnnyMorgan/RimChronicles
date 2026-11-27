@@ -278,6 +278,13 @@ Harmony patch catches its own errors, so one bug can't silence the plots, crises
       **Dev: daily step failures** names it. That day's news, plot beats and crisis checks still happen.
 - [ ] 9. Next day: no new error, and **Dev: daily step failures** says nothing failed.
 
+**Cleanup (code review fixes 7, 8, 9, 11).** Any time, a few minutes.
+
+- [ ] 10. In the Citadel (**Crisis: generate Citadel**), hit a keep wall while a courtyard relay stands: it takes about a
+      tenth of the damage. Destroy the relays: full damage again. Save, reload with a relay standing: still shielded.
+- [ ] 11. Quit to the main menu, then load a different save: no errors, and **Crisis: psyker report** (Dev Mode)
+      shows nothing from the first game.
+
 ## Part 5: release prep (about 15 minutes, any time)
 
 What changed: the settings page can download models through Ollama, and the build can package the Workshop folder.

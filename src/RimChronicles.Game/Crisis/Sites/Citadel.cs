@@ -298,6 +298,25 @@ public sealed class MapComponent_RcCitadel(Map map) : MapComponent(map)
 
     public bool Active => _active;
     public bool ShieldUp => _shieldUp;
+
+    /// <summary>The Citadels whose shield is up now, so the damage patch can skip its lookup when there are none (almost
+    /// always). The patch still asks the map's own component, so an entry left over only costs that lookup.</summary>
+    public static HashSet<MapComponent_RcCitadel> Shielded { get; } = [];
+
+    private void SetShield(bool up)
+    {
+        _shieldUp = up;
+        if (up)
+        {
+            Shielded.Add(this);
+        }
+        else
+        {
+            Shielded.Remove(this);
+        }
+    }
+
+    public override void MapRemoved() => Shielded.Remove(this);
     public IReadOnlyList<Thing> Relays => _relays;
     public IReadOnlyList<CellRect> Rings => _rings;
 
@@ -312,7 +331,7 @@ public sealed class MapComponent_RcCitadel(Map map) : MapComponent(map)
         _relays = (_cathedral ? Choir.ChoirHum.ResonatorDef : SiegeDefs.Relay) is { } relay
             ? map.listerBuildings.allBuildingsNonColonist.Where(b => b.def == relay && b.Faction == empire && _rings[1].Contains(b.Position)).Cast<Thing>().ToList()
             : [];
-        _shieldUp = _relays.Count > 0;
+        SetShield(_relays.Count > 0);
         _sideGate = plan.SideGate is not null;
     }
 
@@ -465,7 +484,7 @@ public sealed class MapComponent_RcCitadel(Map map) : MapComponent(map)
 
         if (_shieldUp && _relays.All(r => r is null || r.Destroyed) && _cathedral)
         {
-            _shieldUp = false;
+            SetShield(false);
             StoryLetters.ChoirCrisis("The sanctum's shield is down",
                 "The last resonator in the Cathedral's cloister is destroyed, and its hum with it. The sanctum's walls and doors are no longer shielded.",
                 LetterDefOf.PositiveEvent, new LookTargets(new TargetInfo(_rings[2].CenterCell, map)));
@@ -473,7 +492,7 @@ public sealed class MapComponent_RcCitadel(Map map) : MapComponent(map)
 
         if (_shieldUp && _relays.All(r => r is null || r.Destroyed))
         {
-            _shieldUp = false;
+            SetShield(false);
             StoryLetters.Crisis("The keep's shield is down",
                 "The last psychic relay in the Citadel's courtyard is destroyed. The keep's walls and doors are no longer shielded, and the psykers "
                 + "inside have lost their link.", LetterDefOf.PositiveEvent, new LookTargets(new TargetInfo(_rings[2].CenterCell, map)));
@@ -588,6 +607,7 @@ public sealed class MapComponent_RcCitadel(Map map) : MapComponent(map)
         Scribe_Values.Look(ref _sideGate, "rcCitadelSideGate");
         if (Scribe.mode == LoadSaveMode.PostLoadInit)
         {
+            SetShield(_shieldUp);
             _rings ??= [];
             _relays ??= [];
             _relays.RemoveAll(r => r is null);
