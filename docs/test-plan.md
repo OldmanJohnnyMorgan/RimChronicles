@@ -73,6 +73,10 @@ then 1e runs as long as you like.
         `rimchron-director-e4b`. No orange warning shows.
   - [ ] **Dev: record director decisions for training** on (below the advanced part; Dev Mode only).
 - [ ] **Test connection**: the main model answers, then the director.
+- [ ] Cold start (code review fix 4): stop Ollama, start it again so nothing is loaded, and press **Test connection** at
+      once. It waits for the model to load and passes, even past 100 s.
+- [ ] `/v1` address (fix 6): set the address to `http://localhost:11434/v1`; **Test connection** passes (it used to 404
+      on `/v1/v1/chat/completions`). Set it back.
 
 ### 1b. The Hollow Choir's plot is the model's now (about 40 minutes)
 

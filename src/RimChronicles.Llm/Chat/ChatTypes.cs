@@ -64,6 +64,11 @@ public sealed record ChatResult
     /// <summary>Reasoning tokens, when the server reports them separately.</summary>
     public int? ReasoningTokens { get; init; }
 
+    /// <summary>The answer stopped at the output token limit (OpenAI <c>finish_reason: "length"</c>, Anthropic
+    /// <c>max_tokens</c>), so the text may end mid-sentence. <see cref="Tasks.LlmTaskRunner"/> treats it as a failed
+    /// attempt. Results cached before this flag existed read as false.</summary>
+    public bool Truncated { get; init; }
+
     public TimeSpan Latency { get; init; }
     public string ModelId { get; init; } = "";
 
