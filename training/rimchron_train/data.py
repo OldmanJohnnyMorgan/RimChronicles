@@ -21,6 +21,7 @@ class Row:
     user: str
     allowed: list[str]
     target: str
+    seed: int | None = None  # the generator seed of a synthetic case; None for in-game cases
 
     def messages(self, with_answer: bool = True) -> list[dict[str, str]]:
         """System, user and (for training) the assistant's JSON answer, as the game's client sends them."""
@@ -40,7 +41,7 @@ def load_rows(path: Path) -> list[Row]:
             continue
         r = json.loads(line)
         row = Row(r["id"], r["case"], r.get("group", ""), r["promptVersion"], r["tier"], r["system"], r["user"],
-                  list(r["allowed"]), r["target"])
+                  list(r["allowed"]), r["target"], r.get("seed"))
         if row.choice() not in row.allowed:
             raise ValueError(f"{path.name}:{n}: target choice {row.choice()!r} is not in allowed {row.allowed}")
         rows.append(row)
@@ -52,13 +53,24 @@ def load_split(dataset_dir: Path, split: str) -> list[Row]:
 
 
 def check_manifest(dataset_dir: Path) -> dict:
-    """The dataset's manifest; every row must match its prompt version and tier (training spec §3)."""
+    """The dataset's manifest; every row must match its prompt version and tier (training spec §3).
+
+    It also guards the test split, a second time after `director-dataset` (CLAUDE.md: never train or tune on it): no
+    train or val row may come from one of the manifest's test seeds, and no case may be in both test and train or val.
+    """
     manifest = json.loads((dataset_dir / "manifest.json").read_text(encoding="utf-8"))
+    test_seeds = set(manifest.get("testSeeds", [9001]))
+    test_path = dataset_dir / "test.jsonl"
+    test_cases = {r.case for r in load_rows(test_path)} if test_path.exists() else set()
     for split in ("train", "val"):
         for row in load_split(dataset_dir, split):
             if row.prompt_version != manifest["promptVersion"] or row.tier != manifest["tier"]:
                 raise ValueError(f"{row.id}: built for {row.prompt_version}/{row.tier}, manifest says "
                                  f"{manifest['promptVersion']}/{manifest['tier']}")
+            if row.seed is not None and row.seed in test_seeds:
+                raise ValueError(f"{split}.jsonl: {row.id} comes from test seed {row.seed}; the test split must never train")
+            if row.case in test_cases:
+                raise ValueError(f"{split}.jsonl: case {row.case} is also in test.jsonl; the test split must never train")
     return manifest
 
 

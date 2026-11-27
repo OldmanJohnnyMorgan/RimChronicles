@@ -40,13 +40,14 @@ public static class PlotNarrator
         var prompts = PromptStore.Library;
         if (provider is null || prompts is null)
         {
-            deliver(templateText + Footer(nameof(OutcomeSource.Template), ""));
+            deliver(templateText + Footer(Prefs.DevMode, nameof(OutcomeSource.Template), ""));
             return;
         }
 
         var tier = settings.Tier == ModelTier.Off ? ModelTier.Recommended : settings.Tier;
         var mainThread = component.MainThread;
         var token = component.GameToken;
+        var devMode = Prefs.DevMode; // read here: the task below must not touch game state (rule 4)
         Task.Run(async () =>
         {
             string text;
@@ -55,8 +56,8 @@ public static class PlotNarrator
                 var definition = build(prompts, tier, new DelegateFallback<string>(() => templateText));
                 var outcome = await new LlmTaskRunner(provider).RunAsync(definition, token).ConfigureAwait(false);
                 ModelNotices.Post(mainThread, outcome.Attempts, "narration");
-                text = outcome.Value + Footer(outcome.Source.ToString(), outcome.Source == OutcomeSource.Template ? "" : outcome.PromptVersion);
-                if (outcome.Source == OutcomeSource.Template && Prefs.DevMode)
+                text = outcome.Value + Footer(devMode, outcome.Source.ToString(), outcome.Source == OutcomeSource.Template ? "" : outcome.PromptVersion);
+                if (outcome.Source == OutcomeSource.Template && devMode)
                 {
                     var why = outcome.Attempts.LastOrDefault() is { } last ? last.Result.Ok ? string.Join("; ", last.Failures) : last.Result.Error : "no attempt";
                     mainThread.Post(() => Log.Warning($"[Rim Chronicles] {what} fell back to its template: {why}"));
@@ -69,7 +70,7 @@ public static class PlotNarrator
             catch (Exception ex)
             {
                 mainThread.Post(() => Log.Error($"[Rim Chronicles] Writing {what} failed; using the template. {ex}"));
-                text = templateText + Footer(nameof(OutcomeSource.Template), "");
+                text = templateText + Footer(devMode, nameof(OutcomeSource.Template), "");
             }
 
             mainThread.Post(() => deliver(text));
@@ -77,6 +78,6 @@ public static class PlotNarrator
     }
 
     /// <summary>In Dev Mode, a grey note of who wrote the letter, as on bulletins.</summary>
-    private static string Footer(string source, string version) =>
-        Prefs.DevMode ? $"\n\n<color=#a0a0a0>({source}{(version.Length > 0 ? ", " + version : "")})</color>" : "";
+    private static string Footer(bool devMode, string source, string version) =>
+        devMode ? $"\n\n<color=#a0a0a0>({source}{(version.Length > 0 ? ", " + version : "")})</color>" : "";
 }

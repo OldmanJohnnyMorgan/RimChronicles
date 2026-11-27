@@ -34,6 +34,27 @@ class DataTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 data.load_split(Path(t), "train")
 
+    def test_a_train_row_from_a_test_seed_is_rejected(self):
+        with tempfile.TemporaryDirectory() as t:
+            self.write(Path(t), [row(seed=9001)])
+            with self.assertRaisesRegex(ValueError, "test seed 9001"):
+                data.check_manifest(Path(t))
+
+    def test_the_manifest_names_the_test_seeds(self):
+        with tempfile.TemporaryDirectory() as t:
+            self.write(Path(t), [row(seed=9001)], {"promptVersion": "director/v2", "tier": "Minimum", "testSeeds": [42]})
+            data.check_manifest(Path(t))  # 9001 is not a test seed in this dataset
+            self.write(Path(t), [row(seed=42)], {"promptVersion": "director/v2", "tier": "Minimum", "testSeeds": [42]})
+            with self.assertRaises(ValueError):
+                data.check_manifest(Path(t))
+
+    def test_a_case_in_both_test_and_train_is_rejected(self):
+        with tempfile.TemporaryDirectory() as t:
+            self.write(Path(t), [row(id="dir-game-x-day5-p#orig", case="dir-game-x-day5-p")])
+            (Path(t) / "test.jsonl").write_text(row(id="dir-game-x-day5-p#orig", case="dir-game-x-day5-p") + "\n", encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "also in test.jsonl"):
+                data.check_manifest(Path(t))
+
     def test_manifest_must_match_rows(self):
         with tempfile.TemporaryDirectory() as t:
             self.write(Path(t), [row(promptVersion="director/v1")])
