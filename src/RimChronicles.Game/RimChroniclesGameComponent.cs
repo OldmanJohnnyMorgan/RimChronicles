@@ -104,6 +104,9 @@ public sealed class RimChroniclesGameComponent : GameComponent
     /// <summary>The saga of <paramref name="power"/>.</summary>
     public PowerSaga SagaOf(Power power) => power == Power.Choir ? _choir : _empire;
 
+    /// <summary>The crisis of <paramref name="power"/>: the Choir's, or the Empire's.</summary>
+    public CrisisState CrisisOf(Power power) => power == Power.Choir ? _choirCrisis : _crisis;
+
     /// <summary>The Imperial crisis: operations against the colony (crisis C1).</summary>
     public CrisisState Crisis => _crisis;
 
