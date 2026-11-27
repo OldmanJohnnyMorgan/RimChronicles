@@ -289,6 +289,13 @@ Harmony patch catches its own errors, so one bug can't silence the plots, crises
 - [ ] 11. Quit to the main menu, then load a different save: no errors, and **Crisis: psyker report** (Dev Mode)
       shows nothing from the first game.
 
+**Each power scouts for itself (Choir entrances fix).** The Choir's cluster sieges placed their camp by the Empire's
+last scouting report; the Choir's own probing swarms reported to nothing that was read.
+
+- [ ] 12. With only the Choir's crisis running, let a Choir probing swarm finish. **Choir crisis: show cluster siege
+      scoring** now scores the spots with an "entrance" term facing the doors nearest where the swarm came in;
+      **Crisis: show siege scoring** (the Empire's) is unchanged.
+
 ## Part 5: release prep (about 15 minutes, any time)
 
 What changed: the settings page can download models through Ollama, and the build can package the Workshop folder.

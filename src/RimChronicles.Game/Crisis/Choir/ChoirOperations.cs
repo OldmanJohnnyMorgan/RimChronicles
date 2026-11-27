@@ -232,7 +232,7 @@ public static class ChoirOperations
     /// </summary>
     public static bool ClusterSiege(Map map, CrisisStage stage, float budget, SiegeGoal? goal, bool dev)
     {
-        if (Choir is not { } choir || Siege.SiegeSpotSampler.Best(map) is not { } best)
+        if (Choir is not { } choir || Siege.SiegeSpotSampler.Best(map, Power.Choir) is not { } best)
         {
             return false;
         }

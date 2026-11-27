@@ -127,7 +127,7 @@ public static class OperationSpawner
     /// </summary>
     public static bool Siege(Map map, CrisisStage stage, float budget, SiegeGoal? goal, bool dev)
     {
-        if (EmpireDriver.EmpireFaction is not { } empire || SiegeSpotSampler.Best(map) is not { } best)
+        if (EmpireDriver.EmpireFaction is not { } empire || SiegeSpotSampler.Best(map, Core.Powers.Power.Empire) is not { } best)
         {
             return false;
         }
