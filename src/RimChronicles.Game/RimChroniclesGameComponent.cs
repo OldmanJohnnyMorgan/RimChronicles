@@ -197,19 +197,58 @@ public sealed class RimChroniclesGameComponent : GameComponent
         }
 
         _lastDay = day;
-        PinKeptWorldPawns();
-        Game.News.ReporterLife.Daily(this);
-        Game.News.ReporterKeeper.EnsureReporter(this);
-        Game.Plots.NemesisTracker.Daily(this);
-        Game.Quests.QuestStarter.Daily(this);
-        Game.Plots.SuccessionDriver.Daily(this);
-        Game.Plots.SilentPressBeats.Daily(this);
-        Game.Plots.LostFamilyBeats.Daily(this);
-        Game.Plots.PlotDriver.Daily(this);
-        Game.Powers.PowerDrivers.Daily(this);
-        Game.Crisis.CrisisDriver.Daily(this);
-        Game.Crisis.Choir.ChoirCrisisDriver.Daily(this);
-        Game.War.WarDriver.Daily(this);
-        Game.News.NewsDriver.Tick(this);
+        LastDailyFailures = Steps.RunAll(DailySteps(), (name, ex) => Guard.Report($"Daily step {name}", ex));
     }
+
+    /// <summary>The daily work, in order. Each step runs even if one before it throws (code review fix 2).</summary>
+    private IEnumerable<Step> DailySteps()
+    {
+        yield return new("pin kept pawns", PinKeptWorldPawns);
+        yield return new("dev fault", DevFault);
+        yield return new("reporter life", () => Game.News.ReporterLife.Daily(this));
+        yield return new("reporter keeper", () => Game.News.ReporterKeeper.EnsureReporter(this));
+        yield return new("nemesis tracker", () => Game.Plots.NemesisTracker.Daily(this));
+        yield return new("quest starter", () => Game.Quests.QuestStarter.Daily(this));
+        yield return new("succession", () => Game.Plots.SuccessionDriver.Daily(this));
+        yield return new("silent press", () => Game.Plots.SilentPressBeats.Daily(this));
+        yield return new("lost family", () => Game.Plots.LostFamilyBeats.Daily(this));
+        yield return new("plot director", () => Game.Plots.PlotDriver.Daily(this));
+        yield return new("powers", () => Game.Powers.PowerDrivers.Daily(this));
+        yield return new("Imperial crisis", () => Game.Crisis.CrisisDriver.Daily(this));
+        yield return new("Choir crisis", () => Game.Crisis.Choir.ChoirCrisisDriver.Daily(this));
+        yield return new("War in Heaven", () => Game.War.WarDriver.Daily(this));
+        yield return new("news", () => Game.News.NewsDriver.Tick(this));
+    }
+
+    /// <summary>The daily steps that threw on the last day they ran. Not saved.</summary>
+    public IReadOnlyList<string> LastDailyFailures { get; private set; } = [];
+
+    /// <summary>Dev Mode: the next day's "dev fault" step throws once, to check that the later steps still run.</summary>
+    public bool FailNextDay { get; set; }
+
+    private void DevFault()
+    {
+        if (FailNextDay)
+        {
+            FailNextDay = false;
+            throw new InvalidOperationException("Dev Mode test fault (Dev: fail next daily step)");
+        }
+    }
+
+    [LudeonTK.DebugAction("Rim Chronicles", "Dev: fail next daily step", allowedGameStates = LudeonTK.AllowedGameStates.Playing)]
+    public static void DevFailNextDay()
+    {
+        if (Current is { } component)
+        {
+            component.FailNextDay = true;
+            Messages.Message("Rim Chronicles: tomorrow's daily work starts with a test fault; every later step should still run.",
+                RimWorld.MessageTypeDefOf.NeutralEvent, historical: false);
+        }
+    }
+
+    [LudeonTK.DebugAction("Rim Chronicles", "Dev: daily step failures", allowedGameStates = LudeonTK.AllowedGameStates.Playing)]
+    public static void DevShowFailures() =>
+        Find.WindowStack.Add(new Dialog_MessageBox(Current is not { } c ? "No game."
+            : c.LastDailyFailures.Count == 0 ? $"No daily step failed on day {c._lastDay}."
+            : $"Failed on day {c._lastDay}: {string.Join(", ", c.LastDailyFailures)}. The log has each error once."));
 }

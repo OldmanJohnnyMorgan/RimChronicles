@@ -1,5 +1,6 @@
 using HarmonyLib;
 using RimChronicles.Game.Powers;
+using RimChronicles.Game.Engine;
 using RimWorld;
 using Verse;
 
@@ -18,9 +19,16 @@ public static class RoyalAscentPatch
 
     public static void Postfix(Quest __instance, bool __state)
     {
-        if (__state && __instance.State != QuestState.NotYetAccepted && Current.ProgramState == ProgramState.Playing)
+        try
         {
-            ChoirDriver.Notify_RoyalAscent();
+            if (__state && __instance.State != QuestState.NotYetAccepted && Current.ProgramState == ProgramState.Playing)
+            {
+                ChoirDriver.Notify_RoyalAscent();
+            }
+        }
+        catch (Exception ex)
+        {
+            Guard.Report(nameof(RoyalAscentPatch), ex);
         }
     }
 }
