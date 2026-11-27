@@ -105,19 +105,35 @@ public sealed class RimChroniclesGameComponent : GameComponent
     public Pawn? TrackedOrFind(string thingId) =>
         Tracked(thingId) ?? RimWorld.PawnsFinder.AllMapsWorldAndTemporary_AliveOrDead.FirstOrDefault(p => p.ThingID == thingId);
 
-    /// <summary>True for a living raider with an open grudge, or any living pawn an active plot names (a nemesis, a
-    /// relative): the world-pawn cleanup must keep them.</summary>
+    /// <summary>True for a living pawn the world-pawn cleanup must keep: a raider with an open grudge, any pawn an
+    /// active plot names (a nemesis, a relative), or a crisis's finale leader still in the war (<see cref="KeptPawns"/>).</summary>
     public bool KeepsAlive(Pawn pawn) =>
-        !pawn.Dead && (_grudges.TrackedKillers.Contains(pawn.ThingID) || _plots.Active.Any(p => p.Facts.Any(f => f.Value == pawn.ThingID)));
+        !pawn.Dead && KeptPawns.KeepAlive(_plots, _grudges, _crisis, _choirCrisis).Contains(pawn.ThingID);
 
-    /// <summary>Drops pawns no grudge or active plot refers to any more.</summary>
+    /// <summary>Drops pawns nothing in the mod refers to any more (<see cref="KeptPawns.Referenced"/>).</summary>
     public void ForgetUntracked()
     {
-        var needed = _grudges.Grudges.SelectMany(g => new[] { g.KillerId, g.VictimId })
-            .Concat(_plots.Active.SelectMany(p => p.Facts.Select(f => f.Value)))
-            .Concat(_plots.Active.SelectMany(p => new[] { p.Protagonist.PawnId, p.Protagonist.CoLeadId }))
-            .ToHashSet();
+        var needed = KeptPawns.Referenced(_plots, _grudges, _crisis, _choirCrisis);
         _tracked.RemoveAll(p => p is null || !needed.Contains(p.ThingID));
+    }
+
+    /// <summary>Daily: pins every tracked world pawn the cleanup must keep. The pin is normally set as a pawn leaves a
+    /// map, but spawning drops it, and a save from before a keep rule existed has none, so it is checked again.</summary>
+    private void PinKeptWorldPawns()
+    {
+        if (Find.WorldPawns is not { } world)
+        {
+            return;
+        }
+
+        var keep = KeptPawns.KeepAlive(_plots, _grudges, _crisis, _choirCrisis);
+        foreach (var pawn in _tracked)
+        {
+            if (pawn is { Dead: false } && keep.Contains(pawn.ThingID) && world.Contains(pawn))
+            {
+                world.ForcefullyKeptPawns.Add(pawn);
+            }
+        }
     }
 
     /// <summary>The reporter's pawn, a world pawn kept forever, or null until one is recruited (Stage 2 M4).</summary>
@@ -181,6 +197,7 @@ public sealed class RimChroniclesGameComponent : GameComponent
         }
 
         _lastDay = day;
+        PinKeptWorldPawns();
         Game.News.ReporterLife.Daily(this);
         Game.News.ReporterKeeper.EnsureReporter(this);
         Game.Plots.NemesisTracker.Daily(this);

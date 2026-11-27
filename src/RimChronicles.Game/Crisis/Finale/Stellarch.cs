@@ -194,8 +194,13 @@ public static class Stellarch
         Find.WindowStack.Add(new Dialog_MessageBox(
             $"High Stellarch: {(pawn is null ? "not met yet" : pawn.LabelShort)}; fate {(state.StellarchFate.Length == 0 ? "none" : state.StellarchFate)}"
             + $"{(state.StellarchFellDay >= 0 ? $" (day {state.StellarchFellDay})" : "")}; escape used: {(state.StellarchEscaped ? "yes" : "no")}; "
-            + $"{(pawn is null ? "" : pawn.Spawned ? $"on {pawn.Map}" : pawn.Dead ? "dead" : "off the maps")}."));
+            + $"{(pawn is null ? "" : pawn.Spawned ? $"on {pawn.Map}" : pawn.Dead ? "dead" : "off the maps")}{Kept(pawn)}."));
     }
+
+    /// <summary>Dev Mode: whether the world-pawn cleanup will keep this pawn.</summary>
+    internal static string Kept(Pawn? pawn) => pawn is { Dead: false, Spawned: false }
+        ? $"; kept as a world pawn: {(Find.WorldPawns.ForcefullyKeptPawns.Contains(pawn) ? "yes" : "NO")}"
+        : "";
 
     /// <summary>Spawns the Stellarch (the kept one, or a new one) at the click.</summary>
     [DebugAction("Rim Chronicles", "Crisis: spawn High Stellarch", actionType = DebugActionType.ToolMap, allowedGameStates = AllowedGameStates.PlayingOnMap)]

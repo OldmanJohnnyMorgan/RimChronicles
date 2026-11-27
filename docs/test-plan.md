@@ -261,6 +261,16 @@ lost) to our operation and garrison lords, which cut short the profiles' regroup
 - [ ] 3. FinalAssault: down more than 70%: it still doesn't retreat.
 - [ ] 4. A Citadel's inner rings (**Crisis: generate Citadel**): down most of a garrison: the rest hold their ring.
 
+**The finale leaders are kept as world pawns (code review fix 1).** The High Stellarch and the First Voice weren't on
+the mod's keep lists, so after farskipping off a map the world-pawn cleanup could discard them, and a different leader
+came back.
+
+- [ ] 5. **Crisis: spawn High Stellarch** on a map away from the Citadel, hurt it until it farskips off the map.
+      **Crisis: Stellarch state** says "off the maps; kept as a world pawn: yes".
+- [ ] 6. End a nemesis or lost-family plot (**Plot: advance beat** until it ends), skip 30+ days, save and reload.
+      **Crisis: Stellarch state** shows the same name, still kept, and the log has no reference errors.
+- [ ] 7. **Choir crisis: First Voice state** after the First Voice leaves a map: "kept as a world pawn: yes".
+
 ## Part 5: release prep (about 15 minutes, any time)
 
 What changed: the settings page can download models through Ollama, and the build can package the Workshop folder.

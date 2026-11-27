@@ -98,6 +98,6 @@ public static class FirstVoice
             ? "No game."
             : $"First Voice: {(pawn?.LabelShort ?? "not met yet")}; fate {(state.StellarchFate.Length == 0 ? "not met" : state.StellarchFate)}"
               + (state.StellarchFellDay >= 0 ? $" on day {state.StellarchFellDay}" : "")
-              + $"; {(pawn is { Spawned: true } ? $"on {pawn.Map}" : "off the maps")}."));
+              + $"; {(pawn is { Spawned: true } ? $"on {pawn.Map}" : "off the maps")}{Finale.Stellarch.Kept(pawn)}."));
     }
 }
