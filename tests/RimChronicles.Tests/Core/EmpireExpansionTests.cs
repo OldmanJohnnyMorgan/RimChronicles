@@ -24,6 +24,60 @@ public class EmpireExpansionTests
     }
 
     [Fact]
+    public void PickTarget_OverEvenlySpreadTargets_MostAttacksLandNearABase()
+    {
+        // One target per tile on a disc around a base, all owners alike: the share of attacks within 15 tiles.
+        var disc = new List<ExpansionTarget>();
+        for (var x = -40; x <= 40; x++)
+        {
+            for (var y = -40; y <= 40; y++)
+            {
+                var d = (float)Math.Sqrt(x * x + y * y);
+                if (d is > 0 and <= 40)
+                {
+                    disc.Add(new ExpansionTarget($"{x},{y}", $"{x},{y}", "the Ochre Hand", d, 3));
+                }
+            }
+        }
+
+        var picks = Enumerable.Range(0, 1000).Select(i => PowerExpansion.PickTarget(disc, (i + 0.5) / 1000)!).ToList();
+        Assert.DoesNotContain(picks, p => p.Distance > PowerExpansion.RangeTiles);
+        Assert.InRange(picks.Count(p => p.Distance <= 15) / 1000.0, 0.7, 0.85);
+    }
+
+    [Fact]
+    public void Weight_OwnerSizeIsATiebreak_AndTheFrontPullsTheNextAttack()
+    {
+        Assert.Equal(2.0, PowerExpansion.Weight(T("Weak", 10, 1)) / PowerExpansion.Weight(T("Strong", 10, 4)), 6);
+        Assert.True(PowerExpansion.Weight(T("Close strong", 5, 12)) > PowerExpansion.Weight(T("Far weak", 20, 2)));
+
+        var plain = PowerExpansion.Weight(T("A", 10));
+        Assert.Equal(1 + PowerExpansion.AdvanceBonus, PowerExpansion.Weight(T("A", 10) with { FromLastConquest = 0 }) / plain, 6);
+        Assert.Equal(1 + PowerExpansion.AdvanceBonus / 2, PowerExpansion.Weight(T("A", 10) with { FromLastConquest = PowerExpansion.FalloffTiles }) / plain, 6);
+    }
+
+    [Fact]
+    public void Bases_AreTheSettlementsNearTheColony_OrTheNearestFew()
+    {
+        float[] near = [10, 35, 41, 300];
+        Assert.Equal([10f, 35f], PowerExpansion.Bases(near, d => d));
+
+        float[] far = [500, 90, float.PositiveInfinity, 60, 70];
+        Assert.Equal([60f, 70f, 90f], PowerExpansion.Bases(far, d => d));
+    }
+
+    [Fact]
+    public void Saga_LastConquest_IsTheLatestSettlementTaken()
+    {
+        var saga = new PowerSaga();
+        Assert.Null(saga.LastConquest);
+        saga.Expanded(T("Marrow Hold", 12), ExpansionResult.Conquered, 67, 20, "the Empire");
+        saga.Expanded(T("Ashgrove", 12), ExpansionResult.Repelled, 87, 20, "the Empire");
+        saga.Expanded(T("Kettle", 12), ExpansionResult.Razed, 107, 20, "the Empire");
+        Assert.Equal("Marrow Hold", saga.LastConquest);
+    }
+
+    [Fact]
     public void PickTarget_TakesTheNearestWhenNoneInRange_AndNullWhenNone()
     {
         Assert.Equal("B", PowerExpansion.PickTarget([T("A", 90), T("B", 70)], 0.9)!.Name);

@@ -117,6 +117,9 @@ public sealed class PowerSaga : IArchivable
 
     public int Conquests => Expansions.Count(e => e.Result != ExpansionResult.Repelled);
 
+    /// <summary>The settlement the power took last (its front advances from there), or null.</summary>
+    public string? LastConquest => Expansions.LastOrDefault(e => e.Result == ExpansionResult.Conquered)?.Settlement;
+
     public int Defeats => Expansions.Count(e => e.Result == ExpansionResult.Repelled);
 
     public bool ExpansionDue(int today) => State is PowerState.Awakened or PowerState.Ascendant && NextExpansionDay >= 0 && today >= NextExpansionDay;

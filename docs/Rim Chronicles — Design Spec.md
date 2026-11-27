@@ -344,7 +344,7 @@ Requires the Royalty DLC. Without Royalty, the mod runs minor plots and the news
 
 ### Territory expansion
 
-Pure C#, no LLM. On a timer, the Empire picks a target settlement within range, weighted by distance and the target faction's strength. The result is a conquest (the settlement changes faction), a razing, or a repelled attack. Every result goes into the news digest. The player can help or hinder through Defend Ally and Sabotage quests.
+Pure C#, no LLM. On a timer, the Empire picks a target settlement within range, weighted by distance and the target faction's strength. It attacks out of its settlements in the colony's region (within 40 tiles of the colony, else its three nearest), reaches 30 tiles, weights distance steeply (`1/(1 + d/5)³`, so about three attacks in four land within 15 tiles), takes the owner's size only as a tiebreak (over its square root), and favours targets near its latest conquest, so its territory advances as a front (decided 2026-11-26; the Hollow Choir follows the same rules). The result is a conquest (the settlement changes faction), a razing, or a repelled attack. Every result goes into the news digest. The player can help or hinder through Defend Ally and Sabotage quests.
 
 ### Acts
 
