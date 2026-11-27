@@ -73,6 +73,10 @@ then 1e runs as long as you like.
         `rimchron-director-e4b`. No orange warning shows.
   - [ ] **Dev: record director decisions for training** on (below the advanced part; Dev Mode only).
 - [ ] **Test connection**: the main model answers, then the director.
+- [ ] Cold start (code review fix 4): stop Ollama, start it again so nothing is loaded, and press **Test connection** at
+      once. It waits for the model to load and passes, even past 100 s.
+- [ ] `/v1` address (fix 6): set the address to `http://localhost:11434/v1`; **Test connection** passes (it used to 404
+      on `/v1/v1/chat/completions`). Set it back.
 
 ### 1b. The Hollow Choir's plot is the model's now (about 40 minutes)
 
@@ -260,13 +264,6 @@ lost) to our operation and garrison lords, which cut short the profiles' regroup
 - [ ] 2. Down 60% of it: it retreats and carries off its downed where no colonist is close.
 - [ ] 3. FinalAssault: down more than 70%: it still doesn't retreat.
 - [ ] 4. A Citadel's inner rings (**Crisis: generate Citadel**): down most of a garrison: the rest hold their ring.
-
-**LLM client fixes (code review fixes 4, 5, 6, 10).** Settings page, any time.
-
-- [ ] 10. Stop Ollama, start it again (so nothing is loaded), then press the connection test at once: it waits for the
-      model to load and passes, even if that takes over 100 s, instead of failing at 100 s.
-- [ ] 11. Enter the address as `http://localhost:11434/v1`: the connection test passes (it used to 404 on
-      `/v1/v1/chat/completions`).
 
 ## Part 5: release prep (about 15 minutes, any time)
 
