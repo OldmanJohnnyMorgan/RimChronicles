@@ -117,7 +117,7 @@ The existing Empire stance (neutral, ally, oppose) becomes a colony-wide **side*
 | Mechanites | Oppose | Ally |
 | Independence | Oppose | Oppose |
 
-Joining one empire declares war on the other. The Independence track (today's treaty ending) means war with both.
+Joining one empire declares war on the other. The Independence track (today's treaty ending) means war with both. When the colony already stands with one power, the other's envoy asks it to stay or to break that alliance (D17), and a power the colony turns against for its rival says so in a letter.
 
 ### 6.1 Pawn purity: the shuttle
 
@@ -223,6 +223,7 @@ tests go into `docs/test-plan.md` and a runbook, for John to run once at the end
 | D14 | Faster pacing after the playtest: the powers wake by day 120 at the latest (D6's day 300) or at 80,000 wealth (was 150,000), stir 10–20 days (was 20–40); a job's result applies the day after it ends; the War in Heaven's odds start after 15 days of war and reach 5% a day at 165 (was 30 and 3% at 180); the final push opens at front +3 (was +4); story intensity scales every beat gap, the stirring and the war's odds | 2026-11-26 |
 | D15 | The awakening is the opening hook, not an endgame: the Empire stirs on day 20 (its signs only say why); the Choir wakes from day 30 on its signs, on the Empire's first attack, or on day 120, and takes the day-20 hook itself without Royalty; the crisis budget's weak-colony floor drops from 0.6× to 0.3× (Probing at least 240 points) | 2026-11-26 |
 | D16 | Expansion happens where the colony can see it: each power attacks out of its settlements within 40 tiles of the colony (else its three nearest), reaches 30 tiles (was 60), weights distance as `1/(1 + d/5)³` (was `1/(1 + d/10)`), divides by the square root of the owner's settlements (was the count), and weights targets near its latest conquest up to 3×, so it advances as a front | 2026-11-26 |
+| D17 | Two envoys, one side: when the colony already stands with one power, the other's envoy offers only "Stay with" the ally or "Break with" it and stand with the envoy's power (unanswered: stay); envoy answers apply in the order given, so the later wins; a power that turns against the colony because it sided with the other sends a letter saying so (once a day, the net result) | 2026-11-27 |
 
 ---
 

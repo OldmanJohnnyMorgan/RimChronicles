@@ -203,6 +203,11 @@ public sealed class ChoiceLetter_Plot : ChoiceLetter
 
             plot.SetFact(factKey, answers[index]);
             plot.Note(GenDate.DaysPassed, $"the colony chose: {labels[index]}");
+            if (factKey == PowerArc.Stance && Power.All.FirstOrDefault(p => p.PlotTemplateId == plot.Template) is { } power)
+            {
+                // The daily sync applies stance answers in the order given, so the later of two envoys' answers wins.
+                RimChroniclesGameComponent.Current?.Allegiance.Answered(power, answers[index], GenDate.DaysPassed);
+            }
             Engine.StoryLetters.Answered(plot, costs[index] > 0 ? $"{labels[index]}: done, {costs[index]} silver paid." : $"{labels[index]}: the colony has answered.");
             if (actNow[index])
             {

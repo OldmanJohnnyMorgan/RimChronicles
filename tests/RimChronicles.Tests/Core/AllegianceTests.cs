@@ -102,4 +102,57 @@ public class AllegianceTests
         new DictionaryArchive(ArchiveMode.Loading, []).Deep(ref old, "allegiance");
         Assert.Equal(Side.Undeclared, old.SideAmong(Both));
     }
+
+    [Fact]
+    public void EnvoyAnswers_QueueInOrder_AreSaved_AndTakenOnce()
+    {
+        var a = new Allegiance();
+        a.Answered(Power.Empire, PowerStance.Ally, 30);
+        a.Answered(Rival, PowerStance.Ally, 30);
+
+        var saving = new DictionaryArchive(ArchiveMode.Saving);
+        a.Expose(saving);
+        var loaded = new Allegiance();
+        loaded.Expose(new DictionaryArchive(ArchiveMode.Loading, saving.Data));
+
+        Assert.Equal([Power.Empire.Id, Rival.Id], loaded.TakeAnswers().Select(e => e.Power));
+        Assert.Empty(loaded.TakeAnswers());
+    }
+
+    [Fact]
+    public void TheLaterOfTwoAllyAnswers_Wins()
+    {
+        // As the daily sync applies them: in the order given.
+        var a = new Allegiance();
+        a.Answered(Power.Empire, PowerStance.Ally, 30);
+        a.Answered(Rival, PowerStance.Ally, 30);
+        foreach (var answer in a.TakeAnswers())
+        {
+            a.Set(Both.First(p => p.Id == answer.Power), answer.Stance, Both, 30, AllegianceCause.Plot);
+        }
+
+        Assert.Equal(Rival.Id, a.SideAmong(Both));
+        Assert.Equal(PowerStance.Oppose, a.StanceToward(Power.Empire));
+    }
+
+    [Theory]
+    [InlineData(PowerStance.Ally, PowerStance.Oppose, true)]
+    [InlineData(PowerStance.Neutral, PowerStance.Oppose, true)]
+    [InlineData(PowerStance.Oppose, PowerStance.Oppose, false)]
+    [InlineData(PowerStance.Neutral, PowerStance.Ally, false)]
+    public void TurnsAgainst_OnlyWhenThePowerBecomesAnEnemy(string was, string now, bool expected) =>
+        Assert.Equal(expected, Allegiance.TurnsAgainst(was, now));
+
+    [Fact]
+    public void Letters_SayWhatSwitchingSidesMeans()
+    {
+        Assert.Equal("Stay with the Empire", AllegianceText.StayWith(Power.Empire));
+        Assert.Equal("Break with the Empire and stand with the Hollow Choir", AllegianceText.BreakWith(Power.Empire, Power.Choir));
+        Assert.Contains("Wyrmfold already stands with the Shattered Empire", AllegianceText.EnvoyAside("the Shattered Empire", "Wyrmfold"));
+
+        var (label, text) = AllegianceText.TurnedAgainst("the Shattered Empire", "the Hollow Choir", true, "Wyrmfold");
+        Assert.Equal("The Shattered Empire turns on Wyrmfold", label);
+        Assert.Contains("broken its alliance", text);
+        Assert.Equal("The Shattered Empire takes note", AllegianceText.TurnedAgainst("the Shattered Empire", "the Hollow Choir", false, "Wyrmfold").Label);
+    }
 }

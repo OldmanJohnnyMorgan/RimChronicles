@@ -22,7 +22,28 @@ public static class AllegianceDriver
     public static void Daily(RimChroniclesGameComponent component)
     {
         var today = GenDate.DaysPassed;
-        foreach (var power in PowerFactions.Running)
+        var running = PowerFactions.Running;
+        var start = running.ToDictionary(p => p, p => component.Allegiance.StanceToward(p));
+        var turnedByRival = new HashSet<Power>();
+
+        // Envoy answers first, in the order the colony gave them: an earlier answer may have turned the other power's
+        // plot against the colony, and a later answer to that power's envoy wins.
+        foreach (var answer in component.Allegiance.TakeAnswers())
+        {
+            if (running.FirstOrDefault(p => p.Id == answer.Power) is not { } power)
+            {
+                continue;
+            }
+
+            if (PlotOf(component, power) is { } plot)
+            {
+                plot.SetFact(PowerArc.Stance, answer.Stance);
+            }
+
+            Sync(component, power, answer.Stance, running, today, turnedByRival);
+        }
+
+        foreach (var power in running)
         {
             if (PlotOf(component, power) is not { } plot
                 || plot.Fact(PowerArc.Stance) is not { Length: > 0 } stance
@@ -31,10 +52,51 @@ public static class AllegianceDriver
                 continue;
             }
 
-            // The power's own plot set this stance and its driver moved the goodwill; only the rivals need updating.
-            var changes = component.Allegiance.Set(power, stance, PowerFactions.Running, today, AllegianceCause.Plot);
-            Apply(component, changes.Where(c => c.Power != power), today);
+            Sync(component, power, stance, running, today, turnedByRival);
         }
+
+        Announce(component, start, turnedByRival, running, today);
+    }
+
+    /// <summary>One letter for each power that ends the day the colony's enemy because the colony sided with another
+    /// (the net result, so two answers on one day don't send a letter the second undoes).</summary>
+    private static void Announce(RimChroniclesGameComponent component, Dictionary<Power, string> start, HashSet<Power> turnedByRival,
+        IReadOnlyList<Power> running, int today)
+    {
+        if (running.FirstOrDefault(p => component.Allegiance.StanceToward(p) == PowerStance.Ally) is not { } side)
+        {
+            return;
+        }
+
+        foreach (var enemy in turnedByRival.Where(p => p != side))
+        {
+            var was = start.GetValueOrDefault(enemy, PowerStance.Neutral);
+            if (!Allegiance.TurnsAgainst(was, component.Allegiance.StanceToward(enemy)) || PowerFactions.Of(enemy) is not { } faction)
+            {
+                continue;
+            }
+
+            var (label, text) = AllegianceText.TurnedAgainst(faction.Name, PowerFactions.Of(side)?.Name ?? side.DisplayName,
+                was == PowerStance.Ally, Faction.OfPlayer.Name);
+            PlotOf(component, enemy)?.Tell(today, label, text);
+            Engine.StoryLetters.Send(label, text, LetterDefOf.ThreatBig, faction: faction);
+        }
+    }
+
+    /// <summary>Brings a stance a power's plot set into the allegiance. The power's own driver moves its goodwill; the
+    /// rivals' plots and goodwill are updated here, and the rivals it turned are noted for the day's letters.</summary>
+    private static void Sync(RimChroniclesGameComponent component, Power power, string stance, IReadOnlyList<Power> running, int today,
+        HashSet<Power> turnedByRival)
+    {
+        if (component.Allegiance.StanceToward(power) == stance)
+        {
+            return;
+        }
+
+        var changes = component.Allegiance.Set(power, stance, running, today, AllegianceCause.Plot);
+        var rivals = changes.Where(c => c.Power != power).ToList();
+        Apply(component, rivals, today);
+        turnedByRival.UnionWith(rivals.Select(c => c.Power));
     }
 
     /// <summary>Writes each changed stance into that power's plot and, once the plot is past its envoy, moves the

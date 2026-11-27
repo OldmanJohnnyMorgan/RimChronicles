@@ -75,12 +75,13 @@ public static class ChoirBeats
             case PowerStep.Envoy:
             {
                 var (label, text) = ChoirLetters.Envoy(choir.Name, Colony);
-                ChoiceLetter_Plot.Send(plot, PowerArc.Stance, label, text,
+                var offer = Powers.EnvoyChoices.For(component, Choir, text, Colony,
                 [
                     new PlotChoice("Stand with the Choir", PowerStance.Ally),
                     new PlotChoice("Stand against it", PowerStance.Oppose),
                     new PlotChoice("Keep out of it", PowerStance.Neutral),
-                ], PowerArc.EnvoyTimeoutDays, "the colony keeps out of it", choir);
+                ], "the colony keeps out of it");
+                ChoiceLetter_Plot.Send(plot, PowerArc.Stance, label, offer.Text, offer.Choices, PowerArc.EnvoyTimeoutDays, offer.IfUnanswered, choir);
                 component.Plots.Advance(plot, PlotBeat.Hook, today, PowerArc.EnvoyTimeoutDays + 1, "Act 1: the envoy asks the colony's stance");
                 return true;
             }

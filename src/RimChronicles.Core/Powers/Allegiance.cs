@@ -59,6 +59,26 @@ public sealed class Allegiance : IArchivable
     /// <summary>"Day N: what changed", oldest first.</summary>
     public List<string> Log = [];
 
+    /// <summary>Stance answers the colony gave in envoy letters, in the order given, waiting for the daily sync (so the
+    /// later of two answers wins, whichever power asked).</summary>
+    public List<PowerStanceEntry> Answers = [];
+
+    /// <summary>Queues an envoy letter's answer for the daily sync.</summary>
+    public void Answered(Power power, string stance, int day) =>
+        Answers.Add(new PowerStanceEntry { Power = power.Id, Stance = stance, Day = day, Cause = AllegianceCause.Plot });
+
+    /// <summary>The queued answers, oldest first, and clears the queue.</summary>
+    public IReadOnlyList<PowerStanceEntry> TakeAnswers()
+    {
+        var answers = Answers;
+        Answers = [];
+        return answers;
+    }
+
+    /// <summary>True when a change from <paramref name="was"/> to <paramref name="now"/> makes the power the colony's
+    /// enemy: the game tells the player with a letter.</summary>
+    public static bool TurnsAgainst(string was, string now) => now == PowerStance.Oppose && was != PowerStance.Oppose;
+
     /// <summary>The colony's stance toward <paramref name="power"/>: neutral until something sets it.</summary>
     public string StanceToward(Power power) => Entry(power.Id)?.Stance ?? PowerStance.Neutral;
 
@@ -137,7 +157,9 @@ public sealed class Allegiance : IArchivable
     {
         archive.DeepList(ref Stances, "stances");
         archive.Strings(ref Log, "log");
+        archive.DeepList(ref Answers, "answers");
         Stances ??= [];
         Log ??= [];
+        Answers ??= [];
     }
 }
