@@ -271,6 +271,13 @@ came back.
       **Crisis: Stellarch state** shows the same name, still kept, and the log has no reference errors.
 - [ ] 7. **Choir crisis: First Voice state** after the First Voice leaves a map: "kept as a world pawn: yes".
 
+**One failure no longer stops the day (code review fixes 2 and 3).** The daily drivers each run on their own, and every
+Harmony patch catches its own errors, so one bug can't silence the plots, crises and news after it.
+
+- [ ] 8. **Dev: fail next daily step**, then let a day pass. The log has one "Daily step dev fault failed" error, and
+      **Dev: daily step failures** names it. That day's news, plot beats and crisis checks still happen.
+- [ ] 9. Next day: no new error, and **Dev: daily step failures** says nothing failed.
+
 ## Part 5: release prep (about 15 minutes, any time)
 
 What changed: the settings page can download models through Ollama, and the build can package the Workshop folder.
