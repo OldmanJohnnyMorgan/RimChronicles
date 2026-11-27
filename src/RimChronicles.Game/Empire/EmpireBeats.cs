@@ -61,12 +61,13 @@ public static class EmpireBeats
             case PowerStep.Envoy:
             {
                 var (label, text) = EmpireLetters.Envoy(empire.Name, Colony);
-                ChoiceLetter_Plot.Send(plot, PowerArc.Stance, label, text,
+                var offer = Powers.EnvoyChoices.For(component, Power.Empire, text, Colony,
                 [
                     new PlotChoice("Stand with the Empire", PowerStance.Ally),
                     new PlotChoice("Stand against it", PowerStance.Oppose),
                     new PlotChoice("Keep out of it", PowerStance.Neutral),
-                ], PowerArc.EnvoyTimeoutDays, "the colony keeps out of it", empire);
+                ], "the colony keeps out of it");
+                ChoiceLetter_Plot.Send(plot, PowerArc.Stance, label, offer.Text, offer.Choices, PowerArc.EnvoyTimeoutDays, offer.IfUnanswered, empire);
                 component.Plots.Advance(plot, PlotBeat.Hook, today, PowerArc.EnvoyTimeoutDays + 1, "Act 1: the envoy asks the colony's stance");
                 return true;
             }
