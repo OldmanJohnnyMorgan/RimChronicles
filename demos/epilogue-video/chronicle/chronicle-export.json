@@ -1,0 +1,81 @@
+{
+  "chronicle_version": 1,
+  "simulated": "A made-up game for the video demo: no real save wrote this. It follows the spec's export format (SPEC-epilogue-video-companion.md §3.6) and ends in harness snapshot snap-27-ending-independence.",
+  "header": {
+    "colony": "Varrowgate",
+    "colony_id": "varrowgate",
+    "founded": { "day": 0, "date": "1st of Aprimay, 5500" },
+    "ended": { "day": 1046, "date": "12th of Jugust, 5517" },
+    "ending": "IndependenceTotal",
+    "ending_title": "Total independence",
+    "roster_final": 16,
+    "reporter": { "name": "Ilse Varrow", "outlet": "the Rim Dispatch", "title": "Correspondent" }
+  },
+  "factions": [
+    { "id": "faction-colony", "name": "Varrowgate", "kind": "Colony", "colours": ["#7fb069", "#2f4a2a"] },
+    { "id": "faction-empire", "name": "The Shattered Empire", "kind": "Empire", "colours": ["#8a5cc2", "#e3b04b"] },
+    { "id": "faction-choir", "name": "The Hollow Choir", "kind": "HollowChoir", "self_name": "the Chorus", "colours": ["#3fd0c9", "#16323a"] },
+    { "id": "faction-pirates", "name": "The Ashfang Raiders", "kind": "Pirates", "colours": ["#a8553a", "#2a1a14"] },
+    { "id": "faction-coast", "name": "The Free Coast Alliance", "kind": "Outlanders", "colours": ["#5b8fc7", "#1d2c40"] }
+  ],
+  "pawns": [
+    { "id": "pawn-cassia", "name": "Cassia", "pronoun": "she", "age_at_end": 50, "traits": ["Iron-willed", "Too smart"], "backstory": "Noble", "role": "Leader", "founder": true },
+    { "id": "pawn-henrik", "name": "Henrik", "pronoun": "he", "age_at_end": 43, "traits": ["Tough"], "backstory": "Soldier", "founder": true, "died": { "day": 1041, "event": "event-0016" } },
+    { "id": "pawn-mags", "name": "Mags", "pronoun": "they", "age_at_end": 36, "traits": ["Industrious"], "backstory": "Smith", "founder": true },
+    { "id": "pawn-aurel", "name": "Aurel", "pronoun": "he", "age_at_end": 29, "traits": ["Psychically sensitive"], "backstory": "Psycaster", "founder": true },
+    { "id": "pawn-bram", "name": "Bram", "pronoun": "he", "age_at_end": 31, "traits": ["Kind"], "backstory": "Farmer", "died": { "day": 452, "event": "event-0009" } },
+    { "id": "pawn-wren", "name": "Wren", "pronoun": "she", "age_at_end": 24, "traits": ["Careful shooter"], "backstory": "Hunter", "died": { "day": 701, "event": "event-0012" } }
+  ],
+  "entries": [
+    { "type": "appearance", "id": "look-cassia", "day": 0, "pawn": "pawn-cassia", "skin": "#e8c1a0", "hair": "#8e8a86", "hair_style": "bun", "apparel": "duster", "apparel_colours": ["#5a4a6e", "#433656"], "gear": "none" },
+    { "type": "appearance", "id": "look-henrik", "day": 0, "pawn": "pawn-henrik", "skin": "#c89670", "hair": "#2b2420", "hair_style": "crop", "beard": true, "apparel": "armor", "apparel_colours": ["#5d6b52", "#46523e"], "gear": "rifle" },
+    { "type": "appearance", "id": "look-mags", "day": 0, "pawn": "pawn-mags", "skin": "#a8704c", "hair": "#c0582e", "hair_style": "short", "apparel": "apron", "apparel_colours": ["#7a5a3a", "#5e4430"], "gear": "hammer" },
+    { "type": "appearance", "id": "look-aurel", "day": 0, "pawn": "pawn-aurel", "skin": "#f0d0b4", "hair": "#e8e2d0", "hair_style": "long", "apparel": "robe", "apparel_colours": ["#2f5f73", "#244a5a"], "gear": "staff" },
+    { "type": "appearance", "id": "look-bram", "day": 20, "pawn": "pawn-bram", "skin": "#d9a882", "hair": "#6b4a2a", "hair_style": "parted", "apparel": "tunic", "apparel_colours": ["#8a7a4a", "#6e6038"], "gear": "none" },
+    { "type": "appearance", "id": "look-wren", "day": 140, "pawn": "pawn-wren", "skin": "#7a4e34", "hair": "#1c1612", "hair_style": "long", "apparel": "tunic", "apparel_colours": ["#4a6a5a", "#38524a"], "gear": "bow" },
+    { "type": "appearance", "id": "look-henrik-end", "day": 1041, "pawn": "pawn-henrik", "skin": "#c89670", "hair": "#5a524c", "hair_style": "crop", "beard": true, "apparel": "armor", "apparel_colours": ["#5d6b52", "#46523e"], "gear": "rifle" },
+    { "type": "appearance", "id": "look-reporter", "day": 0, "pawn": "reporter", "skin": "#e9c4a6", "hair": "#9b3d22", "hair_style": "long", "apparel": "suit", "apparel_colours": ["#2e4a52", "#233a40"], "accent": "#c8312b", "gear": "mic" },
+
+    { "type": "event", "id": "event-0001", "day": 0, "kind": "Founding", "letter": "positive", "text": "Cassia, Henrik, Mags and Aurel founded Varrowgate.", "pawns": ["pawn-cassia", "pawn-henrik", "pawn-mags", "pawn-aurel"] },
+    { "type": "event", "id": "event-0002", "day": 38, "kind": "Raid", "letter": "threat", "text": "The Ashfang Raiders attacked Varrowgate. Henrik held the gate and the raid broke.", "factions": ["faction-pirates"], "pawns": ["pawn-henrik"] },
+    { "type": "empire", "id": "event-0003", "day": 92, "kind": "PowerWoke", "letter": "threat", "text": "The Shattered Empire woke. Its banners rose over the old holdings.", "factions": ["faction-empire"] },
+    { "type": "empire", "id": "event-0004", "day": 118, "kind": "PowerWoke", "letter": "threat", "text": "The Hollow Choir woke in the north. Its mechanites hum.", "factions": ["faction-choir"] },
+    { "type": "event", "id": "event-0005", "day": 160, "kind": "TitleGranted", "letter": "positive", "text": "The Shattered Empire made Cassia a Count.", "factions": ["faction-empire"], "pawns": ["pawn-cassia"] },
+    { "type": "plot", "id": "event-0006", "day": 244, "kind": "Beat", "plot": "choir-01", "beat": "Act2", "letter": "neutral", "text": "The Choir's envoy asked Varrowgate to join the Chorus. Varrowgate said no.", "factions": ["faction-choir"] },
+    { "type": "plot", "id": "event-0007", "day": 310, "kind": "Independence", "plot": "empire-01", "beat": "Independence", "letter": "positive", "text": "Varrowgate declared itself free of both powers. Cassia gave back her title.", "factions": ["faction-empire", "faction-choir"], "pawns": ["pawn-cassia"] },
+    { "type": "plot", "id": "event-0008", "day": 377, "kind": "CrisisBegan", "plot": "crisis-01", "beat": "Hook", "letter": "threat", "text": "The Imperial crisis began. The Empire sent probing raids against Varrowgate.", "factions": ["faction-empire"] },
+    { "type": "event", "id": "event-0009", "day": 452, "kind": "Death", "letter": "death", "text": "Choir mechs tunnelled up inside the walls. Bram was killed in the breach.", "factions": ["faction-choir"], "pawns": ["pawn-bram"] },
+    { "type": "plot", "id": "event-0010", "day": 600, "kind": "WarInHeaven", "plot": "war-01", "beat": "Complication", "letter": "threat", "text": "The War in Heaven began. The Empire and the Choir went to war, and Varrowgate stood against both.", "factions": ["faction-empire", "faction-choir"] },
+    { "type": "event", "id": "event-0011", "day": 655, "kind": "Siege", "letter": "threat", "text": "The Choir dropped a mech cluster on Varrowgate. Cassia held the walls.", "factions": ["faction-choir"], "pawns": ["pawn-cassia"], "battle": { "attackers": { "faction": "faction-choir", "count": 14, "lost": 14 }, "defenders": { "faction": "faction-colony", "count": 13, "lost": 0 }, "result": "held" } },
+    { "type": "event", "id": "event-0012", "day": 701, "kind": "Siege", "letter": "death", "text": "A second cluster siege. Cassia held the walls again. Wren was killed on the east wall.", "factions": ["faction-choir"], "pawns": ["pawn-cassia", "pawn-wren"], "battle": { "attackers": { "faction": "faction-choir", "count": 20, "lost": 20 }, "defenders": { "faction": "faction-colony", "count": 13, "lost": 1 }, "result": "held" } },
+    { "type": "plot", "id": "event-0013", "day": 790, "kind": "CapitalFell", "plot": "choir-01", "beat": "Broken", "letter": "positive", "text": "Aurel led the storming of the Cathedral. The Hollow Choir's Cathedral fell to Varrowgate.", "factions": ["faction-choir"], "pawns": ["pawn-aurel"], "battle": { "name": "The storming of the Cathedral", "attackers": { "faction": "faction-colony", "count": 9, "lost": 0 }, "defenders": { "faction": "faction-choir", "count": 24, "lost": 24 }, "result": "fell" } },
+    { "type": "plot", "id": "event-0014", "day": 806, "kind": "TreatyRefused", "plot": "empire-01", "beat": "Broken", "letter": "neutral", "text": "The Shattered Empire offered Varrowgate a treaty. Mags refused it.", "factions": ["faction-empire"], "pawns": ["pawn-mags"], "letter_title": "The Empire's treaty", "letter_body": "The Shattered Empire offers peace. Varrowgate keeps its walls and its people. In return, it bends the knee and flies the Empire's banner." },
+    { "type": "plot", "id": "event-0015", "day": 1030, "kind": "FinalPush", "plot": "war-01", "beat": "Complication", "letter": "threat", "text": "The final push opened. Varrowgate marched on the Imperial Citadel.", "factions": ["faction-empire"] },
+    { "type": "event", "id": "event-0016", "day": 1041, "kind": "Death", "letter": "death", "text": "At the Imperial Citadel, Henrik brought down the High Stellarch. Henrik died in the fighting.", "factions": ["faction-empire"], "pawns": ["pawn-henrik"] },
+    { "type": "plot", "id": "event-0017", "day": 1043, "kind": "CapitalFell", "plot": "empire-01", "beat": "Broken", "letter": "positive", "text": "The Imperial Citadel fell to Varrowgate.", "factions": ["faction-empire"], "pawns": ["pawn-henrik"], "battle": { "name": "The assault on the Imperial Citadel", "attackers": { "faction": "faction-colony", "count": 11, "lost": 1 }, "defenders": { "faction": "faction-empire", "count": 26, "lost": 26 }, "result": "fell" } },
+    { "type": "plot", "id": "event-0018", "day": 1046, "kind": "Ending", "plot": "war-01", "beat": "Ending", "letter": "positive", "text": "Varrowgate brought down both great powers, the Shattered Empire and the Hollow Choir. No one is left on the rim to rule it." },
+
+    { "type": "director", "id": "director-0412", "day": 788, "plot": "choir-01", "choice": "Choir:AssaultCathedral", "reason": "The Choir is breaking and Varrowgate is steady, with thirteen people. It is time to take the Cathedral.", "model": "rimchron-director-e4b", "prompt": "director/v2" },
+    { "type": "director", "id": "director-0430", "day": 805, "plot": "empire-01", "choice": "Empire:Treaty", "reason": "The Choir has fallen. The Empire stands alone and offers the treaty the rubric gives a survivor.", "model": "rimchron-director-e4b", "prompt": "director/v2" },
+
+    { "type": "colony", "id": "colony-history", "series": [[0, 4, 9000], [100, 6, 31000], [200, 8, 72000], [300, 10, 118000], [450, 11, 164000], [600, 13, 241000], [700, 13, 287000], [800, 14, 352000], [900, 15, 440000], [1046, 16, 610000]], "columns": ["day", "population", "wealth"] },
+
+    { "type": "bulletin", "id": "bulletin-0031", "day": 93, "dateline": "Day 93 · Septober · 5501", "location": "Filed from the old Imperial holdings", "headline": "The Empire wakes", "kicker": "The holdings were not consulted", "ticker": ["Imperial banners raised over three old forts", "Ashfang Raiders quiet since Varrowgate's gate held", "Caravans report clear roads through the eastern pass"], "narration": ["The Shattered Empire has woken from a very long nap and would like its holdings back.", "The holdings have not been consulted."] },
+    { "type": "bulletin", "id": "bulletin-0104", "day": 311, "dateline": "Day 311 · Aprimay · 5505", "location": "Filed from outside Varrowgate", "headline": "Varrowgate goes it alone", "kicker": "Free of the Empire and the Choir both", "ticker": ["Count Cassia returns her title", "The Choir's hum heard further south", "Imperial envoy leaves Varrowgate early"], "narration": ["Varrowgate has declared itself free of the Empire and the Choir both.", "Both powers have noted this. Neither has sent flowers."] },
+    { "type": "bulletin", "id": "bulletin-0200", "day": 601, "dateline": "Day 601 · Aprimay · 5510", "location": "Filed from a cellar", "headline": "War in Heaven", "kicker": "The Empire and the Choir are at war", "ticker": ["Imperial legions march north", "Mech clusters fall across the rim", "Varrowgate stands against both"], "narration": ["The Empire and the Choir are at war.", "Everyone else on the rim is advised to stay indoors. Or, failing that, underground."] },
+    { "type": "bulletin", "id": "bulletin-0264", "day": 791, "dateline": "Day 791 · Aprimay · 5513", "location": "Filed from the north", "headline": "The Cathedral falls", "kicker": "The Hollow Choir is broken", "ticker": ["The Choir's hum falls silent", "The Shattered Empire sends an envoy", "Varrowgate counts its dead and its mechs"], "narration": ["The Hollow Choir's Cathedral has fallen to Varrowgate.", "For once, the north is quiet."] },
+    { "type": "bulletin", "id": "bulletin-0348", "day": 1044, "dateline": "Day 1044 · Jugust · 5517", "location": "Filed from the Imperial Citadel", "headline": "The Citadel falls", "kicker": "The rim has no masters tonight", "ticker": ["The High Stellarch is dead", "Imperial banners come down across the rim", "Varrowgate buries Henrik"], "narration": ["The Imperial Citadel has fallen to Varrowgate.", "The rim has no masters tonight. It is not yet clear whether it wants new ones."] }
+  ],
+  "sealed": {
+    "day": 1046,
+    "ending": "IndependenceTotal",
+    "ending_title": "Total independence",
+    "memorial": ["pawn-bram", "pawn-wren", "pawn-henrik"],
+    "epilogue": {
+      "prompt": "epilogue/v3",
+      "snapshot": "snap-27-ending-independence",
+      "model": "simulated: written by Claude Code to the epilogue/v3 rules (no model server in the codespace)",
+      "text": "Varrowgate declared itself free of both powers. When the War in Heaven began on day 600, it stood against the Empire and the Choir alike. The Hollow Choir's Cathedral fell to Varrowgate. The Shattered Empire offered a treaty, and Varrowgate refused it. Then the Imperial Citadel fell too.\n\nAurel led the storming of the Cathedral. Cassia held the walls against the cluster sieges. Henrik brought down the High Stellarch. He did not live to see the end. Mags refused the Empire's treaty.\n\nVarrowgate answers to no one now. Its walls still stand, scarred and patched. At night the sky above it is quiet, and the colonists sleep."
+    }
+  }
+}
