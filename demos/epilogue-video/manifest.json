@@ -1,0 +1,217 @@
+{
+  "manifest_version": 1,
+  "title": "Varrowgate: Total Independence",
+  "chronicle": "chronicle/chronicle-export.json",
+  "format": "16:9",
+  "fps": 30,
+  "duration_range": [
+    60,
+    180
+  ],
+  "shots": [
+    {
+      "template": "news_bulletin",
+      "duration": 17,
+      "slots": {
+        "bulletin": "bulletin-0348",
+        "variant": "full",
+        "voice": "news"
+      }
+    },
+    {
+      "template": "title_card",
+      "duration": 5,
+      "slots": {
+        "title": "Varrowgate",
+        "subtitle": "5500–5517",
+        "voice": "narrator",
+        "narration": [
+          "It began seventeen years earlier, with four people."
+        ]
+      }
+    },
+    {
+      "template": "colony_card",
+      "duration": 10,
+      "slots": {
+        "event": "event-0001",
+        "history": "colony-history",
+        "voice": "narrator",
+        "narration": [
+          "Cassia, Henrik, Mags and Aurel founded Varrowgate.",
+          "By the end, sixteen people called it home."
+        ]
+      }
+    },
+    {
+      "template": "empire_map",
+      "duration": 9,
+      "slots": {
+        "events": [
+          "event-0003",
+          "event-0004"
+        ],
+        "stage": "woke",
+        "voice": "narrator",
+        "narration": [
+          "Then the great powers woke.",
+          "First the Shattered Empire. Then the Hollow Choir, in the north."
+        ]
+      }
+    },
+    {
+      "template": "event_timeline",
+      "duration": 13,
+      "slots": {
+        "events": [
+          "event-0005",
+          "event-0006",
+          "event-0007"
+        ],
+        "voice": "narrator",
+        "narration": [
+          "The Empire made Cassia a Count. The Choir asked Varrowgate to join the Chorus.",
+          "On day 310, Varrowgate declared itself free of both. Cassia gave back her title."
+        ]
+      }
+    },
+    {
+      "template": "news_bulletin",
+      "duration": 10,
+      "slots": {
+        "bulletin": "bulletin-0104",
+        "variant": "short",
+        "voice": "news"
+      }
+    },
+    {
+      "template": "empire_map",
+      "duration": 12,
+      "slots": {
+        "events": [
+          "event-0008",
+          "event-0009",
+          "event-0010"
+        ],
+        "stage": "war",
+        "voice": "narrator",
+        "narration": [
+          "Both powers came for Varrowgate. Choir mechs tunnelled up inside the walls, and Bram was killed.",
+          "On day 600, the War in Heaven began."
+        ]
+      }
+    },
+    {
+      "template": "battle_report",
+      "duration": 11,
+      "slots": {
+        "events": [
+          "event-0011",
+          "event-0012"
+        ],
+        "title": "The cluster sieges",
+        "voice": "narrator",
+        "narration": [
+          "The Choir dropped mech clusters on Varrowgate. Twice, Cassia held the walls.",
+          "Wren was killed on the east wall."
+        ]
+      }
+    },
+    {
+      "template": "battle_report",
+      "duration": 10,
+      "slots": {
+        "events": [
+          "event-0013"
+        ],
+        "voice": "narrator",
+        "narration": [
+          "On day 790, Aurel led the storming of the Cathedral.",
+          "The Hollow Choir's Cathedral fell."
+        ]
+      }
+    },
+    {
+      "template": "letter_card",
+      "duration": 8,
+      "slots": {
+        "event": "event-0014",
+        "pawn": "pawn-mags",
+        "choice": "Refuse",
+        "voice": "narrator",
+        "narration": [
+          "The Shattered Empire offered a treaty.",
+          "Mags refused it."
+        ]
+      }
+    },
+    {
+      "template": "battle_report",
+      "duration": 12,
+      "slots": {
+        "events": [
+          "event-0015",
+          "event-0016",
+          "event-0017"
+        ],
+        "voice": "narrator",
+        "narration": [
+          "On day 1030, Varrowgate marched on the Imperial Citadel.",
+          "Henrik brought down the High Stellarch. The Citadel fell, and Henrik died in the fighting."
+        ],
+        "reveal_at": [
+          0.8,
+          9.2,
+          5.0
+        ]
+      }
+    },
+    {
+      "template": "pawn_tribute",
+      "duration": 7,
+      "slots": {
+        "pawn": "pawn-henrik",
+        "appearance": "look-henrik-end",
+        "caption": "Held the gate in the first raid. Brought down the High Stellarch.",
+        "events": [
+          "event-0002",
+          "event-0016"
+        ]
+      }
+    },
+    {
+      "template": "ending_card",
+      "duration": 43,
+      "slots": {
+        "epilogue": "sealed.epilogue",
+        "voice": "narrator",
+        "read_aloud": true
+      }
+    },
+    {
+      "template": "memorial_roll",
+      "duration": 7,
+      "slots": {
+        "pawns": [
+          "pawn-bram",
+          "pawn-wren",
+          "pawn-henrik"
+        ],
+        "voice": "narrator",
+        "narration": [
+          "Bram, Wren and Henrik did not see the end."
+        ]
+      }
+    },
+    {
+      "template": "credits",
+      "duration": 5,
+      "slots": {
+        "lines": [
+          "Made with Rim Chronicles",
+          "A mod for RimWorld"
+        ]
+      }
+    }
+  ]
+}

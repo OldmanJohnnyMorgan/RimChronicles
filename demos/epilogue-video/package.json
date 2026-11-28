@@ -1,0 +1,23 @@
+{
+  "name": "rimchronicles-epilogue-video",
+  "private": true,
+  "type": "module",
+  "description": "Rim Chronicles epilogue video demo: a chronicle export and a shot manifest rendered with Remotion",
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "audio": "node scripts/make-audio.mjs",
+    "studio": "remotion studio src/index.js",
+    "render": "node scripts/validate.mjs && node scripts/make-audio.mjs && remotion render src/index.js Epilogue out/varrowgate.mp4",
+    "still": "remotion still src/index.js Epilogue"
+  },
+  "dependencies": {
+    "@fontsource/anonymous-pro": "5.3.0",
+    "@fontsource/anton": "5.3.0",
+    "@fontsource/fira-sans": "5.3.0",
+    "@remotion/cli": "4.0.547",
+    "@remotion/renderer": "4.0.547",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "remotion": "4.0.547"
+  }
+}
