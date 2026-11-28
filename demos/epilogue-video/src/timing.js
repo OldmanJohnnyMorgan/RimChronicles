@@ -1,5 +1,5 @@
-// Shared by the Remotion templates and the Node scripts (validate, make-audio), so captions,
-// murmurs and music all agree on when each line plays.
+// Shared by the Remotion templates and the Node scripts (validate, make-audio), so subtitles,
+// letters and music all agree on when each line shows.
 
 export const QUADRUMS = ['Aprimay', 'Jugust', 'Septober', 'Decembary'];
 const ORD = (n) => {

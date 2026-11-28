@@ -1,6 +1,6 @@
 // Synthesizes the video's sound from the manifest: no TTS, no samples, no ffmpeg.
-//   public/audio/voice.wav  murmurs: wordless, speech-like babble timed to each caption line
-//   public/audio/music.wav  score + stings + letter chimes, ducked under the murmurs
+//   public/audio/music.wav  score + stings + letter chimes, following each shot's mood
+// There is no voice track: narration is subtitles only.
 // Deterministic: the same manifest always gives the same audio.
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
@@ -51,68 +51,6 @@ const writeWav = (path, buf, gain = 1) => {
   for (let i = 0; i < buf.length; i++) out.writeInt16LE(Math.round(Math.tanh(buf[i] * gain) * 32000), 44 + i * 2);
   writeFileSync(path, out);
 };
-
-// ── murmurs ───────────────────────────────────────────────────────────
-// Vowel formants (F1, F2, F3), roughly a e i o u and two schwa-ish blends.
-const VOWELS = [[730, 1090, 2440], [530, 1840, 2480], [390, 1990, 2550], [570, 840, 2410], [440, 1020, 2240], [600, 1200, 2400], [500, 1500, 2500]];
-const VOICES = {
-  narrator: { f0: 104, spread: 0.10, gain: 0.55, bright: 1.0 },
-  news: { f0: 182, spread: 0.13, gain: 0.5, bright: 1.12 },
-};
-const syllables = (word) => Math.max(1, (word.toLowerCase().match(/[aeiouy]+/g) || []).length - (/[^aeiou]e$/i.test(word) ? 1 : 0)) || 1;
-
-const voice = new Float32Array(N);
-const renderLine = (line) => {
-  const v = VOICES[line.voice];
-  const start = line.absStart, dur = (line.absEnd - line.absStart) - 0.3;
-  const wordsList = line.text.split(/\s+/).filter(Boolean);
-  const plan = wordsList.map((w) => ({ n: Math.min(4, syllables(w)), pause: /[.,;:!?]$/.test(w) ? (/[.!?]$/.test(w) ? 0.22 : 0.12) : 0.045 }));
-  const sylCount = plan.reduce((a, p) => a + p.n, 0);
-  const pauses = plan.reduce((a, p) => a + p.pause, 0);
-  const syl = Math.max(0.085, Math.min(0.22, (dur - pauses) / sylCount));
-  const question = /\?\s*$/.test(line.text);
-  let t = start, k = 0;
-  const f1 = biquad('bp', 500, 5), f2 = biquad('bp', 1500, 7), f3 = biquad('bp', 2500, 9);
-  let phase = 0;
-  plan.forEach((p, wi) => {
-    for (let s = 0; s < p.n; s++, k++) {
-      const len = syl * rr(0.8, 1.2) * (s === p.n - 1 ? 1.1 : 0.92);
-      const prog = k / Math.max(1, sylCount - 1);
-      const lastWord = wi === plan.length - 1 && s === p.n - 1;
-      let pitch = v.f0 * (1 + 0.09 - 0.16 * prog) * (1 + rr(-v.spread, v.spread));
-      if (lastWord) pitch *= question ? 1.22 : 0.84;
-      const vow = VOWELS[Math.floor(rnd() * VOWELS.length)];
-      f1.set(vow[0] * v.bright, 5); f2.set(vow[1] * v.bright, 7); f3.set(vow[2] * v.bright, 9);
-      const amp = rr(0.7, 1) * (s === 0 ? 1 : 0.85);
-      const consonant = rnd() < 0.55 ? rr(0.012, 0.03) : 0;
-      const i0 = Math.floor(t * SR), n = Math.floor(len * SR);
-      for (let i = 0; i < n && i0 + i < N; i++) {
-        const tt = i / SR;
-        const env = Math.min(1, tt / 0.018) * Math.min(1, (len - tt) / 0.045) ** 1.3;
-        const f = pitch * (1 + 0.012 * Math.sin(2 * Math.PI * 5.2 * (t + tt))) * (1 - 0.05 * tt / len);
-        phase += f / SR; if (phase >= 1) phase -= 1;
-        // soft glottal pulse: a saw with a rounded edge
-        const src = (2 * phase - 1) - 0.35 * Math.sin(2 * Math.PI * phase);
-        let x = f1(src) * 1.0 + f2(src) * 0.55 + f3(src) * 0.22;
-        if (tt < consonant) x += (rnd() * 2 - 1) * 0.35 * (1 - tt / consonant);
-        voice[i0 + i] += x * env * amp * v.gain;
-      }
-      t += len;
-    }
-    t += p.pause;
-  });
-};
-for (const shot of tl) for (const line of shot.lines) renderLine(line);
-
-// Post: the narrator is warm and muffled; the news voice sounds like a field radio.
-const narr = new Float32Array(N), news = new Float32Array(N);
-for (const shot of tl) for (const line of shot.lines) {
-  const a = Math.floor(line.absStart * SR), b = Math.min(N, Math.ceil(line.absEnd * SR));
-  for (let i = a; i < b; i++) (line.voice === 'news' ? news : narr)[i] = voice[i];
-}
-filterAll(narr, biquad('lp', 1900, 0.7), biquad('lp', 2400, 0.7), biquad('hp', 80, 0.7));
-filterAll(news, biquad('hp', 380, 0.8), biquad('lp', 3200, 0.9), (x) => Math.tanh(x * 2.2) * 0.6);
-for (let i = 0; i < N; i++) voice[i] = narr[i] + news[i];
 
 // ── music ─────────────────────────────────────────────────────────────
 const music = new Float32Array(N);
@@ -243,23 +181,13 @@ for (const s of tl) {
     chime(s.start + r.at, tone[0] + 12, 0.07, 1.0); chime(s.start + r.at + 0.12, tone[1] + 12, 0.06, 1.0);
   }
 }
-// Fade the score in and out, and duck it under every line.
-const duck = new Float32Array(N).fill(1);
-for (const s of tl) for (const l of s.lines) {
-  const a = Math.floor((l.absStart - 0.25) * SR), b = Math.floor((l.absEnd + 0.1) * SR);
-  for (let i = Math.max(0, a); i < Math.min(N, b); i++) duck[i] = 0.42;
-}
-let g = 1;
+// Fade the score in and out.
 const fadeEnd = totalSeconds(manifest);
 for (let i = 0; i < N; i++) {
-  g += (duck[i] - g) * 0.00015;
   const t = i / SR;
-  const fade = Math.min(1, t / 0.5, Math.max(0, (fadeEnd - t) / 3));
-  music[i] *= g * fade;
+  music[i] *= Math.min(1, t / 0.5, Math.max(0, (fadeEnd - t) / 3));
 }
 
 mkdirSync(resolve(root, 'public/audio'), { recursive: true });
-writeWav(resolve(root, 'public/audio/voice.wav'), voice, 1.8);
-writeWav(resolve(root, 'public/audio/music.wav'), music, 1.25);
-const lines = tl.reduce((a, s) => a + s.lines.length, 0);
-console.log(`audio: ${total.toFixed(0)} s, ${lines} murmured lines -> public/audio/voice.wav, music.wav`);
+writeWav(resolve(root, 'public/audio/music.wav'), music, 1.8);
+console.log(`audio: ${total.toFixed(0)} s -> public/audio/music.wav`);

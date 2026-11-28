@@ -13,7 +13,7 @@ export const Credits = ({ shot, data, t }) => {
         <div style={{ height: 4, width: 520, background: C.gold, margin: '18px auto 24px' }} />
         {rest.map((l) => <div key={l} style={{ fontFamily: SANS, fontSize: 36, color: C.gold }}>{l}</div>)}
         <div style={{ fontFamily: MONO, fontSize: 22, color: C.mute, marginTop: 50 }}>
-          The story of {data.header.colony}, from its chronicle · narration in murmurs, no voices
+          The story of {data.header.colony}, from its chronicle
         </div>
       </div>
     </AbsoluteFill>

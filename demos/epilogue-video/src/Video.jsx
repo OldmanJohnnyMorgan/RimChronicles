@@ -72,7 +72,6 @@ export const Video = ({ manifest, chronicle }) => {
         </Sequence>
       ))}
       <Audio src={staticFile('audio/music.wav')} />
-      <Audio src={staticFile('audio/voice.wav')} />
     </AbsoluteFill>
   );
 };

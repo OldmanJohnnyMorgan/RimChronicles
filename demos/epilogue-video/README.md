@@ -2,7 +2,7 @@
 
 A 3-minute example of the epilogue video from `docs/SPEC-video-companion-app/` (rev. 7: Claude is the companion).
 It plays the part the spec gives Claude: read a chronicle export, write a shot manifest, validate it, then render it with
-Remotion templates in a RimWorld-like style. Narration is subtitles plus synthesized murmurs: no text to speech.
+Remotion templates in a RimWorld-like style. Narration is subtitles only: no voice track and no text to speech.
 
 ## The simulated game
 
@@ -30,7 +30,7 @@ approved RCN look (spec §5.1).
 ```bash
 npm install
 npm run validate            # the manifest against the chronicle (spec §7)
-npm run audio               # synthesize public/audio/voice.wav and music.wav
+npm run audio               # synthesize public/audio/music.wav
 npm run studio              # live preview
 npm run render              # validate + audio + render out/varrowgate.mp4 (about 15 min on 2 cores)
 npx remotion still src/index.js Epilogue out/frame.png --frame=900   # one frame
@@ -43,18 +43,16 @@ npx remotion still src/index.js Epilogue out/frame.png --frame=900   # one frame
 | `chronicle/chronicle-export.json` | The input: header, factions, pawns, appearance entries, events, bulletins, director decisions, colony history, sealed ending and epilogue |
 | `manifest.json` | The shot list (spec §5): template, duration and slots per shot. This is the file Claude writes |
 | `scripts/validate.mjs` | Spec §7 checks: templates and durations, every id found, the voice rules, every line fits its shot, total length, and no proper noun or number in the narration that the chronicle doesn't have |
-| `scripts/make-audio.mjs` | Murmurs and music from the manifest, in plain Node (no ffmpeg, no samples) |
+| `scripts/make-audio.mjs` | The music from the manifest, in plain Node (no ffmpeg, no samples) |
 | `src/timing.js`, `src/reveal.js` | When each line is spoken and each letter lands; shared by the video and the audio, so they stay in sync |
 | `src/templates/` | The 11 templates in the spec's starting set (all but `quote_card`, with `letter_card` added) |
 | `src/components/` | `Pawn` (drawn from an `appearance` entry), `Mech` (the Choir's mechs, an original design), RimWorld-like windows, letters, date readout and captions, the hex world map |
 
-### Murmurs
+### Sound
 
-Each caption line is murmured: a pitched pulse through vowel formant filters, one syllable per vowel group in the text,
-with pauses at commas and full stops, falling pitch at the end of a sentence (rising for a question). The narrator is low
-and muffled; Ilse Varrow is higher, quicker and filtered like a field radio, so the two never sound alike. The music
-(plucked strings and a pad in D minor, drums for battles, stings for bulletins, a chime when a letter lands) follows each
-shot's mood and ducks under every line.
+No voices: every narration line is a subtitle, labelled with its speaker. A synthesized score (plucked strings and a pad
+in D minor, drums for battles, stings for bulletins, a chime when a letter lands) follows each shot's mood. A murmur
+track (wordless synthesized babble per line) was tried and dropped: it sounded bad.
 
 ### The look
 

@@ -3,7 +3,7 @@ import { AbsoluteFill, interpolate, useCurrentFrame, useVideoConfig } from 'remo
 import { C, DISPLAY, MONO, SANS, clamp, ease } from '../theme.js';
 
 // ending_card: the victory screen. The ending's name, then the epilogue paragraph by paragraph as the narrator
-// murmurs it; the paragraph being read is bright, the rest dim. Below, Varrowgate at night.
+// would read it; the paragraph being read is bright, the rest dim. Below, Varrowgate at night.
 
 const Skyline = ({ t }) => {
   const houses = [[60, 120, 160], [240, 90, 130], [360, 150, 200], [540, 80, 110], [660, 130, 240], [820, 100, 150], [960, 140, 180], [1130, 90, 120], [1250, 160, 220], [1440, 110, 140], [1580, 90, 170], [1700, 140, 130]];
