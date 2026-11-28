@@ -314,7 +314,7 @@ Built in `src/RimChronicles.Core/Crisis/` and `src/RimChronicles.Game/Crisis/`; 
   against the Empire (`stanceCause`: tribute, final demand or treaty) and the job count at that moment. These are plot
   facts, which the director's snapshot doesn't show, so the director's input is unchanged.
 - **Budget** (`ThreatBudget`, `ColonyStrength`): base points by stage 800 / 1,800 / 3,500 / 6,000 at a reference colony
-  (score 1,500: about ten fighters in fair gear and a dozen turrets), strength factor clamped to 0.6–1.8, difficulty =
+  (score 1,500: about ten fighters in fair gear and a dozen turrets), strength factor clamped to 0.3–1.8 (was 0.6–1.8; War in Heaven spec D15), difficulty =
   storyteller threat scale × the crisis difficulty setting (0.5–2), ×0.6 for a Broken Empire. 300,000 wealth counts for
   less than four fighters. All first guesses for C14.
 - **Operations** (`CrisisOperations`): the §5.2 list with the stage each unlocks at, weights and cooldowns. The arc

@@ -56,5 +56,27 @@ public static class ModelSlots
     /// (<see cref="TierPresets.KnowsCrisis"/>). False with no model at all: the crisis then picks by weight anyway.</summary>
     public static bool DirectorKnowsCrisis(Inputs s) => Director(s) is { } slot && TierPresets.KnowsCrisis(slot.Model);
 
+    /// <summary>Whether the deciding model may decide the Hollow Choir's plot, its crisis and the War in Heaven
+    /// (<see cref="TierPresets.KnowsWarInHeaven"/>). False with no model at all.</summary>
+    public static bool DirectorKnowsWarInHeaven(Inputs s) => Director(s) is { } slot && TierPresets.KnowsWarInHeaven(slot.Model);
+
+    /// <summary>The models to download for the settings window's Download model button: each set slot once, in order,
+    /// where the same model on the same server counts once (names compared as <see cref="TierPresets.BareName"/> does
+    /// not, since Ollama stores a namespaced name apart from a bare one).</summary>
+    public static IReadOnlyList<ModelSlot> Downloads(params ModelSlot?[] slots)
+    {
+        var seen = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        var list = new List<ModelSlot>();
+        foreach (var slot in slots)
+        {
+            if (slot is not null && seen.Add($"{TierPresets.EndpointUri(slot.Endpoint)}|{slot.Model.Trim()}"))
+            {
+                list.Add(slot);
+            }
+        }
+
+        return list;
+    }
+
     private static bool Blank(string? text) => string.IsNullOrWhiteSpace(text);
 }

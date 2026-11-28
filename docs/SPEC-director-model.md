@@ -252,7 +252,7 @@ Runs through the Stage 0 harness on the frozen test set, comparing: prompted bas
 | --- | --- | --- |
 | JSON validity | Parses, matches schema | 100% with grammar; ≥98% without |
 | Allowed choice | `choice` ∈ `allowed` | 100% with grammar; ≥98% without |
-| Top-1 agreement | Matches teacher's best | ≥85% of Claude self-agreement |
+| Top-1 agreement | Matches teacher's best | ≥80% of Claude self-agreement (85% until 2026-11-25; lowered by John once the crisis and War in Heaven test sets joined the original 500 cases, where most misses are close calls) |
 | Top-2 agreement | In teacher's top two | ≥95% |
 | Mean regret | Teacher's score of best minus score of chosen | ≤0.4 |
 | Lift over base | Top-1 vs. prompted base, same size | ≥+10 points |

@@ -9,7 +9,7 @@ namespace RimChronicles.Tests.Core;
 
 public class SiteTests
 {
-    private static readonly IReadOnlyList<PieceSource> Pieces = PieceXml.Load();
+    private static readonly IReadOnlyList<PieceSource> Pieces = PieceXml.For("empire");
 
     public static TheoryData<string> Archetypes => new(SiteXml.Load().Select(a => a.Name));
 

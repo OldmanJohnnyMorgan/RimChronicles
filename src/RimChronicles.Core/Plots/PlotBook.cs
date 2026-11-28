@@ -14,6 +14,10 @@ public sealed class PlotBook : IArchivable
     public const int MaxActive = 3;
     public const int NewPlotGapDays = 15;
     public const int BeatSpacingDays = 2;
+
+    /// <summary>A plot with a job under way (a quest, or a letter awaiting its answer) is checked this often, so the
+    /// job's result is applied the day after it ends instead of a whole beat gap later.</summary>
+    public const int JobCheckDays = 1;
     public const int MaxFinishedKept = 30;
 
     public List<Plot> Active = [];

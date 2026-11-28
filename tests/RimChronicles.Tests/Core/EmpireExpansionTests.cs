@@ -1,4 +1,5 @@
 using RimChronicles.Core.Empire;
+using RimChronicles.Core.Powers;
 using RimChronicles.Core.Persistence;
 using RimChronicles.Tests.TestSupport;
 
@@ -13,20 +14,74 @@ public class EmpireExpansionTests
     {
         var near = T("Near", 5);
         var far = T("Far", 50);
-        var outOfRange = T("Beyond", EmpireExpansion.RangeTiles + 1, 1);
-        Assert.True(EmpireExpansion.Weight(near) > EmpireExpansion.Weight(far));
-        Assert.True(EmpireExpansion.Weight(T("Weak", 20, 1)) > EmpireExpansion.Weight(T("Strong", 20, 5)));
+        var outOfRange = T("Beyond", PowerExpansion.RangeTiles + 1, 1);
+        Assert.True(PowerExpansion.Weight(near) > PowerExpansion.Weight(far));
+        Assert.True(PowerExpansion.Weight(T("Weak", 20, 1)) > PowerExpansion.Weight(T("Strong", 20, 5)));
 
-        var picks = Enumerable.Range(0, 100).Select(i => EmpireExpansion.PickTarget([near, far, outOfRange], i / 100.0)!.Name).ToList();
+        var picks = Enumerable.Range(0, 100).Select(i => PowerExpansion.PickTarget([near, far, outOfRange], i / 100.0)!.Name).ToList();
         Assert.DoesNotContain("Beyond", picks);
         Assert.True(picks.Count(p => p == "Near") > picks.Count(p => p == "Far"));
     }
 
     [Fact]
+    public void PickTarget_OverEvenlySpreadTargets_MostAttacksLandNearABase()
+    {
+        // One target per tile on a disc around a base, all owners alike: the share of attacks within 15 tiles.
+        var disc = new List<ExpansionTarget>();
+        for (var x = -40; x <= 40; x++)
+        {
+            for (var y = -40; y <= 40; y++)
+            {
+                var d = (float)Math.Sqrt(x * x + y * y);
+                if (d is > 0 and <= 40)
+                {
+                    disc.Add(new ExpansionTarget($"{x},{y}", $"{x},{y}", "the Ochre Hand", d, 3));
+                }
+            }
+        }
+
+        var picks = Enumerable.Range(0, 1000).Select(i => PowerExpansion.PickTarget(disc, (i + 0.5) / 1000)!).ToList();
+        Assert.DoesNotContain(picks, p => p.Distance > PowerExpansion.RangeTiles);
+        Assert.InRange(picks.Count(p => p.Distance <= 15) / 1000.0, 0.7, 0.85);
+    }
+
+    [Fact]
+    public void Weight_OwnerSizeIsATiebreak_AndTheFrontPullsTheNextAttack()
+    {
+        Assert.Equal(2.0, PowerExpansion.Weight(T("Weak", 10, 1)) / PowerExpansion.Weight(T("Strong", 10, 4)), 6);
+        Assert.True(PowerExpansion.Weight(T("Close strong", 5, 12)) > PowerExpansion.Weight(T("Far weak", 20, 2)));
+
+        var plain = PowerExpansion.Weight(T("A", 10));
+        Assert.Equal(1 + PowerExpansion.AdvanceBonus, PowerExpansion.Weight(T("A", 10) with { FromLastConquest = 0 }) / plain, 6);
+        Assert.Equal(1 + PowerExpansion.AdvanceBonus / 2, PowerExpansion.Weight(T("A", 10) with { FromLastConquest = PowerExpansion.FalloffTiles }) / plain, 6);
+    }
+
+    [Fact]
+    public void Bases_AreTheSettlementsNearTheColony_OrTheNearestFew()
+    {
+        float[] near = [10, 35, 41, 300];
+        Assert.Equal([10f, 35f], PowerExpansion.Bases(near, d => d));
+
+        float[] far = [500, 90, float.PositiveInfinity, 60, 70];
+        Assert.Equal([60f, 70f, 90f], PowerExpansion.Bases(far, d => d));
+    }
+
+    [Fact]
+    public void Saga_LastConquest_IsTheLatestSettlementTaken()
+    {
+        var saga = new PowerSaga();
+        Assert.Null(saga.LastConquest);
+        saga.Expanded(T("Marrow Hold", 12), ExpansionResult.Conquered, 67, 20, "the Empire");
+        saga.Expanded(T("Ashgrove", 12), ExpansionResult.Repelled, 87, 20, "the Empire");
+        saga.Expanded(T("Kettle", 12), ExpansionResult.Razed, 107, 20, "the Empire");
+        Assert.Equal("Marrow Hold", saga.LastConquest);
+    }
+
+    [Fact]
     public void PickTarget_TakesTheNearestWhenNoneInRange_AndNullWhenNone()
     {
-        Assert.Equal("B", EmpireExpansion.PickTarget([T("A", 90), T("B", 70)], 0.9)!.Name);
-        Assert.Null(EmpireExpansion.PickTarget([], 0.5));
+        Assert.Equal("B", PowerExpansion.PickTarget([T("A", 90), T("B", 70)], 0.9)!.Name);
+        Assert.Null(PowerExpansion.PickTarget([], 0.5));
     }
 
     [Fact]
@@ -34,26 +89,26 @@ public class EmpireExpansionTests
     {
         var weak = T("W", 10, 1);
         var strong = T("S", 10, 6);
-        Assert.Equal(0.20, EmpireExpansion.RepelChance(weak), 3);
-        Assert.Equal(0.45, EmpireExpansion.RepelChance(strong), 3);
+        Assert.Equal(0.20, PowerExpansion.RepelChance(weak), 3);
+        Assert.Equal(0.45, PowerExpansion.RepelChance(strong), 3);
 
-        Assert.Equal(ExpansionResult.Repelled, EmpireExpansion.PickResult(weak, 0.1));
-        Assert.Equal(ExpansionResult.Razed, EmpireExpansion.PickResult(weak, 0.3));
-        Assert.Equal(ExpansionResult.Conquered, EmpireExpansion.PickResult(weak, 0.5));
-        Assert.Equal(ExpansionResult.Repelled, EmpireExpansion.PickResult(strong, 0.4));
+        Assert.Equal(ExpansionResult.Repelled, PowerExpansion.PickResult(weak, 0.1));
+        Assert.Equal(ExpansionResult.Razed, PowerExpansion.PickResult(weak, 0.3));
+        Assert.Equal(ExpansionResult.Conquered, PowerExpansion.PickResult(weak, 0.5));
+        Assert.Equal(ExpansionResult.Repelled, PowerExpansion.PickResult(strong, 0.4));
     }
 
     [Fact]
     public void Saga_ExpandsOnlyWhenAwake_OnItsTimer()
     {
-        var saga = new EmpireSaga();
+        var saga = new PowerSaga();
         Assert.False(saga.ExpansionDue(500));
         saga.Awaken(AwakeningTrigger.Dev, "", 40, 20, "Wyrmfold");
         Assert.False(saga.ExpansionDue(500));
 
         saga.Wake(60, "the Empire");
-        Assert.False(saga.ExpansionDue(60 + EmpireExpansion.FirstAttackDays - 1));
-        Assert.True(saga.ExpansionDue(60 + EmpireExpansion.FirstAttackDays));
+        Assert.False(saga.ExpansionDue(60 + PowerExpansion.FirstAttackDays - 1));
+        Assert.True(saga.ExpansionDue(60 + PowerExpansion.FirstAttackDays));
 
         var ev = saga.Expanded(T("Marrow Hold", 12), ExpansionResult.Conquered, 67, 20, "the Empire");
         Assert.Equal("the Empire took Marrow Hold from the Ochre Hand", ev.NewsText);
@@ -65,17 +120,32 @@ public class EmpireExpansionTests
     [Fact]
     public void Saga_SavesExpansions()
     {
-        var saga = new EmpireSaga();
+        var saga = new PowerSaga();
         saga.Awaken(AwakeningTrigger.Dev, "", 40, 20, "Wyrmfold");
         saga.Wake(60, "the Empire");
         saga.Expanded(T("Marrow Hold", 12), ExpansionResult.Razed, 67, 20, "the Empire");
         var saving = new DictionaryArchive(ArchiveMode.Saving);
         saga.Expose(saving);
 
-        var loaded = new EmpireSaga();
+        var loaded = new PowerSaga();
         loaded.Expose(new DictionaryArchive(ArchiveMode.Loading, saving.Data));
         Assert.Equal(87, loaded.NextExpansionDay);
         var record = Assert.Single(loaded.Expansions);
         Assert.Equal(("Marrow Hold", ExpansionResult.Razed), (record.Settlement, record.Result));
     }
+
+    [Fact]
+    public void PickResult_OverEvenRolls_TakesOrRazesMostAttacks()
+    {
+        var strong = new ExpansionTarget("1", "Hatte", "the Venom Gang", 20, 12);
+        var results = Enumerable.Range(0, 1000).Select(i => PowerExpansion.PickResult(strong, (i + 0.5) / 1000)).ToList();
+        Assert.Equal(450, results.Count(r => r == ExpansionResult.Repelled));
+        Assert.Equal(200, results.Count(r => r == ExpansionResult.Razed));
+        Assert.Equal(350, results.Count(r => r == ExpansionResult.Conquered));
+    }
+
+    [Fact]
+    public void Odds_ShowsTheRollsAndThresholds() =>
+        Assert.Equal("Result roll 0.123: repelled below 0.30, razed below 0.50, else taken (the Venom Gang holds 3; 20 tiles; target roll 0.500 of 7 in reach).",
+            PowerExpansion.Odds(new ExpansionTarget("1", "Hatte", "the Venom Gang", 20, 3), 7, 0.5, 0.123));
 }

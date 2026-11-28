@@ -85,6 +85,15 @@ public static class PsykerLog
 
     public static IEnumerable<Entry> Entries => Last.Values.OrderBy(e => e.Pawn);
 
+    /// <summary>Forgets the last game's decisions and casts (a new game reuses thing id numbers). Keeps <see cref="Debug"/>.</summary>
+    public static void Reset()
+    {
+        Last.Clear();
+        Chosen.Clear();
+        ChosenCasts = 0;
+        UnchosenCasts.Clear();
+    }
+
     public static void Record(Pawn pawn, PsykerDecision decision, ScoredCast? chosen)
     {
         var heat = pawn.psychicEntropy is { } e ? e.EntropyValue / Math.Max(1f, e.MaxEntropy) : 0;

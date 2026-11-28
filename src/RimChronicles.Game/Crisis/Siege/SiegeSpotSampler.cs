@@ -1,6 +1,7 @@
 using LudeonTK;
 using RimChronicles.Core.Crisis.Pieces;
 using RimChronicles.Core.Crisis.Siege;
+using RimChronicles.Core.Powers;
 using RimWorld;
 using Verse;
 using Verse.AI;
@@ -10,7 +11,8 @@ namespace RimChronicles.Game.Crisis.Siege;
 /// <summary>
 /// Samples candidate siege camp spots around the colony and measures each for Core's <see cref="SpotScorer"/> (tech
 /// spec §4.6): its distance, the colony turrets' and mortars' reach, cover on the line in, the line to the doors a
-/// probe found, open flanks, and ground to build on. Replaces vanilla's <c>SiegeBlueprintPlacer</c> for Empire sieges.
+/// probe found, open flanks, and ground to build on. Replaces vanilla's <c>SiegeBlueprintPlacer</c> for the Empire's
+/// sieges and the Choir's cluster sieges, each scored against its own power's probe report.
 /// Main thread only.
 /// </summary>
 public static class SiegeSpotSampler
@@ -134,19 +136,20 @@ public static class SiegeSpotSampler
         return (float)(diff > 180 ? 360 - diff : diff);
     }
 
-    /// <summary>The entrances the last probing raid reported, as map cells.</summary>
-    public static List<IntVec3> KnownEntrances() =>
-        RimChroniclesGameComponent.Current?.Crisis.Entrances.Select(e => new IntVec3(e.X, 0, e.Z)).ToList() ?? [];
+    /// <summary>The entrances <paramref name="power"/>'s last probing raid reported, as map cells. Each power has its
+    /// own: the Choir's probing swarms report to the Choir's crisis, and its cluster sieges use only that.</summary>
+    public static List<IntVec3> KnownEntrances(Power power) =>
+        RimChroniclesGameComponent.Current?.CrisisOf(power).Entrances.Select(e => new IntVec3(e.X, 0, e.Z)).ToList() ?? [];
 
-    /// <summary>The best camp spot on the map, or null when none qualifies.</summary>
-    public static (IntVec3 Spot, IntVec3 Centre, SpotScore Score)? Best(Map map)
+    /// <summary>The best spot on the map for <paramref name="power"/>'s siege camp, or null when none qualifies.</summary>
+    public static (IntVec3 Spot, IntVec3 Centre, SpotScore Score)? Best(Map map, Power power)
     {
         if (ColonyCentre(map) is not { } centre)
         {
             return null;
         }
 
-        var entrances = KnownEntrances().Where(e => e.InBounds(map)).ToList();
+        var entrances = KnownEntrances(power).Where(e => e.InBounds(map)).ToList();
         return SpotScorer.Best(Sample(map, centre, entrances)) is { } best
             ? (new IntVec3(best.Spot.Cell.X, 0, best.Spot.Cell.Z), centre, best)
             : null;
@@ -156,7 +159,13 @@ public static class SiegeSpotSampler
     /// brighter is better, x is ruled out, and the best spot says so. A window lists the top five and why the others
     /// were ruled out.</summary>
     [DebugAction("Rim Chronicles", "Crisis: show siege scoring", allowedGameStates = AllowedGameStates.PlayingOnMap)]
-    public static void ShowScoring()
+    public static void ShowScoring() => ShowScoring(Power.Empire);
+
+    /// <summary>The same, for the Choir's cluster siege: scored against the doors the Choir's own probes found.</summary>
+    [DebugAction("Rim Chronicles", "Choir crisis: show cluster siege scoring", allowedGameStates = AllowedGameStates.PlayingOnMap)]
+    public static void ShowChoirScoring() => ShowScoring(Power.Choir);
+
+    private static void ShowScoring(Power power)
     {
         if (Find.CurrentMap is not { } map || ColonyCentre(map) is not { } centre)
         {
@@ -164,7 +173,7 @@ public static class SiegeSpotSampler
             return;
         }
 
-        var entrances = KnownEntrances().Where(e => e.InBounds(map)).ToList();
+        var entrances = KnownEntrances(power).Where(e => e.InBounds(map)).ToList();
         var ranked = SpotScorer.Rank(Sample(map, centre, entrances));
         var ok = ranked.Where(s => s.Ok).ToList();
         var top = ok.Count == 0 ? 1f : Math.Max(0.01f, ok[0].Total);

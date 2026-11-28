@@ -55,7 +55,8 @@ settlements on the world map, relations, envoys and territory, so it can do ever
   revealed. Leaders and officers are mechanitors (mechlink, bandwidth implants); the army is mechs (vanilla Biotech and
   Core mech kinds), with mechanitors commanding from the back.
 - **Titles:** a mechanite rank ladder mirrors Royal titles, so allying with it can lead to a mechanite victory ending
-  (§7). Ranks give bandwidth, the way titles give psylink levels.
+  (§7). Ranks give bandwidth, the way titles give psylink levels. Rank comes from service (D13): each job done for the
+  Choir raises a colonist's standing, and a colonist at a high rank opens the First Voice's offer.
 - **Lore:** the mechanites are the Empire's original enemy. Imperial envoys, bulletins and letters treat them as the
   old foe; the mechanites see the Empire as the usurper. The model for their character is an ancient power that hides
   in the dark, works through agents and believes that conflict makes peoples stronger; the name and voice are our own.
@@ -68,7 +69,7 @@ settlements on the world map, relations, envoys and territory, so it can do ever
 | State | What the mechanites do | Moves on when |
 | --- | --- | --- |
 | Dormant | Hidden; no settlements on the map; vanilla mech raids only | A waking trigger (§5) |
-| Stirring | Rumours, signals, strange mech clusters near the colony | 20–40 days pass |
+| Stirring | Rumours, signals, strange mech clusters near the colony | 10–20 days pass |
 | Awakened | Reveals settlements, expands, raids | Act 2 milestones |
 | Ascendant or Broken | Controls most of the region, or is collapsing | The player completes or fails an ending |
 
@@ -84,8 +85,8 @@ and which are new (mech commanders instead of the psyker AI, for example).
 ## 4. Waking
 
 Each empire still wakes on its own triggers. Today the Empire's are wealth, a destroyed Imperial site, an Imperial
-colonist and a refused title, with day 300 at the latest. The mechanites mirror them (decided): colony wealth, a
-destroyed mechanite site, a mechanitor colonist, the Royal Ascent (§5), and day 300 at the latest.
+colonist and a refused title, and it stirs on day 20 whatever the signs: the opening hook (D15). The mechanites mirror them (decided): colony wealth, a
+destroyed mechanite site, a mechanitor colonist, the Royal Ascent (§5), from day 30 and day 120 at the latest; beside the Empire it usually wakes on the Empire's first attack. Without Royalty, the Choir takes the day-20 hook.
 
 **The other empire follows.** When one empire wakes and **starts attacking**, the other wakes too. (John:
 "if the mechanites wake first and start attacking, then the empire wakes … and vice versa.") Waking second skips
@@ -116,7 +117,7 @@ The existing Empire stance (neutral, ally, oppose) becomes a colony-wide **side*
 | Mechanites | Oppose | Ally |
 | Independence | Oppose | Oppose |
 
-Joining one empire declares war on the other. The Independence track (today's treaty ending) means war with both.
+Joining one empire declares war on the other. The Independence track (today's treaty ending) means war with both. When the colony already stands with one power, the other's envoy asks it to stay or to break that alliance (D17), and a power the colony turns against for its rival says so in a letter.
 
 ### 6.1 Pawn purity: the shuttle
 
@@ -185,7 +186,7 @@ is no longer a separate ending.
 The War in Heaven changes the director's option vocabulary: a mechanite arc, the War in Heaven, the shuttle demands
 and new jobs. **The fine-tuned directors need retraining after this is built.**
 
-- **One retrain, not two.** The crisis retrain (`training/README.md`, "Crisis retrain") waits until the War in Heaven
+- **One retrain, not two.** The crisis retrain (`training/README.md`, now "Retrain for the crisis and the War in Heaven") waits until the War in Heaven
   options are settled, then one round of 12B labels, one E2B and E4B retrain, and one report covers both.
 - **Test set:** test version 3, with War in Heaven cases added beside seed 9001 and seed-9001-crisis. Claude Code
   labels them in session, as for test-crisis-v1.
@@ -218,6 +219,11 @@ tests go into `docs/test-plan.md` and a runbook, for John to run once at the end
 | D10 | Resistance victory is folded into the War in Heaven endings | 2026-11-24 |
 | D11 | Order: C14 and the crisis merge to main, then this tech spec and build, then the one retrain and a proof run | 2026-11-24 |
 | D12 | The mechanite empire is the Hollow Choir; its people call themselves the Chorus | 2026-11-24 |
+| D13 | Choir rank comes from service: a rank ladder of its own, raised per colonist by jobs done for the Choir (like Imperial favor); a colonist at a high rank opens the First Voice's offer | 2026-11-24 |
+| D14 | Faster pacing after the playtest: the powers wake by day 120 at the latest (D6's day 300) or at 80,000 wealth (was 150,000), stir 10–20 days (was 20–40); a job's result applies the day after it ends; the War in Heaven's odds start after 15 days of war and reach 5% a day at 165 (was 30 and 3% at 180); the final push opens at front +3 (was +4); story intensity scales every beat gap, the stirring and the war's odds | 2026-11-26 |
+| D15 | The awakening is the opening hook, not an endgame: the Empire stirs on day 20 (its signs only say why); the Choir wakes from day 30 on its signs, on the Empire's first attack, or on day 120, and takes the day-20 hook itself without Royalty; the crisis budget's weak-colony floor drops from 0.6× to 0.3× (Probing at least 240 points) | 2026-11-26 |
+| D16 | Expansion happens where the colony can see it: each power attacks out of its settlements within 40 tiles of the colony (else its three nearest), reaches 30 tiles (was 60), weights distance as `1/(1 + d/5)³` (was `1/(1 + d/10)`), divides by the square root of the owner's settlements (was the count), and weights targets near its latest conquest up to 3×, so it advances as a front | 2026-11-26 |
+| D17 | Two envoys, one side: when the colony already stands with one power, the other's envoy offers only "Stay with" the ally or "Break with" it and stand with the envoy's power (unanswered: stay); envoy answers apply in the order given, so the later wins; a power that turns against the colony because it sided with the other sends a letter saying so (once a day, the net result) | 2026-11-27 |
 
 ---
 

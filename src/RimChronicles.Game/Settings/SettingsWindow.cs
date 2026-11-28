@@ -1,5 +1,6 @@
 using RimChronicles.Llm;
 using RimChronicles.Llm.Chat;
+using RimChronicles.Llm.Providers;
 using UnityEngine;
 using Verse;
 
@@ -13,6 +14,21 @@ public static class SettingsWindow
 
     private static Task<ConnectionProbe.Result>? _probe;
     private static string _probeStatus = "";
+    private static ConnectionProbe.Problem _probeProblem;
+
+    /// <summary>The Download model button's work: the models still to pull, one after another, off the main thread.</summary>
+    private static Task<string>? _pull;
+    private static CancellationTokenSource? _pullCancel;
+    private static PullStatus? _pullProgress; // written by the download's thread, read each frame; a record swap is atomic
+    private static string _pullStatus = "";
+    private static string _pullModel = "";
+
+    /// <summary>A director downloaded under its registry name in place of the bare local name the settings held: the
+    /// window switches the setting to it on the main thread once the download is done.</summary>
+    private static volatile string? _directorRenamed;
+    private static readonly HttpClient PullHttp = new() { Timeout = Timeout.InfiniteTimeSpan }; // a pull lasts minutes
+
+    private const string OllamaDownloadUrl = "https://ollama.com/download";
 
     /// <summary>"Other" is picked for the director model while its name is still blank; the name alone can't say so.</summary>
     private static bool _customDirector;
@@ -82,8 +98,9 @@ public static class SettingsWindow
 
         if (settings.MajorPlot)
         {
-            list.CheckboxLabeled("    Imperial crisis: the Empire attacks a colony that opposes it", ref settings.Crisis,
-                "Probing raids, breaches, psychic assaults, sieges and a final assault, escalating with the plot. Off: the Empire's raids are vanilla raids.");
+            list.CheckboxLabeled("    Crisis: the Empire (and the Hollow Choir) attack a colony that opposes them", ref settings.Crisis,
+                "The Empire: probing raids, breaches, psychic assaults, sieges and a final assault. The Hollow Choir: probing swarms, tunnel breaches, "
+                + "the hum, burrowing mechs and the final chorus. Both escalate with their plots and take turns. Off: their raids are vanilla raids.");
             if (settings.Crisis)
             {
                 var difficulty = list.SliderLabeled($"    Crisis difficulty: {settings.CrisisDifficulty:0.0}×", settings.CrisisDifficulty,
@@ -104,13 +121,36 @@ public static class SettingsWindow
                 list.CheckboxLabeled("    Citadel: spawn inner defenders only as you reach them", ref settings.CitadelLazyRings,
                     "Faster on slower PCs: the courtyard's and keep's defenders appear when your colonists reach the ring before theirs.");
             }
+
+            list.CheckboxLabeled("    The Hollow Choir: the Empire's old enemy wakes too", ref settings.HollowChoir,
+                "A power of mechanitors and their mechs that mirrors the Empire's story. Needs the Biotech DLC; without it, this does nothing.");
+            if (settings.HollowChoir && !ModsConfig.BiotechActive)
+            {
+                list.Label("<color=#a0a0a0>    Biotech isn't active, so the Hollow Choir is off.</color>");
+            }
+
+            if (settings.HollowChoir)
+            {
+                list.CheckboxLabeled("    The War in Heaven: the two powers fight it out", ref settings.WarInHeaven,
+                    "Once both are awake and the colony is at war, each day there's a chance the Empire and the Hollow Choir turn their armies on each "
+                    + "other, rising the longer the colony's war goes on. Your side's victory ends the story.");
+                if (settings.WarInHeaven)
+                {
+                    settings.WarCertainDay = (int)Math.Round(list.SliderLabeled($"    It starts for certain on game day {settings.WarCertainDay}",
+                        settings.WarCertainDay, RimChroniclesSettings.MinWarCertainDay, RimChroniclesSettings.MaxWarCertainDay) / 10f) * 10;
+                    settings.WarOddsSteepness = (float)Math.Round(list.SliderLabeled($"    Odds before then: {settings.WarOddsSteepness:0.0}×",
+                        settings.WarOddsSteepness, 0f, 3f, tooltip: "0: only on the certain day. 1: about 5% a day after five and a half months of the colony's war (times the story intensity)."), 1);
+                    settings.WarFrontFactor = (float)Math.Round(list.SliderLabeled($"    While it's on, crises send {settings.WarFrontFactor:P0} of their forces at the colony",
+                        settings.WarFrontFactor, 0.5f, 1f, tooltip: "The rest is pulled away to the front."), 2);
+                }
+            }
         }
 
         list.Gap();
         var intensity = list.SliderLabeled(
             $"Story intensity: {Core.Plots.StoryIntensity.Describe(settings.StoryIntensity)} ({settings.StoryIntensity:0.0}×)",
             settings.StoryIntensity, Core.Plots.StoryIntensity.Min, Core.Plots.StoryIntensity.Max,
-            tooltip: "How often minor plots start, and how fast the Empire expands. 2× halves the waits; 0.5× doubles them.");
+            tooltip: "How fast the story moves: how often minor plots start, the days between story beats, how long a power stirs, how fast the powers expand and how soon the War in Heaven starts. 2× halves the waits; 0.5× doubles them.");
         settings.StoryIntensity = (float)Math.Round(intensity * 10f) / 10f;
 
         list.Label("Story arcs (turning one off stops new plots of that kind; running ones finish)");
@@ -287,6 +327,7 @@ public static class SettingsWindow
             _probeStatus = done.IsCompletedSuccessfully
                 ? (done.Result.Ok ? $"<color=#80d080>{done.Result.Message}</color>" : $"<color=#e06060>{done.Result.Message}</color>")
                 : $"<color=#e06060>Failed: {done.Exception?.GetBaseException().Message}</color>";
+            _probeProblem = done.IsCompletedSuccessfully ? done.Result.Problem : ConnectionProbe.Problem.None;
             _probe = null;
         }
 
@@ -316,6 +357,116 @@ public static class SettingsWindow
         if (_probeStatus.Length > 0)
         {
             list.Label(_probeStatus);
+        }
+
+        if (_probeProblem == ConnectionProbe.Problem.Unreachable && list.ButtonText("Get Ollama (opens ollama.com)", widthPct: 0.3f))
+        {
+            OpenInBrowser(OllamaDownloadUrl);
+        }
+
+        DrawDownload(list, settings);
+    }
+
+    /// <summary>Download model: has Ollama pull every model the settings call (main, director, prose), so a player
+    /// never needs a terminal. Already-downloaded models finish at once.</summary>
+    private static void DrawDownload(Listing_Standard list, RimChroniclesSettings settings)
+    {
+        if (_pull is { IsCompleted: true } done)
+        {
+            _pullStatus = done.IsCompletedSuccessfully ? done.Result : $"<color=#e06060>Failed: {done.Exception?.GetBaseException().Message}</color>";
+            _pull = null;
+            _pullProgress = null;
+            if (_directorRenamed is { } renamed)
+            {
+                settings.DirectorModel = renamed;
+                _directorRenamed = null;
+                _pullStatus += $"\nThe director model is now set to {renamed}.";
+            }
+            _pullCancel?.Dispose();
+            _pullCancel = null;
+        }
+
+        var downloads = Downloads(settings);
+        if (_pull is null)
+        {
+            if (downloads.Count > 0 && list.ButtonText(downloads.Count == 1 ? "Download model" : $"Download models ({downloads.Count})", widthPct: 0.3f))
+            {
+                _pullCancel = new CancellationTokenSource();
+                _pullProgress = PullStatus.Starting;
+                _pullStatus = "";
+                _probeProblem = ConnectionProbe.Problem.None;
+                var cancel = _pullCancel.Token;
+                // Background task: touches no game state, only returns a line the window reads next frame.
+                var director = settings.DirectorModel;
+                _pull = Task.Run(() => PullAll(downloads, director, cancel));
+            }
+        }
+        else
+        {
+            list.Label($"{_pullModel}: {_pullProgress?.Describe() ?? "Starting…"} (you can close this window; the download carries on)");
+            if (list.ButtonText("Cancel download", widthPct: 0.3f))
+            {
+                _pullCancel?.Cancel();
+            }
+        }
+
+        if (_pullStatus.Length > 0)
+        {
+            list.Label(_pullStatus);
+        }
+    }
+
+    private static IReadOnlyList<ModelSlot> Downloads(RimChroniclesSettings settings)
+    {
+        var slots = settings.Slots;
+        var prose = settings.ProseModelEnabled
+            ? new ModelSlot(string.IsNullOrWhiteSpace(settings.ProseEndpoint) ? settings.Endpoint : settings.ProseEndpoint, settings.ProseModel,
+                string.IsNullOrWhiteSpace(settings.ProseApiKey) ? settings.ApiKey : settings.ProseApiKey, settings.Tier, TierPresets.Temperature)
+            : null;
+        return ModelSlots.Downloads(ModelSlots.Main(slots), ModelSlots.Director(slots), prose);
+    }
+
+    private static async Task<string> PullAll(IReadOnlyList<ModelSlot> slots, string director, CancellationToken cancel)
+    {
+        var lines = new List<string>();
+        foreach (var slot in slots)
+        {
+            _pullModel = slot.Model;
+            var endpoint = TierPresets.EndpointUri(slot.Endpoint);
+            _pullProgress = new PullStatus("Checking…", 0, 0);
+            if (await OllamaPull.HasModelAsync(PullHttp, endpoint, slot.Model, slot.ApiKey, cancel).ConfigureAwait(false) == true)
+            {
+                lines.Add($"<color=#80d080>{slot.Model}: already downloaded.</color>");
+                continue;
+            }
+
+            var name = OllamaPull.PullName(slot.Model);
+            _pullModel = name;
+            var result = await OllamaPull.RunAsync(PullHttp, endpoint, name, slot.ApiKey, status => _pullProgress = status, cancel).ConfigureAwait(false);
+            lines.Add(result.Ok ? $"<color=#80d080>{result.Message}</color>" : $"<color=#e06060>{name}: {result.Message}</color>");
+            if (!result.Ok)
+            {
+                break;
+            }
+
+            if (name != slot.Model.Trim() && string.Equals(slot.Model.Trim(), director, StringComparison.OrdinalIgnoreCase))
+            {
+                _directorRenamed = name; // the setting follows the name the server now has it under
+            }
+        }
+
+        return string.Join("\n", lines);
+    }
+
+    private static void OpenInBrowser(string url)
+    {
+        try
+        {
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(url) { UseShellExecute = true });
+        }
+        catch (Exception ex) when (ex is InvalidOperationException or System.ComponentModel.Win32Exception or PlatformNotSupportedException)
+        {
+            _probeStatus += $" Couldn't open a browser: go to {url}";
         }
     }
 }

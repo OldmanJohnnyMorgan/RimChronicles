@@ -24,6 +24,7 @@ public sealed class WorldReader : IWorldReader
         var day = GenDate.DaysPassed;
 
         var crisis = Crisis.CrisisDriver.DirectorDecides;
+        var war = Powers.ChoirDriver.DirectorDecides;
         var moods = colonists.Select(p => p.needs?.mood?.CurLevel).Where(m => m.HasValue).Select(m => m!.Value).ToList();
 
         return new WorldSnapshot
@@ -45,12 +46,24 @@ public sealed class WorldReader : IWorldReader
             RecentEvents = ReadRecentEvents(),
             // The crisis shows only when the director may decide it (C11, tech spec R17): a director trained before the
             // crisis arc sees the world as it was trained on.
-            ActivePlots = RimChroniclesGameComponent.Current?.Plots.Active.Where(p => crisis || p.Template != Core.Crisis.CrisisArc.TemplateId)
+            // So do the Hollow Choir's plots and the War in Heaven (W12, tech spec R12).
+            ActivePlots = RimChroniclesGameComponent.Current?.Plots.Active
+                .Where(p => (crisis || p.Template != Core.Crisis.CrisisArc.TemplateId)
+                    && (war || (p.Template != Core.Powers.Power.Choir.PlotTemplateId && p.Template != Core.Powers.Power.Choir.CrisisTemplateId
+                        && p.Template != Core.War.WarInHeaven.TemplateId)))
                 .Select(p => p.ToInfo()).ToList() ?? [],
             Crisis = crisis ? ReadCrisis(day) : null,
+            ChoirCrisis = war && Crisis.Choir.ChoirCrisisDriver.Available ? ReadChoirCrisis(day) : null,
+            War = war ? ReadWar() : null,
             PublicEvents = RimChroniclesGameComponent.Current?.News.Since(day - MaxNewsDays).Select(e => e.Text).ToList() ?? [],
         };
     }
+
+    /// <summary>The War in Heaven block, once the Hollow Choir is awake (before it, there's no war to speak of).</summary>
+    private static WarInfo? ReadWar() =>
+        RimChroniclesGameComponent.Current is { Choir.IsAwake: true } component
+            ? Core.War.WarBrief.From(component.War, component.Allegiance, Powers.PowerFactions.Running)
+            : null;
 
     /// <summary>The crisis brief: stage, recent operations, what's knocked out, and the Imperials still held or defected.</summary>
     private static CrisisInfo? ReadCrisis(int day)
@@ -65,6 +78,22 @@ public sealed class WorldReader : IWorldReader
             .Select(p => p.ThingID)
             .ToHashSet();
         return Core.Crisis.CrisisBrief.From(component.Crisis, Crisis.CrisisDriver.Stage(component, empire).Stage, day, present.Contains);
+    }
+
+    /// <summary>The Hollow Choir's crisis brief (War in Heaven W7), while it has a stage: the mirror of <see cref="ReadCrisis"/>.</summary>
+    private static CrisisInfo? ReadChoirCrisis(int day)
+    {
+        if (RimChroniclesGameComponent.Current is not { } component || Crisis.Choir.ChoirCrisisDriver.Faction is not { } choir
+            || Crisis.Choir.ChoirCrisisDriver.Stage(component, choir).Stage is var stage && stage == Core.Crisis.CrisisStage.None)
+        {
+            return null;
+        }
+
+        var present = PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive
+            .Where(p => p.IsPrisonerOfColony || p.Faction is { IsPlayer: true })
+            .Select(p => p.ThingID)
+            .ToHashSet();
+        return Core.Crisis.CrisisBrief.From(component.ChoirCrisis, stage, day, present.Contains);
     }
 
     public static PawnInfo ReadPawn(Pawn pawn, List<Pawn> colonists) => new()
@@ -139,7 +168,9 @@ public sealed class WorldReader : IWorldReader
                 PlotState = Empire.EmpireDriver.Available && f == Empire.EmpireDriver.EmpireFaction
                     && RimChroniclesGameComponent.Current?.Empire is { IsAwake: true } saga
                     ? saga.State.ToString()
-                    : null,
+                    : f == Powers.ChoirFaction.Existing && RimChroniclesGameComponent.Current?.Choir is { IsAwake: true } choir
+                        ? choir.State.ToString()
+                        : null,
                 Settlements = settlements.Count(s => s.Faction == f),
             })
             .ToList();

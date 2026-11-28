@@ -1,0 +1,171 @@
+{
+  "schemaVersion": 1,
+  "id": "snap-25-war-in-heaven",
+  "day": 271,
+  "season": "Septober",
+  "year": 5504,
+  "colony": {
+    "name": "Cinder Rest",
+    "wealth": 199000,
+    "population": 5,
+    "mood": "content"
+  },
+  "pawns": [
+    {
+      "id": "p1",
+      "name": "Fidelma",
+      "age": 69,
+      "traits": [
+        "Undergrounder",
+        "Night owl"
+      ],
+      "backstory": "Tribal hunter",
+      "relations": [],
+      "status": "alive"
+    },
+    {
+      "id": "p2",
+      "name": "Syna",
+      "age": 61,
+      "traits": [
+        "Undergrounder",
+        "Depressive"
+      ],
+      "backstory": "Settler",
+      "relations": [],
+      "status": "alive"
+    },
+    {
+      "id": "p3",
+      "name": "Petra",
+      "age": 39,
+      "traits": [
+        "Careful shooter",
+        "Tough"
+      ],
+      "backstory": "Psycaster",
+      "relations": [],
+      "status": "alive"
+    },
+    {
+      "id": "p4",
+      "name": "Halvard",
+      "age": 63,
+      "traits": [
+        "Abrasive",
+        "Industrious"
+      ],
+      "backstory": "Noble",
+      "relations": [],
+      "status": "alive"
+    },
+    {
+      "id": "p5",
+      "name": "Tiric",
+      "age": 63,
+      "traits": [
+        "Jogger",
+        "Depressive"
+      ],
+      "backstory": "Nurse",
+      "relations": [],
+      "status": "alive"
+    }
+  ],
+  "tales": [
+    {
+      "day": 86,
+      "type": "WentOnBerserk",
+      "actor": "p3"
+    },
+    {
+      "day": 186,
+      "type": "CraftedMasterwork",
+      "actor": "p2",
+      "victim": "a marble sculpture"
+    }
+  ],
+  "factions": [
+    {
+      "name": "the Wailing Moth Tribe",
+      "kind": "Tribe",
+      "goodwill": -6,
+      "settlements": 2,
+      "atWarWith": []
+    },
+    {
+      "name": "the Tola Union",
+      "kind": "Outlanders",
+      "goodwill": 35,
+      "settlements": 4,
+      "atWarWith": []
+    },
+    {
+      "name": "the Empire of Kaseur",
+      "kind": "Empire",
+      "goodwill": 46,
+      "plotState": "Awakened",
+      "settlements": 6,
+      "atWarWith": []
+    },
+    {
+      "name": "The Hollow Choir",
+      "kind": "HollowChoir",
+      "goodwill": -100,
+      "plotState": "Awakened",
+      "settlements": 7,
+      "atWarWith": []
+    }
+  ],
+  "activePlots": [
+    {
+      "id": "warinheaven-1",
+      "template": "WarInHeaven",
+      "beat": "Complication",
+      "protagonist": "colony",
+      "summary": "The War in Heaven began on day 183: the war on the rim went on too long. Cinder Rest fights for the Empire against the Hollow Choir. The Empire of Kaseur and the Hollow Choir fought over Ashgrove."
+    },
+    {
+      "id": "silentpress-90",
+      "template": "SilentPress",
+      "beat": "Complication",
+      "protagonist": "colony",
+      "summary": "The colony killed the Rim Dispatch's reporter; the bulletins stopped."
+    }
+  ],
+  "recentEvents": [
+    "Day 266: a trade caravan visited."
+  ],
+  "publicEvents": [
+    "the Hollow Choir and the Empire of Kaseur fought over Kettle Rock"
+  ],
+  "reportedEvents": [],
+  "allowedTransitions": [
+    "War:DefendFront",
+    "War:StrikeRival",
+    "War:EscortConvoy",
+    "War:SabotageRival",
+    "Wait"
+  ],
+  "previousBulletins": [],
+  "director": {
+    "plotId": "warinheaven-1",
+    "daysInBeat": 9,
+    "descriptions": {
+      "War:DefendFront": "a settlement of the Empire is under attack by the Hollow Choir; the colony is asked to break it",
+      "War:StrikeRival": "the Empire asks the colony to strike a settlement of the Hollow Choir",
+      "War:EscortConvoy": "the Empire asks the colony to escort a convoy to the front",
+      "War:SabotageRival": "the Empire asks the colony to sabotage the Hollow Choir's war machine",
+      "Wait": "hold this plot for a few days; nothing happens in it yet"
+    }
+  },
+  "war": {
+    "started": true,
+    "startDay": 183,
+    "side": "empire",
+    "empireStance": "ally",
+    "choirStance": "oppose",
+    "front": 1,
+    "destroyed": []
+  }
+}

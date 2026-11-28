@@ -37,6 +37,13 @@ public static class PieceLibrary
         }
     }
 
+    /// <summary>The pieces a power may use (War in Heaven W8): its own and the shared ones.</summary>
+    public static IReadOnlyList<(PrefabDef Prefab, PieceSource Source)> For(string power) =>
+        All.Where(p => p.Source.Meta.Power is null || p.Source.Meta.Power == power).ToList();
+
+    /// <summary>The plain pieces a power may use, for the planners.</summary>
+    public static List<PieceSource> SourcesFor(string power) => For(power).Select(p => p.Source).ToList();
+
     public static PieceSource? Find(PrefabDef prefab) => All.FirstOrDefault(p => p.Prefab == prefab).Source;
 
     private static List<(PrefabDef, PieceSource)> Load()

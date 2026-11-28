@@ -1,397 +1,368 @@
 # Test plan: everything left to run on the PC
 
-Every outstanding PC and in-game test for the **director model (D)** and the **Imperial crisis (C)**, in the order to
-run them. Tick the boxes as you go. Each part ends with what to send Claude Code.
+Updated 2026-11-26. Every outstanding PC and in-game test, in the order to run them. Tick the boxes as you go. Each
+part ends with what to send Claude Code.
 
-**Order and why:**
+**Where things stand:**
 
-1. **Part A: director model**, on `main`. A training run needs the whole GPU, so nothing else runs alongside it.
-2. **C11**, the director wiring. Claude Code builds it after Part A, once a director model ships.
-3. **Part B: crisis checkpoints 1–4**, on `crisis-combat-locations`, and runbook 4's C11 part once C11 is built.
-4. **C14**, the balance pass and proof run, last of all. After that the crisis merges into `main`.
+| Track | State |
+| --- | --- |
+| Director model (D0–D11) | Done 2026-11-24. E2B v3 and E4B v1 shipped as presets; record below |
+| Imperial crisis (C0–C14) | Done 2026-11-24, merged into `main` (#93); record below |
+| War in Heaven director retrain (W13) | E4B passed (`director-e4b-war-v2`, review 96%, #157) and is the E4B preset (#158). E2B failed (`director-e2b-war-v2`); its retrain is on hold, with hand labels ready (#159) |
+| War in Heaven game (W2–W6) | Built on `war-in-heaven`, not yet checked in game: Parts 2 and 3 |
+| War in Heaven game (W7–W9) | Built (2026-11-26): the Choir's crisis (its operations, commander AI, cluster drops, burrowing and the Hum), its pieces and sites, the cluster siege, the Cathedral and the First Voice. Checked in game at checkpoint 2 (`war-runbook-2.md`, W7.1–W7.17, W8.1–W8.16, W9.1–W9.15) |
+| War in Heaven game (W10–W11) | Built (2026-11-26): the War in Heaven's start, its plot and jobs, the front, destroying a power, and every ending's victory screen and epilogue (prompt `epilogue/v3`). Checked in game at checkpoint 3 (`war-runbook-3.md`, W10.1–W10.19, W11.1–W11.9) |
+
+**Order:**
+
+1. **Part 1: the E4B director in a War in Heaven game.** What you're playtesting now.
+2. **Part 2: checkpoint 1 (W2–W5)**: sides, the Hollow Choir, waking. Much of it happens along the way in Part 1;
+   tick what you saw there.
+3. **Part 3: checkpoint 2, first part (W6)**: the summons.
+4. **Part 4: fixes since C14**: the crisis panic-flee fix, in any crisis fight.
+5. **Part 5: release prep**: Download model and the Workshop package.
+6. **Later:** the E2B war retrain (v3), checkpoint 2's rest (W7–W9), checkpoint 3 (W10–W11), and the W14 proof run.
 
 PowerShell for `dotnet`, `ollama` and `git`; WSL2 bash for Python. The repo is at
 `C:\RimworldMods\RimChronicles\RimChronicles` (WSL2: `/mnt/c/RimworldMods/RimChronicles/RimChronicles`).
 
 ---
 
-## Part A: the director model (`main`)
-
-### A1. Finish the E2B training run (running now)
-
-- [ ] Let it finish: about 3½ hours from the start; steps at about 7–8 s; a check every 100 steps.
-- [ ] Wait for the log's last line: `saved the best LoRA (step N) … val answers valid …, matching the teacher …`.
-- [ ] Send Claude Code that line and `~/rimchron-runs/director-e2b/progress.csv` (WSL2:
-      `cat ~/rimchron-runs/director-e2b/progress.csv`).
-- [ ] Merge PR #109 (the row-length fix) afterwards, so later runs print real token lengths.
-
-**If it stops** with "STOPPING: steps now take …": VRAM spilled into system RAM. Task Manager → Performance → GPU
-shows Shared GPU memory in use. Send Claude Code the log.
-
-### A2. Score the prompted baseline (`base-v1`)
-
-Needed once, so the trained models have something to be compared against. About 1¾ hours of GPU.
-
-```powershell
-cd C:\RimworldMods\RimChronicles\RimChronicles
-git pull
-dotnet run --project harness/RimChronicles.Eval -- director-gen --seed 9001 --count 500
-dotnet run --project harness/RimChronicles.Eval -- director-report --models gemma4-e2b,gemma4-e4b,gemma4-12b --name base-v1
-```
-
-- [ ] `director-gen --seed 9001` rebuilds the frozen test cases. Its manifest may show a different sha256 because of
-      Windows line endings; that's harmless, so discard it with `git checkout training/data`.
-- [ ] `harness/reports/base-v1.md` exists. Each model shows top-1, validity and the always-Wait row.
-- [ ] Commit `harness/reports/base-v1.md` and `.json`, push, and tell Claude Code.
-
-### A3. Export E2B, load it, score it
-
-```bash
-# WSL2
-cd /mnt/c/RimworldMods/RimChronicles/RimChronicles/training
-uv run python -m rimchron_train export --config config/director-e2b.yaml
-```
-
-```powershell
-# PowerShell
-cd C:\RimworldMods\rc-models\director-e2b
-ollama create rimchron-director-e2b -f Modelfile.merged.q4_k_m
-cd C:\RimworldMods\RimChronicles\RimChronicles
-dotnet run --project harness/RimChronicles.Eval -- director-report --config training/models.director.json --models gemma4-e2b,director-e2b --base gemma4-e2b --name director-e2b-v1
-```
-
-- [ ] The export writes Q4_K_M and Q8_0 GGUFs, each with a Modelfile, to `C:\RimworldMods\rc-models\director-e2b`.
-- [ ] `ollama list` shows `rimchron-director-e2b`.
-- [ ] The report `harness/reports/director-e2b-v1.md` shows the fine-tune against its base and the ship bars: it
-      beats always-Wait, and choice validity holds.
-- [ ] Commit the report, push, and tell Claude Code which bars passed. **If a bar is missed**, Claude Code plans D10
-      (DPO) before you go on.
-
-### A4. Blind review of E2B (D9)
-
-About 30 minutes of reading, with Ollama running. The answers come from the A3 cache.
-
-```powershell
-dotnet run --project harness/RimChronicles.Eval -- director-review --config training/models.director.json --models director-e2b
-start harness\reports\review-director-e2b\review.html
-```
-
-- [ ] For each of the 50 decisions, click **A is better**, **Same** or **B is better**. Judge the decision, not the
-      wording.
-- [ ] Press **Download answers**, then:
-      ```powershell
-      dotnet run --project harness/RimChronicles.Eval -- director-review --config training/models.director.json --models director-e2b --answers $env:USERPROFILE\Downloads\review-answers.json
-      ```
-- [ ] `review.md` says the model was picked or tied in **at least 40%** of cases (the ship bar).
-- [ ] Commit `harness/reports/review-director-e2b/` and push.
-
-### A5. Train, export, score and review E4B
-
-Same as A1, A3 and A4 with `e4b`. The E4B conversion needs the WSL memory setting from D0 (24 GB).
-
-- [ ] Train (WSL2): `uv run python -m rimchron_train sft --config config/director-e4b.yaml 2>&1 | tee ~/sft-director-e4b.log`.
-      Close RimWorld and `ollama stop` any model first; it needs about 9 GB free.
-- [ ] Export: `uv run python -m rimchron_train export --config config/director-e4b.yaml`.
-- [ ] Load: `cd C:\RimworldMods\rc-models\director-e4b`, then
-      `ollama create rimchron-director-e4b -f Modelfile.merged.q4_k_m`.
-- [ ] Report: `director-report --config training/models.director.json --models gemma4-e4b,director-e4b --base gemma4-e4b --name director-e4b-v1`.
-- [ ] Blind review: `director-review --config training/models.director.json --models director-e4b`, then
-      `--answers …`, as in A4.
-- [ ] Commit both, and send Claude Code the progress CSV, the log's end, and which bars passed.
-
-### A6. The director model in the game (D7)
-
-- [ ] `git pull`, `dotnet build RimChronicles.slnx`, then start RimWorld with Development mode on.
-- [ ] **Options → Mod settings → Rim Chronicles → Separate director model**:
-  - [ ] **Director model**: pick `rimchron-director-e2b` (it sets the Minimum prompt tier itself); address and key blank.
-  - [ ] Pass when no orange warning shows.
-- [ ] **Test connection**: it tests the main model, then the director, and both answer.
-- [ ] In a Dev Mode game, **Rim Chronicles → Plot: advance beat** on a plot, then **Plot: director log**. The
-      decision's source is `Model`, and its reason reads sensibly.
-- [ ] Pick **Other**, name `rimchron-director-e4b`, tier **Recommended**, and repeat the test connection and one decision.
-
-### A7. The 200-day check (D11), recording real decisions (D3)
-
-One long Dev Mode game, run at speed 3 or 4 in the background. Keep the director that did best in A3–A5.
-
-- [ ] Settings:
-  - [ ] the director model from A6;
-  - [ ] **Dev: record director decisions for training** on;
-  - [ ] all three story arcs on;
-  - [ ] the major plot on.
-- [ ] Start a new colony (any storyteller) and play or fast-forward 200 in-game days. Save every 20 days.
-- [ ] Every 50 days, open **Plot: director log** and read the last decisions. Pass when they read like a sensible
-      story outline:
-  - [ ] waits after a raid or a death;
-  - [ ] no repeated beats back to back;
-  - [ ] reasons that match the colony.
-- [ ] Along the way, check the player-facing polish (PRs #123 and #124):
-  - [ ] a plot letter's **Jump to** goes to the nemesis, relative or colonist it names;
-  - [ ] choice letters end with what happens if no one answers, and answering shows a short message;
-  - [ ] the **Chronicle** tab lists each story once its first letter arrives (Silent Press stays hidden until its
-        first clue), with its letters and answers in order, and finished stories below running ones;
-  - [ ] with Ollama stopped for a moment, one "model not answering" letter arrives, not one per bulletin.
-- [ ] At the end, import the recorded cases:
-      ```powershell
-      dotnet run --project harness/RimChronicles.Eval -- director-import --from "$env:USERPROFILE\AppData\LocalLow\Ludeon Studios\RimWorld by Ludeon Studios\RimChronicles\director-cases"
-      ```
-- [ ] Commit only the import manifest (the cases stay local).
-- [ ] Send Claude Code the director log as text (copy from the window) and anything odd. **This closes the director
-      track; C11 starts.**
-
----
-
-## Part B: the Imperial crisis (`crisis-combat-locations`)
-
-### Setup, before each session
+## Setup, before each session (`war-in-heaven`)
 
 ```powershell
 cd C:\RimworldMods\RimChronicles\RimChronicles
 git fetch
-git checkout crisis-combat-locations
+git checkout war-in-heaven
 git pull
 dotnet build RimChronicles.slnx
 ```
 
-Start RimWorld with **Development mode** on and Royalty active. Every tool below is in the Debug actions menu (the
-first button on the dev bar), under **Rim Chronicles**. Use **new test colonies**: crisis saves don't load cleanly on
-`main`. Afterwards: `git checkout main`, `git pull`, `dotnet build RimChronicles.slnx`.
+- [ ] The build ends with `Build succeeded` and copies the DLL into `1.7\Assemblies`.
+- [ ] RimWorld: **Royalty and Biotech** active, **Development mode** on (Options → General).
+- [ ] Ollama is running, and `ollama list` shows `rimchron-director-e4b`. It must be the War in Heaven model, copied
+      over the shipped name once (do it again if in doubt; it's quick):
+      ```powershell
+      ollama cp rimchron-director-e4b-war rimchron-director-e4b
+      ```
+- [ ] Use **new colonies**. Saves from this branch may not load cleanly on `main`.
 
-Write results in `docs/SPEC-crisis-combat-and-locations/crisis-results-N.md`, or tell Claude Code, with each check's
-number, pass or fail, what happened, and any red errors in the log.
+Every Dev Mode tool below is in the Debug actions menu (the first button on the dev bar), under **Rim Chronicles**.
+To go back to `main` afterwards: `git checkout main`, `git pull`, `dotnet build RimChronicles.slnx`.
 
-### B1. Checkpoint 1: crisis core, pieces, units, psykers (C1–C4). About 1½ hours.
-
-**Crisis core**
-
-- [ ] 1. Mod settings: under the major plot there's **Imperial crisis** (on), **Crisis difficulty** 1.0×, **At least
-      8 days between Imperial operations**, the strike delay, **Imperial Citadel map** 275×275, and the lazy-rings box.
-- [ ] 2. New colony, **Crisis: show state**: "Stage: none (the Empire isn't awake)", budget 0.
-- [ ] 3. **Empire: trigger awakening**, **Empire: end stirring now**, and wait for the envoy (**Increment time**
-      helps). Choose **Stand against it**.
-- [ ] 4. Wait for "The Empire marches", then **Crisis: show state**: stage **probing**, an **Imperial scouts** letter
-      and news item, and Operation:ProbingRaid allowed.
-- [ ] 5. **Empire: expansion tick** twice, wait a day: stage **reclamation**, "The Empire escalates" letter.
-- [ ] 6. Spawn a few turrets and wait a day: the budget goes up with colony strength (factor 0.6–1.8).
-- [ ] 7. Save, quit, reload, then **Crisis: show state**: same stage, no errors. Save this colony as
-      **"crisis-test-1"**.
-
-**Pieces**
-
-- [ ] 8. **Crisis: check pieces**: "16 pieces loaded", none left out, a picture of each.
-- [ ] 9. **Crisis: stamp piece** → each piece, on open ground: each spawns and "the footprint matches the planner's";
-      stone or steel walls, cloth sandbags.
-- [ ] 10. **Crisis: turn pieces**, then stamp the mortar pit and barracks at all four facings: each matches, and the
-      mortar's crew cell is open.
-- [ ] 11. Stamp a piece on rock: refused, nothing spawns.
-- [ ] 12. **Crisis: stamp piece as Imperial blueprints** → mortar pit: Empire blueprints that your colonists don't
-      build.
-
-**Units**
-
-- [ ] 13. **Crisis: check units**: "Every unit at every stage has exactly its kit."
-- [ ] 14. **Crisis: spawn unit** → each unit (soldiers and adepts at stage 1, Mind Adept at 3, High Stellarch at 4).
-      Each has fitting gear and only its kit.
-- [ ] 15. An adept has a psylink at its stage's level and is **psychically hypersensitive**; stage 3–4 units have
-      bionics.
-
-**Psykers**
-
-- [ ] 16. **Crisis: check psycasts**: 14 scorers enabled; only Farskip has no scorer.
-- [ ] 17. **Crisis: psyker debug on/off** (on), then **Crisis: spawn psyker squad** → stage 2, about 40 cells from
-      armed colonists in cover. Text floats over each adept as it decides.
-- [ ] 18. **Crisis: psyker report** after the fight: each adept cast at least once; **Casts the scorers didn't
-      choose: 0**.
-- [ ] 19. Keep fighting until adepts run hot: they hold and shoot instead, and none goes past its heat limit.
-- [ ] 20. Stage 3 squad near grouped colonists: Berserk or a pulse lands on a group, never on one with Imperials in it.
-- [ ] 21. A Praetorian in front of a turret with a Ward Adept near: Wallraise, Bullet Shield or smoke.
-- [ ] 22. A stage 4 squad fights for 2–3 in-game hours: no errors, the speed holds, still 0 unchosen casts.
-
-### B2. Checkpoint 2: strikes, operations, sieges (C5–C8). About 2½ hours.
-
-**Test colony:**
-- a stone wall with 2–3 doors;
-- 4–5 mini-turrets and a mortar with shells;
-- 6–8 armed colonists, one of them the ideoligion's leader, one a doctor;
-- a field outside the wall and a freezer inside.
-
-Reach stage 3 as in B1 steps 3–5, plus another expansion tick. Save as **"crisis-test-2"** and fire each operation
-from that save.
-
-**Orbital strikes**
-
-- [ ] 1. Spawn a Herald and 2 Praetorians who can see a turret or colonists: within a minute, "Orbital strike called";
-      the target flashes; it lands about 8 s later.
-- [ ] 2. **Crisis: call orbital strike**, then down the Herald during the countdown: "called off", nothing lands.
-- [ ] 3. Colonists under a mountain roof: never targeted (**Crisis: strike state** marks them "under mountain").
-- [ ] 4. Let a raid strike until "this raid's N strikes are spent".
-- [ ] 5. Save during a countdown and reload: the strike still lands, or is called off.
-
-**Probing raid and decapitation**
-
-- [ ] 6. **Crisis: fire operation** → ProbingRaid → stage 1: an "Imperial probe" letter, and Praetorians attack.
-- [ ] 7. After two hours or a quarter lost, it leaves. **Crisis: show state** shows the outcome and the doors it found.
-- [ ] 8. A downed probe soldier far from your colonists is carried off; one next to your colonists is left.
-- [ ] 9. Decapitation → stage 3 with the leader outdoors: pods land 3–12 cells away and the squad goes for the leader.
-- [ ] 10. Leader indoors under a roof: pods land outside only.
-- [ ] 11. Adepts stay near Praetorians; the squad focuses one colonist at a time, medics first.
-- [ ] 12. Down the leader (or make peace in Dev Mode): the squad pulls out.
-- [ ] 13. Save mid-operation and reload: it carries on with no errors.
-
-**Breach and psychic assault**
-
-- [ ] 14. Breach → stage 2: grenadiers blast a wall, EMP grenades stop turrets, and the rest follow.
-- [ ] 15. Hurt it about 40%: it falls back, then reinforcements drop in and it attacks again.
-- [ ] 16. PsychicAssault → stage 2, then stage 3: about as many adepts as Praetorians; Mind Adepts only at stage 3.
-- [ ] 17. With psyker debug on, adepts cast throughout, including during the breach.
-
-**Sieges**
-
-- [ ] 18. **Crisis: show siege scoring**: scores around the colony, `x` in turret range or on rock, one **BEST**; the
-      window lists the top five and the reasons spots were ruled out.
-- [ ] 19. After a probing raid, scoring shows "door" marks and an "entrance" part.
-- [ ] 20. **Crisis: fire siege with goal** → Goal:BreakWalls → stage 3: an "Imperial siege" letter naming the goal;
-      the force walks to the BEST spot.
-- [ ] 21. Leave it alone and watch the stages go up, each with its message: sandbags and barracks, then mortar pits,
-      uplink, shield and relay, beacon. No stage's blueprints appear before the last stage is built.
-- [ ] 22. Mortars up: builders man them, shelling starts, and shells and meals are resupplied.
-- [ ] 23. Uplink up, Herald down: strikes still come ("An Imperial uplink…"), aimed at walls and turrets;
-      **Crisis: strike state** shows the goal and "Uplink standing: yes".
-- [ ] 24. Shield up: your mortar shells stop at its bubble; EMP knocks it out.
-- [ ] 25. An adept near the relay has **psychic relay link**, which fades about 10 s after leaving.
-- [ ] 26. Beacon lit: reinforcements drop in a quarter day later, up to 3 times.
-- [ ] 27. From the save, kill more than half the builders early: "lost most of its builders… it's coming in".
-- [ ] 28. From the save, kill half the force first: it retreats carrying its downed; blueprints vanish; built pieces
-      stay neutral; "Uplink standing: no".
-- [ ] 29. Leave a siege alone for 2 days: "done digging in: it's coming in".
-- [ ] 30. Goal:Starve hits fields, freezer and power; Goal:KillLeader aims at the leader outdoors.
-- [ ] 31. Save at camp stage 2–3 and reload: the camp carries on.
-- [ ] 32. On a map with no qualifying spot (turrets everywhere): "no siege camp spot"; nothing spawns.
-
-### B3. Checkpoint 3: sites and captives (C9–C10). About 2 hours.
-
-Use "crisis-test-2", or B2's colony plus a prison room and a warden with good Social. Save as **"crisis-test-3"**.
-
-**Sites**
-
-- [ ] 1. **Crisis: batch sites**: each archetype "50/50 pass on the first seed", 0 fallbacks.
-- [ ] 2. **Crisis: generate site** → ForwardOutpost → seed 1:
-  - [ ] a walled outpost with one gate and sandbags inside;
-  - [ ] a command room with a comms console deepest in, a barracks, a power yard;
-  - [ ] guards; the log says "attempt 1".
-- [ ] 3. A road runs from the gate to the map edge; no room is shut off; the console and turrets are powered.
-- [ ] 4. Destroy the console: "Outpost comms destroyed".
-- [ ] 5. PsychicRelay seed 2 and OrbitalUplink seed 3:
-  - [ ] two gates, powered turret nests, the objective deepest in;
-  - [ ] adepts guarding the relay, heralds guarding the uplink.
-- [ ] 6. Destroy the relay core: "Psychic relay destroyed". Back home, fire PsychicAssault at stage 3: an arriving
-      adept has **relay severed**.
-- [ ] 7. Destroy the uplink: "Orbital uplink destroyed". A Herald at home calls no strike; strike state says the
-      colony knocked out the uplink.
-- [ ] 8. The same archetype and seed twice: the same layout.
-- [ ] 9. The Empire plot's **Empire:SabotageImperial** job offers "Destroy the Imperial …". Accept, travel there,
-      destroy the objective: the quest succeeds and pays.
-- [ ] 10. Save on a site map and reload: destroying the objective still sends the letter.
-
-**Captives**
-
-- [ ] 11. **Crisis: spawn captive** → imperial herald in the prison: a prisoner, a message on how to question them,
-      resistance about 45–60.
-- [ ] 12. Tick **interrogate (Imperial intel)** in the prisoner tab: the warden interrogates, the social log shows it,
-      and resistance drops.
-- [ ] 13. A success sends "Intel: uplink codes" or "next operation", and it's listed in **Crisis: show state**.
-- [ ] 14. After 2 successes the warden stops: "told all they know".
-- [ ] 15. A non-Imperial prisoner with the box ticked is skipped: "knows nothing about the Empire".
-- [ ] 16. **Crisis: grant intel** → next operation: a forecast appears, and the crisis next fires that operation, not
-      before its day.
-- [ ] 17. Grant uplink codes: the first strike called fails ("stolen uplink codes scrambled it"); the next is real.
-- [ ] 18. Grant relay location: a relay site appears on the world map. The next PsychicAssault the crisis fires has
-      about half the adepts.
-- [ ] 19. With a captive held, fire Retrieval → stage 2: pods land near the prison, soldiers dig in, the captive is
-      freed and leaves with them.
-- [ ] 20. Interrogate a captive once, then recruit them: "An Imperial defects", a news item, listed as a defector.
-- [ ] 21. With only the defector held, fire Retrieval: the squad goes for them and carries them off once downed.
-- [ ] 22. Release a captive: a goodwill message and "next budget x0.85", back to x1.00 after the next operation.
-- [ ] 23. Execute one (or harvest an organ, or enslave one): the treatment count goes up.
-- [ ] 24. Bring a site's Imperial dispatch home and have a colonist read it: "Intel: …".
-- [ ] 25. Save with captives, a defector and intel, and reload: all still listed.
-
-### B4. Checkpoint 4, part one: Citadel and finale (C12–C13). About 1½ hours.
-
-Use "crisis-test-3" at stage 3 or 4.
-
-**Citadel** (this also decides C12's done-when: generation under 30 s and steady at speed 1)
-
-- [ ] 1. **Crisis: batch Citadels**: "20/20 pass", under a second each.
-- [ ] 2. **Crisis: generate Citadel** → standard: **note the seconds** in the message, which must be **under 30**.
-      It's a 275×275 map with three walled rings, the courtyard's two relay chambers and uplink, and the throne room
-      deepest in the keep.
-- [ ] 3. Speed 1 for a minute with the map in view: no stutter. Note the speed-3 TPS (Dev Mode's TPS readout).
-- [ ] 4. If 2 or 3 fails: turn on **Citadel: spawn inner defenders only as you reach them** and repeat. Note which
-      setting passes.
-- [ ] 5. Colonists arrive at the edge: "The Imperial Citadel" letter.
-- [ ] 6. A colonist enters the outer works: "courtyard garrison is moving out to meet you"; the keep's guard stays
-      (**Crisis: Citadel state**).
-- [ ] 7. A keep wall takes a tenth of the damage. Destroy both relays: "keep's shield is down", and full damage again.
-- [ ] 8. An adept in the keep shows **psychic relay link** and high psyfocus while the shield is up.
-- [ ] 9. Side entrance known: the keep has a second gate on the far side, and the letter says so.
-- [ ] 10. No relays left: no relay chambers, "unshielded", full damage.
-- [ ] 11. In a normal game, destroy a relay site, then attack the capital: the Citadel has one courtyard relay.
-- [ ] 12. Save on the Citadel and reload: shield, rings reached and held garrisons are kept.
-
-**Finale**
-
-- [ ] 13. **Crisis: fire operation** → FinalAssault: only "stage 4" is offered. The assault is led by the High
-      Stellarch, with every unit type.
-- [ ] 14. Hurt them past half: they don't retreat.
-- [ ] 15. Bring the Stellarch below about 40% (or down it): "skips away", and it leaves; **Crisis: Stellarch state**
-      shows the escape used.
-- [ ] 16. Generate a Citadel: the same Stellarch is in the throne room.
-- [ ] 17. Hurt it again: no second escape. Kill or capture it: a letter and news; fate dead or captured; a new
-      FinalAssault has no Stellarch.
-- [ ] 18. In a game storming the capital (**Act3:StormTheCapital**), kill the Stellarch: the capital quest succeeds
-      and the Empire plot gives the **Resistance ending**.
-- [ ] 19. From a save with the escape unused, hurt it in the Citadel: it skips deep into the keep and fights on.
-- [ ] 20. Save with the Stellarch off-map after its escape, reload, and fire FinalAssault: the same one leads it and
-      can't escape again.
-
-### B5. Checkpoint 4, part two: C11
-
-Built 2026-11-24 (`milestones/C11-director-wiring.md`). Steps: `crisis-runbook-4.md`, "C11: director wiring".
-- [ ] 1. With **rimchron-director-e4b** as director: crisis decisions are weighted (source `Random`).
-- [ ] 2. With no separate director: **Crisis: decide now** gives source `Model`.
-- [ ] 3. **Crisis: ask director for a siege goal** / **for a site**: a `Goal:*` / `Site:*` pick with a reason.
-- [ ] 4. A siege the director starts logs a `Goal:*` follow-up, and its letter's aim matches.
-- [ ] 5. A sabotage job logs a `Site:*` follow-up, and the quest is that site.
-- [ ] 6. Recorded cases include the crisis and its follow-ups (none with the E4B director).
-- [ ] 7. Save, reload, decide again: no errors.
-- [ ] 8. `validate` and a free `run --tasks director`: snap-01–23 unchanged, snap-24 valid.
-- [ ] 9. Reclaimed Holding (runbook steps 8–10): offered once the Empire holds a nearby town; destroying the
-      garrison's console hands the town back, with a letter, news and goodwill.
-
-Then the crisis retrain (training/README.md, "Crisis retrain"): crisis test labels (Claude Code, in session), local
-labels, E2B and E4B retrained, reports and reviews, and the presets marked as knowing the crisis.
+**Reading the director log.** **Plot: director log** opens a letter with the last 25 decisions, each as
+`Day N, plot-id: Choice (Source)`, then the reason and the options it had. The source is `Model` (the director model
+chose), `ModelRetry` (it chose on a second try), `Random` (a weighted pick: no model, or the model isn't trained on
+this plot), or `Only` (a single option, no choice to make).
 
 ---
 
-## After all of it
+## Part 1: the E4B director in a War in Heaven game
 
-- **C14, the balance pass and proof run: passed (John, 2026-11-24).** The late-game run from stage 1 to the Citadel
-  met the bar:
-  - stage 3 costs real losses but is winnable without save-scumming;
-  - stage 4 and the Citadel need preparation (relays, uplinks, intel first).
-- **Merge:** done. `crisis-combat-locations` merged into `main` on 2026-11-24 (PR #93); the crisis track is complete.
-  Its director retrain is folded into the War in Heaven's (W13).
-- **Not in this plan:** the Stage 5 proof run (`docs/stage5-runbook.md`, M7) has no results file yet. Run it if it
-  hasn't been run.
+What changed: the director's E4B preset is now the model retrained on the Imperial crisis, the Hollow Choir and the
+War in Heaven. With it, the game lets the model make the crisis's decisions and the Choir plot's, which were weighted
+picks before. E2B still uses the old model and the old rules, which makes it the comparison. About 2 hours for 1a–1d,
+then 1e runs as long as you like.
 
-## Fixes since C14: check at the next in-game session (W14 proof run)
+### 1a. Settings and connection (5 minutes)
 
-**Crisis lords no longer panic-flee (branch `fix-crisis-panic-flee`).** Vanilla added its own panic flee (at a random
-40–70% of the force lost) to our operation and garrison lords, which cut short the profiles' regroup and retreat.
+- [ ] **Options → Mod settings → Rim Chronicles**:
+  - [ ] **Story**: the major plot on, **Crisis** on (it covers both powers), **The Hollow Choir** on, all story arcs on.
+  - [ ] **Advanced: separate models** → **Show a separate prose or director model** → **Director model**: pick
+        `rimchron-director-e4b`. No orange warning shows.
+  - [ ] **Dev: record director decisions for training** on (below the advanced part; Dev Mode only).
+- [ ] **Test connection**: the main model answers, then the director.
+- [ ] Cold start (code review fix 4): stop Ollama, start it again so nothing is loaded, and press **Test connection** at
+      once. It waits for the model to load and passes, even past 100 s.
+- [ ] `/v1` address (fix 6): set the address to `http://localhost:11434/v1`; **Test connection** passes (it used to 404
+      on `/v1/v1/chat/completions`). Set it back.
 
-- [ ] 1. **Crisis: fire operation** → a standard raid; down about 40%: it pulls back to regroup (no "fleeing" message),
-      then comes back with the reserve.
+### 1b. The Hollow Choir's plot is the model's now (about 40 minutes)
+
+New colony (any storyteller, 5–8 colonists).
+
+- [ ] 1. **Hollow Choir: wake now**: "The Hollow Choir awakens" letter; the faction and its settlements appear near
+      the colony (Factions tab, world map).
+- [ ] 2. Let a few days pass (Dev Mode time skip): a "Chorus envoy" letter asks the colony's stance; the Chronicle tab
+      shows "The Hollow Choir". Answer **Stand with the Choir**.
+- [ ] 3. **Plot: director log**: the Choir plot's (`hollowchoir-…`) decisions show source **`Model`** (or
+      `ModelRetry`), never `Random`, each with a reason. Note one or two reasons.
+- [ ] 4. Let 10–20 days pass. The Choir's jobs (escort its envoys, sabotage a settlement it means to take) come as
+      quests; the log shows the director choosing them, or waiting, with reasons that fit the colony (a raid or a
+      death recently: it waits, or picks something gentle).
+- [ ] 5. **Hollow Choir: grant rank favor** until a colonist is Choirmaster ("rise in the Chorus" letters), then
+      **Plot: advance beat** on the Choir plot until it reaches Act 3. Once it's offered and the colony is steady, the
+      director should soon choose **the First Voice's offer** for that colonist (a letter: "Join the Chorus" or "Not
+      yet"). Answer **Not yet** to keep the game going.
+- [ ] 6. **Compare with E2B:** set the director to `rimchron-director-e2b`, let a Choir decision happen (or **Plot:
+      advance beat**), then **Plot: director log**: that decision shows `Random`. Set it back to E4B.
+- [ ] 7. Save, reload, and let another decision happen: no errors; the log keeps its earlier entries.
+
+### 1c. A colony against the Choir, and the Choir breaking (about 30 minutes)
+
+New colony, 5 or more colonists.
+
+- [ ] 1. **Hollow Choir: wake now**, wait for the envoy, answer **Stand against it**: defend-ally and sabotage jobs
+      against the Choir; the Choir is hostile.
+- [ ] 2. **Plot: advance beat** on the Choir plot to Act 3. If the letter says the Choir is **faltering** ("fell
+      back after heavy losses"), the plot is in its Broken beat. If it says ascendant, try again in another colony, or
+      play on and finish jobs against the Choir first (its losses decide it).
+- [ ] 3. With the Choir breaking and the colony steady (no raid or death in the last 3 days, mood not desperate), the
+      director should offer **the assault on the Choir's Cathedral** (a quest) within a few decisions. With a colony
+      that's reeling or small (4 or fewer), it should offer **the treaty** instead. It shouldn't keep waiting: this is
+      what the retrain fixed (E2B waits here two times in three).
+- [ ] 4. Don't accept the Cathedral quest yet: the Cathedral's own map comes with W9.
+
+### 1d. The Imperial crisis is the model's now (about 40 minutes)
+
+New colony with a stone wall, a few turrets and 6–8 armed colonists (as checkpoint 2 of the crisis).
+
+- [ ] 1. **Empire: trigger awakening**, **Empire: end stirring now**, wait for the envoy, answer **Stand against
+      it**. Wait for "The Empire marches".
+- [ ] 2. **Crisis: show state**: the line "Decided by" says **"Decided by: the director model"**. (With E2B as director it
+      says "weighted pick": check that once, then set E4B back.)
+- [ ] 3. **Crisis: decide now**: an operation is chosen with source `Model` and a reason that fits the crisis stage
+      (probing raids while the Empire tests the colony; no operation the colony just faced).
+- [ ] 4. **Crisis: ask director for a siege goal**: a `Goal:*` pick with a reason. Small colony (5 or fewer): the
+      leader; strained: starve it out; larger and steady: the walls; colony reeling: the walls, sparing people and food.
+- [ ] 5. **Crisis: ask director for a site**: a `Site:*` pick. Liberating a settlement the Empire holds when that's on
+      offer; the forward outpost when the colony is reeling; otherwise what is hurting it (the relay after psychic
+      assaults, the uplink in open war or after a siege).
+- [ ] 6. **Empire: expansion tick** twice, then let the crisis run 10–20 days at speed 3: each operation it fires is
+      in the director log as `Model`, and a siege it starts logs a `Goal:*` follow-up that matches its letter's aim.
+- [ ] 7. Save, reload, **Crisis: decide now** again: no errors.
+
+### 1e. Free play: a long game with the E4B director
+
+One or two long games, one per side if you have time. Play normally, or at speed 3–4 with Dev Mode to hurry the
+slow parts. Save every 20 days.
+
+- [ ] Every 20–30 days, open **Plot: director log** and read the newest decisions. Pass when they read like a sensible
+      story outline:
+  - [ ] after a raid on the colony or a death in the last 3 days, or with mood desperate: Wait, or relief (a treaty,
+        the First Voice's offer), never a raid, a demand or an assault;
+  - [ ] a beat that has waited 25 days or more moves on (unless the colony is reeling);
+  - [ ] no beat repeated back to back;
+  - [ ] reasons that name only people, places and events from this game, and state no facts that didn't happen.
+- [ ] The minor plots (Nemesis, Lost Family, Silent Press) and the Empire's plot still behave as before.
+- [ ] Note anything that feels wrong as a story: too quiet, too relentless, a letter that doesn't fit.
+- [ ] Every 50 days, **Plot: check beat spacing**: no two beats less than two days apart.
+
+**What to send Claude Code:** the director log as text (copy it from the letter) at a few points, every reason that
+looks wrong (with the day), and anything else odd. At the end, import the recorded cases (they stay on the PC):
+
+```powershell
+dotnet run --project harness/RimChronicles.Eval -- director-import --from "$env:USERPROFILE\AppData\LocalLow\Ludeon Studios\RimWorld by Ludeon Studios\RimChronicles\director-cases"
+```
+
+---
+
+## Part 2: checkpoint 1, sides, the Hollow Choir and waking (W2–W5)
+
+The full table, with every step's pass condition, is `docs/SPEC-war-in-heaven/war-runbook-1.md`; the boxes below
+follow it. About 2 hours. Write what you find in `docs/SPEC-war-in-heaven/war-results-1.md`, or tell Claude Code, with
+each step's number, pass or fail, what happened, and any red errors in the log.
+
+### W2: allegiance
+
+- [ ] W2.1 A save from `main` with the Empire plot under way: it loads on this branch with no errors; **War in Heaven:
+      show allegiance** shows the plot's Empire stance, cause `plot`. (Back up the save first.)
+- [ ] W2.2 New colony: **Empire: trigger awakening**, answer the envoy "Stand with the Empire", let a day pass:
+      `empire: ally`, side `empire`.
+- [ ] W2.3 **War in Heaven: set side** → Independent: `empire: oppose`, side `independent`, cause `dev`; the Empire
+      turns hostile once its plot is past the envoy.
+- [ ] W2.4 **Empire: set stance** → ally, let a day pass: the allegiance follows the plot back to `empire: ally`.
+- [ ] W2.5 Save, reload: the same stances and log.
+
+### W3: the Hollow Choir's faction
+
+- [ ] W3.1 New colony: no Hollow Choir in the Factions tab or on the world map.
+- [ ] W3.2 **Hollow Choir: create faction**: listed, leader titled First Voice, hostile to the Empire; about four
+      settlements 8–30 tiles away, plus one elsewhere.
+- [ ] W3.3 **Hollow Choir: raid (1,500 points)** while it isn't hostile: mechanitors and mechs arrive and hold their
+      ground; the message counts both.
+- [ ] W3.4 Goodwill to -100 (Factions tab, Dev Mode buttons), raid again and fight a day: they attack together; no
+      errors, no mech stops for lack of power or goes feral.
+- [ ] W3.5 Save, reload, create faction again: the same faction; no second Choir.
+
+### W4a: the Choir's saga
+
+- [ ] W4a.1 Mod settings → Story: **The Hollow Choir** sits under the major plot, on by default.
+- [ ] W4a.2 New colony, **Hollow Choir: show**: Running yes, State Dormant, no faction.
+- [ ] W4a.3 **Hollow Choir: trigger stirring**, skip 10–20 days: news of a hum at night, then rumours of the hum and of
+      mechlink strangers. No faction yet.
+- [ ] W4a.4 **Hollow Choir: wake now**: "The Hollow Choir awakens", the faction and settlements; **show**: Awakened,
+      next expansion about a week on.
+- [ ] W4a.5 Another colony: **War in Heaven: set side** → empire before waking the Choir: it starts hostile.
+- [ ] W4a.6 **Hollow Choir: expand now** a few times: settlements change hands or burn, with news lines.
+- [ ] W4a.7 New colony with a mechanitor colonist (install a mechlink), past day 30: the Choir stirs on its own;
+      **show** says a mechanitor drew it.
+- [ ] W4a.8 The Hollow Choir setting off, or no Biotech: **show** says it isn't running; nothing happens.
+- [ ] W4a.9 Save and reload in each state: state, log and faction survive.
+
+### W4b: the Choir's plot and ranks
+
+- [ ] W4b.1 **Hollow Choir: wake now**, a few days: "The Hollow Choir" in the Chronicle tab; a "Chorus envoy" letter.
+- [ ] W4b.2 "Stand with the Choir": the Choir marches; escort or conquest quests; **show allegiance**: side `choir`,
+      Empire `oppose`.
+- [ ] W4b.3 Finish a Choir job (or **Hollow Choir: grant rank favor** three times): a "rise in the Chorus" letter;
+      at 12 favor (Choirmaster) the First Voice's offer can come in Act 3.
+- [ ] W4b.4 Another colony, "Stand against it": defend-ally and sabotage jobs against the Choir; the Choir is hostile.
+- [ ] W4b.5 Another colony, "Keep out of it": a tribute letter with "Join the Chorus" as the third choice.
+- [ ] W4b.6 **Plot: director log**: with the E2B preset, Choir decisions are `Random`; with E4B, `Model` (Part 1b
+      covers this: tick it if you did that).
+- [ ] W4b.7 Save, reload mid-plot: the plot, its facts and the ranks survive.
+
+### W5: cross-waking, the ship launch and the Royal Ascent
+
+- [ ] W5.1 New colony: **Empire: trigger awakening**, **Empire: end stirring now**, **Empire: expansion tick**, a
+      day: the Choir wakes at once; **Hollow Choir: show** says the Empire's attack woke it.
+- [ ] W5.2 New colony: **Hollow Choir: wake now**, **Hollow Choir: expand now**, a day: the Empire wakes at once;
+      **Empire: show state** says the Choir woke it.
+- [ ] W5.3 New colony, both asleep: build and start a ship reactor (Dev Mode: spawn the ship parts): the Empire wakes,
+      goes to war and raids; the next day the Choir wakes too.
+- [ ] W5.4 New colony with a Royal title: accept the Royal Ascent (or **Hollow Choir: react to the Royal Ascent**):
+      the Choir wakes, goes to war and raids, again every 4 days while the ascent runs; the Empire wakes after the
+      first raid.
+- [ ] W5.5 As W5.4 but side with the Choir first: the Choir wakes and doesn't raid.
+
+---
+
+## Part 3: checkpoint 2, first part: the summons (W6)
+
+`docs/SPEC-war-in-heaven/war-runbook-2.md`. About 1 hour. Write results in `war-results-2.md` or tell Claude Code.
+Colony with a mechanitor colonist (install a mechlink) and two mechs it controls.
+
+- [ ] W6.1 **Empire: trigger awakening**, **Empire: end stirring now**, side with the Empire (the envoy, or **War in
+      Heaven: set side** → empire), a day (or **War in Heaven: send a summons now**): "The Empire's summons: {name}",
+      naming the colonist and what refusing means.
+- [ ] W6.2 Accept: an Imperial shuttle lands; the colonist boards; it leaves.
+- [ ] W6.3 Wait 5 days (or **War in Heaven: return the summoned colonist now**, then an hour): the colonist comes
+      back as a psycaster (level 1 with a basic mechlink, higher with more bandwidth), with no mechlink, and a letter.
+- [ ] W6.4 The two mechs are deactivated where they stood ("Deactivated."), never feral, even days later.
+- [ ] W6.5 Any colonist, right-click a deactivated mech: "Disassemble …" gives steel and components.
+- [ ] W6.6 Another colony siding with the Choir (wake it first), a colonist with psylink 3: "The Choir's summons";
+      back after 5 days by drop pod as a mechanitor with 14 bandwidth (mechlink 6 + Chorus tuning 8), no psylink or
+      psycasts.
+- [ ] W6.7 Decline a summons (or let it lapse): "The colony stands alone"; **show allegiance** says independent, cause
+      `summons`; both powers hostile.
+- [ ] W6.8 Accept but forbid the colonist from boarding until the shuttle leaves: the same as W6.7.
+- [ ] W6.9 Save and reload with a summons on offer, and with the colonist away: all survives, and they return.
+- [ ] W6.10 **War in Heaven: convert the selected colonist** both ways on a test pawn: psylink level = 1 + (bandwidth −
+      6) / 4, up to 6; back the other way, 6 + 4 × (level − 1) bandwidth.
+
+---
+
+## Part 4: fixes since C14, at any crisis fight
+
+**Crisis lords no longer panic-flee (#153).** Vanilla had added its own panic flee (at a random 40–70% of the force
+lost) to our operation and garrison lords, which cut short the profiles' regroup and retreat. Part 1d's colony works.
+
+- [ ] 1. **Crisis: fire operation** → a standard raid; down about 40%: it pulls back to regroup (no "fleeing"
+      message), then comes back with the reserve.
 - [ ] 2. Down 60% of it: it retreats and carries off its downed where no colonist is close.
-- [ ] 3. FinalAssault: down more than 70%: it still doesn't retreat (B4 #14).
-- [ ] 4. A Citadel's inner rings: down most of a garrison: the rest hold their ring.
+- [ ] 3. FinalAssault: down more than 70%: it still doesn't retreat.
+- [ ] 4. A Citadel's inner rings (**Crisis: generate Citadel**): down most of a garrison: the rest hold their ring.
+
+**The finale leaders are kept as world pawns (code review fix 1).** The High Stellarch and the First Voice weren't on
+the mod's keep lists, so after farskipping off a map the world-pawn cleanup could discard them, and a different leader
+came back.
+
+- [ ] 5. **Crisis: spawn High Stellarch** on a map away from the Citadel, hurt it until it farskips off the map.
+      **Crisis: Stellarch state** says "off the maps; kept as a world pawn: yes".
+- [ ] 6. End a nemesis or lost-family plot (**Plot: advance beat** until it ends), skip 30+ days, save and reload.
+      **Crisis: Stellarch state** shows the same name, still kept, and the log has no reference errors.
+- [ ] 7. **Choir crisis: First Voice state** after the First Voice leaves a map: "kept as a world pawn: yes".
+
+**One failure no longer stops the day (code review fixes 2 and 3).** The daily drivers each run on their own, and every
+Harmony patch catches its own errors, so one bug can't silence the plots, crises and news after it.
+
+- [ ] 8. **Dev: fail next daily step**, then let a day pass. The log has one "Daily step dev fault failed" error, and
+      **Dev: daily step failures** names it. That day's news, plot beats and crisis checks still happen.
+- [ ] 9. Next day: no new error, and **Dev: daily step failures** says nothing failed.
+
+**Cleanup (code review fixes 7, 8, 9, 11).** Any time, a few minutes.
+
+- [ ] 10. In the Citadel (**Crisis: generate Citadel**), hit a keep wall while a courtyard relay stands: it takes about a
+      tenth of the damage. Destroy the relays: full damage again. Save, reload with a relay standing: still shielded.
+- [ ] 11. Quit to the main menu, then load a different save: no errors, and **Crisis: psyker report** (Dev Mode)
+      shows nothing from the first game.
+
+**Each power scouts for itself (Choir entrances fix).** The Choir's cluster sieges placed their camp by the Empire's
+last scouting report; the Choir's own probing swarms reported to nothing that was read.
+
+- [ ] 12. With only the Choir's crisis running, let a Choir probing swarm finish. **Choir crisis: show cluster siege
+      scoring** now scores the spots with an "entrance" term facing the doors nearest where the swarm came in;
+      **Crisis: show siege scoring** (the Empire's) is unchanged.
+
+## Part 5: release prep (about 15 minutes, any time)
+
+What changed: the settings page can download models through Ollama, and the build can package the Workshop folder.
+The director presets are now named as on the Ollama registry (`oldmanjohnnymorgan/rimchron-director-e4b`); your local
+`rimchron-director-e4b` still counts as the same preset.
+
+- [ ] 1. Mod settings with your current director set: the `rimchron-director-e4b` preset is still the one selected, at
+      Recommended, with no orange warning.
+- [ ] 2. Main tier Minimum (`gemma4:e2b`, already pulled): **Download model**: it finishes within seconds, green.
+- [ ] 3. Run `ollama rm gemma4:e2b` in PowerShell, then **Test connection**: red, and it says to press Download model.
+      **Download model**: the line shows GB and percent while it runs; close and reopen the settings mid-way, and it's
+      still going. It ends green; **Test connection** answers.
+- [ ] 4. **Download model**, then **Cancel download** mid-way: it says cancelled. Press it again: Ollama resumes.
+- [ ] 5. Quit Ollama (tray icon → Quit), then **Test connection**: red, it mentions ollama.com, and a **Get Ollama**
+      button opens ollama.com/download in your browser. Start Ollama again.
+- [ ] 6. Packaging: `dotnet build src/RimChronicles.Game -c Release -t:PackageRelease`. `release\RimChronicles\` has
+      only `About`, `1.7`, `Defs`, `prompts`, `LICENSE`, `README.md`. (A warning about `Preview.png` is expected until
+      we add one.)
+- [ ] 7. Move the repository folder out of `Mods`, copy `release\RimChronicles` in, and start a new colony: the mod
+      loads with no red errors, and a bulletin arrives (Dev Mode: **Force bulletin**). Put things back after.
+
+**Send Claude Code:** which steps passed, and the text of any red line or error.
+
+---
+
+## Later
+
+- **E2B war retrain (v3).** On hold until after the playtest. The hand labels (`hand-choir-v1`, PR #159) and the exact
+  commands are in `training/README.md`, "Hand labels for the Hollow Choir". If it passes: its review, then
+  `ollama cp rimchron-director-e2b-war rimchron-director-e2b` and its preset change (as #158 for E4B).
+- **Checkpoint 2, the rest (W7–W9, all built)**: the Choir's crisis (`war-runbook-2.md` steps W7.1–W7.17), its sites and
+  the cluster siege (W8.1–W8.16), the Cathedral and the First Voice (W9.1–W9.15).
+- **Checkpoint 3 (W10–W11, built)**: the War in Heaven (`war-runbook-3.md` W10.1–W10.19) and the endings (W11.1–W11.9).
+- **Stage 0 run for epilogue v3** (rule 8, zero API spend): on the PC, `dotnet run --project harness/RimChronicles.Eval -- run --tasks epilogue --models gemma4-e2b,gemma4-e4b,gemma4-12b` (no `claude-ref`, which calls the paid API);
+  send Claude Code the run folder's `raw/` to review.
+- **W14**: the balance pass and a full proof run per side; then `war-in-heaven` merges into `main`.
+- **Release** (`docs/release.md`): a `Preview.png`, publish the directors to the Ollama registry, and the Workshop upload.
+- **Stage 5 proof run** (`docs/stage5-runbook.md`, M7) has no results file. Run it if it hasn't been.
+
+---
+
+## Done: the record
+
+### Director model (D0–D11): passed 2026-11-24
+
+| Step | Result |
+| --- | --- |
+| E2B training (v1–v3) | v3, with 250 hand labels for the Empire (`hand-empire-v1`), passed all 13 ship bars: top-1 85.4% (`harness/reports/director-e2b-v3.md`) |
+| Prompted baseline | `base-v1` |
+| E2B blind review (D9) | Picked or tied 70% (bar 40%) |
+| E4B training and review | `director-e4b-v1` passed all 13 bars (top-1 86.0%); review 93% |
+| In game (A6, D7) | Both presets connect, decide with source `Model`, and read sensibly |
+| 200-day check (D11) | Passed |
+
+### Imperial crisis (C0–C14): passed 2026-11-24
+
+Checkpoints 1–4 (`docs/SPEC-crisis-combat-and-locations/crisis-runbook-1.md` to `-4.md`) and C14, the balance pass and
+proof run (stage 3 costs real losses but is winnable without save-scumming; stage 4 and the Citadel need preparation).
+Merged into `main` on 2026-11-24 (#93). Its director wiring (C11) gave crisis decisions to a director trained on the
+crisis; that is now the E4B preset (Part 1d).
+
+### War in Heaven director retrain (W13): E4B passed 2026-11-26
+
+One retrain covered the crisis and the War in Heaven, on test version 3 (1040 cases: `test-v1`, `test-crisis-v1`,
+`test-war-v1`; top-1 bar 80% from #156).
+
+| Model | Result |
+| --- | --- |
+| `director-e4b-war-v2` | All 13 bars: top-1 83%, regret 0.29, orders 92%; blind review picked or tied 96% (#157). The E4B preset (#158) |
+| `director-e2b-war-v2` | Failed: top-1 76%, regret 0.44, orders and ids. Weak on HollowChoir/Broken (25%) and the Empire's Broken beat. Retrain v3 later |

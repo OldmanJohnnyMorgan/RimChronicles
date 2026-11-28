@@ -13,6 +13,9 @@ namespace RimChronicles.Llm.Tasks;
 /// <param name="maxAttempts">Model attempts before falling back (the design spec says 2: one retry).</param>
 public sealed class LlmTaskRunner(IChatProvider? provider, int maxAttempts = 2)
 {
+    /// <summary>The failure recorded for an answer cut off at the output token limit.</summary>
+    public const string TruncatedFailure = "The answer was cut off by the length limit. Write a shorter answer that ends cleanly.";
+
     public async Task<TaskOutcome<T>> RunAsync<T>(TaskDefinition<T> task, CancellationToken cancellationToken)
     {
         var version = $"{task.Prompt.Meta.Task}/{task.Prompt.Meta.Version}";
@@ -53,6 +56,15 @@ public sealed class LlmTaskRunner(IChatProvider? provider, int maxAttempts = 2)
             if (!result.Ok || result.Text is null)
             {
                 attempts.Add(new TaskAttempt(request, result, [result.Error ?? "No answer"]));
+                continue;
+            }
+
+            if (result.Truncated)
+            {
+                // Cut off at the token limit: the text may stop mid-sentence, so it never ships; the retry asks for less.
+                List<string> cut = [TruncatedFailure];
+                attempts.Add(new TaskAttempt(request, result, cut));
+                user = WithFeedback(rendered.User, cut);
                 continue;
             }
 

@@ -1,3 +1,4 @@
+using RimChronicles.Core.Powers;
 using LudeonTK;
 using RimChronicles.Core.Crisis;
 using RimChronicles.Core.Crisis.Captives;
@@ -84,7 +85,7 @@ public static class CaptiveOps
             $"{pawn.LabelShort}, once an Imperial {Rank(defector.Rank)}, has joined {Faction.OfPlayer.Name}. The Empire won't forget it: "
             + "while they're with the colony, it may send a strike force to take them back.",
             LetterDefOf.PositiveEvent, pawn, empire);
-        RimChroniclesGameComponent.Current?.News.Add(new NewsEvent(GenDate.DaysPassed, Core.Empire.EmpireSaga.NewsKind,
+        RimChroniclesGameComponent.Current?.News.Add(new NewsEvent(GenDate.DaysPassed, Core.Powers.Power.Empire.NewsKind,
             $"An Imperial {Rank(defector.Rank)} defected to {Faction.OfPlayer.Name}", empire?.Name ?? ""));
     }
 
@@ -178,7 +179,7 @@ public static class CaptiveOps
 
         var (site, def) = sites[0];
         var points = site.parts.FirstOrDefault(p => p.def == def!.sitePart)?.parms.threatPoints ?? def!.budget.min;
-        var plan = SitePlanner.PlanValid(def!.ToCore(), PieceLibrary.All.Select(p => p.Source).ToList(), points, site.ID, out _);
+        var plan = SitePlanner.PlanValid(def!.ToCore(), PieceLibrary.SourcesFor(def.power), points, site.ID, out _);
         var soldiers = Math.Max(2, (int)Math.Round(plan.DefenderPoints / 150f));
         return $"The {def.label} ({site.Label}) is held by about {soldiers} troops, with {plan.Gates.Count} gate{(plan.Gates.Count == 1 ? "" : "s")} on its "
             + $"{plan.Entry.ToString().ToLowerInvariant()} side.";

@@ -225,6 +225,11 @@ public static class OperationProfiles
 
     public static OperationProfile For(string operation) => operation switch
     {
+        // The Hollow Choir's (War in Heaven W7): each takes the shape of the Imperial operation it mirrors.
+        CrisisOperations.ProbingSwarm => ProbingRaid with { Operation = operation },
+        CrisisOperations.Burrowing => Decapitation with { Operation = operation },
+        CrisisOperations.FinalChorus => FinalAssault with { Operation = operation },
+        CrisisOperations.ClusterSiege => Siege with { Operation = operation },
         CrisisOperations.ProbingRaid => ProbingRaid,
         CrisisOperations.Decapitation => Decapitation,
         CrisisOperations.FinalAssault => FinalAssault,

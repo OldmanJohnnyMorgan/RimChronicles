@@ -3,7 +3,11 @@ using RimChronicles.Core.Crisis.Units;
 namespace RimChronicles.Core.Crisis.Operations;
 
 /// <summary>One kind of unit in an operation's mix, and its share (crisis spec §5.3.1, "operation mix").</summary>
-public sealed record MixEntry(UnitRole Role, Specialty Specialty, float Weight, CrisisStage MinStage = CrisisStage.Probing);
+public sealed record MixEntry(UnitRole Role, Specialty Specialty, float Weight, CrisisStage MinStage = CrisisStage.Probing)
+{
+    /// <summary>A Choir mech's weight class (<see cref="UnitRole.Mech"/> only).</summary>
+    public MechClass Mech { get; init; } = MechClass.None;
+}
 
 /// <summary>
 /// Builds an operation's force from its mix and a points budget: units are added one at a time, always the kind
@@ -169,7 +173,8 @@ public static class ForceMix
 
     public static IReadOnlyList<MixEntry> Build(IReadOnlyList<MixEntry> mix, CrisisStage stage, float points, Func<MixEntry, float> cost, int maxUnits = MaxUnits)
     {
-        var allowed = mix.Where(e => e.Weight > 0 && stage >= e.MinStage && stage >= PsycastKits.FirstStage(e.Role, e.Specialty)).ToList();
+        var allowed = mix.Where(e => e.Weight > 0 && stage >= e.MinStage && stage >= PsycastKits.FirstStage(e.Role, e.Specialty)
+            && (e.Mech != MechClass.Boss || stage == CrisisStage.Finale)).ToList();
         var force = new List<MixEntry>();
         if (allowed.Count == 0)
         {

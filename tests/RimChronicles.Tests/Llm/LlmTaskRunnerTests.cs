@@ -44,6 +44,19 @@ public class LlmTaskRunnerTests
     }
 
     [Fact]
+    public async Task TruncatedAnswer_IsRetriedAndNeverShips()
+    {
+        var cut = FakeChatProvider.Answer("""{"choice":"Wait"}""") with { Truncated = true };
+        var provider = new FakeChatProvider(cut, cut);
+
+        var outcome = await new LlmTaskRunner(provider).RunAsync(Director(), CancellationToken.None);
+
+        Assert.Equal(OutcomeSource.Template, outcome.Source);
+        Assert.Equal([LlmTaskRunner.TruncatedFailure], outcome.Attempts[0].Failures);
+        Assert.Contains("shorter answer", provider.Requests[1].User);
+    }
+
+    [Fact]
     public async Task InvalidFirstAnswer_RetriesWithFeedback()
     {
         var provider = new FakeChatProvider(

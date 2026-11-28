@@ -335,8 +335,8 @@ Requires the Royalty DLC. Without Royalty, the mod runs minor plots and the news
 
 | State | What the Empire does | Moves on when |
 | --- | --- | --- |
-| Dormant | Few settlements, no expansion, normal Royalty quests | Awakening trigger (below), or day 300 at the latest |
-| Stirring | Rumours in bulletins, envoys, demands on nearby factions | 20–40 days pass |
+| Dormant | Few settlements, no expansion, normal Royalty quests | Day 20: the opening hook. The awakening triggers (below) only say why (decided 2026-11-26; was day 300 at the latest) |
+| Stirring | Rumours in bulletins, envoys, demands on nearby factions | 10–20 days pass (was 20–40; 2026-11-26) |
 | Awakened | Expands: takes over or founds a settlement every 15–30 days, wars with neighbours | Act 2 milestones are met |
 | Ascendant or Broken | Either controls most of the map and makes final demands, or is collapsing after losses | Player completes or fails an ending |
 
@@ -344,7 +344,7 @@ Requires the Royalty DLC. Without Royalty, the mod runs minor plots and the news
 
 ### Territory expansion
 
-Pure C#, no LLM. On a timer, the Empire picks a target settlement within range, weighted by distance and the target faction's strength. The result is a conquest (the settlement changes faction), a razing, or a repelled attack. Every result goes into the news digest. The player can help or hinder through Defend Ally and Sabotage quests.
+Pure C#, no LLM. On a timer, the Empire picks a target settlement within range, weighted by distance and the target faction's strength. It attacks out of its settlements in the colony's region (within 40 tiles of the colony, else its three nearest), reaches 30 tiles, weights distance steeply (`1/(1 + d/5)³`, so about three attacks in four land within 15 tiles), takes the owner's size only as a tiebreak (over its square root), and favours targets near its latest conquest, so its territory advances as a front (decided 2026-11-26; the Hollow Choir follows the same rules). The result is a conquest (the settlement changes faction), a razing, or a repelled attack. Every result goes into the news digest. The player can help or hinder through Defend Ally and Sabotage quests.
 
 ### Acts
 

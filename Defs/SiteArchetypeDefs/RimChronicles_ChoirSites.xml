@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The Hollow Choir's sites (War in Heaven spec §4.3, W7): the mirror of the Imperial sites, one for one, so the site
+  planner's rules carry over. Their power is "choir": the Imperial crisis never offers them, and the Imperial crisis
+  cases never see them. They need
+  Royalty and Biotech. The resonator's capability is the Choir's psychic arm (the hum), the spire's its strikes (cluster
+  drops). Since W8 they have their own site parts (Defs/SitePartDefs/RimChronicles_ChoirSites.xml), objective rooms and
+  turret nests (RimChronicles_ChoirPieces.xml); the barracks, power yard, armory and command room are shared.
+-->
+<Defs>
+  <RimChronicles.Game.Crisis.Sites.SiteArchetypeDef MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Biotech">
+    <defName>RimChronicles_Site_ClusterOutpost</defName>
+    <label>Choir cluster outpost</label>
+    <description>a walled cluster of Choir mechs and their mechanitors; destroying its comms console blinds the Choir to the colony</description>
+    <archetype>ClusterOutpost</archetype>
+    <power>choir</power>
+    <sitePart>RimChronicles_ChoirOutpost</sitePart>
+    <objectiveThing>CommsConsole</objectiveThing>
+    <objectiveTag>CommsRoom</objectiveTag>
+    <size>(40,40)</size>
+    <required>
+      <li>
+        <tag>Barracks</tag>
+      </li>
+      <li>
+        <tag>Power</tag>
+      </li>
+    </required>
+    <optional>
+      <li>
+        <tag>Artillery</tag>
+        <weight>1</weight>
+        <max>1</max>
+      </li>
+      <li>
+        <tag>Armory</tag>
+        <weight>1</weight>
+        <max>1</max>
+      </li>
+    </optional>
+    <gates>1</gates>
+    <budget>600~2500</budget>
+    <pieceShare>0.4</pieceShare>
+    <minStage>Probing</minStage>
+    <weight>2</weight>
+  </RimChronicles.Game.Crisis.Sites.SiteArchetypeDef>
+  <RimChronicles.Game.Crisis.Sites.SiteArchetypeDef MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Biotech">
+    <defName>RimChronicles_Site_Resonator</defName>
+    <label>Choir resonator</label>
+    <description>a fortified resonator that carries the Choir's hum; destroying its core silences the hum for weeks</description>
+    <archetype>Resonator</archetype>
+    <power>choir</power>
+    <sitePart>RimChronicles_ChoirResonatorSite</sitePart>
+    <objectiveThing>RimChronicles_ChoirResonator</objectiveThing>
+    <objectiveTag>ResonatorChamber</objectiveTag>
+    <size>(52,52)</size>
+    <required>
+      <li>
+        <tag>Barracks</tag>
+      </li>
+      <li>
+        <tag>Power</tag>
+      </li>
+    </required>
+    <optional>
+      <li>
+        <tag>Turret</tag>
+        <weight>2</weight>
+        <max>3</max>
+      </li>
+      <li>
+        <tag>Artillery</tag>
+        <weight>1</weight>
+        <max>1</max>
+      </li>
+      <li>
+        <tag>Armory</tag>
+        <weight>1</weight>
+        <max>1</max>
+      </li>
+      <li>
+        <tag>Barracks</tag>
+        <weight>1</weight>
+        <max>1</max>
+      </li>
+    </optional>
+    <gates>2</gates>
+    <budget>1500~5000</budget>
+    <pieceShare>0.4</pieceShare>
+    <minStage>Reclamation</minStage>
+    <weight>2</weight>
+    <capability>psykers</capability>
+    <capabilityDays>15</capabilityDays>
+  </RimChronicles.Game.Crisis.Sites.SiteArchetypeDef>
+  <RimChronicles.Game.Crisis.Sites.SiteArchetypeDef MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Biotech">
+    <defName>RimChronicles_Site_SignalSpire</defName>
+    <label>Choir signal spire</label>
+    <description>a signal spire the Choir's Cantors use to call down mech clusters; destroying it stops the cluster drops for weeks</description>
+    <archetype>SignalSpire</archetype>
+    <power>choir</power>
+    <sitePart>RimChronicles_ChoirSpireSite</sitePart>
+    <objectiveThing>RimChronicles_SignalSpire</objectiveThing>
+    <objectiveTag>SpireStation</objectiveTag>
+    <size>(52,52)</size>
+    <required>
+      <li>
+        <tag>Barracks</tag>
+      </li>
+      <li>
+        <tag>Power</tag>
+      </li>
+    </required>
+    <optional>
+      <li>
+        <tag>Turret</tag>
+        <weight>3</weight>
+        <max>4</max>
+      </li>
+      <li>
+        <tag>Artillery</tag>
+        <weight>1</weight>
+        <max>2</max>
+      </li>
+      <li>
+        <tag>Armory</tag>
+        <weight>1</weight>
+        <max>1</max>
+      </li>
+    </optional>
+    <gates>2</gates>
+    <budget>1500~5000</budget>
+    <pieceShare>0.4</pieceShare>
+    <minStage>Reclamation</minStage>
+    <weight>2</weight>
+    <capability>strikes</capability>
+    <capabilityDays>15</capabilityDays>
+  </RimChronicles.Game.Crisis.Sites.SiteArchetypeDef>
+  <RimChronicles.Game.Crisis.Sites.SiteArchetypeDef MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Biotech">
+    <defName>RimChronicles_Site_ChoirHolding</defName>
+    <label>Choir-held town</label>
+    <description>a town the Choir took, held by a Chorus garrison; destroying the comms console deepest inside hands it back to its people</description>
+    <archetype>ChoirHolding</archetype>
+    <power>choir</power>
+    <sitePart>RimChronicles_ChoirHoldingSite</sitePart>
+    <objectiveThing>CommsConsole</objectiveThing>
+    <objectiveTag>CommsRoom</objectiveTag>
+    <size>(52,52)</size>
+    <required>
+      <li>
+        <tag>Barracks</tag>
+        <count>2</count>
+      </li>
+      <li>
+        <tag>Power</tag>
+      </li>
+    </required>
+    <optional>
+      <li>
+        <tag>Turret</tag>
+        <weight>2</weight>
+        <max>3</max>
+      </li>
+      <li>
+        <tag>Armory</tag>
+        <weight>1</weight>
+        <max>1</max>
+      </li>
+      <li>
+        <tag>Artillery</tag>
+        <weight>1</weight>
+        <max>1</max>
+      </li>
+    </optional>
+    <gates>2</gates>
+    <budget>1200~4500</budget>
+    <pieceShare>0.4</pieceShare>
+    <minStage>Reclamation</minStage>
+    <weight>3</weight>
+    <needsHolding>true</needsHolding>
+  </RimChronicles.Game.Crisis.Sites.SiteArchetypeDef>
+</Defs>

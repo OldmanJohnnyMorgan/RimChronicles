@@ -34,6 +34,27 @@ class DataTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 data.load_split(Path(t), "train")
 
+    def test_a_train_row_from_a_test_seed_is_rejected(self):
+        with tempfile.TemporaryDirectory() as t:
+            self.write(Path(t), [row(seed=9001)])
+            with self.assertRaisesRegex(ValueError, "test seed 9001"):
+                data.check_manifest(Path(t))
+
+    def test_the_manifest_names_the_test_seeds(self):
+        with tempfile.TemporaryDirectory() as t:
+            self.write(Path(t), [row(seed=9001)], {"promptVersion": "director/v2", "tier": "Minimum", "testSeeds": [42]})
+            data.check_manifest(Path(t))  # 9001 is not a test seed in this dataset
+            self.write(Path(t), [row(seed=42)], {"promptVersion": "director/v2", "tier": "Minimum", "testSeeds": [42]})
+            with self.assertRaises(ValueError):
+                data.check_manifest(Path(t))
+
+    def test_a_case_in_both_test_and_train_is_rejected(self):
+        with tempfile.TemporaryDirectory() as t:
+            self.write(Path(t), [row(id="dir-game-x-day5-p#orig", case="dir-game-x-day5-p")])
+            (Path(t) / "test.jsonl").write_text(row(id="dir-game-x-day5-p#orig", case="dir-game-x-day5-p") + "\n", encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "also in test.jsonl"):
+                data.check_manifest(Path(t))
+
     def test_manifest_must_match_rows(self):
         with tempfile.TemporaryDirectory() as t:
             self.write(Path(t), [row(promptVersion="director/v1")])
@@ -66,6 +87,23 @@ class ExportTests(unittest.TestCase):
         self.assertIn("PARAMETER stop <end_of_turn>", lines)
         self.assertNotIn("PARAMETER temperature 1", lines)
         self.assertFalse(any(l.startswith("FROM") or l.startswith("LICENSE") for l in lines))
+
+    def test_publish_modelfile_keeps_the_base_licence(self):
+        from rimchron_train.export import publish_modelfile
+        mf = 'FROM /x/blob\nTEMPLATE """t"""\nLICENSE """Apache License\nVersion 2.0"""\nPARAMETER stop x\n'
+        self.assertEqual(publish_modelfile("rimchron-director-e4b", mf),
+                         'FROM rimchron-director-e4b\nLICENSE """Apache License\nVersion 2.0"""\n')
+
+    def test_publish_modelfile_refuses_a_base_without_a_licence(self):
+        from rimchron_train.export import publish_modelfile
+        with self.assertRaises(SystemExit):
+            publish_modelfile("m", 'FROM /x\nTEMPLATE """t"""\n')
+
+    def test_registry_namespace_matches_the_game(self):
+        from pathlib import Path
+        from rimchron_train.registry import NAMESPACE
+        cs = (Path(__file__).resolve().parents[2] / "src/RimChronicles.Llm/TierPresets.cs").read_text()
+        self.assertIn(f'RegistryNamespace = "{NAMESPACE}"', cs)
 
     def test_merged_modelfiles_find_unsloth_gguf_dir_and_skip_mmproj(self):
         import tempfile

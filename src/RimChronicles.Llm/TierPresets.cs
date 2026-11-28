@@ -23,13 +23,55 @@ public static class TierPresets
     };
 
     /// <summary>The fine-tuned directors offered as choices in the settings window, each with the tier it was trained on
-    /// and whether its training cases included the Imperial crisis arc (crisis C11). A model joins this list only after
-    /// its report is committed to <c>harness/reports/</c>.</summary>
-    public static readonly IReadOnlyList<(string Model, ModelTier Tier, string Label, bool KnowsCrisis)> DirectorPresets =
+    /// and the vocabulary its training cases covered (War in Heaven tech spec R12). A model joins this list only after its
+    /// report is committed to <c>harness/reports/</c>.</summary>
+    /// <para>Each is named as players pull it from the Ollama registry (<see cref="RegistryNamespace"/>); a local copy under
+    /// the bare name (<c>rimchron-director-e4b</c>, as training makes it) matches the same preset.</para></summary>
+    public static readonly IReadOnlyList<(string Model, ModelTier Tier, string Label, DirectorVocabulary Vocabulary)> DirectorPresets =
     [
-        ("rimchron-director-e2b", ModelTier.Minimum, "rimchron-director-e2b: fine-tuned on Gemma 4 E2B (about 2 GB of VRAM), Minimum prompts", false),
-        ("rimchron-director-e4b", ModelTier.Recommended, "rimchron-director-e4b: fine-tuned on Gemma 4 E4B (about 4 GB of VRAM), Recommended prompts", false),
+        ($"{RegistryNamespace}/rimchron-director-e2b", ModelTier.Minimum, "rimchron-director-e2b: fine-tuned on Gemma 4 E2B (about 2 GB of VRAM), Minimum prompts", DirectorVocabulary.Base),
+        ($"{RegistryNamespace}/rimchron-director-e4b", ModelTier.Recommended, "rimchron-director-e4b: fine-tuned on Gemma 4 E4B (about 4 GB of VRAM), Recommended prompts", DirectorVocabulary.WarInHeaven), // director-e4b-war-v2 (#157)
     ];
+
+    /// <summary>The Ollama registry account the fine-tuned directors are published under (<c>ollama pull
+    /// oldmanjohnnymorgan/rimchron-director-e4b</c>).</summary>
+    public const string RegistryNamespace = "oldmanjohnnymorgan";
+
+    /// <summary>A model name without its registry host or namespace and without a <c>:latest</c> tag, trimmed and in lower
+    /// case: <c>registry.ollama.ai/oldmanjohnnymorgan/rimchron-director-e4b:latest</c> and <c>rimchron-director-e4b</c>
+    /// are both <c>rimchron-director-e4b</c>. Other tags are kept, since they name other weights.</summary>
+    public static string BareName(string? model)
+    {
+        var name = (model ?? "").Trim().ToLowerInvariant();
+        var slash = name.LastIndexOf('/');
+        if (slash >= 0)
+        {
+            name = name[(slash + 1)..];
+        }
+
+        return name.EndsWith(":latest", StringComparison.Ordinal) ? name[..^":latest".Length] : name;
+    }
+
+    /// <summary>
+    /// The plots this model may decide (War in Heaven tech spec R12). A fine-tuned director has only seen the options it
+    /// was trained on: its preset says how far its training went, and an unlisted <c>rimchron-director-*</c> name counts as
+    /// trained on the base arcs only. Any other model is prompted, not fine-tuned, and reads the options' descriptions like
+    /// any others, so it knows everything. What a model doesn't know picks by weight.
+    /// </summary>
+    public static DirectorVocabulary Vocabulary(string? model)
+    {
+        if (DirectorPreset(model) is { } preset)
+        {
+            return preset.Vocabulary;
+        }
+
+        return BareName(model).StartsWith(FineTunedDirectorPrefix, StringComparison.Ordinal)
+            ? DirectorVocabulary.Base
+            : DirectorVocabulary.WarInHeaven;
+    }
+
+    /// <summary>Whether this model may decide the Hollow Choir's plot, its crisis and the War in Heaven.</summary>
+    public static bool KnowsWarInHeaven(string? model) => Vocabulary(model) >= DirectorVocabulary.WarInHeaven;
 
     /// <summary>The name every fine-tuned director starts with (training/README.md, D6).</summary>
     public const string FineTunedDirectorPrefix = "rimchron-director";
@@ -40,23 +82,21 @@ public static class TierPresets
     /// the crisis arc; an unlisted <c>rimchron-director-*</c> name counts as trained before it. Any other model is
     /// prompted, not fine-tuned, and reads the options' descriptions like any others. Otherwise the crisis picks by weight.
     /// </summary>
-    public static bool KnowsCrisis(string? model)
+    public static bool KnowsCrisis(string? model) => Vocabulary(model) >= DirectorVocabulary.Crisis;
+
+    /// <summary>The preset matching a director model name (trimmed, any case, with or without the registry namespace and a
+    /// <c>:latest</c> tag; see <see cref="BareName"/>), or null for a custom name or blank.</summary>
+    public static (string Model, ModelTier Tier, string Label, DirectorVocabulary Vocabulary)? DirectorPreset(string? model)
     {
-        if (DirectorPreset(model) is { } preset)
+        var name = BareName(model);
+        if (name.Length == 0)
         {
-            return preset.KnowsCrisis;
+            return null;
         }
 
-        return !(model ?? "").Trim().StartsWith(FineTunedDirectorPrefix, StringComparison.OrdinalIgnoreCase);
-    }
-
-    /// <summary>The preset matching a director model name (trimmed, any case), or null for a custom name or blank.</summary>
-    public static (string Model, ModelTier Tier, string Label, bool KnowsCrisis)? DirectorPreset(string? model)
-    {
-        var name = (model ?? "").Trim();
         foreach (var preset in DirectorPresets)
         {
-            if (string.Equals(preset.Model, name, StringComparison.OrdinalIgnoreCase))
+            if (BareName(preset.Model) == name)
             {
                 return preset;
             }
@@ -102,10 +142,31 @@ public static class TierPresets
         return null;
     }
 
-    /// <summary>The endpoint as a base URI with a trailing slash, so "v1/chat/completions" resolves under it.</summary>
+    /// <summary>The endpoint as a base URI with a trailing slash, so "v1/chat/completions" (and Ollama's "api/...")
+    /// resolves under it. A trailing "/v1", as LM Studio, vLLM and OpenAI-style docs give the address, is dropped, so
+    /// it doesn't become "/v1/v1/chat/completions".</summary>
     public static Uri EndpointUri(string endpoint)
     {
-        var text = endpoint.Trim();
-        return new Uri(text.EndsWith('/') ? text : text + "/");
+        var text = endpoint.Trim().TrimEnd('/');
+        if (text.EndsWith("/v1", StringComparison.OrdinalIgnoreCase) && new Uri(text).AbsolutePath.Length > 1)
+        {
+            text = text[..^3];
+        }
+
+        return new Uri(text + "/");
     }
+}
+
+/// <summary>How far a director model's training went (War in Heaven tech spec R12): each level adds plots to the ones
+/// before it.</summary>
+public enum DirectorVocabulary
+{
+    /// <summary>The minor plots and the Awakened Empire (director-model track D0–D11).</summary>
+    Base,
+
+    /// <summary>Plus the Imperial crisis: operations, siege goals and sites (crisis C11).</summary>
+    Crisis,
+
+    /// <summary>Plus the Hollow Choir, its crisis and the War in Heaven (War in Heaven W12).</summary>
+    WarInHeaven,
 }

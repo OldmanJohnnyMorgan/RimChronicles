@@ -25,14 +25,26 @@ public static class EpilogueTask
     {
         EmpireEnding.Resistance => "Resistance victory",
         EmpireEnding.Imperial => "Imperial victory",
+        Choir.ChoirEnding.Choral => "Choral victory",
+        Choir.ChoirEnding.Silenced => "The Choir silenced",
+        War.WarEnding.IndependenceTotal => "Total independence",
         _ => "Independence",
     };
 
-    /// <summary>What the ending means, for the prompt and the template.</summary>
-    public static string Meaning(EpilogueCase c, string colony) => c.Ending switch
+    /// <summary>What the ending means, for the prompt and the template. With a rival, the story ended in the War in
+    /// Heaven (W11), and the meaning says how the rival fell.</summary>
+    public static string Meaning(EpilogueCase c, string colony) => (c.Ending, c.Rival) switch
     {
-        EmpireEnding.Resistance => $"{colony} and its allies destroyed the capital of {c.Empire}, and the Empire fell.",
-        EmpireEnding.Imperial => $"{colony} served {c.Empire} and became an Imperial province, governed in the Empire's name.",
+        (EmpireEnding.Resistance, _) => $"{colony} and its allies destroyed the capital of {c.Empire}, and the Empire fell.",
+        (EmpireEnding.Imperial, { } rival) => $"{c.Empire} won the War in Heaven with {colony} at its side, and {rival} was destroyed. "
+            + $"{colony} became an Imperial province, governed in the Empire's name.",
+        (EmpireEnding.Imperial, _) => $"{colony} served {c.Empire} and became an Imperial province, governed in the Empire's name.",
+        (Choir.ChoirEnding.Choral, { } rival) => $"{c.Empire} won the War in Heaven with {colony} at its side, and {rival} was destroyed. "
+            + $"{colony} took its place in the Chorus, and its people sing with the Choir now.",
+        (Choir.ChoirEnding.Choral, _) => $"{colony} joined the Chorus of {c.Empire}: its people took their place among the Choir's mechanitors.",
+        (Choir.ChoirEnding.Silenced, _) => $"{colony} stormed the Cathedral of {c.Empire}, and the Choir fell silent.",
+        (War.WarEnding.IndependenceTotal, { } rival) => $"{colony} brought down both great powers, {c.Empire} and {rival}. No one is left on the rim to rule it.",
+        (_, { } rival) => $"With {rival} destroyed in the War in Heaven, {c.Empire}, the last power left, signed a treaty recognising {colony} as a free state.",
         _ => $"{c.Empire} signed a treaty recognising {colony} as a free state, bound to no one.",
     };
 
@@ -46,6 +58,9 @@ public static class EpilogueTask
         {
             EmpireEnding.Resistance => "The Imperial banners came down one by one. The rim is quieter now, and poorer, and free.",
             EmpireEnding.Imperial => "The banners over the gate are Imperial now. The colony has walls, and law, and a place in something larger.",
+            Choir.ChoirEnding.Choral => "At night the mechs on the walls hum with the rest of the Chorus. The colony never sleeps alone now.",
+            Choir.ChoirEnding.Silenced => "The hills don't hum at night anymore. The silence took some getting used to.",
+            War.WarEnding.IndependenceTotal => "The ruins of two capitals lie out past the hills. The colony's walls are the only ones that matter now.",
             _ => "The treaty hangs framed in the common room. No one bows to anyone here.",
         };
         return $"{Meaning(c, colony)}\n\n{middle}\n\n{close}";

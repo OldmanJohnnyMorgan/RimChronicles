@@ -6,8 +6,8 @@ still plays, with written templates instead.
 
 Your storyteller (Randy, Cassandra, Phoebe) keeps running underneath. Rim Chronicles adds a layer of story on top.
 
-> **Status: early preview, not yet released.** All six build stages are in; the last one (the Awakened Empire) is
-> in its final in-game testing. The Imperial crisis below is built and waiting for its in-game checkpoints. Expect
+> **Status: early preview, not yet released.** The news, the minor plots, the Awakened Empire and the Imperial crisis
+> have passed their in-game tests. The Hollow Choir and the War in Heaven are built and waiting for theirs. Expect
 > rough edges, and back up your saves. A Steam Workshop release is planned.
 
 ## What it adds
@@ -26,7 +26,8 @@ Your storyteller (Randy, Cassandra, Phoebe) keeps running underneath. Rim Chroni
 - **The Awakened Empire** (needs Royalty). The Empire starts dormant, wakes, and starts taking territory on the world
   map. You choose to stand with it, oppose it or keep out of its way. A minor plot can become part of the Empire's
   story, and a game-long arc builds to one of three endings: storm the Imperial capital, accept a governorship, or
-  force a treaty of independence. Each ending has an epilogue that names the colonists who mattered.
+  force a treaty of independence. Each ending has an epilogue that names the colonists who mattered. With Biotech,
+  the Empire's story leads on to the Hollow Choir and the War in Heaven below.
 - **The Imperial crisis** (needs Royalty). Oppose the Empire and it comes for you, in four escalating stages, with
   troops that fight like a skilled player:
   - **Operations:** probing raids that map your doors, breaches led by grenadiers, psychic assaults, drop-pod strikes
@@ -45,10 +46,35 @@ Your storyteller (Randy, Cassandra, Phoebe) keeps running underneath. Rim Chroni
     relays to bring down the keep's shield, then take the throne room and the High Stellarch.
 
   Every raid but the final assault retreats after heavy losses, and every site and siege can be reached and broken.
+- **The Hollow Choir** (needs Biotech, with Royalty). The Empire's original enemy: an ancient mechanite power led by
+  mechanitors, whose mechs hum in one voice. It stirs, wakes and takes territory like the Empire does, and either
+  power can wake first; when one starts attacking, the other wakes too. Launching the ship wakes the Empire, and
+  the **Royal Ascent** wakes the Choir.
+  - **Sides:** declare for the Empire, for the Choir, or for **independence**. Joining one power means war with the
+    other; independence means war with both.
+  - **One kind per side:** an Imperial colony can't keep mechanitors, and a Choir colony can't keep psycasters. A
+    shuttle comes for each one and brings them back five days later converted, at the matching level; their mechs
+    shut down where they stand, for you to dismantle. Refuse, and you're independent.
+  - **Rank from service:** jobs done for the Choir raise a colonist's standing, and a high rank opens the First
+    Voice's offer, as Imperial titles do for the Empire.
+  - **Its own crisis:** oppose the Choir and it comes for you the way the Empire does, with mechanitors commanding
+    from the back: cluster drops, burrowing strikes and the Hum, cluster sieges, sites to raid (cluster outposts,
+    Resonators, Signal spires), and its capital, **the Cathedral**, whose shield falls when its resonators do. The
+    First Voice waits inside.
+- **The War in Heaven.** Once both powers are awake and you're at war with one, they may turn on each other in full,
+  and by game day 600 they certainly will. They take each other's settlements, every result makes the news, and some
+  of their forces go to the front instead of to you. The director hands out war jobs: defend, strike, escort,
+  sabotage. It ends with your side's victory:
+  - **Imperial victory** or **Choral victory**: the power you serve wins, with your help.
+  - **Independence:** destroy one power's capital, and the other offers a treaty recognising your colony as a free
+    state. Accept it, or refuse and destroy the second power too, for a harder victory with its own epilogue.
+
+  Each ending has its own victory screen and an epilogue that names the colonists who mattered.
 
 **How it works:** the story's rules live in code, and the model only picks among allowed options and writes the
-words, so a small model can't break a plot. (The Imperial crisis picks its operations by weighted chance for now;
-the director takes those choices over once its fine-tuned model ships.) Every call runs in the background, so the game never waits on it, and
+words, so a small model can't break a plot. A prompted model (any of the tiers below) decides every plot, the crises
+included; a fine-tuned director decides only the plots it was trained on, and the rest pick by weighted chance. Every
+call runs in the background, so the game never waits on it, and
 generated text is saved with your game, so a reload never rewrites history.
 
 ## Requirements
@@ -57,6 +83,8 @@ generated text is saved with your game, so a reload never rewrites history.
 - **[Harmony](https://steamcommunity.com/sharedfiles/filedetails/?id=2009463077)** from the Steam Workshop.
 - **Royalty** (optional) for the Awakened Empire and the Imperial crisis. Without it, you get the news and the minor
   plots.
+- **Biotech** (optional, with Royalty) for the Hollow Choir and the War in Heaven. Without it, the Empire's story runs
+  on its own and ends in one of its three endings.
 - **A local model** (optional): [Ollama](https://ollama.com), or any server with an OpenAI-compatible API.
 
 | Tier | Model (Ollama tag) | VRAM | What you get |
@@ -73,14 +101,15 @@ mod's own prompts (`docs/stage0-results.md`), not from leaderboards.
 
 Until the first release, build the mod from source (see [Building](#building)). Then:
 
-1. Subscribe to Harmony, and put this repository's folder in RimWorld's `Mods` folder.
+1. Subscribe to Harmony, and put the mod in RimWorld's `Mods` folder: the packaged `release\RimChronicles` folder
+   (`docs/release.md`), or this repository's folder.
 2. In the mod list, load Rim Chronicles after Harmony.
-3. For narration, install Ollama and pull the model for your tier, for example:
-   ```powershell
-   ollama pull gemma4:e4b
-   ```
+3. For narration, install [Ollama](https://ollama.com/download). On Windows it runs in the background once installed.
 4. In game: **Options → Mod settings → Rim Chronicles**. Pick a tier, check the server address
-   (`http://localhost:11434/` for Ollama), and press **Test connection**.
+   (`http://localhost:11434/` for Ollama), press **Download model** (once; it fetches the tier's model, a few GB),
+   then **Test connection**. You can also pull models yourself, for example `ollama pull gemma4:e4b`.
+5. Optional: under **Advanced: separate models**, pick the fine-tuned director `rimchron-director-e4b` and press
+   **Download model** again. It makes the director's decisions; the main model still writes.
 
 The mod is meant to tolerate being added to a running save or removed from one, but back up first.
 
@@ -90,21 +119,30 @@ The mod is meant to tolerate being added to a running save or removed from one, 
 - **Separate prose model** (optional): a second model writes bulletins, letters and epilogues, while the main one
   makes the director's decisions.
 - **Separate director model** (optional): a model just for the director's decisions, such as a small fine-tuned
-  director, at the prompt tier it was trained on.
+  director, at the prompt tier it was trained on. The fine-tuned directors are on the Ollama registry as
+  `oldmanjohnnymorgan/rimchron-director-e4b` (it knows every plot, the War in Heaven included) and `-e2b` (the minor
+  plots and the Awakened Empire; the crises pick by weight).
 - **News cadence:** a bulletin every 1–7 days (3 by default).
 - **Story intensity:** how often minor plots start, and how fast the Empire expands.
 - **Story arcs:** turn Nemesis, Lost Family or Silent Press off. Plots already running still finish.
+- **The Hollow Choir** on or off (off automatically without Biotech), and **the War in Heaven** on or off: the game
+  day it starts for certain (600 by default), how steeply its odds rise before then, and how much of the crises'
+  forces still come for the colony while it's on.
 - **Major plot:** the Awakened Empire on or off (off automatically without Royalty).
 - **Imperial crisis:** on or off; its difficulty (0.5–2×, on top of the storyteller's threat scale); the least number
   of days between Imperial operations; how long orbital strikes are telegraphed (6–10 seconds); the Citadel's map size
   (225–350, 275 by default); and, for slower PCs, spawning the Citadel's inner defenders only as you reach them.
-- **Reset to defaults**, and **Test connection** to check the model server.
+- **Reset to defaults**, **Test connection** to check the model server, and **Download model** to have Ollama fetch
+  every model the settings name.
 
 With **Development mode** on, a *Rim Chronicles* debug menu can force a bulletin, start a Nemesis or Lost Family
 plot, advance a plot one beat, test each quest type, trigger the Empire's awakening or an ending, and dump the world
 to a snapshot. The director's decision log is in there too. For the crisis, it can show the crisis state, fire any
 operation at any stage it allows, call an orbital strike, spawn units, captives or the High Stellarch, grant intel,
-stamp pieces, generate a site or the Citadel (timed), and draw the siege planner's scores. A Dev Mode setting records
+stamp pieces, generate a site or the Citadel (timed), and draw the siege planner's scores. For the Choir and the War
+in Heaven, it can stir or wake the Choir, set the colony's side, send the shuttle or convert a colonist, grant Choir
+rank, spawn Choir units and raids, fire any Choir operation, generate the Cathedral, start the war, move the front,
+destroy a power and reach any ending. A Dev Mode setting records
 the director's decisions as training cases.
 
 ## Privacy
@@ -130,16 +168,17 @@ never committed or redistributed.
 | Folder | Holds |
 | --- | --- |
 | `src/RimChronicles.Llm` | Model client, prompt loading, output checks, template fallbacks |
-| `src/RimChronicles.Core` | World snapshots, summaries, plot state machines, the director, and the crisis's rules: stages and budget, operations, psyker scoring, strikes, the siege and site planners, captives (no RimWorld dependency) |
-| `src/RimChronicles.Game` | The RimWorld side: Harmony patches, game component, letters, quests, UI, and the crisis in game: units, lords, map generation for sites and the Citadel |
-| `Defs/` | The mod's XML: crisis units, pieces (hand-built rooms and emplacements), site archetypes, intel, quests |
+| `src/RimChronicles.Core` | World snapshots, summaries, plot state machines, the director, the powers (the Empire and the Choir) and sides, the War in Heaven's odds and endings, and the crises' rules: stages and budget, operations, psyker and mech-commander scoring, strikes, the siege and site planners, captives (no RimWorld dependency) |
+| `src/RimChronicles.Game` | The RimWorld side: Harmony patches, game component, letters, quests, UI, and the crises in game: units, lords, the shuttle, map generation for sites, the Citadel and the Cathedral |
+| `Defs/` | The mod's XML: the Choir's faction and units, crisis units, pieces (hand-built rooms and emplacements), site archetypes, intel, quests |
 | `prompts/` | Versioned prompt templates |
 | `harness/` | The model evaluation harness (`rimchron-eval`) and its test snapshots |
 | `training/` | Fine-tuning a small director model (Python, development only; never shipped) |
-| `docs/` | The design spec, runbooks and stage results; the crisis has its own spec, plan, milestone notes and runbooks in `docs/SPEC-crisis-combat-and-locations/` |
+| `docs/` | The design spec, runbooks and stage results; the crisis and the War in Heaven each have their own spec, plan and runbooks in `docs/SPEC-crisis-combat-and-locations/` and `docs/SPEC-war-in-heaven/` |
 
-Start with the [design spec](docs/Rim%20Chronicles%20—%20Design%20Spec.md), and for the crisis its
-[spec](docs/SPEC-crisis-combat-and-locations/SPEC-crisis-combat-and-locations.md). [`CLAUDE.md`](CLAUDE.md) has the coding
+Start with the [design spec](docs/Rim%20Chronicles%20—%20Design%20Spec.md), then the
+[crisis spec](docs/SPEC-crisis-combat-and-locations/SPEC-crisis-combat-and-locations.md) and the
+[War in Heaven spec](docs/SPEC-war-in-heaven/SPEC-war-in-heaven.md). [`CLAUDE.md`](CLAUDE.md) has the coding
 rules and the harness commands, and [`docs/ENGINE_NOTES.md`](docs/ENGINE_NOTES.md) records what RimWorld 1.7 changed.
 This mod is developed with AI assistance (Claude Code), and every game API it uses is checked against the 1.7
 assemblies rather than taken on trust.

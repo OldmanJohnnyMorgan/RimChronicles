@@ -77,6 +77,18 @@ public sealed record PieceMeta
 
     /// <summary>For sieges: the stage it is built in (1–5, crisis spec §5.5).</summary>
     public int BuildOrder { get; init; } = 1;
+
+    /// <summary>Whose piece it is (War in Heaven W8): a power id (<c>empire</c>, <c>choir</c>), or null for a piece
+    /// both use (sandbags, barracks, the power yard). A power's sites and camps take only its own and the shared.</summary>
+    public string? Power { get; init; }
+}
+
+/// <summary>Choosing pieces by power (War in Heaven W8).</summary>
+public static class PieceSources
+{
+    /// <summary>The pieces <paramref name="power"/> may use: its own and the shared ones.</summary>
+    public static IReadOnlyList<PieceSource> For(IEnumerable<PieceSource> pieces, string power) =>
+        pieces.Where(p => p.Meta.Power is null || p.Meta.Power == power).ToList();
 }
 
 /// <summary>A piece as the prefab defines it: unrotated, with its things and floor cells.</summary>

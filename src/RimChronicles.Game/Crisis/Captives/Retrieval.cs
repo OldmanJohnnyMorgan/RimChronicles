@@ -31,6 +31,12 @@ public sealed class LordToil_RcRetrieve : LordToil
 
     public override void UpdateAllDuties()
     {
+        if (lord.LordJob is LordJob_RcOperation { IsChoir: true } choir)
+        {
+            Choir.ChoirCommand.UpdateDuties(lord, choir, Target is { IsPrisonerOfColony: true } held ? held : null);
+            return;
+        }
+
         var target = Target;
         var captive = target is { IsPrisonerOfColony: true };
         var praetorians = lord.ownedPawns.Where(p => UnitKit.Unit(p.kindDef)?.role == UnitRole.Praetorian && !p.Downed).ToList();

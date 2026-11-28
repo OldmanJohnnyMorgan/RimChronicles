@@ -32,6 +32,18 @@ public static class StoryLetters
         Send(label, text, def, targets, faction ?? Empire);
     }
 
+    /// <summary>A Hollow Choir crisis letter (War in Heaven W7): about the Choir, and kept in the Choir plot's story
+    /// unless <paramref name="record"/> is false.</summary>
+    public static void ChoirCrisis(string label, string text, LetterDef def, LookTargets? targets = null, bool record = true)
+    {
+        if (record && RimChroniclesGameComponent.Current is { } component && Game.Powers.ChoirBeats.Current(component) is { } plot)
+        {
+            plot.Tell(GenDate.DaysPassed, label, text);
+        }
+
+        Send(label, text, def, targets, Game.Powers.PowerFactions.Of(Core.Powers.Power.Choir));
+    }
+
     /// <summary>Keeps a letter in the story of the plot with this id, if it is still running.</summary>
     public static void Record(string plotId, string label, string text)
     {

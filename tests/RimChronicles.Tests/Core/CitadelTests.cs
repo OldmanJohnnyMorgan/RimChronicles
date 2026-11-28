@@ -9,7 +9,7 @@ namespace RimChronicles.Tests.Core;
 
 public class CitadelTests
 {
-    private static readonly IReadOnlyList<PieceSource> Pieces = PieceXml.Load();
+    private static readonly IReadOnlyList<PieceSource> Pieces = PieceXml.For("empire");
 
     /// <summary>The done-when: validators pass on 20 seeds, with every mix of relays, uplinks and the side entrance.</summary>
     [Fact]

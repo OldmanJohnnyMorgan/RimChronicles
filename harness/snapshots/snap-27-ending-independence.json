@@ -1,0 +1,185 @@
+{
+  "schemaVersion": 1,
+  "id": "snap-27-ending-independence",
+  "day": 1046,
+  "season": "Jugust",
+  "year": 5517,
+  "colony": {
+    "name": "Varrowgate",
+    "wealth": 610000,
+    "population": 16,
+    "mood": "strained"
+  },
+  "pawns": [
+    {
+      "id": "p1",
+      "name": "Cassia",
+      "age": 50,
+      "traits": [
+        "Iron-willed",
+        "Too smart"
+      ],
+      "backstory": "Noble",
+      "ideoRole": "Leader",
+      "note": "holds the Imperial title of Count"
+    },
+    {
+      "id": "p2",
+      "name": "Henrik",
+      "age": 43,
+      "traits": [
+        "Tough"
+      ],
+      "backstory": "Soldier"
+    },
+    {
+      "id": "p3",
+      "name": "Mags",
+      "age": 36,
+      "traits": [
+        "Industrious"
+      ],
+      "backstory": "Smith"
+    },
+    {
+      "id": "p4",
+      "name": "Aurel",
+      "age": 29,
+      "traits": [
+        "Psychically sensitive"
+      ],
+      "backstory": "Psycaster"
+    }
+  ],
+  "tales": [
+    {
+      "day": 960,
+      "type": "TitleGranted",
+      "actor": "The Shattered Empire",
+      "victim": "p1"
+    },
+    {
+      "day": 1012,
+      "type": "SettlementConquered",
+      "actor": "The Shattered Empire",
+      "victim": "Brightwater"
+    },
+    {
+      "day": 1040,
+      "type": "EnvoyVisited",
+      "actor": "The Shattered Empire",
+      "victim": "colony"
+    }
+  ],
+  "factions": [
+    {
+      "name": "The Shattered Empire",
+      "kind": "Empire",
+      "goodwill": 40,
+      "plotState": "Ascendant",
+      "settlements": 21,
+      "atWarWith": [
+        "The Free Coast Alliance"
+      ]
+    },
+    {
+      "name": "The Free Coast Alliance",
+      "kind": "Outlanders",
+      "goodwill": -10,
+      "settlements": 2,
+      "atWarWith": [
+        "The Shattered Empire"
+      ]
+    },
+    {
+      "name": "Driftwood Tribe",
+      "kind": "Tribe",
+      "goodwill": 15,
+      "settlements": 3
+    }
+  ],
+  "activePlots": [
+    {
+      "id": "empire-04",
+      "template": "AwakenedEmpire",
+      "beat": "Ascendant",
+      "protagonist": "colony",
+      "summary": "Cassia served the Shattered Empire and was made a Count on day 960. The Empire now holds most of the region. On day 1040 its envoy offered Varrowgate a governorship if it helps take the last Free Coast towns.",
+      "publicHint": "The Shattered Empire offered Varrowgate a governorship"
+    }
+  ],
+  "recentEvents": [
+    "Imperial envoy offered a governorship day 1040",
+    "Henrik and Aurel argue about serving the Empire",
+    "Two colonists talk of leaving if Cassia accepts"
+  ],
+  "publicEvents": [
+    "The Shattered Empire took Brightwater",
+    "The Free Coast Alliance holds only two towns",
+    "The Shattered Empire offered Varrowgate a governorship"
+  ],
+  "reportedEvents": [
+    "The Shattered Empire took Brightwater",
+    "The Free Coast Alliance holds only two towns"
+  ],
+  "allowedTransitions": [
+    "Wait",
+    "Ending:ImperialGovernorship",
+    "Choice:AcceptOrRefuseGovernorship",
+    "Empire:FinalDemand"
+  ],
+  "previousBulletins": [
+    "Brightwater has opened its gates to the Shattered Empire. The town's council called it a negotiated settlement; the legion outside its walls called it Tuesday.",
+    "The Free Coast Alliance holds two towns, a stretch of beach and a great deal of resolve. It is not clear which of these will last longest."
+  ],
+  "reporter": {
+    "name": "Ilse Varrow",
+    "outlet": "the Rim Dispatch",
+    "persona": "dry, wry and slightly cynical"
+  },
+  "epilogue": {
+    "ending": "IndependenceTotal",
+    "empire": "The Shattered Empire",
+    "rival": "The Hollow Choir",
+    "stance": "oppose",
+    "people": [
+      {
+        "name": "Aurel",
+        "pronoun": "he",
+        "deed": "led the storming of the Cathedral"
+      },
+      {
+        "name": "Cassia",
+        "pronoun": "she",
+        "deed": "held the walls against the cluster sieges"
+      },
+      {
+        "name": "Henrik",
+        "pronoun": "he",
+        "deed": "brought down the High Stellarch",
+        "dead": true
+      },
+      {
+        "name": "Mags",
+        "pronoun": "they",
+        "deed": "refused the Empire's treaty"
+      }
+    ],
+    "events": [
+      "Varrowgate declared itself free of both powers.",
+      "The War in Heaven began on day 600.",
+      "The Hollow Choir's Cathedral fell to Varrowgate.",
+      "The Shattered Empire offered a treaty, and Varrowgate refused it.",
+      "The Imperial Citadel fell to Varrowgate."
+    ]
+  },
+  "director": {
+    "plotId": "empire-04",
+    "descriptions": {
+      "Wait": "hold this plot for a few days; nothing happens in it yet",
+      "Ending:ImperialGovernorship": "Cassia becomes governor; the story ends in Imperial victory",
+      "Choice:AcceptOrRefuseGovernorship": "a letter asks the colony to accept or refuse the governorship",
+      "Empire:FinalDemand": "the Empire's final demand: submit, or be counted among its enemies"
+    }
+  }
+}

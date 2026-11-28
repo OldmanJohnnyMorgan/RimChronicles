@@ -1,4 +1,5 @@
 using RimChronicles.Core.Crisis;
+using RimChronicles.Core.Powers;
 using RimChronicles.Core.Crisis.Battle;
 using RimChronicles.Core.Crisis.Operations;
 using RimChronicles.Core.Crisis.Siege;
@@ -39,6 +40,19 @@ public sealed class LordJob_RcOperation : LordJob
     /// <summary>The siege camp, for a siege (C8); null for other operations.</summary>
     public SiegeCamp? siege;
 
+    /// <summary>The Choir's cluster siege camp (War in Heaven W8); null for other operations.</summary>
+    public Choir.ClusterCamp? cluster;
+
+    /// <summary>Whose operation (War in Heaven W7): the Empire's (<c>empire</c>, the default, so older saves load as
+    /// before) or the Hollow Choir's (<c>choir</c>).</summary>
+    public string power = Power.Empire.Id;
+
+    /// <summary>The Choir's chain of command: <c>commanded[i]</c> is a mech that <c>commandedBy[i]</c> commands. When a
+    /// commander is killed or downed, its mechs shut down (tech spec R4).</summary>
+    public List<Pawn?> commanded = [];
+
+    public List<Pawn?> commandedBy = [];
+
     private bool _ended;
     private bool _reserveSent;
     private int _focusTick = -1;
@@ -60,6 +74,64 @@ public sealed class LordJob_RcOperation : LordJob
 
     public override bool GuiltyOnDowned => true;
 
+    public bool IsChoir => power == Power.Choir.Id;
+
+    /// <summary>The crisis this operation belongs to.</summary>
+    private static CrisisState? StateFor(string power) =>
+        RimChroniclesGameComponent.Current is { } c ? (power == Power.Choir.Id ? c.ChoirCrisis : c.Crisis) : null;
+
+    /// <summary>Records that <paramref name="commander"/> commands <paramref name="mech"/>.</summary>
+    public void Command(Pawn mech, Pawn commander)
+    {
+        commanded.Add(mech);
+        commandedBy.Add(commander);
+    }
+
+    /// <summary>The mechs <paramref name="commander"/> commands.</summary>
+    public IEnumerable<Pawn> MechsOf(Pawn commander)
+    {
+        for (var i = 0; i < commanded.Count; i++)
+        {
+            if (commandedBy[i] == commander && commanded[i] is { } mech)
+            {
+                yield return mech;
+            }
+        }
+    }
+
+    /// <summary>A Choir commander was killed or downed: each mech it commanded that's still in the fight shuts down
+    /// where it stands (<c>CompMechanoid.Deactivate</c>: it never goes feral, and any colonist can dismantle it, W6).</summary>
+    public override void Notify_PawnLost(Pawn p, PawnLostCondition condition)
+    {
+        base.Notify_PawnLost(p, condition);
+        if (!IsChoir || condition is not (PawnLostCondition.Killed or PawnLostCondition.Incapped or PawnLostCondition.MadePrisoner))
+        {
+            return;
+        }
+
+        var map = Map;
+        var silent = MechsOf(p).Where(m => !m.Dead && m.Spawned && lord.ownedPawns.Contains(m)).ToList();
+        for (var i = commanded.Count - 1; i >= 0; i--)
+        {
+            if (commandedBy[i] == p)
+            {
+                commanded.RemoveAt(i);
+                commandedBy.RemoveAt(i);
+            }
+        }
+
+        foreach (var mech in silent)
+        {
+            mech.TryGetComp<CompMechanoid>()?.Deactivate(); // vanilla's ToSleep tells the lord the mech is lost (Incapped)
+        }
+
+        if (silent.Count > 0 && map is not null)
+        {
+            Messages.Message($"With {p.LabelShort} down, {silent.Count} of the Choir's mechs fall silent. Any colonist can dismantle them.",
+                new LookTargets(silent), MessageTypeDefOf.PositiveEvent);
+        }
+    }
+
     /// <summary>No vanilla panic flee: the profile's loss links are the only retreat, so it isn't cut short at a random
     /// 40–70% of losses and always ends in <see cref="LordToil_RcRetreat"/>, which carries off the downed.</summary>
     public override bool AddFleeToil => false;
@@ -78,8 +150,8 @@ public sealed class LordJob_RcOperation : LordJob
                 PhaseKind.Regroup => new LordToil_DefendPoint(staging, 8f, 6f),
                 PhaseKind.Retreat => new LordToil_RcRetreat(),
                 PhaseKind.Breach => new LordToil_AssaultColonyBreaching(),
-                PhaseKind.Travel => new LordToil_Travel(siege?.spot ?? staging),
-                PhaseKind.Siege => new LordToil_RcSiege(),
+                PhaseKind.Travel => new LordToil_Travel(siege?.spot ?? cluster?.spot ?? staging),
+                PhaseKind.Siege => cluster is not null ? new Choir.LordToil_RcClusterSiege() : new LordToil_RcSiege(),
                 PhaseKind.Retrieve => new LordToil_RcRetrieve(),
                 _ => new LordToil_RcAssault(),
             };
@@ -114,12 +186,15 @@ public sealed class LordJob_RcOperation : LordJob
         PhaseTrigger.TargetDown => new Trigger_TickCondition(() => target is null || target.Dead || target.Downed || !target.Spawned || target.Map != Map
             || (lord.faction is { } own && target.Faction == own), 60), // a freed captive is the Empire's again
         PhaseTrigger.Arrived => new Trigger_Memo("TravelArrived"),
-        PhaseTrigger.BuildersLost => new Trigger_TickCondition(() => siege is not null && siege.AfterBuilders(lord) == AfterBuilders.Assault, 250),
+        PhaseTrigger.BuildersLost => new Trigger_TickCondition(() => (siege is not null && siege.AfterBuilders(lord) == AfterBuilders.Assault)
+            || (cluster is not null && cluster.AfterMechanitors(lord) == AfterBuilders.Assault), 250),
         _ => new Trigger_TickCondition(() => !dev && Abandoned(), 250),
     };
 
-    /// <summary>The crisis is off or over, or the colony made peace with the Empire.</summary>
-    private static bool Abandoned() =>
+    /// <summary>The crisis is off or over, or the colony made peace with the power.</summary>
+    private bool Abandoned() => IsChoir ? Choir.ChoirCrisisDriver.Abandoned() : EmpireAbandoned();
+
+    private static bool EmpireAbandoned() =>
         !CrisisDriver.Available || EmpireDriver.EmpireFaction is not { } empire || !empire.HostileTo(Faction.OfPlayer)
         || RimChroniclesGameComponent.Current is not { } c || CrisisDriver.Stage(c, empire).Stage == CrisisStage.None;
 
@@ -138,6 +213,14 @@ public sealed class LordJob_RcOperation : LordJob
         else if (to == PhaseKind.Retreat)
         {
             End(link.Outcome);
+        }
+
+        if (from.Kind == PhaseKind.Siege && to == PhaseKind.Assault && Map is not null && cluster is not null)
+        {
+            Messages.Message(link.Trigger == PhaseTrigger.BuildersLost
+                    ? "The Choir's cluster has lost most of its mechanitors, but it still has the strength to attack: it's coming in."
+                    : "The Choir's cluster has grown all it will: it's coming in.",
+                new TargetInfo(cluster.spot, Map), MessageTypeDefOf.ThreatBig);
         }
 
         if (from.Kind == PhaseKind.Siege && to == PhaseKind.Assault && Map is not null && siege is not null)
@@ -162,6 +245,11 @@ public sealed class LordJob_RcOperation : LordJob
         {
             siege.JobTick(lord, this);
         }
+
+        if (cluster is not null && Find.TickManager.TicksGame % 250 == 0 && lord.CurLordToil is not LordToil_RcRetreat)
+        {
+            cluster.JobTick(lord, this, growing: lord.CurLordToil is Choir.LordToil_RcClusterSiege);
+        }
     }
 
     private void End(string outcome)
@@ -177,9 +265,14 @@ public sealed class LordJob_RcOperation : LordJob
             siege.Teardown(lord);
         }
 
-        if (RimChroniclesGameComponent.Current is { } component && component.Crisis.Running is { } running && running.Operation == operation)
+        if (cluster is not null && lord?.Map is not null)
         {
-            component.Crisis.Ended(outcome);
+            cluster.Teardown(lord);
+        }
+
+        if (StateFor(power) is { Running: { } running } state && running.Operation == operation)
+        {
+            state.Ended(outcome);
         }
 
         if (Prefs.DevMode)
@@ -204,7 +297,7 @@ public sealed class LordJob_RcOperation : LordJob
         }
 
         lord.AddPawn(captive);
-        Messages.Message($"The Imperial strike force has freed {captive.LabelShort}.", captive, MessageTypeDefOf.NegativeEvent);
+        Messages.Message($"The {(IsChoir ? "Choir's" : "Imperial")} strike force has freed {captive.LabelShort}.", captive, MessageTypeDefOf.NegativeEvent);
     }
 
     /// <summary>The lord is gone (everyone dead, downed or left): an operation that never ended otherwise was beaten.</summary>
@@ -217,7 +310,7 @@ public sealed class LordJob_RcOperation : LordJob
     /// <summary>A probe found the colony's doors: the ones nearest where it came in are what later raids aim for.</summary>
     private void ReportEntrances()
     {
-        if (RimChroniclesGameComponent.Current is not { } component || Map is null)
+        if (StateFor(power) is not { } state || Map is null)
         {
             return;
         }
@@ -228,7 +321,7 @@ public sealed class LordJob_RcOperation : LordJob
             .ToList();
         if (doors.Count > 0)
         {
-            component.Crisis.Learned(doors, GenDate.DaysPassed);
+            state.Learned(doors, GenDate.DaysPassed);
         }
     }
 
@@ -240,6 +333,12 @@ public sealed class LordJob_RcOperation : LordJob
         }
 
         _reserveSent = true;
+        if (IsChoir)
+        {
+            Choir.ChoirOperations.Reinforce(lord, this, reserve, staging);
+            return;
+        }
+
         var pawns = OperationSpawner.Force(operation, stage, reserve, faction);
         if (pawns.Count == 0)
         {
@@ -296,7 +395,31 @@ public sealed class LordJob_RcOperation : LordJob
         Scribe_Values.Look(ref _ended, "ended");
         Scribe_Values.Look(ref _reserveSent, "reserveSent");
         Scribe_Deep.Look(ref siege, "siege");
+        Scribe_Deep.Look(ref cluster, "cluster");
+        Scribe_Values.Look(ref power, "power", Power.Empire.Id);
+        Scribe_Collections.Look(ref commanded, "commanded", LookMode.Reference);
+        Scribe_Collections.Look(ref commandedBy, "commandedBy", LookMode.Reference);
         operation ??= "";
+        power ??= Power.Empire.Id;
+        commanded ??= [];
+        commandedBy ??= [];
+        if (Scribe.mode == LoadSaveMode.PostLoadInit)
+        {
+            for (var i = Math.Min(commanded.Count, commandedBy.Count) - 1; i >= 0; i--)
+            {
+                if (commanded[i] is null || commandedBy[i] is null)
+                {
+                    commanded.RemoveAt(i);
+                    commandedBy.RemoveAt(i);
+                }
+            }
+
+            if (commanded.Count != commandedBy.Count)
+            {
+                commanded.Clear();
+                commandedBy.Clear();
+            }
+        }
     }
 }
 
@@ -310,6 +433,12 @@ public sealed class LordToil_RcAssault : LordToil
 
     public override void UpdateAllDuties()
     {
+        if (lord.LordJob is LordJob_RcOperation { IsChoir: true } choir)
+        {
+            Choir.ChoirCommand.UpdateDuties(lord, choir, null);
+            return;
+        }
+
         var praetorians = lord.ownedPawns.Where(p => UnitKit.Unit(p.kindDef)?.role == UnitRole.Praetorian && !p.Downed).ToList();
         var next = 0;
         foreach (var pawn in lord.ownedPawns)
@@ -332,9 +461,19 @@ public sealed class LordToil_RcAssault : LordToil
         }
     }
 
-    /// <summary>A guard went down: its psykers and Heralds pick a new one.</summary>
+    /// <summary>A guard went down: its psykers and Heralds pick a new one. The Choir's commanders move every 250 ticks.</summary>
     public override void LordToilTick()
     {
+        if (lord.LordJob is LordJob_RcOperation { IsChoir: true })
+        {
+            if (Find.TickManager.TicksGame % 250 == 0)
+            {
+                UpdateAllDuties();
+            }
+
+            return;
+        }
+
         if (Find.TickManager.TicksGame % 250 == 0
             && lord.ownedPawns.Any(p => p.mindState?.duty?.def == DutyDefOf.Escort && p.mindState.duty.focus.Pawn is not { Downed: false, Dead: false, Spawned: true }))
         {
@@ -430,6 +569,9 @@ public sealed class JobGiver_RcFocusFire : JobGiver_AIFightEnemies
 public static class CrisisDefs
 {
     public static DutyDef RimChronicles_Assault = null!;
+
+    /// <summary>A Choir mechanitor's duty (W7): hold and shoot from the spot the commander AI picks.</summary>
+    public static DutyDef RimChronicles_Command = null!;
 
     static CrisisDefs() => DefOfHelper.EnsureInitializedInCtor(typeof(CrisisDefs));
 }

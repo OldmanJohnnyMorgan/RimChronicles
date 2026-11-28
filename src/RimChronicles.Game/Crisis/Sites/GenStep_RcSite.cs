@@ -28,16 +28,16 @@ public sealed class GenStep_RcSite : GenStep
 
     public override void Generate(Map map, GenStepParams parms)
     {
-        if (archetype is null || EmpireDriver.EmpireFaction is not { } empire)
+        if (archetype is null || Powers.PowerFactions.Of(PowerOf(archetype)) is not { } empire)
         {
-            Log.Error("[Rim Chronicles] Imperial site without an archetype or the Empire faction; nothing generated.");
+            Log.Error($"[Rim Chronicles] Crisis site without an archetype or its power's faction ({archetype?.power}); nothing generated.");
             return;
         }
 
         var id = NextSeed ?? (long?)parms.sitePart?.site?.ID ?? map.Tile.tileId;
         NextSeed = null;
         var points = parms.sitePart?.parms.threatPoints ?? archetype.budget.min;
-        var plan = SitePlanner.PlanValid(archetype.ToCore(), PieceLibrary.All.Select(p => p.Source).ToList(), points, id, out var attempts);
+        var plan = SitePlanner.PlanValid(archetype.ToCore(), PieceLibrary.SourcesFor(archetype.power), points, id, out var attempts);
         if (plan.Fallback)
         {
             Log.Warning($"[Rim Chronicles] {archetype.label}: {SitePlanner.MaxAttempts} seeded plans failed the validators; using the fixed layout.");
@@ -45,6 +45,10 @@ public sealed class GenStep_RcSite : GenStep
 
         SiteStamper.Generate(map, plan, archetype, empire, id, attempts);
     }
+
+    /// <summary>The power whose site this is (War in Heaven W8).</summary>
+    public static Core.Powers.Power PowerOf(SiteArchetypeDef archetype) =>
+        archetype.power == Core.Powers.Power.Choir.Id ? Core.Powers.Power.Choir : Core.Powers.Power.Empire;
 }
 
 /// <summary>Turns a <see cref="SitePlan"/> into things on a map. Main thread only.</summary>
@@ -58,7 +62,7 @@ public static class SiteStamper
         var origin = new IntVec3(
             Math.Clamp(map.Center.x - (plan.Grid.Width / 2), 0, Math.Max(0, map.Size.x - plan.Grid.Width)), 0,
             Math.Clamp(map.Center.z - (plan.Grid.Height / 2), 0, Math.Max(0, map.Size.z - plan.Grid.Height)));
-        var objectives = Stamp(map, plan, origin, archetype.objectiveThing, archetype.label, empire, roads: true);
+        var objectives = Stamp(map, plan, origin, archetype.objectiveThing, archetype.label, empire, roads: true, StuffPalette.ForPower(archetype.power));
         var centre = At(origin, plan.Ring.Centre);
         if (MapComponent_RcSite.For(map) is { } site)
         {
@@ -84,9 +88,10 @@ public static class SiteStamper
     /// Empire, and returns the objective buildings.</summary>
     /// <summary>With <paramref name="roads"/>, also clears a road from each gate to the map edge (not for a ring
     /// inside another: the road would cut through the outer ring).</summary>
-    public static List<Thing> Stamp(Map map, SitePlan plan, IntVec3 origin, ThingDef? objectiveThing, string label, Faction empire, bool roads)
+    public static List<Thing> Stamp(Map map, SitePlan plan, IntVec3 origin, ThingDef? objectiveThing, string label, Faction empire, bool roads,
+        StuffPalette? stuff = null)
     {
-        var palette = StuffPalette.Imperial;
+        var palette = stuff ?? StuffPalette.Imperial;
         var rect = new CellRect(origin.x, origin.z, plan.Grid.Width, plan.Grid.Height).ClipInsideMap(map);
         MapGenerator.GetOrGenerateVar<List<CellRect>>("UsedRects").Add(rect); // later gen steps (ruins, scatter) keep out, as for vanilla outposts
         foreach (var cell in rect)
@@ -210,6 +215,12 @@ public static class SiteStamper
     /// plan's defender spots, defending the base.</summary>
     private static void Garrison(Map map, SitePlan plan, IntVec3 origin, SiteArchetypeDef archetype, Faction empire, IntVec3 centre)
     {
+        if (archetype.power == Core.Powers.Power.Choir.Id)
+        {
+            ChoirGarrison(map, plan, origin, archetype, empire, centre);
+            return;
+        }
+
         var stage = CrisisStage.Probing;
         if (RimChroniclesGameComponent.Current is { } component)
         {
@@ -233,6 +244,31 @@ public static class SiteStamper
 
         LordMaker.MakeNewLord(empire, new LordJob_DefendBase(empire, centre, 25000), map, pawns);
     }
+
+    /// <summary>A Choir site's garrison (War in Heaven W8): the archetype's Choir mix at the Choir's crisis stage, its
+    /// mechs under its mechanitors (the site's record shuts a fallen mechanitor's mechs down).</summary>
+    private static void ChoirGarrison(Map map, SitePlan plan, IntVec3 origin, SiteArchetypeDef archetype, Faction choir, IntVec3 centre)
+    {
+        var stage = RimChroniclesGameComponent.Current is { } component ? Choir.ChoirCrisisDriver.StageNow(component) : CrisisStage.Probing;
+        stage = stage < CrisisStage.Probing ? CrisisStage.Probing : stage;
+        stage = archetype.minStage > stage ? archetype.minStage : stage;
+        var parts = Choir.ChoirForce.Build(Core.Choir.ChoirMixes.ForSite(archetype.archetype), stage, plan.DefenderPoints, choir);
+        if (parts.Count == 0)
+        {
+            return;
+        }
+
+        var pawns = parts.All;
+        var spots = plan.DefenderSpots.Select(c => At(origin, c)).Where(c => c.InBounds(map) && c.Standable(map)).ToList();
+        for (var i = 0; i < pawns.Count; i++)
+        {
+            var spot = spots.Count > 0 ? spots[i % spots.Count] : centre;
+            GenSpawn.Spawn(pawns[i], CellFinder.RandomClosewalkCellNear(spot, map, 2), map);
+        }
+
+        LordMaker.MakeNewLord(choir, new LordJob_DefendBase(choir, centre, 25000), map, pawns);
+        MapComponent_RcSite.For(map)?.Command(parts.Links);
+    }
 }
 
 /// <summary>
@@ -246,6 +282,49 @@ public sealed class MapComponent_RcSite(Map map) : MapComponent(map)
 
     private SiteArchetypeDef? _archetype;
     private List<Thing> _objectives = [];
+
+    /// <summary>A Choir garrison's chain of command (War in Heaven W8): <c>_mechs[i]</c> is commanded by <c>_commanders[i]</c>.</summary>
+    private List<Pawn?> _mechs = [];
+
+    private List<Pawn?> _commanders = [];
+
+    /// <summary>Records who commands which of the garrison's mechs.</summary>
+    public void Command(IEnumerable<(Pawn Mech, Pawn Commander)> links)
+    {
+        foreach (var (mech, commander) in links)
+        {
+            _mechs.Add(mech);
+            _commanders.Add(commander);
+        }
+    }
+
+    /// <summary>A Choir mechanitor on the site is dead, downed or captured: its mechs shut down where they stand.</summary>
+    private void SilenceFallenCommanders()
+    {
+        var silenced = new List<Pawn>();
+        for (var i = _mechs.Count - 1; i >= 0; i--)
+        {
+            if (_commanders[i] is { Dead: false, Downed: false, IsPrisoner: false, Spawned: true })
+            {
+                continue;
+            }
+
+            if (_mechs[i] is { Dead: false, Spawned: true } mech && mech.Map == map)
+            {
+                mech.TryGetComp<CompMechanoid>()?.Deactivate();
+                silenced.Add(mech);
+            }
+
+            _mechs.RemoveAt(i);
+            _commanders.RemoveAt(i);
+        }
+
+        if (silenced.Count > 0)
+        {
+            Messages.Message($"With their mechanitor down, {silenced.Count} of the Choir's mechs fall silent. Any colonist can dismantle them.",
+                new LookTargets(silenced), MessageTypeDefOf.PositiveEvent);
+        }
+    }
     private long _seed;
     private bool _done;
 
@@ -271,6 +350,11 @@ public sealed class MapComponent_RcSite(Map map) : MapComponent(map)
 
     public override void MapComponentTick()
     {
+        if (_mechs.Count > 0 && Find.TickManager.TicksGame % 60 == 0)
+        {
+            SilenceFallenCommanders();
+        }
+
         if (_done || _archetype is null || _objectiveCount == 0 || Find.TickManager.TicksGame % CheckTicks != 0)
         {
             return;
@@ -289,6 +373,12 @@ public sealed class MapComponent_RcSite(Map map) : MapComponent(map)
     public static void ObjectiveDestroyed(SiteArchetypeDef archetype)
     {
         var today = GenDate.DaysPassed;
+        if (archetype.power == Core.Powers.Power.Choir.Id)
+        {
+            ChoirObjectiveDestroyed(archetype, today);
+            return;
+        }
+
         if (archetype.capability is { Length: > 0 } capability && RimChroniclesGameComponent.Current is { } component)
         {
             component.Crisis.Hold(capability, today + archetype.capabilityDays);
@@ -320,8 +410,45 @@ public sealed class MapComponent_RcSite(Map map) : MapComponent(map)
         StoryLetters.Crisis(label, text, LetterDefOf.PositiveEvent);
     }
 
+    /// <summary>A Choir site's objective is gone (W8): the resonator silences the hum, the spire grounds the cluster drops,
+    /// for the archetype's days; an outpost blinds the Choir. A held town's quest sends its own letter.</summary>
+    private static void ChoirObjectiveDestroyed(SiteArchetypeDef archetype, int today)
+    {
+        if (archetype.capability is { Length: > 0 } capability && RimChroniclesGameComponent.Current is { } component)
+        {
+            component.ChoirCrisis.Hold(capability, today + archetype.capabilityDays);
+            if (capability == CrisisCapability.Psykers)
+            {
+                component.ChoirCrisis.RelaySitesDestroyed++; // one resonator fewer guarding the Cathedral (W9)
+            }
+            else if (capability == CrisisCapability.Strikes)
+            {
+                component.ChoirCrisis.UplinkSitesDestroyed++;
+            }
+        }
+
+        if (archetype.needsHolding)
+        {
+            return;
+        }
+
+        var (label, text) = archetype.capability switch
+        {
+            CrisisCapability.Psykers => ("Choir resonator destroyed",
+                $"The Choir's resonator is gone, and the hum with it. For the next {archetype.capabilityDays} days the Choir can't bring the hum "
+                + "against the colony."),
+            CrisisCapability.Strikes => ("Choir signal spire destroyed",
+                $"The Choir's signal spire is gone. For the next {archetype.capabilityDays} days its cantors can't call cluster drops on the colony, "
+                + "and no cluster siege can come."),
+            _ => ("Choir outpost comms destroyed", "The Choir outpost's comms console is destroyed: the Choir has lost its eyes on this stretch of the rim."),
+        };
+        StoryLetters.ChoirCrisis(label, text, LetterDefOf.PositiveEvent);
+    }
+
     public override void ExposeData()
     {
+        Scribe_Collections.Look(ref _mechs, "rcSiteMechs", LookMode.Reference);
+        Scribe_Collections.Look(ref _commanders, "rcSiteCommanders", LookMode.Reference);
         Scribe_Defs.Look(ref _archetype, "rcSiteArchetype");
         Scribe_Collections.Look(ref _objectives, "rcSiteObjectives", LookMode.Reference);
         Scribe_Values.Look(ref _seed, "rcSiteSeed");
@@ -331,6 +458,13 @@ public sealed class MapComponent_RcSite(Map map) : MapComponent(map)
         {
             _objectives ??= [];
             _objectives.RemoveAll(t => t is null);
+            _mechs ??= [];
+            _commanders ??= [];
+            if (_mechs.Count != _commanders.Count)
+            {
+                _mechs.Clear();
+                _commanders.Clear();
+            }
         }
     }
 }

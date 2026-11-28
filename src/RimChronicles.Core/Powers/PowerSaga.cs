@@ -1,15 +1,16 @@
+using RimChronicles.Core.Empire;
 using RimChronicles.Core.Persistence;
 using RimChronicles.Core.Plots;
 
-namespace RimChronicles.Core.Empire;
+namespace RimChronicles.Core.Powers;
 
-/// <summary>The Awakened Empire's states (design spec, Stage 5).</summary>
-public enum EmpireState
+/// <summary>A power's states (design spec, Stage 5; the Hollow Choir mirrors them, War in Heaven spec §3.1).</summary>
+public enum PowerState
 {
     /// <summary>Few settlements, no expansion, normal Royalty quests.</summary>
     Dormant,
 
-    /// <summary>Rumours, envoys and demands on nearby factions, for 20–40 days.</summary>
+    /// <summary>Rumours, envoys and demands on nearby factions, for 10–20 days.</summary>
     Stirring,
 
     /// <summary>Expanding by force.</summary>
@@ -28,47 +29,64 @@ public static class AwakeningTrigger
     public const string Wealth = "Wealth";
     public const string SiteDestroyed = "SiteDestroyed";
     public const string ImperialColonist = "ImperialColonist";
+
+    /// <summary>The Hollow Choir's mirror of <see cref="ImperialColonist"/>: a mechanitor among the colonists.</summary>
+    public const string MechanitorColonist = "MechanitorColonist";
     public const string TitleRefused = "TitleRefused";
     public const string Deadline = "Deadline";
+
+    /// <summary>The rival power woke and attacked (War in Heaven spec §4): this one wakes at once.</summary>
+    public const string Rival = "Rival";
+
+    /// <summary>The colony started a ship reactor: the Empire wakes at once (spec §5).</summary>
+    public const string ShipLaunch = "ShipLaunch";
+
+    /// <summary>The colony accepted the Royal Ascent: the Hollow Choir wakes at once (spec §5).</summary>
+    public const string RoyalAscent = "RoyalAscent";
     public const string Dev = "Dev";
 }
 
-/// <summary>What the game sees today that could wake the Empire. <see cref="ImperialColonist"/> names a colonist with
-/// an Imperial backstory, or is null. One-off signs (a destroyed site, a renounced title) are latched on the saga.</summary>
-public sealed record EmpireSigns(float ColonyWealth, string? ImperialColonist)
+/// <summary>What the game sees today that could wake a power. <see cref="ImperialColonist"/> names the colonist who
+/// draws it (an Imperial backstory for the Empire, a mechlink for the Choir), or is null. One-off signs (a destroyed site, a renounced title) are latched on the saga.</summary>
+public sealed record PowerSigns(float ColonyWealth, string? ImperialColonist)
 {
-    public static readonly EmpireSigns None = new(0, null);
+    public static readonly PowerSigns None = new(0, null);
 }
 
 /// <summary>Something the Empire did today that the game should show: news for the reporter, and optionally a letter
 /// to the player.</summary>
-public sealed record EmpireEvent(string NewsText, string? LetterLabel = null, string? LetterText = null);
+public sealed record PowerEvent(string NewsText, string? LetterLabel = null, string? LetterText = null);
 
 /// <summary>
-/// The Awakened Empire, the game-long major plot (design spec, Stage 5), as plain decisions: the state, what woke
-/// it and when, and the rumours its stirring spreads. Random numbers come in from the caller so the rules are testable.
-/// Saved with the game. M1 covers Dormant → Stirring → Awakened, M2 the expansion; the acts come later.
+/// A power's saga (the Awakened Empire, design spec Stage 5; the Hollow Choir from W4), as plain decisions: the state,
+/// what woke it and when, the rumours its stirring spreads and its expansion. Random numbers come in from the caller so
+/// the rules are testable. Saved with the game; <see cref="Power"/> isn't saved, the owner sets it.
 /// </summary>
-public sealed class EmpireSaga : IArchivable
+public sealed class PowerSaga : IArchivable
 {
-    public const string PlotId = "empire";
-    public const string NewsKind = "Empire";
+    /// <summary>Which power this saga is. Not saved: the owner sets it (the Empire's saga is the default).</summary>
+    public Power Power = Power.Empire;
 
-    /// <summary>No trigger wakes the Empire before this day, so a new colony settles first.</summary>
-    public const int EarliestAwakeningDay = 30;
+    /// <summary>The opening hook (decided 2026-11-26): the story's first power stirs on this day, whatever the signs;
+    /// they only say why. The Empire's day, or the Choir's when it runs alone (no Royalty).</summary>
+    public const int HookDay = 20;
 
-    /// <summary>The Empire wakes on this day at the latest.</summary>
-    public const int DeadlineDay = 300;
+    /// <summary>The second power's earliest day to wake on its own signs (the Choir beside the Empire): it usually wakes
+    /// sooner, when the first power attacks (War in Heaven spec §4).</summary>
+    public const int LateEarliestDay = 30;
+
+    /// <summary>The second power's deadline.</summary>
+    public const int LateDeadlineDay = 120;
 
     /// <summary>Colony wealth that draws the Empire's eye.</summary>
-    public const float WealthThreshold = 150_000f;
+    public const float WealthThreshold = 80_000f;
 
-    public const int MinStirringDays = 20;
-    public const int MaxStirringDays = 40;
+    public const int MinStirringDays = 10;
+    public const int MaxStirringDays = 20;
     public const int MinRumourGapDays = 5;
     public const int MaxRumourGapDays = 8;
 
-    public EmpireState State = EmpireState.Dormant;
+    public PowerState State = PowerState.Dormant;
 
     /// <summary>The day the Empire entered <see cref="State"/>.</summary>
     public int StateDay;
@@ -99,21 +117,24 @@ public sealed class EmpireSaga : IArchivable
 
     public int Conquests => Expansions.Count(e => e.Result != ExpansionResult.Repelled);
 
+    /// <summary>The settlement the power took last (its front advances from there), or null.</summary>
+    public string? LastConquest => Expansions.LastOrDefault(e => e.Result == ExpansionResult.Conquered)?.Settlement;
+
     public int Defeats => Expansions.Count(e => e.Result == ExpansionResult.Repelled);
 
-    public bool ExpansionDue(int today) => State is EmpireState.Awakened or EmpireState.Ascendant && NextExpansionDay >= 0 && today >= NextExpansionDay;
+    public bool ExpansionDue(int today) => State is PowerState.Awakened or PowerState.Ascendant && NextExpansionDay >= 0 && today >= NextExpansionDay;
 
     /// <summary>Records an attack's result and schedules the next one <paramref name="nextGapDays"/> days on.</summary>
-    public EmpireEvent Expanded(ExpansionTarget target, ExpansionResult result, int today, int nextGapDays, string empire)
+    public PowerEvent Expanded(ExpansionTarget target, ExpansionResult result, int today, int nextGapDays, string empire)
     {
         Expansions.Add(new ExpansionRecord { Day = today, Settlement = target.Name, Faction = target.Faction, Result = result });
         NextExpansionDay = today + Math.Max(1, nextGapDays);
-        var news = EmpireExpansion.News(result, empire, target);
+        var news = Power.Text.ExpansionNews(result, empire, target);
         Note(today, $"expansion: {news}");
-        return new EmpireEvent(news);
+        return new PowerEvent(news);
     }
 
-    public bool IsAwake => State != EmpireState.Dormant;
+    public bool IsAwake => State != PowerState.Dormant;
 
     /// <summary>A colonist holding a high Imperial title (Knight or above), read daily; "" if none. Opens the
     /// governorship in Act 3 for an allied colony.</summary>
@@ -127,16 +148,19 @@ public sealed class EmpireSaga : IArchivable
 
     public void Note(int day, string line) => Log.Add($"Day {day}: {line}");
 
-    /// <summary>The awakening triggers present today, with their weights: the more pointed the provocation, the heavier.</summary>
-    public IReadOnlyList<PlotTransition> Triggers(EmpireSigns signs, int today)
+    /// <summary>The awakening triggers present today, with their weights: the more pointed the provocation, the heavier.
+    /// <paramref name="deadlineDay"/> overrides the power's own deadline (the Choir running alone takes the hook day).</summary>
+    public IReadOnlyList<PlotTransition> Triggers(PowerSigns signs, int today, int? deadlineDay = null)
     {
+        var deadline = deadlineDay ?? Power.DeadlineDay;
+        var earliest = Math.Min(Power.EarliestWakeDay, deadline);
         var options = new List<PlotTransition>();
-        if (State != EmpireState.Dormant)
+        if (State != PowerState.Dormant)
         {
             return options;
         }
 
-        if (today >= EarliestAwakeningDay)
+        if (today >= earliest)
         {
             if (SiteDestroyed.Length > 0)
             {
@@ -150,7 +174,7 @@ public sealed class EmpireSaga : IArchivable
 
             if (signs.ImperialColonist is not null)
             {
-                options.Add(new($"Awaken:{AwakeningTrigger.ImperialColonist}", AwakeningTrigger.ImperialColonist, 2));
+                options.Add(new($"Awaken:{Power.ColonistTrigger}", Power.ColonistTrigger, 2));
             }
 
             if (signs.ColonyWealth >= WealthThreshold)
@@ -159,7 +183,7 @@ public sealed class EmpireSaga : IArchivable
             }
         }
 
-        if (options.Count == 0 && today >= DeadlineDay)
+        if (options.Count == 0 && today >= deadline)
         {
             options.Add(new($"Awaken:{AwakeningTrigger.Deadline}", AwakeningTrigger.Deadline, 1));
         }
@@ -168,40 +192,60 @@ public sealed class EmpireSaga : IArchivable
     }
 
     /// <summary>The detail a trigger carries ("Ashgrove", "Ada"), from the latched signs and today's.</summary>
-    public string DetailFor(string trigger, EmpireSigns signs) => trigger switch
+    public string DetailFor(string trigger, PowerSigns signs) => trigger switch
     {
         AwakeningTrigger.SiteDestroyed => SiteDestroyed,
         AwakeningTrigger.TitleRefused => TitleRefusedBy,
-        AwakeningTrigger.ImperialColonist => signs.ImperialColonist ?? "",
+        AwakeningTrigger.ImperialColonist or AwakeningTrigger.MechanitorColonist => signs.ImperialColonist ?? "",
         AwakeningTrigger.Wealth => ((int)signs.ColonyWealth).ToString(System.Globalization.CultureInfo.InvariantCulture),
         _ => "",
     };
 
     /// <summary>Dormant → Stirring, for <paramref name="trigger"/>. The stirring lasts
-    /// <paramref name="stirringDays"/> days (pick it from the spec's 20–40).</summary>
-    public EmpireEvent Awaken(string trigger, string detail, int today, int stirringDays, string colony)
+    /// <paramref name="stirringDays"/> days (pick it from <see cref="MinStirringDays"/>–<see cref="MaxStirringDays"/>, scaled by the
+    /// story intensity; a quiet story may double it).</summary>
+    public PowerEvent Awaken(string trigger, string detail, int today, int stirringDays, string colony)
     {
-        State = EmpireState.Stirring;
+        State = PowerState.Stirring;
         StateDay = today;
-        NextStateDay = today + Math.Clamp(stirringDays, 1, MaxStirringDays);
+        NextStateDay = today + Math.Clamp(stirringDays, 1, StoryIntensity.Scale(MaxStirringDays, StoryIntensity.Min));
         NextRumourDay = today + MinRumourGapDays;
         Trigger = trigger;
         TriggerDetail = detail;
-        Note(today, $"stirring: {EmpireText.TriggerWhy(trigger, detail, colony)}");
-        return new EmpireEvent(EmpireText.StirringNews);
+        Note(today, $"stirring: {Power.Text.TriggerWhy(trigger, detail, colony)}");
+        return new PowerEvent(Power.Text.StirringNews);
+    }
+
+    /// <summary>Dormant or Stirring → Awakened at once, skipping the stirring (War in Heaven spec §4–§5: a rival's attack,
+    /// the ship launch, the Royal Ascent). Returns null if it is already awake.</summary>
+    public PowerEvent? WakeAtOnce(string trigger, string detail, int today, string name, string colony)
+    {
+        if (State is not (PowerState.Dormant or PowerState.Stirring))
+        {
+            return null;
+        }
+
+        if (State == PowerState.Dormant)
+        {
+            Trigger = trigger;
+            TriggerDetail = detail;
+        }
+
+        Note(today, $"woken at once: {Power.Text.TriggerWhy(trigger, detail, colony)}");
+        return Wake(today, name);
     }
 
     /// <summary>Stirring → Awakened: the Empire starts expanding by force.</summary>
-    public EmpireEvent Wake(int today, string empire)
+    public PowerEvent Wake(int today, string empire)
     {
-        State = EmpireState.Awakened;
+        State = PowerState.Awakened;
         StateDay = today;
         NextStateDay = -1;
         NextRumourDay = -1;
-        NextExpansionDay = today + EmpireExpansion.FirstAttackDays;
+        NextExpansionDay = today + PowerExpansion.FirstAttackDays;
         Note(today, "awakened: expanding by force");
-        var (label, text) = EmpireText.AwakenedLetter(empire);
-        return new EmpireEvent(EmpireText.AwakenedNews(empire), label, text);
+        var (label, text) = Power.Text.AwakenedLetter(empire);
+        return new PowerEvent(Power.Text.AwakenedNews(empire), label, text);
     }
 
     /// <summary>A change of territory the colony caused (a sabotaged target falling, a siege broken or lost), recorded
@@ -215,7 +259,7 @@ public sealed class EmpireSaga : IArchivable
     /// <summary>Act 3: Awakened → Ascendant or Broken.</summary>
     public void Reckon(bool ascendant, int today)
     {
-        State = ascendant ? EmpireState.Ascendant : EmpireState.Broken;
+        State = ascendant ? PowerState.Ascendant : PowerState.Broken;
         StateDay = today;
         NextExpansionDay = ascendant ? NextExpansionDay : -1;
         Note(today, ascendant ? "ascendant: final demands" : "broken: collapsing after its losses");
@@ -223,26 +267,26 @@ public sealed class EmpireSaga : IArchivable
 
     /// <summary>A rumour of the stirring, if one is due today (and schedules the next). <paramref name="neighbours"/>
     /// are the factions the Empire might make demands of; <paramref name="pick"/> chooses an index below its argument.</summary>
-    public EmpireEvent? Rumour(int today, string empire, IReadOnlyList<string> neighbours, Func<int, int> pick, int gapDays)
+    public PowerEvent? Rumour(int today, string empire, IReadOnlyList<string> neighbours, Func<int, int> pick, int gapDays)
     {
-        if (State != EmpireState.Stirring || NextRumourDay < 0 || today < NextRumourDay)
+        if (State != PowerState.Stirring || NextRumourDay < 0 || today < NextRumourDay)
         {
             return null;
         }
 
         NextRumourDay = today + Math.Max(1, gapDays);
-        var lines = EmpireText.Rumours(empire, neighbours);
+        var lines = Power.Text.Rumours(empire, neighbours);
         var line = lines[pick(lines.Count)];
         Note(today, $"rumour: {line}");
-        return new EmpireEvent(line);
+        return new PowerEvent(line);
     }
 
     /// <summary>True once the stirring has run its course.</summary>
-    public bool StirringOver(int today) => State == EmpireState.Stirring && NextStateDay >= 0 && today >= NextStateDay;
+    public bool StirringOver(int today) => State == PowerState.Stirring && NextStateDay >= 0 && today >= NextStateDay;
 
     public void Expose(IArchive archive)
     {
-        archive.Value(ref State, "state", EmpireState.Dormant);
+        archive.Value(ref State, "state", PowerState.Dormant);
         archive.Value(ref StateDay, "stateDay");
         archive.Value(ref NextStateDay, "nextStateDay", -1);
         archive.Value(ref NextRumourDay, "nextRumourDay", -1);
@@ -263,45 +307,4 @@ public sealed class EmpireSaga : IArchivable
         SiteDestroyed ??= "";
         TitleRefusedBy ??= "";
     }
-}
-
-/// <summary>The Empire's news lines and letters (template text: M1 has no model-written Empire text).</summary>
-public static class EmpireText
-{
-    public const string StirringNews = "Imperial couriers have been seen riding hard between the Empire's settlements";
-
-    public static string AwakenedNews(string empire) => $"{empire} declared that it will bring the region under its rule";
-
-    public static IReadOnlyList<string> Rumours(string empire, IReadOnlyList<string> neighbours)
-    {
-        var lines = new List<string>
-        {
-            $"{empire} recalled its officers to the capital",
-            $"Imperial shuttles were seen in numbers over the hills",
-        };
-        foreach (var n in neighbours)
-        {
-            lines.Add($"Imperial envoys arrived at the gates of {n}");
-            lines.Add($"{empire} demanded tribute from {n}");
-        }
-
-        return lines;
-    }
-
-    public static string TriggerWhy(string trigger, string detail, string colony) => trigger switch
-    {
-        AwakeningTrigger.SiteDestroyed => $"{colony} destroyed the Imperial site {detail}",
-        AwakeningTrigger.TitleRefused => $"{detail} of {colony} renounced an Imperial title",
-        AwakeningTrigger.ImperialColonist => $"{detail}, a colonist of {colony}, was recognised as one of the Empire's own",
-        AwakeningTrigger.Wealth => $"{colony}'s wealth ({detail} silver) drew the Empire's eye",
-        AwakeningTrigger.Deadline => "the Empire's long quiet ran out",
-        AwakeningTrigger.Dev => "woken from Dev Mode",
-        _ => trigger,
-    };
-
-    public static (string Label, string Text) AwakenedLetter(string empire) => (
-        "The Empire awakens",
-        $"{empire} has woken from its long quiet. Its envoys no longer ask: they announce. Word along the trade roads is that "
-        + "the Empire means to bring the whole region under its rule, settlement by settlement.\n\n"
-        + "No one yet knows what it wants of your colony.");
 }

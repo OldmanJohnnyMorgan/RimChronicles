@@ -1,3 +1,4 @@
+using RimChronicles.Core.Powers;
 using RimChronicles.Core.Plots;
 using RimWorld;
 using RimWorld.Planet;
@@ -84,13 +85,13 @@ public static class QuestOffers
         });
 
     /// <summary>The Empire's capital as a Sabotage quest with no objective: only destroying the settlement succeeds,
-    /// within <see cref="Core.Empire.EmpireArc.CapitalDays"/> days.</summary>
+    /// within <see cref="Core.Powers.PowerArc.CapitalDays"/> days.</summary>
     public static Quest? Capital(RimChroniclesGameComponent component, Plot plot, Settlement capital, string name, string description) =>
         QuestStarter.Offer(component, plot, QuestTemplates.Sabotage, QuestTemplates.ScriptDef(QuestTemplates.Sabotage), name, description, slate =>
         {
             slate.Set(QuestNode_Root_ChroniclesSabotage.SettlementVar, capital);
             slate.Set(QuestNode_Root_ChroniclesSabotage.NoObjectiveVar, true);
-            slate.Set(QuestNode_Root_ChroniclesSabotage.DaysVar, Core.Empire.EmpireArc.CapitalDays);
+            slate.Set(QuestNode_Root_ChroniclesSabotage.DaysVar, Core.Powers.PowerArc.CapitalDays);
             slate.Set(QuestNode_Root_ChroniclesSite.RewardVar, 0);
         });
 
@@ -202,6 +203,11 @@ public sealed class ChoiceLetter_Plot : ChoiceLetter
 
             plot.SetFact(factKey, answers[index]);
             plot.Note(GenDate.DaysPassed, $"the colony chose: {labels[index]}");
+            if (factKey == PowerArc.Stance && Power.All.FirstOrDefault(p => p.PlotTemplateId == plot.Template) is { } power)
+            {
+                // The daily sync applies stance answers in the order given, so the later of two envoys' answers wins.
+                RimChroniclesGameComponent.Current?.Allegiance.Answered(power, answers[index], GenDate.DaysPassed);
+            }
             Engine.StoryLetters.Answered(plot, costs[index] > 0 ? $"{labels[index]}: done, {costs[index]} silver paid." : $"{labels[index]}: the colony has answered.");
             if (actNow[index])
             {

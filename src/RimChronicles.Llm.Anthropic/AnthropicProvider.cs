@@ -76,6 +76,7 @@ public sealed class AnthropicProvider : IChatProvider
                 Error = text.Length > 0 ? null : $"Empty answer (stop reason {response.StopReason})",
                 InputTokens = (int)response.Usage.InputTokens,
                 OutputTokens = (int)response.Usage.OutputTokens,
+                Truncated = response.StopReason == "max_tokens",
                 Latency = clock.Elapsed,
                 ModelId = ModelId,
                 RawResponse = raw,

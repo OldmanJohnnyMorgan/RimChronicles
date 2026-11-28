@@ -1,4 +1,5 @@
 using RimChronicles.Core.Empire;
+using RimChronicles.Core.Powers;
 using RimChronicles.Core.News;
 using RimChronicles.Game.Empire;
 using RimChronicles.Game.Engine;
@@ -21,7 +22,10 @@ public static class Liberation
     /// stands. Returns false (and does nothing) otherwise.</summary>
     public static bool Free(Settlement settlement, Faction former)
     {
-        if (RimChroniclesGameComponent.Current is not { } component || EmpireDriver.EmpireFaction is not { } empire
+        // The Empire's or, since War in Heaven W8, the Hollow Choir's.
+        var choir = Game.Powers.PowerFactions.Of(Power.Choir);
+        var power = settlement.Faction is { } holder && holder == choir ? Power.Choir : Power.Empire;
+        if (RimChroniclesGameComponent.Current is not { } component || Game.Powers.PowerFactions.Of(power) is not { } empire
             || settlement.Destroyed || settlement.Faction != empire || former.defeated)
         {
             return false;
@@ -29,14 +33,23 @@ public static class Liberation
 
         var today = GenDate.DaysPassed;
         var colony = Faction.OfPlayer.Name;
+        var garrison = power == Power.Choir ? "the Chorus garrison" : "the Imperial garrison";
         settlement.SetFaction(former);
         EmpireDriver.Repaint(settlement);
         former.TryAffectGoodwillWith(Faction.OfPlayer, Goodwill, canSendMessage: true, canSendHostilityLetter: false);
-        component.Empire.Note(today, $"{settlement.Label} liberated by {colony}, back to {former.Name}");
-        component.News.Add(new NewsEvent(today, EmpireSaga.NewsKind, $"{colony} drove the Imperial garrison out of {settlement.Label}; it is {former.Name}'s again", empire.Name));
-        StoryLetters.Crisis($"{settlement.Label} liberated",
-            $"The Imperial garrison holding {settlement.Label} is broken. The settlement is {former.Name}'s again, and they won't forget who freed it.",
-            LetterDefOf.PositiveEvent, new LookTargets(settlement), former);
+        component.SagaOf(power).Note(today, $"{settlement.Label} liberated by {colony}, back to {former.Name}");
+        component.News.Add(new NewsEvent(today, power.NewsKind, $"{colony} drove {garrison} out of {settlement.Label}; it is {former.Name}'s again", empire.Name));
+        var (label, text) = ($"{settlement.Label} liberated",
+            $"{char.ToUpperInvariant(garrison[0])}{garrison[1..]} holding {settlement.Label} is broken. The settlement is {former.Name}'s again, and they won't forget who freed it.");
+        if (power == Power.Choir)
+        {
+            StoryLetters.ChoirCrisis(label, text, LetterDefOf.PositiveEvent, new LookTargets(settlement));
+        }
+        else
+        {
+            StoryLetters.Crisis(label, text, LetterDefOf.PositiveEvent, new LookTargets(settlement), former);
+        }
+
         return true;
     }
 }

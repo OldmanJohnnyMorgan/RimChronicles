@@ -15,6 +15,9 @@ public sealed record SiteArchetype
     /// <summary>The archetype's name ("PsychicRelay"); its id for the director is <see cref="Id"/>.</summary>
     public required string Name { get; init; }
 
+    /// <summary>Whose site it is: a <see cref="Powers.Power.Id"/> ("empire" unless the def says otherwise).</summary>
+    public string Power { get; init; } = Powers.Power.Empire.Id;
+
     public string Desc { get; init; } = "";
 
     /// <summary>The plan's grid, walls and the open ground around them included.</summary>

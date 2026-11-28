@@ -3,6 +3,7 @@ using RimChronicles.Core.Crisis;
 using RimChronicles.Core.Crisis.Operations;
 using RimChronicles.Core.Crisis.Units;
 using RimChronicles.Core.Empire;
+using RimChronicles.Core.Powers;
 using RimChronicles.Core.News;
 using RimChronicles.Core.Plots;
 using RimChronicles.Game.Crisis.Operations;
@@ -115,14 +116,14 @@ public static class Stellarch
             $"{pawn.LabelShort}, the Empire's High Stellarch, has been {how}. The Empire has lost its last commander."
             + (carried ? "\n\nWith the Stellarch fallen, the assault on the capital has won." : ""),
             LetterDefOf.PositiveEvent, pawn, empire);
-        component.News.Add(new NewsEvent(GenDate.DaysPassed, EmpireSaga.NewsKind,
+        component.News.Add(new NewsEvent(GenDate.DaysPassed, Power.Empire.NewsKind,
             $"The Imperial High Stellarch was {how} by {Faction.OfPlayer.Name}", empire?.Name ?? ""));
     }
 
     /// <summary>Ends the Empire plot's pending capital assault in success, if there is one.</summary>
     private static bool CarryTheAssault(RimChroniclesGameComponent component)
     {
-        var plot = component.Plots.Active.FirstOrDefault(p => p.Fact(EmpireArc.Job) == EmpireStep.StormCapital);
+        var plot = component.Plots.Active.FirstOrDefault(p => p.Fact(PowerArc.Job) == PowerStep.StormCapital);
         if (plot is null)
         {
             return false;
@@ -193,8 +194,13 @@ public static class Stellarch
         Find.WindowStack.Add(new Dialog_MessageBox(
             $"High Stellarch: {(pawn is null ? "not met yet" : pawn.LabelShort)}; fate {(state.StellarchFate.Length == 0 ? "none" : state.StellarchFate)}"
             + $"{(state.StellarchFellDay >= 0 ? $" (day {state.StellarchFellDay})" : "")}; escape used: {(state.StellarchEscaped ? "yes" : "no")}; "
-            + $"{(pawn is null ? "" : pawn.Spawned ? $"on {pawn.Map}" : pawn.Dead ? "dead" : "off the maps")}."));
+            + $"{(pawn is null ? "" : pawn.Spawned ? $"on {pawn.Map}" : pawn.Dead ? "dead" : "off the maps")}{Kept(pawn)}."));
     }
+
+    /// <summary>Dev Mode: whether the world-pawn cleanup will keep this pawn.</summary>
+    internal static string Kept(Pawn? pawn) => pawn is { Dead: false, Spawned: false }
+        ? $"; kept as a world pawn: {(Find.WorldPawns.ForcefullyKeptPawns.Contains(pawn) ? "yes" : "NO")}"
+        : "";
 
     /// <summary>Spawns the Stellarch (the kept one, or a new one) at the click.</summary>
     [DebugAction("Rim Chronicles", "Crisis: spawn High Stellarch", actionType = DebugActionType.ToolMap, allowedGameStates = AllowedGameStates.PlayingOnMap)]

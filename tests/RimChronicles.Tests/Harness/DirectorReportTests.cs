@@ -40,6 +40,27 @@ public class DirectorReportTests
     }
 
     [Fact]
+    public void CasesCsv_HasARowPerModelAndCase_WithTheRankingAndEveryVariant()
+    {
+        var labels = new[]
+        {
+            L("a", "Wait", true, ("Wait", 5), ("X", 2)),
+            L("b", "X", false, ("Wait", 1), ("X", 5), ("Y", 4)),
+        };
+        var results = new Dictionary<string, List<CaseRun>>
+        {
+            ["m"] = [R("a", "Wait"), R("b", "Y", o2: "X", reason: "the raid, \"now\"")],
+            ["n"] = [R("a", null), R("b", "X")],
+        };
+        var lines = CasesCsv(labels, results).TrimEnd('\n').Split('\n');
+        Assert.Equal(5, lines.Length);
+        Assert.StartsWith("model,case,group,wait_expected,best,pick,correct,top2,regret,pick_rank,", lines[0]);
+        Assert.Equal("m,a,Nemesis/Hook,1,Wait,Wait,1,1,0,1,Wait,Wait,Wait,Wait,Wait 5; X 2,", lines[1]);
+        Assert.Equal("m,b,Nemesis/Hook,0,X,Y,0,1,1,2,Y,X,Y,Y,X 5; Y 4; Wait 1,\"the raid, \"\"now\"\"\"", lines[2]);
+        Assert.Equal("n,a,Nemesis/Hook,1,Wait,,0,0,3,,,,,,Wait 5; X 2,", lines[3]); // no valid pick: worst-case regret, no rank
+    }
+
+    [Fact]
     public void AlwaysWait_IsTheBaselineAModelMustBeat()
     {
         var labels = new[] { L("a", "Wait", true, ("Wait", 5), ("X", 2)), L("b", "X", false, ("Wait", 1), ("X", 5)) };

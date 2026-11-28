@@ -2,37 +2,77 @@
   "builder": "director-dataset",
   "promptVersion": "director/v2",
   "tier": "Minimum",
-  "testVersion": 1,
+  "testVersion": 2,
   "testSeeds": [
     9001
   ],
   "exportedTestShare": 0.3,
   "valShare": 0.1,
   "minAgreement": 0.6,
+  "maxWaitShare": 0.6,
+  "handOnlyArcs": [
+    "AwakenedEmpire"
+  ],
   "seed": 1,
   "inputs": [
     {
+      "labels": "hand-empire-v1",
+      "sha256": "b29f48b664171cd0310ebcc69cbb9812e2628438f336628cad79b4905b32d694"
+    },
+    {
       "labels": "pilot",
       "sha256": "d2c969dc492549f217a9de3933c89219609a02aaf668ae4da0974d60ced5c3e3"
+    },
+    {
+      "labels": "rule-goal-site-v1",
+      "sha256": "8300247f0d7bd9b1cccab75e9c1513281c888c951ec2b5d73d4f6f4f19933889"
+    },
+    {
+      "labels": "test-crisis-v1",
+      "sha256": "731a9784730110580fcc43c69af52ab890d87cf07b2fd0be3f2ab3978c0555d7"
+    },
+    {
+      "labels": "test-v1",
+      "sha256": "0bc7a4410308d32311ac0dd77a3cacfc884f61d09e9d977e5beacc4667bf4c74"
+    },
+    {
+      "labels": "test-war-v1",
+      "sha256": "abf6f28679a4fd3f4e07bf171f160595faa145e29968ffa3cb9af7d1e5e548a1"
+    },
+    {
+      "labels": "local-gemma4-12b",
+      "sha256": "e5651792c083a69d4c28cd3c286401b79fa809be939f70e6f9558ff9d615adc4"
+    },
+    {
+      "labels": "local-gemma4-12b-crisis",
+      "sha256": "d9070f914d363dc55b216e52412a562cf998853c20b65c1bfd711a61b326a939"
+    },
+    {
+      "labels": "local-gemma4-12b-war",
+      "sha256": "424c6e7c270fc73b7e2b7790cdecc80dfe0a00dff125a84ea71100adb7bff455"
     }
   ],
   "cases": {
-    "train": 44,
-    "val": 6,
-    "test": 0
+    "train": 5230,
+    "val": 580,
+    "test": 740
   },
   "rows": {
-    "train": 132,
-    "val": 6,
-    "test": 0
+    "train": 15690,
+    "val": 580,
+    "test": 740
   },
   "sha256": {
-    "train": "5f22a2f2b724cd4e70881e5c30dd4c6af58d0ab30baf631a46d5436fb725fd9e",
-    "val": "2f478caf24dcaac7dc4e4e40ce61f9266cc4da81e4d3318182b21716b49614b5",
-    "test": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    "train": "70c3f4ad1cde4947b55c9fc6287855ca47345f1d5012589a3d6170d47d74d456",
+    "val": "1db072f0e05fc0324b6e96a3f87c61c018a6a3907a2cce3402d7985a1c8fbf8a",
+    "test": "479c7bb47034c0a69bc14c59c5694931d37fc267f8114a4dd0e65810623cf43b"
   },
   "leftOut": {
-    "lowAgreement": 0,
-    "caseMissing": 0
+    "lowAgreement": 74,
+    "caseMissing": 300,
+    "caseChanged": 0,
+    "duplicate": 670,
+    "waitCapped": 0,
+    "localOpenHandOnly": 866
   }
 }

@@ -1,5 +1,6 @@
 using LudeonTK;
 using RimChronicles.Core.Empire;
+using RimChronicles.Core.Powers;
 using RimChronicles.Core.News;
 using RimChronicles.Core.Plots;
 using RimChronicles.Core.Plots.LostFamily;
@@ -34,10 +35,16 @@ public static class EmpireEndings
             empire.TryAffectGoodwillWith(Faction.OfPlayer, -empire.PlayerGoodwill, canSendMessage: true, canSendHostilityLetter: false);
         }
 
-        component.News.Add(new NewsEvent(today, EmpireSaga.NewsKind, EmpireLetters.EndingNews(ending, empire.Name, Colony), empire.Name));
+        component.News.Add(new NewsEvent(today, Power.Empire.NewsKind, EmpireLetters.EndingNews(ending, empire.Name, Colony), empire.Name));
         var c = CaseFor(component, plot, ending, empire);
         component.Plots.End(plot, today, ending);
+        Epilogue(component, plot, c);
+    }
 
+    /// <summary>The victory screen for a story's ending (the Empire's, the Choir's or the War in Heaven's, W11): the
+    /// epilogue, written by the model or the template, shown with the credits and kept as a letter and in the plot.</summary>
+    public static void Epilogue(RimChroniclesGameComponent component, Plot plot, EpilogueCase c)
+    {
         var template = EpilogueTask.Template(c, Colony);
         var colony = Colony;
         if (Settings.ProviderFactory.CreateProse(RimChroniclesMod.Settings) is not null)
@@ -60,7 +67,13 @@ public static class EmpireEndings
 
     /// <summary>The epilogue's facts: the ending, up to four colonists who mattered (a title holder, the protagonists of
     /// the colony's stories, then its most skilled hands), and the story's main events.</summary>
-    public static EpilogueCase CaseFor(RimChroniclesGameComponent component, Plot plot, string ending, Faction empire)
+    public static EpilogueCase CaseFor(RimChroniclesGameComponent component, Plot plot, string ending, Faction empire) =>
+        CaseFor(component, plot, ending, empire, Power.Empire, null, [], EmpireLetters.EndingNews(ending, empire.Name, Colony));
+
+    /// <summary>The epilogue's facts for any power's ending (W11): as the Empire's, with the power's own rank holder
+    /// (the Choir's high rank) and saga, the rival for a War in Heaven ending, the war's own events, and the closing line.</summary>
+    public static EpilogueCase CaseFor(RimChroniclesGameComponent component, Plot plot, string ending, Faction empire, Power power, string? rival,
+        IReadOnlyList<string> warEvents, string closing)
     {
         var people = new List<EpiloguePerson>();
         var named = new HashSet<string>();
@@ -75,7 +88,14 @@ public static class EmpireEndings
         }
 
         var colonists = PawnsFinder.AllMaps_FreeColonists.ToList();
-        if (colonists.Select(p => (Pawn: p, Title: p.royalty?.GetCurrentTitle(empire))).Where(x => x.Title is not null)
+        if (power == Power.Choir)
+        {
+            if (component.Choir.HighTitleHolder is { Length: > 0 } holder && colonists.FirstOrDefault(p => p.LabelShort == holder || p.Name?.ToStringShort == holder) is { } chorister)
+            {
+                Add(chorister, "rose high in the Chorus");
+            }
+        }
+        else if (colonists.Select(p => (Pawn: p, Title: p.royalty?.GetCurrentTitle(empire))).Where(x => x.Title is not null)
                 .OrderByDescending(x => x.Title!.seniority).FirstOrDefault() is { Pawn: { } titled, Title: { } title })
         {
             Add(titled, $"rose in the Empire's service to the title of {title.GetLabelFor(titled)}");
@@ -105,8 +125,13 @@ public static class EmpireEndings
             Add(pawn, $"was the colony's best hand at {skill!.def.label}");
         }
 
-        var saga = component.Empire;
-        var events = new List<string> { $"The Empire woke because {EmpireText.TriggerWhy(saga.Trigger, saga.TriggerDetail, Colony)}." };
+        var saga = component.SagaOf(power);
+        var events = new List<string>
+        {
+            power == Power.Choir
+                ? $"The Hollow Choir woke because {power.Text.TriggerWhy(saga.Trigger, saga.TriggerDetail, Colony)}."
+                : $"The Empire woke because {EmpireText.TriggerWhy(saga.Trigger, saga.TriggerDetail, Colony)}.",
+        };
         events.AddRange(saga.Expansions.Where(e => e.Result != ExpansionResult.Repelled).Take(3)
             .Select(e => e.Result == ExpansionResult.Conquered ? $"{empire.Name} took {e.Settlement} from {e.Faction}." : $"{empire.Name} razed {e.Settlement}."));
         events.AddRange(saga.Expansions.Where(e => e.Result == ExpansionResult.Repelled).Take(2)
@@ -118,10 +143,12 @@ public static class EmpireEndings
             .Select(line => line[(line.IndexOf(": ", StringComparison.Ordinal) + 2)..])
             .Select(line => char.ToUpperInvariant(line[0]) + line[1..] + ".")
             .Take(2));
-        events.Add(EmpireLetters.EndingNews(ending, empire.Name, Colony) + ".");
+        events.AddRange(warEvents);
+        events.Add(closing + ".");
         return new EpilogueCase
         {
-            Ending = ending, Empire = empire.Name, Stance = EmpireArc.StanceOf(plot), People = people, Events = events,
+            Ending = ending, Empire = empire.Name, Rival = rival, Stance = component.Allegiance.StanceToward(power) is { Length: > 0 } s ? s : PowerArc.StanceOf(plot),
+            People = people, Events = events,
         };
     }
 

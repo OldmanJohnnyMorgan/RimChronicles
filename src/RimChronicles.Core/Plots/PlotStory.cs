@@ -1,3 +1,4 @@
+using RimChronicles.Core.Powers;
 using RimChronicles.Core.Persistence;
 
 namespace RimChronicles.Core.Plots;
@@ -33,7 +34,7 @@ public static class PlotChronicle
     /// <summary>Most letters a plot keeps; the oldest go first. A long Empire game sends a few dozen at most.</summary>
     public const int MaxEntries = 100;
 
-    /// <summary>"Nemesis: Kael", "Lost Family: Mira", "The Silent Press", "The Awakened Empire".</summary>
+    /// <summary>"Nemesis: Kael", "Lost Family: Mira", "The Silent Press", "The Awakened Empire", "The Hollow Choir".</summary>
     public static string Title(Plot plot)
     {
         var (kind, subject) = plot.Template switch
@@ -41,7 +42,8 @@ public static class PlotChronicle
             Nemesis.NemesisPlot.TemplateId => ("Nemesis", plot.Fact(Nemesis.NemesisPlot.NemesisName)),
             LostFamily.LostFamilyArc.TemplateId => ("Lost Family", plot.Fact(LostFamily.LostFamilyArc.KinName)),
             SilentPress.SilentPressArc.TemplateId => ("The Silent Press", null),
-            Empire.EmpireArc.TemplateId => ("The Awakened Empire", null),
+            Empire.EmpireIds.TemplateId => ("The Awakened Empire", null),
+            Choir.ChoirIds.TemplateId => ("The Hollow Choir", null),
             _ => (Humanize(plot.Template), null),
         };
         return subject is { Length: > 0 } ? $"{kind}: {subject}" : kind;

@@ -33,11 +33,35 @@
     <maxGapDays>12</maxGapDays>
   </RimChronicles.Game.Plots.PlotTemplateDef>
   <RimChronicles.Game.Plots.PlotTemplateDef>
+    <defName>HollowChoir</defName>
+    <label>hollow choir</label>
+    <description>The Empire's old enemy (War in Heaven): the Choir wakes, asks the colony's stance, and takes the rim settlement by settlement.</description>
+    <countsTowardCap>false</countsTowardCap>
+    <minGapDays>6</minGapDays>
+    <maxGapDays>12</maxGapDays>
+  </RimChronicles.Game.Plots.PlotTemplateDef>
+  <RimChronicles.Game.Plots.PlotTemplateDef>
     <defName>ImperialCrisis</defName>
     <label>imperial crisis</label>
     <description>The Empire's war on the colony: probing raids, breaches, psychic assaults, sieges and the final assault.</description>
     <countsTowardCap>false</countsTowardCap>
     <minGapDays>3</minGapDays>
     <maxGapDays>6</maxGapDays>
+  </RimChronicles.Game.Plots.PlotTemplateDef>
+  <RimChronicles.Game.Plots.PlotTemplateDef>
+    <defName>ChoirCrisis</defName>
+    <label>choir crisis</label>
+    <description>The Hollow Choir's war on the colony (War in Heaven): probing swarms, tunnel breaches, the hum, burrowing mechs and the final chorus.</description>
+    <countsTowardCap>false</countsTowardCap>
+    <minGapDays>3</minGapDays>
+    <maxGapDays>6</maxGapDays>
+  </RimChronicles.Game.Plots.PlotTemplateDef>
+  <RimChronicles.Game.Plots.PlotTemplateDef>
+    <defName>WarInHeaven</defName>
+    <label>war in heaven</label>
+    <description>The Empire and the Hollow Choir at war in full (War in Heaven W10): the colony's side gives it jobs against the rival, up to the final push on the rival's capital, and the war ends in the side's victory, or the colony's independence.</description>
+    <countsTowardCap>false</countsTowardCap>
+    <minGapDays>6</minGapDays>
+    <maxGapDays>12</maxGapDays>
   </RimChronicles.Game.Plots.PlotTemplateDef>
 </Defs>

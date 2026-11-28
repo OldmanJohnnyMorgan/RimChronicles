@@ -34,4 +34,33 @@
     </ItemGroup>
     <Copy SourceFiles="@(ModAssemblies)" DestinationFolder="$(ModOutputDir)" SkipUnchangedFiles="true" />
   </Target>
+
+  <!--
+    The Workshop folder: only what the game loads, nothing from src/, harness/, training/, docs/ or results/.
+      dotnet build src/RimChronicles.Game -c Release -t:PackageRelease
+    writes release/RimChronicles/ (git-ignored). Copy that folder into RimWorld's Mods folder to test it or upload it.
+    docs/release.md has the whole release checklist.
+  -->
+  <Target Name="PackageRelease" DependsOnTargets="Build">
+    <Error Condition="'$(RimWorldAvailable)' != 'true'" Text="PackageRelease needs RimWorldManagedDir (Directory.Build.props.user): without it the mod DLL is empty." />
+    <Error Condition="'$(Configuration)' != 'Release'" Text="Package a Release build: add -c Release." />
+    <Warning Condition="!Exists('$(RepoRoot)About\Preview.png')" Text="About/Preview.png is missing: the Workshop page needs a preview image." />
+    <PropertyGroup>
+      <PackageDir>$(RepoRoot)release\RimChronicles\</PackageDir>
+    </PropertyGroup>
+    <ItemGroup>
+      <PackageAbout Include="$(RepoRoot)About\**\*" />
+      <PackageDefs Include="$(RepoRoot)Defs\**\*" />
+      <PackagePrompts Include="$(RepoRoot)prompts\**\*" />
+      <PackageAssemblies Include="$(OutDir)RimChronicles.Llm.dll;$(OutDir)RimChronicles.Core.dll;$(OutDir)RimChronicles.Game.dll" />
+      <PackageRoot Include="$(RepoRoot)LICENSE;$(RepoRoot)README.md" />
+    </ItemGroup>
+    <RemoveDir Directories="$(PackageDir)" />
+    <Copy SourceFiles="@(PackageAbout)" DestinationFiles="@(PackageAbout->'$(PackageDir)About\%(RecursiveDir)%(Filename)%(Extension)')" />
+    <Copy SourceFiles="@(PackageDefs)" DestinationFiles="@(PackageDefs->'$(PackageDir)Defs\%(RecursiveDir)%(Filename)%(Extension)')" />
+    <Copy SourceFiles="@(PackagePrompts)" DestinationFiles="@(PackagePrompts->'$(PackageDir)prompts\%(RecursiveDir)%(Filename)%(Extension)')" />
+    <Copy SourceFiles="@(PackageAssemblies)" DestinationFolder="$(PackageDir)1.7\Assemblies\" />
+    <Copy SourceFiles="@(PackageRoot)" DestinationFolder="$(PackageDir)" />
+    <Message Importance="high" Text="Rim Chronicles packaged in $(PackageDir)" />
+  </Target>
 </Project>

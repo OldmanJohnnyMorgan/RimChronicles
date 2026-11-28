@@ -65,4 +65,23 @@
       </li>
     </stages>
   </ThoughtDef>
+  <!-- The Hum (War in Heaven W7): while a Choir resonator's hum is on a colonist. -->
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>RimChronicles_Hum</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>RimChronicles_Hum</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>the hum</label>
+        <description>There's a hum under everything, and it won't stop.</description>
+        <baseMoodEffect>-6</baseMoodEffect>
+      </li>
+      <li>
+        <label>the hum, loud</label>
+        <description>The hum fills my head. I can't think past it.</description>
+        <baseMoodEffect>-10</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
 </Defs>

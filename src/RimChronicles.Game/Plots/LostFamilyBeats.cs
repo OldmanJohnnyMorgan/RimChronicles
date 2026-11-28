@@ -80,7 +80,7 @@ public static class LostFamilyBeats
             step = LostFamilyStep.Lost;
         }
 
-        var gap = Rand.RangeInclusive(template.MinGapDays, template.MaxGapDays);
+        var gap = PlotGaps.Roll(template);
         var f = LostFamilyLetters.Facts.From(plot, Colony);
         switch (step)
         {

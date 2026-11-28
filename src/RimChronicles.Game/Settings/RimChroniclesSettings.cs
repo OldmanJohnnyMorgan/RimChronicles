@@ -21,11 +21,30 @@ public sealed class RimChroniclesSettings : ModSettings
     /// <summary>The Awakened Empire major plot (Stage 5); it also needs Royalty.</summary>
     public bool MajorPlot = true;
 
-    /// <summary>How often minor plots start and how fast the Empire expands (<see cref="Core.Plots.StoryIntensity"/>).</summary>
+    /// <summary>How fast the whole story moves: plot starts, beat gaps, stirring, expansion and the War in Heaven's odds
+    /// (<see cref="Core.Plots.StoryIntensity"/>).</summary>
     public float StoryIntensity = Core.Plots.StoryIntensity.Default;
 
     /// <summary>The Imperial crisis: Empire operations against an opposed colony (needs the major plot and Royalty).</summary>
     public bool Crisis = true;
+
+    /// <summary>The Hollow Choir, the Empire's old enemy (War in Heaven; needs the major plot and Biotech).</summary>
+    public bool HollowChoir = true;
+
+    /// <summary>The War in Heaven (W10): the Empire and the Hollow Choir fight it out once both are awake.</summary>
+    public bool WarInHeaven = true;
+
+    public const int MinWarCertainDay = 200;
+    public const int MaxWarCertainDay = 1500;
+
+    /// <summary>The game day it starts for certain (spec D3: 600).</summary>
+    public int WarCertainDay = Core.War.WarInHeaven.CertainDay;
+
+    /// <summary>How steeply the daily odds rise with the colony's war (1: 5% a day at 165 days of war), times the story intensity.</summary>
+    public float WarOddsSteepness = 1f;
+
+    /// <summary>While the war is on, the share of each crisis's budget sent at the colony (the rest goes to the front).</summary>
+    public float WarFrontFactor = Core.War.WarInHeaven.DefaultFrontFactor;
 
     public const float MinCrisisDifficulty = 0.5f;
     public const float MaxCrisisDifficulty = 2f;
@@ -107,6 +126,11 @@ public sealed class RimChroniclesSettings : ModSettings
         MajorPlot = true;
         StoryIntensity = Core.Plots.StoryIntensity.Default;
         Crisis = true;
+        HollowChoir = true;
+        WarInHeaven = true;
+        WarCertainDay = Core.War.WarInHeaven.CertainDay;
+        WarOddsSteepness = 1f;
+        WarFrontFactor = Core.War.WarInHeaven.DefaultFrontFactor;
         CrisisDifficulty = 1f;
         CrisisGapDays = Core.Crisis.CrisisArc.DefaultGapDays;
         StrikeDelaySeconds = Core.Crisis.Strikes.StrikeRules.DefaultDelaySeconds;
@@ -133,6 +157,11 @@ public sealed class RimChroniclesSettings : ModSettings
         Scribe_Values.Look(ref MajorPlot, "majorPlot", true);
         Scribe_Values.Look(ref StoryIntensity, "storyIntensity", Core.Plots.StoryIntensity.Default);
         Scribe_Values.Look(ref Crisis, "crisis", true);
+        Scribe_Values.Look(ref HollowChoir, "hollowChoir", true);
+        Scribe_Values.Look(ref WarInHeaven, "warInHeaven", true);
+        Scribe_Values.Look(ref WarCertainDay, "warCertainDay", Core.War.WarInHeaven.CertainDay);
+        Scribe_Values.Look(ref WarOddsSteepness, "warOddsSteepness", 1f);
+        Scribe_Values.Look(ref WarFrontFactor, "warFrontFactor", Core.War.WarInHeaven.DefaultFrontFactor);
         Scribe_Values.Look(ref CrisisDifficulty, "crisisDifficulty", 1f);
         Scribe_Values.Look(ref CrisisGapDays, "crisisGapDays", Core.Crisis.CrisisArc.DefaultGapDays);
         Scribe_Values.Look(ref StrikeDelaySeconds, "strikeDelaySeconds", Core.Crisis.Strikes.StrikeRules.DefaultDelaySeconds);
@@ -164,7 +193,8 @@ public sealed class RimChroniclesSettings : ModSettings
         DirectorTier = DirectorTier == ModelTier.Off ? ModelTier.Minimum : DirectorTier;
         if (TierPresets.DirectorPreset(DirectorModel) is { } preset)
         {
-            DirectorModel = preset.Model;
+            // The name is kept as typed: a local copy under the bare name (rimchron-director-e4b) is the same model as the
+            // registry's oldmanjohnnymorgan/rimchron-director-e4b, and Ollama knows it only by the name it was given.
             DirectorTier = preset.Tier; // a preset always runs at the tier it was trained on
         }
     }

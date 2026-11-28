@@ -46,6 +46,10 @@ public class TierPresetsTests
     [Theory]
     [InlineData("http://localhost:11434", "http://localhost:11434/v1/chat/completions")]
     [InlineData(" http://host:8080/api/ ", "http://host:8080/api/v1/chat/completions")]
+    [InlineData("http://localhost:1234/v1", "http://localhost:1234/v1/chat/completions")] // LM Studio's own address
+    [InlineData("http://localhost:8000/v1/", "http://localhost:8000/v1/chat/completions")]
+    [InlineData("https://host/proxy/V1", "https://host/proxy/v1/chat/completions")]
+    [InlineData("http://host/v10", "http://host/v10/v1/chat/completions")] // only a whole "v1" segment is dropped
     public void EndpointUri_ResolvesTheChatPathUnderIt(string endpoint, string expected) =>
         Assert.Equal(expected, new Uri(TierPresets.EndpointUri(endpoint), "v1/chat/completions").ToString());
 

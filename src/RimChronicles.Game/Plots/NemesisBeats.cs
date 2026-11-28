@@ -29,7 +29,7 @@ public static class NemesisBeats
         }
 
         var step = Enum.TryParse<NemesisStep>(transition.Step, out var chosen) ? chosen : NemesisArc.NextStep(plot);
-        var gap = Rand.RangeInclusive(template.MinGapDays, template.MaxGapDays);
+        var gap = PlotGaps.Roll(template);
         var facts = NemesisLetters.Facts.From(plot, Colony);
         switch (step)
         {

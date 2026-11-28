@@ -3,10 +3,12 @@ using RimChronicles.Core.Crisis.Captives;
 using RimChronicles.Core.Crisis.Siege;
 using RimChronicles.Core.Crisis.Sites;
 using RimChronicles.Core.Empire;
+using RimChronicles.Core.Powers;
 using RimChronicles.Core.Plots;
 using RimChronicles.Core.Plots.LostFamily;
 using RimChronicles.Core.Plots.Nemesis;
 using RimChronicles.Core.Snapshots;
+using RimChronicles.Core.War;
 
 namespace RimChronicles.Eval.DirectorCases;
 
@@ -16,7 +18,7 @@ public sealed record DirectorCaseResult(WorldSnapshot Snapshot, string Arc, stri
 /// <summary>
 /// The director case generator (training track D2): synthetic Stage 0 snapshots, each with one plot whose beat is due
 /// and the options the real arc code offers in that state (<see cref="NemesisArc"/>, <see cref="LostFamilyArc"/>,
-/// <see cref="EmpireArc"/>). Scenarios and colony moods are spread evenly by index; everything else is drawn from a
+/// <see cref="PowerArc"/>). Scenarios and colony moods are spread evenly by index; everything else is drawn from a
 /// <see cref="Random"/> seeded by (seed, index), so a case is reproducible on its own.
 /// </summary>
 public static class CaseGenerator
@@ -42,6 +44,23 @@ public static class CaseGenerator
 
     /// <summary>The id prefix of crisis cases: <c>dir-s{seed}-c{index}</c>, never the same as an existing case's.</summary>
     public const string CrisisIdPart = "c";
+
+    /// <summary>The War in Heaven's scenarios (War in Heaven W12), generated apart from the others so their cases stay as
+    /// they were: the Hollow Choir's plot (the mirror of the Empire scenarios), its crisis (the mirror of the Imperial
+    /// crisis's), and the War in Heaven's own plot by the colony's side.</summary>
+    public static readonly string[] WarScenarios =
+    [
+        "Choir:Act2:ally", "Choir:Act2:oppose", "Choir:Act2:neutral",
+        "Choir:Act3:ally", "Choir:Act3:ally+rank", "Choir:Act3:oppose:ascendant", "Choir:Act3:oppose:broken",
+        "Choir:Act3:neutral:ascendant", "Choir:Act3:neutral:broken",
+        "ChoirCrisis:Probing", "ChoirCrisis:Reclamation", "ChoirCrisis:Reclamation+captive", "ChoirCrisis:War", "ChoirCrisis:Finale",
+        "ChoirCrisis:SiegeGoal", "ChoirCrisis:Site",
+        "War:empire", "War:empire+push", "War:choir", "War:choir+push", "War:empire:victory", "War:choir:victory",
+        "War:independent", "War:independent:fallen", "War:undeclared",
+    ];
+
+    /// <summary>The id prefix of War in Heaven cases: <c>dir-s{seed}-w{index}</c>.</summary>
+    public const string WarIdPart = "w";
 
     public static readonly string[] Moods = ["content", "strained", "desperate"];
 
@@ -70,8 +89,19 @@ public static class CaseGenerator
         return new Builder(rng, seed, index, scenario, mood, situation) { Sites = sites }.Build();
     }
 
+    /// <summary>A War in Heaven case (W12). <paramref name="choirSites"/> are the Choir's site archetypes from XML.</summary>
+    public static DirectorCaseResult GenerateWar(int seed, int index, IReadOnlyList<SiteArchetype> choirSites)
+    {
+        var rng = new Random(unchecked(seed * 1_000_003 + 104_729 * (index + 1))); // a stream apart from the others'
+        var scenario = WarScenarios[index % WarScenarios.Length];
+        var mood = Moods[index / WarScenarios.Length % Moods.Length];
+        var situation = Situations[index / (WarScenarios.Length * Moods.Length) % Situations.Length];
+        var power = scenario.StartsWith("Choir", StringComparison.Ordinal) ? Power.Choir : Power.Empire;
+        return new Builder(rng, seed, index, scenario, mood, situation) { Sites = choirSites, Power = power, WarCase = true }.Build();
+    }
+
     /// <summary>Options that bring relief rather than a new burden: offering them to a reeling colony isn't piling on.</summary>
-    public static readonly string[] ReliefOptions = ["Act3:ForceATreaty", "Act3:OfferGovernorship"];
+    public static readonly string[] ReliefOptions = ["Act3:ForceATreaty", "Act3:OfferGovernorship", "Act3:FirstVoiceOffer", "War:VictoryOffer", "War:TreatyOffer"];
 
     /// <summary>The expected answer about waiting, by construction: wait after a fresh blow or in a desperate colony
     /// (unless the beat has stalled), move on when a beat has stalled in a colony that isn't reeling; open otherwise. Only meaningful
@@ -118,6 +148,16 @@ public static class CaseGenerator
         /// or the crisis's), and the days in the deciding beat when the scenario sets them itself.</summary>
         public IReadOnlyList<SiteArchetype> Sites { get; init; } = [];
 
+        /// <summary>Whose plot or crisis the case is about: the Empire unless it's a Hollow Choir case (W12).</summary>
+        public Power Power { get; init; } = Power.Empire;
+
+        /// <summary>A War in Heaven case: its id part is <see cref="WarIdPart"/>, and the snapshot carries the war block.</summary>
+        public bool WarCase { get; init; }
+
+        private bool Choir => Power == Power.Choir;
+
+        private WarInfo? _war;
+
         private CrisisInfo? _crisis;
         private readonly List<PlotInfo> _extraPlots = [];
         private int? _daysInBeat;
@@ -141,7 +181,8 @@ public static class CaseGenerator
             {
                 "Nemesis" => Nemesis(daysInBeat),
                 "LostFamily" => LostFamily(daysInBeat),
-                "Crisis" => Crisis(daysInBeat),
+                "Crisis" or "ChoirCrisis" => Crisis(daysInBeat),
+                "War" => War(daysInBeat),
                 _ => Empire(daysInBeat),
             };
             daysInBeat = _daysInBeat ?? daysInBeat;
@@ -167,7 +208,7 @@ public static class CaseGenerator
             var waitOffered = options.Any(o => o.Id == Director.WaitId);
             var snapshot = new WorldSnapshot
             {
-                Id = arc == "Crisis" ? $"dir-s{seed}-{CrisisIdPart}{index:D5}" : $"dir-s{seed}-{index:D5}",
+                Id = WarCase ? $"dir-s{seed}-{WarIdPart}{index:D5}" : arc == "Crisis" ? $"dir-s{seed}-{CrisisIdPart}{index:D5}" : $"dir-s{seed}-{index:D5}",
                 Day = _day,
                 Season = CasePools.Seasons[_day / 15 % 4],
                 Year = 5500 + _day / 60,
@@ -193,7 +234,9 @@ public static class CaseGenerator
                     WaitExpected = WaitExpected(waitOffered, mood, situation, daysInBeat, options.Any(o => ReliefOptions.Contains(o.Id))),
                     Seed = seed,
                 },
-                Crisis = _crisis,
+                Crisis = Choir ? null : _crisis,
+                ChoirCrisis = Choir ? _crisis : null,
+                War = _war,
             };
             return new DirectorCaseResult(snapshot, arc, scenario, mood, situation);
         }
@@ -281,25 +324,32 @@ public static class CaseGenerator
             var parts = scenario.Split(':'); // Empire, Act2|Act3, stance(+title), [ascendant|broken]
             var act3 = parts[1] == "Act3";
             var stance = parts[2].Split('+')[0];
-            var titled = parts[2].EndsWith("+title", StringComparison.Ordinal);
+            var titled = parts[2].EndsWith("+title", StringComparison.Ordinal) || parts[2].EndsWith("+rank", StringComparison.Ordinal);
             var ascendant = parts.Length < 4 || parts[3] == "ascendant";
-            var empireName = AddEmpire(act3 ? (ascendant ? "Ascendant" : "Broken") : "Awakened",
-                stance switch { EmpireStance.Ally => rng.Next(25, 80), EmpireStance.Oppose => -100, _ => rng.Next(-30, 25) });
+            var empireName = AddPowerFaction(act3 ? (ascendant ? "Ascendant" : "Broken") : "Awakened",
+                stance switch { PowerStance.Ally => rng.Next(25, 80), PowerStance.Oppose => -100, _ => rng.Next(-30, 25) });
+            if (Choir)
+            {
+                // The Choir is awake, so the Empire is too (W5): the colony's side with one is war with the other.
+                var empireStance = stance == PowerStance.Ally ? PowerStance.Oppose : rng.NextDouble() < 0.5 ? PowerStance.Neutral : PowerStance.Ally;
+                AddEmpire("Awakened", empireStance switch { PowerStance.Ally => rng.Next(25, 80), PowerStance.Oppose => -100, _ => rng.Next(-30, 25) });
+                _war = NotStarted(empireStance, stance);
+            }
 
-            var saga = new EmpireSaga();
+            var saga = new PowerSaga { Power = Power };
             var wokeDay = _day - daysInBeat - rng.Next(30, 120);
             saga.Awaken(AwakeningTrigger.Wealth, "150000", wokeDay, 25, _colony);
             saga.Wake(wokeDay + 25, empireName);
             var conquests = new List<string>();
-            var expansions = act3 ? rng.Next(3, 7) : rng.Next(0, EmpireArc.ExpansionsForReckoning);
+            var expansions = act3 ? rng.Next(3, 7) : rng.Next(0, PowerArc.ExpansionsForReckoning);
             var settlements = CasePools.Settlements.OrderBy(_ => rng.Next()).ToList(); // each settlement attacked at most once
             for (var i = 0; i < expansions; i++)
             {
                 var settlement = settlements[i];
-                var owner = CasePools.Pick(rng, _factions.Where(f => f.Kind != "Empire").Select(f => f.Name).ToList());
+                var owner = CasePools.Pick(rng, _factions.Where(f => f.Kind is not ("Empire" or ChoirKind)).Select(f => f.Name).ToList());
                 var result = (ExpansionResult)rng.Next(3);
                 saga.Expanded(new ExpansionTarget(settlement, settlement, owner, 10, 3), result, wokeDay + 30 + i * 15, 15, empireName);
-                conquests.Add(EmpireExpansion.News(result, empireName, new ExpansionTarget(settlement, settlement, owner, 10, 3)));
+                conquests.Add(Power.Text.ExpansionNews(result, empireName, new ExpansionTarget(settlement, settlement, owner, 10, 3)));
             }
 
             if (act3)
@@ -308,10 +358,10 @@ public static class CaseGenerator
             }
 
             saga.HighTitleHolder = "";
-            var plot = Start(EmpireArc.TemplateId, null, wokeDay);
-            plot.SetFact(EmpireArc.Stance, stance);
+            var plot = Start(Power.PlotTemplateId, null, wokeDay);
+            plot.SetFact(PowerArc.Stance, stance);
             var wins = act3 ? 0 : rng.Next(0, 2);
-            plot.SetFact(EmpireArc.Wins, wins.ToString(System.Globalization.CultureInfo.InvariantCulture));
+            plot.SetFact(PowerArc.Wins, wins.ToString(System.Globalization.CultureInfo.InvariantCulture));
             Advance(plot, PlotBeat.Hook, daysInBeat + 40);
             Advance(plot, PlotBeat.Complication, act3 ? daysInBeat + 20 : daysInBeat);
             if (act3)
@@ -322,7 +372,9 @@ public static class CaseGenerator
             string? holder = null;
             if (titled)
             {
-                var pawn = AddPawn(note: $"holds the Imperial title of {CasePools.Pick(rng, new[] { "Knight", "Praetor", "Baron" })}");
+                var pawn = AddPawn(note: Choir
+                    ? $"holds the Chorus rank of {CasePools.Pick(rng, new[] { "Choirmaster", "Cantor", "Voice of the Choir" })}"
+                    : $"holds the Imperial title of {CasePools.Pick(rng, new[] { "Knight", "Praetor", "Baron" })}");
                 saga.HighTitleHolder = pawn.Name;
                 holder = pawn.Name;
             }
@@ -330,9 +382,9 @@ public static class CaseGenerator
             MaybeWaited(plot);
             var stanceText = stance switch
             {
-                EmpireStance.Ally => $"{_colony} stands with {empireName}",
-                EmpireStance.Oppose => $"{_colony} is at war with {empireName}",
-                _ => $"{_colony} has kept out of the Empire's way",
+                PowerStance.Ally => $"{_colony} stands with {empireName}",
+                PowerStance.Oppose => $"{_colony} is at war with {empireName}",
+                _ => Choir ? $"{_colony} has kept out of the Choir's way" : $"{_colony} has kept out of the Empire's way",
             };
             var sentences = new List<string> { $"{empireName} woke on day {wokeDay + 25}", stanceText };
             sentences.AddRange(conquests.Take(3));
@@ -343,13 +395,13 @@ public static class CaseGenerator
 
             if (holder is not null)
             {
-                sentences.Add($"{holder} has risen in the Empire's service");
+                sentences.Add(Choir ? $"{holder} has risen in the Chorus" : $"{holder} has risen in the Empire's service");
             }
 
             var summary = string.Join(" ", sentences.Select(x => char.ToUpperInvariant(x[0]) + x[1..] + "."));
             _public.AddRange(conquests.Take(2));
             return (Info(plot, Inheritance.ColonyId, summary, act3 ? (ascendant ? "Ascendant" : "Broken") : "Act2"),
-                () => EmpireArc.Transitions(plot, saga, _day));
+                () => PowerArc.Transitions(plot, saga, _day));
         }
 
         /// <summary>
@@ -373,12 +425,18 @@ public static class CaseGenerator
                 _ => rng.NextDouble() < 0.5 ? CrisisStage.Reclamation : CrisisStage.War, // Site: two or more archetypes allowed
             };
             var broken = stage != CrisisStage.Finale && rng.NextDouble() < 0.15;
-            var empireName = AddEmpire(stage == CrisisStage.Finale ? "Ascendant" : broken ? "Broken" : "Awakened", -100);
+            var empireName = AddPowerFaction(stage == CrisisStage.Finale ? "Ascendant" : broken ? "Broken" : "Awakened", -100);
+            if (Choir)
+            {
+                var withEmpire = rng.NextDouble() < 0.5;
+                AddEmpire("Awakened", withEmpire ? rng.Next(25, 80) : rng.Next(-30, 25));
+                _war = NotStarted(withEmpire ? PowerStance.Ally : PowerStance.Neutral, PowerStance.Oppose);
+            }
 
             // The Empire plot: at war with the colony, in Act 2 (Act 3 for the finale).
             var wokeDay = _day - rng.Next(150, 260);
-            var empire = Start(EmpireArc.TemplateId, null, wokeDay);
-            empire.SetFact(EmpireArc.Stance, EmpireStance.Oppose);
+            var empire = Start(Power.PlotTemplateId, null, wokeDay);
+            empire.SetFact(PowerArc.Stance, PowerStance.Oppose);
             Advance(empire, PlotBeat.Hook, _day - wokeDay - 20);
             Advance(empire, PlotBeat.Complication, _day - wokeDay - 40);
             if (stage == CrisisStage.Finale)
@@ -411,10 +469,10 @@ public static class CaseGenerator
             var past = rng.Next(stage == CrisisStage.Probing ? 0 : 1, 5);
             // With no operation yet, the crisis began recently: its first beat has lasted the scenario's days.
             var crisisStart = past == 0 ? _day - Math.Max(daysInBeat, 3) : wokeDay + rng.Next(20, 40);
-            var crisisTemplate = new PlotTemplate { Id = CrisisArc.TemplateId, CountsTowardCap = false, MinGapDays = 3, MaxGapDays = 6 };
+            var crisisTemplate = new PlotTemplate { Id = Power.CrisisTemplateId, CountsTowardCap = false, MinGapDays = 3, MaxGapDays = 6 };
             var crisis = _book.Start(crisisTemplate, new ProtagonistSlot { Kind = ProtagonistKind.Colony, PawnId = Inheritance.ColonyId, Name = _colony },
                 crisisStart, 3, $"{empireName} marches against {_colony}");
-            crisis.Note(crisisStart, $"stage {CrisisStages.Label(stage)}: the colony opposes the Empire");
+            crisis.Note(crisisStart, $"stage {CrisisStages.Label(stage)}: the colony opposes {(Choir ? "the Choir" : "the Empire")}");
             var gap = CrisisArc.DefaultGapDays;
             var sinceLast = Math.Max(daysInBeat, gap); // the gate has passed, so an operation can be offered today
             var firstDay = _day - sinceLast - (past - 1) * rng.Next(gap, gap + 8);
@@ -479,12 +537,98 @@ public static class CaseGenerator
             }
         }
 
-        private static CrisisContext Context(CrisisStage stage, CrisisState state, bool captive) => new()
+        /// <summary>
+        /// The War in Heaven's own plot (W12): both powers awake and fighting in full, the colony on a side (or alone, or
+        /// at war with one), the front where the scenario wants it, and a power destroyed for the endgame scenarios. The
+        /// options are what <see cref="WarArc.Transitions"/> offers then.
+        /// </summary>
+        private (PlotInfo, Func<IReadOnlyList<PlotTransition>>) War(int daysInBeat)
+        {
+            var parts = scenario.Split(':'); // War, side(+push), [victory|fallen]
+            var sideId = parts[1].Split('+')[0];
+            var push = parts[1].EndsWith("+push", StringComparison.Ordinal);
+            var end = parts.Length > 2 ? parts[2] : "";
+            var startDay = _day - daysInBeat - rng.Next(20, 120);
+
+            var war = new WarInHeaven { Front = push ? rng.Next(WarArc.FrontForPush, WarArc.FrontForPush + 4) : rng.Next(-3, WarArc.FrontForPush) };
+            var cause = startDay >= WarInHeaven.CertainDay ? $"day {WarInHeaven.CertainDay} came" : "the war on the rim went on too long";
+            war.Start(startDay, cause);
+
+            var allegiance = new Allegiance();
+            Power? fallen = null;
+            switch (sideId)
+            {
+                case "empire":
+                    allegiance.Set(Power.Empire, PowerStance.Ally, Power.All, startDay - 60, AllegianceCause.Plot);
+                    fallen = end == "victory" ? Power.Choir : null;
+                    break;
+                case "choir":
+                    allegiance.Set(Power.Choir, PowerStance.Ally, Power.All, startDay - 60, AllegianceCause.Plot);
+                    fallen = end == "victory" ? Power.Empire : null;
+                    break;
+                case "independent":
+                    allegiance.DeclareIndependence(Power.All, startDay - 60, AllegianceCause.Plot);
+                    fallen = end == "fallen" ? (rng.NextDouble() < 0.5 ? Power.Empire : Power.Choir) : null;
+                    break;
+                default: // undeclared, at war with one power
+                    allegiance.Set(rng.NextDouble() < 0.5 ? Power.Empire : Power.Choir, PowerStance.Oppose, Power.All, startDay - 60, AllegianceCause.Plot);
+                    break;
+            }
+
+            var empireName = AddEmpire(fallen == Power.Empire ? "Broken" : "Awakened", Goodwill(allegiance.StanceToward(Power.Empire)));
+            AddChoir(fallen == Power.Choir ? "Broken" : "Awakened", Goodwill(allegiance.StanceToward(Power.Choir)));
+            if (fallen is not null)
+            {
+                war.Destroy(fallen, _day - daysInBeat - rng.Next(1, 10), fallen == Power.Empire ? "its Citadel fell" : "its Cathedral fell");
+            }
+
+            var plot = Start(WarInHeaven.TemplateId, null, startDay);
+            Advance(plot, PlotBeat.Hook, daysInBeat + rng.Next(5, 20));
+            Advance(plot, PlotBeat.Complication, daysInBeat);
+            MaybeWaited(plot);
+
+            var side = allegiance.SideAmong(Power.All);
+            var context = new WarContext
+            {
+                Side = side,
+                War = war,
+                Opposed = Power.All.Where(p => allegiance.StanceToward(p) == PowerStance.Oppose).ToList(),
+            };
+            _war = WarBrief.From(war, allegiance, Power.All);
+
+            var sentences = new List<string> { $"The War in Heaven began on day {startDay}: {cause}" };
+            sentences.Add(side switch
+            {
+                "" => $"{_colony} has taken no side, but is at war with {context.Opposed[0].DisplayName}",
+                Side.Independent => $"{_colony} stands alone against both powers",
+                _ => $"{_colony} fights for {context.SidePower!.DisplayName} against {context.Rival!.DisplayName}",
+            });
+            var settlements = CasePools.Settlements.OrderBy(_ => rng.Next()).Take(2).ToList();
+            sentences.Add($"{empireName} and the Hollow Choir fought over {settlements[0]}");
+            if (fallen is not null)
+            {
+                sentences.Add(fallen == Power.Empire ? $"{empireName}'s Citadel has fallen" : "The Hollow Choir's Cathedral has fallen");
+            }
+
+            _public.Add($"the Hollow Choir and {empireName} fought over {settlements[1]}");
+            var summary = string.Join(" ", sentences.Select(x => char.ToUpperInvariant(x[0]) + x[1..] + "."));
+            return (Info(plot, Inheritance.ColonyId, summary), () => WarArc.Transitions(plot, context, _day));
+        }
+
+        private int Goodwill(string stance) => stance switch
+        {
+            PowerStance.Ally => rng.Next(25, 80),
+            PowerStance.Oppose => -100,
+            _ => rng.Next(-30, 25),
+        };
+
+        private CrisisContext Context(CrisisStage stage, CrisisState state, bool captive) => new()
         {
             Stage = stage,
             State = state,
-            Built = CrisisOperations.All.Select(o => o.Step).ToHashSet(),
+            Built = CrisisOperations.For(Power).Select(o => o.Step).ToHashSet(),
             HoldsCaptive = captive,
+            Power = Power,
         };
 
         /// <summary>Prisoners, defectors, knocked-out capabilities and intel, as a crisis at this stage might have.</summary>
@@ -679,6 +823,28 @@ public static class CaseGenerator
             return name;
         }
 
+        /// <summary>The faction of the case's power: the Empire, or the Hollow Choir.</summary>
+        private string AddPowerFaction(string state, int goodwill) => Choir ? AddChoir(state, goodwill) : AddEmpire(state, goodwill);
+
+        /// <summary>The Choir faction's kind, as the game reads it (its def's label).</summary>
+        private const string ChoirKind = "Hollow Choir";
+
+        private string AddChoir(string state, int goodwill)
+        {
+            const string name = "The Hollow Choir";
+            _factions.Add(new FactionInfo { Name = name, Kind = ChoirKind, Goodwill = goodwill, PlotState = state, Settlements = rng.Next(5, 14) });
+            return name;
+        }
+
+        /// <summary>The war block before the War in Heaven starts: the two powers at war in name, and the colony's stances.</summary>
+        private static WarInfo NotStarted(string empireStance, string choirStance)
+        {
+            var allegiance = new Allegiance();
+            allegiance.Set(Power.Empire, empireStance, [], 0, AllegianceCause.Plot);
+            allegiance.Set(Power.Choir, choirStance, [], 0, AllegianceCause.Plot);
+            return WarBrief.From(new WarInHeaven(), allegiance, Power.All);
+        }
+
         private string AddEmpire(string state, int goodwill)
         {
             var name = CasePools.Pick(rng, CasePools.Empires);
@@ -687,7 +853,7 @@ public static class CaseGenerator
         }
 
         private Plot Start(string template, PawnInfo? protagonist, int startDay) =>
-            _book.Start(new PlotTemplate { Id = template, CountsTowardCap = template != EmpireArc.TemplateId }, protagonist is null
+            _book.Start(new PlotTemplate { Id = template, CountsTowardCap = template != Power.Empire.PlotTemplateId && template != Power.Choir.PlotTemplateId && template != WarInHeaven.TemplateId }, protagonist is null
                 ? new ProtagonistSlot { Kind = ProtagonistKind.Colony, PawnId = Inheritance.ColonyId, Name = _colony }
                 : ProtagonistSlot.ForPawn(protagonist.Id, protagonist.Name), startDay, 0, "generated");
 

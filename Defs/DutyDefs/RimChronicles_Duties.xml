@@ -2,6 +2,8 @@
 <!--
   Crisis duties (C6). RimChronicles_Assault is vanilla's AssaultColony with focus fire: the squad shoots the lord's
   focus target (medics first, then whoever is easiest to bring down) when it can, else fights as usual.
+  RimChronicles_Command (War in Heaven W7) is a Choir mechanitor's: hold near the duty's focus (the spot the commander
+  AI picks, behind its mechs, refreshed every 250 ticks) and shoot from there, in cover where it can.
 -->
 <Defs>
   <DutyDef>
@@ -33,5 +35,21 @@
         <li Class="JobGiver_PickUpOpportunisticWeapon" />
       </subNodes>
     </constantThinkNode>
+  </DutyDef>
+  <DutyDef>
+    <defName>RimChronicles_Command</defName>
+    <alwaysShowWeapon>true</alwaysShowWeapon>
+    <thinkNode Class="ThinkNode_Priority">
+      <subNodes>
+        <li Class="JobGiver_AIDefendPoint">
+          <targetAcquireRadius>40</targetAcquireRadius>
+          <targetKeepRadius>45</targetKeepRadius>
+        </li>
+        <li Class="JobGiver_WanderNearDutyLocation">
+          <wanderRadius>3</wanderRadius>
+          <locomotionUrgencyOutsideRadius>Sprint</locomotionUrgencyOutsideRadius>
+        </li>
+      </subNodes>
+    </thinkNode>
   </DutyDef>
 </Defs>

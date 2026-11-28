@@ -1,5 +1,5 @@
 // D6/D8: the fine-tuned directors beside their prompted bases, for director-report.
-// rimchron-director-* are made by `ollama create` from training/README.md (D6 step 5); *-crisis by "Crisis retrain".
+// rimchron-director-* are made by `ollama create` from training/README.md (D6 step 5); *-war by "Retrain for the crisis and the War in Heaven".
 {
   "repeats": 1,
   "models": [
@@ -28,14 +28,14 @@
       "extraBody": { "temperature": 0.2 }
     },
     {
-      "id": "director-e2b-crisis", "tier": "Minimum", "provider": "OpenAi",
-      "endpoint": "http://localhost:11434", "model": "rimchron-director-e2b-crisis",
+      "id": "director-e2b-war", "tier": "Minimum", "provider": "OpenAi",
+      "endpoint": "http://localhost:11434", "model": "rimchron-director-e2b-war",
       "thinking": "Off", "thinkingOffBody": { "reasoning_effort": "none" },
       "extraBody": { "temperature": 0.2 }
     },
     {
-      "id": "director-e4b-crisis", "tier": "Recommended", "provider": "OpenAi",
-      "endpoint": "http://localhost:11434", "model": "rimchron-director-e4b-crisis",
+      "id": "director-e4b-war", "tier": "Recommended", "provider": "OpenAi",
+      "endpoint": "http://localhost:11434", "model": "rimchron-director-e4b-war",
       "thinking": "Off", "thinkingOffBody": { "reasoning_effort": "none" },
       "extraBody": { "temperature": 0.2 }
     }

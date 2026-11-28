@@ -219,9 +219,13 @@ public static partial class WorldSummarizer
             ["ending"] = Empire.EpilogueTask.Meaning(c, colony), // no headline: v1 models echoed "Resistance victory." as an opener
             ["stance"] = c.Stance switch
             {
+                // Independence in the War in Heaven means war with both powers (spec §6): naming only one told the model
+                // the colony fought the Empire alone (run 20261126-154712, snap-27).
+                "oppose" when c.Rival is { } rival && c.Ending.StartsWith("Independence", StringComparison.Ordinal)
+                    => $"{colony} fought both {c.Empire} and {rival}.",
                 "ally" => $"{colony} sided with {c.Empire}.",
                 "oppose" => $"{colony} fought {c.Empire}.",
-                _ => $"{colony} tried to keep out of the Empire's wars.",
+                _ => $"{colony} tried to keep out of the powers' wars.",
             },
             ["people"] = people.Length == 0 ? "- (none named)" : people.ToString().TrimEnd(),
             ["events"] = c.Events.Count == 0 ? "- (none recorded)" : string.Join("\n", c.Events.Select(e => $"- {e}")),
@@ -327,13 +331,24 @@ public static partial class WorldSummarizer
             AppendList(sb, $"Imperial crisis, stage {crisis.Stage}: {Crisis.CrisisBrief.Meaning(crisis.Stage)}.", CrisisLines(crisis));
         }
 
+        if (s.ChoirCrisis is { } choirCrisis)
+        {
+            AppendList(sb, $"Hollow Choir crisis, stage {choirCrisis.Stage}: {Crisis.CrisisBrief.ChoirMeaning(choirCrisis.Stage)}.", CrisisLines(choirCrisis, choir: true));
+        }
+
+        if (s.War is { } war)
+        {
+            AppendList(sb, "The War in Heaven:", War.WarBrief.Lines(war));
+        }
+
         AppendList(sb, "Recent events:", s.RecentEvents.TakeLast(limits.Events).Select(names.Replace));
         return sb.ToString().TrimEnd();
     }
 
     /// <summary>The crisis block's lines (crisis C11): operations, what's knocked out, prisoners, defectors, intel.</summary>
-    private static IEnumerable<string> CrisisLines(CrisisInfo c)
+    private static IEnumerable<string> CrisisLines(CrisisInfo c, bool choir = false)
     {
+        var who = choir ? "Choir" : "Imperial";
         if (c.Operations.Count == 0)
         {
             yield return "No operation against the colony yet.";
@@ -348,18 +363,18 @@ public static partial class WorldSummarizer
 
         foreach (var hold in c.Disabled)
         {
-            var text = Crisis.CrisisBrief.Hold(hold);
+            var text = choir ? Crisis.CrisisBrief.ChoirHold(hold) : Crisis.CrisisBrief.Hold(hold);
             yield return char.ToUpperInvariant(text[0]) + text[1..] + ".";
         }
 
         if (c.Captives.Count > 0)
         {
-            yield return $"Held prisoner: {string.Join(", ", c.Captives.Select(p => $"{p.Name} (Imperial {p.Rank})"))}.";
+            yield return $"Held prisoner: {string.Join(", ", c.Captives.Select(p => $"{p.Name} ({who} {p.Rank})"))}.";
         }
 
         if (c.Defectors.Count > 0)
         {
-            yield return $"Defected to the colony: {string.Join(", ", c.Defectors.Select(p => $"{p.Name} (once an Imperial {p.Rank})"))}.";
+            yield return $"Defected to the colony: {string.Join(", ", c.Defectors.Select(p => $"{p.Name} (once {(choir ? "a Choir" : "an Imperial")} {p.Rank})"))}.";
         }
 
         foreach (var intel in c.Intel)
@@ -387,7 +402,7 @@ public static partial class WorldSummarizer
 
             if (f.PlotState is { } state)
             {
-                details.Add(EmpireRumour(state));
+                details.Add(f.Kind == ChoirKind ? ChoirRumour(state) : EmpireRumour(state));
             }
 
             return $"{f.Name}" + (f.Kind is { } kind ? $" ({kind})" : "") + (details.Count > 0 ? $": {string.Join(", ", details)}" : "");
@@ -509,11 +524,25 @@ public static partial class WorldSummarizer
 
         if (f.PlotState is { } state)
         {
-            line += $", Empire state: {state}";
+            line += f.Kind == ChoirKind ? $", Choir state: {state}" : $", Empire state: {state}";
         }
 
         return line + ".";
     }
+
+    /// <summary>The Hollow Choir faction's kind (its def's label), whose state reads as the Choir's, not the Empire's.</summary>
+    public const string ChoirKind = "Hollow Choir";
+
+    /// <summary>What a reporter can say about the Hollow Choir's state from the outside.</summary>
+    private static string ChoirRumour(string state) => state switch
+    {
+        "Dormant" => "silent",
+        "Stirring" => "heard humming in the hills at night",
+        "Awakened" => "taking settlements with its mechs",
+        "Ascendant" => "holding most of the region, its hum on every hill",
+        "Broken" => "falling silent after heavy losses",
+        _ => $"state: {state}",
+    };
 
     /// <summary>What a reporter can say about the Empire's state from the outside.</summary>
     private static string EmpireRumour(string state) => state switch

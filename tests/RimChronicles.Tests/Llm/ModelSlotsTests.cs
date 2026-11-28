@@ -61,10 +61,12 @@ public class ModelSlotsTests
         Assert.Null(TierPresets.SuggestedDirectorTier("my-director"));
 
     [Theory]
-    [InlineData("rimchron-director-e2b", "rimchron-director-e2b", ModelTier.Minimum)]
-    [InlineData(" RimChron-Director-E2B \n", "rimchron-director-e2b", ModelTier.Minimum)]
-    [InlineData("rimchron-director-e4b", "rimchron-director-e4b", ModelTier.Recommended)]
-    [InlineData(" RimChron-Director-E4B ", "rimchron-director-e4b", ModelTier.Recommended)]
+    [InlineData("rimchron-director-e2b", "oldmanjohnnymorgan/rimchron-director-e2b", ModelTier.Minimum)]
+    [InlineData(" RimChron-Director-E2B \n", "oldmanjohnnymorgan/rimchron-director-e2b", ModelTier.Minimum)]
+    [InlineData("rimchron-director-e4b", "oldmanjohnnymorgan/rimchron-director-e4b", ModelTier.Recommended)]
+    [InlineData(" RimChron-Director-E4B ", "oldmanjohnnymorgan/rimchron-director-e4b", ModelTier.Recommended)]
+    [InlineData("oldmanjohnnymorgan/rimchron-director-e4b", "oldmanjohnnymorgan/rimchron-director-e4b", ModelTier.Recommended)]
+    [InlineData("registry.ollama.ai/OldmanJohnnyMorgan/rimchron-director-e4b:latest", "oldmanjohnnymorgan/rimchron-director-e4b", ModelTier.Recommended)]
     public void DirectorPreset_MatchesTheName_AndCarriesItsTrainingTier(string model, string expected, ModelTier tier)
     {
         var preset = TierPresets.DirectorPreset(model);
@@ -86,6 +88,7 @@ public class ModelSlotsTests
     [InlineData("")]
     [InlineData(null)]
     [InlineData("my-director")]
+    [InlineData("rimchron-director-e4b:q8_0")]               // another tag is other weights
     public void DirectorPreset_IsNullForBlankOrCustomNames(string? model) =>
         Assert.Null(TierPresets.DirectorPreset(model));
 
@@ -93,8 +96,10 @@ public class ModelSlotsTests
     [InlineData("", true)]                                   // the main (prompted) model decides
     [InlineData("gemma4:12b", true)]                         // a prompted director reads the options' descriptions
     [InlineData("rimchron-director-e2b", false)]             // fine-tuned before the crisis arc (C11)
-    [InlineData(" RimChron-Director-E4B ", false)]
+    [InlineData(" RimChron-Director-E4B ", true)]            // retrained on the crisis and the War in Heaven (#157)
     [InlineData("rimchron-director-e4b-v2", false)]          // an unlisted fine-tune counts as trained before it
+    [InlineData("someone/rimchron-director-e4b-v2", false)]  // namespaced too
+    [InlineData("oldmanjohnnymorgan/rimchron-director-e4b", true)] // pulled from the registry
     public void TheCrisisReachesTheDirector_OnlyWhenItsModelKnowsIt(string directorModel, bool knows) =>
         Assert.Equal(knows, ModelSlots.DirectorKnowsCrisis(Main with { DirectorModel = directorModel, DirectorTier = ModelTier.Minimum }));
 
@@ -104,5 +109,5 @@ public class ModelSlotsTests
 
     [Fact]
     public void EveryDirectorPreset_SaysWhetherItKnowsTheCrisis() =>
-        Assert.All(TierPresets.DirectorPresets, p => Assert.Equal(p.KnowsCrisis, TierPresets.KnowsCrisis(p.Model)));
+        Assert.All(TierPresets.DirectorPresets, p => Assert.Equal(p.Vocabulary >= DirectorVocabulary.Crisis, TierPresets.KnowsCrisis(p.Model)));
 }
