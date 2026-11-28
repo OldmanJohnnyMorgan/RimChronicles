@@ -303,13 +303,13 @@ are retrained **once** on everything (spec D5). The crisis and war cases are sep
 (`dir-s{seed}-c{n}`, `dir-s{seed}-w{n}`), so seed 9001's 500 cases and test-v1 stay as they are; the test set becomes
 version 3 (test-v1, test-crisis-v1 and test-war-v1).
 
-Work from the `war-in-heaven` branch until it merges into `main`.
+`war-in-heaven` merged into `main` on 2026-11-28 (#181): work from `main`.
 
 1. **Cases (PowerShell):**
 
    ```powershell
    cd C:\RimworldMods\RimChronicles\RimChronicles
-   git checkout war-in-heaven
+   git checkout main
    git pull
    dotnet run --project harness/RimChronicles.Eval -- director-gen --seed 1 --arc crisis
    dotnet run --project harness/RimChronicles.Eval -- director-gen --seed 9001 --arc crisis --count 240
